@@ -1,0 +1,18 @@
+---
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title: "Cloudmesh OpenAPI"
+  description: "Cloudmesh OpenAPI specifications"
+  termsOfService: "http://cloudmesh.org/TBD"
+  contact: 
+    name: "Cloudmesh OpenAPI Specification"
+  license: 
+    name: "Apache"
+host: "localhost:8080"
+schemes: 
+  - "http"
+consumes: 
+  - "application/json"
+produces: 
+  - "application/json"
