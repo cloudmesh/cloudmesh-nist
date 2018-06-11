@@ -20,17 +20,30 @@ produces:
 paths: 
   /profiles:
     get: 
-      description: "Returns all general description users "
+      description: "Returns all general description users"
+      operationId: get_profile
       produces: 
         - "application/json"
       responses: 
         "200":
           description: "profile info"
           schema: 
-            $ref: "#/definitions/PROFILE" 
+            $ref: "#/definitions/Profile"
+    put:
+      summary: "Create a new profile"
+      operationId: add_profile
+      parameters:
+        - in: body
+          name: profile
+          description: "The new profile to create"
+          schema:
+            $ref: "#/definitions/Profile"
+      responses:
+        "201":
+          description: Created
   /profiles/{uuid}:
     get: 
-      description: "Returns a general description of a user "
+      description: "Returns a general description of a user"
       operationId: getProfileByUuid
       parameters:
         - name: uuid
@@ -43,98 +56,9 @@ paths:
         "200":
           description: "profile info"
           schema: 
-            $ref: "#/definitions/PROFILE"
-  /addprofiles/{uuid}/{username}/{context}/{description}/{firstname}/{lastname}/{publickey}:
-    get: 
-      description: "add a general description of a user "
-      operationId: addProfileMongo
-      parameters:
-        - name: uuid
-          in: path
-          required: true
-          type: string
-        - name: username
-          in: path
-          required: true
-          type: string
-        - name: context
-          in: path
-          required: true
-          type: string
-        - name: description
-          in: path
-          required: true
-          type: string
-        - name: firstname
-          in: path
-          required: true
-          type: string
-        - name: lastname
-          in: path
-          required: true
-          type: string
-        - name: publickey
-          in: path
-          required: true
-          type: string
-        - name: email
-          in: path
-          required: true
-          type: string     
-      produces: 
-        - "application/json"
-      responses: 
-        "200":
-          description: "profile info"
-          schema: 
-            $ref: "#/definitions/PROFILE"
-            
-  /addprofiles/{uuid}/{username}/{context}/{description}/{firstname}/{lastname}/{publickey}/{email}:
-    get: 
-      description: "add a general description of a user "
-      operationId: addProfile
-      parameters:
-        - name: uuid
-          in: path
-          required: true
-          type: string
-        - name: username
-          in: path
-          required: true
-          type: string
-        - name: context
-          in: path
-          required: true
-          type: string
-        - name: description
-          in: path
-          required: true
-          type: string
-        - name: firstname
-          in: path
-          required: true
-          type: string
-        - name: lastname
-          in: path
-          required: true
-          type: string
-        - name: publickey
-          in: path
-          required: true
-          type: string
-        - name: email
-          in: path
-          required: true
-          type: string     
-      produces: 
-        - "application/json"
-      responses: 
-        "200":
-          description: "profile info"
-          schema: 
-            $ref: "#/definitions/PROFILE"
+            $ref: "#/definitions/Profile"
 definitions:
-  PROFILE:
+  Profile:
     type: "object"
     required: 
       - "uuid"

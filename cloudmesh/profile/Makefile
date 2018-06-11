@@ -11,7 +11,7 @@ dest:
 	mkdir -p $(DESTDIR)
 
 service: dest
-#	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
+	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 	$(SWAGGERCODEGEN) generate \
 	-i $(YAMLFILE) \
 	-l python-flask \
@@ -27,7 +27,7 @@ start:
 	cd $(DESTDIR) && python -m swagger_server
 
 test:
-	curl http://localhost:8080/cloudmesh/profile/addprofiles/135/nameYue/goodone/goodperson/yue/guo/public/yueguo@iu.com
+	curl -H 'Content-Type: application/json' -X PUT -d '{"usename": "testname", "firstname": "John", "lastname": "Doe", "publickey": "ssh-rsa:xxx", "email": "user@exmaple.com"}' http://localhost:8080/cloudmesh/profile/profiles
 	curl http://localhost:8080/cloudmesh/profile/profiles/135
 	curl http://localhost:8080/cloudmesh/profile/profiles
 
