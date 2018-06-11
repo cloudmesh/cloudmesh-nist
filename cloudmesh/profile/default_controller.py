@@ -54,7 +54,18 @@ def profiles_get():  # noqa: E501
     return listOfProfile
 
 def get_profile():
-	return inmemdb.values()
+    # for simple in memory test
+	#return inmemdb.values()
+    # getting data from mongo
+    for element in db.Profile.find():
+        return (element['uuid'],
+                element['username'],
+                element['context'],
+                element['description'],
+                element['firstname'],
+                element['lastname'],
+                element['publickey'],
+                element['email'])
 
 def get_profile_by_uuid_mongo(uuid):
 	for element in db.Profile.find({'uuid':uuid}):
@@ -84,4 +95,15 @@ def add_profile(profile=None):
     if connexion.request.is_json:
         profile = Profile.from_dict(profile)
     inmemdb[uid] = profile
+    #
+    # add to mongo db if mongodb is available
+    #
+    db.Profile.insert({"uuid": profile.uuid,
+                       "username": profile.username,
+                       "context": profile.context,
+                       "description": profile.description,
+                       "firstname": profile.firstname,
+                       "lastname": profile.lastname,
+                       "publickey": profile.publickey,
+                       "email": profile.email})
     return profile
