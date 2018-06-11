@@ -9,9 +9,12 @@ from pymongo import MongoClient
 
 
 
-client = MongoClient(port=27017)
-db=client.profiles
-profiles = db.profiles
+client = MongoClient()
+
+db = client['cm']
+profiles = db['profile']
+
+
 
 def get_profile():
     # for simple in memory test
@@ -30,7 +33,7 @@ def add_profile(profile=None):
     if connexion.request.is_json:
         profile = Profile.from_dict(profile)
 
-    db.Profile.insert(profile.to_dict())
+    profiles.insert(profile.to_dict())
     """
     db.Profile.insert({"uuid": profile.uuid,
                        "username": profile.username,
@@ -101,11 +104,11 @@ def get_profile_by_uuid_mongo(uuid):
 
 def add_profile_mongo(uuid, username,context,description,firstname, lastname,publickey):
 	profiles.insert({"uuid":uuid,
-                       "username":username,
-                       "context":context, 
-                       "description":description, 
-                       "firstname":firstname, 
-                       "lastname":lastname,
-                       "publickey":publickey,
-                       "email":"gregor@iu.edu"})
+                     "username":username,
+                     "context":context,
+                     "description":description,
+                     "firstname":firstname,
+                     "lastname":lastname,
+                     "publickey":publickey,
+                     "email":"gregor@iu.edu"})
 	return "add a new profile successfully"
