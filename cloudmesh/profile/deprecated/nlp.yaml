@@ -1,0 +1,51 @@
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title: "profile"
+  description: "A simple service to get cpuinfo as an example of using swagger-2.0 specification and codegen"
+  termsOfService: "http://swagger.io/terms/"
+  contact: 
+    name: "Cloudmesh REST Service Example"
+  license: 
+    name: "Apache"
+host: "localhost:8080"
+basePath: "/cloudmesh/profile"
+schemes: 
+  - "http"
+consumes: 
+  - "application/json"
+produces: 
+  - "application/json"
+paths: 
+  /profiles:
+    get: 
+      description: "Returns a general description of a user "
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "profile info"
+          schema: 
+            $ref: "#/definitions/PROFILE"
+definitions:
+  PROFILE:
+    type: "object"
+    required: 
+      - "uuid"
+    properties: 
+      uuid:
+        type: "string"
+      username:
+        type: "string"
+      context:
+        type: "string"
+      description:
+        type: "string"
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+      publickey:
+        type: "string"
+      email:
+        type: "string"
