@@ -1,3 +1,4 @@
+.PHONY: test
 
 SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar
 YAMLFILE=profile.yaml

@@ -6,6 +6,8 @@ import uuid
 from swagger_server.models.profile import Profile  # noqa: E501
 from swagger_server import util
 from pymongo import MongoClient
+
+
 # Connect to the MongoDB, change the connection string per your MongoDB environment
 client = MongoClient(port=27017)
 # Set the db object to point to the business database
@@ -20,8 +22,16 @@ def get_profile_by_uuid(uuid):
     :type id: str
     :rtype: PROFILE
     """
-    item = get_profile_by_uuid_mongo(uuid)
-    return Profile(item[0],item[1],item[2],item[3],item[4],item[5],item[6],item[7])
+    element = get_profile_by_uuid_mongo(uuid)
+    return Profile(element[0],
+                   element[1],
+                   element[2],
+                   element[3],
+                   element[4],
+                   element[5],
+                   element[6],
+                   element[7])
+
 def profiles_get():  # noqa: E501
     """profiles_get
 
