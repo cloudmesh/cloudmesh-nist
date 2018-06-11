@@ -49,13 +49,22 @@ def add_profile(profile=None):
 
 
 def get_profile_by_uuid(uuid):
+    # BUG: does not gurantee more than one with same uuid
     """get_profile_by_uuid
     Returns a general description of a user  # noqa: E501
     :param uuid: uuid of user
     :type id: str
     :rtype: PROFILE
     """
-    element = get_profile_by_uuid_mongo(uuid)
+    for element in profiles.find({'uuid': uuid}):
+        return (element['uuid'],
+                element['username'],
+                element['context'],
+                element['description'],
+                element['firstname'],
+                element['lastname'],
+                element['publickey'],
+                element['email'])
 
 
     return Profile(element[0],
@@ -89,24 +98,3 @@ def profiles_get():  # noqa: E501
 
 
 
-def get_profile_by_uuid_mongo(uuid):
-	for element in profiles.find({'uuid':uuid}):
-		return (element['uuid'], 
-                element['username'], 
-                element['context'],
-                element['description'],
-                element['firstname'],
-                element['lastname'],
-                element['publickey'],
-                element['email'])
-
-def add_profile_mongo(uuid, username,context,description,firstname, lastname,publickey):
-	profiles.insert({"uuid":uuid,
-                     "username":username,
-                     "context":context,
-                     "description":description,
-                     "firstname":firstname,
-                     "lastname":lastname,
-                     "publickey":publickey,
-                     "email":"gregor@iu.edu"})
-	return "add a new profile successfully"

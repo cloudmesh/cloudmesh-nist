@@ -1,8 +1,10 @@
 .PHONY: test
 
-SWAGGERCODEGEN=java -jar ../core/swagger/swagger-codegen-cli-2.3.1.jar
-YAMLFILE=profile.yaml
-DESTDIR=server/profile/flaskConnexion
+OBJECT=keystore
+CLOUDMESH=../..
+SWAGGERCODEGEN=java -jar $(CLOUDMESH)/bin/swagger-codegen-cli-2.3.1.jar
+YAMLFILE=$(OBJECT).yaml
+DESTDIR=server/$(OBJECT)/flaskConnexion
 CREATED=server
 
 all: service start 
@@ -17,7 +19,7 @@ service: dest
 	-l python-flask \
 	-o $(DESTDIR) \
 	-D supportPython2=true
-	cp -r *.py $(DESTDIR)/swagger_server/controllers/default_controller.py
+	cp -rf $(OBJECT)_controller.py $(DESTDIR)/swagger_server/controllers/default_controller.py
 	cd $(DESTDIR) && pip install -r requirements.txt && \
 	python setup.py install 
 
@@ -26,7 +28,7 @@ start:
 	cd $(DESTDIR) && python -m swagger_server
 
 test:
-	sh test/test_profile.sh
+	sh test/test_$(OBJECT).sh
 
 stop:
 	ps | grep swagger | grep -v "grep"| awk '{print $$1}' | xargs kill -9
@@ -35,7 +37,7 @@ clean:
 	rm -rf $(CREATED)
 
 container:
-	docker build -t cloudmesh-profile .
-	docker run -p 8080:8080 cloudmesh-profile
+	docker build -t cloudmesh-$(OBJECT) .
+	docker run -p 8080:8080 cloudmesh-$(OBJECT)
 
 
