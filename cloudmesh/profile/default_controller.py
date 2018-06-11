@@ -31,22 +31,50 @@ def profiles_get():  # noqa: E501
     """
     listOfProfile = []
     items = get_profile()
-    for each in items:
-        listOfProfile.append(Profile(each[0],each[1],each[2],each[3],each[4],each[5],each[6],each[7]))
+    for element in items:
+        listOfProfile.append(Profile(element[0],
+                                     element[1],
+                                     element[2],
+                                     element[3],
+                                     element[4],
+                                     element[5],
+                                     element[6],
+                                     element[7]))
     return listOfProfile
 
 def get_profile():
 	l = list()
-	for each in db.Profile.find():
-		l.append((each['uuid'], each['username'], each['context'],each['description'],each['firstname'],each['lastname'],each['publickey'],each['email']))
+	for element in db.Profile.find():
+		l.append((element['uuid'], 
+                  element['username'], 
+                  element['context'],
+                  element['description'],
+                  element['firstname'],
+                  element['lastname'],
+                  element['publickey'],
+                  element['email']))
 	return l
 
 def get_profile_by_uuid_mongo(uuid):
-	for each in db.Profile.find({'uuid':uuid}):
-		return (each['uuid'], each['username'], each['context'],each['description'],each['firstname'],each['lastname'],each['publickey'],each['email'])
+	for element in db.Profile.find({'uuid':uuid}):
+		return (element['uuid'], 
+                element['username'], 
+                element['context'],
+                element['description'],
+                element['firstname'],
+                element['lastname'],
+                element['publickey'],
+                element['email'])
 
 def add_profile_mongo(uuid, username,context,description,firstname, lastname,publickey):
-	db.Profile.insert({"uuid":uuid, "username":username,"context":context, "description":description, "firstname":firstname, "lastname":lastname, "publickey":publickey,"email":"yy@iu.edu"})
+	db.Profile.insert({"uuid":uuid, 
+                       "username":username,
+                       "context":context, 
+                       "description":description, 
+                       "firstname":firstname, 
+                       "lastname":lastname,
+                       "publickey":publickey,
+                       "email":"gregor@iu.edu"})
 	return "add a new profile successfully"
 
 def add_profile(profile=None):
