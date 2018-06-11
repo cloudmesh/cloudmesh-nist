@@ -10,7 +10,7 @@
 Identity
 
 * [../hid-sp18-508/swagger](../hid-sp18-508/swagger) profile
-  * MONGODB
+  * MONGODB, does not deploy or start mongodb
   * add users
   * list them
   * get user by uuid
