@@ -8,12 +8,12 @@ client = MongoClient()
 client = MongoClient('localhost', 27017)
 
 
-db = client['test-database']
-collection = db['test-collection']
+db = client['cm-database']
+collection = db['cm-collection']
 
-post = {"author": "Mike",
-        "text": "My first blog post!",
-        "tags": ["mongodb", "python", "pymongo"],
+post = {"author": "Gregor",
+        "text": "entry",
+        "tags": ["profile"],
         "date": datetime.datetime.utcnow()}
 
 posts = db.posts
@@ -25,6 +25,6 @@ print (db.collection_names(include_system_collections=False))
 
 pprint.pprint(posts.find_one())
 
-pprint.pprint(posts.find_one({"author": "Mike"}))
+pprint.pprint(posts.find_one({"author": "Gregor"}))
 
-print (posts.find({"author": "Mike"}).count())
+print (posts.find({"author": "Gregor"}).count())
