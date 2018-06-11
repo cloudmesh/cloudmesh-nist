@@ -8,13 +8,44 @@ from swagger_server import util
 from pymongo import MongoClient
 
 
-# Connect to the MongoDB, change the connection string per your MongoDB environment
-client = MongoClient(port=27017)
-# Set the db object to point to the business database
-db=client.profiles
-# Showcasing the count() method of find, count the total number of 5 ratings
 
-inmemdb = {}
+client = MongoClient(port=27017)
+db=client.profiles
+profiles = db.profiles
+
+def get_profile():
+    # for simple in memory test
+	#return inmemdb.values()
+    # getting data from mongo
+    l = []
+    #for element in db.Profile.find({}, {'_id': False}):
+    #    l.append(element)
+
+    return list(profiles.find({}, {'_id': False}))
+
+
+def add_profile(profile=None):
+    uid = str(uuid.uuid4())
+    profile["uuid"] = uid
+    if connexion.request.is_json:
+        profile = Profile.from_dict(profile)
+
+    db.Profile.insert(profile.to_dict())
+    """
+    db.Profile.insert({"uuid": profile.uuid,
+                       "username": profile.username,
+                       "context": profile.context,
+                       "description": profile.description,
+                       "firstname": profile.firstname,
+                       "lastname": profile.lastname,
+                       "publickey": profile.publickey,
+                       "email": profile.email})
+    """
+    return profile
+
+
+
+
 
 def get_profile_by_uuid(uuid):
     """get_profile_by_uuid
@@ -24,6 +55,8 @@ def get_profile_by_uuid(uuid):
     :rtype: PROFILE
     """
     element = get_profile_by_uuid_mongo(uuid)
+
+
     return Profile(element[0],
                    element[1],
                    element[2],
@@ -53,22 +86,10 @@ def profiles_get():  # noqa: E501
                                      element[7]))
     return listOfProfile
 
-def get_profile():
-    # for simple in memory test
-	#return inmemdb.values()
-    # getting data from mongo
-    for element in db.Profile.find():
-        return (element['uuid'],
-                element['username'],
-                element['context'],
-                element['description'],
-                element['firstname'],
-                element['lastname'],
-                element['publickey'],
-                element['email'])
+
 
 def get_profile_by_uuid_mongo(uuid):
-	for element in db.Profile.find({'uuid':uuid}):
+	for element in profiles.find({'uuid':uuid}):
 		return (element['uuid'], 
                 element['username'], 
                 element['context'],
@@ -79,7 +100,7 @@ def get_profile_by_uuid_mongo(uuid):
                 element['email'])
 
 def add_profile_mongo(uuid, username,context,description,firstname, lastname,publickey):
-	db.Profile.insert({"uuid":uuid, 
+	profiles.insert({"uuid":uuid,
                        "username":username,
                        "context":context, 
                        "description":description, 
@@ -88,22 +109,3 @@ def add_profile_mongo(uuid, username,context,description,firstname, lastname,pub
                        "publickey":publickey,
                        "email":"gregor@iu.edu"})
 	return "add a new profile successfully"
-
-def add_profile(profile=None):
-    uid = str(uuid.uuid4())
-    profile["uuid"] = uid
-    if connexion.request.is_json:
-        profile = Profile.from_dict(profile)
-    inmemdb[uid] = profile
-    #
-    # add to mongo db if mongodb is available
-    #
-    db.Profile.insert({"uuid": profile.uuid,
-                       "username": profile.username,
-                       "context": profile.context,
-                       "description": profile.description,
-                       "firstname": profile.firstname,
-                       "lastname": profile.lastname,
-                       "publickey": profile.publickey,
-                       "email": profile.email})
-    return profile
