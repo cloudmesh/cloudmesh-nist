@@ -60,8 +60,8 @@ paths:
 definitions:
   Profile:
     type: "object"
-    required: 
-      - "uuid"
+    #required:
+    #  - "uuid"
     properties: 
       uuid:
         type: "string"

@@ -14,6 +14,7 @@ client = MongoClient(port=27017)
 db=client.profiles
 # Showcasing the count() method of find, count the total number of 5 ratings
 
+inmemdb = {}
 
 def get_profile_by_uuid(uuid):
     """get_profile_by_uuid
@@ -53,17 +54,7 @@ def profiles_get():  # noqa: E501
     return listOfProfile
 
 def get_profile():
-	l = list()
-	for element in db.Profile.find():
-		l.append((element['uuid'], 
-                  element['username'], 
-                  element['context'],
-                  element['description'],
-                  element['firstname'],
-                  element['lastname'],
-                  element['publickey'],
-                  element['email']))
-	return l
+	return inmemdb.values()
 
 def get_profile_by_uuid_mongo(uuid):
 	for element in db.Profile.find({'uuid':uuid}):
@@ -88,9 +79,9 @@ def add_profile_mongo(uuid, username,context,description,firstname, lastname,pub
 	return "add a new profile successfully"
 
 def add_profile(profile=None):
-    print (profile)
-    uuid = str(uuid.uuid4())
+    uid = str(uuid.uuid4())
+    profile["uuid"] = uid
     if connexion.request.is_json:
-        profile = Profile.from_dict(connexion.request.get_json())
-    print (profile)
+        profile = Profile.from_dict(profile)
+    inmemdb[uid] = profile
     return profile
