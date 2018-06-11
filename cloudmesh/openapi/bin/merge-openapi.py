@@ -1,3 +1,8 @@
+#! /usr/bin/env python
+# #
+# ussage:
+#     python bin/merge-openapi.py keystore profile
+#
 import click
 import re
 import os
@@ -31,8 +36,6 @@ def merge_yaml(services):
         content = read("services", service)
         out = out + parse_definitions (content)
     return out
-
-
 
 @click.command()
 @click.argument('services', nargs=-1)
