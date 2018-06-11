@@ -7,5 +7,3 @@ kill:
 	docker stop mongo
 	docker rm mongo
 
-get_swagger:
-	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
