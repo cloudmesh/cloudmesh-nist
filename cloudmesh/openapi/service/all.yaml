@@ -10,7 +10,7 @@ info:
     url: https://cloudmesh-community.github.io/nist/spec/
     email: laszewski@gmail.com
   license: 
-    name: "Apache"
+    name: "Apache 2.0"
 host: "localhost:8080"
 schemes: 
   - "http"
