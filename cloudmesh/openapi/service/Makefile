@@ -62,7 +62,7 @@ doc: json
 view:
 	open public/index.html
 
-publish: 
+publish: service doc
 	cp -rf public/* ../../../docs/spec
 	git add ../../../docs/spec
 	git commit -m "update spec" ../../../docs
