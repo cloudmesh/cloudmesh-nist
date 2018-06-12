@@ -63,10 +63,27 @@ html-swagger:
 	cd html-swagger; swagger-codegen generate -i ../all.yaml -l html
 	@echo "------------------------------------------------------------------"
 
+html-swagger-dynamic:
+	rm -rf html-swagger-dynamic
+	mkdir -p html-swagger-dynamic
+	@echo "------------------------------------------------------------------"
+	cd html-swagger-dynamic; swagger-codegen generate -i ../all.yaml -l dynamic-html
+	@echo "------------------------------------------------------------------"
+
 html-spectable: json
 	rm -rf html-spectable
 	spectacle all.json
 	mv -f public html-spectable
+
+html-bootprint:
+	# npm install -g bootprint
+	# npm install -g bootprint-openapi
+	bootprint openapi all.yaml htem-bootprint
+
+html-redoc:
+	# yarn add redoc
+	# npm install redoc --save
+	# npm install redoc-cli -g
 
 view:
 	open public/index.html

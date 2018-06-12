@@ -1,3 +1,5 @@
+* <https://github.com/swagger-api/swagger-codegen/blob/master/CONTRIBUTING.md>
+
 * <http://openapi.tools/>
 * <https://github.com/APIs-guru/awesome-openapi3>
 	* <https://apis.guru/awesome-openapi3/>
@@ -65,6 +67,7 @@ $ docker run -d -p 80:8080 swaggerapi/swagger-editor
 Downlaod go
 
 * <https://golang.org/dl/>
+
 ```
 cd src/github.com/googleapis/gnostic/generate-gnostic
 go install
@@ -73,9 +76,19 @@ generate-gnostic --v2 # does not work
  
 ```
 
+## Bootprint
+
+npm install -g bootprint
+npm install -g bootprint-openapi
 
 ## other html generators
 
-redoc <https://github.com/Rebilly/ReDoc>
-bootprint <https://bootprint.knappi.org/public-apis/petstore.swagger.io/v2/swagger.json.html>
-apidoc <http://apidocjs.com/>
+* redoc <https://github.com/Rebilly/ReDoc>
+* bootprint <https://bootprint.knappi.org/public-apis/petstore.swagger.io/v2/swagger.json.html>
+* apidoc <http://apidocjs.com/>
+
+
+swagger 2 markup
+
+* <https://github.com/Swagger2Markup/swagger2markup>
+
