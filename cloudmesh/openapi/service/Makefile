@@ -65,6 +65,6 @@ view:
 publish: 
 	cp -rf public/* ../../../docs/spec
 	git add ../../../docs/spec
-	git commit -m "update spec" ../../../docs/spec
+	git commit -m "update spec" ../../../docs
 	git push
 
