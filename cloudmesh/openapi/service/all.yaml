@@ -16,46 +16,46 @@ consumes:
   - "application/json"
 produces: 
   - "application/json"
-paths: 
+paths:
   /cloudmesh/keystore/keys:
-    get: 
-      description: "Returns all general description keys"
+    get:
+      description: Returns all general description keys
       operationId: get_key
-      produces: 
-        - "application/json"
-      responses: 
-        "200":
-          description: "key info"
-          schema: 
-            $ref: "#/definitions/Key"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: key info
+          schema:
+            $ref: '#/definitions/Key'
     put:
-      summary: "Create a new key"
+      summary: Create a new key
       operationId: add_key
       parameters:
         - in: body
           name: key
-          description: "The new key to create"
+          description: The new key to create
           schema:
-            $ref: "#/definitions/Key"
+            $ref: '#/definitions/Key'
       responses:
-        "201":
+        '201':
           description: Created
-  /cloudmesh/keystore/key/{name}:
-    get: 
-      description: "Returns a general description of a key"
+  '/cloudmesh/keystore/key/{name}':
+    get:
+      description: Returns a general description of a key
       operationId: get_key_by_name
       parameters:
         - name: name
           in: path
           required: true
           type: string
-      produces: 
-        - "application/json"
-      responses: 
-        "200":
-          description: "key info"
-          schema: 
-            $ref: "#/definitions/Key"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: key info
+          schema:
+            $ref: '#/definitions/Key'
  
   /cloudmesh/profile/profiles:
     get: 
@@ -98,16 +98,16 @@ paths:
             $ref: "#/definitions/Profile"
 definitions:
   Key:
-    type: "object"
-    properties: 
+    type: object
+    properties:
       name:
-        type: "string"
+        type: string
       description:
-        type: "string"
+        type: string
       value:
-        type: "string"
+        type: string
       kind:
-        type: "string"
+        type: string
   Profile:
     type: "object"
     #required:
