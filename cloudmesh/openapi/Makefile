@@ -17,3 +17,9 @@ mongo-start:
 
 mongo-kill:
 	make -f Makefile mongo_kill
+
+editor-install:
+	docker pull swaggerapi/swagger-editor
+
+editor-run:
+	docker run -d -p 80:8080 swaggerapi/swagger-editor

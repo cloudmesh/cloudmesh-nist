@@ -18,6 +18,9 @@ dest:
 spec:
 	cd ..; make -f Makefile service
 
+
+s: 
+
 service: spec dest
 	$(SWAGGERCODEGEN) generate \
 	-i $(YAMLFILE) \
@@ -41,9 +44,27 @@ stop:
 
 clean:
 	rm -rf $(CREATED)
+	rm -rf public
 
 container:
 	docker build -t cloudmesh-$(OBJECT) .
 	docker run -p 8080:8080 cloudmesh-$(OBJECT)
 
+json:
+	@echo "------------------------------------------------------------------"
+	swagger-codegen generate -i all.yaml -l swagger
+	@echo "------------------------------------------------------------------"
+	mv swagger.json all.json
+
+doc: json
+	spectacle all.json
+
+view:
+	open public/index.html
+
+publish: 
+	cp -rf public/* ../../../docs/spec
+	git add ../../../docs/spec
+	git commit -m "update spec" ../../../docs/spec
+	git push
 
