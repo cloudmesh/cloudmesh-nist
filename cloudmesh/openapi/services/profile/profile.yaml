@@ -7,6 +7,7 @@ info:
   termsOfService: "http://bin.io/terms/"
   contact: 
     name: "Cloudmesh REST Service Example"
+    url: https://cloudmesh-community.github.io/nist/spec/
   license: 
     name: "Apache"
 host: "localhost:8080"
