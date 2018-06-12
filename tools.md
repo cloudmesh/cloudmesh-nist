@@ -72,3 +72,10 @@ cd ..
 generate-gnostic --v2 # does not work 
  
 ```
+
+
+## other html generators
+
+redoc <https://github.com/Rebilly/ReDoc>
+bootprint <https://bootprint.knappi.org/public-apis/petstore.swagger.io/v2/swagger.json.html>
+apidoc <http://apidocjs.com/>

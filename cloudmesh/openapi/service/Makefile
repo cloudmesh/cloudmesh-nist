@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test html-swagger html-spectable
 
 OBJECTS=keystore profile
 
@@ -56,14 +56,23 @@ json:
 	@echo "------------------------------------------------------------------"
 	mv swagger.json all.json
 
-doc: json
+html-swagger:
+	rm -rf html-swagger
+	mkdir -p html-swagger
+	@echo "------------------------------------------------------------------"
+	cd html-swagger; swagger-codegen generate -i ../all.yaml -l html
+	@echo "------------------------------------------------------------------"
+
+html-spectable: json
+	rm -rf html-spectable
 	spectacle all.json
+	mv -f public html-spectable
 
 view:
 	open public/index.html
 
-publish: service doc
-	cp -rf public/* ../../../docs/spec
+publish: service html-spectable
+	cp -rf html-spectable/* ../../../docs/spec
 	git add ../../../docs/spec
 	git commit -m "update spec" ../../../docs
 	git push
