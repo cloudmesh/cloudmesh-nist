@@ -8,6 +8,7 @@ info:
   contact: 
     name: "Cloudmesh OpenAPI Specification"
     url: https://cloudmesh-community.github.io/nist/spec/
+    email: laszewski@gmail.com
   license: 
     name: "Apache"
 host: "localhost:8080"
