@@ -39,22 +39,27 @@ def merge_yaml(services):
 
 @click.command()
 @click.argument('services', nargs=-1)
-def merge(services):
+@click.option('--out', default="stdout")
+def merge(services, out):
 
     header = read_header("service","header")
-    out = header + "definitions:"
+    output = header + "paths:"
 
     for service in services:
         content = read("services", service)
-        out = out + parse_paths (content)
+        output = output + parse_paths (content)
 
-    out = out + "paths:"
+    output = output + "definitions:"
+
     for service in services:
         content = read("services", service)
-        out = out + parse_definitions (content)
-    out = re.sub(r'\n+', '\n', out)
-    print(out)
-
+        output = output + parse_definitions (content)
+    output = re.sub(r'\n+', '\n', output)
+    if out == "stdout":
+        print(output)
+    else:
+        with open(out, "w") as f:
+            f.write(output)
 
 if __name__ == '__main__':
 

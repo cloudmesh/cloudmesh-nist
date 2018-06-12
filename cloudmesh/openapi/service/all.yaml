@@ -1,0 +1,135 @@
+---
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title: "Cloudmesh OpenAPI"
+  description: "Cloudmesh OpenAPI specifications"
+  termsOfService: "http://cloudmesh.org/TBD"
+  contact: 
+    name: "Cloudmesh OpenAPI Specification"
+  license: 
+    name: "Apache"
+host: "localhost:8080"
+schemes: 
+  - "http"
+consumes: 
+  - "application/json"
+produces: 
+  - "application/json"
+paths: 
+  /cloudmesh/keystore/keys:
+    get: 
+      description: "Returns all general description keys"
+      operationId: get_key
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "key info"
+          schema: 
+            $ref: "#/definitions/Key"
+    put:
+      summary: "Create a new key"
+      operationId: add_key
+      parameters:
+        - in: body
+          name: key
+          description: "The new key to create"
+          schema:
+            $ref: "#/definitions/Key"
+      responses:
+        "201":
+          description: Created
+  /cloudmesh/keystore/key/{name}:
+    get: 
+      description: "Returns a general description of a key"
+      operationId: get_key_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "key info"
+          schema: 
+            $ref: "#/definitions/Key"
+ 
+  /cloudmesh/profile/profiles:
+    get: 
+      description: "Returns all general description users"
+      operationId: get_profile
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "profile info"
+          schema: 
+            $ref: "#/definitions/Profile"
+    put:
+      summary: "Create a new profile"
+      operationId: add_profile
+      parameters:
+        - in: body
+          name: profile
+          description: "The new profile to create"
+          schema:
+            $ref: "#/definitions/Profile"
+      responses:
+        "201":
+          description: Created
+  /cloudmesh/profile/profiles/{uuid}:
+    get: 
+      description: "Returns a general description of a user"
+      operationId: getProfileByUuid
+      parameters:
+        - name: uuid
+          in: path
+          required: true
+          type: string
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "profile info"
+          schema: 
+            $ref: "#/definitions/Profile"
+definitions:
+  Key:
+    type: "object"
+    properties: 
+      name:
+        type: "string"
+      description:
+        type: "string"
+      value:
+        type: "string"
+      kind:
+        type: "string"
+  Profile:
+    type: "object"
+    #required:
+    #  - "uuid"
+    properties: 
+      uuid:
+        type: "string"
+      username:
+        type: "string"
+      group:
+        type: "string"
+      resource:
+        type: "string"
+      context:
+        type: "string"
+      description:
+        type: "string"
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+      publickey:
+        type: "string"
+      email:
+        type: "string"
