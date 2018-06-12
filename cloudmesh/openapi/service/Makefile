@@ -33,7 +33,8 @@ start:
 	cd $(DESTDIR) && python -m swagger_server
 
 test:
-	sh test/test_$(OBJECT).sh
+	sh ../services/keystore/test/test_keystore.sh
+	sh ../services/profile/test/test_profile.sh
 
 stop:
 	ps | grep swagger | grep -v "grep"| awk '{print $$1}' | xargs kill -9

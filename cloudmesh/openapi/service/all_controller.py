@@ -1,4 +1,4 @@
-services/keystore/keystore_controller.py
+#services/keystore/keystore_controller.py
 import connexion
 import six
 
@@ -40,7 +40,7 @@ def get_key_by_name(name):
                 element['value'],
                 element['kind'])
 
-services/profile/profile_controller.py
+#services/profile/profile_controller.py
 import connexion
 import six
 import uuid

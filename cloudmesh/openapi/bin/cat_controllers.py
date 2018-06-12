@@ -7,7 +7,7 @@ import sys, os
 for controller in sys.argv[1:]:
   try:
     filename = os.path.join("services", controller, controller + "_controller.py")
-    print (filename)
+    print ("#" + filename)
     with open(filename, 'r') as _file:
       for line in iter((_file.readline), ""):
         print (line, end="")
