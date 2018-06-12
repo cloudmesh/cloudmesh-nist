@@ -17,8 +17,9 @@ $ npm install -g spectacle-docs
 ## Running the test program
 
 ```
-git clone ???
+git clone https://github.com/cloudmesh-community/nist.git
 
+cd nist/cloudmesh/openapi/service
 make service
 make start # in one window
 make test # in the other window
