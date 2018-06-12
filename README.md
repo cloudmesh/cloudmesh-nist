@@ -9,5 +9,4 @@ https://cloudmesh-community.github.io/nist/spec/
 
 ```
 $ npm install -g spectacle-docs
-$ spectacle -d your_swagger_api.json
 ```
