@@ -19,8 +19,6 @@ spec:
 	cd ..; make -f Makefile service
 
 
-s: 
-
 service: spec dest
 	$(SWAGGERCODEGEN) generate \
 	-i $(YAMLFILE) \
