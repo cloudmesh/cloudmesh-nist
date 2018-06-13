@@ -525,10 +525,8 @@ development of the NBDRA (Figure 1) and the interfaces presented herein.
 Detailed descriptions of these activities can be found in the other
 volumes of the *NBDIF*.
 
-![](images/bdra.png)
+![Figure : NIST Big Data Reference Architecture (NBDRA)](images/bdra.png)
 
-[]{#_Toc497917239 .anchor}Figure : NIST Big Data Reference Architecture
-(NBDRA)
 
 This vendor-neutral, technology- and infrastructure-agnostic conceptual
 model, the NBDRA, is shown in Figure 1 and represents a Big Data system
@@ -1038,22 +1036,24 @@ and REST project [9] [11].
 An example object will demonstrate this approach. The following object
 defines a JSON object representing a user.
 
-  []{#_Toc497917195 .anchor}Object 3.1: Example Object Specification
 
 ```
 {
- 'profile': {
-  'description': 'The Profile of a user',
-  'uuid': 'jshdjkdh\...',
-  'context:': 'resource',
-  'email': 'laszewski\@gmail.com',
-  'firstname': 'Gregor',
-  'lastname': 'von Laszewski',
-  'username': 'gregor',
-  'publickey': 'ssh \....'
- }
+    'profile': {
+        'description': 'The Profile of a user',
+        'uuid': 'jshdjkdh\...',
+        'context:': 'resource',
+        'email': 'laszewski\@gmail.com',
+        'firstname': 'Gregor',
+        'lastname': 'von Laszewski',
+        'username': 'gregor',
+        'publickey': 'ssh \....'
+    }
 }
 ```
+
+Object 3.1: Example Object Specification
+
 
 Such an object can be translated to a schema specification while
 introspecting the types of the original example.
@@ -1063,18 +1063,20 @@ generated to be included into this document. The resulting schema object
 follows the Cerberus [1] specification and looks for the specific
 object, introduced earlier, as follows:
 
-> profile = {
-> 'schema': {
-> 'username': {'type': 'string'},
-> 'context:': {'type': 'string'},
-> 'description': {'type': 'string'},
-> 'firstname': {'type': 'string'},
-> 'lastname': {'type': 'string'},
-> 'publickey': {'type': 'string'},
-> 'email': {'type': 'string'},
-> 'uuid': {'type': 'string'}
-> }
-> }
+```
+profile = {
+        'schema': {
+        'username': {'type': 'string'},
+        'context:': {'type': 'string'},
+        'description': {'type': 'string'},
+        'firstname': {'type': 'string'},
+        'lastname': {'type': 'string'},
+        'publickey': {'type': 'string'},
+        'email': {'type': 'string'},
+        'uuid': {'type': 'string'}
+    }
+}
+```
 
 Defined objects can also be embedded into other objects by using the
 *objectid* tag. This is later demonstrated between the profile and the
@@ -1137,11 +1139,9 @@ Therefore, the objects have not been organized by NBDRA components, as
 shown in Figure 1, but rather grouped by functional use as summarized in
 Figure 2.
 
-![](media/image4.jpeg){width="7.15in" height="3.066666666666667in"}
+![Figure 2: NIST Big Data Reference Architecture Interfaces](media/image4.jpeg)
 
-```
-[]{#_Toc497917240 .anchor}Figure 2: NIST Big Data Reference Architecture
-Interfaces
+
 
 Identity
 --------
@@ -1160,22 +1160,23 @@ email information. It may have an optional unique user identification
 (uuid) and/or use a unique email to distinguish a user. Profiles are
 used to identify different users.
 
-  []{#_Toc497917196 .anchor}Object 4.1: Profile
 
 ```
 {
- 'profile': {
-  'description': 'The Profile of a user',
-  'uuid': 'jshdjkdh\...',
-  'context:': 'resource',
-  'email': 'laszewski\@gmail.com',
-  'firstname': 'Gregor',
-  'lastname': 'von Laszewski',
-  'username': 'gregor',
-  'publickey': 'ssh \....'
- }
+    'profile': {
+        'description': 'The Profile of a user',
+        'uuid': 'jshdjkdh\...',
+        'context:': 'resource',
+        'email': 'laszewski\@gmail.com',
+        'firstname': 'Gregor',
+        'lastname': 'von Laszewski',
+        'username': 'gregor',
+        'publickey': 'ssh \....'
+    }
 }
 ```
+
+Object 4.1: Profile
 
 ### User
 
@@ -1184,16 +1185,17 @@ define the role of the user within the multiuser system. The user
 associates different roles to individuals. These roles potentially have
 gradations of responsibility and privilege.
 
-  []{#_Toc497917197 .anchor}Object 4.2: User
 
 ```
 {
- 'user': {
-  'profile': 'objectid:profile',
-  'roles': ['admin']
-}
+    'user': {
+        'profile': 'objectid:profile',
+        'roles': ['admin']
+    }
 }
 ```
+
+Object 4.2: User
 
 ### Organization
 
@@ -1207,17 +1209,19 @@ organization that lists all users within the virtual organization. The
 third concept is to introduce groups and roles either as part of the
 user definition or as part of a simple list similar to the organization.
 
-  []{#_Toc497917198 .anchor}Object 4.3: Organization
+
 
 ```
- {
- 'organization': {
-  'users': [
-  'objectid:user'
- ]
- }
- }
+{
+    'organization': {
+        'users': [ 
+            'objectid:user'
+        ]
+    }
+}
 ```
+
+Object 4.3: Organization
 
 The profile, user, and organization concepts allow for the clear
 definition of various roles such as data provider, data consumer, data
@@ -1230,19 +1234,20 @@ affiliation.
 A group contains a number of users. It is used to manage authorized
 services.
 
-  []{#_Toc497917199 .anchor}Object 4.4: Group
-  --
+
 ```
 {
-'group': {
-'name': 'users',
-'description': 'This group contains all users',
-'users': [
-'objectid:user'
-]
-}
+    'group': {
+        'name': 'users',
+        'description': 'This group contains all users',
+        'users': [
+            'objectid:user'
+        ]
+    }
 }
 ```
+
+Object 4.4: Group
 
 A role is a further refinement of a group. Group members can have
 specific roles. For example, a group of users can be assigned a role
@@ -1250,19 +1255,18 @@ that allows access to a repository. More specifically, the role would
 define a user's read and write privileges to the data within the
 repository.
 
-  []{#_Toc497917200 .anchor}Object 4.5: Role
-
 ```
 {
-'role': {
-'name': 'editor',
-'description': 'This role contains all editors',
-'users': [
-'objectid:user'
-]
-}
+    'role': {
+        'name': 'editor',
+        'description': 'This role contains all editors',
+        'users': [
+            'objectid:user'
+        ]
+    }
 }
 ```
+Object 4.5: Role
 
 Data
 ----
@@ -1325,17 +1329,16 @@ Often data needs to be timestamped to indicate when it has been
 accessed, created, or modified. All objects defined in this document
 will have, in their final version, a timestamp.
 
-  []{#_Toc497917201 .anchor}Object 4.6: TimeStamp
-
 ```
- {
- 'timestamp': {
- 'accessed': '1.1.2017:05:00:00:EST',
- 'created': '1.1.2017:05:00:00:EST',
- 'modified': '1.1.2017:05:00:00:EST'
- }
- }
+{
+    'timestamp': {
+        'accessed': '1.1.2017:05:00:00:EST',
+        'created': '1.1.2017:05:00:00:EST',
+        'modified': '1.1.2017:05:00:00:EST'
+    }
+}
 ```
+Object 4.6: TimeStamp
 
 ### Variables
 
@@ -1343,17 +1346,18 @@ Variables are used to store simple values. Each variable can have a
 type, which is also provided as demonstrated in the object below. The
 variable value format is defined as string to allow maximal probability.
 
-  []{#_Toc497917202 .anchor}Object 4.7: Variables
 
 ```
- {
- 'var': {
- 'name': 'name of the variable',
- 'value': 'the value of the variable as string',
- 'type': 'the datatype of the variable such as int, str, float, \...'
- }
- }
+{
+    'var': {
+        'name': 'name of the variable',
+        'value': 'the value of the variable as string',
+        'type': 'the datatype of the variable such as int, str, float, \...'
+    }
+}
 ```
+
+Object 4.7: Variables
 
 ### Default
 
@@ -1362,22 +1366,21 @@ This allows one to define values that can be easily retrieved based on
 the associated context. For example, a default could be the image name
 for a cloud where the context is defined by the cloud name.
 
-  []{#_Toc497917203 .anchor}Object 4.8: Default
 
 ```
-  {
-  'default': {
-  'value': 'string',
-  'name': 'string',
-  'context': 'string - defines the context of the default (user, cloud, \...)'
-  }
-  }
+{
+    'default': {
+        'value': 'string',
+        'name': 'string',
+        'context': 'string - defines the context of the default (user, cloud, \...)'
+    }
+}
 ```
 
-![](media/image5.jpeg){width="6.025209973753281in"
-height="6.084034339457568in"}
+Object 4.8: Default
 
-[]{#_Toc497917241 .anchor}Figure 3: Booting a VM from Defaults
+![Figure 3: Booting a VM from Defaults](media/image5.jpeg)
+
 
 ### File
 
@@ -1391,21 +1394,23 @@ describes the location of the file.
 The *file* object has *name*, *endpoint* (location), *size* in GB, MB,
 Byte, *checksum* for integrity check, and last *accessed* timestamp.
 
-  []{#_Toc497917204 .anchor}Object 4.9: File
 
 ```
 {
-'file': {
-'name': 'report.dat',
-'endpoint': 'file://gregor\@machine.edu:/data/report.dat',
-'checksum': {'sha256':'c01b39c7a35ccc \...\.... ebfeb45c69f08e17dfe3ef375a7b'},
-'accessed': '1.1.2017:05:00:00:EST',
-'created': '1.1.2017:05:00:00:EST',
-'modified': '1.1.2017:05:00:00:EST',
-'size': ['GB', 'Byte']
+    'file': {
+        'name': 'report.dat',
+        'endpoint': 'file://gregor\@machine.edu:/data/report.dat',
+        'checksum': {'sha256':'c01b39c7a35ccc \...\.... ebfeb45c69f08e17dfe3ef375a7b'},
+        'accessed': '1.1.2017:05:00:00:EST',
+        'created': '1.1.2017:05:00:00:EST',
+        'modified': '1.1.2017:05:00:00:EST',
+        'size': ['GB', 'Byte']
+    }
 }
 ```
-}
+
+
+Object 4.9: File
 
 ### Alias
 
@@ -1414,16 +1419,17 @@ an alias is that a file may have a complex name but a user may want to
 refer to that file in a name space that is suitable for the user's
 application.
 
-  []{#_Toc497917205 .anchor}Object 4.10: File Alias
 
 ```
 {
-'alias': {
-'name': 'a better name for the object',
-'origin': 'the original object name'
-}
+    'alias': {
+        'name': 'a better name for the object',
+        'origin': 'the original object name'
+    }
 }
 ```
+
+Object 4.10: File Alias
 
 ### Replica
 
@@ -1433,25 +1439,27 @@ important to provide a mechanism to trace the pedigree of the file while
 pointing to its original source. A replica can be applied to all data
 types introduced in this document.
 
-  []{#_Toc497917206 .anchor}Object 4.11: Replica
 
 ```
 {
-'replica': {
-'name': 'replica_report.dat',
-'replica': 'report.dat',
-'endpoint': 'file://gregor\@machine.edu:/data/replica_report.dat',
-'checksum': {
-'md5': '8c324f12047dc2254b74031b8f029ad0'
-},
-'accessed': '1.1.2017:05:00:00:EST',
-'size': [
-'GB',
-'Byte'
-]
-}
+    'replica': {
+        'name': 'replica_report.dat',
+        'replica': 'report.dat',
+        'endpoint': 'file://gregor\@machine.edu:/data/replica_report.dat',
+        'checksum': {
+           `md5': '8c324f12047dc2254b74031b8f029ad0'
+         },
+        'accessed': '1.1.2017:05:00:00:EST',
+        'size': [
+            'GB',
+            'Byte'
+        ]
+    }
 }
 ```
+
+Object 4.11: Replica
+
 ### Virtual Directory
 
 A virtual directory is a collection of files or replicas of the files. A
@@ -1459,38 +1467,41 @@ virtual directory can contain a number of entities including files,
 streams, and other virtual directories as part of a collection. The
 element in the collection can either be defined by uuid or by name.
 
-  []{#_Toc497917207 .anchor}Object 4.12: Virtual Directory
 
 ```
- {
- 'virtual_directory': {
- 'name': 'data',
- 'endpoint': 'http://\.../data/',
- 'protocol': 'http',
- 'collection': [
- 'report.dat',
- 'file2'
- ]
- }
- }
+{
+    'virtual_directory': {
+    'name': 'data',
+    'endpoint': 'http://\.../data/',
+    'protocol': 'http',
+    'collection': [
+            'report.dat',
+            'file2'
+        ]
+    }
+}
 ```
+
+Object 4.12: Virtual Directory
+
 
 ### Database
 
 A *database* could have a name, an *endpoint* (e.g., host, port), and a
 protocol used (e.g., SQL, mongo).
 
-  []{#_Toc497917208 .anchor}Object 4.13: Database
 
 ```
- {
- 'database': {
- 'name': 'data',
- 'endpoint': 'http://\.../data/',
- 'protocol': 'mongo'
- }
- }
+{
+    'database': {
+        'name': 'data',
+        'endpoint': 'http://\.../data/',
+        'protocol': 'mongo'
+    }
+}
 ```
+
+Object 4.13: Database
 
 ### Stream 
 
@@ -1499,37 +1510,39 @@ rate and number of items exchanged while issuing requests to the stream.
 A stream may return data items in a specific format that is defined by
 the stream.
 
-  []{#_Toc497917209 .anchor}Object 4.14: Stream
 
 ```
-  {
-  'stream': {
-  'name': 'name of the variable',
-  'format': 'the format of the data exchanged in the stream',
-  'attributes': {
-  'rate': 10,
-  'limit': 1000
-  }
-  }
-
-  }
+{
+    'stream': {
+        'name': 'name of the variable',
+        'format': 'the format of the data exchanged in the stream',
+        'attributes': {
+            'rate': 10,
+            'limit': 1000
+            }
+    }
+}
 ```
+
+Object 4.14: Stream
   
 ### Filter 
 
 Filters can operate on a variety of objects and reduce the information
 received based on a search criterion.
 
-  []{#_Toc497917210 .anchor}Object 4.15: Filter
 
 ```
-  {
+{
   'filter': {
-  'name': 'name of the filter',
-  'function': 'the function of the data exchanged in the stream'
-  }
-  }
+      'name': 'name of the filter',
+      'function': 'the function of the data exchanged in the stream'
+    }
+}
 ```
+
+Object 4.15: Filter
+
 
 Virtual Cluster
 ---------------
@@ -1552,10 +1565,8 @@ allocates the machines by matching the desired properties with the
 available images and booting. The stack definition is then parsed and
 then evaluated to provision the cluster.
 
-![](media/image6.jpeg){width="3.16in" height="1.74in"}
+![Figure 4: Allocating and Provisioning a Virtual Cluster](media/image6.jpeg){width="3.16in" height="1.74in"}
 
-[]{#_Toc497917242 .anchor}Figure 4: Allocating and Provisioning a
-Virtual Cluster
 
 ### Virtual Cluster
 
@@ -1574,32 +1585,36 @@ manage other nodes. Authorized keys within the definition of the cluster
 allow administrative functions, while authorized keys on a compute node
 allow login and use functionality of the virtual nodes.
 
-  []{#_Toc497917211 .anchor}Object 4.16: Virtual Cluster
+  []{#_Toc497917211 .anchor}
 
 ```
-  {
+{
   'virtual_cluster': {
-  'name': 'myvirtualcluster',
-  'label': 'C0',
-  'uuid': 'sgdlsjlaj\....',
-  'endpoint': {
-  'passwd': 'secret',
-  'url': 'https:\...'
-  },
-  'provider': 'virtual_cluster_provider:openstack',
-  'frontend': 'objectid:virtual_machine',
-  'authorized_keys': ['objectid:sshkey'],
-  'nodes': [
-  'objectid:virtual_machine'
-  ]
+      'name': 'myvirtualcluster',
+      'label': 'C0',
+      'uuid': 'sgdlsjlaj\....',
+      'endpoint': {
+          'passwd': 'secret',
+          'url': 'https:\...'
+      },
+      'provider': 'virtual_cluster_provider:openstack',
+      'frontend': 'objectid:virtual_machine',
+      'authorized_keys': ['objectid:sshkey'],
+      'nodes': [
+            'objectid:virtual_machine'
+      ]
   }
-  }
+}
 ```
-  
-  []{#_Toc497917212 .anchor}Object 4.17: Virtual Cluster Provider
-  --
-  ```--------------------------------------------------------------- --------------------------------------------------------------------------------------------------
-  'virtual_cluster_provider': 'aws' \| 'azure' \| 'google' \| 'comet' \| 'openstack'
+
+Object 4.16: Virtual Cluster
+
+
+```
+virtual_cluster_provider': 'aws' | 'azure' | 'google' | 'comet' | 'openstack'
+```
+
+Object 4.17: Virtual Cluster Provider
 
 ### Compute Node
 
@@ -1615,30 +1630,31 @@ the VM can be introspected and more detailed information can be
 retrieved. A compute node has name, label, a flavor, network interface
 cards (NICs), and other relevant information.
 
-  []{#_Toc497917213 .anchor}Object 4.18: Compute Node of a Virtual Cluster
 
 ```
- {
- 'compute_node': {
- 'name': 'vm1',
- 'label': 'gregor-vm001',
- 'uuid': 'sgklfgslakj\....',
- 'kind': 'vm',
- 'flavor': ['objectid:flavor'],
- 'image': 'Ubuntu-16.04',
- 'secgroups': ['objectid:secgroup'],
- 'nics': ['objectid:nic'],
- 'status': '',
- 'loginuser': 'ubuntu',
- 'status': 'active',
- 'authorized_keys': ['objectid:sshkey'],
- 'metadata': {
- 'owner':'gregor',
- 'experiment': 'exp-001'
- }
- }
- }
+{
+    'compute_node': {
+        'name': 'vm1',
+        'label': 'gregor-vm001',
+        'uuid': 'sgklfgslakj\....',
+        'kind': 'vm',
+        'flavor': ['objectid:flavor'],
+        'image': 'Ubuntu-16.04',
+        'secgroups': ['objectid:secgroup'],
+        'nics': ['objectid:nic'],
+        'status': '',
+        'loginuser': 'ubuntu',
+        'status': 'active',
+        'authorized_keys': ['objectid:sshkey'],
+        'metadata': {
+            'owner':'gregor',
+            'experiment': 'exp-001'
+        }
+    }
+}
 ``` 
+
+Object 4.18: Compute Node of a Virtual Cluster
 
 ### Flavor
 
@@ -1646,20 +1662,21 @@ The flavor specifies elementary information about the compute node, such
 as memory and number of cores, as well as other attributes that can be
 added. Flavors are essential to size a virtual cluster appropriately.
 
-  []{#_Toc497917214 .anchor}Object 4.19: Flavor
 
 ```
 {
-'flavor': {
-'name': 'flavor1',
-'label': '2-4G-40G',
-'uuid': 'sgklfgslakj\....',
-'ncpu': 2,
-'ram': '4G',
-'disk': '40G'
-}
+    'flavor': {
+        'name': 'flavor1',
+        'label': '2-4G-40G',
+        'uuid': 'sgklfgslakj\....',
+        'ncpu': 2,
+        'ram': '4G',
+        'disk': '40G'
+    }
 }
 ```
+
+Object 4.19: Flavor
 
 ### Network Interface Card
 
@@ -1667,23 +1684,25 @@ To interact between the nodes, a network interface is needed. Such a
 network interface, specified on a virtual machine with a NIC object, is
 showcased in Object 4.20.
 
-  []{#_Toc497917215 .anchor}Object 4.20: Network Interface Card
 
 ```
- {
- 'nic': {
- 'name': 'eth0',
- 'type': 'ethernet',
- 'mac': '00:00:00:11:22:33',
- 'ip': '123.123.1.2',
- 'mask': '255.255.255.0',
- 'broadcast': '123.123.1.255',
- 'gateway': '123.123.1.1',
- 'mtu': 1500,
- 'bandwidth': '10Gbps'
- }
- }
+{
+    'nic': {
+        'name': 'eth0',
+        'type': 'ethernet',
+        'mac': '00:00:00:11:22:33',
+        'ip': '123.123.1.2',
+        'mask': '255.255.255.0',
+        'broadcast': '123.123.1.255',
+        'gateway': '123.123.1.1',
+        'mtu': 1500,
+        'bandwidth': '10Gbps'
+    }
+}
 ```
+
+Object 4.20: Network Interface Card
+
 
 ### Key
 
@@ -1691,19 +1710,20 @@ Many services and frameworks use Secure Shell (SSH) keys to
 authenticate. To allow the convenient storage of the public key, the
 sshkey object can be used (see Object 4.21).
 
-  []{#_Toc497917216 .anchor}Object 4.21: Key
 
 ```
 {
-'sshkey': {
-'comment': 'string',
-'source': 'string',
-'uri': 'string',
-'value': 'ssh-rsa AAA\...\...',
-'fingerprint': 'string, unique'
-}
+    'sshkey': {
+        'comment': 'string',
+        'source': 'string',
+        'uri': 'string',
+        'value': 'ssh-rsa AAA\...\...',
+        'fingerprint': 'string, unique'
+    }
 }
 ```
+
+Object 4.21: Key
 
 ### Security Groups
 
@@ -1712,19 +1732,19 @@ introduced. They define the typical security groups that will be
 deployed once a compute node is specified. The security group object is
 depicted in Object 4.22.
 
-  []{#_Toc497917217 .anchor}Object 4.22: Security Groups
 
 ```
 {
-'secgroup':
-{
-'ingress': '0.0.0.0/32',
-'egress': '0.0.0.0/32',
-'ports': 22,
-'protocols': 'tcp'
-}
+    'secgroup': {
+            'ingress': '0.0.0.0/32',
+            'egress': '0.0.0.0/32',
+            'ports': 22,
+            'protocols': 'tcp'
+        }
 }
 ```
+
+Object 4.22: Security Groups
 
 IaaS
 ----
@@ -1779,84 +1799,86 @@ other IaaS frameworks may be integrated in the future.
 
 The object referring to flavors is listed in Object 4.23.
 
-  []{#_Toc497917218 .anchor}Object 4.23: Libcloud Flavor
 
 ```
 {
-'libcloud_flavor': {
-'bandwidth': 'string',
-'disk': 'string',
-'uuid': 'string',
-'price': 'string',
-'ram': 'string',
-'cpu': 'string',
-'flavor_id': 'string'
-}
+    'libcloud_flavor': {
+        'bandwidth': 'string',
+        'disk': 'string',
+        'uuid': 'string',
+        'price': 'string',
+        'ram': 'string',
+        'cpu': 'string',
+        'flavor_id': 'string'
+    }
 }
 ```
+
+Object 4.23: Libcloud Flavor
 
 #### LibCloud Image
 
 The object referring to images is listed in Object 4.24.
 
-  []{#_Toc497917219 .anchor}Object 4.24: Libcloud Image
 
 ```
-  {
-  'libcloud_image': {
-  'username': 'string',
-  'status': 'string',
-  'updated': 'string',
-  'description': 'string',
-  'owner_alias': 'string',
-  'kernel_id': 'string',
-  'ramdisk_id': 'string',
-  'image_id': 'string',
-  'is_public': 'string',
-  'image_location': 'string',
-  'uuid': 'string',
-  'created': 'string',
-  'image_type': 'string',
-  'hypervisor': 'string',
-  'platform': 'string',
-  'state': 'string',
-  'architecture': 'string',
-  'virtualization_type': 'string',
-  'owner_id': 'string'
-  }
-  }
+{
+    'libcloud_image': {
+        'username': 'string',
+        'status': 'string',
+        'updated': 'string',
+        'description': 'string',
+        'owner_alias': 'string',
+        'kernel_id': 'string',
+        'ramdisk_id': 'string',
+        'image_id': 'string',
+        'is_public': 'string',
+        'image_location': 'string',
+        'uuid': 'string',
+        'created': 'string',
+        'image_type': 'string',
+        'hypervisor': 'string',
+        'platform': 'string',
+        'state': 'string',
+        'architecture': 'string',
+        'virtualization_type': 'string',
+        'owner_id': 'string'
+    }
+}
 ```
+
+Object 4.24: Libcloud Image
 
 #### LibCloud VM
 
 The object referring to virtual machines is listed in the Object 4.25.
 
-  []{#_Toc497917220 .anchor}Object 4.25: LibCloud VM
-
 ```
-  {
+{
   'libcloud_vm': {
-  'username': 'string',
-  'status': 'string',
-  'root_device_type': 'string',
-  'image': 'string',
-  'image_name': 'string',
-  'image_id': 'string',
-  'key': 'string',
-  'flavor': 'string',
-  'availability': 'string',
-  'private_ips': 'string',
-  'group': 'string',
-  'uuid': 'string',
-  'public_ips': 'string',
-  'instance_id': 'string',
-  'instance_type': 'string',
-  'state': 'string',
-  'root_device_name': 'string',
-  'private_dns': 'string'
+      'username': 'string',
+      'status': 'string',
+      'root_device_type': 'string',
+      'image': 'string',
+      'image_name': 'string',
+      'image_id': 'string',
+      'key': 'string',
+      'flavor': 'string',
+      'availability': 'string',
+      'private_ips': 'string',
+      'group': 'string',
+      'uuid': 'string',
+      'public_ips': 'string',
+      'instance_id': 'string',
+      'instance_type': 'string',
+      'state': 'string',
+      'root_device_name': 'string',
+      'private_dns': 'string'
   }
-  }
+}
 ```
+
+Object 4.25: LibCloud VM
 
 #### LibCloud Node
 
@@ -1864,86 +1886,86 @@ Virtual machines for the various clouds have additional attributes that
 are summarized in Object 4.25. These attributes will be integrated into
 the VM object in the future.
 
-  []{#_Toc497917221 .anchor}Object 4.26: LibCloud Node
 
 ```
- {
+{
  'LibCLoudNode': {
- 'id': 'instance_id',
- 'name': 'name',
- 'state': 'state',
- 'public_ips': ['111.222.111.1'],
- 'private_ips': ['192.168.1.101'],
- 'driver': 'connection.driver',
- 'created_at': 'created_timestamp',
- 'extra': {
- }
+     'id': 'instance_id',
+     'name': 'name',
+     'state': 'state',
+     'public_ips': ['111.222.111.1'],
+     'private_ips': ['192.168.1.101'],
+     'driver': 'connection.driver',
+     'created_at': 'created_timestamp',
+     'extra': { }
  },
  'ec2NodeExtra': {
- 'block_device_mapping': 'deviceMapping',
- 'groups': ['security_group1', 'security_group2'],
- 'network_interfaces': ['nic1', 'nic2'],
- 'product_codes': 'product_codes',
- 'tags': ['tag1', 'tag2']
- },
+     'block_device_mapping': 'deviceMapping',
+     'groups': ['security_group1', 'security_group2'],
+     'network_interfaces': ['nic1', 'nic2'],
+     'product_codes': 'product_codes',
+     'tags': ['tag1', 'tag2']
+     },
  'OpenStackNodeExtra': {
- 'addresses': ['addresses'],
- 'hostId': 'hostId',
- 'access_ip': 'accessIPv4',
- 'access_ipv6': 'accessIPv6',
- 'tenantId': 'tenant_id',
- 'userId': 'user_id',
- 'imageId': 'image_id',
- 'flavorId': 'flavor_id',
- 'uri': '',
- 'service_name': '',
- 'metadata': ['metadata'],
- 'password': 'adminPass',
- 'created': 'created',
- 'updated': 'updated',
- 'key_name': 'key_name',
- 'disk_config': 'diskConfig',
- 'config_drive': 'config_drive',
- 'availability_zone': 'availability_zone',
- 'volumes_attached': 'volumes_attached',
- 'task_state': 'task_state',
- 'vm_state': 'vm_state',
- 'power_state': 'power_state',
- 'progress': 'progress',
- 'fault': 'fault'
- },
+     'addresses': ['addresses'],
+     'hostId': 'hostId',
+     'access_ip': 'accessIPv4',
+     'access_ipv6': 'accessIPv6',
+     'tenantId': 'tenant_id',
+     'userId': 'user_id',
+     'imageId': 'image_id',
+     'flavorId': 'flavor_id',
+     'uri': '',
+     'service_name': '',
+     'metadata': ['metadata'],
+     'password': 'adminPass',
+     'created': 'created',
+     'updated': 'updated',
+     'key_name': 'key_name',
+     'disk_config': 'diskConfig',
+     'config_drive': 'config_drive',
+     'availability_zone': 'availability_zone',
+     'volumes_attached': 'volumes_attached',
+     'task_state': 'task_state',
+     'vm_state': 'vm_state',
+     'power_state': 'power_state',
+     'progress': 'progress',
+     'fault': 'fault'
+     },
  'AzureNodeExtra': {
- 'instance_endpoints': 'instance_endpoints',
- 'remote_desktop_port': 'remote_desktop_port',
- 'ssh_port': 'ssh_port',
- 'power_state': 'power_state',
- 'instance_size': 'instance_size',
- 'ex_cloud_service_name': 'ex_cloud_service_name'
- },
+     'instance_endpoints': 'instance_endpoints',
+     'remote_desktop_port': 'remote_desktop_port',
+     'ssh_port': 'ssh_port',
+     'power_state': 'power_state',
+     'instance_size': 'instance_size',
+     'ex_cloud_service_name': 'ex_cloud_service_name'
+     },
  'GCENodeExtra': {
- 'status': 'status',
- 'statusMessage': 'statusMessage',
- 'description': 'description',
- 'zone': 'zone',
- 'image': 'image',
- 'machineType': 'machineType',
- 'disks': 'disks',
- 'networkInterfaces': 'networkInterfaces',
- 'id': 'node_id',
- 'selfLink': 'selfLink',
- 'kind': 'kind',
- 'creationTimestamp': 'creationTimestamp',
- 'name': 'name',
- 'metadata': 'metadata',
- 'tags_fingerprint': 'fingerprint',
- 'scheduling': 'scheduling',
- 'deprecated': 'True or False',
- 'canIpForward': 'canIpForward',
- 'serviceAccounts': 'serviceAccounts',
- 'boot_disk': 'disk'
- }
+     'status': 'status',
+     'statusMessage': 'statusMessage',
+     'description': 'description',
+     'zone': 'zone',
+     'image': 'image',
+     'machineType': 'machineType',
+     'disks': 'disks',
+     'networkInterfaces': 'networkInterfaces',
+     'id': 'node_id',
+     'selfLink': 'selfLink',
+     'kind': 'kind',
+     'creationTimestamp': 'creationTimestamp',
+     'name': 'name',
+     'metadata': 'metadata',
+     'tags_fingerprint': 'fingerprint',
+     'scheduling': 'scheduling',
+     'deprecated': 'True or False',
+     'canIpForward': 'canIpForward',
+     'serviceAccounts': 'serviceAccounts',
+     'boot_disk': 'disk'
+     }
  }
 ```
+
+Object 4.26: LibCloud Node
 
 ### OpenStack
 
@@ -1953,109 +1975,112 @@ Objects related to OpenStack VMs are summarized in this section.
 
 The object referring to flavors is listed in Object 4.27.
 
-  []{#_Toc497917222 .anchor}Object 4.27: OpenStack Flavor
 
 ```
  {
  'openstack_flavor': {
- 'os_flv_disabled': 'string',
- 'uuid': 'string',
- 'os_flv_ext_data': 'string',
- 'ram': 'string',
- 'os_flavor_acces': 'string',
- 'vcpus': 'string',
- 'swap': 'string',
- 'rxtx_factor': 'string',
- 'disk': 'string'
+     'os_flv_disabled': 'string',
+     'uuid': 'string',
+     'os_flv_ext_data': 'string',
+     'ram': 'string',
+     'os_flavor_acces': 'string',
+     'vcpus': 'string',
+     'swap': 'string',
+     'rxtx_factor': 'string',
+     'disk': 'string'
+     }
  }
- }
- ```
+```
+
+Object 4.27: OpenStack Flavor
 
 #### OpenStack Image
 
 The object referring to images is listed in Object 4.28.
 
-  []{#_Toc497917223 .anchor}Object 4.28: OpenStack Image
 
 ```
 {
-'openstack_image': {
-'status': 'string',
-'username': 'string',
-'updated': 'string',
-'uuid': 'string',
-'created': 'string',
-'minDisk': 'string',
-'progress': 'string',
-'minRam': 'string',
-'os_image_size': 'string',
-'metadata': {
-'image_location': 'string',
-'image_state': 'string',
-'description': 'string',
-'kernel_id': 'string',
-'instance_type_id': 'string',
-'ramdisk_id': 'string',
-'instance_type_name': 'string',
-'instance_type_rxtx_factor': 'string',
-'instance_type_vcpus': 'string',
-'user_id': 'string',
-'base_image_ref': 'string',
-'instance_uuid': 'string',
-'instance_type_memory_mb': 'string',
-'instance_type_swap': 'string',
-'image_type': 'string',
-'instance_type_ephemeral_gb': 'string',
-'instance_type_root_gb': 'string',
-'network_allocated': 'string',
-'instance_type_flavorid': 'string',
-'owner_id': 'string'
-}
-}
+    'openstack_image': {
+        'status': 'string',
+        'username': 'string',
+        'updated': 'string',
+        'uuid': 'string',
+        'created': 'string',
+        'minDisk': 'string',
+        'progress': 'string',
+        'minRam': 'string',
+        'os_image_size': 'string',
+        'metadata': {
+        'image_location': 'string',
+        'image_state': 'string',
+        'description': 'string',
+        'kernel_id': 'string',
+        'instance_type_id': 'string',
+        'ramdisk_id': 'string',
+        'instance_type_name': 'string',
+        'instance_type_rxtx_factor': 'string',
+        'instance_type_vcpus': 'string',
+        'user_id': 'string',
+        'base_image_ref': 'string',
+        'instance_uuid': 'string',
+        'instance_type_memory_mb': 'string',
+        'instance_type_swap': 'string',
+        'image_type': 'string',
+        'instance_type_ephemeral_gb': 'string',
+        'instance_type_root_gb': 'string',
+        'network_allocated': 'string',
+        'instance_type_flavorid': 'string',
+        'owner_id': 'string'
+        }
+    }
 }
 ```
+
+Object 4.28: OpenStack Image
 
 #### OpenStack VM
 
 The object referring to VMs is listed in Object 4.29.
 
-  []{#_Toc497917224 .anchor}Object 4.29: OpenStack VM
 
 ```
 {
-'openstack_vm': {
-'username': 'string',
-'vm_state': 'string',
-'updated': 'string',
-'hostId': 'string',
-'availability_zone': 'string',
-'terminated_at': 'string',
-'image': 'string',
-'floating_ip': 'string',
-'diskConfig': 'string',
-'key': 'string',
-'flavor__id': 'string',
-'user_id': 'string',
-'flavor': 'string',
-'static_ip': 'string',
-'security_groups': 'string',
-'volumes_attached': 'string',
-'task_state': 'string',
-'group': 'string',
-'uuid': 'string',
-'created': 'string',
-'tenant_id': 'string',
-'accessIPv4': 'string',
-'accessIPv6': 'string',
-'status': 'string',
-'power_state': 'string',
-'progress': 'string',
-'image__id': 'string',
-'launched_at': 'string',
-'config_drive': 'string'
-}
+    'openstack_vm': {
+        'username': 'string',
+        'vm_state': 'string',
+        'updated': 'string',
+        'hostId': 'string',
+        'availability_zone': 'string',
+        'terminated_at': 'string',
+        'image': 'string',
+        'floating_ip': 'string',
+        'diskConfig': 'string',
+        'key': 'string',
+        'flavor__id': 'string',
+        'user_id': 'string',
+        'flavor': 'string',
+        'static_ip': 'string',
+        'security_groups': 'string',
+        'volumes_attached': 'string',
+        'task_state': 'string',
+        'group': 'string',
+        'uuid': 'string',
+        'created': 'string',
+        'tenant_id': 'string',
+        'accessIPv4': 'string',
+        'accessIPv6': 'string',
+        'status': 'string',
+        'power_state': 'string',
+        'progress': 'string',
+        'image__id': 'string',
+        'launched_at': 'string',
+        'config_drive': 'string'
+    }
 }
 ```
+
+Object 4.29: OpenStack VM
 
 ### Azure
 
@@ -2067,84 +2092,88 @@ section.
 The object referring to the image size machines is listed in Object
 4.30.
 
-  []{#_Toc497917225 .anchor}Object 4.30: Azure-Size
 
 ```
- {
- 'azure-size': {
- '_uuid': 'None',
- 'name': 'D14 Faster Compute Instance',
- 'extra': {
- 'cores': 16,
- 'max_data_disks': 32
- },
- 'price': 1.6261,
- 'ram': 114688,
- 'driver': 'libcloud',
- 'bandwidth': 'None',
- 'disk': 127,
- 'id': 'Standard_D14'
- }
- ```
- }
+{
+    'azure-size': {
+        '_uuid': 'None',
+        'name': 'D14 Faster Compute Instance',
+        'extra': {
+            'cores': 16,
+            'max_data_disks': 32
+        },
+        'price': 1.6261,
+        'ram': 114688,
+        'driver': 'libcloud',
+        'bandwidth': 'None',
+        'disk': 127,
+        'id': 'Standard_D14'
+    }
+}
+```
+
+
+Object 4.30: Azure-Size
 
 #### Azure Image
 
 The object referring to the images machines is listed in Object 4.31.
 
-  []{#_Toc497917226 .anchor}Object 4.31: Azure-Image
 
 ```
-  {
-  'azure_image': {
-  '_uuid': 'None',
-  'driver': 'libcloud',
-  'extra': {
-  'affinity_group': '',
-  'category': 'Public',
-  'description': 'Linux VM image with coreclr-x64-beta5-11624 installed to /opt/dnx. This image is based on Ubuntu 14.04 LTS, with prerequisites of CoreCLR installed. It also contains PartsUnlimited demo app which runs on the installed coreclr. The demo app is installed to /opt/demo. To run the demo, please type the command /opt/demo/Kestrel in a terminal window. The website is listening on port 5004. Please enable or map an endpoint of HTTP port 5004 for your azure VM.',
-  'location': 'East Asia;Southeast Asia;Australia East;Australia Southeast;Brazil South;North Europe;West Europe;Japan East;Japan West;Central US;East US 2; North Central US;South Central US;West US',
-  'media_link': '',
-  'os': 'Linux',
-  'vm_image': 'False'
-  },
-  'id': '03f55de797f546a1b29d1\....',
-  'name': 'CoreCLR x64 Beta5 (11624) with PartsUnlimited Demo App on Ubuntu Server 14.04 LTS'
-  }
-  }
-  ```
-  
+{
+    'azure_image': {
+      '_uuid': 'None',
+      'driver': 'libcloud',
+      'extra': {
+          'affinity_group': '',
+          'category': 'Public',
+          'description': 'Linux VM image with coreclr-x64-beta5-11624 installed to /opt/dnx. This image is based on Ubuntu 14.04 LTS, with prerequisites of CoreCLR installed. It also contains PartsUnlimited demo app which runs on the installed coreclr. The demo app is installed to /opt/demo. To run the demo, please type the command /opt/demo/Kestrel in a terminal window. The website is listening on port 5004. Please enable or map an endpoint of HTTP port 5004 for your azure VM.',
+          'location': 'East Asia;Southeast Asia;Australia East;Australia Southeast;Brazil South;North Europe;West Europe;Japan East;Japan West;Central US;East US 2; North Central US;South Central US;West US',
+          'media_link': '',
+          'os': 'Linux',
+          'vm_image': 'False'
+          },
+      'id': '03f55de797f546a1b29d1\....',
+      'name': 'CoreCLR x64 Beta5 (11624) with PartsUnlimited Demo App on Ubuntu Server 14.04 LTS'
+    }
+}
+```
+
+Object 4.31: Azure-Image
+
 #### Azure VM
 
 The object referring to the virtual machines is listed in Object 4.32.
 
-  []{#_Toc497917227 .anchor}Object 4.32: Azure VM
 
 ```
-  {
-  'azure-vm': {
-  'username': 'string',
-  'status': 'string',
-  'deployment_slot': 'string',
-  'cloud_service': 'string',
-  'image': 'string',
-  'floating_ip': 'string',
-  'image_name': 'string',
-  'key': 'string',
-  'flavor': 'string',
-  'resource_location': 'string',
-  'disk_name': 'string',
-  'private_ips': 'string',
-  'group': 'string',
-  'uuid': 'string',
-  'dns_name': 'string',
-  'instance_size': 'string',
-  'instance_name': 'string',
-  'public_ips': 'string',
-  'media_link': 'string'
-  }
-  }
-  ```
+{
+    'azure-vm': {
+        'username': 'string',
+        'status': 'string',
+        'deployment_slot': 'string',
+        'cloud_service': 'string',
+        'image': 'string',
+        'floating_ip': 'string',
+        'image_name': 'string',
+        'key': 'string',
+        'flavor': 'string',
+        'resource_location': 'string',
+        'disk_name': 'string',
+        'private_ips': 'string',
+        'group': 'string',
+        'uuid': 'string',
+        'dns_name': 'string',
+        'instance_size': 'string',
+        'instance_name': 'string',
+        'public_ips': 'string',
+        'media_link': 'string'
+    }
+}
+```
+
+Object 4.32: Azure VM
 
 Compute Services
 ----------------
@@ -2164,25 +2193,26 @@ cases, provide significant performance advantages. Disadvantages include
 the limited and preinstalled software stacks that, in some cases, do not
 allow the latest applications to run.
 
-  []{#_Toc497917228 .anchor}Object 4.33: Batch Job
 
 ```
 {
-'batchjob': {
-'output_file': 'string',
-'group': 'string',
-'job_id': 'string',
-'script': 'string, the batch job script',
-'cmd': 'string, executes the cmd, if None path is used',
-'queue': 'string',
-'cluster': 'string',
-'time': 'string',
-'path': 'string, path of the batchjob, if non cmd is used',
-'nodes': 'string',
-'dir': 'string'
-}
+    'batchjob': {
+        'output_file': 'string',
+        'group': 'string',
+        'job_id': 'string',
+        'script': 'string, the batch job script',
+        'cmd': 'string, executes the cmd, if None path is used',
+        'queue': 'string',
+        'cluster': 'string',
+        'time': 'string',
+        'path': 'string, path of the batchjob, if non cmd is used',
+        'nodes': 'string',
+        'dir': 'string'
+    }
 }
 ```
+
+Object 4.33: Batch Job
 
 ### Reservation
 
@@ -2190,37 +2220,38 @@ Some services may consume a considerable amount of resources,
 necessitating the reservation of resources. For this purpose, a
 reservation object (Object 4.34) has been introduced.
 
-  []{#_Toc497917229 .anchor}Object 4.34: Reservation
 
 ```
-  {
-  'reservation': {
-  'service': 'name of the service',
-  'description': 'what is this reservation for',
-  'start_time': ['date', 'time'],
-  'end_time': ['date', 'time']
-  }
-  }
-  ```
+{
+    'reservation': {
+        'service': 'name of the service',
+        'description': 'what is this reservation for',
+        'start_time': ['date', 'time'],
+        'end_time': ['date', 'time']
+    }
+}
+```
+
+Object 4.34: Reservation
 
 Containers
 ----------
 
 The following defines the container object.
 
-  []{#_Toc497917230 .anchor}Object 4.35: Container
-
 ```
 {
-'container': {
-'name': 'container1',
-'endpoint': 'http://\.../container/',
-'ip': '127.0.0.1',
-'label': 'server-001',
-'memoryGB': 16
-}
+    'container': {
+        'name': 'container1',
+        'endpoint': 'http://\.../container/',
+        'ip': '127.0.0.1',
+        'label': 'server-001',
+        'memoryGB': 16
+    }
 }
 ```
+
+Object 4.35: Container
 
 Deployment
 ----------
@@ -2229,30 +2260,32 @@ A *deployment* consists of the resource *cluster*, the location
 *provider* (e.g., OpenStack), and software *stack* to be deployed (e.g.,
 Hadoop, Spark).
 
-  []{#_Toc497917231 .anchor}Object 4.36: Deployment
 
 ```
- {
- 'deployment': {
- 'cluster': [{ 'name': 'myCluster'},
- { 'id' : 'cm-0001'}
- ],
- 'stack': {
- 'layers': [
- 'zookeeper',
- 'hadoop',
- 'spark',
- 'postgresql'
- ],
- 'parameters': {
- 'hadoop': { 'zookeeper.quorum': [ 'IP', 'IP', 'IP']
- }
- }
- }
- }
- }
- ```
- 
+{
+    'deployment': {
+        'cluster': [
+            { 'name': 'myCluster'},
+            { 'id' : 'cm-0001'}
+        ],
+        'stack': {
+            'layers': [
+                'zookeeper',
+                'hadoop',
+                'spark',
+                'postgresql'
+                ],
+            'parameters': {
+                'hadoop': { 'zookeeper.quorum': [ 'IP', 'IP', 'IP']
+        }
+        }
+        }
+    }
+}
+```
+
+Object 4.36: Deployment
+
 Map/Reduce
 ----------
 
@@ -2266,25 +2299,26 @@ fetched from a File Transfer Protocol (FTP) resource. It is the
 framework's responsibility to materialize an instantiation of the
 desired environment along with the function and data.
 
-  []{#_Toc497917232 .anchor}Object 4.37: Map/Reduce
 
 ```
- {
- 'mapreduce': {
- 'function': {
- 'source': 'file://.',
- 'args': {}
- },
- 'data': {
- 'source': 'ftp:///\...',
- 'dest': '/data'
- },
- 'fault_tolerant': true,
- 'backend': {'type': 'hadoop'}
- }
- }
- ```
- 
+{
+    'mapreduce': {
+        'function': {
+            'source': 'file://.',
+            'args': {}
+        },
+        'data': {
+            'source': 'ftp:///\...',
+            'dest': '/data'
+        },
+        'fault_tolerant': true,
+        'backend': {'type': 'hadoop'}
+    }
+}
+```
+
+Object 4.37: Map/Reduce
+
 Additional parameters include the *fault\\_tolerant* and *backend*
 parameters. The former flag indicates if the *Map/Reduce* deployment
 should operate in a fault tolerant mode. For instance, in the case of
@@ -2306,54 +2340,59 @@ accessed via the *outputs* object, which is a mapping from arbitrary
 keys (e.g., data, processed, model) to an object representing the
 result.
 
-  []{#_Toc497917233 .anchor}Object 4.38: Map/Reduce Function
+
 
 ```
- {
- 'mapreduce_function': {
- 'name': 'name of this function',
- 'description': 'These should be self-describing',
- 'source': 'a URI to obtain the resource',
- 'install': {
- 'description': 'instructions to install the source if needed',
- 'script': 'source://install.sh'
- },
- 'eval': {
- 'description': 'How to evaluate this function',
- 'script': 'source://run.sh'
- },
- 'args': [
- {
- 'argument': 'value'
- }
- ],
- 'buildInputs': [
- 'list of dependent objects'
- ],
- 'systemBuildInputs': [
- 'list of packages'
- ],
- 'outputs': {
- 'key': 'value'
- }
- }
- }
+{
+    'mapreduce_function': {
+        'name': 'name of this function',
+        'description': 'These should be self-describing',
+        'source': 'a URI to obtain the resource',
+        'install': {
+            'description': 'instructions to install the source if needed',
+            'script': 'source://install.sh'
+        },
+        'eval': {
+            'description': 'How to evaluate this function',
+            'script': 'source://run.sh'
+        },
+        'args': [
+            {
+                'argument': 'value'
+            }
+            ],
+            'buildInputs': [
+                'list of dependent objects'
+            ],
+            'systemBuildInputs': [
+            '   list of packages'
+            ],
+            'outputs': {
+                'key': 'value'
+            }
+    }
+}
 ```
+
+Object 4.38: Map/Reduce Function
+
+
 One example function is the *NoOp* function shown in Object 4.39. In the
 case of undefined arguments, the parameters default to an identity
 element. In the case of mappings, the identity element is the empty
 mapping while for lists, the identity element is the empty list.
 
-  []{#_Toc497917234 .anchor}Object 4.39: Map/Reduce NoOp
 
 ```
 {
-'mapreduce_noop': {
-'name': 'noop',
-'description': 'A function with no effect'
-}
+    'mapreduce_noop': {
+        'name': 'noop',
+        'description': 'A function with no effect'
+    }
 }
 ```
+
+Object 4.39: Map/Reduce NoOp
 
 ### Hadoop
 
@@ -2362,34 +2401,35 @@ of the deployment, and the system packages *required*. For each
 requirement, it could have attributes such as the library origin,
 version, and other attributes (see Object 4.40).
 
-  []{#_Toc497917235 .anchor}Object 4.40: Hadoop
 
 ```
 {
-'hadoop': {
-'deployers': {
-'ansible': 'git://github.com/cloudmesh_roles/hadoop'
-},
-'requires': {
-'java': {
-'implementation': 'OpenJDK',
-'version': '1.8',
-'zookeeper': 'TBD',
-'supervisord': 'TBD'
-}
-},
-'parameters': {
-'num_resourcemanagers': 1,
-'num_namenodes': 1,
-'use_yarn': false,
-'use_hdfs': true,
-'num_datanodes': 1,
-'num_historyservers': 1,
-'num_journalnodes': 1
-}
-}
+    'hadoop': {
+        'deployers': {
+            'ansible': 'git://github.com/cloudmesh_roles/hadoop'
+        },
+        'requires': {
+            'java': {
+            'implementation': 'OpenJDK',
+            'version': '1.8',
+            'zookeeper': 'TBD',
+            'supervisord': 'TBD'
+            }
+        },
+        'parameters': {
+            'num_resourcemanagers': 1,
+            'num_namenodes': 1,
+            'use_yarn': false,
+            'use_hdfs': true,
+            'num_datanodes': 1,
+            'num_historyservers': 1,
+            'num_journalnodes': 1
+        }
+    }
 }
 ```
+
+Object 4.40: Hadoop
 
 Microservice
 ------------
@@ -2400,15 +2440,18 @@ created. Defining multiple services facilitates the finding of the
 microservices and the use as part of a microservice-based
 implementation.
 
-  []{#_Toc497917236 .anchor}Object 4.41: Microservice
 
+```
 {
-'microservice' :{
-'name': 'ms1',
-'endpoint': 'http://\.../ms/',
-'function': 'microservice spec'
+    'microservice' :{
+        'name': 'ms1',
+        'endpoint': 'http://\.../ms/',
+        'function': 'microservice spec'
+    }
 }
-}
+```
+
+Object 4.41: Microservice
 
 Status Codes and Error Responses
 ================================
@@ -2423,7 +2466,7 @@ response body usually contains the following:
 
 -A field or object where the error occurred.
 
-[]{#_Toc497917238 .anchor}Table 1: HTTP Response Codes
+Table 1: HTTP Response Codes
 
   **HTTP ****Response Description Code **
   ----------- -----------------------------------------------------------------------------------------------
@@ -2439,12 +2482,12 @@ response body usually contains the following:
   405The method specified in the Request-Line isn't allowed for the resource specified in the URI.
   415The entity in the request is in a format that's not supported by the specified method.
 
-A.  B.  []{#_Toc497917188 .anchor}Schema
+A.  B.  Schema
 
 Object A.1 showcases the schema generated from the objects defined in
 this document.
 
-  []{#_Toc497917237 .anchor}Object A.1: Schema
+Object A.1: Schema
 
 ```
  container = {
@@ -4508,7 +4551,7 @@ this document.
 
 ```
 
-C.  []{#_Toc497917189 .anchor}Cloudmesh REST
+C.  Cloudmesh REST
 
 Cloudmesh Rest is a reference implementation for the NBDRA. It allows
 for automatic definition of a REST service based on the objects
@@ -4516,7 +4559,7 @@ specified by the NBDRA. In collaboration with other cloudmesh
 components, it allows easy interaction with hybrid clouds and the
 creation of user-managed Big Data services.
 
-1.  []{#_Toc497917190 .anchor}Prerequisites
+1.  Prerequisites
 
 The prerequisites for cloudmesh Rest are Python 2.7.13 or 3.6.1. It can
 easily be installed on a variety of systems (At this time, only ubuntu
@@ -4529,7 +4572,7 @@ system is set up for developing Python) as simple as the following:
 
 pip install cloudmesh.rest
 
-2.  []{#_Toc497917191 .anchor}REST Service
+2.  REST Service
 
 With the cloudmesh REST framework, it is easy to create REST services
 while defining the resources via example JSON objects. This is achieved
@@ -4538,6 +4581,7 @@ evengine [3].
 
 A valid JSON resource specification looks like this:
 
+```
 {
 
  'profile': {
@@ -4547,8 +4591,8 @@ A valid JSON resource specification looks like this:
   'lastname': 'von Laszewski',
   'username': 'gregor'
  }
-
 }
+```
 
 In this example, an object called profile is defined, which contains a
 number of attributes and values. The type of the values is automatically
@@ -4556,9 +4600,11 @@ determined. All JSON specifications are contained in a directory and can
 easily be converted into a valid schema for the eve REST service by
 executing the following commands:
 
+```
 cms schema cat . all.json
 
 cms schema convert all.json
+```
 
 This will create the configuration \\verb\|all.settings.py\| that can be
 used to start an eve service.
@@ -4567,7 +4613,7 @@ Once the schema has been defined, cloudmesh specifies defaults for
 managing a sample database that is coupled with the REST service.
 MongoDB was used, which could be placed on a shared mongo service.
 
-3.  []{#_Toc497917192 .anchor}Limitations
+3. Limitations
 
 The current implementation is a demonstration that showcases the
 generation of a fully functioning REST service based on the
@@ -4575,7 +4621,7 @@ specifications provided in this document. However, it is expected that
 scalability, distribution of services, and other advanced options need
 to be addressed based on application requirements.
 
-D.  E.  []{#_Toc497917193 .anchor}Acronyms and Terms
+D.  E.  Acronyms and Terms
 
 The following acronyms and terms are used in this volume.
 
@@ -4660,7 +4706,7 @@ Workflow The sequence of processes or tasks
 
 WWW World Wide Web
 
-F.  G.  []{#_Toc497917194 .anchor}Bibliography
+F.  G.  Bibliography
 
 [1] Cerberus. URL: http://docs.python-cerberus.org/.
 
