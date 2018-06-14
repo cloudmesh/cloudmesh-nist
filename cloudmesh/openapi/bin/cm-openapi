@@ -1,0 +1,78 @@
+#! /usr/bin/env python
+
+"""Cloudmesh OpenAPI Code Generator.
+
+Usage:
+  cm-openapi install
+  cm-openapi generate <SERVICES>...
+  cm-openapi create <SERVICES>... --target=<SERVICE>
+  cm-openapi rm <SERVICES>...
+  cm-openapi run <SERVICES>...
+  cm-openapi kill <SERVICES>...
+  cm-openapi ps
+  cm-openapi info <SERVICE>
+  cm-openapi pack docker <SERVICES>...
+
+  cm-openapi (-h | --help)
+  cm-openapi --version
+
+Options:
+  -h --help     Show this screen.
+  --version     Show version.
+  --speed=<kn>  Speed in knots [default: 10].
+  --moored      Moored (anchored) mine.
+  --drifting    Drifting mine.
+
+Description:
+
+  cm-openapi installs in 
+     ~/.cloudmesh/bin/cm-openapi
+
+  supporting files are installed in 
+     ~/.cloudmesh/lib/cm-openapi
+
+  install 
+      installs the swagger-codegen and other tools
+
+  generate <SERVICES>...
+    generates the service stubs while using the example as template
+    replaces the "example" with <SERVICE> where needed
+
+  create <SERVICES>... --target=<SERVICE>
+    creates all the REST SERVICE
+
+  pack docker <SERVICES>... --target=<SERVICE>
+    creates all the REST SERVICES in a docker container
+
+  rm <SERVICES>... 
+    deletes the source of the services. This function must be 
+    executed with care
+
+  run <SERVICES>...
+    runs the service
+
+  kill <SERVICES>...
+    kills the service
+
+  ps
+    lists all running services
+
+  info <SERVICE>
+     provides information about the service
+
+"""
+
+''' manual page draft
+
+have some kind of git script similar to
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+'''
+
+from docopt import docopt
+
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version='Naval Fate 2.0')
+    print(arguments)
