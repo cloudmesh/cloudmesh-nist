@@ -4,6 +4,7 @@
 
 Usage:
   cm-openapi install
+  cm-openapi update
   cm-openapi generate <SERVICES>...
   cm-openapi create <SERVICES>... --target=<SERVICE>
   cm-openapi rm <SERVICES>...
@@ -23,13 +24,17 @@ Options:
   --moored      Moored (anchored) mine.
   --drifting    Drifting mine.
 
+Files:
+  This is not fully thought through
+  ~/.cloudmesh/bin/cm-openapi
+    location of the executable
+  ~/.cloudmesh/lib/cm-openapi
+    location of the samples
+
 Description:
 
-  cm-openapi installs in 
-     ~/.cloudmesh/bin/cm-openapi
-
-  supporting files are installed in 
-     ~/.cloudmesh/lib/cm-openapi
+  install 
+      installs the swagger-codegen and other tools
 
   install 
       installs the swagger-codegen and other tools
@@ -72,7 +77,8 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 
 from docopt import docopt
 
+VERSION="0.1"
 
 if __name__ == '__main__':
-    arguments = docopt(__doc__, version='Naval Fate 2.0')
+    arguments = docopt(__doc__, version=VERSION)
     print(arguments)

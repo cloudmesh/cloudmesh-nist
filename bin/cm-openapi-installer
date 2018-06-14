@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+set -e
+[ -n "$CLOUDMESH_DEBUG" ] && set -x
+
+if [ -z "$CLOUDMESH_ROOT" ]; then
+  CLOUDMESH_ROOT="${HOME}/.cloudmesh"
+fi
+
+shell="$1"
+if [ -z "$shell" ]; then
+  shell="$(ps c -p "$PPID" -o 'ucomm=' 2>/dev/null || true)"
+  shell="${shell##-}"
+  shell="${shell%% *}"
+  shell="$(basename "${shell:-$SHELL}")"
+fi
+
+colorize() {
+  if [ -t 1 ]; then printf "\e[%sm%s\e[m" "$1" "$2"
+  else echo -n "$2"
+  fi
+}
+
+failed_checkout() {
+  echo "Failed to git clone $1"
+  exit -1
+}
+
+checkout() {
+    echo $1
+    echo $2
+    mkdir -p $2 || true
+    git clone --depth 1 "$1" "$2" || failed_checkout "$1"
+}
+
+if ! command -v git 1>/dev/null 2>&1; then
+  echo "cloudmesh: Git is not installed, can't continue." >&2
+  exit 1
+fi
+
+if [ -n "${USE_GIT_URI}" ]; then
+  GITHUB="git://github.com"
+else
+  GITHUB="https://github.com"
+fi
+
+rm -rf /tmp/nist
+checkout "${GITHUB}/cloudmesh-community/nist.git" /tmp/nist
+cp -rf /tmp/nist/cloudmesh/openapi "${CLOUDMESH_ROOT}"
+rm -rf /tmp/nist
+
+if ! command -v cm-openapi 1>/dev/null; then
+  { echo
+    colorize 1 "WARNING"
+    echo ": seems you have not added 'cloudmesh' to the load path."
+    echo
+  } >&2
+
+  case "$shell" in
+  bash )
+    profile="~/.bash_profile"
+    ;;
+  zsh )
+    profile="~/.zshrc"
+    ;;
+  ksh )
+    profile="~/.profile"
+    ;;
+  fish )
+    profile="~/.config/fish/config.fish"
+    ;;
+  * )
+    profile="your profile"
+    ;;
+  esac
+
+  { echo "# Load cloudmesh automatically by adding"
+    echo "# the following to ${profile}:"
+    echo
+    case "$shell" in
+    fish )
+      echo "set -x PATH \"${CLOUDMESH_ROOT}/openapi/bin\" \$PATH"
+      ;;
+    * )
+      echo "export PATH=\"${CLOUDMESH_ROOT}/openapi/bin:\$PATH\""
+      ;;
+    esac
+  } >&2
+fi
