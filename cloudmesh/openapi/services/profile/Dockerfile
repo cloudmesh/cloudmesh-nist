@@ -1,5 +1,7 @@
-FROM ubuntu:14.04
-MAINTAINER Yue Guo <yueguo@iu.edu>
+# THIS IS ALL WRONG
+
+FROM ubuntu:18.04
+MAINTAINER Gregor von Laszewski (laszewksi@gmail.com)
 
 RUN apt-get update -q && apt-get install -qy \
     build-essential \

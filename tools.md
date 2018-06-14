@@ -1,3 +1,18 @@
+# pyenv install
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+# pyenv update
+
+pyenv install 3.6.5
+pyenv install 2.7.15
+
+pyenv virtualenv 3.6.5 ENV3
+pyenv virtualenv 2.7.15 ENV2
+
+
+----
+
 * <https://github.com/swagger-api/swagger-codegen/blob/master/CONTRIBUTING.md>
 
 * <http://openapi.tools/>
