@@ -3,16 +3,15 @@
 """Cloudmesh OpenAPI Code Generator.
 
 Usage:
-  cm-openapi install
   cm-openapi update
-  cm-openapi generate <SERVICES>...
-  cm-openapi create <SERVICES>... --target=<SERVICE>
-  cm-openapi rm <SERVICES>...
-  cm-openapi run <SERVICES>...
-  cm-openapi kill <SERVICES>...
+  cm-openapi generate SERVICES...
+  cm-openapi create SERVICES... --target=SERVICE
+  cm-openapi rm SERVICES...
+  cm-openapi run SERVICES...
+  cm-openapi kill SERVICES...
   cm-openapi ps
-  cm-openapi info <SERVICE>
-  cm-openapi pack docker <SERVICES>...
+  cm-openapi info SERVICE
+  cm-openapi pack docker SERVICES...
 
   cm-openapi (-h | --help)
   cm-openapi --version
@@ -20,9 +19,6 @@ Usage:
 Options:
   -h --help     Show this screen.
   --version     Show version.
-  --speed=<kn>  Speed in knots [default: 10].
-  --moored      Moored (anchored) mine.
-  --drifting    Drifting mine.
 
 Files:
   This is not fully thought through
@@ -33,36 +29,30 @@ Files:
 
 Description:
 
-  install 
-      installs the swagger-codegen and other tools
-
-  install 
-      installs the swagger-codegen and other tools
-
-  generate <SERVICES>...
+  generate SERVICES...
     generates the service stubs while using the example as template
-    replaces the "example" with <SERVICE> where needed
+    replaces the "example" with SERVICE where needed
 
-  create <SERVICES>... --target=<SERVICE>
+  create SERVICES... --target=SERVICE
     creates all the REST SERVICE
 
-  pack docker <SERVICES>... --target=<SERVICE>
+  pack docker SERVICES... --target=SERVICE
     creates all the REST SERVICES in a docker container
 
-  rm <SERVICES>... 
+  rm SERVICES... 
     deletes the source of the services. This function must be 
     executed with care
 
-  run <SERVICES>...
+  run SERVICES...
     runs the service
 
-  kill <SERVICES>...
+  kill SERVICES...
     kills the service
 
   ps
     lists all running services
 
-  info <SERVICE>
+  info SERVICE
      provides information about the service
 
 """
@@ -79,6 +69,44 @@ from docopt import docopt
 
 VERSION="0.1"
 
+def generate(services):
+    print (services)
+
+def kill(services):
+    print (services)
+
+def run(services):
+    print (services)
+
+def rm(services):
+    print (services)
+
+def create(services):
+    print (services)
+
+def pack(services):
+    print (services)
+
+def ps(services):
+    print (services)
+
+
+
 if __name__ == '__main__':
     arguments = docopt(__doc__, version=VERSION)
     print(arguments)
+    if "generate" in arguments:
+       generate(arguments["SERVICES"])
+    elif "kill" in arguments:
+       kill(arguments["SERVICES"])
+    elif "run" in arguments:
+       run(arguments["SERVICES"])
+    elif "rm" in arguments:
+       rm(arguments["SERVICES"])
+    elif "create" in arguments:
+       create(arguments["SERVICES"])
+    elif "pack" in arguments:
+       pack(arguments["SERVICES"])
+    elif "ps" in arguments:
+       ps()
+       
