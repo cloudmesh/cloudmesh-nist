@@ -2,18 +2,17 @@ OBJECTS=keystore profile
 
 .PHONY: service
 
-service: openapi controller
+all: service controller
 	@echo
 
-openapi:
-	bin/merge-openapi.py $(OBJECTS) --out service/all.yaml
+service:
+	bin/cm-openapi service generate $(OBJECTS) --target=service
 
 controller:
-	bin/cat_controllers.py keystore profile > service/all_controller.py
+	bin/cm-openapi controller generate $(OBJECTS) --target=service
 
 mongo-start:
 	make -f Makefile mongo_start
-
 
 mongo-kill:
 	make -f Makefile mongo_kill

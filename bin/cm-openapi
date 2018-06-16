@@ -88,7 +88,10 @@ import re
 
 VERSION="0.1"
 
+DEBUG= False
+
 columns, lines = os.get_terminal_size()
+
 
 
 def ERROR(*args, **kwargs):
@@ -259,7 +262,11 @@ def run(services):
 
 @print_function_name
 def rm(services):
-    print (services)
+    os.remove(os.path.join("service", "service.yaml"))
+    os.remove(os.path.join("service", "service_controller.py"))
+
+    for service in services:
+        print (service)
 
 @print_function_name
 def create(services):
@@ -310,7 +317,7 @@ def analyse():
     elif arguments["clean"]:
        clean()
     elif arguments["rm"]:
-       rm(arguments["SERVICES"])
+        rm(arguments["SERVICES"])
     elif arguments["info"]:
        info(arguments["SERVICES"])
     elif arguments["pack"]:
@@ -337,6 +344,7 @@ def analyse():
 
 if __name__ == '__main__':
     arguments = docopt(__doc__, version=VERSION)
-    print(arguments)
+    if DEBUG:
+        print(arguments)
 
     analyse()
