@@ -1,24 +1,27 @@
 #! /usr/bin/env python
-
 """Cloudmesh OpenAPI Code Generator.
 
 Usage:
   cm-openapi update
-  cm-openapi generate SERVICES...
-  cm-openapi create SERVICES... --target=SERVICE
+  cm-openapi controller generate SERVICES... [--target=SERVICE]
+  cm-openapi controller list
+  cm-openapi service generate SERVICES...
+  cm-openapi service create SERVICES... --target=SERVICE
+  cm-openapi clean
   cm-openapi rm SERVICES...
   cm-openapi run SERVICES...
   cm-openapi kill SERVICES...
-  cm-openapi ps
-  cm-openapi info SERVICE
+  cm-openapi ps [SERVICES...]
+  cm-openapi info SERVICES...
   cm-openapi pack docker SERVICES...
 
   cm-openapi (-h | --help)
   cm-openapi --version
 
 Options:
-  -h --help     Show this screen.
-  --version     Show version.
+  --target=SERVICE The service to be generated [default:service]
+  -h --help        Show this screen.
+  --version        Show version.
 
 Files:
   This is not fully thought through
@@ -49,13 +52,14 @@ Description:
   kill SERVICES...
     kills the service
 
-  ps
+  ps [SERVICES...]
     lists all running services
 
-  info SERVICE
-     provides information about the service
+  info SERVICES..
+     provides information about the services
 
 """
+from __future__ import print_function
 
 ''' manual page draft
 
@@ -65,48 +69,183 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 
 '''
 
+
 from docopt import docopt
+import os
+import sys
 
 VERSION="0.1"
 
-def generate(services):
-    print (services)
+columns, lines = os.get_terminal_size()
 
+
+def ERROR(*args, **kwargs):
+    print("ERROR", *args, file=sys.stderr, **kwargs)
+
+class Controller(object):
+
+    def __init__(self, workdir="."):
+        self.workdir = workdir
+        self.controller = []
+
+    def generate(self, controllers):
+
+        code = ""
+        for controller in controllers:
+          try:
+            filename = os.path.join(self.workdir, "services", controller, controller + "_controller.py")
+            code = code + 79 * "#" + "\n"
+            code = code + "#" + filename + "\n"
+            code = code + 79 * "#" + "\n"
+            with open(filename, 'r') as _file:
+              for line in iter((_file.readline), ""):
+                code = code + line
+          except IOError as _err:
+            ERROR("ERROR:", controller)
+        return code
+
+    def list(self):
+        path = os.path.join(self.workdir, "services")
+        services = os.listdir(path)
+        services.remove("__init__.py")
+        return services
+
+def print_function_name(func):
+    def echo_func(*func_args, **func_kwargs):
+        print('')
+        print (columns * '-')
+        print('Executing {}'.format(func.__name__))
+        print (columns * '-')
+        return func(*func_args, **func_kwargs)
+    return echo_func
+
+class Swagger(object):
+
+    def __init__(self):
+        self.CLOUDMESH="~/.cloudmesh/openapi/bin"
+        self.SWAGGERCODEGEN=\
+            "java -jar {CLOUDMESH}/swagger-codegen-cli-2.3.1.jar".format(CLOUDMESH=self.CLOUDMESH)
+        self.CREATED = "server"
+
+    def generate(self, service):
+        SERVICE = service
+        YAMLFILE = service + ".yaml"
+        DESTDIR = os.path.join("server",service, "flaskConnexion")
+
+        command = "{swaggercodegen} generate " + \
+	        "-i {yamlfile} " \
+            "-l python-flask " + \
+            "-o {DESTDIR} " + \
+            "-D supportPython2=true && " + \
+            "cp -rf {SERVICE}_controller.py {DESTDIR}/swagger_server/controllers/default_controller.py && "+ \
+            "cd {DESTDIR} && pip install -r requirements.txt && " + \
+            "python setup.py install "
+        command = command.format(
+                yamlfile=YAMLFILE,
+                swaggercodegen=self.SWAGGERCODEGEN,
+                SERVICE=service,
+                DESTDIR=DESTDIR
+            )
+        print (columns * '.')
+        print (command)
+        print (columns * '.')
+        os.system(command)
+        print (columns * '.')
+
+
+def execute (commands):
+    lines = commands.split("\n")
+    for line in lines:
+        os.system(line)
+
+@print_function_name
+def generate(services):
+    print ("generate")
+    print (services)
+    #script = """
+    #ls
+    #"""
+    #execute(script)
+    s = Swagger()
+    s.generate("example")
+
+@print_function_name
+def clean():
+    script = """
+    rm -rf {CREATED}
+    """
+    s = Swagger()
+    script = script.format(CREATED=s.CREATED)
+    print(script)
+    execute(script)
+
+@print_function_name
 def kill(services):
     print (services)
 
+@print_function_name
 def run(services):
     print (services)
 
+@print_function_name
 def rm(services):
     print (services)
 
+@print_function_name
 def create(services):
     print (services)
 
+@print_function_name
 def pack(services):
     print (services)
 
+@print_function_name
 def ps(services):
+    if len(services) == 0:
+       services = None
+    print ("ps")
     print (services)
 
+@print_function_name
+def info(services):
+    print (services)
+
+def analyse():
+    
+    if arguments["generate"] and arguments["service"]:
+       generate(arguments["SERVICES"])
+    elif arguments["kill"]:
+       kill(arguments["SERVICES"])
+    elif arguments["run"]:
+       run(arguments["SERVICES"])
+    elif arguments["clean"]:
+       clean()
+    elif arguments["rm"]:
+       rm(arguments["SERVICES"])
+    elif arguments["create"]  and arguments["service"]:
+       create(arguments["SERVICES"])
+    elif arguments["info"]:
+       info(arguments["SERVICES"])
+    elif arguments["pack"]:
+       pack(arguments["SERVICES"])
+    elif arguments["ps"]:
+       ps(arguments["SERVICES"])
+    elif arguments["controller"] and arguments["generate"]:
+       c = Controller()
+       service = arguments['--target'] or "service"
+       code = c.generate(arguments["SERVICES"])
+       with open(os.path.join(service, service + "_controller.py"), "w") as f:
+           print (code, file=f)
+
+    elif arguments["controller"] and arguments["list"]:
+       c = Controller()
+       services = c.list()
+       for service in services:
+           print(service)
 
 
 if __name__ == '__main__':
     arguments = docopt(__doc__, version=VERSION)
     print(arguments)
-    if "generate" in arguments:
-       generate(arguments["SERVICES"])
-    elif "kill" in arguments:
-       kill(arguments["SERVICES"])
-    elif "run" in arguments:
-       run(arguments["SERVICES"])
-    elif "rm" in arguments:
-       rm(arguments["SERVICES"])
-    elif "create" in arguments:
-       create(arguments["SERVICES"])
-    elif "pack" in arguments:
-       pack(arguments["SERVICES"])
-    elif "ps" in arguments:
-       ps()
-       
+
+    analyse()
