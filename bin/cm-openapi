@@ -5,8 +5,8 @@ Usage:
   cm-openapi update
   cm-openapi controller generate SERVICES... [--target=SERVICE]
   cm-openapi controller list
-  cm-openapi service generate SERVICES...
-  cm-openapi service create SERVICES... --target=SERVICE
+  cm-openapi service init SERVICE
+  cm-openapi service generate SERVICES... --target=SERVICE
   cm-openapi clean
   cm-openapi rm SERVICES...
   cm-openapi run SERVICES...
@@ -58,6 +58,17 @@ Description:
   info SERVICES..
      provides information about the services
 
+
+Examples:
+
+    bin/cm-openapi service  generate keystore profile --target=service
+
+        generates the merged yaml files in service/service.yaml
+
+    bin/cm-openapi controller  generate keystore profile --target=service
+
+        generates the merged controller files in service/service_controller.yaml
+
 """
 from __future__ import print_function
 
@@ -73,6 +84,7 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 from docopt import docopt
 import os
 import sys
+import re
 
 VERSION="0.1"
 
@@ -127,7 +139,65 @@ class Swagger(object):
             "java -jar {CLOUDMESH}/swagger-codegen-cli-2.3.1.jar".format(CLOUDMESH=self.CLOUDMESH)
         self.CREATED = "server"
 
-    def generate(self, service):
+    def init(self):
+        pass
+
+    def generate(self, services, out=sys.stdout):
+        # ! /usr/bin/env python
+        # #
+        # ussage:
+        #     python bin/merge-openapi.py keystore profile
+        #
+
+        def read(dir, service):
+            with open(os.path.join(dir, service, service + ".yaml"), "r") as f:
+                content = f.read()
+            return content
+
+        def read_header(dir, service):
+            with open(os.path.join(dir, service + ".yaml"), "r") as f:
+                content = f.read()
+            return content
+
+        def parse_definitions(content):
+            return content.split("definitions:")[1]
+
+        def parse_paths(content):
+            return content.split("paths:")[1].split("definitions:")[0]
+
+        def merge_yaml(services):
+            out = ""
+            out = out + "definitions:"
+            for service in services:
+                content = read("services", service)
+                out = out + parse_paths(content)
+
+            out = out + "paths:"
+            for service in services:
+                content = read("services", service)
+                out = out + parse_definitions(content)
+            return out
+
+        def merge(services, out):
+
+            header = read_header("service", "header")
+            output = header + "paths:"
+
+            for service in services:
+                content = read("services", service)
+                output = output + parse_paths(content)
+
+            output = output + "definitions:"
+
+            for service in services:
+                content = read("services", service)
+                output = output + parse_definitions(content)
+            output = re.sub(r'\n+', '\n', output)
+            print(output, file=out)
+
+        merge(services, out)
+
+    def create(self, service):
         SERVICE = service
         YAMLFILE = service + ".yaml"
         DESTDIR = os.path.join("server",service, "flaskConnexion")
@@ -211,9 +281,28 @@ def info(services):
     print (services)
 
 def analyse():
-    
+
+    #
+    # SERVICE
+    #
     if arguments["generate"] and arguments["service"]:
-       generate(arguments["SERVICES"])
+        service = arguments['--target'] or "service"
+        f = open(os.path.join(service, service + ".yaml"), "w")
+
+        s = Swagger()
+        s.generate(arguments["SERVICES"], f)
+
+    elif arguments["init"]  and arguments["service"]:
+        s = Swagger()
+        s.init(arguments["SERVICES"])
+    elif arguments["generate"]  and arguments["service"]:
+        s = Swagger()
+        s.generate(arguments["SERVICES"])
+
+
+    #
+    # MANAGEMENT
+    #
     elif arguments["kill"]:
        kill(arguments["SERVICES"])
     elif arguments["run"]:
@@ -222,14 +311,16 @@ def analyse():
        clean()
     elif arguments["rm"]:
        rm(arguments["SERVICES"])
-    elif arguments["create"]  and arguments["service"]:
-       create(arguments["SERVICES"])
     elif arguments["info"]:
        info(arguments["SERVICES"])
     elif arguments["pack"]:
        pack(arguments["SERVICES"])
     elif arguments["ps"]:
        ps(arguments["SERVICES"])
+
+    #
+    # CONTROLLER
+    #
     elif arguments["controller"] and arguments["generate"]:
        c = Controller()
        service = arguments['--target'] or "service"
