@@ -69,6 +69,11 @@ Examples:
 
         generates the merged controller files in service/service_controller.yaml
 
+    bin/cm-openapi service init abc
+
+        create a new service aclled abc in the services directory. It is mcloned
+        and modified from example
+
 """
 from __future__ import print_function
 
@@ -85,6 +90,8 @@ from docopt import docopt
 import os
 import sys
 import re
+import shutil
+from prompter import yesno
 
 VERSION="0.1"
 
@@ -142,8 +149,38 @@ class Swagger(object):
             "java -jar {CLOUDMESH}/swagger-codegen-cli-2.3.1.jar".format(CLOUDMESH=self.CLOUDMESH)
         self.CREATED = "server"
 
-    def init(self):
-        pass
+    def replace(self, filename, source, destination):
+
+        with open(filename) as f:
+            newText = f.read().replace(source, destination)
+
+        with open(filename, "w") as f:
+            f.write(newText)
+
+    def init(self, service):
+        source = os.path.join("services", "example")
+        destination = os.path.join("services", service)
+
+        print (source, "->", destination)
+
+        if os.path.isdir(destination):
+            if yesno("The service '" + destination + "' already exists. Delete"):
+                shutil.rmtree(destination)
+            else:
+                return
+        shutil.copytree(source, destination)
+        yamlfile = os.path.join(destination, service + ".yaml")
+        controllerfile = os.path.join(destination, service + "_controller.py")
+        os.rename(os.path.join(destination,"example.yaml"), yamlfile)
+        os.rename(os.path.join(destination,"example_controller.py"), controllerfile)
+
+        self.replace(yamlfile, "key", service)
+        self.replace(yamlfile, "Key", service.capitalize())
+
+        self.replace(controllerfile, "key", service)
+        self.replace(controllerfile, "Key", service.capitalize())
+
+
 
     def generate(self, services, out=sys.stdout):
         # ! /usr/bin/env python
@@ -301,7 +338,7 @@ def analyse():
 
     elif arguments["init"]  and arguments["service"]:
         s = Swagger()
-        s.init(arguments["SERVICES"])
+        s.init(arguments["SERVICE"])
     elif arguments["generate"]  and arguments["service"]:
         s = Swagger()
         s.generate(arguments["SERVICES"])
