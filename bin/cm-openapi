@@ -23,12 +23,23 @@ Options:
   -h --help        Show this screen.
   --version        Show version.
 
+Todo:
+  The following commands are not yet implemented
+
+    rm
+    run
+    kill
+    ps
+    info
+    pack
+
 Files:
   This is not fully thought through
   ~/.cloudmesh/bin/cm-openapi
     location of the executable
   ~/.cloudmesh/lib/cm-openapi
     location of the samples
+
 
 Description:
 
