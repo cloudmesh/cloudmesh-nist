@@ -108,8 +108,10 @@ VERSION="0.1"
 
 DEBUG= False
 
-columns, lines = os.get_terminal_size()
-
+try:
+    columns, lines = os.get_terminal_size()
+except:
+    rows, columns = os.popen('stty size', 'r').read().split()
 
 
 def ERROR(*args, **kwargs):
