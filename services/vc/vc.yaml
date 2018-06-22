@@ -1,0 +1,137 @@
+---
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title: "Virtual Cluster"
+  description: "Virtual Cluster example"
+  termsOfService: "http://bin.io/terms/"
+  contact: 
+    name: "Cloudmesh REST Service Example"
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license: 
+    name: "Apache"
+host: "localhost:8080"
+schemes: 
+  - "http"
+consumes: 
+  - "application/json"
+produces: 
+  - "application/json"
+paths: 
+  /cloudmesh/vc/vcs:
+    get: 
+      description: "Returns all vcs"
+      operationId: get_vc
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "profile info"
+          schema: 
+            $ref: "#/definitions/VC"
+    put:
+      summary: "Create a new vc"
+      operationId: add_vc
+      parameters:
+        - in: body
+          name: vc
+          description: "The new vc to create"
+          schema:
+            $ref: "#/definitions/VC"
+      responses:
+        "201":
+          description: Created
+  /cloudmesh/vc/vcs/{vcname}:
+    get: 
+      description: "Returns a vc by its name"
+      operationId: getVcByName
+      parameters:
+        - name: vcname
+          in: path
+          required: true
+          type: string
+      produces: 
+        - "application/json"
+      responses: 
+        "200":
+          description: "vc info"
+          schema: 
+            $ref: "#/definitions/VC"
+  /cloudmesh/vc/vcs/{vcname}/fe:
+    get:
+      description: "Returns the front-end node info of the specified vc"
+      operationId: getVcFeByName
+      parameters:
+        - name: vcname
+          in: path
+          required: true
+          type: string
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "vc front-end info"
+          schema:
+            $ref: "#/definitions/Node"
+  /cloudmesh/vc/vcs/{vcname}/{nodename}:
+    get:
+      description: "Returns the specified node info of the specified vc"
+      operationId: getVcNodeByName
+      parameters:
+        - name: vcname
+          in: path
+          required: true
+          type: string
+        - name: nodename
+          in: path
+          required: true
+          type: string
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "vc node info"
+          schema:
+            $ref: "#/definitions/Node"
+definitions:
+  VC:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      description:
+        type: "string"
+      nnodes:
+        type: "integer"
+      owner:
+        type: "string"
+      fe:
+        $ref: "#/definitions/Node"
+      nodes:
+        type: array
+        items:
+          $ref: "#/definitions/Node"
+  Node:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      state:
+        type: "string"
+      ncpu:
+        type: "integer"
+      ram:
+        type: "string"
+      disk:
+        type: "string"
+      nics:
+        type: "array"
+        items:
+          $ref: "#/definitions/NIC"
+  NIC:
+    type: "object"
+    properties:
+      mac:
+        type: "string"
+      ip:
+        type: "string"
