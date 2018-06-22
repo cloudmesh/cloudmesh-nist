@@ -3,7 +3,7 @@
 
 Usage:
   cm-openapi update
-  cm-openapi controller generate SERVICES... [--target=SERVICE]
+  cm-openapi controller install SERVICES... [--target=SERVICE]
   cm-openapi controller list
   cm-openapi service init SERVICE
   cm-openapi service generate SERVICES... --target=SERVICE
@@ -76,9 +76,9 @@ Examples:
 
         generates the merged yaml files in service/service.yaml
 
-    bin/cm-openapi controller  generate keystore profile --target=service
+    bin/cm-openapi controller  install keystore profile --target=service
 
-        generates the merged controller files in service/service_controller.yaml
+        install the controller files (with actual implementation) in service/service_controller.yaml
 
     bin/cm-openapi service init abc
 
@@ -123,8 +123,11 @@ class Controller(object):
         self.workdir = workdir
         self.controller = []
 
-    def generate(self, controllers):
-
+    def install(self, controllers):
+        # old way to merge.
+        # Now deprecated due to using multiple controllers are allowed
+        #
+        '''
         code = ""
         for controller in controllers:
           try:
@@ -138,6 +141,12 @@ class Controller(object):
           except IOError as _err:
             ERROR("ERROR:", controller)
         return code
+        '''
+
+        for controller in controllers:
+            cmd = "cp {curdir}/services/{svc}/*controller.py {curdir}/service/".format(curdir=os.path.join(self.workdir),
+                                                                                       svc=controller)
+            os.system(cmd)
 
     def list(self):
         path = os.path.join(self.workdir, "services")
@@ -378,10 +387,10 @@ def analyse():
     #
     # CONTROLLER
     #
-    elif arguments["controller"] and arguments["generate"]:
+    elif arguments["controller"] and arguments["install"]:
        c = Controller()
        service = arguments['--target'] or "service"
-       code = c.generate(arguments["SERVICES"])
+       code = c.install(arguments["SERVICES"])
        with open(os.path.join(service, service + "_controller.py"), "w") as f:
            print (code, file=f)
 
