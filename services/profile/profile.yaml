@@ -19,7 +19,9 @@ produces:
   - "application/json"
 paths: 
   /cloudmesh/profile/profiles:
-    get: 
+    get:
+      tags:
+      - "profile"
       description: "Returns all general description users"
       operationId: get_profile
       produces: 
@@ -30,6 +32,8 @@ paths:
           schema: 
             $ref: "#/definitions/Profile"
     put:
+      tags:
+      - "profile"
       summary: "Create a new profile"
       operationId: add_profile
       parameters:
@@ -42,7 +46,9 @@ paths:
         "201":
           description: Created
   /cloudmesh/profile/profiles/{uuid}:
-    get: 
+    get:
+      tags:
+      - "profile"
       description: "Returns a general description of a user"
       operationId: getProfileByUuid
       parameters:

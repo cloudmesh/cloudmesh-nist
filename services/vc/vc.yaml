@@ -19,7 +19,9 @@ produces:
   - "application/json"
 paths: 
   /cloudmesh/vc/vcs:
-    get: 
+    get:
+      tags:
+      - "vc"
       description: "Returns all vcs"
       operationId: get_vc
       produces: 
@@ -30,6 +32,8 @@ paths:
           schema: 
             $ref: "#/definitions/VC"
     put:
+      tags:
+      - "vc"
       summary: "Create a new vc"
       operationId: add_vc
       parameters:
@@ -42,7 +46,9 @@ paths:
         "201":
           description: Created
   /cloudmesh/vc/vcs/{vcname}:
-    get: 
+    get:
+      tags:
+      - "vc"
       description: "Returns a vc by its name"
       operationId: getVcByName
       parameters:
@@ -59,6 +65,8 @@ paths:
             $ref: "#/definitions/VC"
   /cloudmesh/vc/vcs/{vcname}/fe:
     get:
+      tags:
+      - "vc"
       description: "Returns the front-end node info of the specified vc"
       operationId: getVcFeByName
       parameters:
@@ -75,6 +83,8 @@ paths:
             $ref: "#/definitions/Node"
   /cloudmesh/vc/vcs/{vcname}/{nodename}:
     get:
+      tags:
+      - "vc"
       description: "Returns the specified node info of the specified vc"
       operationId: getVcNodeByName
       parameters:
