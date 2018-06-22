@@ -1,4 +1,4 @@
-OBJECTS=keystore profile
+OBJECTS=keystore profile vc
 
 .PHONY: service
 
@@ -9,7 +9,10 @@ service:
 	bin/cm-openapi service generate $(OBJECTS) --target=service
 
 controller:
-	bin/cm-openapi controller generate $(OBJECTS) --target=service
+	@#bin/cm-openapi controller generate $(OBJECTS) --target=service
+	@echo $(OBJECTS)
+	$(foreach svc, ${OBJECTS}, \
+		cp services/$(svc)/*controller.py service/;)
 
 mongo-start:
 	make -f Makefile mongo_start

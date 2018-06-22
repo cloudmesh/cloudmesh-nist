@@ -1,8 +1,8 @@
 .PHONY: test html-swagger html-spectable
 
-OBJECTS=keystore profile
+OBJECTS=keystore profile vc
 
-OBJECT=all
+OBJECT=service
 CLOUDMESH=..
 SWAGGERCODEGEN=java -jar $(CLOUDMESH)/bin/swagger-codegen-cli-2.3.1.jar
 YAMLFILE=$(OBJECT).yaml
@@ -25,7 +25,8 @@ service: spec dest
 	-l python-flask \
 	-o $(DESTDIR) \
 	-D supportPython2=true
-	cp -rf $(OBJECT)_controller.py $(DESTDIR)/swagger_server/controllers/default_controller.py
+	@#cp -rf $(OBJECT)_controller.py $(DESTDIR)/swagger_server/controllers/default_controller.py
+	cp -rf *controller.py $(DESTDIR)/swagger_server/controllers/
 	cd $(DESTDIR) && pip install -r requirements.txt && \
 	python setup.py install
 
