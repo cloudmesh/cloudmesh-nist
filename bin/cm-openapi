@@ -6,7 +6,9 @@ Usage:
   cm-openapi controller install SERVICES... [--target=SERVICE]
   cm-openapi controller list
   cm-openapi service init SERVICE
-  cm-openapi service generate SERVICES... --target=SERVICE
+  cm-openapi service generate SERVICES... [--target=SERVICE]
+  cm-openapi service create [--target=SERVICE]
+  cm-openapi service start [--target=SERVICE]
   cm-openapi clean
   cm-openapi rm SERVICES...
   cm-openapi run SERVICES...
@@ -111,7 +113,7 @@ DEBUG= False
 try:
     columns, lines = os.get_terminal_size()
 except:
-    rows, columns = os.popen('stty size', 'r').read().split()
+    rows, columns = map(int, os.popen('stty size', 'r').read().split())
 
 
 def ERROR(*args, **kwargs):
@@ -259,23 +261,24 @@ class Swagger(object):
 
         merge(services, out)
 
-    def create(self, service):
-        SERVICE = service
-        YAMLFILE = service + ".yaml"
-        DESTDIR = os.path.join("server",service, "flaskConnexion")
+    def create(self, servicename, servicedir):
+        SERVICE = servicename
+        YAMLFILE = servicename + ".yaml"
+        DESTDIR = os.path.join(servicedir, "server", servicename, "flaskConnexion")
 
         command = "{swaggercodegen} generate " + \
-	        "-i {yamlfile} " \
+	        "-i {servicedir}/{yamlfile} " \
             "-l python-flask " + \
             "-o {DESTDIR} " + \
             "-D supportPython2=true && " + \
-            "cp -rf {SERVICE}_controller.py {DESTDIR}/swagger_server/controllers/default_controller.py && "+ \
+            "cp -rf {servicedir}/*controller.py {DESTDIR}/swagger_server/controllers/ && "+ \
             "cd {DESTDIR} && pip install -r requirements.txt && " + \
             "python setup.py install "
         command = command.format(
                 yamlfile=YAMLFILE,
+                servicedir=servicedir,
                 swaggercodegen=self.SWAGGERCODEGEN,
-                SERVICE=service,
+                SERVICE=servicename,
                 DESTDIR=DESTDIR
             )
         print (columns * '.')
@@ -284,6 +287,10 @@ class Swagger(object):
         os.system(command)
         print (columns * '.')
 
+    def start(self, service):
+        DESTDIR = os.path.join(service, "server", service, "flaskConnexion")
+        command = "pip install pymongo && cd {DESTDIR} && python -m swagger_server".format(DESTDIR=DESTDIR)
+        os.system(command)
 
 def execute (commands):
     lines = commands.split("\n")
@@ -357,7 +364,14 @@ def analyse():
 
         s = Swagger()
         s.generate(arguments["SERVICES"], f)
-
+    elif arguments["create"] and arguments["service"]:
+        service = arguments['--target'] or "service"
+        s = Swagger()
+        s.create(service, service)
+    elif arguments["start"] and arguments["service"]:
+        service = arguments['--target'] or "service"
+        s = Swagger()
+        s.start(service)
     elif arguments["init"]  and arguments["service"]:
         s = Swagger()
         s.init(arguments["SERVICE"])
