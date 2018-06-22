@@ -1,0 +1,71 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: key
+  description: >-
+    A service to store key, value, type information. All of them are stored as Strings.
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/keystore/keys:
+    get:
+      description: Returns all general description keys
+      operationId: get_key
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: key info
+          schema:
+            $ref: '#/definitions/Key'
+    put:
+      summary: Create a new key
+      operationId: add_key
+      parameters:
+        - in: body
+          name: key
+          description: The new key to create
+          schema:
+            $ref: '#/definitions/Key'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/keystore/key/{name}':
+    get:
+      description: Returns a general description of a key
+      operationId: get_key_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: key info
+          schema:
+            $ref: '#/definitions/Key'
+definitions:
+  Key:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      value:
+        type: string
+      kind:
+        type: string

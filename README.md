@@ -11,6 +11,10 @@ We need more things which we have not yet written down here
 
 ```
 $ npm install -g spectacle-docs
+$ brew install ghc cabal-install
+$ cabal update
+$ cabal install pandoc-include-code
+$ cabal install pandoc-include
 ```
 
 ## Get the code

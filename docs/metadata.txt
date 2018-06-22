@@ -1,0 +1,13 @@
+---
+title:
+- type: main
+  text: Vol8
+creator:
+- role: editor
+  text: Editor Gregor von Laszewski
+description: NIST Volume 8
+rights: (c) Gregor von Laszewski, 2018
+language: en-US
+stylesheet: template/epub.css
+cover-image: cover/cover.jpg
+...

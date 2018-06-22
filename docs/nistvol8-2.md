@@ -1040,28 +1040,8 @@ version in github. Older version will through this process also be
 available as historical documents. Discussions about objects in
 written form are communicated as github issues.
 
-Specification
--------------
 
-We will provide the specifications to this document through an
-automated document crearion process so that the actual OpenAPI
-specifications are the source for the document. Thus we will have all
-OpenAPI specifications located in the following directory in github:
-
-```
-Addd the link to the github dir
-```
-
-Appendix
---------
-
-In order to keep this document at this time short we will concatenate
-the OpenAPI documents and present them in linear fashion in the
-appendix. 
-
-
-Interface Compliancy
---------------------
+## Interface Compliancy
 
 Due to the easy extensibility of the objects in this document and their
 implicit interfaces, it is important to introduce a terminology that
@@ -1096,11 +1076,44 @@ and for possible future modifications based on additional practical user
 feedback.
 
 
-Status Codes and Error Responses
-================================
+
+# Specification
+
+We will provide the specifications to this document through an
+automated document crearion process so that the actual OpenAPI
+specifications are the source for the document. Thus we will have all
+OpenAPI specifications located in the following directory in github:
+
+```
+Addd the link to the github dir
+```
+
+Limitations of the current implementation are as follows. It is a
+demonstration that showcases the generation of a fully functioning
+REST service based on the specifications provided in this
+document. However, it is expected that scalability, distribution of
+services, and other advanced options need to be addressed based on
+application requirements.
+
+## Profile
+
+```{include=../../services/profile/profile.yaml}
+```
+## Keystore
+
+```{include=../../services/keystore/keystore.yaml}
+```
+
+## Virtual CLuster
+
+```{include=../../services/vc/vc.yaml}
+```
+
+
+# Status Codes and Error Responses
 
 In case of an error or a successful response, the response header
-contains a HTTP code (see https://tools.ietf.org/html/rfc7231). The
+contains a HTTP code (see <https://tools.ietf.org/html/rfc7231>). The
 response body usually contains the following:
 
 - The HTTP response code;
@@ -1111,32 +1124,23 @@ response body usually contains the following:
 
 Table 1: HTTP Response Codes
 
-  **HTTP ****Response Description Code **
-  ----------- -----------------------------------------------------------------------------------------------
-  200*OK* success code, for GET or HEAD request.
-  201*Created* success code, for POST request.
-  204*No Content* success code, for DELETE request.
-  300The value returned when an external ID exists in more than one record.
-  304The request content has not changed since a specified date and time.
-  400The request could not be understood.
-  401The session ID or OAuth token used has expired or is invalid.
-  403The request has been refused.
-  404The requested resource could not be found.
-  405The method specified in the Request-Line isn't allowed for the resource specified in the URI.
-  415The entity in the request is in a format that's not supported by the specified method.
+  HTTP Response  Description Code
+  -------------- -------------------------------------------------------------------------------------------------
+  200            *OK* success code, for GET or HEAD request.
+  201            *Created*    success code, for POST request.
+  204            *No Content* success code, for DELETE request.
+  300            The value returned when an external ID exists in more than one record.
+  304            The request content has not changed since a specified date and time.
+  400            The request could not be understood.
+  401            The session ID or OAuth token used has expired or is invalid.
+  403            The request has been refused.
+  404            The requested resource could not be found.
+  405            The method specified in the Request-Line isn't allowed for the resource specified in the URI.
+  415            The entity in the request is in a format that's not supported by the specified method.
 
 
-Limitations
-==============
 
-The current implementation is a demonstration that showcases the
-generation of a fully functioning REST service based on the
-specifications provided in this document. However, it is expected that
-scalability, distribution of services, and other advanced options need
-to be addressed based on application requirements.
-
-Acronyms and Terms
-------------------
+# Acronyms and Terms
 
 The following acronyms and terms are used in this volume.
 
@@ -1159,14 +1163,14 @@ BASE
 Container
 
 : See
-  http://csrc.nist.gov/publications/drafts/800-180/sp800-180_draft.pdf
+  <http://csrc.nist.gov/publications/drafts/800-180/sp800-180_draft.pdf>
 
 Cloud Computing
 
 : The practice of using a network of remote servers hosted
   on the Internet to store, manage, and process data, rather than a local
   server or a personal computer. See
-  http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf.
+  <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf>.
 
 DevOps
 
@@ -1183,7 +1187,7 @@ HTTP
 
 Hybrid
 
-: Cloud See http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf.
+: Cloud See <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf>.
 
 IaaS
 
@@ -1274,46 +1278,45 @@ WWW
 
 : World Wide Web
 
-Bibliography
-============
+# Bibliography
 
-* [1] Cerberus. URL: http://docs.python-cerberus.org/.
+* [1] Cerberus. URL: <http://docs.python-cerberus.org/>.
 
-* [2] Eve Rest Service. Web Page. URL: http://python-eve.org/.
+* [2] Eve Rest Service. Web Page. URL: <http://python-eve.org/>.
 
 * [3] Cloudmesh enhanced Eveengine. Github. URL:
-  https://github.com/cloudmesh/cloudmesh. evegenie.
+  <https://github.com/cloudmesh/cloudmesh>. evegenie.
 
 * [4] Geoffrey C. Fox and Wo Chang. NIST Big Data Interoperability
   Framework: Volume 3, Use Cases and General Requirements. Special
   Publication (NIST SP) - 1500-3 1500-3, National Institute of Standards,
   100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL:
-  http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-3.pdf, doi:NIST.SP.1500-3.
+  <http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-3.pdf>, doi:NIST.SP.1500-3.
 
 * [5] Internet2. eduPerson Object Class Specification (201602).
   Internet2 Middleware Architecture Committee for Education, Directory
   Working Group internet2-mace-dir-eduperson-201602, Internet2,
   March 2016.
-  URL: http://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html
+  URL: <http://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html>
 
 * [6] Orit Levin, David Boyd, and Wo Chang. NIST Big Data
   Interoperability Framework: Volume 6, Reference Architecture. Special
   Publication (NIST SP) - 1500-6 1500-6, National Institute of Standards,
   100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL:
-  http://nvlpubs.nist.gov/nistpubs/
+  <http://nvlpubs.nist.gov/nistpubs/>
   SpecialPublications/NIST.SP.1500-6.pdf, doi:NIST.SP.1500-6.
 
 * [7] NIST. Big Data Public Working Group (NBD-PWG). Web Page. URL:
-  https://bigdatawg.nist.gov/.
+  <https://bigdatawg.nist.gov/>.
 
 * [8] Arnab Roy, Mark Underwood, and Wo Chang. NIST Big Data
   Interoperability Framework: Volume 4, Security and Privacy. Special
   Publication (NIST SP) - 1500-4 1500-4, National Institute of Standards,
   100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL:
-  http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-4.pdf, doi:NIST.SP.1500-4.
+  <http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-4.pdf>, doi:NIST.SP.1500-4.
 
 * [9] Gregor von Laszewski. Cloudmesh client. github. URL:
-  https://github.com/cloudmesh/client.
+  <https://github.com/cloudmesh/client>.
 
 * [10] Gregor von Laszewski, Wo Chang, Fugang Wang, Badi Abdhul Wahid,
   Geoffrey C. Fox, Pratik Thakkar, Alicia Mara Zuniga-Alvarado, and Robert
@@ -1321,11 +1324,11 @@ Bibliography
   Reference Architecture Interfaces. Special Publication (NIST SP) -
   1500-9 1500-9, National Institute of Standards, 100 Bureau Drive,
   Gaithersburg, MD 20899, October 2015.
-  URL: https://laszewski.github.io/papers/NIST.SP.1500-9-draft.pdf, doi:NIST.SP.1500-9.
+  URL: <https://laszewski.github.io/papers/NIST.SP.1500-9-draft.pdf>, doi:NIST.SP.1500-9.
 
 * [11] Gregor von Laszewski, Fugang Wang, Badi Abdul-Wahid, Hyungro Lee,
   Geoffrey C. Fox, and Wo Chang. Cloudmesh in support of the nist big data
   architecture framework. Technical report, Indiana University,
   Bloomington, IN 47408, USA, April 2017. URL:
-  https://laszewski.github.io/papers/ vonLaszewski-nist.pdf.
+  <https://laszewski.github.io/papers/vonLaszewski-nist.pdf>.
 

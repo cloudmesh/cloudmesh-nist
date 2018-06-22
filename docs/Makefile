@@ -11,17 +11,19 @@ CSS=--css=template/epub.css
 CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
 TITLE=--metadata title="NIST BDRA Volume 8"
+INCLUDE=--filter ~/.cabal/bin/pandoc-include-code
 
 spec:
 	cp ../services/vc/vc.yaml 
 
 
 html:
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s ../$(FILE).md -o $(FILE).html
+	cp -rf images dest
+	cd dest; pandoc $(INCLUDE) $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s ../$(FILE).md -o $(FILE).html
 
 
 word:
-	cd dest; pandoc $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -s ../$(FILE).md -o $(FILE).docx
+	cd dest; pandoc $(INCLUDE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -s ../$(FILE).md -o $(FILE).docx
 
 
 all:
