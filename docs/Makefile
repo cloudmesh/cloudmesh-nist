@@ -21,9 +21,13 @@ html:
 	cp -rf images dest
 	cd dest; pandoc $(INCLUDE) $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s ../$(FILE).md -o $(FILE).html
 
+pdf:
+	cp -rf images dest
+	cd dest; pandoc $(INCLUDE) $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s ../$(FILE).md -o $(FILE).pdf
 
 word:
-	cd dest; pandoc $(INCLUDE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -s ../$(FILE).md -o $(FILE).docx
+	cd dest; pandoc $(INCLUDE) $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s ../$(FILE).md -o $(FILE).docx
+
 
 
 all:
