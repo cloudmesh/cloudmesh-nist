@@ -1,0 +1,80 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: organization
+  description: >-
+    An important concept in many applications is the management of a
+    group of users in an organization that manages a Big Data
+    application or infrastructure. User group management can be
+    achieved through three concepts. First, it can be achieved by
+    using the profile and user resources itself as they contain the
+    ability to manage multiple users as part of the REST
+    interface. The second concept is to create a (virtual)
+    organization that lists all users within the virtual
+    organization. The third concept is to introduce groups and roles
+    either as part of the user definition or as part of a simple list
+    similar to the organization.
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/organizations:
+    get:
+      description: Returns all users of the organization
+      operationId: get_organization
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: organization info
+          schema:
+            $ref: '#/definitions/Organization'
+    put:
+      summary: Create a new organization
+      operationId: add_organization
+      parameters:
+        - in: body
+          name: organization
+          description: The new organization to create
+          schema:
+            $ref: '#/definitions/Organization'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/organization/{name}':
+    get:
+      description: Returns the organization 
+      operationId: get_organization_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: organization info
+          schema:
+            $ref: '#/definitions/Organization'
+definitions:
+  Organization:
+    type: object
+    properties:
+      name:
+        description: Name of the organization
+        type: string
+      users:
+        type: string
+        description: list of users, not properly implemented 
+

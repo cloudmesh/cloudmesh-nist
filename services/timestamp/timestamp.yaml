@@ -1,0 +1,73 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: timestamp
+  description: >-
+    Often data needs to be timestamped to indicate when it has been
+    accessed, created, or modified. All objects defined in this
+    document will have, in their final version, a timestamp.
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/timestamps:
+    get:
+      description: Returns all timestamps
+      operationId: get_timestamp
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: timestamp info
+          schema:
+            $ref: '#/definitions/Timestamp'
+    put:
+      summary: Create a new timestamp
+      operationId: add_timestamp
+      parameters:
+        - in: body
+          name: timestamp
+          description: The new timestamp to create
+          schema:
+            $ref: '#/definitions/Timestamp'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/timestamp/{name}':
+    get:
+      description: Returns a timestamp
+      operationId: get_timestamp_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: timestamp info
+          schema:
+            $ref: '#/definitions/Timestamp'
+definitions:
+  Timestamp:
+    type: object
+    description: the timestamp
+    properties:
+      accessed:
+        type: date
+      created:
+        type: date
+      modified:
+        type: date
+

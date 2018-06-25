@@ -1,0 +1,70 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: alias
+  description: >-
+    A data object could have one alias or even multiple ones. The reason for an alias is that a file may have a complex name but a user may want to refer to that file in a name space that is suitable for the user's application.
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/aliass:
+    get:
+      description: Returns all aliass
+      operationId: get_alias
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: alias info
+          schema:
+            $ref: '#/definitions/Alias'
+    put:
+      summary: Create a new alias
+      operationId: add_alias
+      parameters:
+        - in: body
+          name: alias
+          description: The new alias to create
+          schema:
+            $ref: '#/definitions/Alias'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/alias/{name}':
+    get:
+      description: Returns a alias
+      operationId: get_alias_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: alias info
+          schema:
+            $ref: '#/definitions/Alias'
+definitions:
+  Alias:
+    type: object
+    description: the alias
+    properties:
+      name:
+        type: string
+        description: The name of the alias
+      origin:
+        type: string
+        description: The original object name"

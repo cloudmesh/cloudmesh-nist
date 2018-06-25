@@ -1,0 +1,73 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: virtualdirectory
+  description: >-
+    A virtual directory is a collection of files or replicas of the files. A virtual directory can contain a number of entities including files, streams, and other virtual directories as part of a collection. The element in the collection can either be defined by uuid or by name. 
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/virtualdirectorys:
+    get:
+      description: Returns all virtualdirectorys
+      operationId: get_virtualdirectory
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: virtualdirectory info
+          schema:
+            $ref: '#/definitions/Virtualdirectory'
+    put:
+      summary: Create a new virtualdirectory
+      operationId: add_virtualdirectory
+      parameters:
+        - in: body
+          name: virtualdirectory
+          description: The new virtualdirectory to create
+          schema:
+            $ref: '#/definitions/Virtualdirectory'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/virtualdirectory/{name}':
+    get:
+      description: Returns a virtualdirectory
+      operationId: get_virtualdirectory_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: virtualdirectory info
+          schema:
+            $ref: '#/definitions/Virtualdirectory'
+definitions:
+  Virtualdirectory:
+    type: object
+    description: the virtualdirectory
+    properties:
+      name:
+        description: The name of the virtual directory
+        type: string
+      files:
+        description: list of files in the firtual directory
+        type: string
+      timestamp:
+        type: timestamp
+        description: timestamp for the fitual directory

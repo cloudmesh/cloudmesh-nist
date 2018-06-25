@@ -1,0 +1,88 @@
+---
+swagger: "2.0"
+info:
+  description: "A service to store key, value, type information. All of them are stored\
+    \ as Strings."
+  version: "0.0.1"
+  title: "key"
+  termsOfService: "http://bin.io/terms/"
+  contact:
+    name: "Cloudmesh RESTful Service Example"
+    url: "https://cloudmesh-community.github.io/nist/spec/"
+  license:
+    name: "Apache"
+host: "localhost:8080"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /cloudmesh/keystore/keys:
+    get:
+      tags:
+      - "keystore"
+      description: "Returns all general description keys"
+      operationId: "get_key"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "key info"
+          schema:
+            $ref: "#/definitions/Key"
+      x-swagger-router-controller: "swagger_server.controllers.keystore_controller"
+    put:
+      tags:
+      - "keystore"
+      summary: "Create a new key"
+      operationId: "add_key"
+      parameters:
+      - in: "body"
+        name: "key"
+        description: "The new key to create"
+        required: false
+        schema:
+          $ref: "#/definitions/Key"
+      responses:
+        201:
+          description: "Created"
+      x-swagger-router-controller: "swagger_server.controllers.keystore_controller"
+  /cloudmesh/keystore/key/{name}:
+    get:
+      tags:
+      - "keystore"
+      description: "Returns a general description of a key"
+      operationId: "get_key_by_name"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "name"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "key info"
+          schema:
+            $ref: "#/definitions/Key"
+      x-swagger-router-controller: "swagger_server.controllers.keystore_controller"
+definitions:
+  Key:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      description:
+        type: "string"
+      value:
+        type: "string"
+      kind:
+        type: "string"
+    example:
+      kind: "kind"
+      name: "name"
+      description: "description"
+      value: "value"

@@ -1,0 +1,75 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: user
+  description: >-
+    In contrast to the profile, a user contains additional attributes
+    that define the role of the user within the multiuser system. The
+    user associates different roles to individuals. These roles
+    potentially have gradations of responsibility and privilege.
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/users:
+    get:
+      description: Returns all users
+      operationId: get_user
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: user info
+          schema:
+            $ref: '#/definitions/User'
+    put:
+      summary: Create a new user
+      operationId: add_user
+      parameters:
+        - in: body
+          name: user
+          description: The new user to create
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/user/{name}':
+    get:
+      description: Returns a general description of a user
+      operationId: get_user_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: user info
+          schema:
+            $ref: '#/definitions/User'
+definitions:
+  User:
+    type: object
+    description:
+        Description for this user
+    properties:
+      description:
+        Description for this user
+        type: string
+      profile:
+        type: string
+        description: The pointer to a profile for this user (TBD)
+#        $ref: '#/definitions/User'

@@ -1,0 +1,77 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: default
+  description: >-
+    A default is a special variable that has a context associated with
+    it. This allows one to define values that can be easily retrieved
+    based on the associated context. For example, a default could be
+    the image name for a cloud where the context is defined by the
+    cloud name.
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/defaults:
+    get:
+      description: Returns all defaults
+      operationId: get_default
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: default info
+          schema:
+            $ref: '#/definitions/Default'
+    put:
+      summary: Create a new default
+      operationId: add_default
+      parameters:
+        - in: body
+          name: default
+          description: The new default to create
+          schema:
+            $ref: '#/definitions/Default'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/default/{name}':
+    get:
+      description: Returns a default
+      operationId: get_default_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: default info
+          schema:
+            $ref: '#/definitions/Default'
+definitions:
+  Defaults:
+    type: object
+    description: the defaults
+    properties:
+      name:
+        type: string
+        description: name of the default
+      value:
+        type: string
+        description: type of the default        
+      kind:
+        type: string
+        description: value of the default                
