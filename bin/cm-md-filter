@@ -1,0 +1,64 @@
+#! /usr/bin/env python
+"""Cloudmesh OpenAPI Code Generator.
+
+Usage:
+  cm-markdown-filer FILE
+
+  cm-openapi (-h | --help)
+  cm-openapi --version
+
+Options:
+  --target=SERVICE The service to be generated [default:service]
+  -h --help        Show this screen.
+  --version        Show version.
+
+
+"""
+from __future__ import print_function
+from docopt import docopt
+import os
+import sys
+import re
+import shutil
+from prompter import yesno
+
+VERSION="0.1"
+
+DEBUG= False
+
+try:
+    columns, lines = os.get_terminal_size()
+except:
+    rows, columns = map(int, os.popen('stty size', 'r').read().split())
+
+
+def ERROR(*args, **kwargs):
+    print("ERROR", *args, file=sys.stderr, **kwargs)
+
+
+def analyse():
+
+    #
+    # SERVICE
+    #
+    if arguments["FILE"]:
+       filename = arguments["FILE"]
+       print (filename)
+       with open(filename, 'r') as f:
+           for line in f:
+               line = line.strip()
+               if line.startswith('{include='):
+                   file = line.split('{include=')[1].split('}')[0]
+                   print()
+                   with open(file, 'r') as f:
+                       lines = f.read()
+                       print (lines)
+                   print()
+               print(line)
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version=VERSION)
+    if DEBUG:
+        print(arguments)
+
+    analyse()

@@ -1097,238 +1097,96 @@ application requirements.
 
 ## Profile
 
+{include=../spec/profile.md}
+
 ```{include=../../services/profile/profile.yaml}
 ```
+
 ## Keystore
+
+{include=../spec/keystore.md}
+
 
 ```{include=../../services/keystore/keystore.yaml}
 ```
 
 ## Virtual CLuster
 
+{include=../spec/vc.md}
+
+
 ```{include=../../services/vc/vc.yaml}
 ```
 
+## Alias
 
-# Status Codes and Error Responses
+{include=../spec/alias.md}
 
-In case of an error or a successful response, the response header
-contains a HTTP code (see <https://tools.ietf.org/html/rfc7231>). The
-response body usually contains the following:
 
-- The HTTP response code;
+```{include=../../services/alias/alias.yaml}
+```
 
-- An accompanying message for the HTTP response code; and
+## Database
 
-- A field or object where the error occurred.
+{include=../spec/database.md}
 
-Table 1: HTTP Response Codes
 
-  HTTP Response  Description Code
-  -------------- -------------------------------------------------------------------------------------------------
-  200            *OK* success code, for GET or HEAD request.
-  201            *Created*    success code, for POST request.
-  204            *No Content* success code, for DELETE request.
-  300            The value returned when an external ID exists in more than one record.
-  304            The request content has not changed since a specified date and time.
-  400            The request could not be understood.
-  401            The session ID or OAuth token used has expired or is invalid.
-  403            The request has been refused.
-  404            The requested resource could not be found.
-  405            The method specified in the Request-Line isn't allowed for the resource specified in the URI.
-  415            The entity in the request is in a format that's not supported by the specified method.
+```{include=../../services/database/database.yaml}
+```
 
+## Default
 
+```{include=../spec/default.md}
+```
 
-# Acronyms and Terms
+{include=../../services/default/default.yaml}
 
-The following acronyms and terms are used in this volume.
 
-ACID
+## File
 
-: Atomicity, Consistency, Isolation, Durability
+{include=../spec/file.md}
 
-API
 
-: Application Programming Interface
+```{include=../../services/file/file.yaml}
+```
 
-ASCII
+## Organization
 
-: American Standard Code for Information Interchange
+{include=../spec/organization.md}
 
-BASE
 
-: Basically Available, Soft state, Eventual consistency
+```{include=../../services/organization/organization.yaml}
+```
 
-Container
+## Replica
 
-: See
-  <http://csrc.nist.gov/publications/drafts/800-180/sp800-180_draft.pdf>
+{include=../spec/replica.md}
 
-Cloud Computing
 
-: The practice of using a network of remote servers hosted
-  on the Internet to store, manage, and process data, rather than a local
-  server or a personal computer. See
-  <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf>.
+```{include=../../services/replica/replica.yaml}
+```
 
-DevOps
+## Timestamp
 
-: A clipped compound of software DEVelopment and information
-  technology OPerationS
+{include=../spec/timestamp.md}
 
-Deployment
 
-: The action of installing software on resources
+```{include=../../services/timestamp/timestamp.yaml}
+```
 
-HTTP
+## User
 
-: HyperText Transfer Protocol HTTPS HTTP Secure
+{include=../spec/user.md}
 
-Hybrid
 
-: Cloud See <http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf>.
+```{include=../../services/user/user.yaml}
+```
 
-IaaS
+## Variables
 
-: Infrastructure as a Service SaaS Software as a Service
+{include=../spec/variables.md}
 
-ITL
+```{include=../../services/variables/variables.yaml}
+```
 
-: Information Technology Laboratory
-
-Microservice Architecture
-
-: Is an approach to build applications based on
-  many smaller modular services. Each module supports a specific goal and
-  uses a simple, well-defined interface to communicate with other sets of
-  services.
-
-NBD-PWG
-
-: NIST Big Data Public Working Group
-
-NBDRA
-
-: NIST Big Data Reference Architecture
-
-NBDRAI
-
-: NIST Big Data Reference Architecture Interface
-
-NIST
-
-: National Institute of Standards and Technology
-
-OS
-
-: Operating System
-
-REST
-
-: REpresentational State Transfer
-
-Replica
-
-: A duplicate of a file on another resource to avoid costly
-  transfer costs in case of frequent access.
-
-Serverless Computing
-
-: Serverless computing specifies the paradigm of
-  function as a service (FaaS). It is a cloud computing code execution
-  model in which a cloud provider manages the function deployment and
-  utilization while clients can utilize them. The charge model is based on
-  execution of the function rather than the cost to manage and host the VM
-  or container.
-
-Software Stack
-
-: A set of programs and services that are installed on a
-  resource to support applications.
-
-Virtual Filesysyem
-
-: An abstraction layer on top of a distributed physical
-  file system to allow easy access to the files by the user or
-  application.
-
-Virtual Machine
-
-: A VM is a software computer that, like a physical
-  computer, runs an operating system and applications. The VM is composed
-  of a set of specification and configuration files and is backed by the
-  physical resources of a host.
-
-Virtual Cluster
-
-: A virtual cluster is a software cluster that integrate
-  either VMs, containers, or physical resources into an agglomeration of
-  compute resources. A virtual cluster allows users to authenticate and
-  authorize to the virtual compute nodes to utilize them for calculations.
-  Optional high-level services that can be deployed on a virtual cluster
-  may simplify interaction with the virtual cluster or provide
-  higher-level services.
-
-Workflow
-
-: The sequence of processes or tasks
-
-WWW
-
-: World Wide Web
-
-# Bibliography
-
-* [1] Cerberus. URL: <http://docs.python-cerberus.org/>.
-
-* [2] Eve Rest Service. Web Page. URL: <http://python-eve.org/>.
-
-* [3] Cloudmesh enhanced Eveengine. Github. URL:
-  <https://github.com/cloudmesh/cloudmesh>. evegenie.
-
-* [4] Geoffrey C. Fox and Wo Chang. NIST Big Data Interoperability
-  Framework: Volume 3, Use Cases and General Requirements. Special
-  Publication (NIST SP) - 1500-3 1500-3, National Institute of Standards,
-  100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL:
-  <http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-3.pdf>, doi:NIST.SP.1500-3.
-
-* [5] Internet2. eduPerson Object Class Specification (201602).
-  Internet2 Middleware Architecture Committee for Education, Directory
-  Working Group internet2-mace-dir-eduperson-201602, Internet2,
-  March 2016.
-  URL: <http://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html>
-
-* [6] Orit Levin, David Boyd, and Wo Chang. NIST Big Data
-  Interoperability Framework: Volume 6, Reference Architecture. Special
-  Publication (NIST SP) - 1500-6 1500-6, National Institute of Standards,
-  100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL:
-  <http://nvlpubs.nist.gov/nistpubs/>
-  SpecialPublications/NIST.SP.1500-6.pdf, doi:NIST.SP.1500-6.
-
-* [7] NIST. Big Data Public Working Group (NBD-PWG). Web Page. URL:
-  <https://bigdatawg.nist.gov/>.
-
-* [8] Arnab Roy, Mark Underwood, and Wo Chang. NIST Big Data
-  Interoperability Framework: Volume 4, Security and Privacy. Special
-  Publication (NIST SP) - 1500-4 1500-4, National Institute of Standards,
-  100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL:
-  <http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-4.pdf>, doi:NIST.SP.1500-4.
-
-* [9] Gregor von Laszewski. Cloudmesh client. github. URL:
-  <https://github.com/cloudmesh/client>.
-
-* [10] Gregor von Laszewski, Wo Chang, Fugang Wang, Badi Abdhul Wahid,
-  Geoffrey C. Fox, Pratik Thakkar, Alicia Mara Zuniga-Alvarado, and Robert
-  C. Whetsel. NIST Big Data Interoperability Framework: Volume 8,
-  Reference Architecture Interfaces. Special Publication (NIST SP) -
-  1500-9 1500-9, National Institute of Standards, 100 Bureau Drive,
-  Gaithersburg, MD 20899, October 2015.
-  URL: <https://laszewski.github.io/papers/NIST.SP.1500-9-draft.pdf>, doi:NIST.SP.1500-9.
-
-* [11] Gregor von Laszewski, Fugang Wang, Badi Abdul-Wahid, Hyungro Lee,
-  Geoffrey C. Fox, and Wo Chang. Cloudmesh in support of the nist big data
-  architecture framework. Technical report, Indiana University,
-  Bloomington, IN 47408, USA, April 2017. URL:
-  <https://laszewski.github.io/papers/vonLaszewski-nist.pdf>.
 

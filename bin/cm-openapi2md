@@ -65,7 +65,12 @@ def convert_definitions(filename, indent=1):
             print ("|", "---", "|", "---", "|", "-------------", "|")            
             properties = spec["definitions"][definition]['properties']
             for property in properties:
-                print ("|",property, "|",properties[property]['type'], "|",properties[property]['description'], "|")
+                if 'description' not in properties[property]:
+                  properties[property]['description'] = "ERROR: description missing"
+                if 'type' not in properties[property]:
+                  properties[property]['type'] = ""
+
+                print ("|", property, "|", properties[property]['type'], "|",properties[property]['description'], "|")
             print ()
 
 def convert_paths(filename, indent=1):

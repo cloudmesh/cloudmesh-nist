@@ -108,16 +108,22 @@ definitions:
     type: "object"
     properties:
       name:
+        description: The name of the virtual cluster
         type: "string"
       description:
         type: "string"
+        description: test
       nnodes:
         type: "integer"
+        description: test        
       owner:
         type: "string"
+        description: test        
       fe:
+        description: test      
         $ref: "#/definitions/Node"
       nodes:
+        description: test      
         type: array
         items:
           $ref: "#/definitions/Node"
