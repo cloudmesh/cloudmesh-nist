@@ -1136,10 +1136,10 @@ application requirements.
 
 ## Default
 
-```{include=../spec/default.md}
-```
+{include=../spec/default.md}
 
-{include=../../services/default/default.yaml}
+
+```{include=../../services/default/default.yaml}```
 
 
 ## File
