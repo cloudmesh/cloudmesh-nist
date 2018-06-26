@@ -73,6 +73,22 @@ def convert_definitions(filename, indent=1):
                 print ("|", property, "|", properties[property]['type'], "|",properties[property]['description'], "|")
             print ()
 
+def section_link_from_ref(response):
+    # See [section one](#section-one).
+    link = ""                    
+    try:
+        response["section"] = response['schema']['$ref'].replace("#/definitions/","")
+        response["lsection"] = response["section"].lower()
+    except:
+        response["section"] = ""
+        response["lsection"] = ""        
+    if response["section"] != "" :
+        link = "[{section}](#{lsection})".format(**response)
+    else:                    
+        link = ""
+    response["link"] = link
+    return response
+            
 def convert_paths(filename, indent=1):
      with open(filename, "r") as f:
         spec = yaml.load(f)
@@ -93,8 +109,8 @@ def convert_paths(filename, indent=1):
                 #
                 # DESCRIPTION
                 #
-                print ((indent + 3) * "#", "Description")
-                print()
+                # print ((indent + 3) * "#", "Description")
+                # print()
                 try:
                     description = paths[path][method]['description']
                 except Exception as e:
@@ -104,7 +120,8 @@ def convert_paths(filename, indent=1):
                 #
                 # RESPONSES
                 #
-                print ((indent + 3) * "#", "Responses")
+                #print ((indent + 3) * "#", "Responses")
+                print ("Responses")
                 print()
                 try:
                     responses = paths[path][method]['responses']
@@ -116,31 +133,20 @@ def convert_paths(filename, indent=1):
                     response = responses[code]
                     if "schema" not in response:
                        response['schema'] = ""
+                       
                     response['code'] = code
-                    response['definition'] = ''
-                    response['ldefinition'] = ''
-                    
-                    try:
-                        link = response['schema']['$ref'].replace("#/definitions/","")
-                        
-                        response["definition"] = link
-                        response["ldefinition"] = link.lower()
-                        
-                        # See [section one](#section-one).
-                    except:
-                        response["definition"] = ""
-                    if response["ldefinition"] != "" :
-                      print ("| {code} | {description} | [{definition}](#{ldefinition}) |".format(**response))
-                    else:                    
-                      print ("| {code} | {description} | |".format(**response))
+                    response = section_link_from_ref(response)
+                    print ("| {code} | {description} | {link} |".format(**response))
                     print ()
                 #
                 #PARAMETERS
                 #
-                print ((indent + 3) * "#", "PARAMETERS")
-                print()
+                # print ((indent + 3) * "#", "PARAMETERS")
+                parameters = None
                 try:
                     parameters = paths[path][method]['parameters']
+                    print ("Parameters")                
+                    print()
                 except Exception as e:
                     parameters = None
                 if parameters is not None:
@@ -150,20 +156,10 @@ def convert_paths(filename, indent=1):
                         if "required" not in parameter:
                            parameter['required'] = False
                         if "description" not in parameter:
-                           parameter['description'] = "ERROR: missing"
-                        try:
-                          link = parameter['schema']['$ref'].replace("#/definitions/","")
-                        
-                          parameter["definition"] = link
-                          parameter["ldefinition"] = link.lower()
-                        except:
-                          parameter["definition"] = ""
-                        if parameter["definition"] != "" :
-                           parameter["definition"] = "[{definition}](#{ldefinition}) |".format(**response)
-                        if parameter["definition"] != "" :                     
-                           print ("| {name} | {in} | {description} | {required} | {definition} | ".format(**parameter))
-                        else:
-                           print ("| {name} | {in} | {description} | {required} | | ".format(**parameter))
+                           parameter['description'] = "ERROR: description missing"
+                        parameter = section_link_from_ref(parameter)
+
+                        print ("| {name} | {in} | {description} | {required} | {link} | ".format(**parameter))
             print ()
 
 def analyse():
