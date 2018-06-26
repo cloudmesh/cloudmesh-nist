@@ -5,7 +5,7 @@ info:
   title: "Profile"
   description: >
                Profiles are used to store information about users for a specific service. Profiles can be added, removed and listed. A group in the profile can be used to groups certain users.
-  termsOfService: "http://cloudmesh.org/terms/"
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact: 
     name: "Cloudmesh Profile"
     url: https://cloudmesh-community.github.io/nist/spec/

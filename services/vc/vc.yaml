@@ -4,7 +4,7 @@ info:
   version: "0.0.1"
   title: "Virtual Cluster"
   description: "Virtual Cluster example"
-  termsOfService: "http://bin.io/terms/"
+  termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
   contact: 
     name: "Cloudmesh REST Service Example"
     url: https://cloudmesh-community.github.io/nist/spec/

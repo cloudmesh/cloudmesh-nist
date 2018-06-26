@@ -3,7 +3,7 @@ info:
   version: "0.0.1"
   title: "Coludmesh Compute & Storage"
   description: "A service to use compute and storage resources accross multiple clouds using swagger -2.0 specification and codegen"
-  termsOfService: "http://swagger.io/terms/"
+  termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
   contact:
     name: "Sushant Athaley, Harshad Pitkar, Michael Robinson"
   license:

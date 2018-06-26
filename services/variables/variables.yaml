@@ -7,7 +7,7 @@ info:
     type, which is also provided as demonstrated in the object
     below. The variable value format is defined as string to allow
     maximal probability.
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
