@@ -1,0 +1,70 @@
+VM-Scheduler
+
+  add(vm):
+  delete(vm)
+  susspend(vm)
+  add (policy) 
+
+  vm ::= (name, label, owenere, resource requirement)
+
+??? OpenAPI -> VM-Scheduler as rest service
+
+
+vmscheduler
+
+  get/vm -> all vms to be scheduled
+  get/resources -> all resources on which we schedule
+  post  (vm)
+  post  (resource)
+
+
+
+
+definition
+  scheduler
+    name
+    resources [array]
+  vm
+    name
+    label
+    owner
+    ....
+  resources
+    name
+    ip
+    ...
+
+
+vms ---> scheduler()--> resources
+
+
+
+
+
+
+job-Scheuler
+
+  add(job):
+  delete(job)
+  susspend(job)
+  add (policy)
+
+
+  job ::= (name, label, owenere, resource requirement)
+
+container-Scheduler
+
+  add(container):
+  delete(conatiner)
+  susspend(container)
+  add (policy) 
+
+  container ::= (name, label, owenere, resource requirement, kind)
+
+  kind = [docker, swarm, kubernetes, ....]
+
+
+
+
+
+
