@@ -33,6 +33,7 @@ md:
 	../bin/cm-openapi2md md ../services/vc/vc.yaml > spec/vc.md
 	../bin/cm-openapi2md md ../services/keystore/keystore.yaml > spec/keystore.md
 	../bin/cm-openapi2md md ../services/vm/vm.yaml > spec/vm.md
+	../bin/cm-openapi2md md ../services/scheduler/scheduler.yaml > spec/scheduler.md
 
 	echo >  spec/user.md
 #	../bin/cm-openapi2md md ../services/user/user.yaml > spec/user.md

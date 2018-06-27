@@ -1189,4 +1189,11 @@ application requirements.
 ```{include=../../services/variables/variables.yaml}
 ```
 
+## Scheduler
+
+{include=../spec/scheduler.md}
+
+```{include=../../services/scheduler/scheduler.yaml}
+```
+
 

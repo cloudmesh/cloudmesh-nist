@@ -8,7 +8,6 @@ from swagger_server import util
 from pymongo import MongoClient
 
 
-
 client = MongoClient()
 
 db = client['cm']
