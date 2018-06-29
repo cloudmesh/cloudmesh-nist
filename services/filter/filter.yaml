@@ -1,0 +1,73 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: filter
+  description: >-
+    Filters can operate on a variety of objects and reduce the information received based on a search criterion.
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/filters:
+    get:
+      description: Returns all filters
+      operationId: get_filter
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: filter info
+          schema:
+            $ref: '#/definitions/Filter'
+    put:
+      summary: Create a new filter
+      operationId: add_filter
+      parameters:
+        - in: body
+          name: filter
+          description: The new filter to create
+          schema:
+            $ref: '#/definitions/Filter'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/filter/{name}':
+    get:
+      description: Returns a filter
+      operationId: get_filter_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: filter info
+          schema:
+            $ref: '#/definitions/Filter'
+definitions:
+  Filter:
+    type: object
+    description: the filter
+    properties:
+      name:
+        type: string
+        description: name of the filter
+      function:
+        type: string
+        description: the function  of the data exchanged in the stream
+      kind:
+        type: string
+        description: the filter kind or type
