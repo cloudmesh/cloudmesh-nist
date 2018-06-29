@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: reservation
+  description: >-
+    Some services may consume a considerable amount of resources, necessitating the reservation of resources.
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/reservations:
+    get:
+      description: Returns all reservations
+      operationId: get_reservation
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: reservation info
+          schema:
+            $ref: '#/definitions/Reservation'
+    put:
+      summary: Create a new reservation
+      operationId: add_reservation
+      parameters:
+        - in: body
+          name: reservation
+          description: The new reservation to create
+          schema:
+            $ref: '#/definitions/Reservation'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/reservation/{name}':
+    get:
+      description: Returns a reservation
+      operationId: get_reservation_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: reservation info
+          schema:
+            $ref: '#/definitions/Reservation'
+definitions:
+  Reservation:
+    type: object
+    description: the reservation
+    properties:
+      name:
+        type: string
+        description: name of the reservation
+      service:
+        type: string
+        description: the name of the service on which we reserve
+      description:
+        type: string
+        description: the description of the reservation
+      start:
+        type: date
+        description: the start time and date
+      end:
+        type: date
+        description: the end time and date
