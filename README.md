@@ -58,3 +58,9 @@ make publish
 cm-openapi service init SERVICE
 ```
 
+Example:
+
+```
+./bin/cm-openapi service init health
+services/example -> services/health
+```
