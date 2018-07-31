@@ -52,5 +52,15 @@ make view # or open public/index.html in your browser
 
 make publish
 
+## Create a new service
 
+```
+cm-openapi service init SERVICE
+```
 
+Example:
+
+```
+./bin/cm-openapi service init health
+services/example -> services/health
+```
