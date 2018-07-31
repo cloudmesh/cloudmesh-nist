@@ -1,0 +1,73 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: health
+  description: >-
+    A service to store health, value, type information. All of them are stored as Strings.
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/healths:
+    get:
+      description: Returns all healths
+      operationId: get_health
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: health info
+          schema:
+            $ref: '#/definitions/Health'
+    put:
+      summary: Create a new health
+      operationId: add_health
+      parameters:
+        - in: body
+          name: health
+          description: The new health to create
+          schema:
+            $ref: '#/definitions/Health'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/health/{name}':
+    get:
+      description: Returns a health
+      operationId: get_health_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: health info
+          schema:
+            $ref: '#/definitions/Health'
+definitions:
+  Health:
+    type: object
+    description: the health
+    properties:
+      name:
+        type: string
+        description: name of the health
+      value:
+        type: string
+        description: value of the health
+      kind:
+        type: string
+        description: the health kind or type
