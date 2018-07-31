@@ -75,6 +75,8 @@ definitions:
         description: Name of the organization
         type: string
       users:
-        type: string
-        description: list of users, not properly implemented 
+        description: list of users      
+        type: array
+        items: #/definitions/Users
+
 

@@ -1,0 +1,94 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: hadoop
+  description: >-
+    A service to store hadoop, value, type information. All of them are stored as Strings.
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/hadoops:
+    get:
+      description: Returns all hadoops
+      operationId: get_hadoop
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: hadoop info
+          schema:
+            $ref: '#/definitions/Hadoop'
+    put:
+      summary: Create a new hadoop
+      operationId: add_hadoop
+      parameters:
+        - in: body
+          name: hadoop
+          description: The new hadoop to create
+          schema:
+            $ref: '#/definitions/Hadoop'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/hadoop/{name}':
+    get:
+      description: Returns a hadoop
+      operationId: get_hadoop_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: hadoop info
+          schema:
+            $ref: '#/definitions/Hadoop'
+definitions:
+  Hadoop:
+    type: object
+    description: the hadoop
+    properties:
+      name:
+        type: string
+        description: name of the hadoop cluster
+      deployment_type:
+        type: string
+        description: the type of the deployer such as ansible
+      deployment_git:
+        type: url
+        description: the url where to find the deployment scripts
+      resource_managers:
+        type: integer
+        description: number of resource managers
+      namenodes:
+        type: integer
+        description: number of name nodes
+      datanodes:
+        type: integer
+        description: number of data nodes
+      historynodes:
+        type: integer
+        description: number of history nodes
+      journalnodes:
+        type: integer
+        description: number of journal nodes
+      yarn:
+        type: boolena
+        description: true if yarn is used
+      hdfs:
+        type: boolena
+        description: true if hdfs is used

@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: containers
+  description: >-
+    A service to store containers.
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/containerss:
+    get:
+      description: Returns all containerss
+      operationId: get_containers
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: containers info
+          schema:
+            $ref: '#/definitions/Containers'
+    put:
+      summary: Create a new containers
+      operationId: add_containers
+      parameters:
+        - in: body
+          name: containers
+          description: The new containers to create
+          schema:
+            $ref: '#/definitions/Containers'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/containers/{name}':
+    get:
+      description: Returns a containers
+      operationId: get_containers_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: containers info
+          schema:
+            $ref: '#/definitions/Containers'
+definitions:
+  Containers:
+    type: object
+    description: the containers
+    properties:
+      name:
+        type: string
+        description: name of the containers
+      label:
+        type: string
+        description: label of the containers
+      memory:
+        type: string
+        description: memory of the containers in Byte
+      endpoint:
+        type: string
+        description: endpoint of the containers
+      ip:
+        type: string
+        description: the ip address of the container
