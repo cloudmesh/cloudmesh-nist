@@ -2,6 +2,7 @@ OBJECTS=keystore profile vc virtualdirectory
 
 .PHONY: service
 
+
 all: service controller
 	@echo
 
@@ -25,3 +26,14 @@ editor-install:
 
 editor-run:
 	docker run -d -p 80:8080 swaggerapi/swagger-editor
+
+clean:
+	cd service; make clean
+
+
+demo:
+	cd mongo; make start
+	make -f Makefile all
+
+start-service:
+	osascript -e 'tell application "Terminal" to do script "cd $(PWD); cd service; make all"'

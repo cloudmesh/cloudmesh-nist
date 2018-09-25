@@ -101,6 +101,11 @@ The source for this example is located in
 
 * https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory
 
+Start mongo
+
+    $ cd mongo
+    $ make start
+
 To run the demo:
 
 1. Make sure the mongo container is running as required by the previous examples;
@@ -142,4 +147,5 @@ Then run these from a terminal to test the two service endpoints.
 
     $ curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectories
     $ curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectory/UbuntuFTP
+
 
