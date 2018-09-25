@@ -1,8 +1,29 @@
-# nist
+# NIST Big Data Reference Architecture Interfaces
 
-Spec will be hosted here:
+
+The working draft of the specification is in 
+
+* https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md
+
+It is easy to contribute to the document with the help of pull requests that allow eddits that will be addressed by the editor of this Volume (Gregor von Laszewski). Pull request can even be created via the GUI features of Github. YOu will need a github.com account and login into github to make use of this. 
+
+With Pandoc a version in MS Word can be created and formating changes can be applied. However all editorial non look and feel changes must not be conducted in the docx version but in the markdown version so we have a record of the changes in the github history. The look and fel, can be managed by a professional editor. 
+
+Once finalized, the Spec Draft will be hosted here in word format
 
 https://cloudmesh-community.github.io/nist/spec/
+
+and uploaded to NIST.
+
+The document workflow is as follows:
+
+1. contributor gets github account
+2. contributor logs into github
+3. contributor eidts the md document and creates a pull request
+4. pull request is reviewed by Gregor von LAszewski and others while discussing it in the working group meetings if needed
+5. pull request is either rejected, accepted, or accepted with changes
+6. IF changes are accepted a new version is created.
+7. The version number of the document is increased.
 
 Super old:
 
