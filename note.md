@@ -11,7 +11,7 @@ function:
   - parameters:
     - x-list
     - y-list
-  - oupput:
+  - output:
     - map-list
   - implementation:
     - runtime: python3.7
