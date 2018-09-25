@@ -1,3 +1,4 @@
 docopts
 prompter
 panflute
+decorator

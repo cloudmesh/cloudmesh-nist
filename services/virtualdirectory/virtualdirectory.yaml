@@ -18,18 +18,28 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/virtualdirectorys:
+  /cloudmesh/virtualdirectories:
     get:
+      tags:
+        - "virtualdirectory"
       description: Returns all virtualdirectorys
       operationId: get_virtualdirectory
       produces:
         - application/json
+      security:
+        - httpbasic: []
       responses:
         '200':
           description: virtualdirectory info
           schema:
             $ref: '#/definitions/Virtualdirectory'
+        '401':
+          description: unauthorized error
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
     put:
+      tags:
+        - "virtualdirectory"
       summary: Create a new virtualdirectory
       operationId: add_virtualdirectory
       parameters:
@@ -38,11 +48,16 @@ paths:
           description: The new virtualdirectory to create
           schema:
             $ref: '#/definitions/Virtualdirectory'
+      security:
+        - apikey: []
+          apisecret: []
       responses:
         '201':
           description: Created
   '/cloudmesh/virtualdirectory/{name}':
     get:
+      tags:
+        - "virtualdirectory"
       description: Returns a virtualdirectory
       operationId: get_virtualdirectory_by_name
       parameters:
@@ -52,22 +67,43 @@ paths:
           type: string
       produces:
         - application/json
+      security:
+        - httpbasic: []
       responses:
         '200':
           description: virtualdirectory info
           schema:
             $ref: '#/definitions/Virtualdirectory'
 definitions:
-  Virtualdirectory:
+  UnauthorizedError:
     type: object
+    description: A specific error
+    properties:
+      code:
+        type: string
+        description: Code form of the error
+      message:
+        type: string
+        description: Human readable form of the error
+  Virtualdirectory:
+    type: "object"
     description: the virtualdirectory
     properties:
       name:
         description: The name of the virtual directory
-        type: string
-      files:
-        description: list of files in the firtual directory
-        type: string
-      timestamp:
-        type: timestamp
-        description: timestamp for the fitual directory
+        type: "string"
+      description:
+        description: description of the virtual directory
+        type: "string"
+      host:
+        description: remote host of the virtual directory
+        type: "string"
+      location:
+        description: remote location, e.g., a directory with full path on a host
+        type: "string"
+      protocal:
+        description: access protocal, e.g., HTTP, FTP, SSH, etc.
+        type: "string"
+      credential:
+        description: credential to access, e.g., username, password
+        type: "object"

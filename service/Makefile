@@ -25,6 +25,8 @@ service: spec dest
 	-l python-flask \
 	-o $(DESTDIR) \
 	-D supportPython2=true
+	cp -rf ../services/conf.py ${DESTDIR}/swagger_server/
+	cp -rf ../services/secconf.yaml ${DESTDIR}/swagger_server/
 	@#cp -rf $(OBJECT)_controller.py $(DESTDIR)/swagger_server/controllers/default_controller.py
 	cp -rf *controller.py $(DESTDIR)/swagger_server/controllers/
 	cd $(DESTDIR) && pip install -r requirements.txt && \

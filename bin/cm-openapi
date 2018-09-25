@@ -105,6 +105,7 @@ import sys
 import re
 import shutil
 from prompter import yesno
+import base64
 
 VERSION="0.1"
 
@@ -265,12 +266,21 @@ class Swagger(object):
         SERVICE = servicename
         YAMLFILE = servicename + ".yaml"
         DESTDIR = os.path.join(servicedir, "server", servicename, "flaskConnexion")
+        #username = "testuser"
+        #password = "testpassword"
+        #base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
+        #secheader = "Authorization: Basic %s" % base64string
+        #
+        #Add the following to command if the codegen supports this properly.
+        #    "-a '%s' " % secheader + \
+        #
 
         command = "{swaggercodegen} generate " + \
 	        "-i {servicedir}/{yamlfile} " \
             "-l python-flask " + \
             "-o {DESTDIR} " + \
             "-D supportPython2=true && " + \
+            "cp -rf services/conf.py {DESTDIR}/swagger_server/ && " + \
             "cp -rf {servicedir}/*controller.py {DESTDIR}/swagger_server/controllers/ && "+ \
             "cd {DESTDIR} && pip install -r requirements.txt && " + \
             "python setup.py install "
