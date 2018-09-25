@@ -149,3 +149,40 @@ Then run these from a terminal to test the two service endpoints.
     $ curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectory/UbuntuFTP
 
 
+## One line Convenient Demo Script
+
+We assume that you have docker installed on your machine. This demo
+works at this time only on macOS
+
+To execute the demo do the following
+
+      $ git clone git clone https://github.com/cloudmesh-community/nist.git
+      $ cd nist
+      $ make demo
+
+In case you do not have an macOS machine we have shot a convenient
+video that explains how simple it is to run our services.
+
+
+* <https://www.youtube.com/watch?v=fl-4PGPzwsM>
+
+ Please note
+that the service here is build from an open API specification that is
+includes in
+
+*
+<https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory>
+
+The code for the service backend is located at
+
+*
+<https://github.com/cloudmesh-community/nist/blob/master/services/virtualdirectory/virtualdirectory_controller.py>
+
+The password configuration file is located at
+
+*
+<https://github.com/cloudmesh-community/nist/blob/master/services/secconf.yaml>
+
+As this is only a demonstration, we have used the most simple security
+possible. We assume the server runs only on the local host. Please
+make sure to properly secure it.
