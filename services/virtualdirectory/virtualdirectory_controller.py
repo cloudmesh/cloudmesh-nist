@@ -48,7 +48,7 @@ def get_virtualdirectory_by_name(name):
     ftp.retrlines('LIST')
     '226 Directory send OK.'
     '''
-    if virtd["protocal"] == 'ftp':
+    if virtd["protocol"] == 'ftp':
         from ftplib import FTP
         ftp = FTP(virtd["host"])  # connect to host, default port
         ftp.login(virtd["credential"]["username"], virtd["credential"]["password"])  # user anonymous, passwd anonymous@
@@ -56,7 +56,7 @@ def get_virtualdirectory_by_name(name):
         files = []
         flist = ftp.retrlines('LIST', files.append)
         flist = files
-    elif virtd["protocal"] == 'ssh':
+    elif virtd["protocol"] == 'ssh':
         flist = "NOT Implemented yet!"
     else:
         flist = "NOT Implemented yet!"

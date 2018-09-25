@@ -101,8 +101,8 @@ definitions:
       location:
         description: remote location, e.g., a directory with full path on a host
         type: "string"
-      protocal:
-        description: access protocal, e.g., HTTP, FTP, SSH, etc.
+      protocol:
+        description: access protocol, e.g., HTTP, FTP, SSH, etc.
         type: "string"
       credential:
         description: credential to access, e.g., username, password
