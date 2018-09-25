@@ -7,7 +7,7 @@ The working draft of the specification is in
 
 It is easy to contribute to the document with the help of pull requests that allow eddits that will be addressed by the editor of this Volume (Gregor von Laszewski). Pull request can even be created via the GUI features of Github. YOu will need a github.com account and login into github to make use of this. 
 
-With Pandoc a version in MS Word can be created and formating changes can be applied. However all editorial non look and feel changes must not be conducted in the docx version but in the markdown version so we have a record of the changes in the github history. The look and fel, can be managed by a professional editor. 
+With Pandoc a version in MS Word can be created and formating changes can be applied. However all editorial non look and feel changes must not be conducted in the docx version but in the markdown version so we have a record of the changes in the github history. The look and feel, can be managed by a professional editor. 
 
 Once finalized, the Spec Draft will be hosted here in word format
 
