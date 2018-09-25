@@ -20,9 +20,12 @@ The document workflow is as follows:
 1. contributor gets github account
 2. contributor logs into github
 3. contributor eidts the md document and creates a pull request
-4. pull request is reviewed by Gregor von LAszewski and others while discussing it in the working group meetings if needed
+4. pull request is reviewed by Gregor von LAszewski and others 
+   while discussing it in the working group meetings if needed
 5. pull request is either rejected, accepted, or accepted with changes
-6. IF changes are accepted a new version is created.
+6. Once a number of changes are accepted a new version is created, 
+   however the most up to date version is always avalaible as 
+   markdown document
 7. The version number of the document is increased.
 
 Super old:
