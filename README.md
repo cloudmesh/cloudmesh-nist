@@ -112,6 +112,6 @@ This will add an ftp endpoint as an entry of the virtualdirectory.
 
 Then run these from a terminal to test the two service endpoints.
 
-curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectories
-curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectory/UbuntuFTP
+    $ curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectories
+    $ curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectory/UbuntuFTP
 
