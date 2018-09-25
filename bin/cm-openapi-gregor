@@ -1,0 +1,455 @@
+#! /usr/bin/env python
+"""Cloudmesh OpenAPI Code Generator.
+
+Usage:
+  cm-openapi update
+  cm-openapi controller install SERVICES... [--target=SERVICE]
+  cm-openapi controller list
+  cm-openapi service init SERVICE
+  cm-openapi service generate SERVICES... [--target=SERVICE]
+  cm-openapi service create [--target=SERVICE]
+  cm-openapi service start [--target=SERVICE]
+  cm-openapi clean
+  cm-openapi rm SERVICES...
+  cm-openapi run SERVICES...
+  cm-openapi kill SERVICES...
+  cm-openapi ps [SERVICES...]
+  cm-openapi info SERVICES...
+  cm-openapi pack docker SERVICES...
+
+  cm-openapi (-h | --help)
+  cm-openapi --version
+
+Options:
+  --target=SERVICE The service to be generated [default:service]
+  -h --help        Show this screen.
+  --version        Show version.
+
+Todo:
+  The following commands are not yet implemented
+
+    rm
+    run
+    kill
+    ps
+    info
+    pack
+
+Files:
+  This is not fully thought through
+  ~/.cloudmesh/bin/cm-openapi
+    location of the executable
+  ~/.cloudmesh/lib/cm-openapi
+    location of the samples
+
+
+Description:
+
+  generate SERVICES...
+    generates the service stubs while using the example as template
+    replaces the "example" with SERVICE where needed
+
+  create SERVICES... --target=SERVICE
+    creates all the REST SERVICE
+
+  pack docker SERVICES... --target=SERVICE
+    creates all the REST SERVICES in a docker container
+
+  rm SERVICES... 
+    deletes the source of the services. This function must be 
+    executed with care
+
+  run SERVICES...
+    runs the service
+
+  kill SERVICES...
+    kills the service
+
+  ps [SERVICES...]
+    lists all running services
+
+  info SERVICES..
+     provides information about the services
+
+
+Examples:
+
+    bin/cm-openapi service  generate keystore profile --target=service
+
+        generates the merged yaml files in service/service.yaml
+
+    bin/cm-openapi controller  install keystore profile --target=service
+
+        install the controller files (with actual implementation) in service/service_controller.yaml
+
+    bin/cm-openapi service init abc
+
+        create a new service aclled abc in the services directory. It is mcloned
+        and modified from example
+
+"""
+from __future__ import print_function
+
+''' manual page draft
+
+have some kind of git script similar to
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+'''
+
+
+from docopt import docopt
+import os
+import sys
+import re
+import shutil
+from prompter import yesno
+
+VERSION="0.1"
+
+DEBUG= False
+
+try:
+    columns, lines = os.get_terminal_size()
+except:
+    rows, columns = map(int, os.popen('stty size', 'r').read().split())
+
+
+def ERROR(*args, **kwargs):
+    """
+    Prints out an Error message
+
+    :param args: arguments to be printed
+    :param kwargs: named arguments to be printed
+    :return:
+    """
+    print("ERROR:", *args, file=sys.stderr, **kwargs)
+
+class Controller(object):
+
+    def __init__(self, workdir="."):
+        """
+        initialization of the controler
+
+        TODO: what is the controler
+
+        :param workdir: directory in which to execute code
+        """
+        self.workdir = workdir
+        self.controller = []
+
+    def install(self, controllers):
+        """
+        TODO: what is this
+
+        :param controllers: TODO: what is this
+        :return:
+        """
+        # old way to merge.
+        # Now deprecated due to using multiple controllers are allowed
+        #
+        '''
+        code = ""
+        for controller in controllers:
+          try:
+            filename = os.path.join(self.workdir, "services", controller, controller + "_controller.py")
+            code = code + 79 * "#" + "\n"
+            code = code + "#" + filename + "\n"
+            code = code + 79 * "#" + "\n"
+            with open(filename, 'r') as _file:
+              for line in iter((_file.readline), ""):
+                code = code + line
+          except IOError as _err:
+            ERROR("ERROR:", controller)
+        return code
+        '''
+
+        for controller in controllers:
+            cmd = "cp {curdir}/services/{svc}/*controller.py {curdir}/service/".format(curdir=os.path.join(self.workdir),
+                                                                                       svc=controller)
+            os.system(cmd)
+
+    def list(self):
+        """
+
+        :return:
+        """
+        path = os.path.join(self.workdir, "services")
+        services = os.listdir(path)
+        services.remove("__init__.py")
+        return services
+
+def print_function_name(func):
+    """
+
+    :param func:
+    :return:
+    """
+    def echo_func(*func_args, **func_kwargs):
+        print('')
+        print (columns * '-')
+        print('Executing {}'.format(func.__name__))
+        print (columns * '-')
+        return func(*func_args, **func_kwargs)
+    return echo_func
+
+class Swagger(object):
+    """
+
+    """
+
+    def __init__(self):
+        self.CLOUDMESH="~/.cloudmesh/openapi/bin"
+        self.SWAGGERCODEGEN=\
+            "java -jar {CLOUDMESH}/swagger-codegen-cli-2.3.1.jar".format(CLOUDMESH=self.CLOUDMESH)
+        self.CREATED = "server"
+
+    def replace(self, filename, source, destination):
+
+        with open(filename) as f:
+            newText = f.read().replace(source, destination)
+
+        with open(filename, "w") as f:
+            f.write(newText)
+
+    def init(self, service):
+        source = os.path.join("services", "example")
+        destination = os.path.join("services", service)
+
+        print (source, "->", destination)
+
+        if os.path.isdir(destination):
+            if yesno("The service '" + destination + "' already exists. Delete"):
+                shutil.rmtree(destination)
+            else:
+                return
+        shutil.copytree(source, destination)
+        yamlfile = os.path.join(destination, service + ".yaml")
+        controllerfile = os.path.join(destination, service + "_controller.py")
+        os.rename(os.path.join(destination,"example.yaml"), yamlfile)
+        os.rename(os.path.join(destination,"example_controller.py"), controllerfile)
+
+        self.replace(yamlfile, "key", service)
+        self.replace(yamlfile, "Key", service.capitalize())
+
+        self.replace(controllerfile, "key", service)
+        self.replace(controllerfile, "Key", service.capitalize())
+
+
+
+    def generate(self, services, out=sys.stdout):
+        # ! /usr/bin/env python
+        # #
+        # ussage:
+        #     python bin/merge-openapi.py keystore profile
+        #
+
+        def read(dir, service):
+            with open(os.path.join(dir, service, service + ".yaml"), "r") as f:
+                content = f.read()
+            return content
+
+        def read_header(dir, service):
+            with open(os.path.join(dir, service + ".yaml"), "r") as f:
+                content = f.read()
+            return content
+
+        def parse_definitions(content):
+            return content.split("definitions:")[1]
+
+        def parse_paths(content):
+            return content.split("paths:")[1].split("definitions:")[0]
+
+        def merge_yaml(services):
+            out = ""
+            out = out + "definitions:"
+            for service in services:
+                content = read("services", service)
+                out = out + parse_paths(content)
+
+            out = out + "paths:"
+            for service in services:
+                content = read("services", service)
+                out = out + parse_definitions(content)
+            return out
+
+        def merge(services, out):
+
+            header = read_header("service", "header")
+            output = header + "paths:"
+
+            for service in services:
+                content = read("services", service)
+                output = output + parse_paths(content)
+
+            output = output + "definitions:"
+
+            for service in services:
+                content = read("services", service)
+                output = output + parse_definitions(content)
+            output = re.sub(r'\n+', '\n', output)
+            print(output, file=out)
+
+        merge(services, out)
+
+    def create(self, servicename, servicedir):
+        SERVICE = servicename
+        YAMLFILE = servicename + ".yaml"
+        DESTDIR = os.path.join(servicedir, "server", servicename, "flaskConnexion")
+
+        command = "{swaggercodegen} generate " + \
+	        "-i {servicedir}/{yamlfile} " \
+            "-l python-flask " + \
+            "-o {DESTDIR} " + \
+            "-D supportPython2=true && " + \
+            "cp -rf {servicedir}/*controller.py {DESTDIR}/swagger_server/controllers/ && "+ \
+            "cd {DESTDIR} && pip install -r requirements.txt && " + \
+            "python setup.py install "
+        command = command.format(
+                yamlfile=YAMLFILE,
+                servicedir=servicedir,
+                swaggercodegen=self.SWAGGERCODEGEN,
+                SERVICE=servicename,
+                DESTDIR=DESTDIR
+            )
+        print (columns * '.')
+        print (command)
+        print (columns * '.')
+        os.system(command)
+        print (columns * '.')
+
+    def start(self, service):
+        DESTDIR = os.path.join(service, "server", service, "flaskConnexion")
+        command = "pip install pymongo && cd {DESTDIR} && python -m swagger_server".format(DESTDIR=DESTDIR)
+        os.system(command)
+
+def execute (commands):
+    lines = commands.split("\n")
+    for line in lines:
+        os.system(line)
+
+@print_function_name
+def generate(services):
+    print ("generate")
+    print (services)
+    #script = """
+    #ls
+    #"""
+    #execute(script)
+    s = Swagger()
+    s.generate("example")
+
+@print_function_name
+def clean():
+    script = """
+    rm -rf {CREATED}
+    """
+    s = Swagger()
+    script = script.format(CREATED=s.CREATED)
+    print(script)
+    execute(script)
+
+@print_function_name
+def kill(services):
+    print (services)
+
+@print_function_name
+def run(services):
+    print (services)
+
+@print_function_name
+def rm(services):
+    os.remove(os.path.join("service", "service.yaml"))
+    os.remove(os.path.join("service", "service_controller.py"))
+
+    for service in services:
+        print (service)
+
+@print_function_name
+def create(services):
+    print (services)
+
+@print_function_name
+def pack(services):
+    print (services)
+
+@print_function_name
+def ps(services):
+    if len(services) == 0:
+       services = None
+    print ("ps")
+    print (services)
+
+@print_function_name
+def info(services):
+    print (services)
+
+def analyse():
+
+    #
+    # SERVICE
+    #
+    if arguments["generate"] and arguments["service"]:
+        service = arguments['--target'] or "service"
+        f = open(os.path.join(service, service + ".yaml"), "w")
+
+        s = Swagger()
+        s.generate(arguments["SERVICES"], f)
+    elif arguments["create"] and arguments["service"]:
+        service = arguments['--target'] or "service"
+        s = Swagger()
+        s.create(service, service)
+    elif arguments["start"] and arguments["service"]:
+        service = arguments['--target'] or "service"
+        s = Swagger()
+        s.start(service)
+    elif arguments["init"]  and arguments["service"]:
+        s = Swagger()
+        s.init(arguments["SERVICE"])
+    elif arguments["generate"]  and arguments["service"]:
+        s = Swagger()
+        s.generate(arguments["SERVICES"])
+
+
+    #
+    # MANAGEMENT
+    #
+    elif arguments["kill"]:
+       kill(arguments["SERVICES"])
+    elif arguments["run"]:
+       run(arguments["SERVICES"])
+    elif arguments["clean"]:
+       clean()
+    elif arguments["rm"]:
+        rm(arguments["SERVICES"])
+    elif arguments["info"]:
+       info(arguments["SERVICES"])
+    elif arguments["pack"]:
+       pack(arguments["SERVICES"])
+    elif arguments["ps"]:
+       ps(arguments["SERVICES"])
+
+    #
+    # CONTROLLER
+    #
+    elif arguments["controller"] and arguments["install"]:
+       c = Controller()
+       service = arguments['--target'] or "service"
+       code = c.install(arguments["SERVICES"])
+       with open(os.path.join(service, service + "_controller.py"), "w") as f:
+           print (code, file=f)
+
+    elif arguments["controller"] and arguments["list"]:
+       c = Controller()
+       services = c.list()
+       for service in services:
+           print(service)
+
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version=VERSION)
+    if DEBUG:
+        print(arguments)
+
+    analyse()
