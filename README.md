@@ -69,6 +69,10 @@ services/example -> services/health
 
 This example demonstrates two points. First, it adds security support of **http basic auth** and **apikey/secret auth**. Second it provides the concept of the virtualdirectory as a demonstration specification to showcase an example usage of a service with authentication, as well as showcasing the idea of virtualdirectory.
 
+The source for this example is located in 
+
+* https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory
+
 To run the demo:
 
 1. Make sure the mongo container is running as required by the previous examples;
