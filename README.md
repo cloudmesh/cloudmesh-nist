@@ -170,18 +170,15 @@ video that explains how simple it is to run our services.
 that the service here is build from an open API specification that is
 includes in
 
-*
-<https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory>
+* <https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory>
 
 The code for the service backend is located at
 
-*
-<https://github.com/cloudmesh-community/nist/blob/master/services/virtualdirectory/virtualdirectory_controller.py>
+* <https://github.com/cloudmesh-community/nist/blob/master/services/virtualdirectory/virtualdirectory_controller.py>
 
 The password configuration file is located at
 
-*
-<https://github.com/cloudmesh-community/nist/blob/master/services/secconf.yaml>
+* <https://github.com/cloudmesh-community/nist/blob/master/services/secconf.yaml>
 
 As this is only a demonstration, we have used the most simple security
 possible. We assume the server runs only on the local host. Please
