@@ -78,6 +78,8 @@ To run the demo:
 1. Make sure the mongo container is running as required by the previous examples;
 2. In the top level of nist git repo say  
 
+       $ git clone git clone https://github.com/cloudmesh-community/nist.git
+       $ cd nist
        $ make all
        
 3. Then say 
