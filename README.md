@@ -170,7 +170,8 @@ video that explains how simple it is to run our services.
 that the service here is build from an open API specification that is
 includes in
 
-* <https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory>
+* <https://github.com/cloudmesh-community/nist/blob/master/services/virtualdirectory/virtualdirectory.yaml>
+
 
 The code for the service backend is located at
 
