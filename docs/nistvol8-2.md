@@ -15,7 +15,7 @@ October 20, 2017
 
 <https://bigdatawg.nist.gov/V2_output_docs.php>
 
-![](images/nist.png){width="2.10in"}
+![](images/nist.png)
 
 ---
 
@@ -43,7 +43,7 @@ This draft publication is available free of charge from:
 
 October 2017
 
-![http://physics.nist.gov/Images/doc.bw.gif](images/us-dept-of-com.png){width="0.977in"}
+![http://physics.nist.gov/Images/doc.bw.gif](images/us-dept-of-com.png)
 
 
 U. S. Department of Commerce
@@ -151,7 +151,8 @@ organizational maturity; project maturity; system modernization.
 This document reflects the contributions and discussions by the
 membership of the NBD-PWG, cochaired by Wo Chang (NIST ITL), Bob
 Marcus (ET-Strategies), and Chaitan Baru (San Diego Supercomputer
-Center; National Science Foundation). For all versions, the Subgroups were led by the following people: Nancy Grady (SAIC), Natasha Balac
+Center; National Science Foundation). For all versions, the Subgroups 
+were led by the following people: Nancy Grady (SAIC), Natasha Balac
 (SDSC), and Eugene Luster (R2AD) for the Definitions and Taxonomies
 Subgroup; Geoffrey Fox (Indiana University) and Tsegereda Beyene
 (Cisco Systems) for the Use Cases and Requirements Subgroup; Arnab Roy
@@ -166,10 +167,15 @@ Roadmap Subgroup.
 
 The editors for this document were the following:
 
-- ***Version 2.1***: A previous volume used just the definition of the schema based on examples it was easier to read but did only include the definition of the resources and not the interaction with the resources. This volume was in place till June 2018.
+- ***Version 2.1***: A previous volume used just the definition of the 
+  schema based on examples it was easier to read but did only include 
+  the definition of the resources and not the interaction with the resources. 
+  This volume was in place till June 2018.
 
 
-- ***Version 2.2***: This version was significantly changed and uses now OpenAPI to specify the Interfaces between the various services and components. Editors of this volume are:
+- ***Version 2.2***: This version was significantly changed and uses now 
+  OpenAPI to specify the Interfaces between the various services and components. 
+  Editors of this volume are:
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
 
@@ -204,7 +210,7 @@ especially the following NBD-PWG members:
 * Robert C. Whetsel, DISA/NBIS
 * Pratik Thakkar, Philips
 
-Past contributors include
+Past contributors of earlier versions of this document include
 
 * Badi Abdhul Wahid, formerly Indiana University
 
@@ -248,15 +254,15 @@ The NIST Big Data Interoperability Framework consists of nine volumes,
 each of which addresses a specific key topic, resulting from the work of
 the NBD-PWG. The nine volumes are:
 
-- Volume 1: Definitions
-- Volume 2: Taxonomies
-- Volume 3: Use Cases and General Requirements
-- Volume 4: Security and Privacy
-- Volume 5: Architectures White Paper Survey
-- Volume 6: Reference Architecture
-- Volume 7: Standards Roadmap
-- Volume 8: Reference Architecture Interfaces
-- Volume 9: Adoption and Modernization
+* Volume 1: Definitions
+* Volume 2: Taxonomies
+* Volume 3: Use Cases and General Requirements
+* Volume 4: Security and Privacy
+* Volume 5: Architectures White Paper Survey
+* Volume 6: Reference Architecture
+* Volume 7: Standards Roadmap
+* Volume 8: Reference Architecture Interfaces
+* Volume 9: Adoption and Modernization
 
 The NBDIF will be released in three versions, which correspond to the
 three development stages of the NBD-PWG work. The three stages aim to
@@ -568,8 +574,9 @@ roles provide or implement specific activities and functions within the
 system. It does not designate a service model or business entity.
 
 ```
-FIGURE 2 was at one point removed by somone, but the text was not updated
+:warning: FIGURE 2 was at one point removed by somone, but the text was not updated
 ```
+
 The DATA arrows in Figure 2 show the flow of data between the system's
 main roles. Data flows between the roles either physically (i.e., by
 value) or by providing its location and the means to access it (i.e., by
