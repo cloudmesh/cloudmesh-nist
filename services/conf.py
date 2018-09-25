@@ -27,7 +27,7 @@ with open(file, 'r') as f:
         print(exc)
 
 def ERROR_401(error):
-    return flask.Response(error, 401, {'WWWAuthenticate':'Basic realm="Login Required"'})
+    return flask.Response(error, 401, {'WWW-Authenticate':'Basic realm="Login Required"'})
 
 def check_basicauth(username, password):
     '''This function is called to check if a username /
