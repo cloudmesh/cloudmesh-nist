@@ -64,3 +64,48 @@ Example:
 ./bin/cm-openapi service init health
 services/example -> services/health
 ```
+
+## A service Example
+
+This example demonstrates two points. First, it adds security support of **http basic auth** and **apikey/secret auth**. Second it provides the concept of the virtualdirectory as a demonstration specification to showcase an example usage of a service with authentication, as well as showcasing the idea of virtualdirectory.
+
+To run the demo:
+
+1. Make sure the mongo container is running as required by the previous examples;
+2. In the top level of nist git repo say  
+
+       $ make all
+       
+3. Then say 
+
+       $ cd service; make all
+
+This will run our new combined service `virtualdirectory`
+
+In another terminal window, go also the the nist git repo directory.  The auth credential is configured in the file:
+
+    services/secconf.yaml
+
+---
+
+:warning: Please make sure to set your own passwords. We will move the file in future to 
+
+    ~/.cloudmesh/services/seccont.yaml
+
+However we have not yet integrated this into the code. Thus be careful that when creating pull requests not to check in your version of secconf.yaml.
+
+---
+
+Then say 
+
+    $ cd services/virtualdirectory/test
+    $ ./test_virtualdirectory.sh
+
+This will add an ftp endpoint as an entry of the virtualdirectory.
+(currently ftp is the only supported protocol for the virtualdirectory).
+
+Then run these from a terminal to test the two service endpoints.
+
+curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectories
+curl -u admin:secret http://localhost:8080/cloudmesh/virtualdirectory/UbuntuFTP
+
