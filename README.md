@@ -65,7 +65,7 @@ Example:
 services/example -> services/health
 ```
 
-## A service Example
+## A Service Example
 
 This example demonstrates two points. First, it adds security support of **http basic auth** and **apikey/secret auth**. Second it provides the concept of the virtualdirectory as a demonstration specification to showcase an example usage of a service with authentication, as well as showcasing the idea of virtualdirectory.
 
