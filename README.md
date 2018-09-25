@@ -4,6 +4,10 @@ Spec will be hosted here:
 
 https://cloudmesh-community.github.io/nist/spec/
 
+Super old:
+
+* Outdated document: https://github.com/cloudmesh/nist-volume8
+* On Gregors Computer ~/Desktop/Documents/OneDrive/nist-volume-8
 
 ## Requirements
 
