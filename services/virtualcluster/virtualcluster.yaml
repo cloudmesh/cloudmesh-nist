@@ -112,18 +112,18 @@ definitions:
         type: "string"
       description:
         type: "string"
-        description: test
+        description: A description of the virtual cluster
       nnodes:
         type: "integer"
-        description: test        
+        description: number of nodes of the virtual cluster
       owner:
         type: "string"
-        description: test        
+        description: owner of the virtual cluster
       fe:
-        description: test      
+        description: Front-end node of the virtual cluster
         $ref: "#/definitions/Node"
       nodes:
-        description: test      
+        description: List of nodes of the virtual cluster
         type: array
         items:
           $ref: "#/definitions/Node"
@@ -132,16 +132,22 @@ definitions:
     properties:
       name:
         type: "string"
+        description: name of the node
       state:
         type: "string"
+        description: power state of the node
       ncpu:
         type: "integer"
+        description: number of virtual CPUs of the node
       ram:
         type: "string"
+        description: RAM size of the node
       disk:
         type: "string"
+        description: Disk size of the node
       nics:
         type: "array"
+        description: List of network interfaces of the node
         items:
           $ref: "#/definitions/NIC"
   NIC:
@@ -149,5 +155,7 @@ definitions:
     properties:
       mac:
         type: "string"
+        description: MAC address of the node
       ip:
         type: "string"
+        description: IP address of the node
