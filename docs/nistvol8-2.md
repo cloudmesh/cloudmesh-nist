@@ -1102,6 +1102,16 @@ document. However, it is expected that scalability, distribution of
 services, and other advanced options need to be addressed based on
 application requirements.
 
+
+## Virtual Directory
+
+{include=../dest/spec/virtualdirectory.md} 
+
+### virtualdirectory.yaml
+
+```{include=../../services/virtualdirectory/virtualdirectory.yaml}
+```
+
 ## Profile
 
 {include=../dest/spec/profile.md} 
