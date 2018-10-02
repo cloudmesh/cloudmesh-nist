@@ -1121,14 +1121,6 @@ application requirements.
 ```{include=../../services/profile/profile.yaml}
 ```
 
-## Keystore
-
-{include=../dest/spec/keystore.md}
-
-### keystore.yaml
-
-```{include=../../services/keystore/keystore.yaml}
-```
 
 ## Virtual CLuster
 
@@ -1138,6 +1130,20 @@ application requirements.
 
 ```{include=../../services/vc/vc.yaml}
 ```
+
+
+## Keystore
+
+{include=../dest/spec/keystore.md}
+
+### keystore.yaml
+
+```{include=../../services/keystore/keystore.yaml}
+```
+
+
+<!--
+
 
 ## Alias
 
@@ -1224,3 +1230,4 @@ application requirements.
 {include=../../services/scheduler/scheduler.yaml}
 ```
 
+-->
