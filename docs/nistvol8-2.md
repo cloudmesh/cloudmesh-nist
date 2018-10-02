@@ -1103,14 +1103,6 @@ services, and other advanced options need to be addressed based on
 application requirements.
 
 
-## Virtual Directory
-
-{include=../dest/spec/virtualdirectory.md} 
-
-### virtualdirectory.yaml
-
-```{include=../../services/virtualdirectory/virtualdirectory.yaml}
-```
 
 ## Profile
 
@@ -1120,18 +1112,6 @@ application requirements.
 
 ```{include=../../services/profile/profile.yaml}
 ```
-
-
-## Virtual CLuster
-
-{include=../dest/spec/vc.md}
-
-### vc.yaml
-
-```{include=../../services/vc/vc.yaml}
-```
-
-
 ## Keystore
 
 {include=../dest/spec/keystore.md}
@@ -1140,6 +1120,25 @@ application requirements.
 
 ```{include=../../services/keystore/keystore.yaml}
 ```
+
+## Virtual Directory
+
+{include=../dest/spec/virtualdirectory.md} 
+
+### virtualdirectory.yaml
+
+```{include=../../services/virtualdirectory/virtualdirectory.yaml}
+```
+
+## Virtual Cluster
+
+{include=../dest/spec/vc.md}
+
+### vc.yaml
+
+```{include=../../services/vc/vc.yaml}
+```
+
 
 
 <!--
