@@ -70,4 +70,4 @@ definitions:
         description: endpoint of the database
       kind:
         type: string
-        description: the kind of the database 
+        description: the kind of the database

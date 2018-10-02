@@ -71,7 +71,7 @@ definitions:
         description: name of the default
       value:
         type: string
-        description: type of the default        
+        description: type of the default
       kind:
         type: string
-        description: value of the default                
+        description: value of the default

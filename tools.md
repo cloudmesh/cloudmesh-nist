@@ -28,11 +28,11 @@ pyenv virtualenv 2.7.15 ENV2
 spec -> generator -> ws
 
 protrocol buffer - struct object
-   -> openapi3.0 stub 
-   
-   
-# 
-# OpenAPI Documentation 
+   -> openapi3.0 stub
+
+
+#
+# OpenAPI Documentation
 
 * <https://sourcey.com/spectacle/>
 
@@ -87,8 +87,8 @@ Downlaod go
 cd src/github.com/googleapis/gnostic/generate-gnostic
 go install
 cd ..
-generate-gnostic --v2 # does not work 
- 
+generate-gnostic --v2 # does not work
+
 ```
 
 ## Bootprint

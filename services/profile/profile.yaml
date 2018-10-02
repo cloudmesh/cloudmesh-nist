@@ -1,36 +1,39 @@
 ---
 swagger: "2.0"
-info: 
+info:
   version: "0.0.3"
   title: "Profile"
   description: >
-               Profiles are used to store information about users for a specific service. Profiles can be added, removed and listed. A group in the profile can be used to groups certain users.
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
-  contact: 
+               Profiles are used to store information about users for
+               a specific service. Profiles can be added, removed and
+               listed. A group in the profile can be used to augment
+               users to be part of a group.
+termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
     name: "Cloudmesh Profile"
     url: https://cloudmesh-community.github.io/nist/spec/
-  license: 
+  license:
     name: "Apache"
 host: "localhost:8080"
-schemes: 
+schemes:
   - "http"
-consumes: 
+consumes:
   - "application/json"
-produces: 
+produces:
   - "application/json"
-paths: 
+paths:
   /cloudmesh/profile/profiles:
     get:
       tags:
       - "profile"
       description: "Returns all profiles"
       operationId: get_profile
-      produces: 
+      produces:
         - "application/json"
-      responses: 
+      responses:
         "200":
           description: "profile information"
-          schema: 
+          schema:
             $ref: "#/definitions/Profile"
     put:
       tags:
@@ -50,7 +53,7 @@ paths:
     get:
       tags:
       - "profile"
-      
+
       description: "Returns a the profile of a user"
       operationId: getProfileByUuid
       parameters:
@@ -58,19 +61,19 @@ paths:
           in: path
           required: true
           type: string
-      produces: 
+      produces:
         - "application/json"
-      responses: 
+      responses:
         "200":
           description: "profile information"
-          schema: 
+          schema:
             $ref: "#/definitions/Profile"
 definitions:
   Profile:
     type: "object"
     #required:
     #  - "uuid"
-    properties: 
+    properties:
       uuid:
         type: "string"
         description: a unique id for the profile
@@ -78,14 +81,16 @@ definitions:
         type: "string"
         description: the username associated with the profile
       group:
-        type: "string"
-        description: a group this profile may be associated to
+        type: array
+        description: a list of groups that are associated to the profile
+        items:
+          type: "string"
       resource:
         type: "string"
         description: a resource this profile may belong to
       context:
         type: "string"
-        description: a context the profile may belong to 
+        description: a context the profile may belong to
       description:
         type: "string"
         description: a description for this profile

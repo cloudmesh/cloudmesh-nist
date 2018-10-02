@@ -69,4 +69,3 @@ definitions:
         type: array
         items:
            layers: string
-        

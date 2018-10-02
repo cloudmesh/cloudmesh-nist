@@ -9,16 +9,16 @@
 
 azure & aws & google
 
-* [../hid-sp18-518/project-code/azure/azvm_controller.py](../hid-sp18-518/project-code/azure) 
-* [../hid-sp18-518/project-code/azure/azstorage_controller.py](../hid-sp18-518/project-code/azure) 
-* [../hid-sp18-518/project-code/google/google_storage_controller.py](../hid-sp18-518/project-code/google) 
-* [../hid-sp18-518/project-code/google/google_vm_controller.py](../hid-sp18-518/project-code/google) 
+* [../hid-sp18-518/project-code/azure/azvm_controller.py](../hid-sp18-518/project-code/azure)
+* [../hid-sp18-518/project-code/azure/azstorage_controller.py](../hid-sp18-518/project-code/azure)
+* [../hid-sp18-518/project-code/google/google_storage_controller.py](../hid-sp18-518/project-code/google)
+* [../hid-sp18-518/project-code/google/google_vm_controller.py](../hid-sp18-518/project-code/google)
 * [../hid-sp18-518/project-code/aws/vm_controller.py](../hid-sp18-518/project-code/aws)
 * [../hid-sp18-518/project-code/aws/s3_controller.py](../hid-sp18-518/project-code/aws)
 
 openstack
 
-* [../hid-sp18-503/project-code/default_controller.py](../hid-sp18-503/project-code) 
+* [../hid-sp18-503/project-code/default_controller.py](../hid-sp18-503/project-code)
 * [../hid-sp18-516/project-code/default_controller.py](../hid-sp18-516/project-code)
 
 
@@ -49,7 +49,7 @@ Services
 
 * [../hid-sp18-402/swagger](../hid-sp18-402/swagger) aws vm (has only get info for vm)
 * [../hid-sp18-420/swagger](../hid-sp18-420/swagger) aws s3 (only lists buckets, wrong name of OUTPUT in definitison?)
-* [../hid-sp18-419/swagger](../hid-sp18-419/swagger) google compute (only lists the vms) 
+* [../hid-sp18-419/swagger](../hid-sp18-419/swagger) google compute (only lists the vms)
 
 Local host
 
@@ -59,7 +59,7 @@ Local host
 * [../hid-sp18-523/swagger](../hid-sp18-523/swagger) process run ps on localhost
 
 
-SSH 
+SSH
 
 * [../hid-sp18-516/swagger](../hid-sp18-516/swagger) localhost (ssh to host and execute command, not sure if this works, needs to be behind firewall)
 
@@ -68,7 +68,7 @@ list dir
 * [../hid-sp18-502/project-code/default_controller.py](../hid-sp18-502/project-code)
 * [../hid-sp18-502/cloudmesh/default_controller.py](../hid-sp18-502/cloudmesh)
 * [../hid-sp18-502/cloudmesh/dir_controller.py](../hid-sp18-502/cloudmesh)
-* [../hid-sp18-502/cloudmesh/swagger_example/server/dir/flaskConnexion/swagger_server/controllers/dir_controller.py](../hid-sp18-502/cloudmesh/swagger_example/server/dir/flaskConnexion/swagger_server/controllers) 
+* [../hid-sp18-502/cloudmesh/swagger_example/server/dir/flaskConnexion/swagger_server/controllers/dir_controller.py](../hid-sp18-502/cloudmesh/swagger_example/server/dir/flaskConnexion/swagger_server/controllers)
 
 
 * [../sav-hid-sp18-422/rest/codegenoutput/swagger_server/controllers/default_controller.py](../sav-hid-sp18-422/rest/codegenoutput/swagger_server/controllers) -- stream aggregator
@@ -88,7 +88,7 @@ list dir
 # Analysis & Application
 
 
-* [../hid-sp18-409/swagger](../hid-sp18-409/swagger) crime finder 
+* [../hid-sp18-409/swagger](../hid-sp18-409/swagger) crime finder
 
 
 	* [../hid-sp18-409/project-code/crime_finder_swagger/data/data_controller.py](../hid-sp18-409/project-code/crime_finder_swagger/data)
@@ -98,7 +98,7 @@ list dir
 * [../hid-sp18-401/swagger](../hid-sp18-401/swagger) Mean square error
 * [../hid-sp18-416/swagger](../hid-sp18-416/swagger) stream - twitter movie stream
 * [../hid-sp18-521/project-code/default_controller.py](../hid-sp18-521/project-code) medicare aws service
-* [../hid-sp18-521/swagger](../hid-sp18-521/swagger) AWS SQL database National Provider Identifier (NPI) records. 
+* [../hid-sp18-521/swagger](../hid-sp18-521/swagger) AWS SQL database National Provider Identifier (NPI) records.
 	* seems incomplete, as not all data is provided that is offered in NPI
 	* https://npiregistry.cms.hhs.gov/api/?number=&enumeration_type=&taxonomy_description=&first_name=&last_name=&organization_name=&address_purpose=&city=Bloomington&state=IN&postal_code=47408&country_code=US&limit=&skip=
 	* https://npiregistry.cms.hhs.gov/api/demo
@@ -146,12 +146,12 @@ CPU - example in class
 * [../hid-sp18-526/swagger](../hid-sp18-526/swagger) mapreduce (has no real file based data upload)
 * [../hid-sp18-511/swagger](../hid-sp18-511/swagger) filter (incomplete?)
 * [../hid-sp18-524/swagger](../hid-sp18-524/swagger) converter (learning problem)
-* [../hid-sp18-502/swagger](../hid-sp18-502/swagger) 
+* [../hid-sp18-502/swagger](../hid-sp18-502/swagger)
 	* variable (name, value, tyoe) store in mongo
 	* get by name, should have used post not get
 	* superseeded by our own keystors in mongodb 	
-* [../hid-sp18-406/swagger](../hid-sp18-406/swagger) database info mongo 
-* [../hid-sp18-411/swagger](../hid-sp18-411/swagger) mongo db thing 
+* [../hid-sp18-406/swagger](../hid-sp18-406/swagger) database info mongo
+* [../hid-sp18-411/swagger](../hid-sp18-411/swagger) mongo db thing
 * [../hid-sp18-418/swagger](../hid-sp18-418/swagger) virtual directory
 * [../hid-sp18-421/swagger](../hid-sp18-421/swagger) logentry
 * [../hid-sp18-508/swagger](../hid-sp18-508/swagger) profile, completely replaced
@@ -183,6 +183,6 @@ Unclear - incomplete
 * [../hid-sp18-515/swagger](../hid-sp18-515/swagger) cpu example
 
 * [../hid-sp18-512/swagger](../hid-sp18-512/swagger) --- nothing
-* [../hid-sp18-602/swagger](../hid-sp18-602/swagger) --- incomplete 
+* [../hid-sp18-602/swagger](../hid-sp18-602/swagger) --- incomplete
 * [../hid-sp18-602/swagger-docker/openstack/default_controller.py](../hid-sp18-602/swagger-docker/openstack) openstac get images - superceeded by others
 

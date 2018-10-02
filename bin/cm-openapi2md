@@ -68,7 +68,11 @@ def convert_definitions(filename, indent=1):
             for property in properties:
                 if 'description' not in properties[property]:
                   properties[property]['description'] = "ERROR: description missing"
-                if 'type' not in properties[property]:
+              
+                if 'type' is "array":
+                  print("| array |  |")
+                
+                elif 'type' not in properties[property]:
                   properties[property]['type'] = ""
 
                 print ("|", property, "|", properties[property]['type'], "|",properties[property]['description'], "|")

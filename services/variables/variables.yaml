@@ -71,7 +71,7 @@ definitions:
         description: name of the variable
       value:
         type: string
-        description: type of the variable        
+        description: type of the variable
       kind:
         type: string
-        description: value of the variable                
+        description: value of the variable

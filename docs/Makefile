@@ -16,8 +16,9 @@ DEST=dest/spec
 SRC=../services
 
 
-service=timestamp alias variables default file organization profile database replica virtualdirectory vc keystore vm scheduler
+service=timestamp alias variables default file organization profile database replica virtualdirectory virtualcluster keystore vm scheduler
 
+service=profile keystore virtualdirectory virtualcluster
 
 YAML := $(wildcard $(SRC)/*/*.yaml)
 
@@ -40,7 +41,11 @@ rest:
 		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=3 > $(DEST)/$$entry.md ; \
 	done
 
-
+lint:
+	# find .. -name "*.md" -print0 | xargs -0 perl -pi.bak -e 's/ +$//'
+	for entry in $(service); do \
+		yamllint $(SRC)/$$entry/$$entry.yaml ; \
+	done
 
 setup:
 	pip install -r ../requirements.txt

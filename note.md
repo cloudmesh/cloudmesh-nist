@@ -6,7 +6,7 @@ This is an interface and not an API!
 
 function.yaml:
 ---
-function: 
+function:
     name: k-means
   - parameters:
     - x-list
@@ -20,8 +20,8 @@ function:
     - memory: 1KB
     - time: <10s
   - provider: AWSlamda
-      
-  
+
+
 
 can generate rest call
 

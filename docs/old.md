@@ -81,7 +81,7 @@ user definition or as part of a simple list similar to the organization.
 ```
 {
     'organization': {
-        'users': [ 
+        'users': [
             'objectid:user'
         ]
     }
@@ -370,7 +370,7 @@ protocol used (e.g., SQL, mongo).
 
 Object 4.13: Database
 
-### Stream 
+### Stream
 
 The stream object describes a data flow, providing information about the
 rate and number of items exchanged while issuing requests to the stream.
@@ -392,8 +392,8 @@ the stream.
 ```
 
 Object 4.14: Stream
-  
-### Filter 
+
+### Filter
 
 Filters can operate on a variety of objects and reduce the information
 received based on a search criterion.
@@ -519,7 +519,7 @@ cards (NICs), and other relevant information.
         }
     }
 }
-``` 
+```
 
 Object 4.18: Compute Node of a Virtual Cluster
 

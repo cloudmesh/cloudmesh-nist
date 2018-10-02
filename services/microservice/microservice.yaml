@@ -3,7 +3,7 @@ info:
   version: 0.0.1
   title: microservice
   description: >-
-    As part of microservices, a function with parameters that can be invoked has been defined. 
+    As part of microservices, a function with parameters that can be invoked has been defined.
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

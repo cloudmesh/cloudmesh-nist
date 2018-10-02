@@ -1,22 +1,22 @@
 ---
 swagger: "2.0"
-info: 
+info:
   version: "0.0.1"
   title: "Cloudmesh OpenAPI"
   description: "Cloudmesh OpenAPI specifications"
   termsOfService: "http://cloudmesh.org/TBD"
-  contact: 
+  contact:
     name: "Cloudmesh OpenAPI Specification"
     url: https://cloudmesh-community.github.io/nist/spec/
     email: laszewski@gmail.com
-  license: 
+  license:
     name: "Apache 2.0"
 host: "localhost:8080"
-schemes: 
+schemes:
   - "http"
-consumes: 
+consumes:
   - "application/json"
-produces: 
+produces:
   - "application/json"
 securityDefinitions:
   httpbasic:

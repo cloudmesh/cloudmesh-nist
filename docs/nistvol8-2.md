@@ -1,7 +1,7 @@
 **NIST Special Publication 1500-9**
 
 ```
-DRAFT NIST Big Data Interoperability Framework: 
+DRAFT NIST Big Data Interoperability Framework:
 Volume 8, Reference
 Architecture Interfaces
 ```
@@ -151,7 +151,7 @@ organizational maturity; project maturity; system modernization.
 This document reflects the contributions and discussions by the
 membership of the NBD-PWG, cochaired by Wo Chang (NIST ITL), Bob
 Marcus (ET-Strategies), and Chaitan Baru (San Diego Supercomputer
-Center; National Science Foundation). For all versions, the Subgroups 
+Center; National Science Foundation). For all versions, the Subgroups
 were led by the following people: Nancy Grady (SAIC), Natasha Balac
 (SDSC), and Eugene Luster (R2AD) for the Definitions and Taxonomies
 Subgroup; Geoffrey Fox (Indiana University) and Tsegereda Beyene
@@ -167,14 +167,14 @@ Roadmap Subgroup.
 
 The editors for this document were the following:
 
-- ***Version 2.1***: A previous volume used just the definition of the 
-  schema based on examples it was easier to read but did only include 
-  the definition of the resources and not the interaction with the resources. 
+- ***Version 2.1***: A previous volume used just the definition of the
+  schema based on examples it was easier to read but did only include
+  the definition of the resources and not the interaction with the resources.
   This volume was in place till June 2018.
 
 
-- ***Version 2.2***: This version was significantly changed and uses now 
-  OpenAPI to specify the Interfaces between the various services and components. 
+- ***Version 2.2***: This version was significantly changed and uses now
+  OpenAPI to specify the Interfaces between the various services and components.
   Editors of this volume are:
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
@@ -203,7 +203,7 @@ especially the following NBD-PWG members:
 
 
 * Gregor von| Laszewski, Indiana University
-* Wo Chang, National Institute of Standard and Technology, 
+* Wo Chang, National Institute of Standard and Technology,
 * Fugang Wang, Indiana University
 * Geoffrey C. Fox, Indiana University
 * Alicia Zuniga-Alvarado, Consultant
@@ -215,7 +215,7 @@ Past contributors of earlier versions of this document include
 * Badi Abdhul Wahid, formerly Indiana University
 
 
- 
+
 ---
 
 # Table of Contents
@@ -268,7 +268,7 @@ The NBDIF will be released in three versions, which correspond to the
 three development stages of the NBD-PWG work. The three stages aim to
 achieve the following with respect to the NBDRA.
 
-1. Identify the high-level Big Data reference architecture key components, which 
+1. Identify the high-level Big Data reference architecture key components, which
    are technology-, infrastructure-, and vendor-agnostic.
 2. Define general interfaces between the NBDRA components.
 3. Validate the NBDRA by building Big Data general applications through
@@ -378,7 +378,7 @@ NIST Big Data Reference Architecture (NBDRA).
 1. Identify the high-level Big Data reference architecture key
    components, which are technology, infrastructure, and vendor agnostic.
 2. Define general interfaces between the NBDRA components.
-3. Validate the NBDRA by building Big Data general applications through 
+3. Validate the NBDRA by building Big Data general applications through
    the general interfaces.
 
 On September 16, 2015, seven NBDIF Version 1 volumes were published
@@ -1007,7 +1007,7 @@ Specification Paradigm
 ======================
 
 This section summarizes the elementary services that are important to the
-NBDRA. 
+NBDRA.
 
 Hybrid and Multiple Frameworks
 ------------------------------
@@ -1106,7 +1106,15 @@ application requirements.
 
 ## Profile
 
-{include=../dest/spec/profile.md} 
+Terminology
+
+Group
+
+Resource
+
+Context
+
+{include=../dest/spec/profile.md}
 
 ### profile.yaml
 
@@ -1123,7 +1131,7 @@ application requirements.
 
 ## Virtual Directory
 
-{include=../dest/spec/virtualdirectory.md} 
+{include=../dest/spec/virtualdirectory.md}
 
 ### virtualdirectory.yaml
 

@@ -48,7 +48,7 @@ ERROR: missing
 
 | Name | Located in | Description | Required | Schema |
 | --- | --- | ------------- | --- | --- |
-| profile | body | The new profile to create | False | [](#) | | 
+| profile | body | The new profile to create | False | [](#) | |
 
 ### /cloudmesh/profile/profiles/{uuid}
 
@@ -68,5 +68,5 @@ Returns a the profile of a user
 
 | Name | Located in | Description | Required | Schema |
 | --- | --- | ------------- | --- | --- |
-| uuid | path | ERROR: missing | True | | 
+| uuid | path | ERROR: missing | True | |
 

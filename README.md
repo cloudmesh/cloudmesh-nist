@@ -1,13 +1,13 @@
 # NIST Big Data Reference Architecture Interfaces
 
 
-The working draft of the specification is in 
+The working draft of the specification is in
 
 * https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md
 
-It is easy to contribute to the document with the help of pull requests that allow eddits that will be addressed by the editor of this Volume (Gregor von Laszewski). Pull request can even be created via the GUI features of Github. YOu will need a github.com account and login into github to make use of this. 
+It is easy to contribute to the document with the help of pull requests that allow eddits that will be addressed by the editor of this Volume (Gregor von Laszewski). Pull request can even be created via the GUI features of Github. YOu will need a github.com account and login into github to make use of this.
 
-With Pandoc a version in MS Word can be created and formating changes can be applied. However all editorial non look and feel changes must not be conducted in the docx version but in the markdown version so we have a record of the changes in the github history. The look and feel, can be managed by a professional editor. 
+With Pandoc a version in MS Word can be created and formating changes can be applied. However all editorial non look and feel changes must not be conducted in the docx version but in the markdown version so we have a record of the changes in the github history. The look and feel, can be managed by a professional editor.
 
 Once finalized, the Spec Draft will be hosted here in word format
 
@@ -20,11 +20,11 @@ The document workflow is as follows:
 1. contributor gets github account
 2. contributor logs into github
 3. contributor eidts the md document and creates a pull request
-4. pull request is reviewed by Gregor von LAszewski and others 
+4. pull request is reviewed by Gregor von LAszewski and others
    while discussing it in the working group meetings if needed
 5. pull request is either rejected, accepted, or accepted with changes
-6. Once a number of changes are accepted a new version is created, 
-   however the most up to date version is always avalaible as 
+6. Once a number of changes are accepted a new version is created,
+   however the most up to date version is always avalaible as
    markdown document
 7. The version number of the document is increased.
 
@@ -63,7 +63,7 @@ make start # in one window
 make test # in the other window
 ```
 
-## Creating the spec in HTML 
+## Creating the spec in HTML
 
 ```
 make doc
@@ -97,7 +97,7 @@ services/example -> services/health
 
 This example demonstrates two points. First, it adds security support of **http basic auth** and **apikey/secret auth**. Second it provides the concept of the virtualdirectory as a demonstration specification to showcase an example usage of a service with authentication, as well as showcasing the idea of virtualdirectory.
 
-The source for this example is located in 
+The source for this example is located in
 
 * https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory
 
@@ -109,13 +109,13 @@ Start mongo
 To run the demo:
 
 1. Make sure the mongo container is running as required by the previous examples;
-2. In the top level of nist git repo say  
+2. In the top level of nist git repo say
 
        $ git clone git clone https://github.com/cloudmesh-community/nist.git
        $ cd nist
        $ make all
-       
-3. Then say 
+
+3. Then say
 
        $ cd service; make all
 
@@ -127,7 +127,7 @@ In another terminal window, go also the the nist git repo directory.  The auth c
 
 ---
 
-:warning: Please make sure to set your own passwords. We will move the file in future to 
+:warning: Please make sure to set your own passwords. We will move the file in future to
 
     ~/.cloudmesh/services/seccont.yaml
 
@@ -135,7 +135,7 @@ However we have not yet integrated this into the code. Thus be careful that when
 
 ---
 
-Then say 
+Then say
 
     $ cd services/virtualdirectory/test
     $ ./test_virtualdirectory.sh

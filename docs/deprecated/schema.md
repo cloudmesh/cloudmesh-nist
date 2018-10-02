@@ -25,7 +25,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  stream = {
  'schema': {
  'attributes': {
@@ -47,7 +47,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  azure_image = {
  'schema': {
  '_uuid': {
@@ -90,7 +90,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  deployment = {
  'schema': {
  'cluster': {
@@ -133,7 +133,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  azure_size = {
  'schema': {
  'ram': {
@@ -173,7 +173,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  cluster = {
  'schema': {
  'provider': {
@@ -201,7 +201,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  computer = {
  'schema': {
  'ip': {
@@ -218,7 +218,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  mesos_docker = {
  'schema': {
  'container': {
@@ -268,7 +268,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  file = {
  'schema': {
  'endpoint': {
@@ -302,7 +302,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  reservation = {
  'schema': {
  'start_time': {
@@ -325,7 +325,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  microservice = {
  'schema': {
  'function': {
@@ -339,7 +339,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  flavor = {
  'schema': {
  'uuid': {
@@ -362,7 +362,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  virtual_directory = {
  'schema': {
  'endpoint': {
@@ -382,7 +382,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  mapreduce_function = {
  'schema': {
  'name': {
@@ -449,7 +449,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  virtual_cluster = {
  'schema': {
  'authorized_keys': {
@@ -507,7 +507,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  libcloud_flavor = {
  'schema': {
  'uuid': {
@@ -533,7 +533,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  LibCLoudNode = {
  'schema': {
  'private_ips': {
@@ -569,7 +569,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  sshkey = {
  'schema': {
  'comment': {
@@ -589,7 +589,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  timestamp = {
  'schema': {
  'accessed': {
@@ -603,7 +603,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  mapreduce_noop = {
  'schema': {
  'name': {
@@ -614,7 +614,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  role = {
  'schema': {
  'users': {
@@ -636,7 +636,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  AzureNodeExtra = {
  'schema': {
  'ssh_port': {
@@ -659,7 +659,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  var = {
  'schema': {
  'type': {
@@ -673,7 +673,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  profile = {
  'schema': {
  'username': {
@@ -702,7 +702,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  virtual_machine = {
  'schema': {
  'status': {
@@ -754,7 +754,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  kubernetes = {
  'schema': {
  'items': {
@@ -830,7 +830,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  nic = {
  'schema': {
  'name': {
@@ -862,7 +862,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  openstack_flavor = {
  'schema': {
  'os_flv_disabled': {
@@ -894,7 +894,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  azure_vm = {
  'schema': {
  'username': {
@@ -956,7 +956,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  ec2NodeExtra = {
  'schema': {
  'product_codes': {
@@ -985,7 +985,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  libcloud_image = {
  'schema': {
  'username': {
@@ -1047,7 +1047,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  user = {
  'schema': {
  'profile': {
@@ -1066,7 +1066,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  GCENodeExtra = {
  'schema': {
  'status': {
@@ -1131,7 +1131,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  group = {
  'schema': {
  'users': {
@@ -1153,7 +1153,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  secgroup = {
  'schema': {
  'ingress': {
@@ -1170,7 +1170,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  node_new = {
  'schema': {
  'authorized_keys': {
@@ -1268,7 +1268,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  batchjob = {
  'schema': {
  'output_file': {
@@ -1306,7 +1306,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  account = {
  'schema': {
  'status': {
@@ -1344,7 +1344,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  libcloud_vm = {
  'schema': {
  'username': {
@@ -1403,7 +1403,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  compute_node = {
  'schema': {
  'status': {
@@ -1484,7 +1484,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  database = {
  'schema': {
  'endpoint': {
@@ -1498,7 +1498,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  default = {
  'schema': {
  'context': {
@@ -1512,7 +1512,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  openstack_image = {
  'schema': {
  'status': {
@@ -1609,7 +1609,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  OpenStackNodeExtra = {
  'schema': {
  'vm_state': {
@@ -1692,7 +1692,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  mapreduce = {
  'schema': {
  'function': {
@@ -1731,7 +1731,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  filter = {
  'schema': {
  'function': {
@@ -1742,7 +1742,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  alias = {
  'schema': {
  'origin': {
@@ -1753,7 +1753,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  replica = {
  'schema': {
  'endpoint': {
@@ -1784,7 +1784,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  openstack_vm = {
  'schema': {
  'vm_state': {
@@ -1876,7 +1876,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  organization = {
  'schema': {
  'users': {
@@ -1892,7 +1892,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  hadoop = {
  'schema': {
  'deployers': {
@@ -1953,7 +1953,7 @@ Object A.1: Schema
  }
  }
  }
- 
+
  accounting_resource = {
  'schema': {
  'account': {
@@ -2001,9 +2001,9 @@ Object A.1: Schema
  }
  }
  }
- 
- 
- 
+
+
+
  eve_settings = {
  'MONGO_HOST': 'localhost',
  'MONGO_DBNAME': 'testing',

@@ -92,4 +92,4 @@ definitions:
       cloud_flavor_id:
         type: string
         description: an id used by the cloud
-      
+

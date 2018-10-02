@@ -53,7 +53,7 @@ paths:
           description: Created
   '/cloudmesh/organization/{name}':
     get:
-      description: Returns the organization 
+      description: Returns the organization
       operationId: get_organization_by_name
       parameters:
         - name: name
@@ -75,7 +75,7 @@ definitions:
         description: Name of the organization
         type: string
       users:
-        description: list of users      
+        description: list of users
         type: array
         items: #/definitions/Users
 

@@ -1,4 +1,4 @@
-# Reproducible Cloud and Big Data Rest Service with Swagger 
+# Reproducible Cloud and Big Data Rest Service with Swagger
 
 
 # usage
@@ -13,13 +13,13 @@ uuid, username, context, description, firstname, lastname,publickey and email.
 The service provide add a whole profile, get all profiles and get one profile by uuid.
 
 
-## Notes For Instructors 
-This is the directory for reproducable Reset Service with Swagger. 
+## Notes For Instructors
+This is the directory for reproducable Reset Service with Swagger.
 
 * The reproducibility can be achieved by using the Make file:
     - make clean -- removes the code generated
 
-    - make service -- creates the swagger service from the yaml file 
+    - make service -- creates the swagger service from the yaml file
     and places the controllers in the appropriate directory
 
     - make start  -- starts the service
@@ -29,17 +29,17 @@ This is the directory for reproducable Reset Service with Swagger.
     - make test -- executes a number of tests against the service
 
     - make all -- creates and starts the service
-    
+
     - make container -- creates a docker container that runs the service
 
-* The yaml file I used is in 
+* The yaml file I used is in
 
         hid-sp18-508/swagger/cloudmesh/profile/profile.yaml
-    
-* The default_controller is at 
+
+* The default_controller is at
 
         hid-sp18-508/swagger/cloudmesh/profile/default_controller.py
-  
+
 
 
 ## Server Generation Using Swagger Codegen
@@ -51,14 +51,14 @@ chapter 34: REST Service Generation with Swagger
 ## Start The Service
 
 * clone the repository
-* navigate to the directory 
+* navigate to the directory
 
         cd /hid-sp18-508/swagger/cloudmesh/profile
-        
+
 * creates the swagger service from the yaml file with correct controllers
-        
+
         make service
-        
+
 * start the service by execute:
 
         make start
@@ -66,14 +66,14 @@ chapter 34: REST Service Generation with Swagger
 * The following will show
 
         Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
-        
+
 ## Test The Service
 * add one profile
 
         http://localhost:8080/cloudmesh/profile/addprofiles/135/nameYue/goodone/goodperson/yue/guo/public/yueguo@iu.com
 	
 	Get following response:
-  
+
         "add a new profile successfully"
 
 * get profile by uuid
@@ -93,7 +93,7 @@ chapter 34: REST Service Generation with Swagger
 		}
 
 	
-    
+
 * get all profiles
 
         http://localhost:8080/cloudmesh/profile/profiles
@@ -121,14 +121,14 @@ chapter 34: REST Service Generation with Swagger
   		"uuid": "135"
 		}
 		]
-    
+
 
 ## Stop The Service
 
 * Stop the service by:
 
         make stop
-        
+
 * removes the code and directories generated:
 
         make clean
