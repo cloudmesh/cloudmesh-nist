@@ -11,7 +11,6 @@ CSS=--css=template/epub.css
 CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
 TITLE=--metadata title="NIST BDRA Volume 8"
-INCLUDE=--filter ~/.cabal/bin/pandoc-include-code 
 
 DEST=dest/spec
 SRC=../services
@@ -21,10 +20,6 @@ service=timestamp alias variables default file organization profile database rep
 
 
 YAML := $(wildcard $(SRC)/*/*.yaml)
-
-t:
-	echo $(YAML)
-	echo $(service)
 
 
 volume: openapi
@@ -50,7 +45,7 @@ rest:
 setup:
 	pip install -r ../requirements.txt
 
-text: rest
+text: openapi
 #	cat dest/spec/*.md > dest/spec.md
 	cat nistvol8-2.md status.md acronyms.md bib.md > dest/$(FILE).md
 	cd dest; ../../bin/cm-md-filter $(FILE).md > tmp.md
@@ -59,14 +54,14 @@ text: rest
 
 html: text
 	cp -rf images dest
-	cd dest; pandoc $(INCLUDE) $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).html
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).html
 
 pdf: text
 	cp -rf images dest
-	cd dest; pandoc $(INCLUDE) $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).pdf
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).pdf
 
 word: text
-	cd dest; pandoc $(INCLUDE) $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).docx
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).docx
 
 
 
@@ -77,3 +72,5 @@ all:
 pdf:
         cd dest; pandoc -f markdown+smart --toc --epub-embed-font='fonts/*.ttf' -V geometry:margin=1in --bibliography references.bib --csl=../../template/ieee.csl -o $(FILENAME).pdf metadata.txt $(INDEX)
 
+clean:
+	rm -rf dest
