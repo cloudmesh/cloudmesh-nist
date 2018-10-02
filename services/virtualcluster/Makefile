@@ -1,6 +1,6 @@
 .PHONY: test
 
-OBJECT=vc
+OBJECT=virtualcluster
 CLOUDMESH=../..
 SWAGGERCODEGEN=java -jar $(CLOUDMESH)/bin/swagger-codegen-cli-2.3.1.jar
 YAMLFILE=$(OBJECT).yaml

@@ -1,7 +1,7 @@
 # Virtual Cluster Example 
 
 # About Service
-Use pymongo as backend. VC example stores Virtual Cluster objects.
+Use pymongo as backend. VirtualCluster example stores Virtual Cluster objects.
 
 
 ## Notes For Instructors 
@@ -28,7 +28,7 @@ This is the directory for reproducable Reset Service with Swagger.
 * clone the repository
 * navigate to the directory 
 
-        cd nist/services/vc
+        cd nist/services/virtualcluster
         
 * creates the swagger service from the yaml file with correct controllers
         
@@ -47,21 +47,21 @@ This is the directory for reproducable Reset Service with Swagger.
 
         make test
 
-* list all VCs:
+* list all VirtualClusters:
 
-        http://localhost:8080/cloudmesh/vc/vcs
+        http://localhost:8080/cloudmesh/virtualcluster/virtualclusters
 	
-* get VC by name (nbdra):
+* get VirtualCluster by name (nbdra):
 
-	    http://localhost:8080/cloudmesh/vc/vcs/nbdra
+	    http://localhost:8080/cloudmesh/virtualcluster/virtualclusters/nbdra
     
-* get front-end info of a VC (nbdra):
+* get front-end info of a VirtualCluster (nbdra):
 
-    	http://localhost:8080/cloudmesh/vc/vcs/nbdra/fe
+    	http://localhost:8080/cloudmesh/virtualcluster/virtualclusters/nbdra/fe
 
-* get info for a certain compute node (nbdra-node0) of a specified VC (nbdra):
+* get info for a certain compute node (nbdra-node0) of a specified VirtualCluster (nbdra):
 
-        http://localhost:8080/cloudmesh/vc/vcs/nbdra/nbdra-node0
+        http://localhost:8080/cloudmesh/virtualcluster/virtualclusters/nbdra/nbdra-node0
 
 ## Stop The Service
 

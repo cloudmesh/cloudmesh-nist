@@ -18,41 +18,41 @@ consumes:
 produces: 
   - "application/json"
 paths: 
-  /cloudmesh/vc/vcs:
+  /cloudmesh/virtualcluster/virtualclusters:
     get:
       tags:
-      - "vc"
-      description: "Returns all vcs"
-      operationId: get_vc
+      - "virtualcluster"
+      description: "Returns all virtualclusters"
+      operationId: get_virtualcluster
       produces: 
         - "application/json"
       responses: 
         "200":
           description: "profile info"
           schema: 
-            $ref: "#/definitions/VC"
+            $ref: "#/definitions/VirtualCluster"
     put:
       tags:
-      - "vc"
-      summary: "Create a new vc"
-      operationId: add_vc
+      - "virtualcluster"
+      summary: "Create a new virtualcluster"
+      operationId: add_virtualcluster
       parameters:
         - in: body
-          name: vc
-          description: "The new vc to create"
+          name: virtualcluster
+          description: "The new virtualcluster to create"
           schema:
-            $ref: "#/definitions/VC"
+            $ref: "#/definitions/VirtualCluster"
       responses:
         "201":
           description: Created
-  /cloudmesh/vc/vcs/{vcname}:
+  /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}:
     get:
       tags:
-      - "vc"
-      description: "Returns a vc by its name"
+      - "virtualcluster"
+      description: "Returns a virtualcluster by its name"
       operationId: getVcByName
       parameters:
-        - name: vcname
+        - name: virtualclustername
           in: path
           required: true
           type: string
@@ -60,17 +60,17 @@ paths:
         - "application/json"
       responses: 
         "200":
-          description: "vc info"
+          description: "virtualcluster info"
           schema: 
-            $ref: "#/definitions/VC"
-  /cloudmesh/vc/vcs/{vcname}/fe:
+            $ref: "#/definitions/VirtualCluster"
+  /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/fe:
     get:
       tags:
-      - "vc"
-      description: "Returns the front-end node info of the specified vc"
+      - "virtualcluster"
+      description: "Returns the front-end node info of the specified virtualcluster"
       operationId: getVcFeByName
       parameters:
-        - name: vcname
+        - name: virtualclustername
           in: path
           required: true
           type: string
@@ -78,17 +78,17 @@ paths:
         - "application/json"
       responses:
         "200":
-          description: "vc front-end info"
+          description: "virtualcluster front-end info"
           schema:
             $ref: "#/definitions/Node"
-  /cloudmesh/vc/vcs/{vcname}/{nodename}:
+  /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/{nodename}:
     get:
       tags:
-      - "vc"
-      description: "Returns the specified node info of the specified vc"
+      - "virtualcluster"
+      description: "Returns the specified node info of the specified virtualcluster"
       operationId: getVcNodeByName
       parameters:
-        - name: vcname
+        - name: virtualclustername
           in: path
           required: true
           type: string
@@ -100,11 +100,11 @@ paths:
         - "application/json"
       responses:
         "200":
-          description: "vc node info"
+          description: "virtualcluster node info"
           schema:
             $ref: "#/definitions/Node"
 definitions:
-  VC:
+  VirtualCluster:
     type: "object"
     properties:
       name:
