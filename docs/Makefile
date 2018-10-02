@@ -42,7 +42,7 @@ rest:
 	done
 
 lint:
-	# find .. -name "*.md" -print0 | xargs -0 perl -pi.bak -e 's/ +$//'
+	# find .. -name "*.yaml" -print0 | xargs -0 perl -pi.bak -e 's/ +$//'
 	for entry in $(service); do \
 		yamllint $(SRC)/$$entry/$$entry.yaml ; \
 	done

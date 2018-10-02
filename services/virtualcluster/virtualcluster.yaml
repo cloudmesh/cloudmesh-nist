@@ -21,7 +21,7 @@ paths:
   /cloudmesh/virtualcluster/virtualclusters:
     get:
       tags:
-      - "virtualcluster"
+        - "virtualcluster"
       description: "Returns all virtualclusters"
       operationId: get_virtualcluster
       produces:
@@ -33,7 +33,7 @@ paths:
             $ref: "#/definitions/VirtualCluster"
     put:
       tags:
-      - "virtualcluster"
+        - "virtualcluster"
       summary: "Create a new virtualcluster"
       operationId: add_virtualcluster
       parameters:
@@ -48,7 +48,7 @@ paths:
   /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}:
     get:
       tags:
-      - "virtualcluster"
+        - "virtualcluster"
       description: "Returns a virtualcluster by its name"
       operationId: getVirtualclusterByName
       parameters:
@@ -66,7 +66,7 @@ paths:
   /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/fe:
     get:
       tags:
-      - "virtualcluster"
+        - "virtualcluster"
       description: "Returns the front-end node info of the specified virtualcluster"
       operationId: getVirtualclusterFeByName
       parameters:
@@ -84,7 +84,7 @@ paths:
   /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/{nodename}:
     get:
       tags:
-      - "virtualcluster"
+        - "virtualcluster"
       description: "Returns the specified node info of the specified virtualcluster"
       operationId: getVirtualclusterNodeByName
       parameters:

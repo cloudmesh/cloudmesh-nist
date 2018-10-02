@@ -8,7 +8,7 @@ info:
                a specific service. Profiles can be added, removed and
                listed. A group in the profile can be used to augment
                users to be part of a group.
-termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: "Cloudmesh Profile"
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -25,7 +25,7 @@ paths:
   /cloudmesh/profile/profiles:
     get:
       tags:
-      - "profile"
+        - "profile"
       description: "Returns all profiles"
       operationId: get_profile
       produces:
@@ -37,7 +37,7 @@ paths:
             $ref: "#/definitions/Profile"
     put:
       tags:
-      - "profile"
+        - "profile"
       summary: "Create a new profile"
       operationId: add_profile
       parameters:
@@ -52,8 +52,7 @@ paths:
   /cloudmesh/profile/profiles/{uuid}:
     get:
       tags:
-      - "profile"
-
+        - "profile"
       description: "Returns a the profile of a user"
       operationId: getProfileByUuid
       parameters:
@@ -71,8 +70,6 @@ paths:
 definitions:
   Profile:
     type: "object"
-    #required:
-    #  - "uuid"
     properties:
       uuid:
         type: "string"

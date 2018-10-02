@@ -1144,7 +1144,7 @@ Context
 
 ### vc.yaml
 
-```{include=../../services/vc/vc.yaml}
+```{include=../../services/virtualcluster/virtualcluster.yaml}
 ```
 
 
