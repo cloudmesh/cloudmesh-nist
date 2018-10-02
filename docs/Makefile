@@ -2,7 +2,7 @@
 
 FILE=nistvol8-2
 
-MARKDOWN-OPTIONS=$(MERMAID) -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
+MARKDOWN-OPTIONS=$(MERMAID) --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
 CSL=--csl=template/ieee-with-url.csl
 FORMAT=--toc --number-sections
 FONTS=--epub-embed-font='fonts/*.ttf'
@@ -17,7 +17,7 @@ DEST=dest/spec
 SRC=../services
 
 
-service=alias database default file organization profile replica variables virtualdirectory timestamp vc keystore vm scheduler
+service=timestamp alias variables default file organization profile database replica virtualdirectory vc keystore vm scheduler
 
 
 YAML := $(wildcard $(SRC)/*/*.yaml)
@@ -25,6 +25,14 @@ YAML := $(wildcard $(SRC)/*/*.yaml)
 t:
 	echo $(YAML)
 	echo $(service)
+
+
+volume: openapi
+
+setup:
+	cabal --reinstall pandoc-include-code
+
+openapi: dest rest
 
 dest: 
 	mkdir -p $(DEST)
@@ -39,6 +47,7 @@ rest:
 		echo "Generate:" $(DEST)/$$entry.md ; \
 		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=3 > $(DEST)/$$entry.md ; \
 	done
+
 
 
 setup:
