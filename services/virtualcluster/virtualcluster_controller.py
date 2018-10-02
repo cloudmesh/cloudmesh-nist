@@ -1,7 +1,7 @@
 import connexion
 import six
 
-from swagger_server.models.virtualcluster import VirtualCluster # noqa: E501
+from swagger_server.models.virtual_cluster import VirtualCluster # noqa: E501
 from swagger_server.models.node import Node
 from swagger_server.models.nic import NIC
 from swagger_server import util

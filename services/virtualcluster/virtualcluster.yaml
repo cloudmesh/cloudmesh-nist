@@ -50,7 +50,7 @@ paths:
       tags:
       - "virtualcluster"
       description: "Returns a virtualcluster by its name"
-      operationId: getVcByName
+      operationId: getVirtualclusterByName
       parameters:
         - name: virtualclustername
           in: path
@@ -68,7 +68,7 @@ paths:
       tags:
       - "virtualcluster"
       description: "Returns the front-end node info of the specified virtualcluster"
-      operationId: getVcFeByName
+      operationId: getVirtualclusterFeByName
       parameters:
         - name: virtualclustername
           in: path
@@ -86,7 +86,7 @@ paths:
       tags:
       - "virtualcluster"
       description: "Returns the specified node info of the specified virtualcluster"
-      operationId: getVcNodeByName
+      operationId: getVirtualclusterNodeByName
       parameters:
         - name: virtualclustername
           in: path

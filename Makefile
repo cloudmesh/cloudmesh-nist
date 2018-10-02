@@ -1,4 +1,4 @@
-OBJECTS=keystore profile vc virtualdirectory
+OBJECTS=keystore profile virtualcluster virtualdirectory
 
 .PHONY: service
 
