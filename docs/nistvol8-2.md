@@ -1115,6 +1115,7 @@ application requirements.
 
 {include=../dest/spec/keystore.md}
 
+### keystore.yaml
 
 ```{include=../../services/keystore/keystore.yaml}
 ```
@@ -1123,6 +1124,7 @@ application requirements.
 
 {include=../dest/spec/vc.md}
 
+### vc.yaml
 
 ```{include=../../services/vc/vc.yaml}
 ```
@@ -1131,6 +1133,7 @@ application requirements.
 
 {include=../dest/spec/alias.md}
 
+### alias.yaml
 
 ```{include=../../services/alias/alias.yaml}
 ```
@@ -1139,6 +1142,7 @@ application requirements.
 
 {include=../dest/spec/database.md}
 
+### database.yaml
 
 ```{include=../../services/database/database.yaml}
 ```
@@ -1147,14 +1151,18 @@ application requirements.
 
 {include=../dest/spec/default.md}
 
+### default.yaml}
 
-```{include=../../services/default/default.yaml}```
+```
+{include=../../services/default/default.yaml}
+```
 
 
 ## File
 
 {include=../dest/spec/file.md}
 
+### file.yaml
 
 ```{include=../../services/file/file.yaml}
 ```
@@ -1163,6 +1171,7 @@ application requirements.
 
 {include=../dest/spec/organization.md}
 
+### organization.yaml
 
 ```{include=../../services/organization/organization.yaml}
 ```
@@ -1171,6 +1180,7 @@ application requirements.
 
 {include=../dest/spec/replica.md}
 
+### replica.yaml
 
 ```{include=../../services/replica/replica.yaml}
 ```
@@ -1179,6 +1189,7 @@ application requirements.
 
 {include=../dest/spec/timestamp.md}
 
+### timestamp.yaml
 
 ```{include=../../services/timestamp/timestamp.yaml}
 ```
@@ -1188,12 +1199,16 @@ application requirements.
 
 {include=../dest/spec/variables.md}
 
+### variables.yaml
+
 ```{include=../../services/variables/variables.yaml}
 ```
 
 ## Scheduler
 
 {include=../dest/spec/scheduler.md}
+
+### scheduler.yaml
 
 ```
 {include=../../services/scheduler/scheduler.yaml}
