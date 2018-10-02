@@ -29,9 +29,6 @@ t:
 
 volume: openapi
 
-setup:
-	cabal --reinstall pandoc-include-code
-
 openapi: dest rest
 
 dest: 
