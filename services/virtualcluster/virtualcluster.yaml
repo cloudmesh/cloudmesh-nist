@@ -1,35 +1,35 @@
 ---
 swagger: "2.0"
-info: 
+info:
   version: "0.0.1"
   title: "Virtual Cluster"
   description: "Virtual Cluster example"
   termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
-  contact: 
+  contact:
     name: "Cloudmesh REST Service Example"
     url: https://cloudmesh-community.github.io/nist/spec/
-  license: 
+  license:
     name: "Apache"
 host: "localhost:8080"
-schemes: 
+schemes:
   - "http"
-consumes: 
+consumes:
   - "application/json"
-produces: 
+produces:
   - "application/json"
-paths: 
+paths:
   /cloudmesh/virtualcluster/virtualclusters:
     get:
       tags:
       - "virtualcluster"
       description: "Returns all virtualclusters"
       operationId: get_virtualcluster
-      produces: 
+      produces:
         - "application/json"
-      responses: 
+      responses:
         "200":
           description: "profile info"
-          schema: 
+          schema:
             $ref: "#/definitions/VirtualCluster"
     put:
       tags:
@@ -56,12 +56,12 @@ paths:
           in: path
           required: true
           type: string
-      produces: 
+      produces:
         - "application/json"
-      responses: 
+      responses:
         "200":
           description: "virtualcluster info"
-          schema: 
+          schema:
             $ref: "#/definitions/VirtualCluster"
   /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/fe:
     get:
