@@ -2,3 +2,4 @@ docopts
 prompter
 panflute
 decorator
+pandoc-include-code

@@ -1104,6 +1104,98 @@ application requirements.
 
 ## Profile
 
+{include=../dest/spec/profile.md} 
 
-~~~ {include=../dest/spec/profile.md} 
-~~~
+### profile.yaml
+
+```{include=../../services/profile/profile.yaml}
+```
+
+## Keystore
+
+{include=../dest/spec/keystore.md}
+
+
+```{include=../../services/keystore/keystore.yaml}
+```
+
+## Virtual CLuster
+
+{include=../dest/spec/vc.md}
+
+
+```{include=../../services/vc/vc.yaml}
+```
+
+## Alias
+
+{include=../dest/spec/alias.md}
+
+
+```{include=../../services/alias/alias.yaml}
+```
+
+## Database
+
+{include=../dest/spec/database.md}
+
+
+```{include=../../services/database/database.yaml}
+```
+
+## Default
+
+{include=../dest/spec/default.md}
+
+
+```{include=../../services/default/default.yaml}```
+
+
+## File
+
+{include=../dest/spec/file.md}
+
+
+```{include=../../services/file/file.yaml}
+```
+
+## Organization
+
+{include=../dest/spec/organization.md}
+
+
+```{include=../../services/organization/organization.yaml}
+```
+
+## Replica
+
+{include=../dest/spec/replica.md}
+
+
+```{include=../../services/replica/replica.yaml}
+```
+
+## Timestamp
+
+{include=../dest/spec/timestamp.md}
+
+
+```{include=../../services/timestamp/timestamp.yaml}
+```
+
+
+## Variables
+
+{include=../dest/spec/variables.md}
+
+```{include=../../services/variables/variables.yaml}
+```
+
+## Scheduler
+
+{include=../dest/spec/scheduler.md}
+
+```
+{include=../../services/scheduler/scheduler.yaml}
+```
+

@@ -59,7 +59,8 @@ def convert_definitions(filename, indent=1):
         spec = yaml.load(f)
         # print (yaml.dump( spec, default_flow_style=False, default_style='' ))
         for definition in spec["definitions"]:
-            print (indent * "#", definition)
+            #print (indent * "#", definition)
+            print (indent * "#", 'Properties')
             print ()
             print ("|", "Property", "|", "Type", "|", "Description", "|")
             print ("|", "---", "|", "---", "|", "-------------", "|")            
