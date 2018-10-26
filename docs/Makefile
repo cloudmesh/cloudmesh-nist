@@ -16,9 +16,10 @@ DEST=dest/spec
 SRC=../services
 
 
-service=timestamp alias variables default file organization profile database replica virtualdirectory virtualcluster keystore vm scheduler
+service=timestamp alias variables default file profile database replica virtualdirectory virtualcluster keystore vm scheduler
 
-service=profile keystore virtualdirectory virtualcluster
+broken= organization
+#service=profile keystore virtualdirectory virtualcluster
 
 YAML := $(wildcard $(SRC)/*/*.yaml)
 

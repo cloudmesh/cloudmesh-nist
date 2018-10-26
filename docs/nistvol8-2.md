@@ -1140,16 +1140,13 @@ Context
 
 ## Virtual Cluster
 
-{include=../dest/spec/vc.md}
+{include=../dest/spec/virtualcluster.md}
 
 ### vc.yaml
 
 ```{include=../../services/virtualcluster/virtualcluster.yaml}
 ```
 
-
-
-<!--
 
 
 ## Alias
@@ -1237,4 +1234,3 @@ Context
 {include=../../services/scheduler/scheduler.yaml}
 ```
 
--->
