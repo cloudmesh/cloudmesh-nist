@@ -1,8 +1,15 @@
 swagger: "2.0"
 info:
-  version: "0.0.1"
-  title: "Coludmesh Compute & Storage"
-  description: "A service to use compute and storage resources accross multiple clouds using swagger -2.0 specification and codegen"
+  version: 0.0.2
+  date: 10-30-2018
+  title: "Coludmesh Compute and Storage"
+  description: |-
+
+    A service to use compute and storage resources accross multiple
+    clouds using swagger -2.0 specification and codegen
+
+    * TODO: assign and review
+
   termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
   contact:
     name: "Sushant Athaley, Harshad Pitkar, Michael Robinson"

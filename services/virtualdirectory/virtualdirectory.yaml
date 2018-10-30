@@ -1,13 +1,19 @@
 ---
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: virtualdirectory
-  description: >-
-    A virtual directory is a collection of files or replicas of the files.
-    A virtual directory can contain a number of entities including files,
-    streams, and other virtual directories as part of a collection.
-    The element in the collection can either be defined by uuid or by name.
+  description: |-
+  
+    A virtual directory is a collection of files or replicas of the
+    files.  A virtual directory can contain a number of entities
+    including files, streams, and other virtual directories as part of
+    a collection.  The element in the collection can either be defined
+    by uuid or by name.
+
+    * TODO: assign and review
+
   termsOfService: 'http://bin.io/terms/'
   contact:
     name: Cloudmesh RESTful Virtual Directory Service Example

@@ -1,9 +1,15 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: abc
-  description: >-
-    A service to store abc, value, type information. All of them are stored as Strings.
+  description: |-
+  
+    A service to store abc, value, type information. All of them are
+    stored as Strings.
+
+    * TODO: this is a demo of the to do line
+    
   termsOfService: 'http://bin.io/terms/'
   contact:
     name: Cloudmesh RESTful Service Example

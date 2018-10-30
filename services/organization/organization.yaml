@@ -2,7 +2,8 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: organization
-  description: >-
+  description: |-
+  
     An important concept in many applications is the management of a
     group of users in an organization that manages a Big Data
     application or infrastructure. User group management can be
@@ -14,6 +15,9 @@ info:
     organization. The third concept is to introduce groups and roles
     either as part of the user definition or as part of a simple list
     similar to the organization.
+
+    * TODO: assign and improve
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

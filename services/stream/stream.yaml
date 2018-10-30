@@ -1,9 +1,17 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: stream
-  description: >-
-   The stream object describes a data flow, providing information about the rate and number of items exchanged while issuing requests to the stream. A stream may return data items in a specific format that is defined by the stream.
+  description: |-
+  
+   The stream object describes a data flow, providing information
+   about the rate and number of items exchanged while issuing requests
+   to the stream. A stream may return data items in a specific format
+   that is defined by the stream.
+
+   * TODO: assign and improve
+   
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

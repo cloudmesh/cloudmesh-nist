@@ -1,9 +1,14 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: health
-  description: >-
-    A service to store health, value, type information.
+  description: |-
+  
+    Example: An application service example to store health care related information.
+
+    * TODO: elaborate this example
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Health Service Example

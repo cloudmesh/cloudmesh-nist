@@ -2,8 +2,13 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: microservice
-  description: >-
-    As part of microservices, a function with parameters that can be invoked has been defined.
+  description: |-
+  
+    As part of microservices, a function with parameters that can be
+    invoked has been defined.
+
+    * TODO: assign and improve
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

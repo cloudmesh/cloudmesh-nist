@@ -1,8 +1,10 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: batchjob
   description: |-
+  
     Computing jobs that can run without end user interaction, or are
     scheduled based on resource permission, are called batch
     jobs. Batch jobs are used to minimize human interaction and allow
@@ -16,6 +18,9 @@ info:
     performance advantages. Disadvantages include the limited and
     preinstalled software stacks that, in some cases, do not allow the
     latest applications to run.
+
+    * TODO: assigned for review and improvements
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

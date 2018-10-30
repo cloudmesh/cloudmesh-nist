@@ -1,9 +1,17 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: flavor
-  description: >-
-    The flavor specifies elementary information about the compute node, such as memory and number of cores, as well as other attributes that can be added. Flavors are essential to size a virtual cluster appropriately.
+  description: |-
+  
+    The flavor specifies elementary information about the compute
+    node, such as memory and number of cores, as well as other
+    attributes that can be added. Flavors are essential to size a
+    virtual cluster appropriately.
+
+    * TODO: assign for review and improvement
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

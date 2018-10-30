@@ -1,9 +1,16 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: key
-  description: >-
-    Many services and frameworks use Secure Shell (SSH) keys to authenticate. This service allows the convenient storage of the public key
+  description: |-
+  
+    Many services and frameworks use Secure Shell (SSH) keys to
+    authenticate. This service allows the convenient storage of the
+    public key
+
+    * TODO: assign and improve
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

@@ -2,11 +2,15 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: variables
-  description: >-
-    Variables are used to store simple values. Each variable can have a
-    type, which is also provided as demonstrated in the object
+  description: |-
+  
+    Variables are used to store simple values. Each variable can have
+    a type, which is also provided as demonstrated in the object
     below. The variable value format is defined as string to allow
     maximal probability.
+
+    * TODO: assign and review
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

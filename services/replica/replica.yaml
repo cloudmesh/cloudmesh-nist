@@ -1,13 +1,18 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: replica
-  description: >-
+  description: |-
+  
     In many distributed systems, it is important that a file can be
     replicated among different systems to provide faster access. It is
     important to provide a mechanism to trace the pedigree of the file
     while pointing to its original source. A replica can be applied to
     all data types introduced in this document.
+
+    * TODO: assign and improve
+    
   termsOfService: 'http://bin.io/terms/'
   contact:
     name: Cloudmesh RESTful Service Example

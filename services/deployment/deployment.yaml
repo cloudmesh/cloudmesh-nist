@@ -1,9 +1,15 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: deployment
   description: |-
-    A service to store deployment, value, type information. All of them are stored as Strings.
+  
+    A service to store deployment, value, type information. All of
+    them are stored as Strings.
+
+    * TODO: assign for review and improvement
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

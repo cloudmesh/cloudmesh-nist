@@ -1,9 +1,16 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: secgroup
-  description: >-
-   To allow secure communication between the nodes, security groups are introduced. They define the typical security groups that will be deployed once a compute node is specified.
+  description: |-
+  
+   To allow secure communication between the nodes, security groups
+   are introduced. They define the typical security groups that will
+   be deployed once a compute node is specified.
+
+   * TODO: assign and improve
+   
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

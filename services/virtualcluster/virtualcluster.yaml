@@ -1,9 +1,15 @@
 ---
 swagger: "2.0"
 info:
-  version: "0.0.1"
+  version: 0.0.2
+  date: 10-30-2018
   title: "Virtual Cluster"
-  description: "Virtual Cluster example"
+  description: |-
+
+    Virtual Cluster example
+
+    * TODO: assigned and review
+    
   termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
   contact:
     name: "Cloudmesh REST Service Example"
