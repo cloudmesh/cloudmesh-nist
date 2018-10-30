@@ -26,7 +26,9 @@ YAML := $(wildcard $(SRC)/*/*.yaml)
 
 volume: openapi
 
-openapi: dest rest
+openapi: dest rest text
+	@echo "To open the document use:"
+	@echo "open $(FILE).md"
 
 dest: 
 	mkdir -p $(DEST)
@@ -40,6 +42,7 @@ rest:
 	for entry in $(service); do \
 		echo "Generate:" $(DEST)/$$entry.md ; \
 		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=3 > $(DEST)/$$entry.md ; \
+		cp  $(SRC)/$$entry/$$entry.yaml $(DEST); \
 	done
 
 lint:

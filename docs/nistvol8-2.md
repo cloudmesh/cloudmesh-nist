@@ -1169,12 +1169,11 @@ Context
 
 ## Default
 
-{include=../dest/spec/default.md}
+{include=./spec/default.md}
 
 ### default.yaml
 
-```
-{include=../../services/default/default.yaml}
+```{include=./spec/default.yaml}
 ```
 
 
@@ -1230,7 +1229,6 @@ Context
 
 ### scheduler.yaml
 
-```
-{include=../../services/scheduler/scheduler.yaml}
+```{include=../../services/scheduler/scheduler.yaml}
 ```
 
