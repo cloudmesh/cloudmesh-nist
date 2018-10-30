@@ -6,10 +6,15 @@ info:
   title: "Profile"
   description: |-
   
-    Profiles are used to store information about users for a specific
-    service. Profiles can be added, removed and listed. A group in the
-    profile can be used to augment users to be part of a group.
-               
+    Profiles are used to store information about users. User
+    information can be reused in other services. THis is useful to
+    create virtual organization the depend on user data.  Profiles can
+    be added, removed and listed. A group in the profile can be used
+    to augment users to be part of one or more groups.  A number of
+    roles can specify a specific role of a user.
+
+    TODO: specify role and group get and put methods
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: "Cloudmesh Profile"
@@ -80,6 +85,11 @@ definitions:
         type: "string"
         description: the username associated with the profile
       group:
+        type: array
+        description: a list of groups that are associated to the profile
+        items:
+          type: "string"
+      role:
         type: array
         description: a list of groups that are associated to the profile
         items:
