@@ -2,8 +2,9 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: database
-  description: >-
-    A database could have a name, an endpoint (e.g., host, port), and a protocol used (e.g., SQL, mongo).
+  description: |-
+    A database could have a name, an endpoint (e.g., host, port),
+    and a protocol used (e.g., SQL, mongo).
   termsOfService: 'http://bin.io/terms/'
   contact:
     name: Cloudmesh RESTful Service Example

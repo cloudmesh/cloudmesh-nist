@@ -660,7 +660,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/profile.md}</p>
+<p>{include=./spec/profile.md}</p>
 <h3 id="profile.yaml"><span class="header-section-number">9.1.3</span> profile.yaml</h3>
 <pre data-include="../../services/profile/profile.yaml"><code>---
 swagger: &quot;2.0&quot;
@@ -903,7 +903,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/keystore.md}</p>
+<p>{include=./spec/keystore.md}</p>
 <h3 id="keystore.yaml"><span class="header-section-number">9.2.3</span> keystore.yaml</h3>
 <pre data-include="../../services/keystore/keystore.yaml"><code>---
 swagger: &#39;2.0&#39;
@@ -1179,7 +1179,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/virtualdirectory.md}</p>
+<p>{include=./spec/virtualdirectory.md}</p>
 <h3 id="virtualdirectory.yaml"><span class="header-section-number">9.3.4</span> virtualdirectory.yaml</h3>
 <pre data-include="../../services/virtualdirectory/virtualdirectory.yaml"><code>---
 swagger: &#39;2.0&#39;
@@ -1593,7 +1593,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/virtualcluster.md}</p>
+<p>{include=./spec/virtualcluster.md}</p>
 <h3 id="vc.yaml"><span class="header-section-number">9.4.5</span> vc.yaml</h3>
 <pre data-include="../../services/virtualcluster/virtualcluster.yaml"><code>---
 swagger: &quot;2.0&quot;
@@ -1882,14 +1882,17 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/alias.md}</p>
+<p>{include=./spec/alias.md}</p>
 <h3 id="alias.yaml"><span class="header-section-number">9.5.3</span> alias.yaml</h3>
 <pre data-include="../../services/alias/alias.yaml"><code>swagger: &#39;2.0&#39;
 info:
   version: 0.0.1
   title: alias
-  description: &gt;-
-    A data object could have one alias or even multiple ones. The reason for an alias is that a file may have a complex name but a user may want to refer to that file in a name space that is suitable for the user&#39;s application.
+  description: |-
+    A data object could have one alias or even multiple ones.
+    The reason for an alias is that a file may have a complex
+    name but a user may want to refer to that file in a name
+    space that is suitable for the user&#39;s application.
   termsOfService: &#39;http://bin.io/terms/&#39;
   contact:
     name: Cloudmesh RESTful Service Example
@@ -2085,14 +2088,15 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/database.md}</p>
+<p>{include=./spec/database.md}</p>
 <h3 id="database.yaml"><span class="header-section-number">9.6.3</span> database.yaml</h3>
 <pre data-include="../../services/database/database.yaml"><code>swagger: &#39;2.0&#39;
 info:
   version: 0.0.1
   title: database
-  description: &gt;-
-    A database could have a name, an endpoint (e.g., host, port), and a protocol used (e.g., SQL, mongo).
+  description: |-
+    A database could have a name, an endpoint (e.g., host, port),
+    and a protocol used (e.g., SQL, mongo).
   termsOfService: &#39;http://bin.io/terms/&#39;
   contact:
     name: Cloudmesh RESTful Service Example
@@ -2297,7 +2301,7 @@ definitions:
 info:
   version: 0.0.1
   title: default
-  description: &gt;-
+  description: |-
     A default is a special variable that has a context associated with
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be
@@ -2511,7 +2515,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/file.md}</p>
+<p>{include=./spec/file.md}</p>
 <h3 id="file.yaml"><span class="header-section-number">9.8.3</span> file.yaml</h3>
 <pre data-include="../../services/file/file.yaml"><code>swagger: &#39;2.0&#39;
 info:
@@ -2630,7 +2634,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/organization.md}</p>
+<p>{include=./spec/organization.md}</p>
 <h3 id="organization.yaml"><span class="header-section-number">9.9.2</span> organization.yaml</h3>
 <pre data-include="../../services/organization/organization.yaml"><code>swagger: &#39;2.0&#39;
 info:
@@ -2860,7 +2864,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/replica.md}</p>
+<p>{include=./spec/replica.md}</p>
 <h3 id="replica.yaml"><span class="header-section-number">9.10.3</span> replica.yaml</h3>
 <pre data-include="../../services/replica/replica.yaml"><code>swagger: &#39;2.0&#39;
 info:
@@ -3078,7 +3082,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/timestamp.md}</p>
+<p>{include=./spec/timestamp.md}</p>
 <h3 id="timestamp.yaml"><span class="header-section-number">9.11.3</span> timestamp.yaml</h3>
 <pre data-include="../../services/timestamp/timestamp.yaml"><code>swagger: &#39;2.0&#39;
 info:
@@ -3284,7 +3288,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/variables.md}</p>
+<p>{include=./spec/variables.md}</p>
 <h3 id="variables.yaml"><span class="header-section-number">9.12.3</span> variables.yaml</h3>
 <pre data-include="../../services/variables/variables.yaml"><code>swagger: &#39;2.0&#39;
 info:
@@ -3494,7 +3498,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<p>{include=../dest/spec/scheduler.md}</p>
+<p>{include=./spec/scheduler.md}</p>
 <h3 id="scheduler.yaml"><span class="header-section-number">9.13.3</span> scheduler.yaml</h3>
 <pre data-include="../../services/scheduler/scheduler.yaml"><code>swagger: &#39;2.0&#39;
 info:

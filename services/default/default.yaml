@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: default
-  description: >-
+  description: |-
     A default is a special variable that has a context associated with
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be

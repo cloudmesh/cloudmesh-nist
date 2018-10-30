@@ -30,7 +30,8 @@ editor-run:
 clean:
 	cd service; make clean
 
-
+volume:
+	cd docs; make volume
 
 CONTAINERS = $(shell docker ps -q -a)
 

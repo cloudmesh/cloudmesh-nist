@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: batchjob
-  description: >-
+  description: |-
     Computing jobs that can run without end user interaction, or are
     scheduled based on resource permission, are called batch
     jobs. Batch jobs are used to minimize human interaction and allow

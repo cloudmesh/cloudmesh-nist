@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: deployment
-  description: >-
+  description: |-
     A service to store deployment, value, type information. All of them are stored as Strings.
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:

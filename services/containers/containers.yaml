@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: 0.0.1
   title: containers
-  description: >-
+  description: |-
     A service to store containers.
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:

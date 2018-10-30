@@ -1114,7 +1114,7 @@ Resource
 
 Context
 
-{include=../dest/spec/profile.md}
+{include=./spec/profile.md}
 
 ### profile.yaml
 
@@ -1122,7 +1122,7 @@ Context
 ```
 ## Keystore
 
-{include=../dest/spec/keystore.md}
+{include=./spec/keystore.md}
 
 ### keystore.yaml
 
@@ -1131,7 +1131,7 @@ Context
 
 ## Virtual Directory
 
-{include=../dest/spec/virtualdirectory.md}
+{include=./spec/virtualdirectory.md}
 
 ### virtualdirectory.yaml
 
@@ -1140,7 +1140,7 @@ Context
 
 ## Virtual Cluster
 
-{include=../dest/spec/virtualcluster.md}
+{include=./spec/virtualcluster.md}
 
 ### vc.yaml
 
@@ -1151,7 +1151,7 @@ Context
 
 ## Alias
 
-{include=../dest/spec/alias.md}
+{include=./spec/alias.md}
 
 ### alias.yaml
 
@@ -1160,7 +1160,7 @@ Context
 
 ## Database
 
-{include=../dest/spec/database.md}
+{include=./spec/database.md}
 
 ### database.yaml
 
@@ -1179,7 +1179,7 @@ Context
 
 ## File
 
-{include=../dest/spec/file.md}
+{include=./spec/file.md}
 
 ### file.yaml
 
@@ -1188,7 +1188,7 @@ Context
 
 ## Organization
 
-{include=../dest/spec/organization.md}
+{include=./spec/organization.md}
 
 ### organization.yaml
 
@@ -1197,7 +1197,7 @@ Context
 
 ## Replica
 
-{include=../dest/spec/replica.md}
+{include=./spec/replica.md}
 
 ### replica.yaml
 
@@ -1206,7 +1206,7 @@ Context
 
 ## Timestamp
 
-{include=../dest/spec/timestamp.md}
+{include=./spec/timestamp.md}
 
 ### timestamp.yaml
 
@@ -1216,7 +1216,7 @@ Context
 
 ## Variables
 
-{include=../dest/spec/variables.md}
+{include=./spec/variables.md}
 
 ### variables.yaml
 
@@ -1225,7 +1225,7 @@ Context
 
 ## Scheduler
 
-{include=../dest/spec/scheduler.md}
+{include=./spec/scheduler.md}
 
 ### scheduler.yaml
 
