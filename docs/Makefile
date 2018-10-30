@@ -76,7 +76,7 @@ html: spec
 
 pdf: spec
 	cp -rf images dest
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc -s $(FILE).md -o $(FILE).pdf
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
 	cp $(DEST)/$(FILE).pdf .
 
 word: spec
@@ -89,8 +89,8 @@ all:
 	cd dest; pandoc $(RESOURCE) $(MARKDOWN-OPTIONS)  $(FORMAT) $(FONTS) $(BIB)  $(CSL) $(CSS) -o $(FILENAME).epub metadata.txt all.md
 
 
-pdf:
-        cd dest; pandoc -f markdown+smart --toc --epub-embed-font='fonts/*.ttf' -V geometry:margin=1in --bibliography references.bib --csl=../../template/ieee.csl -o $(FILENAME).pdf metadata.txt $(INDEX)
+#pdf:
+#        cd dest; pandoc -f markdown+smart --toc --epub-embed-font='fonts/*.ttf' -V geometry:margin=0.5in --bibliography references.bib --csl=../../template/ieee.csl# -o $(FILENAME).pdf metadata.txt $(INDEX)
 
 clean:
 	rm -rf dest
