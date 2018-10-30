@@ -3,11 +3,27 @@
 
 The working draft of the specification is in
 
-* https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md
+* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md>
 
-It is easy to contribute to the document with the help of pull requests that allow eddits that will be addressed by the editor of this Volume (Gregor von Laszewski). Pull request can even be created via the GUI features of Github. YOu will need a github.com account and login into github to make use of this.
+The snapshot of the volume is available in various formats that should
+not be modified but can be used for reviewes at
 
-With Pandoc a version in MS Word can be created and formating changes can be applied. However all editorial non look and feel changes must not be conducted in the docx version but in the markdown version so we have a record of the changes in the github history. The look and feel, can be managed by a professional editor.
+* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md>
+* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.epub>
+* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.pdf>
+* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.wordx>
+
+It is easy to contribute to the document with the help of pull
+requests that allow eddits that will be addressed by the editor of
+this Volume (Gregor von Laszewski). Pull request can even be created
+via the GUI features of Github. You will need a github.com account and
+login into github to make use of this.
+
+With Pandoc a version in MS Word can be created and formating changes
+can be applied. However all editorial non look and feel changes must
+not be conducted in the docx version but in the markdown version so we
+have a record of the changes in the github history. The look and feel,
+can be managed by a professional editor.
 
 Once finalized, the Spec Draft will be hosted here in word format
 
@@ -95,7 +111,11 @@ services/example -> services/health
 
 ## A Service Example
 
-This example demonstrates two points. First, it adds security support of **http basic auth** and **apikey/secret auth**. Second it provides the concept of the virtualdirectory as a demonstration specification to showcase an example usage of a service with authentication, as well as showcasing the idea of virtualdirectory.
+This example demonstrates two points. First, it adds security support
+of **http basic auth** and **apikey/secret auth**. Second it provides
+the concept of the virtualdirectory as a demonstration specification
+to showcase an example usage of a service with authentication, as well
+as showcasing the idea of virtualdirectory.
 
 The source for this example is located in
 
@@ -108,7 +128,8 @@ Start mongo
 
 To run the demo:
 
-1. Make sure the mongo container is running as required by the previous examples;
+1. Make sure the mongo container is running as required by the
+   previous examples;
 2. In the top level of nist git repo say
 
        $ git clone git clone https://github.com/cloudmesh-community/nist.git
@@ -121,17 +142,21 @@ To run the demo:
 
 This will run our new combined service `virtualdirectory`
 
-In another terminal window, go also the the nist git repo directory.  The auth credential is configured in the file:
+In another terminal window, go also the the nist git repo directory.
+The auth credential is configured in the file:
 
     services/secconf.yaml
 
 ---
 
-:warning: Please make sure to set your own passwords. We will move the file in future to
+:warning: Please make sure to set your own passwords. We will move the
+file in future to
 
     ~/.cloudmesh/services/seccont.yaml
 
-However we have not yet integrated this into the code. Thus be careful that when creating pull requests not to check in your version of secconf.yaml.
+However we have not yet integrated this into the code. Thus be careful
+that when creating pull requests not to check in your version of
+secconf.yaml.
 
 ---
 
@@ -141,7 +166,8 @@ Then say
     $ ./test_virtualdirectory.sh
 
 This will add an ftp endpoint as an entry of the virtualdirectory.
-(currently ftp is the only supported protocol for the virtualdirectory).
+(currently ftp is the only supported protocol for the
+virtualdirectory).
 
 Then run these from a terminal to test the two service endpoints.
 
