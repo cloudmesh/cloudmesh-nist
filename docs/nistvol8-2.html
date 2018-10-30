@@ -496,6 +496,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Group</p>
 <p>Resource</p>
 <p>Context</p>
+<p>Profiles are used to store information about users for a specific service. Profiles can be added, removed and listed. A group in the profile can be used to augment users to be part of a group.</p>
 <h3 id="properties-profile"><span class="header-section-number">9.1.1</span> Properties Profile</h3>
 <table>
 <thead>
@@ -769,6 +770,7 @@ definitions:
         description: the email of the profile user
 </code></pre>
 <h2 id="keystore"><span class="header-section-number">9.2</span> Keystore</h2>
+<p>A service to store key, value, type information. All of them are stored as Strings.</p>
 <h3 id="properties-key"><span class="header-section-number">9.2.1</span> Properties Key</h3>
 <table>
 <thead>
@@ -985,6 +987,7 @@ definitions:
         type: string
 </code></pre>
 <h2 id="virtual-directory"><span class="header-section-number">9.3</span> Virtual Directory</h2>
+<p>A virtual directory is a collection of files or replicas of the files. A virtual directory can contain a number of entities including files, streams, and other virtual directories as part of a collection. The element in the collection can either be defined by uuid or by name.</p>
 <h3 id="properties-unauthorizederror"><span class="header-section-number">9.3.1</span> Properties UnauthorizedError</h3>
 <table>
 <thead>
@@ -1296,6 +1299,7 @@ definitions:
         type: &quot;object&quot;
 </code></pre>
 <h2 id="virtual-cluster"><span class="header-section-number">9.4</span> Virtual Cluster</h2>
+<p>Virtual Cluster example</p>
 <h3 id="properties-virtualcluster"><span class="header-section-number">9.4.1</span> Properties VirtualCluster</h3>
 <table>
 <thead>
@@ -1758,6 +1762,7 @@ definitions:
         description: IP address of the node
 </code></pre>
 <h2 id="alias"><span class="header-section-number">9.5</span> Alias</h2>
+<p>A data object could have one alias or even multiple ones. The reason for an alias is that a file may have a complex name but a user may want to refer to that file in a name space that is suitable for the user’s application.</p>
 <h3 id="properties-alias"><span class="header-section-number">9.5.1</span> Properties Alias</h3>
 <table>
 <thead>
@@ -1959,6 +1964,7 @@ definitions:
         description: The original object name&quot;
 </code></pre>
 <h2 id="database"><span class="header-section-number">9.6</span> Database</h2>
+<p>A database could have a name, an endpoint (e.g., host, port), and a protocol used (e.g., SQL, mongo).</p>
 <h3 id="properties-database"><span class="header-section-number">9.6.1</span> Properties Database</h3>
 <table>
 <thead>
@@ -2166,6 +2172,7 @@ definitions:
         description: the kind of the database
 </code></pre>
 <h2 id="default"><span class="header-section-number">9.7</span> Default</h2>
+<p>A default is a special variable that has a context associated with it. This allows one to define values that can be easily retrieved based on the associated context. For example, a default could be the image name for a cloud where the context is defined by the cloud name.</p>
 <h3 id="properties-defaults"><span class="header-section-number">9.7.1</span> Properties Defaults</h3>
 <table>
 <thead>
@@ -2376,6 +2383,7 @@ definitions:
         description: value of the default
 </code></pre>
 <h2 id="file"><span class="header-section-number">9.8</span> File</h2>
+<p>A file is a computer resource allowing storage of data that is being processed. The interface to a file provides the mechanism to appropriately locate a file in a distributed system. File identification includes the name, endpoint, checksum, and size. Additional parameters, such as the last access time, could also be stored. The interface only describes the location of the file. The file object has name, endpoint (location), size in GB, MB, Byte, checksum for integrity check, and last accessed timestamp.</p>
 <h3 id="properties-file"><span class="header-section-number">9.8.1</span> Properties File</h3>
 <table>
 <thead>
@@ -2720,6 +2728,7 @@ definitions:
 
 </code></pre>
 <h2 id="replica"><span class="header-section-number">9.10</span> Replica</h2>
+<p>In many distributed systems, it is important that a file can be replicated among different systems to provide faster access. It is important to provide a mechanism to trace the pedigree of the file while pointing to its original source. A replica can be applied to all data types introduced in this document.</p>
 <h3 id="properties-replica"><span class="header-section-number">9.10.1</span> Properties Replica</h3>
 <table>
 <thead>
@@ -2953,6 +2962,7 @@ definitions:
         type: timestamp
         description: The timestamp</code></pre>
 <h2 id="timestamp"><span class="header-section-number">9.11</span> Timestamp</h2>
+<p>Often data needs to be timestamped to indicate when it has been accessed, created, or modified. All objects defined in this document will have, in their final version, a timestamp.</p>
 <h3 id="properties-timestamp"><span class="header-section-number">9.11.1</span> Properties Timestamp</h3>
 <table>
 <thead>
@@ -3159,6 +3169,7 @@ definitions:
 
 </code></pre>
 <h2 id="variables"><span class="header-section-number">9.12</span> Variables</h2>
+<p>Variables are used to store simple values. Each variable can have a type, which is also provided as demonstrated in the object below. The variable value format is defined as string to allow maximal probability.</p>
 <h3 id="properties-variables"><span class="header-section-number">9.12.1</span> Properties Variables</h3>
 <table>
 <thead>
@@ -3369,6 +3380,7 @@ definitions:
         description: value of the variable
 </code></pre>
 <h2 id="scheduler"><span class="header-section-number">9.13</span> Scheduler</h2>
+<p>A service to store scheduler, value, type information. All of them are stored as Strings.</p>
 <h3 id="properties-scheduler"><span class="header-section-number">9.13.1</span> Properties Scheduler</h3>
 <table>
 <thead>
