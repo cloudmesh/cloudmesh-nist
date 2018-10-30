@@ -16,7 +16,7 @@ DEST=dest
 SRC=../services
 
 
-service=timestamp alias variables default file profile database replica virtualdirectory virtualcluster keystore vm scheduler
+service=timestamp alias variables default file profile database replica virtualdirectory virtualcluster keystore vm scheduler organization
 
 broken= organization
 #service=profile keystore virtualdirectory virtualcluster
@@ -38,6 +38,10 @@ dest:
 #	../bin/cm-openapi2md md $< --indent=3 > $@
 
 
+specstable:
+	echo "Generate:" $(DEST)/spec/specstable.md ; \
+	../bin/cm-specs-table "$(service)" > $(DEST)/specstable.md ; \
+
 rest:
 	for entry in $(service); do \
 		echo "Generate:" $(DEST)/spec/$$entry.md ; \
@@ -54,7 +58,7 @@ lint:
 setup:
 	pip install -r ../requirements.txt
 
-spec: openapi dest/$(FILE).md
+spec: specstable openapi $(FILE).md
 #	cat dest/spec/*.md > dest/spec.md
 	cat nistvol8-2.md status.md acronyms.md bib.md > dest/$(FILE).md
 	cd dest; ../../bin/cm-md-filter $(FILE).md > all.md
