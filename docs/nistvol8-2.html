@@ -1,0 +1,3738 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>NIST BDRA Volume 8</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">NIST BDRA Volume 8</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#abstract"><span class="toc-section-number">1</span> Abstract</a></li>
+<li><a href="#keywords"><span class="toc-section-number">2</span> Keywords</a></li>
+<li><a href="#acknowledgements"><span class="toc-section-number">3</span> Acknowledgements</a></li>
+<li><a href="#table-of-contents"><span class="toc-section-number">4</span> Table of Contents</a></li>
+<li><a href="#executive-summary"><span class="toc-section-number">5</span> Executive Summary</a></li>
+<li><a href="#introduction"><span class="toc-section-number">6</span> Introduction</a><ul>
+<li><a href="#background"><span class="toc-section-number">6.1</span> Background</a></li>
+<li><a href="#scope-and-objectives-of-the-reference-architectures-subgroup"><span class="toc-section-number">6.2</span> Scope and Objectives of the Reference Architectures Subgroup</a></li>
+<li><a href="#report-production"><span class="toc-section-number">6.3</span> Report Production</a></li>
+<li><a href="#report-structure"><span class="toc-section-number">6.4</span> Report Structure</a></li>
+<li><a href="#future-work-on-this-volume"><span class="toc-section-number">6.5</span> Future Work on this Volume</a></li>
+</ul></li>
+<li><a href="#nbdra-interface-requirements"><span class="toc-section-number">7</span> NBDRA Interface Requirements</a><ul>
+<li><a href="#high-level-requirements-of-the-interface-approach"><span class="toc-section-number">7.1</span> High-Level Requirements of the Interface Approach</a><ul>
+<li><a href="#technology--and-vendor-agnostic"><span class="toc-section-number">7.1.1</span> Technology- and Vendor-Agnostic</a></li>
+<li><a href="#support-of-plug-in-compute-infrastructure"><span class="toc-section-number">7.1.2</span> Support of Plug-In Compute Infrastructure</a></li>
+<li><a href="#orchestration-of-infrastructure-and-services"><span class="toc-section-number">7.1.3</span> Orchestration of Infrastructure and Services</a></li>
+<li><a href="#orchestration-of-big-data-applications-and-experiments"><span class="toc-section-number">7.1.4</span> Orchestration of Big Data Applications and Experiments</a></li>
+<li><a href="#reusability"><span class="toc-section-number">7.1.5</span> Reusability</a></li>
+<li><a href="#execution-workloads"><span class="toc-section-number">7.1.6</span> Execution Workloads</a></li>
+<li><a href="#security-and-privacy-fabric-requirements"><span class="toc-section-number">7.1.7</span> Security and Privacy Fabric Requirements</a></li>
+</ul></li>
+<li><a href="#component-specific-interface-requirements"><span class="toc-section-number">7.2</span> Component-Specific Interface Requirements</a><ul>
+<li><a href="#system-orchestrator-interface-requirements"><span class="toc-section-number">7.2.1</span> System Orchestrator Interface Requirements</a></li>
+<li><a href="#data-provider-interface-requirements"><span class="toc-section-number">7.2.2</span> Data Provider Interface Requirements</a></li>
+<li><a href="#data-consumer-interface-requirements"><span class="toc-section-number">7.2.3</span> Data Consumer Interface Requirements</a></li>
+<li><a href="#big-data-application-interface-provider-requirements"><span class="toc-section-number">7.2.4</span> Big Data Application Interface Provider Requirements</a></li>
+<li><a href="#big-data-provider-framework-interface-requirements"><span class="toc-section-number">7.2.5</span> Big Data Provider Framework Interface Requirements</a></li>
+<li><a href="#big-data-application-provider-to-big-data-framework-provider-interface"><span class="toc-section-number">7.2.6</span> Big Data Application Provider to Big Data Framework Provider Interface</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#specification-paradigm"><span class="toc-section-number">8</span> Specification Paradigm</a><ul>
+<li><a href="#hybrid-and-multiple-frameworks"><span class="toc-section-number">8.1</span> Hybrid and Multiple Frameworks</a></li>
+<li><a href="#design-by-research-oriented-architecture"><span class="toc-section-number">8.2</span> Design by Research Oriented Architecture</a></li>
+<li><a href="#design-by-example"><span class="toc-section-number">8.3</span> Design by Example</a></li>
+<li><a href="#version-management"><span class="toc-section-number">8.4</span> Version Management</a></li>
+<li><a href="#interface-compliancy"><span class="toc-section-number">8.5</span> Interface Compliancy</a></li>
+</ul></li>
+<li><a href="#specification"><span class="toc-section-number">9</span> Specification</a><ul>
+<li><a href="#profile"><span class="toc-section-number">9.1</span> Profile</a><ul>
+<li><a href="#properties-profile"><span class="toc-section-number">9.1.1</span> Properties Profile</a></li>
+<li><a href="#paths"><span class="toc-section-number">9.1.2</span> Paths</a></li>
+<li><a href="#profile.yaml"><span class="toc-section-number">9.1.3</span> profile.yaml</a></li>
+</ul></li>
+<li><a href="#keystore"><span class="toc-section-number">9.2</span> Keystore</a><ul>
+<li><a href="#properties-key"><span class="toc-section-number">9.2.1</span> Properties Key</a></li>
+<li><a href="#paths-1"><span class="toc-section-number">9.2.2</span> Paths</a></li>
+<li><a href="#keystore.yaml"><span class="toc-section-number">9.2.3</span> keystore.yaml</a></li>
+</ul></li>
+<li><a href="#virtual-directory"><span class="toc-section-number">9.3</span> Virtual Directory</a><ul>
+<li><a href="#properties-unauthorizederror"><span class="toc-section-number">9.3.1</span> Properties UnauthorizedError</a></li>
+<li><a href="#properties-virtualdirectory"><span class="toc-section-number">9.3.2</span> Properties Virtualdirectory</a></li>
+<li><a href="#paths-2"><span class="toc-section-number">9.3.3</span> Paths</a></li>
+<li><a href="#virtualdirectory.yaml"><span class="toc-section-number">9.3.4</span> virtualdirectory.yaml</a></li>
+</ul></li>
+<li><a href="#virtual-cluster"><span class="toc-section-number">9.4</span> Virtual Cluster</a><ul>
+<li><a href="#properties-virtualcluster"><span class="toc-section-number">9.4.1</span> Properties VirtualCluster</a></li>
+<li><a href="#properties-node"><span class="toc-section-number">9.4.2</span> Properties Node</a></li>
+<li><a href="#properties-nic"><span class="toc-section-number">9.4.3</span> Properties NIC</a></li>
+<li><a href="#paths-3"><span class="toc-section-number">9.4.4</span> Paths</a></li>
+<li><a href="#vc.yaml"><span class="toc-section-number">9.4.5</span> vc.yaml</a></li>
+</ul></li>
+<li><a href="#alias"><span class="toc-section-number">9.5</span> Alias</a><ul>
+<li><a href="#properties-alias"><span class="toc-section-number">9.5.1</span> Properties Alias</a></li>
+<li><a href="#paths-4"><span class="toc-section-number">9.5.2</span> Paths</a></li>
+<li><a href="#alias.yaml"><span class="toc-section-number">9.5.3</span> alias.yaml</a></li>
+</ul></li>
+<li><a href="#database"><span class="toc-section-number">9.6</span> Database</a><ul>
+<li><a href="#properties-database"><span class="toc-section-number">9.6.1</span> Properties Database</a></li>
+<li><a href="#paths-5"><span class="toc-section-number">9.6.2</span> Paths</a></li>
+<li><a href="#database.yaml"><span class="toc-section-number">9.6.3</span> database.yaml</a></li>
+</ul></li>
+<li><a href="#default"><span class="toc-section-number">9.7</span> Default</a><ul>
+<li><a href="#properties-defaults"><span class="toc-section-number">9.7.1</span> Properties Defaults</a></li>
+<li><a href="#paths-6"><span class="toc-section-number">9.7.2</span> Paths</a></li>
+<li><a href="#default.yaml"><span class="toc-section-number">9.7.3</span> default.yaml</a></li>
+</ul></li>
+<li><a href="#file"><span class="toc-section-number">9.8</span> File</a><ul>
+<li><a href="#properties-file"><span class="toc-section-number">9.8.1</span> Properties File</a></li>
+<li><a href="#paths-7"><span class="toc-section-number">9.8.2</span> Paths</a></li>
+<li><a href="#file.yaml"><span class="toc-section-number">9.8.3</span> file.yaml</a></li>
+</ul></li>
+<li><a href="#organization"><span class="toc-section-number">9.9</span> Organization</a><ul>
+<li><a href="#properties-organization"><span class="toc-section-number">9.9.1</span> Properties Organization</a></li>
+<li><a href="#organization.yaml"><span class="toc-section-number">9.9.2</span> organization.yaml</a></li>
+</ul></li>
+<li><a href="#replica"><span class="toc-section-number">9.10</span> Replica</a><ul>
+<li><a href="#properties-replica"><span class="toc-section-number">9.10.1</span> Properties Replica</a></li>
+<li><a href="#paths-8"><span class="toc-section-number">9.10.2</span> Paths</a></li>
+<li><a href="#replica.yaml"><span class="toc-section-number">9.10.3</span> replica.yaml</a></li>
+</ul></li>
+<li><a href="#timestamp"><span class="toc-section-number">9.11</span> Timestamp</a><ul>
+<li><a href="#properties-timestamp"><span class="toc-section-number">9.11.1</span> Properties Timestamp</a></li>
+<li><a href="#paths-9"><span class="toc-section-number">9.11.2</span> Paths</a></li>
+<li><a href="#timestamp.yaml"><span class="toc-section-number">9.11.3</span> timestamp.yaml</a></li>
+</ul></li>
+<li><a href="#variables"><span class="toc-section-number">9.12</span> Variables</a><ul>
+<li><a href="#properties-variables"><span class="toc-section-number">9.12.1</span> Properties Variables</a></li>
+<li><a href="#paths-10"><span class="toc-section-number">9.12.2</span> Paths</a></li>
+<li><a href="#variables.yaml"><span class="toc-section-number">9.12.3</span> variables.yaml</a></li>
+</ul></li>
+<li><a href="#scheduler"><span class="toc-section-number">9.13</span> Scheduler</a><ul>
+<li><a href="#properties-scheduler"><span class="toc-section-number">9.13.1</span> Properties Scheduler</a></li>
+<li><a href="#paths-11"><span class="toc-section-number">9.13.2</span> Paths</a></li>
+<li><a href="#scheduler.yaml"><span class="toc-section-number">9.13.3</span> scheduler.yaml</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#status-codes-and-error-responses"><span class="toc-section-number">10</span> Status Codes and Error Responses</a></li>
+<li><a href="#acronyms-and-terms"><span class="toc-section-number">11</span> Acronyms and Terms</a></li>
+<li><a href="#bibliography"><span class="toc-section-number">12</span> Bibliography</a></li>
+</ul>
+</nav>
+<p>nistvol8-2.md <strong>NIST Special Publication 1500-9</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash python yaml"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">DRAFT</span> NIST Big Data Interoperability Framework:</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">Volume</span> 8, Reference</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">Architecture</span> Interfaces</a></code></pre></div>
+<p>NIST Big Data Public Working Group</p>
+<p>Reference Architecture Subgroup</p>
+<p>Version 2</p>
+<p>October 20, 2017</p>
+<p><a href="https://bigdatawg.nist.gov/V2_output_docs.php" class="uri">https://bigdatawg.nist.gov/V2_output_docs.php</a></p>
+<p><img src="images/nist.png" /></p>
+<hr />
+<p>NIST Special Publication 1500-9</p>
+<p>Information Technology Laboratory</p>
+<p><strong>DRAFT NIST Big Data Interoperability Framework:</strong></p>
+<p><strong>Volume 8, Reference Architecture Interfaces</strong></p>
+<p><strong>Version 2</strong></p>
+<p>NIST Big Data Public Working Group (NBD-PWG)</p>
+<p>Definitions and Taxonomies Subgroup</p>
+<p>National Institute of Standards and Technology</p>
+<p>Gaithersburg, MD 20899</p>
+<p>This draft publication is available free of charge from:</p>
+<p><a href="https://bigdatawg.nist.gov/V2_output_docs.php" class="uri">https://bigdatawg.nist.gov/V2_output_docs.php</a></p>
+<p>October 2017</p>
+<figure>
+<img src="images/us-dept-of-com.png" alt="http://physics.nist.gov/Images/doc.bw.gif" /><figcaption>http://physics.nist.gov/Images/doc.bw.gif</figcaption>
+</figure>
+<p>U. S. Department of Commerce</p>
+<p><em>Wilbur L. Ross, Jr., Secretary</em></p>
+<p>National Institute of Standards and Technology</p>
+<p><em>Dr. Kent Rochford, Acting Under Secretary of Commerce for Standards and Technology and Acting NIST Director</em></p>
+<hr />
+<p><strong>National Institute of Standards and Technology (NIST) Special Publication 1500-9</strong></p>
+<p>?? pages (June 20, 2018)</p>
+<p>NIST Special Publication series 1500 is intended to capture external perspectives related to NIST standards, measurement, and testing-related efforts. These external perspectives can come from industry, academia, government, and others. These reports are intended to document external perspectives and do not represent official NIST positions.</p>
+<p>Certain commercial entities, equipment, or materials may be identified in this document to describe an experimental procedure or concept adequately. Such identification is not intended to imply recommendation or endorsement by NIST, nor is it intended to imply that the entities, materials, or equipment are necessarily the best available for the purpose.</p>
+<p>There may be references in this publication to other publications currently under development by NIST in accordance with its assigned statutory responsibilities. The information in this publication, including concepts and methodologies, may be used by federal agencies even before the completion of such companion publications. Thus, until each publication is completed, current requirements, guidelines, and procedures, where they exist, remain operative. For planning and transition purposes, federal agencies may wish to closely follow the development of these new publications by NIST.</p>
+<p>Organizations are encouraged to review all draft publications during public comment periods and provide feedback to NIST. All NIST publications are available at <a href="http://www.nist.gov/publication-portal.cfm" class="uri">http://www.nist.gov/publication-portal.cfm</a>.</p>
+<p><strong>Comments on this publication may be submitted to Wo Chang</strong></p>
+<p>National Institute of Standards and Technology</p>
+<p>Attn: Wo Chang, Information Technology Laboratory</p>
+<p>100 Bureau Drive (Mail Stop 8900) Gaithersburg, MD 20899-8930</p>
+<p>Email: <a href="mailto:SP1500comments@nist.gov">SP1500comments@nist.gov</a></p>
+<hr />
+<p>Reports on Computer Systems Technology</p>
+<p>The Information Technology Laboratory (ITL) at NIST promotes the U.S. economy and public welfare by providing technical leadership for the Nation’s measurement and standards infrastructure. ITL develops tests, test methods, reference data, proof of concept implementations, and technical analyses to advance the development and productive use of information technology. ITL’s responsibilities include the development of management, administrative, technical, and physical standards and guidelines for the cost-effective security and privacy of other than national security-related information in federal information systems. This document reports on ITL’s research, guidance, and outreach efforts in Information Technology and its collaborative activities with industry, government, and academic organizations.</p>
+<h1 id="abstract"><span class="header-section-number">1</span> Abstract</h1>
+<p>This document summarizes interfaces that are instrumental for the interaction with Clouds, Containers, and High Performance Computing (HPC) systems to manage virtual clusters to support the NIST Big Data Reference Architecture (NBDRA). The REpresentational State Transfer (REST) paradigm is used to define these interfaces, allowing easy integration and adoption by a wide variety of frameworks.</p>
+<p>Big Data is a term used to describe extensive datasets, primarily in the characteristics of volume, variety, velocity, and/or variability. While opportunities exist with Big Data, the data characteristics can overwhelm traditional technical approaches, and the growth of data is outpacing scientific and technological advances in data analytics. To advance progress in Big Data, the NIST Big Data Public Working Group (NBD-PWG) is working to develop consensus on important fundamental concepts related to Big Data. The results are reported in the <em>NIST Big Data Interoperability Framework (NBDIF)</em> series of volumes. This volume, Volume 8, uses the work performed by the NBD-PWG to identify objects instrumental for the NIST Big Data Reference Architecture (NBDRA) which is introduced in the NBDIF: Volume 6, <em>Reference Architecture</em>.</p>
+<h1 id="keywords"><span class="header-section-number">2</span> Keywords</h1>
+<p>Adoption; barriers; implementation; interfaces; market maturity; organizational maturity; project maturity; system modernization.</p>
+<hr />
+<h1 id="acknowledgements"><span class="header-section-number">3</span> Acknowledgements</h1>
+<p>This document reflects the contributions and discussions by the membership of the NBD-PWG, cochaired by Wo Chang (NIST ITL), Bob Marcus (ET-Strategies), and Chaitan Baru (San Diego Supercomputer Center; National Science Foundation). For all versions, the Subgroups were led by the following people: Nancy Grady (SAIC), Natasha Balac (SDSC), and Eugene Luster (R2AD) for the Definitions and Taxonomies Subgroup; Geoffrey Fox (Indiana University) and Tsegereda Beyene (Cisco Systems) for the Use Cases and Requirements Subgroup; Arnab Roy (Fujitsu), Mark Underwood (Krypton Brothers; Synchrony Financial), and Akhil Manchanda (GE) for the Security and Privacy Subgroup; David Boyd (InCadence Strategic Solutions), Orit Levin (Microsoft), Don Krapohl (Augmented Intelligence), and James Ketner (AT&amp;T) for the Reference Architecture Subgroup; and Russell Reinsch (Center for Government Interoperability), David Boyd (InCadence Strategic Solutions), Carl Buffington (Vistronix), and Dan McClary (Oracle), for the Standards Roadmap Subgroup.</p>
+<p>The editors for this document were the following:</p>
+<ul>
+<li><p><strong><em>Version 2.1</em></strong>: A previous volume used just the definition of the schema based on examples it was easier to read but did only include the definition of the resources and not the interaction with the resources. This volume was in place till June 2018.</p></li>
+<li><p><strong><em>Version 2.2</em></strong>: This version was significantly changed and uses now OpenAPI to specify the Interfaces between the various services and components. Editors of this volume are:</p></li>
+</ul>
+<p>Gregor von Laszewski (Indiana University), and Wo Chang (NIST).</p>
+<p>Laurie Aldape (Energetics Incorporated) provided editorial assistance across all NBDIF volumes.</p>
+<p>NIST SP 1500-9, Draft NIST Big Data Interoperability Framework: Volume 8, Reference Architecture Interfaces, Version 2 has been collaboratively authored by the NBD-PWG. As of the date of publication, there are over six hundred NBD-PWG participants from industry, academia, and government. Federal agency participants include the National Archives and Records Administration (NARA), National Aeronautics and Space Administration (NASA), National Science Foundation (NSF), and the U.S. Departments of Agriculture, Commerce, Defense, Energy, Census, Health and Human Services, Homeland Security, Transportation, Treasury, and Veterans Affairs.</p>
+<p>NIST would like to acknowledge the specific contributions to this volume, during Version 1 and/or Version 2 activities. <em>Contributors</em> are members of the NIST Big Data Public Working Group who dedicated great effort to prepare and gave substantial time on a regular basis to research and development in support of this document. THis includes especially the following NBD-PWG members:</p>
+<ul>
+<li>Gregor von| Laszewski, Indiana University</li>
+<li>Wo Chang, National Institute of Standard and Technology,</li>
+<li>Fugang Wang, Indiana University</li>
+<li>Geoffrey C. Fox, Indiana University</li>
+<li>Alicia Zuniga-Alvarado, Consultant</li>
+<li>Robert C. Whetsel, DISA/NBIS</li>
+<li>Pratik Thakkar, Philips</li>
+</ul>
+<p>Past contributors of earlier versions of this document include</p>
+<ul>
+<li>Badi Abdhul Wahid, formerly Indiana University</li>
+</ul>
+<hr />
+<h1 id="table-of-contents"><span class="header-section-number">4</span> Table of Contents</h1>
+<h1 id="executive-summary"><span class="header-section-number">5</span> Executive Summary</h1>
+<p>The <em>NIST Big Data Interoperability Framework (NBDIF): Volume 8, Reference Architecture Interfaces</em> document was prepared by the NIST Big Data Public Working Group (NBD-PWG) Interface Subgroup to identify interfaces in support of the NIST Big Data Reference Architecture (NBDRA) The interfaces contain two different aspects:</p>
+<ul>
+<li><p>The definition of resources that are part of the NBDRA. These resources are formulated in JSON format and can be integrated into a REST framework or an object-based framework easily.</p></li>
+<li><p>The definition of simple interface use cases that allow us to illustrate the usefulness of the resources defined.</p></li>
+</ul>
+<p>The resources were categorized in groups that are identified by the NBDRA set forward in the <em>NBDIF: Volume 6, Reference Architecture</em> document. While the <em>NBDIF: Volume 3, Use Cases and General Requirements</em> document provides <em>application-</em>oriented high-level use cases, the use cases defined in this document are subsets of them and focus on <em>interface</em> use cases. The interface use cases are not meant to be complete examples, but showcase why the resource has been defined. Hence, the interfaces use cases are only representative, and do not represent the entire spectrum of Big Data usage. All the interfaces were openly discussed in the working group. Additions are welcome and we like to discuss your contributions in the group.</p>
+<p>The NIST Big Data Interoperability Framework consists of nine volumes, each of which addresses a specific key topic, resulting from the work of the NBD-PWG. The nine volumes are:</p>
+<ul>
+<li>Volume 1: Definitions</li>
+<li>Volume 2: Taxonomies</li>
+<li>Volume 3: Use Cases and General Requirements</li>
+<li>Volume 4: Security and Privacy</li>
+<li>Volume 5: Architectures White Paper Survey</li>
+<li>Volume 6: Reference Architecture</li>
+<li>Volume 7: Standards Roadmap</li>
+<li>Volume 8: Reference Architecture Interfaces</li>
+<li>Volume 9: Adoption and Modernization</li>
+</ul>
+<p>The NBDIF will be released in three versions, which correspond to the three development stages of the NBD-PWG work. The three stages aim to achieve the following with respect to the NBDRA.</p>
+<ol type="1">
+<li>Identify the high-level Big Data reference architecture key components, which are technology-, infrastructure-, and vendor-agnostic.</li>
+<li>Define general interfaces between the NBDRA components.</li>
+<li>Validate the NBDRA by building Big Data general applications through the general interfaces.</li>
+</ol>
+<p>This document is targeting Stage 2 of the NBDRA. Coordination of the group is conducted on the NBD-PWG web page (<a href="https://bigdatawg.nist.gov" class="uri">https://bigdatawg.nist.gov</a>).</p>
+<h1 id="introduction"><span class="header-section-number">6</span> Introduction</h1>
+<h2 id="background"><span class="header-section-number">6.1</span> Background</h2>
+<p>There is broad agreement among commercial, academic, and government leaders about the remarkable potential of Big Data to spark innovation, fuel commerce, and drive progress. Big Data is the common term used to describe the deluge of data in today’s networked, digitized, sensor-laden, and information-driven world. The availability of vast data resources carries the potential to answer questions previously out of reach, including the following:</p>
+<ul>
+<li><p>How can a potential pandemic reliably be detected early enough to intervene?</p></li>
+<li><p>Can new materials with advanced properties be predicted before these materials have ever been synthesized?</p></li>
+<li><p>How can the current advantage of the attacker over the defender in guarding against cybersecurity threats be reversed?</p></li>
+</ul>
+<p>There is also broad agreement on the ability of Big Data to overwhelm traditional approaches. The growth rates for data volumes, speeds, and complexity are outpacing scientific and technological advances in data analytics, management, transport, and data user spheres.</p>
+<p>Despite widespread agreement on the inherent opportunities and current limitations of Big Data, a lack of consensus on some important fundamental questions continues to confuse potential users and stymie progress. These questions include the following:</p>
+<ul>
+<li>How is Big Data defined?</li>
+<li>What attributes define Big Data solutions?</li>
+<li>What is new in Big Data?</li>
+<li>What is the difference between Big Data and <em>bigger data</em> that has been collected for years?</li>
+<li>How is Big Data different from traditional data environments and related applications?</li>
+<li>What are the essential characteristics of Big Data environments?</li>
+<li>How do these environments integrate with currently deployed architectures?</li>
+<li>What are the central scientific, technological, and standardization challenges that need to be addressed to accelerate the deployment of robust, secure Big Data solutions?</li>
+</ul>
+<p>Within this context, on March 29, 2012, the White House announced the Big Data Research and Development Initiative (The White House Office of Science and Technology Policy, “Big Data is a Big Deal,” <em>OSTP Blog</em>, accessed February 21, 2014, <a href="http://www.whitehouse.gov/blog/2012/03/29/big-data-big-deal" class="uri">http://www.whitehouse.gov/blog/2012/03/29/big-data-big-deal</a>). The initiative’s goals include helping to accelerate the pace of discovery in science and engineering, strengthening national security, and transforming teaching and learning by improving analysts’ ability to extract knowledge and insights from large and complex collections of digital data.</p>
+<p>Six federal departments and their agencies announced more than $200 million in commitments spread across more than 80 projects, which aim to significantly improve the tools and techniques needed to access, organize, and draw conclusions from huge volumes of digital data. The initiative also challenged industry, research universities, and nonprofits to join with the federal government to make the most of the opportunities created by Big Data.</p>
+<p>Motivated by the White House initiative and public suggestions, the National Institute of Standards and Technology (NIST) accepted the challenge to stimulate collaboration among industry professionals to further the secure and effective adoption of Big Data. As a result of NIST’s Cloud and Big Data Forum held on January 15–17, 2013, there was strong encouragement for NIST to create a public working group for the development of a Big Data Standards Roadmap. Forum participants noted that this roadmap should define and prioritize Big Data requirements, including interoperability, portability, reusability, extensibility, data usage, analytics, and technology infrastructure. In doing so, the roadmap would accelerate the adoption of the most secure and effective Big Data techniques and technology.</p>
+<p>On June 19, 2013, the NIST Big Data Public Working Group (NBD-PWG) was launched with extensive participation by industry, academia, and government from across the nation. The scope of the NBD-PWG involves forming a community of interests from all sectors—including industry, academia, and government—with the goal of developing consensus on definitions, taxonomies, secure reference architectures, security and privacy, and, from these, a standards roadmap. Such a consensus would create a vendor-neutral, technology- and infrastructure-independent framework that would enable Big Data stakeholders to identify and use the best analytics tools for their processing and visualization requirements on the most suitable computing platform and cluster, while also allowing added value from Big Data service providers.</p>
+<p>The <em>NIST Big Data Interoperability Framework</em> (NBDIF) will be released in three versions, which correspond to the three stages of the NBD-PWG work. The three stages aim to achieve the following with respect to the NIST Big Data Reference Architecture (NBDRA).</p>
+<ol type="1">
+<li>Identify the high-level Big Data reference architecture key components, which are technology, infrastructure, and vendor agnostic.</li>
+<li>Define general interfaces between the NBDRA components.</li>
+<li>Validate the NBDRA by building Big Data general applications through the general interfaces.</li>
+</ol>
+<p>On September 16, 2015, seven NBDIF Version 1 volumes were published (<a href="http://bigdatawg.nist.gov/V1_output_docs.php" class="uri">http://bigdatawg.nist.gov/V1_output_docs.php</a>), each of which addresses a specific key topic, resulting from the work of the NBD-PWG. The seven volumes are as follows:</p>
+<ul>
+<li>Volume 1, Definitions</li>
+<li>Volume 2, Taxonomies</li>
+<li>Volume 3, Use Cases and General Requirements</li>
+<li>Volume 4, Security and Privacy</li>
+<li>Volume 5, Architectures White Paper Survey</li>
+<li>Volume 6, Reference Architecture</li>
+<li>Volume 7, Standards Roadmap</li>
+</ul>
+<p>Currently, the NBD-PWG is working on Stage 2 with the goals to enhance the Version 1 content, define general interfaces between the NBDRA components by aggregating low-level interactions into high-level general interfaces, and demonstrate how the NBDRA can be used. As a result of the Stage 2 work, the following two additional NBDIF volumes have been developed.</p>
+<ul>
+<li>Volume 8, Reference Architecture Interfaces</li>
+<li>Volume 9, Adoption and Modernization</li>
+</ul>
+<p>Version 2 of the NBDIF volumes, resulting from Stage 2 work, can be downloaded from the NBD-PWG website (<a href="https://bigdatawg.nist.gov/V2_output_docs.php" class="uri">https://bigdatawg.nist.gov/V2_output_docs.php</a>). Potential areas of future work for each volume during Stage 3 are highlighted in Section <strong>1.5</strong>???????? of each volume. The current effort documented in this volume reflects concepts developed within the rapidly evolving field of Big Data.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash python yaml"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">Note</span> Section numbers</a></code></pre></div>
+<h2 id="scope-and-objectives-of-the-reference-architectures-subgroup"><span class="header-section-number">6.2</span> Scope and Objectives of the Reference Architectures Subgroup</h2>
+<p>Reference architectures provide “an authoritative source of information about a specific subject area that guides and constrains the instantiations of multiple architectures and solutions.” Reference architectures generally serve as a foundation for solution architectures and may also be used for comparison and alignment of instantiations of architectures and solutions.</p>
+<p>The goal of the NBD-PWG Reference Architecture Subgroup is to develop an open reference architecture for Big Data that achieves the following objectives:</p>
+<ul>
+<li>Provides a common language for the various stakeholders;</li>
+<li>Encourages adherence to common standards, specifications, and patterns;</li>
+<li>Provides consistent methods for implementation of technology to solve similar problem sets;</li>
+<li>Illustrates and improves understanding of the various Big Data components, processes, and systems, in the context of a vendor- and technology-agnostic Big Data conceptual model;</li>
+<li>Provides a technical reference for U.S. government departments, agencies, and other consumers to understand, discuss, categorize, and compare Big Data solutions; and</li>
+<li>Facilitates analysis of candidate standards for interoperability, portability, reusability, and extendibility.</li>
+</ul>
+<p>The NBDRA is a high-level conceptual model crafted to serve as a tool to facilitate open discussion of the requirements, design structures, and operations inherent in Big Data. The NBDRA is intended to facilitate the understanding of the operational intricacies in Big Data. It does not represent the system architecture of a specific Big Data system, but rather is a tool for describing, discussing, and developing system-specific architectures using a common framework of reference. The model is not tied to any specific vendor products, services, or reference implementation, nor does it define prescriptive solutions that inhibit innovation.</p>
+<p>The NBDRA does not address the following:</p>
+<ul>
+<li>Detailed specifications for any organization’s operational systems;</li>
+<li>Detailed specifications of information exchanges or services; and</li>
+<li>Recommendations or standards for integration of infrastructure products.</li>
+</ul>
+<p>The goals of the Subgroup will be realized throughout the three planned phases of the NBD-PWG work, as outlined in Section 1.1.</p>
+<h2 id="report-production"><span class="header-section-number">6.3</span> Report Production</h2>
+<p>The <em>NBDIF: Volume 8,</em> <em>References Architecture Interfaces</em> is one of nine volumes, whose overall aims are to define and prioritize Big Data requirements, including interoperability, portability, reusability, extensibility, data usage, analytic techniques, and technology infrastructure to support secure and effective adoption of Big Data. The overall goals of this volume are to define and specify interfaces to implement the Big Data Reference Architecture. This volume arose from discussions during the weekly NBD-PWG conference calls. Topics included in this volume began to take form in Phase 2 of the NBD-PWG work. This volume represents the groundwork for additional content planned for Phase 3. During the discussions, the NBD-PWG identified the need to specify a variety of interfaces.</p>
+<p>To enable interoperability between the NBDRA components, a list of well-defined NBDRA interfaces is needed. These interfaces are documented in this volume. To introduce them, the NBDRA structure will be followed, focusing on interfaces that allow bootstrapping of the NBDRA. The document begins with a summary of requirements that will be integrated into our specifications. Subsequently, each section will introduce a number of objects that build the core of the interface addressing a specific aspect of the NBDRA. A selected number of <em>interface use cases</em> will be showcased to outline how the specific interface can be used in a reference implementation of the NBDRA. Validation of this approach can be achieved while applying it to the application use cases that have been gathered in the <em>NBDIF: Volume 3, Use Cases and Requirements</em> document. These application use cases have considerably contributed towards the design of the NBDRA. Hence the expectation is that: (1) the interfaces can be used to help implement a Big Data architecture for a specific use case; and (2) the proper implementation. This approach can facilitate subsequent analysis and comparison of the use cases.</p>
+<p>This document is expected to grow with the help of contributions from the community to achieve a comprehensive set of interfaces that will be usable for the implementation of Big Data Architectures. To achieve technical and high-quality document content, this document will go through a public comment period along with NIST internal review.</p>
+<h2 id="report-structure"><span class="header-section-number">6.4</span> Report Structure</h2>
+<p>The organization of this document roughly corresponds to the process used by the NBD-PWG to develop the interfaces. Following the introductory material presented in Section 1, the remainder of this document is organized as follows:</p>
+<ul>
+<li>Section 2 presents the interface requirements;</li>
+<li>Section 3 summarizes the elementary objects that are important to the NBDRA;</li>
+<li>Section 4 presents several objects grouped by functional use; and</li>
+<li>Four appendices provide supplementary information.</li>
+</ul>
+<h2 id="future-work-on-this-volume"><span class="header-section-number">6.5</span> Future Work on this Volume</h2>
+<p>A number of topics have not been discussed and clarified sufficiently to be included in Version 2.2. Future topics will be identified during discussions within the Reference Architecture Subgroup.</p>
+<h1 id="nbdra-interface-requirements"><span class="header-section-number">7</span> NBDRA Interface Requirements</h1>
+<p>The development of a Big Data reference architecture requires a thorough understanding of current techniques, issues, and concerns. To this end, the NBD-PWG collected use cases to gain an understanding of current applications of Big Data, conducted a survey of reference architectures to understand commonalities within Big Data architectures in use, developed a taxonomy to understand and organize the information collected, and reviewed existing technologies and trends relevant to Big Data. The results of these NBD-PWG activities were used in the development of the NBDRA (Figure 1) and the interfaces presented herein. Detailed descriptions of these activities can be found in the other volumes of the <em>NBDIF</em>.</p>
+<figure>
+<img src="images/bdra.png" alt="Figure 1: NIST Big Data Reference Architecture (NBDRA)" /><figcaption><strong>Figure 1:</strong> NIST Big Data Reference Architecture (NBDRA)</figcaption>
+</figure>
+<p>This vendor-neutral, technology- and infrastructure-agnostic conceptual model, the NBDRA, is shown in Figure 1 and represents a Big Data system composed of five logical functional components connected by interoperability interfaces (i.e., services). Two fabrics envelop the components, representing the interwoven nature of management and security and privacy with all five of the components. These two fabrics provide services and functionality to the five main roles in the areas specific to Big Data and are crucial to any Big Data solution. Note: None of the terminology or diagrams in these documents is intended to be normative or to imply any business or deployment model. The terms <em>provider</em> and <em>consumer</em> as used are descriptive of general roles and are meant to be informative in nature.</p>
+<p>The NBDRA is organized around five major roles and multiple sub-roles aligned along two axes representing the two Big Data value chains: the Information Value (horizontal axis) and the Information Technology (IT; vertical axis). Along the Information Value axis, the value is created by data collection, integration, analysis, and applying the results following the value chain. Along the IT axis, the value is created by providing networking, infrastructure, platforms, application tools, and other IT services for hosting of and operating the Big Data in support of required data applications. At the intersection of both axes is the Big Data Application Provider role, indicating that data analytics and its implementation provide the value to Big Data stakeholders in both value chains. The term <em>provider</em> as part of the Big Data Application Provider and Big Data Framework Provider is there to indicate that those roles provide or implement specific activities and functions within the system. It does not designate a service model or business entity.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash python yaml"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">:<span class="ex">warning</span>: FIGURE 2 was at one point removed by somone, but the text was not updated</a></code></pre></div>
+<p>The DATA arrows in Figure 2 show the flow of data between the system’s main roles. Data flows between the roles either physically (i.e., by value) or by providing its location and the means to access it (i.e., by reference). The SW arrows show transfer of software tools for processing of Big Data <em>in situ</em>. The Service Use arrows represent software programmable interfaces. While the main focus of the NBDRA is to represent the run-time environment, all three types of communications or transactions can happen in the configuration phase as well. Manual agreements (e.g., service-level agreements) and human interactions that may exist throughout the system are not shown in the NBDRA.</p>
+<p>Detailed information on the NBDRA conceptual model is presented in the <em>NBDIF: Volume 6, Reference Architecture</em> document.</p>
+<p>Prior to outlining the specific interfaces, general requirements are introduced and the interfaces are defined.</p>
+<h2 id="high-level-requirements-of-the-interface-approach"><span class="header-section-number">7.1</span> High-Level Requirements of the Interface Approach</h2>
+<p>This section focuses on the high-level requirements of the interface approach that are needed to implement the reference architecture depicted in Figure 1.</p>
+<h3 id="technology--and-vendor-agnostic"><span class="header-section-number">7.1.1</span> Technology- and Vendor-Agnostic</h3>
+<p>Due to the many different tools, services, and infrastructures available in the general area of Big Data, an interface ought to be as vendor-independent as possible, while at the same time be able to leverage best practices. Hence, a methodology is needed that allows extension of interfaces to adapt and leverage existing approaches, but also allows the interfaces to provide merit in easy specifications that assist the formulation and definition of the NBDRA.</p>
+<h3 id="support-of-plug-in-compute-infrastructure"><span class="header-section-number">7.1.2</span> Support of Plug-In Compute Infrastructure</h3>
+<p>As Big Data is not just about hosting data, but about analyzing data, the interfaces provided herein must encapsulate a rich infrastructure environment that is used by data scientists. This includes the ability to integrate (or plug-in) various compute resources and services to provide the necessary compute power to analyze the data. These resources and services include the following:</p>
+<p>-Access to hierarchy of compute resources from the laptop/desktop, servers, data clusters, and clouds; -The ability to integrate special-purpose hardware such as GPUs and FPGAs that are used in accelerated analysis of data; and -The integration of services including micro services that allow the analysis of the data by delegating them to hosted or dynamically deployed services on the infrastructure of choice.</p>
+<h3 id="orchestration-of-infrastructure-and-services"><span class="header-section-number">7.1.3</span> Orchestration of Infrastructure and Services</h3>
+<p>From review of the use case collection, presented in the <em>NBDIF: Volume 3, Use Cases and General Requirements</em> document [4], the need arose to address the mechanism of preparing suitable infrastructures for various use cases. As not every infrastructure is suited for every use case, a custom infrastructure may be needed. As such, this document is not attempting to deliver a single deployed NBDRA, but allow the setup of an infrastructure that satisfies the particular use case. To achieve this task, it is necessary to provision software stacks and services while orchestrating their deployment and leveraging infrastructures. It is not the focus of this document to replace existing orchestration software and services, but provide an interface to them to leverage them as part of defining and creating the infrastructure. Various orchestration frameworks and services could therefore be leveraged, even as part of the same framework, and work in orchestrated fashion to achieve the goal of preparing an infrastructure suitable for one or more applications.</p>
+<h3 id="orchestration-of-big-data-applications-and-experiments"><span class="header-section-number">7.1.4</span> Orchestration of Big Data Applications and Experiments</h3>
+<p>The creation of the infrastructure suitable for Big Data applications provides the basic computing environment. However, Big Data applications may require the creation of sophisticated applications as part of interactive experiments to analyze and probe the data. For this purpose, the applications must be able to orchestrate and interact with experiments conducted on the data while assuring reproducibility and correctness of the data. For this purpose, a <em>System Orchestrator</em> (either the data scientists or a service acting on behalf of the data scientist) is used as the command center to interact on behalf of the Big Data Application Provider to orchestrate dataflow from Data Provider, carry out the Big Data application life cycle with the help of the Big Data Framework Provider, and enable the Data Consumer to consume Big Data processing results. An interface is needed to describe these interactions and to allow leveraging of experiment management frameworks in scripted fashion. A customization of parameters is needed on several levels. On the highest level, high–level, application-motivated parameters are needed to drive the orchestration of the experiment. On lower levels, these high-level parameters may drive and create service-level agreements, augmented specifications, and parameters that could even lead to the orchestration of infrastructure and services to satisfy experiment needs.</p>
+<h3 id="reusability"><span class="header-section-number">7.1.5</span> Reusability</h3>
+<p>The interfaces provided must encourage reusability of the infrastructure, services, and experiments described by them. This includes (1) reusability of available analytics packages and services for adoption; (2) deployment of customizable analytics tools and services; and (3) operational adjustments that allow the services and infrastructure to be adapted while at the same time allowing for reproducible experiment execution.</p>
+<h3 id="execution-workloads"><span class="header-section-number">7.1.6</span> Execution Workloads</h3>
+<p>One of the important aspects of distributed Big Data services can be that the data served is simply too big to be moved to a different location. Instead, an interface could allow the description and packaging of analytics algorithms, and potentially also tools, as a payload to a data service. This can be best achieved, not by sending the detailed execution, but by sending an interface description that describes how such an algorithm or tool can be created on the server and be executed under security considerations (integrated with authentication and authorization in mind).</p>
+<h3 id="security-and-privacy-fabric-requirements"><span class="header-section-number">7.1.7</span> Security and Privacy Fabric Requirements</h3>
+<p>Although the focus of this document is not security and privacy, which are documented in the <em>NBDIF: Volume 4, Security and Privacy</em> [8], the interfaces defined herein must be capable of integration into a secure reference architecture that supports secure execution, secure data transfer, and privacy. Consequently, the interfaces defined herein can be augmented with frameworks and solutions that provide such mechanisms. Thus, diverse requirement needs stemming from different use cases addressing security need to be distinguished. To contrast that the security requirements between applications can vary drastically, the following example is provided. Although many of the interfaces and their objects to support Big Data applications in physics are similar to those in healthcare, they differ in the integration of security interfaces and policies. While in physics the protection of data is less of an issue, it is a stringent requirement in healthcare. Thus, deriving architectural frameworks for both may use largely similar components, but addressing security issues will be very different. In future versions of this document, the security of interfaces may be addressed. In the meanwhile, they are considered an advanced use case showcasing that the validity of the specifications introduced here is preserved, even if security and privacy requirements differ vastly among application use cases.</p>
+<h2 id="component-specific-interface-requirements"><span class="header-section-number">7.2</span> Component-Specific Interface Requirements</h2>
+<p>This section summarizes the requirements for the interfaces of the NBDRA components. The five components are listed in Figure 1 and addressed in each of the subsections as part of Section 2.2.1 (System Orchestrator Interface Requirements) and Section 2.2.6 (Big Data Application Provider to Big Data Framework Provider Interface) of this document. The five main functional components of the NBDRA represent the different technical roles within a Big Data system. The functional components are listed below and discussed in subsequent subsections.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash python yaml"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">NOTE</span>: SECTION NUMBERS</a></code></pre></div>
+<ul>
+<li>System Orchestrator: Defines and integrates the required data application activities into an operational vertical system (see Section 2.2.1);</li>
+<li>Data Provider: Introduces new data or information feeds into the Big Data system (see Section 2.2.2);</li>
+<li>Data Consumer: Includes end users or other systems that use the results of the Big Data Application Provider (see Section 2.2.3);</li>
+<li>Big Data Application Provider: Executes a data life cycle to meet security and privacy requirements as well as System Orchestrator-defined requirements (see Section 2.2.4);</li>
+<li>Big Data Framework Provider: Establishes a computing framework in which to execute certain transformation applications while protecting the privacy and integrity of data (see Section 2.2.5); and</li>
+<li>Big Data Application Provider to Framework Provider Interface: Defines an interface between the application specification and the provider (see Section 2.2.4).</li>
+</ul>
+<h3 id="system-orchestrator-interface-requirements"><span class="header-section-number">7.2.1</span> System Orchestrator Interface Requirements</h3>
+<p>The System Orchestrator role includes defining and integrating the required data application activities into an operational vertical system. Typically, the System Orchestrator involves a collection of more specific roles, performed by one or more actors, which manage and orchestrate the operation of the Big Data system. These actors may be human components, software components, or some combination of the two. The function of the System Orchestrator is to configure and manage the other components of the Big Data architecture to implement one or more workloads that the architecture is designed to execute. The workloads managed by the System Orchestrator may be assigning/provisioning framework components to individual physical or virtual nodes at the lower level, or providing a graphical user interface that supports the specification of workflows linking together multiple applications and components at the higher level. The System Orchestrator may also, through the Management Fabric, monitor the workloads and system to confirm that specific quality of service requirements is met for each workload, and may elastically assign and provision additional physical or virtual resources to meet workload requirements resulting from changes/surges in the data or number of users/transactions. The interface to the System Orchestrator must be capable of specifying the task of orchestration the deployment, configuration, and the execution of applications within the NBDRA. A simple vendor-neutral specification to coordinate the various parts either as simple parallel language tasks or as a workflow specification is needed to facilitate the overall coordination. Integration of existing tools and services into the System Orchestrator as extensible interfaces is desirable.</p>
+<h3 id="data-provider-interface-requirements"><span class="header-section-number">7.2.2</span> Data Provider Interface Requirements</h3>
+<p>The Data Provider role introduces new data or information feeds into the Big Data system for discovery, access, and transformation by the Big Data system. New data feeds are distinct from the data already in use by the system and residing in the various system repositories. Similar technologies can be used to access both new data feeds and existing data. The Data Provider actors can be anything from a sensor, to a human inputting data manually, to another Big Data system. Interfaces for data providers must be able to specify a data provider so it can be located by a data consumer. It also must include enough details to identify the services offered so they can be pragmatically reused by consumers. Interfaces to describe pipes and filters must be addressed.</p>
+<h3 id="data-consumer-interface-requirements"><span class="header-section-number">7.2.3</span> Data Consumer Interface Requirements</h3>
+<p>Like the Data Provider, the role of Data Consumer within the NBDRA can be an actual end user or another system. In many ways, this role is the mirror image of the Data Provider, with the entire Big Data framework appearing like a Data Provider to the Data Consumer. The activities associated with the Data Consumer role include the following:</p>
+<ul>
+<li>Search and Retrieve,</li>
+<li>Download,</li>
+<li>Analyze Locally,</li>
+<li>Reporting,</li>
+<li>Visualization, and</li>
+<li>Data to Use for Their Own Processes.</li>
+</ul>
+<p>The interface for the data consumer must be able to describe the consuming services and how they retrieve information or leverage data consumers.</p>
+<h3 id="big-data-application-interface-provider-requirements"><span class="header-section-number">7.2.4</span> Big Data Application Interface Provider Requirements</h3>
+<p>The Big Data Application Provider role executes a specific set of operations along the data life cycle to meet the requirements established by the System Orchestrator, as well as meeting security and privacy requirements. The Big Data Application Provider is the architecture component that encapsulates the business logic and functionality to be executed by the architecture. The interfaces to describe Big Data applications include interfaces for the various subcomponents including collections, preparation/curation, analytics, visualization, and access. Some of the interfaces used in these subcomponents can be reused from other interfaces, which are introduced in other sections of this document. Where appropriate, application-specific interfaces will be identified and examples provided with a focus on use cases as identified in the <em>NBDIF: Volume 3, Use Cases and General Requirements</em>.</p>
+<h4 id="collection"><span class="header-section-number">7.2.4.1</span> Collection</h4>
+<p>In general, the collection activity of the Big Data Application Provider handles the interface with the Data Provider. This may be a general service, such as a file server or web server configured by the System Orchestrator to accept or perform specific collections of data, or it may be an application-specific service designed to pull data or receive pushes of data from the Data Provider. Since this activity is receiving data at a minimum, it must store/buffer the received data until it is persisted through the Big Data Framework Provider. This persistence need not be to physical media but may simply be to an in-memory queue or other service provided by the processing frameworks of the Big Data Framework Provider. The collection activity is likely where the extraction portion of the Extract, Transform, Load (ETL)/Extract, Load, Transform (ELT) cycle is performed. At the initial collection stage, sets of data (e.g., data records) of similar structure are collected (and combined), resulting in uniform security, policy, and other considerations. Initial metadata is created (e.g., subjects with keys are identified) to facilitate subsequent aggregation or look-up methods.</p>
+<h4 id="preparation"><span class="header-section-number">7.2.4.2</span> Preparation</h4>
+<p>The preparation activity is where the transformation portion of the ETL/ELT cycle is likely performed, although analytics activity will also likely perform advanced parts of the transformation. Tasks performed by this activity could include data validation (e.g., checksums/hashes, format checks), cleansing (e.g., eliminating bad records/fields), outlier removal, standardization, reformatting, or encapsulating. This activity is also where source data will frequently be persisted to archive storage in the Big Data Framework Provider and provenance data will be verified or attached/associated. Verification or attachment may include optimization of data through manipulations (e.g., deduplication) and indexing to optimize the analytics process. This activity may also aggregate data from different Data Providers, leveraging metadata keys to create an expanded and enhanced data set.</p>
+<h4 id="analytics"><span class="header-section-number">7.2.4.3</span> Analytics</h4>
+<p>The analytics activity of the Big Data Application Provider includes the encoding of the low-level business logic of the Big Data system (with higher-level business process logic being encoded by the System Orchestrator). The activity implements the techniques to extract knowledge from the data based on the requirements of the vertical application. The requirements specify the data processing algorithms to produce new insights that will address the technical goal. The analytics activity will leverage the processing frameworks to implement the associated logic. This typically involves the activity providing software that implements the analytic logic to the batch and/or streaming elements of the processing framework for execution. The messaging/communication framework of the Big Data Framework Provider may be used to pass data or control functions to the application logic running in the processing frameworks. The analytic logic may be broken up into multiple modules to be executed by the processing frameworks which communicate, through the messaging/communication framework, with each other and other functions instantiated by the Big Data Application Provider.</p>
+<h4 id="visualization"><span class="header-section-number">7.2.4.4</span> Visualization</h4>
+<p>The visualization activity of the Big Data Application Provider prepares elements of the processed data and the output of the analytic activity for presentation to the Data Consumer. The objective of this activity is to format and present data in such a way as to optimally communicate meaning and knowledge. The visualization preparation may involve producing a text-based report or rendering the analytic results as some form of graphic. The resulting output may be a static visualization and may simply be stored through the Big Data Framework Provider for later access. However, the visualization activity frequently interacts with the access activity, the analytics activity, and the Big Data Framework Provider (processing and platform) to provide interactive visualization of the data to the Data Consumer based on parameters provided to the access activity by the Data Consumer. The visualization activity may be completely application-implemented, leverage one or more application libraries, or may use specialized visualization processing frameworks within the Big Data Framework Provider.</p>
+<h4 id="access"><span class="header-section-number">7.2.4.5</span> Access</h4>
+<p>The access activity within the Big Data Application Provider is focused on the communication/interaction with the Data Consumer. Like the collection activity, the access activity may be a generic service such as a web server or application server that is configured by the System Orchestrator to handle specific requests from the Data Consumer. This activity would interface with the visualization and analytic activities to respond to requests from the Data Consumer (who may be a person) and uses the processing and platform frameworks to retrieve data to respond to Data Consumer requests. In addition, the access activity confirms that descriptive and administrative metadata and metadata schemes are captured and maintained for access by the Data Consumer and as data is transferred to the Data Consumer. The interface with the Data Consumer may be synchronous or asynchronous in nature and may use a pull or push paradigm for data transfer.</p>
+<h3 id="big-data-provider-framework-interface-requirements"><span class="header-section-number">7.2.5</span> Big Data Provider Framework Interface Requirements</h3>
+<p>Data for Big Data applications are delivered through data providers. They can be either local providers, data contributed by a user, or distributed data providers, data on the Internet. This interface must be able to provide the following functionality:</p>
+<ul>
+<li>Interfaces to files,</li>
+<li>Interfaces to virtual data directories,</li>
+<li>Interfaces to data streams, and</li>
+<li>Interfaces to data filters.</li>
+</ul>
+<h4 id="infrastructures-interface-requirements"><span class="header-section-number">7.2.5.1</span> Infrastructures Interface Requirements</h4>
+<p>This Big Data Framework Provider element provides all the resources necessary to host/run the activities of the other components of the Big Data system. Typically, these resources consist of some combination of physical resources, which may host/support similar virtual resources. The NBDRA needs interfaces that can be used to deal with the underlying infrastructure to address networking, computing, and storage.</p>
+<h4 id="platforms-interface-requirements"><span class="header-section-number">7.2.5.2</span> Platforms Interface Requirements</h4>
+<p>As part of the NBDRA platforms, interfaces are needed that can address platform needs and services for data organization, data distribution, indexed storage, and file systems.</p>
+<h4 id="processing-interface-requirements"><span class="header-section-number">7.2.5.3</span> Processing Interface Requirements</h4>
+<p>The processing frameworks for Big Data provide the necessary infrastructure software to support implementation of applications that can deal with the volume, velocity, variety, and variability of data. Processing frameworks define how the computation and processing of the data is organized. Big Data applications rely on various platforms and technologies to meet the challenges of scalable data analytics and operation. A requirement is the ability to interface easily with computing services that offer specific analytics services, batch processing capabilities, interactive analysis, and data streaming.</p>
+<h4 id="crosscutting-interface-requirements"><span class="header-section-number">7.2.5.4</span> Crosscutting Interface Requirements</h4>
+<p>Several crosscutting interface requirements within the Big Data Framework Provider include messaging, communication, and resource management. Often these services may be hidden from explicit interface use as they are part of larger systems that expose higher-level functionality through their interfaces. However, such interfaces may also be exposed on a lower level in case finer-grained control is needed. The need for such crosscutting interface requirements will be extracted from the <em>NBDIF: Volume 3, Use Cases and General Requirements</em> document.</p>
+<h4 id="messagingcommunications-frameworks"><span class="header-section-number">7.2.5.5</span> Messaging/Communications Frameworks</h4>
+<p>Messaging and communications frameworks have their roots in the High Performance Computing environments long popular in the scientific and research communities. Messaging/Communications Frameworks were developed to provide application programming interfaces (APIs) for the reliable queuing, transmission, and receipt of data.</p>
+<h4 id="resource-management-framework"><span class="header-section-number">7.2.5.6</span> Resource Management Framework</h4>
+<p>As Big Data systems have evolved and become more complex, and as businesses work to leverage limited computation and storage resources to address a broader range of applications and business challenges, the requirement to effectively manage those resources has grown significantly. While tools for resource management and <em>elastic computing</em> have expanded and matured in response to the needs of cloud providers and virtualization technologies, Big Data introduces unique requirements for these tools. However, Big Data frameworks tend to fall more into a distributed computing paradigm, which presents additional challenges.</p>
+<h3 id="big-data-application-provider-to-big-data-framework-provider-interface"><span class="header-section-number">7.2.6</span> Big Data Application Provider to Big Data Framework Provider Interface</h3>
+<p>The Big Data Framework Provider typically consists of one or more hierarchically organized instances of the components in the NBDRA IT value chain (Figure 1). There is no requirement that all instances at a given level in the hierarchy be of the same technology. In fact, most Big Data implementations are hybrids that combine multiple technology approaches to provide flexibility or meet the complete range of requirements, which are driven from the Big Data Application Provider.</p>
+<h1 id="specification-paradigm"><span class="header-section-number">8</span> Specification Paradigm</h1>
+<p>This section summarizes the elementary services that are important to the NBDRA.</p>
+<h2 id="hybrid-and-multiple-frameworks"><span class="header-section-number">8.1</span> Hybrid and Multiple Frameworks</h2>
+<p>To avoid vendor lock-in, Big Data systems must be able to deal with hybrid and multiple frameworks. This is not only true for Clouds, containers, DevOps, but also for components of the NBDRA.</p>
+<h2 id="design-by-research-oriented-architecture"><span class="header-section-number">8.2</span> Design by Research Oriented Architecture</h2>
+<p>A resource-oriented architecture represents a software architecture and programming paradigm for designing and developing software in the form of resources. It is often associated with <em>REST</em> interfaces. The resources are software components which can be reused in concrete reference implementations. The srevice speccification is conducted with OpenAPI, allowing use to provide it in a very general form that is indepndent of the froamework or computer langusge in which the services can be specified. Note that OpenAPI defines services in REpresentational State Transfer (REST) The brevious verion only specified the resource objects.</p>
+<h2 id="design-by-example"><span class="header-section-number">8.3</span> Design by Example</h2>
+<p>To accelerate discussion among the NBD-PWG members, we encourage contributors to this documemt to also provide us with examples that we can include in an appendix.</p>
+<h2 id="version-management"><span class="header-section-number">8.4</span> Version Management</h2>
+<p>During the design phase and inbetween versions of this document enhancemnents are managed through github and community contributions are managed via github issues. This allows us to preserve the history of this document. When a new version is ready, we will tagg the version in github. Older version will through this process also be available as historical documents. Discussions about objects in written form are communicated as github issues.</p>
+<h2 id="interface-compliancy"><span class="header-section-number">8.5</span> Interface Compliancy</h2>
+<p>Due to the easy extensibility of the objects in this document and their implicit interfaces, it is important to introduce a terminology that allows the definition of interface compliancy. We define three levels of interface compliance as follows:</p>
+<ul>
+<li><p><strong>Full Compliance:</strong> These are reference implementations that provide full compliance to the objects defined in this document. A version number will be added to assure that the snapshot in time of the objects is associated with the version. This reference implementation will implement all objects.</p></li>
+<li><p><strong>Partial Compliance:</strong> These are reference implementations that provide partial compliance to the objects defined in this document. A version number will be added to assure that the snapshot in time of the objects is associated with the version. This reference implementation will implement a partial list of the objects. A document will be generated during the reference implementation that lists all objects defined, but also lists the objects that are not defined by the reference architecture. The document will outline which objects and interfaces have been implemented.</p></li>
+<li><p><strong>Full and Extended Compliance:</strong> These are interfaces that in addition to the full compliance also introduce additional interfaces and extend them. A document will be generated during the reference implementation that lists the differences to the document defined here.</p></li>
+</ul>
+<p>The documents generated during the reference implementation can then be forwarded to the Reference Architecture Subgroup for further discussion and for possible future modifications based on additional practical user feedback.</p>
+<h1 id="specification"><span class="header-section-number">9</span> Specification</h1>
+<p>We will provide the specifications to this document through an automated document crearion process so that the actual OpenAPI specifications are the source for the document. Thus we will have all OpenAPI specifications located in the following directory in github:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash python yaml"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">Addd</span> the link to the github dir</a></code></pre></div>
+<p>Limitations of the current implementation are as follows. It is a demonstration that showcases the generation of a fully functioning REST service based on the specifications provided in this document. However, it is expected that scalability, distribution of services, and other advanced options need to be addressed based on application requirements.</p>
+<h2 id="profile"><span class="header-section-number">9.1</span> Profile</h2>
+<p>Terminology</p>
+<p>Group</p>
+<p>Resource</p>
+<p>Context</p>
+<h3 id="properties-profile"><span class="header-section-number">9.1.1</span> Properties Profile</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">uuid</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">a unique id for the profile</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">username</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the username associated with the profile</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">group</td>
+<td style="text-align: left;">array[string]</td>
+<td style="text-align: left;">a list of groups that are associated to the profile</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">resource</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">a resource this profile may belong to</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">context</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">a context the profile may belong to</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">description</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">a description for this profile</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">firstname</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the firstanme of the profile user</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lastname</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the lastname of the profile user</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">publickey</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the lastname of the profile user</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">email</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the email of the profile user</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths"><span class="header-section-number">9.1.2</span> Paths</h3>
+<h4 id="cloudmeshprofileprofiles"><span class="header-section-number">9.1.2.1</span> /cloudmesh/profile/profiles</h4>
+<h5 id="get-cloudmeshprofileprofiles"><span class="header-section-number">9.1.2.1.1</span> GET /cloudmesh/profile/profiles</h5>
+<p>Returns all profiles</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">profile information</td>
+<td style="text-align: left;"><a href="#profile">Profile</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshprofileprofiles"><span class="header-section-number">9.1.2.1.2</span> PUT /cloudmesh/profile/profiles</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">profile</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new profile to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#profile">Profile</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshprofileprofilesuuid"><span class="header-section-number">9.1.2.2</span> /cloudmesh/profile/profiles/{uuid}</h4>
+<h5 id="get-cloudmeshprofileprofilesuuid"><span class="header-section-number">9.1.2.2.1</span> GET /cloudmesh/profile/profiles/{uuid}</h5>
+<p>Returns a the profile of a user</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">profile information</td>
+<td style="text-align: left;"><a href="#profile">Profile</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">uuid</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/profile.md}</p>
+<h3 id="profile.yaml"><span class="header-section-number">9.1.3</span> profile.yaml</h3>
+<pre data-include="../../services/profile/profile.yaml"><code>---
+swagger: &quot;2.0&quot;
+info:
+  version: &quot;0.0.3&quot;
+  title: &quot;Profile&quot;
+  description: &gt;
+               Profiles are used to store information about users for
+               a specific service. Profiles can be added, removed and
+               listed. A group in the profile can be used to augment
+               users to be part of a group.
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: &quot;Cloudmesh Profile&quot;
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: &quot;Apache&quot;
+host: &quot;localhost:8080&quot;
+schemes:
+  - &quot;http&quot;
+consumes:
+  - &quot;application/json&quot;
+produces:
+  - &quot;application/json&quot;
+paths:
+  /cloudmesh/profile/profiles:
+    get:
+      tags:
+        - &quot;profile&quot;
+      description: &quot;Returns all profiles&quot;
+      operationId: get_profile
+      produces:
+        - &quot;application/json&quot;
+      responses:
+        &quot;200&quot;:
+          description: &quot;profile information&quot;
+          schema:
+            $ref: &quot;#/definitions/Profile&quot;
+    put:
+      tags:
+        - &quot;profile&quot;
+      summary: &quot;Create a new profile&quot;
+      operationId: add_profile
+      parameters:
+        - in: body
+          name: profile
+          description: &quot;The new profile to create&quot;
+          schema:
+            $ref: &quot;#/definitions/Profile&quot;
+      responses:
+        &quot;201&quot;:
+          description: Created
+  /cloudmesh/profile/profiles/{uuid}:
+    get:
+      tags:
+        - &quot;profile&quot;
+      description: &quot;Returns a the profile of a user&quot;
+      operationId: getProfileByUuid
+      parameters:
+        - name: uuid
+          in: path
+          required: true
+          type: string
+      produces:
+        - &quot;application/json&quot;
+      responses:
+        &quot;200&quot;:
+          description: &quot;profile information&quot;
+          schema:
+            $ref: &quot;#/definitions/Profile&quot;
+definitions:
+  Profile:
+    type: &quot;object&quot;
+    properties:
+      uuid:
+        type: &quot;string&quot;
+        description: a unique id for the profile
+      username:
+        type: &quot;string&quot;
+        description: the username associated with the profile
+      group:
+        type: array
+        description: a list of groups that are associated to the profile
+        items:
+          type: &quot;string&quot;
+      resource:
+        type: &quot;string&quot;
+        description: a resource this profile may belong to
+      context:
+        type: &quot;string&quot;
+        description: a context the profile may belong to
+      description:
+        type: &quot;string&quot;
+        description: a description for this profile
+      firstname:
+        type: &quot;string&quot;
+        description: the firstanme of the profile user
+      lastname:
+        type: &quot;string&quot;
+        description: the lastname of the profile user
+      publickey:
+        type: &quot;string&quot;
+        description: the lastname of the profile user
+      email:
+        type: &quot;string&quot;
+        description: the email of the profile user
+</code></pre>
+<h2 id="keystore"><span class="header-section-number">9.2</span> Keystore</h2>
+<h3 id="properties-key"><span class="header-section-number">9.2.1</span> Properties Key</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">description</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-1"><span class="header-section-number">9.2.2</span> Paths</h3>
+<h4 id="cloudmeshkeystorekeys"><span class="header-section-number">9.2.2.1</span> /cloudmesh/keystore/keys</h4>
+<h5 id="get-cloudmeshkeystorekeys"><span class="header-section-number">9.2.2.1.1</span> GET /cloudmesh/keystore/keys</h5>
+<p>Returns all general description keys</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">key info</td>
+<td style="text-align: left;"><a href="#key">Key</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshkeystorekeys"><span class="header-section-number">9.2.2.1.2</span> PUT /cloudmesh/keystore/keys</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">key</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new key to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#key">Key</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshkeystorekeyname"><span class="header-section-number">9.2.2.2</span> /cloudmesh/keystore/key/{name}</h4>
+<h5 id="get-cloudmeshkeystorekeyname"><span class="header-section-number">9.2.2.2.1</span> GET /cloudmesh/keystore/key/{name}</h5>
+<p>Returns a general description of a key</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">key info</td>
+<td style="text-align: left;"><a href="#key">Key</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/keystore.md}</p>
+<h3 id="keystore.yaml"><span class="header-section-number">9.2.3</span> keystore.yaml</h3>
+<pre data-include="../../services/keystore/keystore.yaml"><code>---
+swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: key
+  description: &gt;-
+    A service to store key, value, type information. All of them are stored as Strings.
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/keystore/keys:
+    get:
+      tags:
+        - &quot;keystore&quot;
+      description: Returns all general description keys
+      operationId: get_key
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: key info
+          schema:
+            $ref: &#39;#/definitions/Key&#39;
+    put:
+      tags:
+        - &quot;keystore&quot;
+      summary: Create a new key
+      operationId: add_key
+      parameters:
+        - in: body
+          name: key
+          description: The new key to create
+          schema:
+            $ref: &#39;#/definitions/Key&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  /cloudmesh/keystore/key/{name}:
+    get:
+      tags:
+        - &quot;keystore&quot;
+      description: Returns a general description of a key
+      operationId: get_key_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: key info
+          schema:
+            $ref: &#39;#/definitions/Key&#39;
+definitions:
+  Key:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      value:
+        type: string
+      kind:
+        type: string
+</code></pre>
+<h2 id="virtual-directory"><span class="header-section-number">9.3</span> Virtual Directory</h2>
+<h3 id="properties-unauthorizederror"><span class="header-section-number">9.3.1</span> Properties UnauthorizedError</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Code form of the error</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Human readable form of the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties-virtualdirectory"><span class="header-section-number">9.3.2</span> Properties Virtualdirectory</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 15%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The name of the virtual directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">description</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">description of the virtual directory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">host</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">remote host of the virtual directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">location</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">remote location, e.g., a directory with full path on a host</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">protocol</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">access protocol, e.g., HTTP, FTP, SSH, etc.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">credential</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">credential to access, e.g., username, password</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-2"><span class="header-section-number">9.3.3</span> Paths</h3>
+<h4 id="cloudmeshvirtualdirectories"><span class="header-section-number">9.3.3.1</span> /cloudmesh/virtualdirectories</h4>
+<h5 id="get-cloudmeshvirtualdirectories"><span class="header-section-number">9.3.3.1.1</span> GET /cloudmesh/virtualdirectories</h5>
+<p>Returns all virtualdirectorys</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">virtualdirectory info</td>
+<td style="text-align: left;"><a href="#virtualdirectory">Virtualdirectory</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">unauthorized error</td>
+<td style="text-align: left;"><a href="#unauthorizederror">UnauthorizedError</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshvirtualdirectories"><span class="header-section-number">9.3.3.1.2</span> PUT /cloudmesh/virtualdirectories</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 8%" />
+<col style="width: 31%" />
+<col style="width: 9%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">virtualdirectory</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new virtualdirectory to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#virtualdirectory">Virtualdirectory</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshvirtualdirectoryname"><span class="header-section-number">9.3.3.2</span> /cloudmesh/virtualdirectory/{name}</h4>
+<h5 id="get-cloudmeshvirtualdirectoryname"><span class="header-section-number">9.3.3.2.1</span> GET /cloudmesh/virtualdirectory/{name}</h5>
+<p>Returns a virtualdirectory</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">virtualdirectory info</td>
+<td style="text-align: left;"><a href="#virtualdirectory">Virtualdirectory</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/virtualdirectory.md}</p>
+<h3 id="virtualdirectory.yaml"><span class="header-section-number">9.3.4</span> virtualdirectory.yaml</h3>
+<pre data-include="../../services/virtualdirectory/virtualdirectory.yaml"><code>---
+swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: virtualdirectory
+  description: &gt;-
+    A virtual directory is a collection of files or replicas of the files.
+    A virtual directory can contain a number of entities including files,
+    streams, and other virtual directories as part of a collection.
+    The element in the collection can either be defined by uuid or by name.
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Virtual Directory Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/virtualdirectories:
+    get:
+      tags:
+        - &quot;virtualdirectory&quot;
+      description: Returns all virtualdirectorys
+      operationId: get_virtualdirectory
+      produces:
+        - application/json
+      security:
+        - httpbasic: []
+      responses:
+        &#39;200&#39;:
+          description: virtualdirectory info
+          schema:
+            $ref: &#39;#/definitions/Virtualdirectory&#39;
+        &#39;401&#39;:
+          description: unauthorized error
+          schema:
+            $ref: &#39;#/definitions/UnauthorizedError&#39;
+    put:
+      tags:
+        - &quot;virtualdirectory&quot;
+      summary: Create a new virtualdirectory
+      operationId: add_virtualdirectory
+      parameters:
+        - in: body
+          name: virtualdirectory
+          description: The new virtualdirectory to create
+          schema:
+            $ref: &#39;#/definitions/Virtualdirectory&#39;
+      security:
+        - apikey: []
+          apisecret: []
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/virtualdirectory/{name}&#39;:
+    get:
+      tags:
+        - &quot;virtualdirectory&quot;
+      description: Returns a virtualdirectory
+      operationId: get_virtualdirectory_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      security:
+        - httpbasic: []
+      responses:
+        &#39;200&#39;:
+          description: virtualdirectory info
+          schema:
+            $ref: &#39;#/definitions/Virtualdirectory&#39;
+definitions:
+  UnauthorizedError:
+    type: object
+    description: A specific error
+    properties:
+      code:
+        type: string
+        description: Code form of the error
+      message:
+        type: string
+        description: Human readable form of the error
+  Virtualdirectory:
+    type: &quot;object&quot;
+    description: the virtualdirectory
+    properties:
+      name:
+        description: The name of the virtual directory
+        type: &quot;string&quot;
+      description:
+        description: description of the virtual directory
+        type: &quot;string&quot;
+      host:
+        description: remote host of the virtual directory
+        type: &quot;string&quot;
+      location:
+        description: remote location, e.g., a directory with full path on a host
+        type: &quot;string&quot;
+      protocol:
+        description: access protocol, e.g., HTTP, FTP, SSH, etc.
+        type: &quot;string&quot;
+      credential:
+        description: credential to access, e.g., username, password
+        type: &quot;object&quot;
+</code></pre>
+<h2 id="virtual-cluster"><span class="header-section-number">9.4</span> Virtual Cluster</h2>
+<h3 id="properties-virtualcluster"><span class="header-section-number">9.4.1</span> Properties VirtualCluster</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The name of the virtual cluster</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">description</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">A description of the virtual cluster</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">nnodes</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">number of nodes of the virtual cluster</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">owner</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">owner of the virtual cluster</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fe</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Front-end node of the virtual cluster</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nodes</td>
+<td style="text-align: left;">array[#/definitions/Node]</td>
+<td style="text-align: left;">List of nodes of the virtual cluster</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties-node"><span class="header-section-number">9.4.2</span> Properties Node</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the node</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">state</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">power state of the node</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ncpu</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">number of virtual CPUs of the node</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ram</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">RAM size of the node</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">disk</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Disk size of the node</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nics</td>
+<td style="text-align: left;">array[#/definitions/NIC]</td>
+<td style="text-align: left;">List of network interfaces of the node</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties-nic"><span class="header-section-number">9.4.3</span> Properties NIC</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">mac</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">MAC address of the node</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ip</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">IP address of the node</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-3"><span class="header-section-number">9.4.4</span> Paths</h3>
+<h4 id="cloudmeshvirtualclustervirtualclusters"><span class="header-section-number">9.4.4.1</span> /cloudmesh/virtualcluster/virtualclusters</h4>
+<h5 id="get-cloudmeshvirtualclustervirtualclusters"><span class="header-section-number">9.4.4.1.1</span> GET /cloudmesh/virtualcluster/virtualclusters</h5>
+<p>Returns all virtualclusters</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">profile info</td>
+<td style="text-align: left;"><a href="#virtualcluster">VirtualCluster</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshvirtualclustervirtualclusters"><span class="header-section-number">9.4.4.1.2</span> PUT /cloudmesh/virtualcluster/virtualclusters</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">virtualcluster</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new virtualcluster to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#virtualcluster">VirtualCluster</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshvirtualclustervirtualclustersvirtualclustername"><span class="header-section-number">9.4.4.2</span> /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}</h4>
+<h5 id="get-cloudmeshvirtualclustervirtualclustersvirtualclustername"><span class="header-section-number">9.4.4.2.1</span> GET /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}</h5>
+<p>Returns a virtualcluster by its name</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">virtualcluster info</td>
+<td style="text-align: left;"><a href="#virtualcluster">VirtualCluster</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">virtualclustername</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshvirtualclustervirtualclustersvirtualclusternamefe"><span class="header-section-number">9.4.4.3</span> /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/fe</h4>
+<h5 id="get-cloudmeshvirtualclustervirtualclustersvirtualclusternamefe"><span class="header-section-number">9.4.4.3.1</span> GET /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/fe</h5>
+<p>Returns the front-end node info of the specified virtualcluster</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">virtualcluster front-end info</td>
+<td style="text-align: left;"><a href="#node">Node</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">virtualclustername</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshvirtualclustervirtualclustersvirtualclusternamenodename"><span class="header-section-number">9.4.4.4</span> /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/{nodename}</h4>
+<h5 id="get-cloudmeshvirtualclustervirtualclustersvirtualclusternamenodename"><span class="header-section-number">9.4.4.4.1</span> GET /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/{nodename}</h5>
+<p>Returns the specified node info of the specified virtualcluster</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">virtualcluster node info</td>
+<td style="text-align: left;"><a href="#node">Node</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">virtualclustername</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nodename</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/virtualcluster.md}</p>
+<h3 id="vc.yaml"><span class="header-section-number">9.4.5</span> vc.yaml</h3>
+<pre data-include="../../services/virtualcluster/virtualcluster.yaml"><code>---
+swagger: &quot;2.0&quot;
+info:
+  version: &quot;0.0.1&quot;
+  title: &quot;Virtual Cluster&quot;
+  description: &quot;Virtual Cluster example&quot;
+  termsOfService: &quot;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&quot;
+  contact:
+    name: &quot;Cloudmesh REST Service Example&quot;
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: &quot;Apache&quot;
+host: &quot;localhost:8080&quot;
+schemes:
+  - &quot;http&quot;
+consumes:
+  - &quot;application/json&quot;
+produces:
+  - &quot;application/json&quot;
+paths:
+  /cloudmesh/virtualcluster/virtualclusters:
+    get:
+      tags:
+        - &quot;virtualcluster&quot;
+      description: &quot;Returns all virtualclusters&quot;
+      operationId: get_virtualcluster
+      produces:
+        - &quot;application/json&quot;
+      responses:
+        &quot;200&quot;:
+          description: &quot;profile info&quot;
+          schema:
+            $ref: &quot;#/definitions/VirtualCluster&quot;
+    put:
+      tags:
+        - &quot;virtualcluster&quot;
+      summary: &quot;Create a new virtualcluster&quot;
+      operationId: add_virtualcluster
+      parameters:
+        - in: body
+          name: virtualcluster
+          description: &quot;The new virtualcluster to create&quot;
+          schema:
+            $ref: &quot;#/definitions/VirtualCluster&quot;
+      responses:
+        &quot;201&quot;:
+          description: Created
+  /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}:
+    get:
+      tags:
+        - &quot;virtualcluster&quot;
+      description: &quot;Returns a virtualcluster by its name&quot;
+      operationId: getVirtualclusterByName
+      parameters:
+        - name: virtualclustername
+          in: path
+          required: true
+          type: string
+      produces:
+        - &quot;application/json&quot;
+      responses:
+        &quot;200&quot;:
+          description: &quot;virtualcluster info&quot;
+          schema:
+            $ref: &quot;#/definitions/VirtualCluster&quot;
+  /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/fe:
+    get:
+      tags:
+        - &quot;virtualcluster&quot;
+      description: &quot;Returns the front-end node info of the specified virtualcluster&quot;
+      operationId: getVirtualclusterFeByName
+      parameters:
+        - name: virtualclustername
+          in: path
+          required: true
+          type: string
+      produces:
+        - &quot;application/json&quot;
+      responses:
+        &quot;200&quot;:
+          description: &quot;virtualcluster front-end info&quot;
+          schema:
+            $ref: &quot;#/definitions/Node&quot;
+  /cloudmesh/virtualcluster/virtualclusters/{virtualclustername}/{nodename}:
+    get:
+      tags:
+        - &quot;virtualcluster&quot;
+      description: &quot;Returns the specified node info of the specified virtualcluster&quot;
+      operationId: getVirtualclusterNodeByName
+      parameters:
+        - name: virtualclustername
+          in: path
+          required: true
+          type: string
+        - name: nodename
+          in: path
+          required: true
+          type: string
+      produces:
+        - &quot;application/json&quot;
+      responses:
+        &quot;200&quot;:
+          description: &quot;virtualcluster node info&quot;
+          schema:
+            $ref: &quot;#/definitions/Node&quot;
+definitions:
+  VirtualCluster:
+    type: &quot;object&quot;
+    properties:
+      name:
+        description: The name of the virtual cluster
+        type: &quot;string&quot;
+      description:
+        type: &quot;string&quot;
+        description: A description of the virtual cluster
+      nnodes:
+        type: &quot;integer&quot;
+        description: number of nodes of the virtual cluster
+      owner:
+        type: &quot;string&quot;
+        description: owner of the virtual cluster
+      fe:
+        description: Front-end node of the virtual cluster
+        $ref: &quot;#/definitions/Node&quot;
+      nodes:
+        description: List of nodes of the virtual cluster
+        type: array
+        items:
+          $ref: &quot;#/definitions/Node&quot;
+  Node:
+    type: &quot;object&quot;
+    properties:
+      name:
+        type: &quot;string&quot;
+        description: name of the node
+      state:
+        type: &quot;string&quot;
+        description: power state of the node
+      ncpu:
+        type: &quot;integer&quot;
+        description: number of virtual CPUs of the node
+      ram:
+        type: &quot;string&quot;
+        description: RAM size of the node
+      disk:
+        type: &quot;string&quot;
+        description: Disk size of the node
+      nics:
+        type: &quot;array&quot;
+        description: List of network interfaces of the node
+        items:
+          $ref: &quot;#/definitions/NIC&quot;
+  NIC:
+    type: &quot;object&quot;
+    properties:
+      mac:
+        type: &quot;string&quot;
+        description: MAC address of the node
+      ip:
+        type: &quot;string&quot;
+        description: IP address of the node
+</code></pre>
+<h2 id="alias"><span class="header-section-number">9.5</span> Alias</h2>
+<h3 id="properties-alias"><span class="header-section-number">9.5.1</span> Properties Alias</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The name of the alias</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">origin</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The original object name&quot;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-4"><span class="header-section-number">9.5.2</span> Paths</h3>
+<h4 id="cloudmeshaliass"><span class="header-section-number">9.5.2.1</span> /cloudmesh/aliass</h4>
+<h5 id="get-cloudmeshaliass"><span class="header-section-number">9.5.2.1.1</span> GET /cloudmesh/aliass</h5>
+<p>Returns all aliass</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">alias info</td>
+<td style="text-align: left;"><a href="#alias">Alias</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshaliass"><span class="header-section-number">9.5.2.1.2</span> PUT /cloudmesh/aliass</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">alias</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new alias to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#alias">Alias</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshaliasname"><span class="header-section-number">9.5.2.2</span> /cloudmesh/alias/{name}</h4>
+<h5 id="get-cloudmeshaliasname"><span class="header-section-number">9.5.2.2.1</span> GET /cloudmesh/alias/{name}</h5>
+<p>Returns a alias</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">alias info</td>
+<td style="text-align: left;"><a href="#alias">Alias</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/alias.md}</p>
+<h3 id="alias.yaml"><span class="header-section-number">9.5.3</span> alias.yaml</h3>
+<pre data-include="../../services/alias/alias.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: alias
+  description: &gt;-
+    A data object could have one alias or even multiple ones. The reason for an alias is that a file may have a complex name but a user may want to refer to that file in a name space that is suitable for the user&#39;s application.
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/aliass:
+    get:
+      description: Returns all aliass
+      operationId: get_alias
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: alias info
+          schema:
+            $ref: &#39;#/definitions/Alias&#39;
+    put:
+      summary: Create a new alias
+      operationId: add_alias
+      parameters:
+        - in: body
+          name: alias
+          description: The new alias to create
+          schema:
+            $ref: &#39;#/definitions/Alias&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/alias/{name}&#39;:
+    get:
+      description: Returns a alias
+      operationId: get_alias_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: alias info
+          schema:
+            $ref: &#39;#/definitions/Alias&#39;
+definitions:
+  Alias:
+    type: object
+    description: the alias
+    properties:
+      name:
+        type: string
+        description: The name of the alias
+      origin:
+        type: string
+        description: The original object name&quot;
+</code></pre>
+<h2 id="database"><span class="header-section-number">9.6</span> Database</h2>
+<h3 id="properties-database"><span class="header-section-number">9.6.1</span> Properties Database</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the database</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">endpoint</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">endpoint of the database</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the kind of the database</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-5"><span class="header-section-number">9.6.2</span> Paths</h3>
+<h4 id="cloudmeshdatabases"><span class="header-section-number">9.6.2.1</span> /cloudmesh/databases</h4>
+<h5 id="get-cloudmeshdatabases"><span class="header-section-number">9.6.2.1.1</span> GET /cloudmesh/databases</h5>
+<p>Returns all databases</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">database info</td>
+<td style="text-align: left;"><a href="#database">Database</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshdatabases"><span class="header-section-number">9.6.2.1.2</span> PUT /cloudmesh/databases</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">database</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new database to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#database">Database</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshdatabasename"><span class="header-section-number">9.6.2.2</span> /cloudmesh/database/{name}</h4>
+<h5 id="get-cloudmeshdatabasename"><span class="header-section-number">9.6.2.2.1</span> GET /cloudmesh/database/{name}</h5>
+<p>Returns a database</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">database info</td>
+<td style="text-align: left;"><a href="#database">Database</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/database.md}</p>
+<h3 id="database.yaml"><span class="header-section-number">9.6.3</span> database.yaml</h3>
+<pre data-include="../../services/database/database.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: database
+  description: &gt;-
+    A database could have a name, an endpoint (e.g., host, port), and a protocol used (e.g., SQL, mongo).
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/databases:
+    get:
+      description: Returns all databases
+      operationId: get_database
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: database info
+          schema:
+            $ref: &#39;#/definitions/Database&#39;
+    put:
+      summary: Create a new database
+      operationId: add_database
+      parameters:
+        - in: body
+          name: database
+          description: The new database to create
+          schema:
+            $ref: &#39;#/definitions/Database&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/database/{name}&#39;:
+    get:
+      description: Returns a database
+      operationId: get_database_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: database info
+          schema:
+            $ref: &#39;#/definitions/Database&#39;
+definitions:
+  Database:
+    type: object
+    description: the database
+    properties:
+      name:
+        type: string
+        description: name of the database
+      endpoint:
+        type: string
+        description: endpoint of the database
+      kind:
+        type: string
+        description: the kind of the database
+</code></pre>
+<h2 id="default"><span class="header-section-number">9.7</span> Default</h2>
+<h3 id="properties-defaults"><span class="header-section-number">9.7.1</span> Properties Defaults</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the default</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">type of the default</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">value of the default</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-6"><span class="header-section-number">9.7.2</span> Paths</h3>
+<h4 id="cloudmeshdefaults"><span class="header-section-number">9.7.2.1</span> /cloudmesh/defaults</h4>
+<h5 id="get-cloudmeshdefaults"><span class="header-section-number">9.7.2.1.1</span> GET /cloudmesh/defaults</h5>
+<p>Returns all defaults</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">default info</td>
+<td style="text-align: left;"><a href="#default">Default</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshdefaults"><span class="header-section-number">9.7.2.1.2</span> PUT /cloudmesh/defaults</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">default</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new default to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#default">Default</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshdefaultname"><span class="header-section-number">9.7.2.2</span> /cloudmesh/default/{name}</h4>
+<h5 id="get-cloudmeshdefaultname"><span class="header-section-number">9.7.2.2.1</span> GET /cloudmesh/default/{name}</h5>
+<p>Returns a default</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">default info</td>
+<td style="text-align: left;"><a href="#default">Default</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=./spec/default.md}</p>
+<h3 id="default.yaml"><span class="header-section-number">9.7.3</span> default.yaml</h3>
+<pre data-include="./spec/default.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: default
+  description: &gt;-
+    A default is a special variable that has a context associated with
+    it. This allows one to define values that can be easily retrieved
+    based on the associated context. For example, a default could be
+    the image name for a cloud where the context is defined by the
+    cloud name.
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/defaults:
+    get:
+      description: Returns all defaults
+      operationId: get_default
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: default info
+          schema:
+            $ref: &#39;#/definitions/Default&#39;
+    put:
+      summary: Create a new default
+      operationId: add_default
+      parameters:
+        - in: body
+          name: default
+          description: The new default to create
+          schema:
+            $ref: &#39;#/definitions/Default&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/default/{name}&#39;:
+    get:
+      description: Returns a default
+      operationId: get_default_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: default info
+          schema:
+            $ref: &#39;#/definitions/Default&#39;
+definitions:
+  Defaults:
+    type: object
+    description: the defaults
+    properties:
+      name:
+        type: string
+        description: name of the default
+      value:
+        type: string
+        description: type of the default
+      kind:
+        type: string
+        description: value of the default
+</code></pre>
+<h2 id="file"><span class="header-section-number">9.8</span> File</h2>
+<h3 id="properties-file"><span class="header-section-number">9.8.1</span> Properties File</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the name of the file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">endpoint</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The location of the file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">checksum</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The checksum of the file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">size</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">The size of the file in byte</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">The timestamp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-7"><span class="header-section-number">9.8.2</span> Paths</h3>
+<h4 id="cloudmeshfiles"><span class="header-section-number">9.8.2.1</span> /cloudmesh/files</h4>
+<h5 id="get-cloudmeshfiles"><span class="header-section-number">9.8.2.1.1</span> GET /cloudmesh/files</h5>
+<p>Returns all files</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">file info</td>
+<td style="text-align: left;"><a href="#file">File</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshfiles"><span class="header-section-number">9.8.2.1.2</span> PUT /cloudmesh/files</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">file</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new file to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#file">File</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshfilename"><span class="header-section-number">9.8.2.2</span> /cloudmesh/file/{name}</h4>
+<h5 id="get-cloudmeshfilename"><span class="header-section-number">9.8.2.2.1</span> GET /cloudmesh/file/{name}</h5>
+<p>Returns a file</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">file info</td>
+<td style="text-align: left;"><a href="#file">File</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/file.md}</p>
+<h3 id="file.yaml"><span class="header-section-number">9.8.3</span> file.yaml</h3>
+<pre data-include="../../services/file/file.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: file
+  description: &gt;-
+    A file is a computer resource allowing storage of data that is
+    being processed. The interface to a file provides the mechanism to
+    appropriately locate a file in a distributed system. File
+    identification includes the name, endpoint, checksum, and
+    size. Additional parameters, such as the last access time, could
+    also be stored. The interface only describes the location of the
+    file.  The file object has name, endpoint (location), size in GB,
+    MB, Byte, checksum for integrity check, and last accessed
+    timestamp.
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/files:
+    get:
+      description: Returns all files
+      operationId: get_file
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: file info
+          schema:
+            $ref: &#39;#/definitions/File&#39;
+    put:
+      summary: Create a new file
+      operationId: add_file
+      parameters:
+        - in: body
+          name: file
+          description: The new file to create
+          schema:
+            $ref: &#39;#/definitions/File&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/file/{name}&#39;:
+    get:
+      description: Returns a file
+      operationId: get_file_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: file info
+          schema:
+            $ref: &#39;#/definitions/File&#39;
+definitions:
+  File:
+    type: object
+    description: the file
+    properties:
+      name:
+        type: string
+        description: the name of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        type: timestamp
+        description: The timestamp
+
+#        &quot;name&quot;: &quot;report.dat&quot;,
+#        &quot;endpoint&quot;: &quot;file://gregor@machine.edu:/data/report.dat&quot;,
+#        &quot;checksum&quot;: {&quot;sha256&quot;:&quot;c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b&quot;},
+#        &quot;accessed&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
+#        &quot;created&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
+#        &quot;modified&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
+#       &quot;size&quot;: [&quot;GB&quot;, &quot;Byte&quot;]
+</code></pre>
+<h2 id="organization"><span class="header-section-number">9.9</span> Organization</h2>
+<h3 id="properties-organization"><span class="header-section-number">9.9.1</span> Properties Organization</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Name of the organization</td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/organization.md}</p>
+<h3 id="organization.yaml"><span class="header-section-number">9.9.2</span> organization.yaml</h3>
+<pre data-include="../../services/organization/organization.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: organization
+  description: &gt;-
+    An important concept in many applications is the management of a
+    group of users in an organization that manages a Big Data
+    application or infrastructure. User group management can be
+    achieved through three concepts. First, it can be achieved by
+    using the profile and user resources itself as they contain the
+    ability to manage multiple users as part of the REST
+    interface. The second concept is to create a (virtual)
+    organization that lists all users within the virtual
+    organization. The third concept is to introduce groups and roles
+    either as part of the user definition or as part of a simple list
+    similar to the organization.
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/organizations:
+    get:
+      description: Returns all users of the organization
+      operationId: get_organization
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: organization info
+          schema:
+            $ref: &#39;#/definitions/Organization&#39;
+    put:
+      summary: Create a new organization
+      operationId: add_organization
+      parameters:
+        - in: body
+          name: organization
+          description: The new organization to create
+          schema:
+            $ref: &#39;#/definitions/Organization&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/organization/{name}&#39;:
+    get:
+      description: Returns the organization
+      operationId: get_organization_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: organization info
+          schema:
+            $ref: &#39;#/definitions/Organization&#39;
+definitions:
+  Organization:
+    type: object
+    properties:
+      name:
+        description: Name of the organization
+        type: string
+      users:
+        description: list of users
+        type: array
+        items: #/definitions/Users
+
+
+</code></pre>
+<h2 id="replica"><span class="header-section-number">9.10</span> Replica</h2>
+<h3 id="properties-replica"><span class="header-section-number">9.10.1</span> Properties Replica</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the name of the replica</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">filename</td>
+<td style="text-align: left;">the original name of the file</td>
+<td style="text-align: left;">the original filename</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">endpoint</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The location of the file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">checksum</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The checksum of the file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">size</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">The size of the file in byte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">The timestamp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-8"><span class="header-section-number">9.10.2</span> Paths</h3>
+<h4 id="cloudmeshreplicas"><span class="header-section-number">9.10.2.1</span> /cloudmesh/replicas</h4>
+<h5 id="get-cloudmeshreplicas"><span class="header-section-number">9.10.2.1.1</span> GET /cloudmesh/replicas</h5>
+<p>Returns all replicas</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">replica info</td>
+<td style="text-align: left;"><a href="#replica">Replica</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshreplicas"><span class="header-section-number">9.10.2.1.2</span> PUT /cloudmesh/replicas</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">replica</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new replica to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#replica">Replica</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshreplicaname"><span class="header-section-number">9.10.2.2</span> /cloudmesh/replica/{name}</h4>
+<h5 id="get-cloudmeshreplicaname"><span class="header-section-number">9.10.2.2.1</span> GET /cloudmesh/replica/{name}</h5>
+<p>Returns a replica</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">replica info</td>
+<td style="text-align: left;"><a href="#replica">Replica</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/replica.md}</p>
+<h3 id="replica.yaml"><span class="header-section-number">9.10.3</span> replica.yaml</h3>
+<pre data-include="../../services/replica/replica.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: replica
+  description: &gt;-
+    In many distributed systems, it is important that a file can be
+    replicated among different systems to provide faster access. It is
+    important to provide a mechanism to trace the pedigree of the file
+    while pointing to its original source. A replica can be applied to
+    all data types introduced in this document.
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/replicas:
+    get:
+      description: Returns all replicas
+      operationId: get_replica
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: replica info
+          schema:
+            $ref: &#39;#/definitions/Replica&#39;
+    put:
+      summary: Create a new replica
+      operationId: add_replica
+      parameters:
+        - in: body
+          name: replica
+          description: The new replica to create
+          schema:
+            $ref: &#39;#/definitions/Replica&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/replica/{name}&#39;:
+    get:
+      description: Returns a replica
+      operationId: get_replica_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: replica info
+          schema:
+            $ref: &#39;#/definitions/Replica&#39;
+definitions:
+  Replica:
+    type: object
+    description: the replica
+    properties:
+      name:
+        type: string
+        description: the name of the replica
+      filename:
+        type: the original name of the file
+        description: the original filename
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        type: timestamp
+        description: The timestamp</code></pre>
+<h2 id="timestamp"><span class="header-section-number">9.11</span> Timestamp</h2>
+<h3 id="properties-timestamp"><span class="header-section-number">9.11.1</span> Properties Timestamp</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accessed</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-9"><span class="header-section-number">9.11.2</span> Paths</h3>
+<h4 id="cloudmeshtimestamps"><span class="header-section-number">9.11.2.1</span> /cloudmesh/timestamps</h4>
+<h5 id="get-cloudmeshtimestamps"><span class="header-section-number">9.11.2.1.1</span> GET /cloudmesh/timestamps</h5>
+<p>Returns all timestamps</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">timestamp info</td>
+<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshtimestamps"><span class="header-section-number">9.11.2.1.2</span> PUT /cloudmesh/timestamps</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new timestamp to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshtimestampname"><span class="header-section-number">9.11.2.2</span> /cloudmesh/timestamp/{name}</h4>
+<h5 id="get-cloudmeshtimestampname"><span class="header-section-number">9.11.2.2.1</span> GET /cloudmesh/timestamp/{name}</h5>
+<p>Returns a timestamp</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">timestamp info</td>
+<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/timestamp.md}</p>
+<h3 id="timestamp.yaml"><span class="header-section-number">9.11.3</span> timestamp.yaml</h3>
+<pre data-include="../../services/timestamp/timestamp.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: timestamp
+  description: &gt;-
+    Often data needs to be timestamped to indicate when it has been
+    accessed, created, or modified. All objects defined in this
+    document will have, in their final version, a timestamp.
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/timestamps:
+    get:
+      description: Returns all timestamps
+      operationId: get_timestamp
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: timestamp info
+          schema:
+            $ref: &#39;#/definitions/Timestamp&#39;
+    put:
+      summary: Create a new timestamp
+      operationId: add_timestamp
+      parameters:
+        - in: body
+          name: timestamp
+          description: The new timestamp to create
+          schema:
+            $ref: &#39;#/definitions/Timestamp&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/timestamp/{name}&#39;:
+    get:
+      description: Returns a timestamp
+      operationId: get_timestamp_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: timestamp info
+          schema:
+            $ref: &#39;#/definitions/Timestamp&#39;
+definitions:
+  Timestamp:
+    type: object
+    description: the timestamp
+    properties:
+      accessed:
+        type: date
+      created:
+        type: date
+      modified:
+        type: date
+
+</code></pre>
+<h2 id="variables"><span class="header-section-number">9.12</span> Variables</h2>
+<h3 id="properties-variables"><span class="header-section-number">9.12.1</span> Properties Variables</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the variable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">type of the variable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">value of the variable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-10"><span class="header-section-number">9.12.2</span> Paths</h3>
+<h4 id="cloudmeshvariables"><span class="header-section-number">9.12.2.1</span> /cloudmesh/variables</h4>
+<h5 id="get-cloudmeshvariables"><span class="header-section-number">9.12.2.1.1</span> GET /cloudmesh/variables</h5>
+<p>Returns all variabless</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">variables info</td>
+<td style="text-align: left;"><a href="#variables">Variables</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshvariables"><span class="header-section-number">9.12.2.1.2</span> PUT /cloudmesh/variables</h5>
+<p>Create a new variables</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">variables</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new variables to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#variables">Variables</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshvariablesname"><span class="header-section-number">9.12.2.2</span> /cloudmesh/variables/{name}</h4>
+<h5 id="get-cloudmeshvariablesname"><span class="header-section-number">9.12.2.2.1</span> GET /cloudmesh/variables/{name}</h5>
+<p>Returns a variables</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">variables info</td>
+<td style="text-align: left;"><a href="#variables">Variables</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">Name of the variable</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/variables.md}</p>
+<h3 id="variables.yaml"><span class="header-section-number">9.12.3</span> variables.yaml</h3>
+<pre data-include="../../services/variables/variables.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: variables
+  description: &gt;-
+    Variables are used to store simple values. Each variable can have a
+    type, which is also provided as demonstrated in the object
+    below. The variable value format is defined as string to allow
+    maximal probability.
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/variables:
+    get:
+      description: Returns all variabless
+      operationId: get_variables
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: variables info
+          schema:
+            $ref: &#39;#/definitions/Variables&#39;
+    put:
+      description: Create a new variables
+      operationId: add_variables
+      parameters:
+        - in: body
+          name: variables
+          description: The new variables to create
+          schema:
+            $ref: &#39;#/definitions/Variables&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/variables/{name}&#39;:
+    get:
+      description: Returns a variables
+      operationId: get_variables_by_name
+      parameters:
+        - name: name
+          description: Name of the variable
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: variables info
+          schema:
+            $ref: &#39;#/definitions/Variables&#39;
+definitions:
+  Variables:
+    type: object
+    description: the variables
+    properties:
+      name:
+        type: string
+        description: name of the variable
+      value:
+        type: string
+        description: type of the variable
+      kind:
+        type: string
+        description: value of the variable
+</code></pre>
+<h2 id="scheduler"><span class="header-section-number">9.13</span> Scheduler</h2>
+<h3 id="properties-scheduler"><span class="header-section-number">9.13.1</span> Properties Scheduler</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the scheduler</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">value of the scheduler</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the scheduler kind or type</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paths-11"><span class="header-section-number">9.13.2</span> Paths</h3>
+<h4 id="cloudmeshschedulers"><span class="header-section-number">9.13.2.1</span> /cloudmesh/schedulers</h4>
+<h5 id="get-cloudmeshschedulers"><span class="header-section-number">9.13.2.1.1</span> GET /cloudmesh/schedulers</h5>
+<p>Returns all schedulers</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">scheduler info</td>
+<td style="text-align: left;"><a href="#scheduler">Scheduler</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="put-cloudmeshschedulers"><span class="header-section-number">9.13.2.1.2</span> PUT /cloudmesh/schedulers</h5>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">scheduler</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new scheduler to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#scheduler">Scheduler</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cloudmeshschedulername"><span class="header-section-number">9.13.2.2</span> /cloudmesh/scheduler/{name}</h4>
+<h5 id="get-cloudmeshschedulername"><span class="header-section-number">9.13.2.2.1</span> GET /cloudmesh/scheduler/{name}</h5>
+<p>Returns a scheduler</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">scheduler info</td>
+<td style="text-align: left;"><a href="#scheduler">Scheduler</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>{include=../dest/spec/scheduler.md}</p>
+<h3 id="scheduler.yaml"><span class="header-section-number">9.13.3</span> scheduler.yaml</h3>
+<pre data-include="../../services/scheduler/scheduler.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 0.0.1
+  title: scheduler
+  description: &gt;-
+    A service to store scheduler, value, type information. All of them are stored as Strings.
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/schedulers:
+    get:
+      description: Returns all schedulers
+      operationId: get_scheduler
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: scheduler info
+          schema:
+            $ref: &#39;#/definitions/Scheduler&#39;
+    put:
+      summary: Create a new scheduler
+      operationId: add_scheduler
+      parameters:
+        - in: body
+          name: scheduler
+          description: The new scheduler to create
+          schema:
+            $ref: &#39;#/definitions/Scheduler&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/scheduler/{name}&#39;:
+    get:
+      description: Returns a scheduler
+      operationId: get_scheduler_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: scheduler info
+          schema:
+            $ref: &#39;#/definitions/Scheduler&#39;
+definitions:
+  Scheduler:
+    type: object
+    description: the scheduler
+    properties:
+      name:
+        type: string
+        description: name of the scheduler
+      value:
+        type: string
+        description: value of the scheduler
+      kind:
+        type: string
+        description: the scheduler kind or type
+</code></pre>
+<h1 id="status-codes-and-error-responses"><span class="header-section-number">10</span> Status Codes and Error Responses</h1>
+<p>In case of an error or a successful response, the response header contains a HTTP code (see <a href="https://tools.ietf.org/html/rfc7231" class="uri">https://tools.ietf.org/html/rfc7231</a>). The response body usually contains the following:</p>
+<ul>
+<li><p>The HTTP response code;</p></li>
+<li><p>An accompanying message for the HTTP response code; and</p></li>
+<li><p>A field or object where the error occurred.</p></li>
+</ul>
+<p>Table 1: HTTP Response Codes</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">HTTP Response</th>
+<th style="text-align: left;">Description Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;"><em>OK</em> success code, for GET or HEAD request.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;"><em>Created</em> success code, for POST request.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">204</td>
+<td style="text-align: left;"><em>No Content</em> success code, for DELETE request.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">300</td>
+<td style="text-align: left;">The value returned when an external ID exists in more than one record.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">304</td>
+<td style="text-align: left;">The request content has not changed since a specified date and time.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">The request could not be understood.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">The session ID or OAuth token used has expired or is invalid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">The request has been refused.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">The requested resource could not be found.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">405</td>
+<td style="text-align: left;">The method specified in the Request-Line isn’t allowed for the resource specified in the URI.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">415</td>
+<td style="text-align: left;">The entity in the request is in a format that’s not supported by the specified method.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="acronyms-and-terms"><span class="header-section-number">11</span> Acronyms and Terms</h1>
+<p>The following acronyms and terms are used in this volume.</p>
+<dl>
+<dt>ACID</dt>
+<dd><p>Atomicity, Consistency, Isolation, Durability</p>
+</dd>
+<dt>API</dt>
+<dd><p>Application Programming Interface</p>
+</dd>
+<dt>ASCII</dt>
+<dd><p>American Standard Code for Information Interchange</p>
+</dd>
+<dt>BASE</dt>
+<dd><p>Basically Available, Soft state, Eventual consistency</p>
+</dd>
+<dt>Container</dt>
+<dd><p>See <a href="http://csrc.nist.gov/publications/drafts/800-180/sp800-180_draft.pdf" class="uri">http://csrc.nist.gov/publications/drafts/800-180/sp800-180_draft.pdf</a></p>
+</dd>
+<dt>Cloud Computing</dt>
+<dd><p>The practice of using a network of remote servers hosted on the Internet to store, manage, and process data, rather than a local server or a personal computer. See <a href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf" class="uri">http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf</a>.</p>
+</dd>
+<dt>DevOps</dt>
+<dd><p>A clipped compound of software DEVelopment and information technology OPerationS</p>
+</dd>
+<dt>Deployment</dt>
+<dd><p>The action of installing software on resources</p>
+</dd>
+<dt>HTTP</dt>
+<dd><p>HyperText Transfer Protocol HTTPS HTTP Secure</p>
+</dd>
+<dt>Hybrid</dt>
+<dd><p>Cloud See <a href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf" class="uri">http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf</a>.</p>
+</dd>
+<dt>IaaS</dt>
+<dd><p>Infrastructure as a Service SaaS Software as a Service</p>
+</dd>
+<dt>ITL</dt>
+<dd><p>Information Technology Laboratory</p>
+</dd>
+<dt>Microservice Architecture</dt>
+<dd><p>Is an approach to build applications based on many smaller modular services. Each module supports a specific goal and uses a simple, well-defined interface to communicate with other sets of services.</p>
+</dd>
+<dt>NBD-PWG</dt>
+<dd><p>NIST Big Data Public Working Group</p>
+</dd>
+<dt>NBDRA</dt>
+<dd><p>NIST Big Data Reference Architecture</p>
+</dd>
+<dt>NBDRAI</dt>
+<dd><p>NIST Big Data Reference Architecture Interface</p>
+</dd>
+<dt>NIST</dt>
+<dd><p>National Institute of Standards and Technology</p>
+</dd>
+<dt>OS</dt>
+<dd><p>Operating System</p>
+</dd>
+<dt>REST</dt>
+<dd><p>REpresentational State Transfer</p>
+</dd>
+<dt>Replica</dt>
+<dd><p>A duplicate of a file on another resource to avoid costly transfer costs in case of frequent access.</p>
+</dd>
+<dt>Serverless Computing</dt>
+<dd><p>Serverless computing specifies the paradigm of function as a service (FaaS). It is a cloud computing code execution model in which a cloud provider manages the function deployment and utilization while clients can utilize them. The charge model is based on execution of the function rather than the cost to manage and host the VM or container.</p>
+</dd>
+<dt>Software Stack</dt>
+<dd><p>A set of programs and services that are installed on a resource to support applications.</p>
+</dd>
+<dt>Virtual Filesysyem</dt>
+<dd><p>An abstraction layer on top of a distributed physical file system to allow easy access to the files by the user or application.</p>
+</dd>
+<dt>Virtual Machine</dt>
+<dd><p>A VM is a software computer that, like a physical computer, runs an operating system and applications. The VM is composed of a set of specification and configuration files and is backed by the physical resources of a host.</p>
+</dd>
+<dt>Virtual Cluster</dt>
+<dd><p>A virtual cluster is a software cluster that integrate either VMs, containers, or physical resources into an agglomeration of compute resources. A virtual cluster allows users to authenticate and authorize to the virtual compute nodes to utilize them for calculations. Optional high-level services that can be deployed on a virtual cluster may simplify interaction with the virtual cluster or provide higher-level services.</p>
+</dd>
+<dt>Workflow</dt>
+<dd><p>The sequence of processes or tasks</p>
+</dd>
+<dt>WWW</dt>
+<dd><p>World Wide Web</p>
+</dd>
+</dl>
+<h1 id="bibliography"><span class="header-section-number">12</span> Bibliography</h1>
+<ul>
+<li><p>[1] Cerberus. URL: <a href="http://docs.python-cerberus.org/" class="uri">http://docs.python-cerberus.org/</a>.</p></li>
+<li><p>[2] Eve Rest Service. Web Page. URL: <a href="http://python-eve.org/" class="uri">http://python-eve.org/</a>.</p></li>
+<li><p>[3] Cloudmesh enhanced Eveengine. Github. URL: <a href="https://github.com/cloudmesh/cloudmesh" class="uri">https://github.com/cloudmesh/cloudmesh</a>. evegenie.</p></li>
+<li><p>[4] Geoffrey C. Fox and Wo Chang. NIST Big Data Interoperability Framework: Volume 3, Use Cases and General Requirements. Special Publication (NIST SP) - 1500-3 1500-3, National Institute of Standards, 100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL: <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-3.pdf" class="uri">http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-3.pdf</a>, doi:NIST.SP.1500-3.</p></li>
+<li>[5] Internet2. eduPerson Object Class Specification (201602). Internet2 Middleware Architecture Committee for Education, Directory Working Group internet2-mace-dir-eduperson-201602, Internet2, March
+<ol start="2016" type="1">
+<li>URL: <a href="http://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html" class="uri">http://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html</a></li>
+</ol></li>
+<li><p>[6] Orit Levin, David Boyd, and Wo Chang. NIST Big Data Interoperability Framework: Volume 6, Reference Architecture. Special Publication (NIST SP) - 1500-6 1500-6, National Institute of Standards, 100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL: <a href="http://nvlpubs.nist.gov/nistpubs/" class="uri">http://nvlpubs.nist.gov/nistpubs/</a> SpecialPublications/NIST.SP.1500-6.pdf, doi:NIST.SP.1500-6.</p></li>
+<li><p>[7] NIST. Big Data Public Working Group (NBD-PWG). Web Page. URL: <a href="https://bigdatawg.nist.gov/" class="uri">https://bigdatawg.nist.gov/</a>.</p></li>
+<li><p>[8] Arnab Roy, Mark Underwood, and Wo Chang. NIST Big Data Interoperability Framework: Volume 4, Security and Privacy. Special Publication (NIST SP) - 1500-4 1500-4, National Institute of Standards, 100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL: <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-4.pdf" class="uri">http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-4.pdf</a>, doi:NIST.SP.1500-4.</p></li>
+<li><p>[9] Gregor von Laszewski. Cloudmesh client. github. URL: <a href="https://github.com/cloudmesh/client" class="uri">https://github.com/cloudmesh/client</a>.</p></li>
+<li><p>[10] Gregor von Laszewski, Wo Chang, Fugang Wang, Badi Abdhul Wahid, Geoffrey C. Fox, Pratik Thakkar, Alicia Mara Zuniga-Alvarado, and Robert C. Whetsel. NIST Big Data Interoperability Framework: Volume 8, Reference Architecture Interfaces. Special Publication (NIST SP) - 1500-9 1500-9, National Institute of Standards, 100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL: <a href="https://laszewski.github.io/papers/NIST.SP.1500-9-draft.pdf" class="uri">https://laszewski.github.io/papers/NIST.SP.1500-9-draft.pdf</a>, doi:NIST.SP.1500-9.</p></li>
+<li><p>[11] Gregor von Laszewski, Fugang Wang, Badi Abdul-Wahid, Hyungro Lee, Geoffrey C. Fox, and Wo Chang. Cloudmesh in support of the nist big data architecture framework. Technical report, Indiana University, Bloomington, IN 47408, USA, April 2017. URL: <a href="https://laszewski.github.io/papers/vonLaszewski-nist.pdf" class="uri">https://laszewski.github.io/papers/vonLaszewski-nist.pdf</a>.</p></li>
+</ul>
+</body>
+</html>
