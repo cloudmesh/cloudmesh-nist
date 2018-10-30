@@ -1,0 +1,64 @@
+#! /usr/bin/env python
+"""Cloudmesh OpenAPI Code Generator.
+
+Usage:
+  cm-specs-table SERVICES
+
+  cm-specs-table (-h | --help)
+  cm-specs-table --version
+
+Options:
+  -h --help        Show this screen.
+  --version        Show version.
+
+Arguments:
+  SERVICES         A list of services separated by SPACE
+
+"""
+from __future__ import print_function
+from docopt import docopt
+import os
+import sys
+import re
+import shutil
+from prompter import yesno
+import yaml
+
+VERSION="0.1"
+
+DEBUG= False
+
+try:
+    columns, lines = os.get_terminal_size()
+except:
+    rows, columns = map(int, os.popen('stty size', 'r').read().split())
+
+
+def ERROR(*args, **kwargs):
+    print("ERROR", *args, file=sys.stderr, **kwargs)
+
+
+def analyse():
+
+    if arguments["SERVICES"]:
+       services = arguments["SERVICES"]
+       #print (services)
+       services = services.split(" ")
+       print ("|", "Service", "|", "Title", "|", "Version", "|", "Description", "|")
+       print ("|", "---", "|", "---", "|", "---", "|", "-------------", "|")
+       for service in services:
+           filename = "../services/{service}/{service}.yaml".format(service=service)
+           with open(filename, "r") as f:
+                spec = yaml.load(f)
+                title = spec["info"]["title"]
+                version = spec["info"]["version"]
+                description = spec["info"]["description"].strip().replace("\n", "")
+                print ("|", service, "|", title, "|", version, "|", description, "|")
+       print ()
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version=VERSION)
+    if DEBUG:
+        print(arguments)
+
+    analyse()
