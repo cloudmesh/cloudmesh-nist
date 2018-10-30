@@ -11,7 +11,7 @@ not be modified but can be used for reviewes at
 * <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md>
 * <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.epub>
 * <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.pdf>
-* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.wordx>
+* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.docx>
 
 It is easy to contribute to the document with the help of pull
 requests that allow eddits that will be addressed by the editor of
