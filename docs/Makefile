@@ -12,7 +12,7 @@ CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
 TITLE=--metadata title="NIST BDRA Volume 8"
 
-DEST=dest/spec
+DEST=dest
 SRC=../services
 
 
@@ -23,15 +23,15 @@ broken= organization
 
 YAML := $(wildcard $(SRC)/*/*.yaml)
 
+fast: dest rest spec epub
+	open $(DEST)/$(FILE).epub
 
-volume: openapi
-
-openapi: dest rest text
+volume: dest rest spec epub html pdf word
 	@echo "To open the document use:"
 	@echo "open $(FILE).md"
 
 dest: 
-	mkdir -p $(DEST)
+	mkdir -p $(DEST)/spec
 
 
 #$(objects): dest/spec/%.md : ../services/%/%.yaml
@@ -40,9 +40,9 @@ dest:
 
 rest:
 	for entry in $(service); do \
-		echo "Generate:" $(DEST)/$$entry.md ; \
-		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=3 > $(DEST)/$$entry.md ; \
-		cp  $(SRC)/$$entry/$$entry.yaml $(DEST); \
+		echo "Generate:" $(DEST)/spec/$$entry.md ; \
+		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=3 > $(DEST)/spec/$$entry.md ; \
+		cp  $(SRC)/$$entry/$$entry.yaml $(DEST)/spec; \
 	done
 
 lint:
@@ -54,24 +54,27 @@ lint:
 setup:
 	pip install -r ../requirements.txt
 
-text: openapi
+spec: openapi dest/$(FILE).md
 #	cat dest/spec/*.md > dest/spec.md
 	cat nistvol8-2.md status.md acronyms.md bib.md > dest/$(FILE).md
-	cd dest; ../../bin/cm-md-filter $(FILE).md > tmp.md
-	cd dest; mv tmp.md $(FILE).md
+	cd dest; ../../bin/cm-md-filter $(FILE).md > all.md
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s all.md -o $(FILE).md
 
+epub: spec
+	cp -rf images dest
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s all.md -o $(FILE).epub
 
-html: text
+html: spec
 	cp -rf images dest
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).html
 
-pdf: text
+pdf: spec
 	cp -rf images dest
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).pdf
 
-word: text
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --standalone -s $(FILE).md -o $(FILE).docx
-
+word: spec
+	cp format.docx	$(DEST)
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=format.docx --standalone -s $(FILE).md -o $(FILE).docx
 
 
 all:
