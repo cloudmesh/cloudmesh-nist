@@ -7,6 +7,9 @@ info:
     The reason for an alias is that a file may have a complex
     name but a user may want to refer to that file in a name
     space that is suitable for the user's application.
+
+    test
+    tes test
   termsOfService: 'http://bin.io/terms/'
   contact:
     name: Cloudmesh RESTful Service Example
