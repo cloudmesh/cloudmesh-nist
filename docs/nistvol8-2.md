@@ -1171,7 +1171,7 @@ Context
 
 {include=../dest/spec/default.md}
 
-### default.yaml}
+### default.yaml
 
 ```
 {include=../../services/default/default.yaml}
