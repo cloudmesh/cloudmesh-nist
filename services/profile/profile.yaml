@@ -1,13 +1,15 @@
 ---
 swagger: "2.0"
 info:
-  version: "0.0.3"
+  version: 0.0.2
+  date: 10-30-2018
   title: "Profile"
-  description: >
-               Profiles are used to store information about users for
-               a specific service. Profiles can be added, removed and
-               listed. A group in the profile can be used to augment
-               users to be part of a group.
+  description: |-
+  
+    Profiles are used to store information about users for a specific
+    service. Profiles can be added, removed and listed. A group in the
+    profile can be used to augment users to be part of a group.
+               
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: "Cloudmesh Profile"
