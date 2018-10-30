@@ -13,6 +13,8 @@ info:
     to augment users to be part of one or more groups.  A number of
     roles can specify a specific role of a user.
 
+    TODO: this object has to be reviewed and improved
+
     TODO: specify role and group get and put methods
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'

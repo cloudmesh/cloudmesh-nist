@@ -1,12 +1,17 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
+  date: 10-30-2018
   title: user
   description: >-
+  
     In contrast to the profile, a user contains additional attributes
     that define the role of the user within the multiuser system. The
     user associates different roles to individuals. These roles
     potentially have gradations of responsibility and privilege.
+
+    * TODO: this object has to be reviewed and improved
+    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
