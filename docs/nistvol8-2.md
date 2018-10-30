@@ -1102,7 +1102,14 @@ document. However, it is expected that scalability, distribution of
 services, and other advanced options need to be addressed based on
 application requirements.
 
+## List of specifications
 
+The following table lists the current set of resource objects that we
+are defining in this draft. Additional objects are alos available at
+
+* <https://github.com/cloudmesh-community/nist/tree/master/services>
+
+{include=./specstable.md}
 
 ## Profile
 

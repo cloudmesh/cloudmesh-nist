@@ -44,16 +44,25 @@ def analyse():
        services = arguments["SERVICES"]
        #print (services)
        services = services.split(" ")
-       print ("|", "Service", "|", "Title", "|", "Version", "|", "Description", "|")
+       print ("|", "Service", "|", "Title", "|", "Version", "|", "Status", "|")
        print ("|", "---", "|", "---", "|", "---", "|", "-------------", "|")
        for service in services:
+           data = {
+               "title": "TBD",
+               "version": "TBD",
+               "service": service,
+               "status": "TBD",                                             
+               }
            filename = "../services/{service}/{service}.yaml".format(service=service)
            with open(filename, "r") as f:
-                spec = yaml.load(f)
-                title = spec["info"]["title"]
-                version = spec["info"]["version"]
-                description = spec["info"]["description"].strip().replace("\n", "")
-                print ("|", service, "|", title, "|", version, "|", description, "|")
+                spec = yaml.load(f)["info"]
+                for field in ["status", "version", "title", "description"]:
+                    if field  in spec:
+                        data[field] = spec[field]
+
+                data["description"] = data["description"].strip().replace("\n", "")
+                         
+                print ("| {service} | {title} | {version} | {status} |".format(**data))
        print ()
 
 if __name__ == '__main__':
