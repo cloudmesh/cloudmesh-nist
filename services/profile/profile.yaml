@@ -33,7 +33,7 @@ consumes:
 produces:
   - "application/json"
 paths:
-  /cloudmesh/profile/profiles:
+  /cloudmesh/profile/profile:
     get:
       tags:
         - "profile"
@@ -61,7 +61,7 @@ paths:
       responses:
         "201":
           description: Created
-  /cloudmesh/profile/profiles/{uuid}:
+  /cloudmesh/profile/profile/{uuid}:
     get:
       tags:
         - "profile"
