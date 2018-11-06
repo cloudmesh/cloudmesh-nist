@@ -1123,7 +1123,8 @@ groups. Thus we distinguis three important terms related to the identity:
   define access to services
 * Role - A role given to a person as part of the group that can refine
   access rights.
-
+* Organization - The information representing an Organization that
+  manages a Big Data Service
 
 ## Profile
 
@@ -1133,6 +1134,16 @@ groups. Thus we distinguis three important terms related to the identity:
 
 ```{include=../../services/profile/profile.yaml}
 ```
+
+## Organization
+
+{include=./spec/organization.md}
+
+### organization.yaml
+
+```{include=../../services/organization/organization.yaml}
+```
+
 ## Keystore
 
 {include=./spec/keystore.md}
@@ -1199,14 +1210,6 @@ groups. Thus we distinguis three important terms related to the identity:
 ```{include=../../services/file/file.yaml}
 ```
 
-## Organization
-
-{include=./spec/organization.md}
-
-### organization.yaml
-
-```{include=../../services/organization/organization.yaml}
-```
 
 ## Replica
 

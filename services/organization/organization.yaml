@@ -16,7 +16,7 @@ info:
     either as part of the user definition or as part of a simple list
     similar to the organization.
 
-    * TODO: assign and improve
+    * TODO: improve
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -32,7 +32,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/organizations:
+  /cloudmesh/organization:
     get:
       description: Returns all users of the organization
       operationId: get_organization
