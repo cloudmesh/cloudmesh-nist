@@ -23,7 +23,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/keys:
+  /cloudmesh/key:
     get:
       description: Returns all keys
       operationId: get_key
