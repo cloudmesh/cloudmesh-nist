@@ -939,8 +939,8 @@ definitions:
 </tbody>
 </table>
 <h3 id="paths-1"><span class="header-section-number">9.4.2</span> Paths</h3>
-<h4 id="cloudmeshkeystorekeys"><span class="header-section-number">9.4.2.1</span> /cloudmesh/keystore/keys</h4>
-<h5 id="get-cloudmeshkeystorekeys"><span class="header-section-number">9.4.2.1.1</span> GET /cloudmesh/keystore/keys</h5>
+<h4 id="cloudmeshkeystorekey"><span class="header-section-number">9.4.2.1</span> /cloudmesh/keystore/key</h4>
+<h5 id="get-cloudmeshkeystorekey"><span class="header-section-number">9.4.2.1.1</span> GET /cloudmesh/keystore/key</h5>
 <p>Returns all keys</p>
 <p>Responses</p>
 <table>
@@ -959,7 +959,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h5 id="put-cloudmeshkeystorekeys"><span class="header-section-number">9.4.2.1.2</span> PUT /cloudmesh/keystore/keys</h5>
+<h5 id="put-cloudmeshkeystorekey"><span class="header-section-number">9.4.2.1.2</span> PUT /cloudmesh/keystore/key</h5>
 <p>Create a new key</p>
 <p>Responses</p>
 <table>
@@ -1066,7 +1066,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/keystore/keys:
+  /cloudmesh/keystore/key:
     get:
       tags:
         - &quot;keystore&quot;
