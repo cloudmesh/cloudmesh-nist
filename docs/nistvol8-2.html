@@ -914,12 +914,12 @@ definitions:
 <tr class="odd">
 <td style="text-align: left;">uuid</td>
 <td style="text-align: left;">string</td>
-<td style="text-align: left;">The uuid of the key</td>
+<td style="text-align: left;">The uuid of the key, tha uuid must be unique</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">name</td>
 <td style="text-align: left;">string</td>
-<td style="text-align: left;">The name to access the key</td>
+<td style="text-align: left;">The name to access the key. The name must be unique</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">description</td>
@@ -941,7 +941,7 @@ definitions:
 <h3 id="paths-1"><span class="header-section-number">9.4.2</span> Paths</h3>
 <h4 id="cloudmeshkeystorekeys"><span class="header-section-number">9.4.2.1</span> /cloudmesh/keystore/keys</h4>
 <h5 id="get-cloudmeshkeystorekeys"><span class="header-section-number">9.4.2.1.1</span> GET /cloudmesh/keystore/keys</h5>
-<p>Returns all general description keys</p>
+<p>Returns all keys</p>
 <p>Responses</p>
 <table>
 <thead>
@@ -1001,7 +1001,7 @@ definitions:
 </table>
 <h4 id="cloudmeshkeystorekeyname"><span class="header-section-number">9.4.2.2</span> /cloudmesh/keystore/key/{name}</h4>
 <h5 id="get-cloudmeshkeystorekeyname"><span class="header-section-number">9.4.2.2.1</span> GET /cloudmesh/keystore/key/{name}</h5>
-<p>Returns a general description of a key</p>
+<p>Returns the key by name</p>
 <p>Responses</p>
 <table>
 <thead>
@@ -1070,7 +1070,7 @@ paths:
     get:
       tags:
         - &quot;keystore&quot;
-      description: Returns all general description keys
+      description: Returns all keys
       operationId: get_key
       produces:
         - application/json
@@ -1098,7 +1098,7 @@ paths:
     get:
       tags:
         - &quot;keystore&quot;
-      description: Returns a general description of a key
+      description: Returns the key by name
       operationId: get_key_by_name
       parameters:
         - name: name
@@ -1118,10 +1118,10 @@ definitions:
     properties:
       uuid:
         type: string
-        description: The uuid of the key
+        description: The uuid of the key, tha uuid must be unique
       name:
         type: string
-        description: The name to access the key
+        description: The name to access the key. The name must be unique
       description: 
         type: string
         description: A description of the key
