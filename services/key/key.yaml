@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 0.0.3
   date: 11-06-2018
   title: key
   description: |-
@@ -9,8 +9,6 @@ info:
     authenticate. This service allows the convenient storage of the
     public key
 
-    * TODO: assign and improve
-    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
@@ -38,6 +36,7 @@ paths:
             $ref: '#/definitions/Key'
     put:
       summary: Create a new key
+      description: Create a new key      
       operationId: add_key
       parameters:
         - in: body
