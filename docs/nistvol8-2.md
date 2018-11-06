@@ -1111,15 +1111,21 @@ are defining in this draft. Additional objects are alos available at
 
 {include=./specstable.md}
 
+
+## Identity
+
+As part of services we often need to specify an identity. In addition
+such persons are often part of groups and have roles within these
+groups. Thus we distinguis three important terms related to the identity:
+
+* Profile - The information identifying the profile of a person
+* Group - A group that a person may belong to that is important to
+  define access to services
+* Role - A role given to a person as part of the group that can refine
+  access rights.
+
+
 ## Profile
-
-Terminology
-
-Group
-
-Resource
-
-Context
 
 {include=./spec/profile.md}
 

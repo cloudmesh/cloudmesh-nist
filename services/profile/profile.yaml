@@ -13,6 +13,12 @@ info:
     to augment users to be part of one or more groups.  A number of
     roles can specify a specific role of a user.
 
+    Terminology
+
+    Group: A Person with profile can be part of a Group
+
+    Role: A person with profile can have a role within that Group
+
     * TODO: this object has to be reviewed and improved
     * TODO: specify role and group get and put methods
     
@@ -61,7 +67,7 @@ paths:
     get:
       tags:
         - "profile"
-      description: "Returns a the profile of a user"
+      description: "Returns the profile of a user while looking it up with the UUID"
       operationId: getProfileByUuid
       parameters:
         - name: uuid
@@ -81,38 +87,38 @@ definitions:
     properties:
       uuid:
         type: "string"
-        description: a unique id for the profile
+        description: A unique id for the profile
       username:
         type: "string"
-        description: the username associated with the profile
+        description: The username associated with the profile
       group:
         type: array
-        description: a list of groups that are associated to the profile
+        description: A list of groups that are associated to the profile
         items:
           type: "string"
       role:
         type: array
-        description: a list of groups that are associated to the profile
+        description: A list of groups that are associated to the profile
         items:
           type: "string"
       resource:
         type: "string"
-        description: a resource this profile may belong to
+        description: A resource this profile may belong to
       context:
         type: "string"
-        description: a context the profile may belong to
+        description: The context the profile may belong to
       description:
         type: "string"
-        description: a description for this profile
+        description: A description for this profile
       firstname:
         type: "string"
-        description: the firstanme of the profile user
+        description: The firstanme of the profile user
       lastname:
         type: "string"
-        description: the lastname of the profile user
+        description: The lastname of the profile user
       publickey:
         type: "string"
-        description: the lastname of the profile user
+        description: The lastname of the profile user
       email:
         type: "string"
-        description: the email of the profile user
+        description: The email of the profile user

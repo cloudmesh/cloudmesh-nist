@@ -37,6 +37,8 @@ dest:
 #$(objects): dest/spec/%.md : ../services/%/%.yaml
 #	../bin/cm-openapi2md md $< --indent=3 > $@
 
+toc:
+	pandoc -t markdown_github --toc -o example-with-toc.md example.md
 
 specstable:
 	echo "Generate:" $(DEST)/spec/specstable.md ; \
@@ -81,7 +83,8 @@ pdf: spec
 
 word: spec
 	cp format.docx	$(DEST)
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=format.docx -s $(FILE).md -o $(FILE).docx
+	# cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=format.docx -s $(FILE).md -o $(FILE).docx
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=../../template/nist-bdra-template.docx -s $(FILE).md -o $(FILE).docx
 	cp $(DEST)/$(FILE).docx .
 
 
