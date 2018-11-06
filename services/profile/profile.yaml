@@ -1,8 +1,8 @@
 ---
 swagger: "2.0"
 info:
-  version: 0.0.2
-  date: 10-30-2018
+  version: 0.0.3
+  date: 06-11-2018
   title: "Profile"
   description: |-
   
@@ -19,9 +19,6 @@ info:
 
     Role: A person with profile can have a role within that Group
 
-    * TODO: this object has to be reviewed and improved
-    * TODO: specify role and group get and put methods
-    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: "Cloudmesh Profile"
@@ -53,6 +50,7 @@ paths:
       tags:
         - "profile"
       summary: "Create a new profile"
+      description: "Create a new profile"      
       operationId: add_profile
       parameters:
         - in: body
