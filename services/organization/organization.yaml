@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.0.2
   title: organization
   description: |-
   
@@ -16,8 +16,6 @@ info:
     either as part of the user definition or as part of a simple list
     similar to the organization.
 
-    * TODO: improve
-    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
