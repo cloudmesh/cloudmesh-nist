@@ -903,7 +903,7 @@ definitions:
 <h2 id="organization"><span class="header-section-number">9.4</span> Organization</h2>
 <p>An important concept in many applications is the management of a group of users in an organization that manages a Big Data application or infrastructure. User group management can be achieved through three concepts. First, it can be achieved by using the profile and user resources itself as they contain the ability to manage multiple users as part of the REST interface. The second concept is to create a (virtual) organization that lists all users within the virtual organization. The third concept is to introduce groups and roles either as part of the user definition or as part of a simple list similar to the organization.</p>
 <ul>
-<li>TODO: assign and improve</li>
+<li>TODO: improve</li>
 </ul>
 <h3 id="properties-organization"><span class="header-section-number">9.4.1</span> Properties Organization</h3>
 <table>
@@ -941,7 +941,7 @@ info:
     either as part of the user definition or as part of a simple list
     similar to the organization.
 
-    * TODO: assign and improve
+    * TODO: improve
     
   termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
   contact:
@@ -957,7 +957,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/organizations:
+  /cloudmesh/organization:
     get:
       description: Returns all users of the organization
       operationId: get_organization
