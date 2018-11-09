@@ -2,6 +2,9 @@
 
 ## AWS
 
+
+
+```json
 {'_uuid': None,
  'created_at': datetime.datetime(2018, 11, 9, 16, 44, 4, tzinfo=<libcloud.utils.iso8601.Utc object at 0x1038ffe80>),
  'driver': <libcloud.compute.drivers.ec2.EC2NodeDriver object at 0x10250c588>,
@@ -50,5 +53,7 @@
  'public_ips': ['52.89.23.7'],
  'size': None,
  'state': 'running'}
+ ```
  
  ## Azure
+
