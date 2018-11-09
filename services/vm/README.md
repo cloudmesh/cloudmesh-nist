@@ -57,10 +57,44 @@
  
  ## Azure
 
-
-
-## Openstack
-
-
-## Vagrant
+## Openstack - Chameleon
+``` 
+{'_uuid': 'fffa36312f28102732d63f2fbddc50db36d2ae92',
+ 'created_at': datetime.datetime(2018, 11, 8, 20, 44, 22, tzinfo=<libcloud.utils.iso8601.Utc object at 0x0000021AE543CDA0>),
+ 'driver': <libcloud.compute.drivers.openstack.OpenStack_1_1_NodeDriver at 0x21ae9c12908>,
+ 'extra': {'access_ip': '',
+  'access_ipv6': '',
+  'addresses': {'CH-819337-net': [{'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:64:73:6c',
+     'OS-EXT-IPS:type': 'fixed',
+     'addr': '192.168.0.132',
+     'version': 4}]},
+  'availability_zone': 'nova',
+  'config_drive': '',
+  'created': '2018-11-08T20:44:22Z',
+  'disk_config': 'MANUAL',
+  'fault': None,
+  'flavorId': '2',
+  'hostId': 'a07787dc6544246e5e284c308b1847e80e45e8264f7ba9ed89d62fd5',
+  'imageId': '0b261cb9-e9ab-4f38-8988-1ccc71f9c070',
+  'key_name': None,
+  'metadata': {},
+  'password': None,
+  'power_state': 1,
+  'progress': 0,
+  'service_name': 'nova',
+  'task_state': None,
+  'tenantId': 'CH-819337',
+  'updated': '2018-11-09T17:09:45Z',
+  'uri': 'http://openstack.tacc.chameleoncloud.org:8774/v2/CH-819337/servers/9bca2334-cac8-4cbd-bcdd-7af00f6345dc',
+  'userId': ,
+  'vm_state': 'active',
+  'volumes_attached': []},
+ 'id': '9bca2334-cac8-4cbd-bcdd-7af00f6345dc',
+ 'image': None,
+ 'name': 'cm_test',
+ 'private_ips': ['192.168.0.132'],
+ 'public_ips': [],
+ 'size': None,
+ 'state': 'running'}
+```
 
