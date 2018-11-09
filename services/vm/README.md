@@ -57,3 +57,10 @@
  
  ## Azure
 
+
+
+## Openstack
+
+
+## Vagrant
+
