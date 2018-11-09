@@ -56,6 +56,46 @@
  ```
  
  ## Azure
+ 
+ ```
+ {'_uuid': None,
+ 'created_at': None,
+ 'driver': <libcloud.compute.drivers.azure_arm.AzureNodeDriver object at 0x10f974668>,
+ 'extra': {'id': '/subscriptions/00000a00-00aaa-000a-00aa-000ab00a0000/resourceGroups/CLOUDMESH/providers/Microsoft.Compute/virtualMachines/cm-test-vm-1',
+           'location': 'northcentralus',
+           'name': 'cm-test-vm-1',
+           'properties': {'hardwareProfile': {'vmSize': 'Basic_A0'},
+                          'networkProfile': {'networkInterfaces': [{'id': '/subscriptions/00000a00-00aaa-000a-00aa-000ab00a0000/resourceGroups/cloudmesh/providers/Microsoft.Network/networkInterfaces/cm-test-vm-1-nic'}]},
+                          'osProfile': {'adminUsername': 'azureuser',
+                                        'computerName': 'cm-test-vm-1',
+                                        'linuxConfiguration': {'disablePasswordAuthentication': True,
+                                                               'ssh': {'publicKeys': [{'keyData': 'ssh-rsa '
+                                                                                                  'bbbb...'
+                                                                                                  'user@iu.edu',
+                                                                                       'path': '/home/azureuser/.ssh/authorized_keys'}]}},
+                                        'secrets': []},
+                          'provisioningState': 'Succeeded',
+                          'storageProfile': {'dataDisks': [],
+                                             'imageReference': {'offer': 'UbuntuServer',
+                                                                'publisher': 'Canonical',
+                                                                'sku': '16.04-LTS',
+                                                                'version': 'latest'},
+                                             'osDisk': {'caching': 'ReadWrite',
+                                                        'createOption': 'FromImage',
+                                                        'diskSizeGB': 30,
+                                                        'name': 'cm-test-vm-1',
+                                                        'osType': 'Linux'}},
+                          'vmId': '995784f1-e5b5-4eaa-8fa1-8bfa84386a2d'},
+           'tags': {},
+           'type': 'Microsoft.Compute/virtualMachines'},
+ 'id': '/subscriptions/00000a00-00aaa-000a-00aa-000ab00a0000/resourceGroups/CLOUDMESH/providers/Microsoft.Compute/virtualMachines/cm-test-vm-1',
+ 'image': None,
+ 'name': 'cm-test-vm-1',
+ 'private_ips': ['10.0.0.4'],
+ 'public_ips': ['65.52.27.42'],
+ 'size': None,
+ 'state': 'running'}
+ ```
 
 ## Openstack - Chameleon
 ``` 
