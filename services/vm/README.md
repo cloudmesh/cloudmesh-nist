@@ -126,7 +126,7 @@
   'tenantId': 'CH-819337',
   'updated': '2018-11-09T17:09:45Z',
   'uri': 'http://openstack.tacc.chameleoncloud.org:8774/v2/CH-819337/servers/9bca2334-cac8-4cbd-bcdd-7af00f6345dc',
-  'userId': ,
+  'userId': 'TBD' , # will be replaced by actual user name
   'vm_state': 'active',
   'volumes_attached': []},
  'id': '9bca2334-cac8-4cbd-bcdd-7af00f6345dc',
