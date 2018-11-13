@@ -1101,22 +1101,22 @@ are defining in this draft. Additional objects are alos available at
 
 -   <https://github.com/cloudmesh-community/nist/tree/master/services>
 
-  Service            Title                           Version   Status
-  ------------------ ------------------------------- --------- --------
-  timestamp          timestamp                       0.0.2     TBD
-  alias              alias                           0.0.2     TBD
-  variables          variables                       0.0.1     TBD
-  default            default                         0.0.2     TBD
-  file               file                            0.0.2     TBD
-  profile            Profile                         0.0.3     TBD
-  database           database                        0.0.2     TBD
-  replica            replica                         0.0.2     TBD
-  virtualdirectory   virtualdirectory                0.0.3     TBD
-  virtualcluster     Virtual Cluster                 0.0.3     TBD
-  keystore           key                             0.0.3     TBD
-  vm                 Coludmesh Compute and Storage   0.0.2     TBD
-  scheduler          scheduler                       0.0.2     TBD
-  organization       organization                    0.0.2     TBD
+  Service            Title              Version   Status
+  ------------------ ------------------ --------- --------
+  timestamp          timestamp          0.0.2     TBD
+  alias              alias              0.0.2     TBD
+  variables          variables          0.0.1     TBD
+  default            default            0.0.2     TBD
+  file               file               0.0.2     TBD
+  profile            Profile            0.0.3     TBD
+  database           database           0.0.2     TBD
+  replica            replica            0.0.2     TBD
+  virtualdirectory   virtualdirectory   0.0.3     TBD
+  virtualcluster     Virtual Cluster    0.0.3     TBD
+  keystore           key                0.0.3     TBD
+  vm                 Coludmesh VM       0.0.3     TBD
+  scheduler          scheduler          0.0.2     TBD
+  organization       organization       0.0.2     TBD
 
 Identity
 --------

@@ -9,9 +9,9 @@ NIST Big Data Public Working Group
 
 Reference Architecture Subgroup
 
-Version 2
+Version 2.3
 
-October 20, 2017
+December 1, 2018
 
 <https://bigdatawg.nist.gov/V2_output_docs.php>
 
@@ -59,7 +59,7 @@ National Institute of Standards and Technology
 **National Institute of Standards and Technology (NIST) Special
 Publication 1500-9**
 
-?? pages (June 20, 2018)
+?? pages (December 1, 2018)
 
 NIST Special Publication series 1500 is intended to capture external
 perspectives related to NIST standards, measurement, and
@@ -176,6 +176,8 @@ The editors for this document were the following:
 - ***Version 2.2***: This version was significantly changed and uses now
   OpenAPI to specify the Interfaces between the various services and components.
   Editors of this volume are:
+
+- ***Version 3.1***: The 
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
 
