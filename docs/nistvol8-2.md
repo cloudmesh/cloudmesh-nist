@@ -9,7 +9,7 @@ NIST Big Data Public Working Group
 
 Reference Architecture Subgroup
 
-Version 2.3
+Version 3.0.1
 
 December 1, 2018
 
@@ -177,7 +177,7 @@ The editors for this document were the following:
   OpenAPI to specify the Interfaces between the various services and components.
   Editors of this volume are:
 
-- ***Version 3.1***: The 
+- ***Version 2.3***: The version includes the 
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
 
@@ -1113,6 +1113,7 @@ are defining in this draft. Additional objects are alos available at
 
 {include=./specstable.md}
 
+<!-- --- IDENTITY -->
 
 ## Identity
 
@@ -1128,120 +1129,134 @@ groups. Thus we distinguis three important terms related to the identity:
 * Organization - The information representing an Organization that
   manages a Big Data Service
 
-## Profile
+### Profile
 
 {include=./spec/profile.md}
 
-### profile.yaml
+#### profile.yaml
 
 ```{include=../../services/profile/profile.yaml}
 ```
 
-## Organization
+### Organization
 
 {include=./spec/organization.md}
 
-### organization.yaml
+#### organization.yaml
 
 ```{include=../../services/organization/organization.yaml}
 ```
 
-## Keystore
+### Keystore
 
 {include=./spec/keystore.md}
 
-### keystore.yaml
+#### keystore.yaml
 
 ```{include=../../services/keystore/keystore.yaml}
 ```
 
-## Virtual Directory
+<!-- --- GENERAL  MANAGEMENT -->
+
+## General Resources
+
+### Timestamp
+
+{include=./spec/timestamp.md}
+
+#### timestamp.yaml
+
+
+```{include=../../services/timestamp/timestamp.yaml}
+```
+
+
+### Alias
+
+{include=./spec/alias.md}
+
+#### alias.yaml
+
+```{include=../../services/alias/alias.yaml}
+```
+
+### Variables
+
+{include=./spec/variables.md}
+
+#### variables.yaml
+
+```{include=../../services/variables/variables.yaml}
+```
+
+### Default
+
+{include=./spec/default.md}
+
+#### default.yaml
+
+```{include=./spec/default.yaml}
+```
+
+<!-- --- FILE MANAGEMENT -->
+
+## Data Management
+
+### Database
+
+{include=./spec/database.md}
+
+#### database.yaml
+
+```{include=../../services/database/database.yaml}
+```
+
+### Virtual Directory
 
 {include=./spec/virtualdirectory.md}
 
-### virtualdirectory.yaml
+#### virtualdirectory.yaml
 
 ```{include=../../services/virtualdirectory/virtualdirectory.yaml}
 ```
 
-## Virtual Cluster
+### File
+
+{include=./spec/file.md}
+
+#### file.yaml
+
+```{include=../../services/file/file.yaml}
+```
+
+
+### Replica
+
+{include=./spec/replica.md}
+
+#### replica.yaml
+
+```{include=../../services/replica/replica.yaml}
+```
+
+
+
+<!-- --- COMPUTE MANAGEMENT -->
+
+## Compute Management - Virtual Clutsers
+
+### Virtual Cluster
 
 {include=./spec/virtualcluster.md}
 
-### vc.yaml
+#### vc.yaml
 
 ```{include=../../services/virtualcluster/virtualcluster.yaml}
 ```
 
 
 
-## Alias
-
-{include=./spec/alias.md}
-
-### alias.yaml
-
-```{include=../../services/alias/alias.yaml}
-```
-
-## Database
-
-{include=./spec/database.md}
-
-### database.yaml
-
-```{include=../../services/database/database.yaml}
-```
-
-## Default
-
-{include=./spec/default.md}
-
-### default.yaml
-
-```{include=./spec/default.yaml}
-```
-
-
-## File
-
-{include=./spec/file.md}
-
-### file.yaml
-
-```{include=../../services/file/file.yaml}
-```
-
-
-## Replica
-
-{include=./spec/replica.md}
-
-### replica.yaml
-
-```{include=../../services/replica/replica.yaml}
-```
-
-## Timestamp
-
-{include=./spec/timestamp.md}
-
-### timestamp.yaml
-
-```{include=../../services/timestamp/timestamp.yaml}
-```
-
-
-## Variables
-
-{include=./spec/variables.md}
-
-### variables.yaml
-
-```{include=../../services/variables/variables.yaml}
-```
-
-## Scheduler
+### Scheduler
 
 {include=./spec/scheduler.md}
 
@@ -1249,4 +1264,35 @@ groups. Thus we distinguis three important terms related to the identity:
 
 ```{include=../../services/scheduler/scheduler.yaml}
 ```
+
+## Compute Management - Virtual Machines
+
+This section is planed for a future verion.
+
+
+### Image
+
+{include=./spec/image.md}
+
+#### vc.yaml
+
+```{include=../../services/image/image.yaml}
+```
+
+
+
+## Compute Management - Containers
+
+This section is planed for a future verion.
+
+## Compute Management - Functions
+
+This section is planed for a future verion.
+
+## Others
+
+Please notify us if you like to add other specifications.
+
+
+
 

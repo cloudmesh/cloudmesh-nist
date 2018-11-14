@@ -69,9 +69,19 @@ definitions:
     properties:
       name:
         type: string
+      tag:
+        type: string
       description:
         type: string
-      value:
+      cloud:
         type: string
-      kind:
+      os:
+        type: string
+      osVersion:
+        type: string
+      status:
+        type: string
+       visibility
+        type: string
+      extra:
         type: string

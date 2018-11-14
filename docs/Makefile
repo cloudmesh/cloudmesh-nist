@@ -16,7 +16,8 @@ DEST=dest
 SRC=../services
 
 
-service=timestamp alias variables default file profile database replica virtualdirectory virtualcluster keystore vm scheduler organization
+service_4 =timestamp alias variables default file profile database replica virtualdirectory virtualcluster keystore vm scheduler organization image
+
 
 broken= organization
 #service=profile keystore virtualdirectory virtualcluster
@@ -44,10 +45,11 @@ specstable:
 	echo "Generate:" $(DEST)/spec/specstable.md ; \
 	../bin/cm-specs-table "$(service)" > $(DEST)/specstable.md ; \
 
+
 rest:
-	for entry in $(service); do \
+	for entry in $(service_4); do \
 		echo "Generate:" $(DEST)/spec/$$entry.md ; \
-		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=3 > $(DEST)/spec/$$entry.md ; \
+		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=4 > $(DEST)/spec/$$entry.md ; \
 		cp  $(SRC)/$$entry/$$entry.yaml $(DEST)/spec; \
 	done
 

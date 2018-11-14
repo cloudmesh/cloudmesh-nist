@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.3
   title: organization
   description: |-
   
@@ -43,6 +43,7 @@ paths:
             $ref: '#/definitions/Organization'
     put:
       summary: Create a new organization
+      description: Create a new organization
       operationId: add_organization
       parameters:
         - in: body
@@ -55,10 +56,12 @@ paths:
           description: Created
   '/cloudmesh/organization/{name}':
     get:
+      summary: Returns the organization 
       description: Returns the organization
       operationId: get_organization_by_name
       parameters:
         - name: name
+          description: The name of the organization
           in: path
           required: true
           type: string
@@ -79,6 +82,6 @@ definitions:
       users:
         description: list of users
         type: array
-        items: #/definitions/Users
+        items: ../users/user.yaml#/definitions/Users
 
 

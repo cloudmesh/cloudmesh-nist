@@ -12,9 +12,9 @@ NIST Big Data Public Working Group
 
 Reference Architecture Subgroup
 
-Version 2
+Version 3.0.1
 
-October 20, 2017
+December 1, 2018
 
 <https://bigdatawg.nist.gov/V2_output_docs.php>
 
@@ -62,7 +62,7 @@ Technology and Acting NIST Director*
 **National Institute of Standards and Technology (NIST) Special
 Publication 1500-9**
 
-?? pages (June 20, 2018)
+?? pages (December 1, 2018)
 
 NIST Special Publication series 1500 is intended to capture external
 perspectives related to NIST standards, measurement, and testing-related
@@ -179,6 +179,8 @@ The editors for this document were the following:
 -   ***Version 2.2***: This version was significantly changed and uses
     now OpenAPI to specify the Interfaces between the various services
     and components. Editors of this volume are:
+
+-   ***Version 2.3***: The version includes the
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
 
@@ -1101,23 +1103,7 @@ are defining in this draft. Additional objects are alos available at
 
 -   <https://github.com/cloudmesh-community/nist/tree/master/services>
 
-  Service            Title              Version   Status
-  ------------------ ------------------ --------- --------
-  timestamp          timestamp          0.0.2     TBD
-  alias              alias              0.0.2     TBD
-  variables          variables          0.0.1     TBD
-  default            default            0.0.2     TBD
-  file               file               0.0.2     TBD
-  profile            Profile            0.0.3     TBD
-  database           database           0.0.2     TBD
-  replica            replica            0.0.2     TBD
-  virtualdirectory   virtualdirectory   0.0.3     TBD
-  virtualcluster     Virtual Cluster    0.0.3     TBD
-  keystore           key                0.0.3     TBD
-  vm                 Coludmesh VM       0.0.3     TBD
-  scheduler          scheduler          0.0.2     TBD
-  organization       organization       0.0.2     TBD
-
+<!-- --- IDENTITY -->
 Identity
 --------
 
@@ -1134,8 +1120,7 @@ identity:
 -   Organization - The information representing an Organization that
     manages a Big Data Service
 
-Profile
--------
+### Profile
 
 Profiles are used to store information about users. User information can
 be reused in other services. THis is useful to create virtual
@@ -1150,7 +1135,7 @@ Group: A Person with profile can be part of a Group
 
 Role: A person with profile can have a role within that Group
 
-### Properties Profile
+#### Properties Profile
 
   Property      Type              Description
   ------------- ----------------- -----------------------------------------------------
@@ -1166,11 +1151,11 @@ Role: A person with profile can have a role within that Group
   publickey     string            The lastname of the profile user
   email         string            The email of the profile user
 
-### Paths
+#### Paths
 
-#### /cloudmesh/profile/profile
+##### /cloudmesh/profile/profile
 
-##### GET /cloudmesh/profile/profile
+###### GET /cloudmesh/profile/profile
 
 Returns all profiles
 
@@ -1180,7 +1165,7 @@ Responses
   ------ --------------------- ---------------------
   200    profile information   [Profile](#profile)
 
-##### PUT /cloudmesh/profile/profile
+###### PUT /cloudmesh/profile/profile
 
 Create a new profile
 
@@ -1196,9 +1181,9 @@ Parameters
   --------- ------------ --------------------------- ---------- ---------------------
   profile   body         The new profile to create   False      [Profile](#profile)
 
-#### /cloudmesh/profile/profile/{uuid}
+##### /cloudmesh/profile/profile/{uuid}
 
-##### GET /cloudmesh/profile/profile/{uuid}
+###### GET /cloudmesh/profile/profile/{uuid}
 
 Returns the profile of a user while looking it up with the UUID
 
@@ -1214,7 +1199,7 @@ Parameters
   ------ ------------ ---------------------------- ---------- --------
   uuid   path         ERROR: description missing   True       
 
-### profile.yaml
+#### profile.yaml
 
 ``` {include="../../services/profile/profile.yaml"}
 ---
@@ -1341,8 +1326,7 @@ definitions:
         description: The email of the profile user
 ```
 
-Organization
-------------
+### Organization
 
 An important concept in many applications is the management of a group
 of users in an organization that manages a Big Data application or
@@ -1354,18 +1338,67 @@ organization that lists all users within the virtual organization. The
 third concept is to introduce groups and roles either as part of the
 user definition or as part of a simple list similar to the organization.
 
-### Properties Organization
+#### Properties Organization
 
   Property   Type     Description
   ---------- -------- --------------------------
   name       string   Name of the organization
+  users      array    list of users
 
-### organization.yaml
+#### Paths
+
+##### /cloudmesh/organization
+
+###### GET /cloudmesh/organization
+
+Returns all users of the organization
+
+Responses
+
+  Code   Description         Schema
+  ------ ------------------- -------------------------------
+  200    organization info   [Organization](#organization)
+
+###### PUT /cloudmesh/organization
+
+Create a new organization
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name           Located in   Description                      Required   Schema
+  -------------- ------------ -------------------------------- ---------- -------------------------------
+  organization   body         The new organization to create   False      [Organization](#organization)
+
+##### /cloudmesh/organization/{name}
+
+###### GET /cloudmesh/organization/{name}
+
+Returns the organization
+
+Responses
+
+  Code   Description         Schema
+  ------ ------------------- -------------------------------
+  200    organization info   [Organization](#organization)
+
+Parameters
+
+  Name   Located in   Description                    Required   Schema
+  ------ ------------ ------------------------------ ---------- --------
+  name   path         The name of the organization   True       
+
+#### organization.yaml
 
 ``` {include="../../services/organization/organization.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.3
   title: organization
   description: |-
   
@@ -1408,6 +1441,7 @@ paths:
             $ref: '#/definitions/Organization'
     put:
       summary: Create a new organization
+      description: Create a new organization
       operationId: add_organization
       parameters:
         - in: body
@@ -1420,10 +1454,12 @@ paths:
           description: Created
   '/cloudmesh/organization/{name}':
     get:
+      summary: Returns the organization 
       description: Returns the organization
       operationId: get_organization_by_name
       parameters:
         - name: name
+          description: The name of the organization
           in: path
           required: true
           type: string
@@ -1444,18 +1480,17 @@ definitions:
       users:
         description: list of users
         type: array
-        items: #/definitions/Users
+        items: ../users/user.yaml#/definitions/Users
 
 
 ```
 
-Keystore
---------
+### Keystore
 
 A service to store key, value, type information. All of them are stored
 as Strings.
 
-### Properties Key
+#### Properties Key
 
   Property      Type     Description
   ------------- -------- -----------------------------------------------------
@@ -1465,11 +1500,11 @@ as Strings.
   value         string   The string representing the key
   kind          string   The type of the key
 
-### Paths
+#### Paths
 
-#### /cloudmesh/keystore/key
+##### /cloudmesh/keystore/key
 
-##### GET /cloudmesh/keystore/key
+###### GET /cloudmesh/keystore/key
 
 Returns all keys
 
@@ -1479,7 +1514,7 @@ Responses
   ------ ------------- -------------
   200    key info      [Key](#key)
 
-##### PUT /cloudmesh/keystore/key
+###### PUT /cloudmesh/keystore/key
 
 Create a new key
 
@@ -1495,9 +1530,9 @@ Parameters
   ------ ------------ ----------------------- ---------- -------------
   key    body         The new key to create   False      [Key](#key)
 
-#### /cloudmesh/keystore/key/{name}
+##### /cloudmesh/keystore/key/{name}
 
-##### GET /cloudmesh/keystore/key/{name}
+###### GET /cloudmesh/keystore/key/{name}
 
 Returns the key by name
 
@@ -1513,7 +1548,7 @@ Parameters
   ------ ------------ ---------------------------- ---------- --------
   name   path         ERROR: description missing   True       
 
-### keystore.yaml
+#### keystore.yaml
 
 ``` {include="../../services/keystore/keystore.yaml"}
 ---
@@ -1608,22 +1643,776 @@ definitions:
         description: The type of the key        
 ```
 
-Virtual Directory
+<!-- --- GENERAL  MANAGEMENT -->
+General Resources
 -----------------
+
+### Timestamp
+
+Often data needs to be timestamped to indicate when it has been
+accessed, created, or modified. All objects defined in this document
+will have, in their final version, a timestamp.
+
+-   TODO: assign and review, we do not need a service for this but some
+    mechanism so each resource has timestamps
+
+#### Properties Timestamp
+
+  Property   Type   Description
+  ---------- ------ ----------------------------
+  accessed   date   ERROR: description missing
+  created    date   ERROR: description missing
+  modified   date   ERROR: description missing
+
+#### Paths
+
+##### /cloudmesh/timestamps
+
+###### GET /cloudmesh/timestamps
+
+Returns all timestamps
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    timestamp info   [Timestamp](#timestamp)
+
+###### PUT /cloudmesh/timestamps
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name        Located in   Description                   Required   Schema
+  ----------- ------------ ----------------------------- ---------- -------------------------
+  timestamp   body         The new timestamp to create   False      [Timestamp](#timestamp)
+
+##### /cloudmesh/timestamp/{name}
+
+###### GET /cloudmesh/timestamp/{name}
+
+Returns a timestamp
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    timestamp info   [Timestamp](#timestamp)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### timestamp.yaml
+
+``` {include="../../services/timestamp/timestamp.yaml"}
+swagger: '2.0'
+info:
+  version: 0.0.2
+  date: 10-30-2018
+  title: timestamp
+  description: |-
+  
+    Often data needs to be timestamped to indicate when it has been
+    accessed, created, or modified. All objects defined in this
+    document will have, in their final version, a timestamp.
+
+    * TODO: assign and review, we do not need a service for this
+      but some mechanism so each resource has timestamps
+
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/timestamps:
+    get:
+      description: Returns all timestamps
+      operationId: get_timestamp
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: timestamp info
+          schema:
+            $ref: '#/definitions/Timestamp'
+    put:
+      summary: Create a new timestamp
+      operationId: add_timestamp
+      parameters:
+        - in: body
+          name: timestamp
+          description: The new timestamp to create
+          schema:
+            $ref: '#/definitions/Timestamp'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/timestamp/{name}':
+    get:
+      description: Returns a timestamp
+      operationId: get_timestamp_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: timestamp info
+          schema:
+            $ref: '#/definitions/Timestamp'
+definitions:
+  Timestamp:
+    type: object
+    description: the timestamp
+    properties:
+      accessed:
+        type: date
+      created:
+        type: date
+      modified:
+        type: date
+
+```
+
+### Alias
+
+A user may be interested to create an alias for a resource. This is a
+name useful to the user. Users can deploy an alias server in which they
+store such aliasses for resources. Such aliasses could naturally be
+shared with othere. A resource could have one or more aliasses. The
+reason for an alias is that a resource may have a complex name but a
+user may want to refer to the resource using a name that is suitable for
+the user's application.
+
+#### Properties Alias
+
+  Property   Type     Description
+  ---------- -------- --------------------------
+  name       string   The name of the alias
+  origin     string   The original object name
+
+#### Paths
+
+##### /cloudmesh/alias
+
+###### GET /cloudmesh/alias
+
+Returns all aliases
+
+Responses
+
+  Code   Description         Schema
+  ------ ------------------- -----------------
+  200    alias information   [Alias](#alias)
+
+###### PUT /cloudmesh/alias
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name    Located in   Description               Required   Schema
+  ------- ------------ ------------------------- ---------- -----------------
+  alias   body         The new alias to create   False      [Alias](#alias)
+
+##### /cloudmesh/alias/{name}
+
+###### GET /cloudmesh/alias/{name}
+
+Returns an alias
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- -----------------
+  200    alias info    [Alias](#alias)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### alias.yaml
+
+``` {include="../../services/alias/alias.yaml"}
+swagger: '2.0'
+info:
+  version: 0.0.2
+  date: 10-30-2018
+  title: alias
+  description: |-
+
+    A user may be interested to create an alias for a resource. This
+    is a name useful to the user. Users can deploy an alias server in
+    which they store such aliasses for resources. Such aliasses could
+    naturally be shared with othere. A resource could have one or more
+    aliasses.  The reason for an alias is that a resource may have a
+    complex name but a user may want to refer to the resource using a
+    name that is suitable for the user's application.
+
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/alias:
+    get:
+      description: Returns all aliases
+      operationId: get_alias
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: alias information
+          schema:
+            $ref: '#/definitions/Alias'
+    put:
+      summary: Create a new alias
+      operationId: add_alias
+      parameters:
+        - in: body
+          name: alias
+          description: The new alias to create
+          schema:
+            $ref: '#/definitions/Alias'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/alias/{name}':
+    get:
+      description: Returns an alias
+      operationId: get_alias_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: alias info
+          schema:
+            $ref: '#/definitions/Alias'
+definitions:
+  Alias:
+    type: object
+    description: the alias
+    properties:
+      name:
+        type: string
+        description: The name of the alias
+      origin:
+        type: string
+        description: The original object name
+```
+
+### Variables
+
+Variables are used to store simple values. Each variable can have a
+type, which is also provided as demonstrated in the object below. The
+variable value format is defined as string to allow maximal probability.
+
+-   TODO: assign and review
+
+#### Properties Variables
+
+  Property   Type     Description
+  ---------- -------- -----------------------
+  name       string   name of the variable
+  value      string   type of the variable
+  kind       string   value of the variable
+
+#### Paths
+
+##### /cloudmesh/variables
+
+###### GET /cloudmesh/variables
+
+Returns all variabless
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    variables info   [Variables](#variables)
+
+###### PUT /cloudmesh/variables
+
+Create a new variables
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name        Located in   Description                   Required   Schema
+  ----------- ------------ ----------------------------- ---------- -------------------------
+  variables   body         The new variables to create   False      [Variables](#variables)
+
+##### /cloudmesh/variables/{name}
+
+###### GET /cloudmesh/variables/{name}
+
+Returns a variables
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    variables info   [Variables](#variables)
+
+Parameters
+
+  Name   Located in   Description            Required   Schema
+  ------ ------------ ---------------------- ---------- --------
+  name   path         Name of the variable   True       
+
+#### variables.yaml
+
+``` {include="../../services/variables/variables.yaml"}
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: variables
+  description: |-
+  
+    Variables are used to store simple values. Each variable can have
+    a type, which is also provided as demonstrated in the object
+    below. The variable value format is defined as string to allow
+    maximal probability.
+
+    * TODO: assign and review
+    
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/variables:
+    get:
+      description: Returns all variabless
+      operationId: get_variables
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: variables info
+          schema:
+            $ref: '#/definitions/Variables'
+    put:
+      description: Create a new variables
+      operationId: add_variables
+      parameters:
+        - in: body
+          name: variables
+          description: The new variables to create
+          schema:
+            $ref: '#/definitions/Variables'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/variables/{name}':
+    get:
+      description: Returns a variables
+      operationId: get_variables_by_name
+      parameters:
+        - name: name
+          description: Name of the variable
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: variables info
+          schema:
+            $ref: '#/definitions/Variables'
+definitions:
+  Variables:
+    type: object
+    description: the variables
+    properties:
+      name:
+        type: string
+        description: name of the variable
+      value:
+        type: string
+        description: type of the variable
+      kind:
+        type: string
+        description: value of the variable
+```
+
+### Default
+
+A default is a special variable that has a context associated with it.
+This allows one to define values that can be easily retrieved based on
+the associated context. For example, a default could be the image name
+for a cloud where the context is defined by the cloud name.
+
+-   TODO: assign for review and improvement
+
+#### Properties Defaults
+
+  Property   Type     Description
+  ---------- -------- ----------------------
+  name       string   name of the default
+  value      string   type of the default
+  kind       string   value of the default
+
+#### Paths
+
+##### /cloudmesh/defaults
+
+###### GET /cloudmesh/defaults
+
+Returns all defaults
+
+Responses
+
+  Code   Description    Schema
+  ------ -------------- ---------------------
+  200    default info   [Default](#default)
+
+###### PUT /cloudmesh/defaults
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name      Located in   Description                 Required   Schema
+  --------- ------------ --------------------------- ---------- ---------------------
+  default   body         The new default to create   False      [Default](#default)
+
+##### /cloudmesh/default/{name}
+
+###### GET /cloudmesh/default/{name}
+
+Returns a default
+
+Responses
+
+  Code   Description    Schema
+  ------ -------------- ---------------------
+  200    default info   [Default](#default)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### default.yaml
+
+``` {include="./spec/default.yaml"}
+swagger: '2.0'
+info:
+  version: 0.0.2
+  date: 10-30-2018
+  title: default
+  description: |-
+  
+    A default is a special variable that has a context associated with
+    it. This allows one to define values that can be easily retrieved
+    based on the associated context. For example, a default could be
+    the image name for a cloud where the context is defined by the
+    cloud name.
+
+    * TODO: assign for review and improvement
+    
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/defaults:
+    get:
+      description: Returns all defaults
+      operationId: get_default
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: default info
+          schema:
+            $ref: '#/definitions/Default'
+    put:
+      summary: Create a new default
+      operationId: add_default
+      parameters:
+        - in: body
+          name: default
+          description: The new default to create
+          schema:
+            $ref: '#/definitions/Default'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/default/{name}':
+    get:
+      description: Returns a default
+      operationId: get_default_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: default info
+          schema:
+            $ref: '#/definitions/Default'
+definitions:
+  Defaults:
+    type: object
+    description: the defaults
+    properties:
+      name:
+        type: string
+        description: name of the default
+      value:
+        type: string
+        description: type of the default
+      kind:
+        type: string
+        description: value of the default
+```
+
+<!-- --- FILE MANAGEMENT -->
+Data Management
+---------------
+
+### Database
+
+A database could have a name, an endpoint (e.g., host, port), and a
+protocol used (e.g., SQL, mongo).
+
+-   TODO: assign for review and improvement
+
+#### Properties Database
+
+  Property   Type     Description
+  ---------- -------- --------------------------
+  name       string   name of the database
+  endpoint   string   endpoint of the database
+  kind       string   the kind of the database
+
+#### Paths
+
+##### /cloudmesh/databases
+
+###### GET /cloudmesh/databases
+
+Returns all databases
+
+Responses
+
+  Code   Description     Schema
+  ------ --------------- -----------------------
+  200    database info   [Database](#database)
+
+###### PUT /cloudmesh/databases
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name       Located in   Description                  Required   Schema
+  ---------- ------------ ---------------------------- ---------- -----------------------
+  database   body         The new database to create   False      [Database](#database)
+
+##### /cloudmesh/database/{name}
+
+###### GET /cloudmesh/database/{name}
+
+Returns a database
+
+Responses
+
+  Code   Description     Schema
+  ------ --------------- -----------------------
+  200    database info   [Database](#database)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### database.yaml
+
+``` {include="../../services/database/database.yaml"}
+swagger: '2.0'
+info:
+  version: 0.0.2
+  date: 10-30-2018
+  title: database
+  description: |-
+  
+    A database could have a name, an endpoint (e.g., host, port),
+    and a protocol used (e.g., SQL, mongo).
+
+    * TODO: assign for review and improvement
+    
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/databases:
+    get:
+      description: Returns all databases
+      operationId: get_database
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: database info
+          schema:
+            $ref: '#/definitions/Database'
+    put:
+      summary: Create a new database
+      operationId: add_database
+      parameters:
+        - in: body
+          name: database
+          description: The new database to create
+          schema:
+            $ref: '#/definitions/Database'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/database/{name}':
+    get:
+      description: Returns a database
+      operationId: get_database_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: database info
+          schema:
+            $ref: '#/definitions/Database'
+definitions:
+  Database:
+    type: object
+    description: the database
+    properties:
+      name:
+        type: string
+        description: name of the database
+      endpoint:
+        type: string
+        description: endpoint of the database
+      kind:
+        type: string
+        description: the kind of the database
+```
+
+### Virtual Directory
 
 A virtual directory is a collection of files or replicas of the files. A
 virtual directory can contain a number of entities including files,
 streams, and other virtual directories as part of a collection. The
 element in the collection can either be defined by uuid or by name.
 
-### Properties UnauthorizedError
+#### Properties UnauthorizedError
 
   Property   Type     Description
   ---------- -------- ----------------------------------
   code       string   Code form of the error
   message    string   Human readable form of the error
 
-### Properties Virtualdirectory
+#### Properties Virtualdirectory
 
   --------------------------------------------------------------------------
   Property      Type        Description
@@ -1642,11 +2431,11 @@ element in the collection can either be defined by uuid or by name.
   credential    object      credential to access, e.g., username, password
   --------------------------------------------------------------------------
 
-### Paths
+#### Paths
 
-#### /cloudmesh/virtualdirectory
+##### /cloudmesh/virtualdirectory
 
-##### GET /cloudmesh/virtualdirectory
+###### GET /cloudmesh/virtualdirectory
 
 Returns all virtualdirectorys
 
@@ -1660,7 +2449,7 @@ Responses
   ------ -------------------- -----------------------------------------
   401    unauthorized error   [UnauthorizedError](#unauthorizederror)
 
-##### PUT /cloudmesh/virtualdirectory
+###### PUT /cloudmesh/virtualdirectory
 
 ERROR: missing
 
@@ -1680,9 +2469,9 @@ Parameters
 
   --------------------------------------------------------------------------------------------------------------------
 
-#### /cloudmesh/virtualdirectory/{name}
+##### /cloudmesh/virtualdirectory/{name}
 
-##### GET /cloudmesh/virtualdirectory/{name}
+###### GET /cloudmesh/virtualdirectory/{name}
 
 Returns a virtualdirectory
 
@@ -1698,7 +2487,7 @@ Parameters
   ------ ------------ ---------------------------- ---------- --------
   name   path         ERROR: description missing   True       
 
-### virtualdirectory.yaml
+#### virtualdirectory.yaml
 
 ``` {include="../../services/virtualdirectory/virtualdirectory.yaml"}
 ---
@@ -1820,12 +2609,359 @@ definitions:
         type: "object"
 ```
 
-Virtual Cluster
----------------
+### File
+
+A file is a computer resource allowing storage of data that is being
+processed. The interface to a file provides the mechanism to
+appropriately locate a file in a distributed system. File identification
+includes the name, endpoint, checksum, and size. Additional parameters,
+such as the last access time, could also be stored. The interface only
+describes the location of the file. The file object has name, endpoint
+(location), size in GB, MB, Byte, checksum for integrity check, and last
+accessed timestamp.
+
+-   TODO: assign for review and improvement
+
+#### Properties File
+
+  Property    Type        Description
+  ----------- ----------- ------------------------------
+  name        string      the name of the file
+  endpoint    string      The location of the file
+  checksum    string      The checksum of the file
+  size        integer     The size of the file in byte
+  timestamp   timestamp   The timestamp
+
+#### Paths
+
+##### /cloudmesh/files
+
+###### GET /cloudmesh/files
+
+Returns all files
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- ---------------
+  200    file info     [File](#file)
+
+###### PUT /cloudmesh/files
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name   Located in   Description              Required   Schema
+  ------ ------------ ------------------------ ---------- ---------------
+  file   body         The new file to create   False      [File](#file)
+
+##### /cloudmesh/file/{name}
+
+###### GET /cloudmesh/file/{name}
+
+Returns a file
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- ---------------
+  200    file info     [File](#file)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### file.yaml
+
+``` {include="../../services/file/file.yaml"}
+swagger: '2.0'
+info:
+  version: 0.0.2
+  date: 10-30-2018
+  title: file
+  description: |-
+  
+    A file is a computer resource allowing storage of data that is
+    being processed. The interface to a file provides the mechanism to
+    appropriately locate a file in a distributed system. File
+    identification includes the name, endpoint, checksum, and
+    size. Additional parameters, such as the last access time, could
+    also be stored. The interface only describes the location of the
+    file.  The file object has name, endpoint (location), size in GB,
+    MB, Byte, checksum for integrity check, and last accessed
+    timestamp.
+
+    * TODO: assign for review and improvement
+    
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/files:
+    get:
+      description: Returns all files
+      operationId: get_file
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+    put:
+      summary: Create a new file
+      operationId: add_file
+      parameters:
+        - in: body
+          name: file
+          description: The new file to create
+          schema:
+            $ref: '#/definitions/File'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/file/{name}':
+    get:
+      description: Returns a file
+      operationId: get_file_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+definitions:
+  File:
+    type: object
+    description: the file
+    properties:
+      name:
+        type: string
+        description: the name of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        type: timestamp
+        description: The timestamp
+
+#        "name": "report.dat",
+#        "endpoint": "file://gregor@machine.edu:/data/report.dat",
+#        "checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
+#        "accessed": "1.1.2017:05:00:00:EST",
+#        "created": "1.1.2017:05:00:00:EST",
+#        "modified": "1.1.2017:05:00:00:EST",
+#       "size": ["GB", "Byte"]
+```
+
+### Replica
+
+In many distributed systems, it is important that a file can be
+replicated among different systems to provide faster access. It is
+important to provide a mechanism to trace the pedigree of the file while
+pointing to its original source. A replica can be applied to all data
+types introduced in this document.
+
+-   TODO: assign and improve
+
+#### Properties Replica
+
+  Property    Type                            Description
+  ----------- ------------------------------- ------------------------------
+  name        string                          the name of the replica
+  filename    the original name of the file   the original filename
+  endpoint    string                          The location of the file
+  checksum    string                          The checksum of the file
+  size        integer                         The size of the file in byte
+  timestamp   timestamp                       The timestamp
+
+#### Paths
+
+##### /cloudmesh/replicas
+
+###### GET /cloudmesh/replicas
+
+Returns all replicas
+
+Responses
+
+  Code   Description    Schema
+  ------ -------------- ---------------------
+  200    replica info   [Replica](#replica)
+
+###### PUT /cloudmesh/replicas
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name      Located in   Description                 Required   Schema
+  --------- ------------ --------------------------- ---------- ---------------------
+  replica   body         The new replica to create   False      [Replica](#replica)
+
+##### /cloudmesh/replica/{name}
+
+###### GET /cloudmesh/replica/{name}
+
+Returns a replica
+
+Responses
+
+  Code   Description    Schema
+  ------ -------------- ---------------------
+  200    replica info   [Replica](#replica)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### replica.yaml
+
+``` {include="../../services/replica/replica.yaml"}
+swagger: '2.0'
+info:
+  version: 0.0.2
+  date: 10-30-2018
+  title: replica
+  description: |-
+  
+    In many distributed systems, it is important that a file can be
+    replicated among different systems to provide faster access. It is
+    important to provide a mechanism to trace the pedigree of the file
+    while pointing to its original source. A replica can be applied to
+    all data types introduced in this document.
+
+    * TODO: assign and improve
+    
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/replicas:
+    get:
+      description: Returns all replicas
+      operationId: get_replica
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: replica info
+          schema:
+            $ref: '#/definitions/Replica'
+    put:
+      summary: Create a new replica
+      operationId: add_replica
+      parameters:
+        - in: body
+          name: replica
+          description: The new replica to create
+          schema:
+            $ref: '#/definitions/Replica'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/replica/{name}':
+    get:
+      description: Returns a replica
+      operationId: get_replica_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: replica info
+          schema:
+            $ref: '#/definitions/Replica'
+definitions:
+  Replica:
+    type: object
+    description: the replica
+    properties:
+      name:
+        type: string
+        description: the name of the replica
+      filename:
+        type: the original name of the file
+        description: the original filename
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        type: timestamp
+        description: The timestamp
+```
+
+<!-- --- COMPUTE MANAGEMENT -->
+Compute Management - Virtual Clutsers
+-------------------------------------
+
+### Virtual Cluster
 
 Virtual Cluster example
 
-### Properties VirtualCluster
+#### Properties VirtualCluster
 
   Property      Type                           Description
   ------------- ------------------------------ ----------------------------------------
@@ -1836,7 +2972,7 @@ Virtual Cluster example
   fe                                           Front-end node of the virtual cluster
   nodes         array\[\#/definitions/Node\]   List of nodes of the virtual cluster
 
-### Properties Node
+#### Properties Node
 
   Property   Type                          Description
   ---------- ----------------------------- ----------------------------------------
@@ -1847,18 +2983,18 @@ Virtual Cluster example
   disk       string                        Disk size of the node
   nics       array\[\#/definitions/NIC\]   List of network interfaces of the node
 
-### Properties NIC
+#### Properties NIC
 
   Property   Type     Description
   ---------- -------- -------------------------
   mac        string   MAC address of the node
   ip         string   IP address of the node
 
-### Paths
+#### Paths
 
-#### /cloudmesh/virtualcluster/virtualcluster
+##### /cloudmesh/virtualcluster/virtualcluster
 
-##### GET /cloudmesh/virtualcluster/virtualcluster
+###### GET /cloudmesh/virtualcluster/virtualcluster
 
 Returns all virtualcluster
 
@@ -1868,7 +3004,7 @@ Responses
   ------ -------------- -----------------------------------
   200    profile info   [VirtualCluster](#virtualcluster)
 
-##### PUT /cloudmesh/virtualcluster/virtualcluster
+###### PUT /cloudmesh/virtualcluster/virtualcluster
 
 ERROR: missing
 
@@ -1884,9 +3020,9 @@ Parameters
   ---------------- ------------ ---------------------------------- ---------- -----------------------------------
   virtualcluster   body         The new virtualcluster to create   False      [VirtualCluster](#virtualcluster)
 
-#### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}
+##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}
 
-##### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}
+###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}
 
 Returns a virtualcluster by its name
 
@@ -1902,9 +3038,9 @@ Parameters
   -------------------- ------------ ---------------------------- ---------- --------
   virtualclustername   path         ERROR: description missing   True       
 
-#### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
+##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
 
-##### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
+###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
 
 Returns the front-end node info of the specified virtualcluster
 
@@ -1920,9 +3056,9 @@ Parameters
   -------------------- ------------ ---------------------------- ---------- --------
   virtualclustername   path         ERROR: description missing   True       
 
-#### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
+##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
 
-##### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
+###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
 
 Returns the specified node info of the specified virtualcluster
 
@@ -1939,7 +3075,7 @@ Parameters
   virtualclustername   path         ERROR: description missing   True       
   nodename             path         ERROR: description missing   True       
 
-### vc.yaml
+#### vc.yaml
 
 ``` {include="../../services/virtualcluster/virtualcluster.yaml"}
 ---
@@ -2109,1113 +3245,14 @@ definitions:
         description: IP address of the node
 ```
 
-Alias
------
-
-A user may be interested to create an alias for a resource. This is a
-name useful to the user. Users can deploy an alias server in which they
-store such aliasses for resources. Such aliasses could naturally be
-shared with othere. A resource could have one or more aliasses. The
-reason for an alias is that a resource may have a complex name but a
-user may want to refer to the resource using a name that is suitable for
-the user's application.
-
-### Properties Alias
-
-  Property   Type     Description
-  ---------- -------- --------------------------
-  name       string   The name of the alias
-  origin     string   The original object name
-
-### Paths
-
-#### /cloudmesh/alias
-
-##### GET /cloudmesh/alias
-
-Returns all aliases
-
-Responses
-
-  Code   Description         Schema
-  ------ ------------------- -----------------
-  200    alias information   [Alias](#alias)
-
-##### PUT /cloudmesh/alias
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name    Located in   Description               Required   Schema
-  ------- ------------ ------------------------- ---------- -----------------
-  alias   body         The new alias to create   False      [Alias](#alias)
-
-#### /cloudmesh/alias/{name}
-
-##### GET /cloudmesh/alias/{name}
-
-Returns an alias
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- -----------------
-  200    alias info    [Alias](#alias)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-### alias.yaml
-
-``` {include="../../services/alias/alias.yaml"}
-swagger: '2.0'
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: alias
-  description: |-
-
-    A user may be interested to create an alias for a resource. This
-    is a name useful to the user. Users can deploy an alias server in
-    which they store such aliasses for resources. Such aliasses could
-    naturally be shared with othere. A resource could have one or more
-    aliasses.  The reason for an alias is that a resource may have a
-    complex name but a user may want to refer to the resource using a
-    name that is suitable for the user's application.
-
-  termsOfService: 'http://bin.io/terms/'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/alias:
-    get:
-      description: Returns all aliases
-      operationId: get_alias
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: alias information
-          schema:
-            $ref: '#/definitions/Alias'
-    put:
-      summary: Create a new alias
-      operationId: add_alias
-      parameters:
-        - in: body
-          name: alias
-          description: The new alias to create
-          schema:
-            $ref: '#/definitions/Alias'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/alias/{name}':
-    get:
-      description: Returns an alias
-      operationId: get_alias_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: alias info
-          schema:
-            $ref: '#/definitions/Alias'
-definitions:
-  Alias:
-    type: object
-    description: the alias
-    properties:
-      name:
-        type: string
-        description: The name of the alias
-      origin:
-        type: string
-        description: The original object name
-```
-
-Database
---------
-
-A database could have a name, an endpoint (e.g., host, port), and a
-protocol used (e.g., SQL, mongo).
-
--   TODO: assign for review and improvement
-
-### Properties Database
-
-  Property   Type     Description
-  ---------- -------- --------------------------
-  name       string   name of the database
-  endpoint   string   endpoint of the database
-  kind       string   the kind of the database
-
-### Paths
-
-#### /cloudmesh/databases
-
-##### GET /cloudmesh/databases
-
-Returns all databases
-
-Responses
-
-  Code   Description     Schema
-  ------ --------------- -----------------------
-  200    database info   [Database](#database)
-
-##### PUT /cloudmesh/databases
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name       Located in   Description                  Required   Schema
-  ---------- ------------ ---------------------------- ---------- -----------------------
-  database   body         The new database to create   False      [Database](#database)
-
-#### /cloudmesh/database/{name}
-
-##### GET /cloudmesh/database/{name}
-
-Returns a database
-
-Responses
-
-  Code   Description     Schema
-  ------ --------------- -----------------------
-  200    database info   [Database](#database)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-### database.yaml
-
-``` {include="../../services/database/database.yaml"}
-swagger: '2.0'
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: database
-  description: |-
-  
-    A database could have a name, an endpoint (e.g., host, port),
-    and a protocol used (e.g., SQL, mongo).
-
-    * TODO: assign for review and improvement
-    
-  termsOfService: 'http://bin.io/terms/'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/databases:
-    get:
-      description: Returns all databases
-      operationId: get_database
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: database info
-          schema:
-            $ref: '#/definitions/Database'
-    put:
-      summary: Create a new database
-      operationId: add_database
-      parameters:
-        - in: body
-          name: database
-          description: The new database to create
-          schema:
-            $ref: '#/definitions/Database'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/database/{name}':
-    get:
-      description: Returns a database
-      operationId: get_database_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: database info
-          schema:
-            $ref: '#/definitions/Database'
-definitions:
-  Database:
-    type: object
-    description: the database
-    properties:
-      name:
-        type: string
-        description: name of the database
-      endpoint:
-        type: string
-        description: endpoint of the database
-      kind:
-        type: string
-        description: the kind of the database
-```
-
-Default
--------
-
-A default is a special variable that has a context associated with it.
-This allows one to define values that can be easily retrieved based on
-the associated context. For example, a default could be the image name
-for a cloud where the context is defined by the cloud name.
-
--   TODO: assign for review and improvement
-
-### Properties Defaults
-
-  Property   Type     Description
-  ---------- -------- ----------------------
-  name       string   name of the default
-  value      string   type of the default
-  kind       string   value of the default
-
-### Paths
-
-#### /cloudmesh/defaults
-
-##### GET /cloudmesh/defaults
-
-Returns all defaults
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- ---------------------
-  200    default info   [Default](#default)
-
-##### PUT /cloudmesh/defaults
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name      Located in   Description                 Required   Schema
-  --------- ------------ --------------------------- ---------- ---------------------
-  default   body         The new default to create   False      [Default](#default)
-
-#### /cloudmesh/default/{name}
-
-##### GET /cloudmesh/default/{name}
-
-Returns a default
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- ---------------------
-  200    default info   [Default](#default)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-### default.yaml
-
-``` {include="./spec/default.yaml"}
-swagger: '2.0'
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: default
-  description: |-
-  
-    A default is a special variable that has a context associated with
-    it. This allows one to define values that can be easily retrieved
-    based on the associated context. For example, a default could be
-    the image name for a cloud where the context is defined by the
-    cloud name.
-
-    * TODO: assign for review and improvement
-    
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/defaults:
-    get:
-      description: Returns all defaults
-      operationId: get_default
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: default info
-          schema:
-            $ref: '#/definitions/Default'
-    put:
-      summary: Create a new default
-      operationId: add_default
-      parameters:
-        - in: body
-          name: default
-          description: The new default to create
-          schema:
-            $ref: '#/definitions/Default'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/default/{name}':
-    get:
-      description: Returns a default
-      operationId: get_default_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: default info
-          schema:
-            $ref: '#/definitions/Default'
-definitions:
-  Defaults:
-    type: object
-    description: the defaults
-    properties:
-      name:
-        type: string
-        description: name of the default
-      value:
-        type: string
-        description: type of the default
-      kind:
-        type: string
-        description: value of the default
-```
-
-File
-----
-
-A file is a computer resource allowing storage of data that is being
-processed. The interface to a file provides the mechanism to
-appropriately locate a file in a distributed system. File identification
-includes the name, endpoint, checksum, and size. Additional parameters,
-such as the last access time, could also be stored. The interface only
-describes the location of the file. The file object has name, endpoint
-(location), size in GB, MB, Byte, checksum for integrity check, and last
-accessed timestamp.
-
--   TODO: assign for review and improvement
-
-### Properties File
-
-  Property    Type        Description
-  ----------- ----------- ------------------------------
-  name        string      the name of the file
-  endpoint    string      The location of the file
-  checksum    string      The checksum of the file
-  size        integer     The size of the file in byte
-  timestamp   timestamp   The timestamp
-
-### Paths
-
-#### /cloudmesh/files
-
-##### GET /cloudmesh/files
-
-Returns all files
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- ---------------
-  200    file info     [File](#file)
-
-##### PUT /cloudmesh/files
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name   Located in   Description              Required   Schema
-  ------ ------------ ------------------------ ---------- ---------------
-  file   body         The new file to create   False      [File](#file)
-
-#### /cloudmesh/file/{name}
-
-##### GET /cloudmesh/file/{name}
-
-Returns a file
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- ---------------
-  200    file info     [File](#file)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-### file.yaml
-
-``` {include="../../services/file/file.yaml"}
-swagger: '2.0'
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: file
-  description: |-
-  
-    A file is a computer resource allowing storage of data that is
-    being processed. The interface to a file provides the mechanism to
-    appropriately locate a file in a distributed system. File
-    identification includes the name, endpoint, checksum, and
-    size. Additional parameters, such as the last access time, could
-    also be stored. The interface only describes the location of the
-    file.  The file object has name, endpoint (location), size in GB,
-    MB, Byte, checksum for integrity check, and last accessed
-    timestamp.
-
-    * TODO: assign for review and improvement
-    
-  termsOfService: 'http://bin.io/terms/'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/files:
-    get:
-      description: Returns all files
-      operationId: get_file
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: file info
-          schema:
-            $ref: '#/definitions/File'
-    put:
-      summary: Create a new file
-      operationId: add_file
-      parameters:
-        - in: body
-          name: file
-          description: The new file to create
-          schema:
-            $ref: '#/definitions/File'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/file/{name}':
-    get:
-      description: Returns a file
-      operationId: get_file_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: file info
-          schema:
-            $ref: '#/definitions/File'
-definitions:
-  File:
-    type: object
-    description: the file
-    properties:
-      name:
-        type: string
-        description: the name of the file
-      endpoint:
-        type: string
-        description: The location of the file
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-        type: timestamp
-        description: The timestamp
-
-#        "name": "report.dat",
-#        "endpoint": "file://gregor@machine.edu:/data/report.dat",
-#        "checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
-#        "accessed": "1.1.2017:05:00:00:EST",
-#        "created": "1.1.2017:05:00:00:EST",
-#        "modified": "1.1.2017:05:00:00:EST",
-#       "size": ["GB", "Byte"]
-```
-
-Replica
--------
-
-In many distributed systems, it is important that a file can be
-replicated among different systems to provide faster access. It is
-important to provide a mechanism to trace the pedigree of the file while
-pointing to its original source. A replica can be applied to all data
-types introduced in this document.
-
--   TODO: assign and improve
-
-### Properties Replica
-
-  Property    Type                            Description
-  ----------- ------------------------------- ------------------------------
-  name        string                          the name of the replica
-  filename    the original name of the file   the original filename
-  endpoint    string                          The location of the file
-  checksum    string                          The checksum of the file
-  size        integer                         The size of the file in byte
-  timestamp   timestamp                       The timestamp
-
-### Paths
-
-#### /cloudmesh/replicas
-
-##### GET /cloudmesh/replicas
-
-Returns all replicas
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- ---------------------
-  200    replica info   [Replica](#replica)
-
-##### PUT /cloudmesh/replicas
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name      Located in   Description                 Required   Schema
-  --------- ------------ --------------------------- ---------- ---------------------
-  replica   body         The new replica to create   False      [Replica](#replica)
-
-#### /cloudmesh/replica/{name}
-
-##### GET /cloudmesh/replica/{name}
-
-Returns a replica
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- ---------------------
-  200    replica info   [Replica](#replica)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-### replica.yaml
-
-``` {include="../../services/replica/replica.yaml"}
-swagger: '2.0'
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: replica
-  description: |-
-  
-    In many distributed systems, it is important that a file can be
-    replicated among different systems to provide faster access. It is
-    important to provide a mechanism to trace the pedigree of the file
-    while pointing to its original source. A replica can be applied to
-    all data types introduced in this document.
-
-    * TODO: assign and improve
-    
-  termsOfService: 'http://bin.io/terms/'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/replicas:
-    get:
-      description: Returns all replicas
-      operationId: get_replica
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: replica info
-          schema:
-            $ref: '#/definitions/Replica'
-    put:
-      summary: Create a new replica
-      operationId: add_replica
-      parameters:
-        - in: body
-          name: replica
-          description: The new replica to create
-          schema:
-            $ref: '#/definitions/Replica'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/replica/{name}':
-    get:
-      description: Returns a replica
-      operationId: get_replica_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: replica info
-          schema:
-            $ref: '#/definitions/Replica'
-definitions:
-  Replica:
-    type: object
-    description: the replica
-    properties:
-      name:
-        type: string
-        description: the name of the replica
-      filename:
-        type: the original name of the file
-        description: the original filename
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-        type: timestamp
-        description: The timestamp
-```
-
-Timestamp
----------
-
-Often data needs to be timestamped to indicate when it has been
-accessed, created, or modified. All objects defined in this document
-will have, in their final version, a timestamp.
-
--   TODO: assign and review, we do not need a service for this but some
-    mechanism so each resource has timestamps
-
-### Properties Timestamp
-
-  Property   Type   Description
-  ---------- ------ ----------------------------
-  accessed   date   ERROR: description missing
-  created    date   ERROR: description missing
-  modified   date   ERROR: description missing
-
-### Paths
-
-#### /cloudmesh/timestamps
-
-##### GET /cloudmesh/timestamps
-
-Returns all timestamps
-
-Responses
-
-  Code   Description      Schema
-  ------ ---------------- -------------------------
-  200    timestamp info   [Timestamp](#timestamp)
-
-##### PUT /cloudmesh/timestamps
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name        Located in   Description                   Required   Schema
-  ----------- ------------ ----------------------------- ---------- -------------------------
-  timestamp   body         The new timestamp to create   False      [Timestamp](#timestamp)
-
-#### /cloudmesh/timestamp/{name}
-
-##### GET /cloudmesh/timestamp/{name}
-
-Returns a timestamp
-
-Responses
-
-  Code   Description      Schema
-  ------ ---------------- -------------------------
-  200    timestamp info   [Timestamp](#timestamp)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-### timestamp.yaml
-
-``` {include="../../services/timestamp/timestamp.yaml"}
-swagger: '2.0'
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: timestamp
-  description: |-
-  
-    Often data needs to be timestamped to indicate when it has been
-    accessed, created, or modified. All objects defined in this
-    document will have, in their final version, a timestamp.
-
-    * TODO: assign and review, we do not need a service for this
-      but some mechanism so each resource has timestamps
-
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/timestamps:
-    get:
-      description: Returns all timestamps
-      operationId: get_timestamp
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: timestamp info
-          schema:
-            $ref: '#/definitions/Timestamp'
-    put:
-      summary: Create a new timestamp
-      operationId: add_timestamp
-      parameters:
-        - in: body
-          name: timestamp
-          description: The new timestamp to create
-          schema:
-            $ref: '#/definitions/Timestamp'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/timestamp/{name}':
-    get:
-      description: Returns a timestamp
-      operationId: get_timestamp_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: timestamp info
-          schema:
-            $ref: '#/definitions/Timestamp'
-definitions:
-  Timestamp:
-    type: object
-    description: the timestamp
-    properties:
-      accessed:
-        type: date
-      created:
-        type: date
-      modified:
-        type: date
-
-```
-
-Variables
----------
-
-Variables are used to store simple values. Each variable can have a
-type, which is also provided as demonstrated in the object below. The
-variable value format is defined as string to allow maximal probability.
-
--   TODO: assign and review
-
-### Properties Variables
-
-  Property   Type     Description
-  ---------- -------- -----------------------
-  name       string   name of the variable
-  value      string   type of the variable
-  kind       string   value of the variable
-
-### Paths
-
-#### /cloudmesh/variables
-
-##### GET /cloudmesh/variables
-
-Returns all variabless
-
-Responses
-
-  Code   Description      Schema
-  ------ ---------------- -------------------------
-  200    variables info   [Variables](#variables)
-
-##### PUT /cloudmesh/variables
-
-Create a new variables
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name        Located in   Description                   Required   Schema
-  ----------- ------------ ----------------------------- ---------- -------------------------
-  variables   body         The new variables to create   False      [Variables](#variables)
-
-#### /cloudmesh/variables/{name}
-
-##### GET /cloudmesh/variables/{name}
-
-Returns a variables
-
-Responses
-
-  Code   Description      Schema
-  ------ ---------------- -------------------------
-  200    variables info   [Variables](#variables)
-
-Parameters
-
-  Name   Located in   Description            Required   Schema
-  ------ ------------ ---------------------- ---------- --------
-  name   path         Name of the variable   True       
-
-### variables.yaml
-
-``` {include="../../services/variables/variables.yaml"}
-swagger: '2.0'
-info:
-  version: 0.0.1
-  title: variables
-  description: |-
-  
-    Variables are used to store simple values. Each variable can have
-    a type, which is also provided as demonstrated in the object
-    below. The variable value format is defined as string to allow
-    maximal probability.
-
-    * TODO: assign and review
-    
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/variables:
-    get:
-      description: Returns all variabless
-      operationId: get_variables
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: variables info
-          schema:
-            $ref: '#/definitions/Variables'
-    put:
-      description: Create a new variables
-      operationId: add_variables
-      parameters:
-        - in: body
-          name: variables
-          description: The new variables to create
-          schema:
-            $ref: '#/definitions/Variables'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/variables/{name}':
-    get:
-      description: Returns a variables
-      operationId: get_variables_by_name
-      parameters:
-        - name: name
-          description: Name of the variable
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: variables info
-          schema:
-            $ref: '#/definitions/Variables'
-definitions:
-  Variables:
-    type: object
-    description: the variables
-    properties:
-      name:
-        type: string
-        description: name of the variable
-      value:
-        type: string
-        description: type of the variable
-      kind:
-        type: string
-        description: value of the variable
-```
-
-Scheduler
----------
+### Scheduler
 
 A service to store scheduler, value, type information. All of them are
 stored as Strings.
 
 -   TODO: assign and improve
 
-### Properties Scheduler
+#### Properties Scheduler
 
   Property   Type     Description
   ---------- -------- ----------------------------
@@ -3223,11 +3260,11 @@ stored as Strings.
   value      string   value of the scheduler
   kind       string   the scheduler kind or type
 
-### Paths
+#### Paths
 
-#### /cloudmesh/schedulers
+##### /cloudmesh/schedulers
 
-##### GET /cloudmesh/schedulers
+###### GET /cloudmesh/schedulers
 
 Returns all schedulers
 
@@ -3237,7 +3274,7 @@ Responses
   ------ ---------------- -------------------------
   200    scheduler info   [Scheduler](#scheduler)
 
-##### PUT /cloudmesh/schedulers
+###### PUT /cloudmesh/schedulers
 
 ERROR: missing
 
@@ -3253,9 +3290,9 @@ Parameters
   ----------- ------------ ----------------------------- ---------- -------------------------
   scheduler   body         The new scheduler to create   False      [Scheduler](#scheduler)
 
-#### /cloudmesh/scheduler/{name}
+##### /cloudmesh/scheduler/{name}
 
-##### GET /cloudmesh/scheduler/{name}
+###### GET /cloudmesh/scheduler/{name}
 
 Returns a scheduler
 
@@ -3354,6 +3391,120 @@ definitions:
         type: string
         description: the scheduler kind or type
 ```
+
+Compute Management - Virtual Machines
+-------------------------------------
+
+This section is planed for a future verion.
+
+### Image
+
+#### vc.yaml
+
+``` {include="../../services/image/image.yaml"}
+
+swagger: '2.0'
+info:
+  version: 0.0.2
+  date: 10-30-2018
+  title: abc
+  description: |-
+  
+    Just a placeholder fix
+
+    * TODO: this is a demo of the to do line
+    
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/image:
+    get:
+      description: Returns all general description images
+      operationId: get_abc
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: abc info
+          schema:
+            $ref: '#/definitions/Abc'
+    put:
+      summary: Create a new image
+      operationId: add_image
+      parameters:
+        - in: body
+          name: abc
+          description: The new abc to create
+          schema:
+            $ref: '#/definitions/Image'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/image/{name}':
+    get:
+      description: Returns a general description of an image
+      operationId: get_image_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: abc info
+          schema:
+            $ref: '#/definitions/Image'
+definitions:
+  Image:
+    type: object
+    properties:
+      name:
+        type: string
+      tag:
+        type: string
+      description:
+        type: string
+      cloud:
+        type: string
+      os:
+        type: string
+      osVersion:
+        type: string
+      status:
+        type: string
+       visibility
+        type: string
+      extra:
+        type: string
+```
+
+Compute Management - Containers
+-------------------------------
+
+This section is planed for a future verion.
+
+Compute Management - Functions
+------------------------------
+
+This section is planed for a future verion.
+
+Others
+------
+
+Please notify us if you like to add other specifications.
 
 Status Codes and Error Responses
 ================================
