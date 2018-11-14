@@ -1278,6 +1278,14 @@ This section is planed for a future verion.
 
 ```{include=../../services/image/image.yaml}
 ```
+### Flavor
+
+{include=./spec/flavor.md}
+
+#### image.yaml
+
+```{include=../../services/flavor/flavor.yaml}
+```
 
 
 

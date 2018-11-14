@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: abc
   description: |-
@@ -67,32 +67,32 @@ definitions:
     type: object
     properties:
       id:
-        description: ERROR      
+        description: A unique id for the image      
         type: string
       name:
-        description: ERROR            
+        description: The name of the image
         type: string
       tag:
-        description: ERROR            
+        description: A tag that can be defined by the user for the image
         type: string
       description:
-        description: ERROR            
+        description: A description for the image
         type: string
       cloud:
-        description: ERROR                  
+        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings      
         type: string
       os:
-        description: ERROR                        
+        description: The OS of the image
         type: string
       osVersion:
-        description: ERROR                        
+        description: The OS version of the image
         type: string
       status:
-        description: ERROR                        
+        description: The status of the image
         type: string
       visibility:
-        description: ERROR                               
+        description: The visibility of the image                   
         type: string
       extra:
-        description: ERROR                              
+        description:  Extra object of the image                 
         type: string

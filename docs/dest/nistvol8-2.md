@@ -3399,10 +3399,90 @@ This section is planed for a future verion.
 
 ### Image
 
+Just a placeholder fix
+
+-   TODO: this is a demo of the to do line
+
+#### Properties Image
+
+  --------------------------------------------------------------------------
+  Property      Type        Description
+  ------------- ----------- ------------------------------------------------
+  id            string      A unique id for the image
+
+  name          string      The name of the image
+
+  tag           string      A tag that can be defined by the user for the
+                            image
+
+  description   string      A description for the image
+
+  cloud         string      A cloud provider for which the image is
+                            designed. If multiple are using the image, they
+                            are passed along as space seperated strings
+
+  os            string      The OS of the image
+
+  osVersion     string      The OS version of the image
+
+  status        string      The status of the image
+
+  visibility    string      The visibility of the image
+
+  extra         string      Extra object of the image
+  --------------------------------------------------------------------------
+
+#### Paths
+
+##### /cloudmesh/image
+
+###### GET /cloudmesh/image
+
+Returns all general description images
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- -------------
+  200    abc info      [Abc](#abc)
+
+###### PUT /cloudmesh/image
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name   Located in   Description             Required   Schema
+  ------ ------------ ----------------------- ---------- -----------------
+  abc    body         The new abc to create   False      [Image](#image)
+
+##### /cloudmesh/image/{name}
+
+###### GET /cloudmesh/image/{name}
+
+Returns a general description of an image
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- -----------------
+  200    abc info      [Image](#image)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
 #### image.yaml
 
 ``` {include="../../services/image/image.yaml"}
-
 swagger: '2.0'
 info:
   version: 0.0.2
@@ -3471,24 +3551,211 @@ definitions:
   Image:
     type: object
     properties:
+      id:
+        description: A unique id for the image      
+        type: string
       name:
+        description: The name of the image
         type: string
       tag:
+        description: A tag that can be defined by the user for the image
         type: string
       description:
+        description: A description for the image
         type: string
       cloud:
+        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings      
         type: string
       os:
+        description: The OS of the image
         type: string
       osVersion:
+        description: The OS version of the image
         type: string
       status:
+        description: The status of the image
         type: string
-       visibility
+      visibility:
+        description: The visibility of the image                   
         type: string
       extra:
+        description:  Extra object of the image                 
         type: string
+```
+
+### Flavor
+
+The flavor specifies elementary information about the compute node, such
+as memory and number of cores, as well as other attributes that can be
+added. Flavors are essential to size a virtual cluster appropriately.
+
+#### Properties Flavor
+
+  Property            Type      Description
+  ------------------- --------- ---------------------------------------------
+  name                string    name of the flavor
+  label               string    a label that a user can set for this flavor
+  uuid                string    the uuid of the flavor
+  ncpu                integer   number of cpus
+  ram                 integer   number of bytes used for the image in RAM
+  disk                integer   number of bytes used for the disk
+  bandwidth           string    the bandwidth
+  price               string    price for the flavor
+  cloud               string    name of the cloud this flavor is used
+  cloud\_flavor\_id   string    an id used by the cloud
+
+#### Paths
+
+##### /cloudmesh/flavors
+
+###### GET /cloudmesh/flavors
+
+Returns all flavors
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- -------------------
+  200    flavor info   [Flavor](#flavor)
+
+###### PUT /cloudmesh/flavors
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name     Located in   Description                Required   Schema
+  -------- ------------ -------------------------- ---------- -------------------
+  flavor   body         The new flavor to create   False      [Flavor](#flavor)
+
+##### /cloudmesh/flavor/{name}
+
+###### GET /cloudmesh/flavor/{name}
+
+Returns a flavor
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- -------------------
+  200    flavor info   [Flavor](#flavor)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### image.yaml
+
+``` {include="../../services/flavor/flavor.yaml"}
+swagger: '2.0'
+info:
+  version: 3.0.3
+  date: 10-30-2018
+  title: flavor
+  description: |-
+  
+    The flavor specifies elementary information about the compute
+    node, such as memory and number of cores, as well as other
+    attributes that can be added. Flavors are essential to size a
+    virtual cluster appropriately.
+
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/flavors:
+    get:
+      description: Returns all flavors
+      operationId: get_flavor
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: flavor info
+          schema:
+            $ref: '#/definitions/Flavor'
+    put:
+      summary: Create a new flavor
+      operationId: add_flavor
+      parameters:
+        - in: body
+          name: flavor
+          description: The new flavor to create
+          schema:
+            $ref: '#/definitions/Flavor'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/flavor/{name}':
+    get:
+      description: Returns a flavor
+      operationId: get_flavor_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: flavor info
+          schema:
+            $ref: '#/definitions/Flavor'
+definitions:
+  Flavor:
+    type: object
+    description: the flavor
+    properties:
+      name:
+        type: string
+        description: name of the flavor
+      label:
+        type: string
+        description: a label that a user can set for this flavor
+      uuid:
+        type: string
+        description: the uuid of the flavor
+      ncpu:
+        type: integer
+        description: number of cpus
+      ram:
+        type: integer
+        description: number of bytes used for the image in RAM
+      disk:
+        type: integer
+        description: number of bytes used for the disk
+      bandwidth:
+        type: string
+        description: the bandwidth
+      price:
+        type: string
+        description: price for the flavor
+      cloud:
+        type: string
+        description: name of the cloud this flavor is used
+      cloud_flavor_id:
+        type: string
+        description: an id used by the cloud
+
 ```
 
 Compute Management - Containers
