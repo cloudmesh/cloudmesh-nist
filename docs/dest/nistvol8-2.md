@@ -2,7 +2,12 @@
 title: NIST BDRA Volume 8
 ---
 
-nistvol8-2.md **NIST Special Publication 1500-9**
+nistvol8-2.md
+-------------
+
+header-includes: - \usepackage[margins=raggedright]{floatrow} ---
+
+**NIST Special Publication 1500-9**
 
     DRAFT NIST Big Data Interoperability Framework:
     Volume 8, Reference
@@ -1120,6 +1125,28 @@ identity:
 -   Organization - The information representing an Organization that
     manages a Big Data Service
 
+### Authentication
+
+At this time we have not yet included the mechanims on how to manage
+authentication to external services such as clouds that can stage
+virtual machines. However in cloudmesh we have shown multiple solutions
+to this
+
+-   Local configuration file: A configuration file is managed locally to
+    allow access to the clouds. It is in the designers responsibility
+    npot to expose such credentials
+-   Session based authentication. No passwords are stored in teh
+    configuration file and access is granted on a per session basis wher
+    ethe password neds to be entered
+-   Service based authentication. The authentication is delegated to an
+    external process. One example here is alos oAuth.
+-   The serive that acts in behalf of the user needs to have access to
+    the appropriate cloud provider credentials
+
+An example for a configuration file is provided at
+
+-   <https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml>
+
 ### Profile
 
 Profiles are used to store information about users. User information can
@@ -1205,7 +1232,7 @@ Parameters
 ---
 swagger: "2.0"
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 11-06-2018
   title: "Profile"
   description: |-
@@ -1554,7 +1581,7 @@ Parameters
 ---
 swagger: '2.0'
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 11-06-2018
   title: key
   description: |-
@@ -1717,7 +1744,7 @@ Parameters
 ``` {include="../../services/timestamp/timestamp.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: timestamp
   description: |-
@@ -1866,7 +1893,7 @@ Parameters
 ``` {include="../../services/alias/alias.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: alias
   description: |-
@@ -2014,7 +2041,7 @@ Parameters
 ``` {include="../../services/variables/variables.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 3.0.1
   title: variables
   description: |-
   
@@ -2165,7 +2192,7 @@ Parameters
 ``` {include="./spec/default.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: default
   description: |-
@@ -2319,7 +2346,7 @@ Parameters
 ``` {include="../../services/database/database.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: database
   description: |-
@@ -2493,7 +2520,7 @@ Parameters
 ---
 swagger: '2.0'
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 06-11-2018
   title: virtualdirectory
   description: |-
@@ -2685,7 +2712,7 @@ Parameters
 ``` {include="../../services/file/file.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: file
   description: |-
@@ -2862,7 +2889,7 @@ Parameters
 ``` {include="../../services/replica/replica.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: replica
   description: |-
@@ -3081,7 +3108,7 @@ Parameters
 ---
 swagger: "2.0"
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 06-11-2018
   title: "Virtual Cluster"
   description: |-
@@ -3313,7 +3340,7 @@ Parameters
 ``` {include="../../services/scheduler/scheduler.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: scheduler
   description: |-
@@ -3485,7 +3512,7 @@ Parameters
 ``` {include="../../services/image/image.yaml"}
 swagger: '2.0'
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: abc
   description: |-
@@ -3755,6 +3782,136 @@ definitions:
       cloud_flavor_id:
         type: string
         description: an id used by the cloud
+
+```
+
+### Vm
+
+A service to manage virtual machines
+
+#### Properties VM
+
+  Property       Type     Description
+  -------------- -------- --------------------------------------
+  provider       string   Name of the provider
+  id             string   a unique id for the vm
+  name           string   the name of the vm
+  image          string   the image for the vm
+  region         string   an optional region
+  size           string   The size of the vm
+  state          string   The state of the vm
+  private\_ips   string   The private IPs
+  public\_ips    string   The public IPS
+  metadata       string   The meta data passed along to the VM
+
+#### Paths
+
+##### /vm
+
+###### GET /vm
+
+Returns the list of the vms
+
+Responses
+
+  Code   Description       Schema
+  ------ ----------------- -----------
+  200    Listing the VMs   [VM](#vm)
+
+Parameters
+
+  ---------------------------------------------------------------------------
+  Name     Located   Description                          Required   Schema
+           in                                                        
+  -------- --------- ------------------------------------ ---------- --------
+  cloud    body      specify the cloud from which we      False      
+                     list, if ommitted all clouds are                
+                     returned.                                       
+
+  ---------------------------------------------------------------------------
+
+#### vm.yaml
+
+``` {include="../../services/vm/vm.yaml"}
+swagger: "2.0"
+info:
+  version: 3.0.4
+  date: 11-14-2018
+  title: "Coludmesh VM"
+  description: |-
+
+    A service to manage virtual machines
+
+  termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
+  contact:
+    name: Gregor von Laszeewski
+  license:
+    name: "Apache"
+host: "localhost:8080"
+basePath: "/cloudmesh"
+schemes:
+  - "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  /vm:
+    get:
+      tags:
+        - "vm"
+      operationId: vm_list
+      description: "Returns the list of the vms"
+      produces: 
+        - "application/json"
+      parameters:
+        - name: "cloud"
+          in: "body"
+          type: string
+          description: "specify the cloud from which we list, if ommitted all clouds are returned."
+          required: false
+      schema:
+        $ref: "#/definitions/VM"
+      responses: 
+        "200":
+          description: "Listing the VMs"
+          schema: 
+            $ref: "#/definitions/VM"
+definitions:
+  VM:
+    type: "object"
+    properties:
+      provider:
+        type: "string"
+        description: Name of the provider    
+      id:
+        type: "string"
+        description: a unique id for the vm
+      name:
+        type: "string"
+        description: the name of the vm
+      image:
+        type: "string"
+        description: the image for the vm
+      region:
+        type: "string"
+        description: an optional region
+      size:
+        type: "string"
+        description: The size of the vm
+      state:
+        type: "string"
+        description: The state of the vm
+      private_ips:
+        type: "string"   # will be changed to array
+        description: The private IPs
+      public_ips:
+        type: "string"   # will be changed to array
+        description: The public IPS
+      metadata:
+        type: "string"   # will be changed to dict
+        description: The meta data passed along to the VM
+        
 
 ```
 

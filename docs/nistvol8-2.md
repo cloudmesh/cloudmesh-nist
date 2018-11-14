@@ -1,3 +1,8 @@
+-- 
+header-includes: 
+   - \usepackage[margins=raggedright]{floatrow} 
+---
+   
 **NIST Special Publication 1500-9**
 
 ```
@@ -1129,6 +1134,29 @@ groups. Thus we distinguis three important terms related to the identity:
 * Organization - The information representing an Organization that
   manages a Big Data Service
 
+### Authentication
+
+At this time we have not yet included the mechanims on how to manage
+authentication to external services such as clouds that can stage
+virtual machines. However in cloudmesh we have shown multiple
+solutions to this
+
+* Local configuration file: A configuration file is managed locally to
+  allow access to the clouds. It is in the designers responsibility
+  npot to expose such credentials
+* Session based authentication. No passwords are stored in teh
+  configuration file and access is granted on a per session basis wher
+  ethe password neds to be entered
+* Service based authentication. The authentication is delegated to an
+  external process. One example here is alos oAuth.
+* The serive that acts in behalf of the user needs to have access to
+  the appropriate cloud provider credentials
+
+An example for a configuration file is provided at
+
+* <https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml>
+
+
 ### Profile
 
 {include=./spec/profile.md}
@@ -1285,6 +1313,15 @@ This section is planed for a future verion.
 #### image.yaml
 
 ```{include=../../services/flavor/flavor.yaml}
+```
+
+### Vm
+
+{include=./spec/vm.md}
+
+#### vm.yaml
+
+```{include=../../services/vm/vm.yaml}
 ```
 
 

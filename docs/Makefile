@@ -2,7 +2,7 @@
 
 FILE=nistvol8-2
 
-MARKDOWN-OPTIONS=$(MERMAID) --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
+MARKDOWN-OPTIONS=$(MERMAID)  --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
 CSL=--csl=template/ieee-with-url.csl
 FORMAT=--number-sections --standalone
 FONTS=--epub-embed-font='fonts/*.ttf'
@@ -79,7 +79,9 @@ html: spec
 	cp $(DEST)/$(FILE).html .
 
 pdf: spec
+	cp *.tex dest
 	cp -rf images dest
+#	cd dest; pandoc -H headers-include.tex $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
 	cp $(DEST)/$(FILE).pdf .
 
