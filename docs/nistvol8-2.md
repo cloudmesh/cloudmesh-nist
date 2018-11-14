@@ -1274,7 +1274,7 @@ This section is planed for a future verion.
 
 {include=./spec/image.md}
 
-#### vc.yaml
+#### image.yaml
 
 ```{include=../../services/image/image.yaml}
 ```

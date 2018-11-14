@@ -3399,7 +3399,7 @@ This section is planed for a future verion.
 
 ### Image
 
-#### vc.yaml
+#### image.yaml
 
 ``` {include="../../services/image/image.yaml"}
 
