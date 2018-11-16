@@ -1,80 +1,85 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  version: 3.0.4
-  date: 11-14-2018
-  title: "Coludmesh VM"
   description: |-
 
     A service to manage virtual machines
-
-  termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
+  version: 3.0.4
+  title: Coludmesh VM
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Gregor von Laszeewski
   license:
-    name: "Apache"
-host: "localhost:8080"
-basePath: "/cloudmesh"
+    name: Apache
+host: 'localhost:8080'
+basePath: /cloudmesh/v3
 schemes:
-  - "http"
+  - http
 consumes:
-  - "application/json"
+  - application/json
 produces:
-  - "application/json"
+  - application/json
 paths:
   /vm:
     get:
       tags:
-        - "vm"
+        - vm
+      description: Returns the list of the vms
       operationId: vm_list
-      description: "Returns the list of the vms"
-      produces: 
-        - "application/json"
+      produces:
+        - application/json
       parameters:
-        - name: "cloud"
-          in: "body"
+        - name: cloud
+          in: query
           type: string
-          description: "specify the cloud from which we list, if ommitted all clouds are returned."
+          description: 'specify the cloud from which we list, if ommitted all clouds are returned.'
           required: false
-      schema:
-        $ref: "#/definitions/VM"
-      responses: 
-        "200":
-          description: "Listing the VMs"
-          schema: 
-            $ref: "#/definitions/VM"
+      responses:
+        '200':
+          description: Listing the VMs
+          schema:
+            $ref: '#/definitions/VM'
 definitions:
   VM:
-    type: "object"
+    type: object
     properties:
       provider:
-        type: "string"
-        description: Name of the provider    
+        type: string
+        description: Name of the provider
       id:
-        type: "string"
+        type: string
         description: a unique id for the vm
       name:
-        type: "string"
+        type: string
         description: the name of the vm
       image:
-        type: "string"
+        type: string
         description: the image for the vm
       region:
-        type: "string"
+        type: string
         description: an optional region
       size:
-        type: "string"
+        type: string
         description: The size of the vm
       state:
-        type: "string"
+        type: string
         description: The state of the vm
       private_ips:
-        type: "string"   # will be changed to array
+        type: string
         description: The private IPs
       public_ips:
-        type: "string"   # will be changed to array
+        type: string
         description: The public IPS
       metadata:
-        type: "string"   # will be changed to dict
+        type: string
         description: The meta data passed along to the VM
-        
-
+    example:
+      image: image
+      metadata: metadata
+      size: size
+      provider: provider
+      name: name
+      private_ips: private_ips
+      id: id
+      state: state
+      region: region
+      public_ips: public_ips
