@@ -5,8 +5,6 @@ title: NIST BDRA Volume 8
 nistvol8-2.md
 -------------
 
-header-includes: - \usepackage[margins=raggedright]{floatrow} ---
-
 **NIST Special Publication 1500-9**
 
     DRAFT NIST Big Data Interoperability Framework:

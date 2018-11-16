@@ -1,6 +1,3 @@
--- 
-header-includes: 
-   - \usepackage[margins=raggedright]{floatrow} 
 ---
    
 **NIST Special Publication 1500-9**

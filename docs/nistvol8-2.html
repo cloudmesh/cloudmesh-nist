@@ -86,6 +86,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 <nav id="TOC">
 <ul>
+<li><a href="#nistvol8-2.md"><span class="toc-section-number">0.1</span> nistvol8-2.md</a></li>
 <li><a href="#abstract"><span class="toc-section-number">1</span> Abstract</a></li>
 <li><a href="#keywords"><span class="toc-section-number">2</span> Keywords</a></li>
 <li><a href="#acknowledgements"><span class="toc-section-number">3</span> Acknowledgements</a></li>
@@ -126,88 +127,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><a href="#specification"><span class="toc-section-number">9</span> Specification</a><ul>
 <li><a href="#list-of-specifications"><span class="toc-section-number">9.1</span> List of specifications</a></li>
-<li><a href="#identity"><span class="toc-section-number">9.2</span> Identity</a></li>
-<li><a href="#profile"><span class="toc-section-number">9.3</span> Profile</a><ul>
-<li><a href="#properties-profile"><span class="toc-section-number">9.3.1</span> Properties Profile</a></li>
-<li><a href="#paths"><span class="toc-section-number">9.3.2</span> Paths</a></li>
-<li><a href="#profile.yaml"><span class="toc-section-number">9.3.3</span> profile.yaml</a></li>
+<li><a href="#identity"><span class="toc-section-number">9.2</span> Identity</a><ul>
+<li><a href="#authentication"><span class="toc-section-number">9.2.1</span> Authentication</a></li>
+<li><a href="#profile"><span class="toc-section-number">9.2.2</span> Profile</a></li>
+<li><a href="#organization"><span class="toc-section-number">9.2.3</span> Organization</a></li>
+<li><a href="#keystore"><span class="toc-section-number">9.2.4</span> Keystore</a></li>
 </ul></li>
-<li><a href="#organization"><span class="toc-section-number">9.4</span> Organization</a><ul>
-<li><a href="#properties-organization"><span class="toc-section-number">9.4.1</span> Properties Organization</a></li>
-<li><a href="#organization.yaml"><span class="toc-section-number">9.4.2</span> organization.yaml</a></li>
+<li><a href="#general-resources"><span class="toc-section-number">9.3</span> General Resources</a><ul>
+<li><a href="#timestamp"><span class="toc-section-number">9.3.1</span> Timestamp</a></li>
+<li><a href="#alias"><span class="toc-section-number">9.3.2</span> Alias</a></li>
+<li><a href="#variables"><span class="toc-section-number">9.3.3</span> Variables</a></li>
+<li><a href="#default"><span class="toc-section-number">9.3.4</span> Default</a></li>
 </ul></li>
-<li><a href="#keystore"><span class="toc-section-number">9.5</span> Keystore</a><ul>
-<li><a href="#properties-key"><span class="toc-section-number">9.5.1</span> Properties Key</a></li>
-<li><a href="#paths-1"><span class="toc-section-number">9.5.2</span> Paths</a></li>
-<li><a href="#keystore.yaml"><span class="toc-section-number">9.5.3</span> keystore.yaml</a></li>
+<li><a href="#data-management"><span class="toc-section-number">9.4</span> Data Management</a><ul>
+<li><a href="#database"><span class="toc-section-number">9.4.1</span> Database</a></li>
+<li><a href="#virtual-directory"><span class="toc-section-number">9.4.2</span> Virtual Directory</a></li>
+<li><a href="#file"><span class="toc-section-number">9.4.3</span> File</a></li>
+<li><a href="#replica"><span class="toc-section-number">9.4.4</span> Replica</a></li>
 </ul></li>
-<li><a href="#virtual-directory"><span class="toc-section-number">9.6</span> Virtual Directory</a><ul>
-<li><a href="#properties-unauthorizederror"><span class="toc-section-number">9.6.1</span> Properties UnauthorizedError</a></li>
-<li><a href="#properties-virtualdirectory"><span class="toc-section-number">9.6.2</span> Properties Virtualdirectory</a></li>
-<li><a href="#paths-2"><span class="toc-section-number">9.6.3</span> Paths</a></li>
-<li><a href="#virtualdirectory.yaml"><span class="toc-section-number">9.6.4</span> virtualdirectory.yaml</a></li>
+<li><a href="#compute-management---virtual-clutsers"><span class="toc-section-number">9.5</span> Compute Management - Virtual Clutsers</a><ul>
+<li><a href="#virtual-cluster"><span class="toc-section-number">9.5.1</span> Virtual Cluster</a></li>
+<li><a href="#scheduler"><span class="toc-section-number">9.5.2</span> Scheduler</a></li>
+<li><a href="#scheduler.yaml"><span class="toc-section-number">9.5.3</span> scheduler.yaml</a></li>
 </ul></li>
-<li><a href="#virtual-cluster"><span class="toc-section-number">9.7</span> Virtual Cluster</a><ul>
-<li><a href="#properties-virtualcluster"><span class="toc-section-number">9.7.1</span> Properties VirtualCluster</a></li>
-<li><a href="#properties-node"><span class="toc-section-number">9.7.2</span> Properties Node</a></li>
-<li><a href="#properties-nic"><span class="toc-section-number">9.7.3</span> Properties NIC</a></li>
-<li><a href="#paths-3"><span class="toc-section-number">9.7.4</span> Paths</a></li>
-<li><a href="#vc.yaml"><span class="toc-section-number">9.7.5</span> vc.yaml</a></li>
+<li><a href="#compute-management---virtual-machines"><span class="toc-section-number">9.6</span> Compute Management - Virtual Machines</a><ul>
+<li><a href="#image"><span class="toc-section-number">9.6.1</span> Image</a></li>
+<li><a href="#flavor"><span class="toc-section-number">9.6.2</span> Flavor</a></li>
+<li><a href="#vm"><span class="toc-section-number">9.6.3</span> Vm</a></li>
 </ul></li>
-<li><a href="#alias"><span class="toc-section-number">9.8</span> Alias</a><ul>
-<li><a href="#properties-alias"><span class="toc-section-number">9.8.1</span> Properties Alias</a></li>
-<li><a href="#paths-4"><span class="toc-section-number">9.8.2</span> Paths</a></li>
-<li><a href="#alias.yaml"><span class="toc-section-number">9.8.3</span> alias.yaml</a></li>
-</ul></li>
-<li><a href="#database"><span class="toc-section-number">9.9</span> Database</a><ul>
-<li><a href="#properties-database"><span class="toc-section-number">9.9.1</span> Properties Database</a></li>
-<li><a href="#paths-5"><span class="toc-section-number">9.9.2</span> Paths</a></li>
-<li><a href="#database.yaml"><span class="toc-section-number">9.9.3</span> database.yaml</a></li>
-</ul></li>
-<li><a href="#default"><span class="toc-section-number">9.10</span> Default</a><ul>
-<li><a href="#properties-defaults"><span class="toc-section-number">9.10.1</span> Properties Defaults</a></li>
-<li><a href="#paths-6"><span class="toc-section-number">9.10.2</span> Paths</a></li>
-<li><a href="#default.yaml"><span class="toc-section-number">9.10.3</span> default.yaml</a></li>
-</ul></li>
-<li><a href="#file"><span class="toc-section-number">9.11</span> File</a><ul>
-<li><a href="#properties-file"><span class="toc-section-number">9.11.1</span> Properties File</a></li>
-<li><a href="#paths-7"><span class="toc-section-number">9.11.2</span> Paths</a></li>
-<li><a href="#file.yaml"><span class="toc-section-number">9.11.3</span> file.yaml</a></li>
-</ul></li>
-<li><a href="#replica"><span class="toc-section-number">9.12</span> Replica</a><ul>
-<li><a href="#properties-replica"><span class="toc-section-number">9.12.1</span> Properties Replica</a></li>
-<li><a href="#paths-8"><span class="toc-section-number">9.12.2</span> Paths</a></li>
-<li><a href="#replica.yaml"><span class="toc-section-number">9.12.3</span> replica.yaml</a></li>
-</ul></li>
-<li><a href="#timestamp"><span class="toc-section-number">9.13</span> Timestamp</a><ul>
-<li><a href="#properties-timestamp"><span class="toc-section-number">9.13.1</span> Properties Timestamp</a></li>
-<li><a href="#paths-9"><span class="toc-section-number">9.13.2</span> Paths</a></li>
-<li><a href="#timestamp.yaml"><span class="toc-section-number">9.13.3</span> timestamp.yaml</a></li>
-</ul></li>
-<li><a href="#variables"><span class="toc-section-number">9.14</span> Variables</a><ul>
-<li><a href="#properties-variables"><span class="toc-section-number">9.14.1</span> Properties Variables</a></li>
-<li><a href="#paths-10"><span class="toc-section-number">9.14.2</span> Paths</a></li>
-<li><a href="#variables.yaml"><span class="toc-section-number">9.14.3</span> variables.yaml</a></li>
-</ul></li>
-<li><a href="#scheduler"><span class="toc-section-number">9.15</span> Scheduler</a><ul>
-<li><a href="#properties-scheduler"><span class="toc-section-number">9.15.1</span> Properties Scheduler</a></li>
-<li><a href="#paths-11"><span class="toc-section-number">9.15.2</span> Paths</a></li>
-<li><a href="#scheduler.yaml"><span class="toc-section-number">9.15.3</span> scheduler.yaml</a></li>
-</ul></li>
+<li><a href="#compute-management---containers"><span class="toc-section-number">9.7</span> Compute Management - Containers</a></li>
+<li><a href="#compute-management---functions"><span class="toc-section-number">9.8</span> Compute Management - Functions</a></li>
+<li><a href="#others"><span class="toc-section-number">9.9</span> Others</a></li>
 </ul></li>
 <li><a href="#status-codes-and-error-responses"><span class="toc-section-number">10</span> Status Codes and Error Responses</a></li>
 <li><a href="#acronyms-and-terms"><span class="toc-section-number">11</span> Acronyms and Terms</a></li>
 <li><a href="#bibliography"><span class="toc-section-number">12</span> Bibliography</a></li>
 </ul>
 </nav>
-<p>nistvol8-2.md <strong>NIST Special Publication 1500-9</strong></p>
+<h2 id="nistvol8-2.md"><span class="header-section-number">0.1</span> nistvol8-2.md</h2>
+<p>header-includes: -  —</p>
+<p><strong>NIST Special Publication 1500-9</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash python yaml"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">DRAFT</span> NIST Big Data Interoperability Framework:</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">Volume</span> 8, Reference</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">Architecture</span> Interfaces</a></code></pre></div>
 <p>NIST Big Data Public Working Group</p>
 <p>Reference Architecture Subgroup</p>
-<p>Version 2</p>
-<p>October 20, 2017</p>
+<p>Version 3.0.1</p>
+<p>December 1, 2018</p>
 <p><a href="https://bigdatawg.nist.gov/V2_output_docs.php" class="uri">https://bigdatawg.nist.gov/V2_output_docs.php</a></p>
 <p><img src="images/nist.png" /></p>
 <hr />
@@ -232,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Dr. Kent Rochford, Acting Under Secretary of Commerce for Standards and Technology and Acting NIST Director</em></p>
 <hr />
 <p><strong>National Institute of Standards and Technology (NIST) Special Publication 1500-9</strong></p>
-<p>?? pages (June 20, 2018)</p>
+<p>?? pages (December 1, 2018)</p>
 <p>NIST Special Publication series 1500 is intended to capture external perspectives related to NIST standards, measurement, and testing-related efforts. These external perspectives can come from industry, academia, government, and others. These reports are intended to document external perspectives and do not represent official NIST positions.</p>
 <p>Certain commercial entities, equipment, or materials may be identified in this document to describe an experimental procedure or concept adequately. Such identification is not intended to imply recommendation or endorsement by NIST, nor is it intended to imply that the entities, materials, or equipment are necessarily the best available for the purpose.</p>
 <p>There may be references in this publication to other publications currently under development by NIST in accordance with its assigned statutory responsibilities. The information in this publication, including concepts and methodologies, may be used by federal agencies even before the completion of such companion publications. Thus, until each publication is completed, current requirements, guidelines, and procedures, where they exist, remain operative. For planning and transition purposes, federal agencies may wish to closely follow the development of these new publications by NIST.</p>
@@ -257,6 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><strong><em>Version 2.1</em></strong>: A previous volume used just the definition of the schema based on examples it was easier to read but did only include the definition of the resources and not the interaction with the resources. This volume was in place till June 2018.</p></li>
 <li><p><strong><em>Version 2.2</em></strong>: This version was significantly changed and uses now OpenAPI to specify the Interfaces between the various services and components. Editors of this volume are:</p></li>
+<li><p><strong><em>Version 2.3</em></strong>: The version includes the</p></li>
 </ul>
 <p>Gregor von Laszewski (Indiana University), and Wo Chang (NIST).</p>
 <p>Laurie Aldape (Energetics Incorporated) provided editorial assistance across all NBDIF volumes.</p>
@@ -498,102 +465,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="https://github.com/cloudmesh-community/nist/tree/master/services" class="uri">https://github.com/cloudmesh-community/nist/tree/master/services</a></li>
 </ul>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Service</th>
-<th style="text-align: left;">Title</th>
-<th style="text-align: left;">Version</th>
-<th style="text-align: left;">Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">timestamp</td>
-<td style="text-align: left;">timestamp</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">alias</td>
-<td style="text-align: left;">alias</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">variables</td>
-<td style="text-align: left;">variables</td>
-<td style="text-align: left;">0.0.1</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">default</td>
-<td style="text-align: left;">default</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">file</td>
-<td style="text-align: left;">file</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">profile</td>
-<td style="text-align: left;">Profile</td>
-<td style="text-align: left;">0.0.3</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">database</td>
-<td style="text-align: left;">database</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">replica</td>
-<td style="text-align: left;">replica</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">virtualdirectory</td>
-<td style="text-align: left;">virtualdirectory</td>
-<td style="text-align: left;">0.0.3</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">virtualcluster</td>
-<td style="text-align: left;">Virtual Cluster</td>
-<td style="text-align: left;">0.0.3</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">keystore</td>
-<td style="text-align: left;">key</td>
-<td style="text-align: left;">0.0.3</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">vm</td>
-<td style="text-align: left;">Coludmesh Compute and Storage</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">scheduler</td>
-<td style="text-align: left;">scheduler</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">organization</td>
-<td style="text-align: left;">organization</td>
-<td style="text-align: left;">0.0.2</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-</tbody>
-</table>
+<!-- --- IDENTITY -->
 <h2 id="identity"><span class="header-section-number">9.2</span> Identity</h2>
 <p>As part of services we often need to specify an identity. In addition such persons are often part of groups and have roles within these groups. Thus we distinguis three important terms related to the identity:</p>
 <ul>
@@ -602,12 +474,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Role - A role given to a person as part of the group that can refine access rights.</li>
 <li>Organization - The information representing an Organization that manages a Big Data Service</li>
 </ul>
-<h2 id="profile"><span class="header-section-number">9.3</span> Profile</h2>
+<h3 id="authentication"><span class="header-section-number">9.2.1</span> Authentication</h3>
+<p>At this time we have not yet included the mechanims on how to manage authentication to external services such as clouds that can stage virtual machines. However in cloudmesh we have shown multiple solutions to this</p>
+<ul>
+<li>Local configuration file: A configuration file is managed locally to allow access to the clouds. It is in the designers responsibility npot to expose such credentials</li>
+<li>Session based authentication. No passwords are stored in teh configuration file and access is granted on a per session basis wher ethe password neds to be entered</li>
+<li>Service based authentication. The authentication is delegated to an external process. One example here is alos oAuth.</li>
+<li>The serive that acts in behalf of the user needs to have access to the appropriate cloud provider credentials</li>
+</ul>
+<p>An example for a configuration file is provided at</p>
+<ul>
+<li><a href="https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml" class="uri">https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml</a></li>
+</ul>
+<h3 id="profile"><span class="header-section-number">9.2.2</span> Profile</h3>
 <p>Profiles are used to store information about users. User information can be reused in other services. THis is useful to create virtual organization the depend on user data. Profiles can be added, removed and listed. A group in the profile can be used to augment users to be part of one or more groups. A number of roles can specify a specific role of a user.</p>
 <p>Terminology</p>
 <p>Group: A Person with profile can be part of a Group</p>
 <p>Role: A person with profile can have a role within that Group</p>
-<h3 id="properties-profile"><span class="header-section-number">9.3.1</span> Properties Profile</h3>
+<h4 id="properties-profile"><span class="header-section-number">9.2.2.1</span> Properties Profile</h4>
 <table>
 <thead>
 <tr class="header">
@@ -674,9 +558,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<h3 id="paths"><span class="header-section-number">9.3.2</span> Paths</h3>
-<h4 id="cloudmeshprofileprofile"><span class="header-section-number">9.3.2.1</span> /cloudmesh/profile/profile</h4>
-<h5 id="get-cloudmeshprofileprofile"><span class="header-section-number">9.3.2.1.1</span> GET /cloudmesh/profile/profile</h5>
+<h4 id="paths"><span class="header-section-number">9.2.2.2</span> Paths</h4>
+<h5 id="cloudmeshprofileprofile"><span class="header-section-number">9.2.2.2.1</span> /cloudmesh/profile/profile</h5>
+<h6 id="get-cloudmeshprofileprofile"><span class="header-section-number">9.2.2.2.1.1</span> GET /cloudmesh/profile/profile</h6>
 <p>Returns all profiles</p>
 <p>Responses</p>
 <table>
@@ -695,7 +579,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<h5 id="put-cloudmeshprofileprofile"><span class="header-section-number">9.3.2.1.2</span> PUT /cloudmesh/profile/profile</h5>
+<h6 id="put-cloudmeshprofileprofile"><span class="header-section-number">9.2.2.2.1.2</span> PUT /cloudmesh/profile/profile</h6>
 <p>Create a new profile</p>
 <p>Responses</p>
 <table>
@@ -735,8 +619,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<h4 id="cloudmeshprofileprofileuuid"><span class="header-section-number">9.3.2.2</span> /cloudmesh/profile/profile/{uuid}</h4>
-<h5 id="get-cloudmeshprofileprofileuuid"><span class="header-section-number">9.3.2.2.1</span> GET /cloudmesh/profile/profile/{uuid}</h5>
+<h5 id="cloudmeshprofileprofileuuid"><span class="header-section-number">9.2.2.2.2</span> /cloudmesh/profile/profile/{uuid}</h5>
+<h6 id="get-cloudmeshprofileprofileuuid"><span class="header-section-number">9.2.2.2.2.1</span> GET /cloudmesh/profile/profile/{uuid}</h6>
 <p>Returns the profile of a user while looking it up with the UUID</p>
 <p>Responses</p>
 <table>
@@ -776,11 +660,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<h3 id="profile.yaml"><span class="header-section-number">9.3.3</span> profile.yaml</h3>
+<h4 id="profile.yaml"><span class="header-section-number">9.2.2.3</span> profile.yaml</h4>
 <pre data-include="../../services/profile/profile.yaml"><code>---
 swagger: &quot;2.0&quot;
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 11-06-2018
   title: &quot;Profile&quot;
   description: |-
@@ -900,9 +784,9 @@ definitions:
         type: &quot;string&quot;
         description: The email of the profile user
 </code></pre>
-<h2 id="organization"><span class="header-section-number">9.4</span> Organization</h2>
+<h3 id="organization"><span class="header-section-number">9.2.3</span> Organization</h3>
 <p>An important concept in many applications is the management of a group of users in an organization that manages a Big Data application or infrastructure. User group management can be achieved through three concepts. First, it can be achieved by using the profile and user resources itself as they contain the ability to manage multiple users as part of the REST interface. The second concept is to create a (virtual) organization that lists all users within the virtual organization. The third concept is to introduce groups and roles either as part of the user definition or as part of a simple list similar to the organization.</p>
-<h3 id="properties-organization"><span class="header-section-number">9.4.1</span> Properties Organization</h3>
+<h4 id="properties-organization"><span class="header-section-number">9.2.3.1</span> Properties Organization</h4>
 <table>
 <thead>
 <tr class="header">
@@ -917,12 +801,119 @@ definitions:
 <td style="text-align: left;">string</td>
 <td style="text-align: left;">Name of the organization</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">users</td>
+<td style="text-align: left;">array</td>
+<td style="text-align: left;">list of users</td>
+</tr>
 </tbody>
 </table>
-<h3 id="organization.yaml"><span class="header-section-number">9.4.2</span> organization.yaml</h3>
+<h4 id="paths-1"><span class="header-section-number">9.2.3.2</span> Paths</h4>
+<h5 id="cloudmeshorganization"><span class="header-section-number">9.2.3.2.1</span> /cloudmesh/organization</h5>
+<h6 id="get-cloudmeshorganization"><span class="header-section-number">9.2.3.2.1.1</span> GET /cloudmesh/organization</h6>
+<p>Returns all users of the organization</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">organization info</td>
+<td style="text-align: left;"><a href="#organization">Organization</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshorganization"><span class="header-section-number">9.2.3.2.1.2</span> PUT /cloudmesh/organization</h6>
+<p>Create a new organization</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">organization</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new organization to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#organization">Organization</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshorganizationname"><span class="header-section-number">9.2.3.2.2</span> /cloudmesh/organization/{name}</h5>
+<h6 id="get-cloudmeshorganizationname"><span class="header-section-number">9.2.3.2.2.1</span> GET /cloudmesh/organization/{name}</h6>
+<p>Returns the organization</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">organization info</td>
+<td style="text-align: left;"><a href="#organization">Organization</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">The name of the organization</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="organization.yaml"><span class="header-section-number">9.2.3.3</span> organization.yaml</h4>
 <pre data-include="../../services/organization/organization.yaml"><code>swagger: &#39;2.0&#39;
 info:
-  version: 0.0.2
+  version: 3.0.3
   title: organization
   description: |-
   
@@ -965,6 +956,7 @@ paths:
             $ref: &#39;#/definitions/Organization&#39;
     put:
       summary: Create a new organization
+      description: Create a new organization
       operationId: add_organization
       parameters:
         - in: body
@@ -977,10 +969,12 @@ paths:
           description: Created
   &#39;/cloudmesh/organization/{name}&#39;:
     get:
+      summary: Returns the organization 
       description: Returns the organization
       operationId: get_organization_by_name
       parameters:
         - name: name
+          description: The name of the organization
           in: path
           required: true
           type: string
@@ -1001,13 +995,13 @@ definitions:
       users:
         description: list of users
         type: array
-        items: #/definitions/Users
+        items: ../users/user.yaml#/definitions/Users
 
 
 </code></pre>
-<h2 id="keystore"><span class="header-section-number">9.5</span> Keystore</h2>
+<h3 id="keystore"><span class="header-section-number">9.2.4</span> Keystore</h3>
 <p>A service to store key, value, type information. All of them are stored as Strings.</p>
-<h3 id="properties-key"><span class="header-section-number">9.5.1</span> Properties Key</h3>
+<h4 id="properties-key"><span class="header-section-number">9.2.4.1</span> Properties Key</h4>
 <table>
 <thead>
 <tr class="header">
@@ -1044,9 +1038,9 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="paths-1"><span class="header-section-number">9.5.2</span> Paths</h3>
-<h4 id="cloudmeshkeystorekey"><span class="header-section-number">9.5.2.1</span> /cloudmesh/keystore/key</h4>
-<h5 id="get-cloudmeshkeystorekey"><span class="header-section-number">9.5.2.1.1</span> GET /cloudmesh/keystore/key</h5>
+<h4 id="paths-2"><span class="header-section-number">9.2.4.2</span> Paths</h4>
+<h5 id="cloudmeshkeystorekey"><span class="header-section-number">9.2.4.2.1</span> /cloudmesh/keystore/key</h5>
+<h6 id="get-cloudmeshkeystorekey"><span class="header-section-number">9.2.4.2.1.1</span> GET /cloudmesh/keystore/key</h6>
 <p>Returns all keys</p>
 <p>Responses</p>
 <table>
@@ -1065,7 +1059,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h5 id="put-cloudmeshkeystorekey"><span class="header-section-number">9.5.2.1.2</span> PUT /cloudmesh/keystore/key</h5>
+<h6 id="put-cloudmeshkeystorekey"><span class="header-section-number">9.2.4.2.1.2</span> PUT /cloudmesh/keystore/key</h6>
 <p>Create a new key</p>
 <p>Responses</p>
 <table>
@@ -1105,8 +1099,8 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h4 id="cloudmeshkeystorekeyname"><span class="header-section-number">9.5.2.2</span> /cloudmesh/keystore/key/{name}</h4>
-<h5 id="get-cloudmeshkeystorekeyname"><span class="header-section-number">9.5.2.2.1</span> GET /cloudmesh/keystore/key/{name}</h5>
+<h5 id="cloudmeshkeystorekeyname"><span class="header-section-number">9.2.4.2.2</span> /cloudmesh/keystore/key/{name}</h5>
+<h6 id="get-cloudmeshkeystorekeyname"><span class="header-section-number">9.2.4.2.2.1</span> GET /cloudmesh/keystore/key/{name}</h6>
 <p>Returns the key by name</p>
 <p>Responses</p>
 <table>
@@ -1146,11 +1140,11 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="keystore.yaml"><span class="header-section-number">9.5.3</span> keystore.yaml</h3>
+<h4 id="keystore.yaml"><span class="header-section-number">9.2.4.3</span> keystore.yaml</h4>
 <pre data-include="../../services/keystore/keystore.yaml"><code>---
 swagger: &#39;2.0&#39;
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 11-06-2018
   title: key
   description: |-
@@ -1238,9 +1232,1085 @@ definitions:
         type: string
         description: The type of the key        
 </code></pre>
-<h2 id="virtual-directory"><span class="header-section-number">9.6</span> Virtual Directory</h2>
+<!-- --- GENERAL  MANAGEMENT -->
+<h2 id="general-resources"><span class="header-section-number">9.3</span> General Resources</h2>
+<h3 id="timestamp"><span class="header-section-number">9.3.1</span> Timestamp</h3>
+<p>Often data needs to be timestamped to indicate when it has been accessed, created, or modified. All objects defined in this document will have, in their final version, a timestamp.</p>
+<ul>
+<li>TODO: assign and review, we do not need a service for this but some mechanism so each resource has timestamps</li>
+</ul>
+<h4 id="properties-timestamp"><span class="header-section-number">9.3.1.1</span> Properties Timestamp</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accessed</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">ERROR: description missing</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-3"><span class="header-section-number">9.3.1.2</span> Paths</h4>
+<h5 id="cloudmeshtimestamps"><span class="header-section-number">9.3.1.2.1</span> /cloudmesh/timestamps</h5>
+<h6 id="get-cloudmeshtimestamps"><span class="header-section-number">9.3.1.2.1.1</span> GET /cloudmesh/timestamps</h6>
+<p>Returns all timestamps</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">timestamp info</td>
+<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshtimestamps"><span class="header-section-number">9.3.1.2.1.2</span> PUT /cloudmesh/timestamps</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new timestamp to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshtimestampname"><span class="header-section-number">9.3.1.2.2</span> /cloudmesh/timestamp/{name}</h5>
+<h6 id="get-cloudmeshtimestampname"><span class="header-section-number">9.3.1.2.2.1</span> GET /cloudmesh/timestamp/{name}</h6>
+<p>Returns a timestamp</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">timestamp info</td>
+<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="timestamp.yaml"><span class="header-section-number">9.3.1.3</span> timestamp.yaml</h4>
+<pre data-include="../../services/timestamp/timestamp.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.2
+  date: 10-30-2018
+  title: timestamp
+  description: |-
+  
+    Often data needs to be timestamped to indicate when it has been
+    accessed, created, or modified. All objects defined in this
+    document will have, in their final version, a timestamp.
+
+    * TODO: assign and review, we do not need a service for this
+      but some mechanism so each resource has timestamps
+
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/timestamps:
+    get:
+      description: Returns all timestamps
+      operationId: get_timestamp
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: timestamp info
+          schema:
+            $ref: &#39;#/definitions/Timestamp&#39;
+    put:
+      summary: Create a new timestamp
+      operationId: add_timestamp
+      parameters:
+        - in: body
+          name: timestamp
+          description: The new timestamp to create
+          schema:
+            $ref: &#39;#/definitions/Timestamp&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/timestamp/{name}&#39;:
+    get:
+      description: Returns a timestamp
+      operationId: get_timestamp_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: timestamp info
+          schema:
+            $ref: &#39;#/definitions/Timestamp&#39;
+definitions:
+  Timestamp:
+    type: object
+    description: the timestamp
+    properties:
+      accessed:
+        type: date
+      created:
+        type: date
+      modified:
+        type: date
+
+</code></pre>
+<h3 id="alias"><span class="header-section-number">9.3.2</span> Alias</h3>
+<p>A user may be interested to create an alias for a resource. This is a name useful to the user. Users can deploy an alias server in which they store such aliasses for resources. Such aliasses could naturally be shared with othere. A resource could have one or more aliasses. The reason for an alias is that a resource may have a complex name but a user may want to refer to the resource using a name that is suitable for the user’s application.</p>
+<h4 id="properties-alias"><span class="header-section-number">9.3.2.1</span> Properties Alias</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The name of the alias</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">origin</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The original object name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-4"><span class="header-section-number">9.3.2.2</span> Paths</h4>
+<h5 id="cloudmeshalias"><span class="header-section-number">9.3.2.2.1</span> /cloudmesh/alias</h5>
+<h6 id="get-cloudmeshalias"><span class="header-section-number">9.3.2.2.1.1</span> GET /cloudmesh/alias</h6>
+<p>Returns all aliases</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">alias information</td>
+<td style="text-align: left;"><a href="#alias">Alias</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshalias"><span class="header-section-number">9.3.2.2.1.2</span> PUT /cloudmesh/alias</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">alias</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new alias to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#alias">Alias</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshaliasname"><span class="header-section-number">9.3.2.2.2</span> /cloudmesh/alias/{name}</h5>
+<h6 id="get-cloudmeshaliasname"><span class="header-section-number">9.3.2.2.2.1</span> GET /cloudmesh/alias/{name}</h6>
+<p>Returns an alias</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">alias info</td>
+<td style="text-align: left;"><a href="#alias">Alias</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="alias.yaml"><span class="header-section-number">9.3.2.3</span> alias.yaml</h4>
+<pre data-include="../../services/alias/alias.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.2
+  date: 10-30-2018
+  title: alias
+  description: |-
+
+    A user may be interested to create an alias for a resource. This
+    is a name useful to the user. Users can deploy an alias server in
+    which they store such aliasses for resources. Such aliasses could
+    naturally be shared with othere. A resource could have one or more
+    aliasses.  The reason for an alias is that a resource may have a
+    complex name but a user may want to refer to the resource using a
+    name that is suitable for the user&#39;s application.
+
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/alias:
+    get:
+      description: Returns all aliases
+      operationId: get_alias
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: alias information
+          schema:
+            $ref: &#39;#/definitions/Alias&#39;
+    put:
+      summary: Create a new alias
+      operationId: add_alias
+      parameters:
+        - in: body
+          name: alias
+          description: The new alias to create
+          schema:
+            $ref: &#39;#/definitions/Alias&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/alias/{name}&#39;:
+    get:
+      description: Returns an alias
+      operationId: get_alias_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: alias info
+          schema:
+            $ref: &#39;#/definitions/Alias&#39;
+definitions:
+  Alias:
+    type: object
+    description: the alias
+    properties:
+      name:
+        type: string
+        description: The name of the alias
+      origin:
+        type: string
+        description: The original object name
+</code></pre>
+<h3 id="variables"><span class="header-section-number">9.3.3</span> Variables</h3>
+<p>Variables are used to store simple values. Each variable can have a type, which is also provided as demonstrated in the object below. The variable value format is defined as string to allow maximal probability.</p>
+<ul>
+<li>TODO: assign and review</li>
+</ul>
+<h4 id="properties-variables"><span class="header-section-number">9.3.3.1</span> Properties Variables</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the variable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">type of the variable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">value of the variable</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-5"><span class="header-section-number">9.3.3.2</span> Paths</h4>
+<h5 id="cloudmeshvariables"><span class="header-section-number">9.3.3.2.1</span> /cloudmesh/variables</h5>
+<h6 id="get-cloudmeshvariables"><span class="header-section-number">9.3.3.2.1.1</span> GET /cloudmesh/variables</h6>
+<p>Returns all variabless</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">variables info</td>
+<td style="text-align: left;"><a href="#variables">Variables</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshvariables"><span class="header-section-number">9.3.3.2.1.2</span> PUT /cloudmesh/variables</h6>
+<p>Create a new variables</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">variables</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new variables to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#variables">Variables</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshvariablesname"><span class="header-section-number">9.3.3.2.2</span> /cloudmesh/variables/{name}</h5>
+<h6 id="get-cloudmeshvariablesname"><span class="header-section-number">9.3.3.2.2.1</span> GET /cloudmesh/variables/{name}</h6>
+<p>Returns a variables</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">variables info</td>
+<td style="text-align: left;"><a href="#variables">Variables</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">Name of the variable</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="variables.yaml"><span class="header-section-number">9.3.3.3</span> variables.yaml</h4>
+<pre data-include="../../services/variables/variables.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.1
+  title: variables
+  description: |-
+  
+    Variables are used to store simple values. Each variable can have
+    a type, which is also provided as demonstrated in the object
+    below. The variable value format is defined as string to allow
+    maximal probability.
+
+    * TODO: assign and review
+    
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/variables:
+    get:
+      description: Returns all variabless
+      operationId: get_variables
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: variables info
+          schema:
+            $ref: &#39;#/definitions/Variables&#39;
+    put:
+      description: Create a new variables
+      operationId: add_variables
+      parameters:
+        - in: body
+          name: variables
+          description: The new variables to create
+          schema:
+            $ref: &#39;#/definitions/Variables&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/variables/{name}&#39;:
+    get:
+      description: Returns a variables
+      operationId: get_variables_by_name
+      parameters:
+        - name: name
+          description: Name of the variable
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: variables info
+          schema:
+            $ref: &#39;#/definitions/Variables&#39;
+definitions:
+  Variables:
+    type: object
+    description: the variables
+    properties:
+      name:
+        type: string
+        description: name of the variable
+      value:
+        type: string
+        description: type of the variable
+      kind:
+        type: string
+        description: value of the variable
+</code></pre>
+<h3 id="default"><span class="header-section-number">9.3.4</span> Default</h3>
+<p>A default is a special variable that has a context associated with it. This allows one to define values that can be easily retrieved based on the associated context. For example, a default could be the image name for a cloud where the context is defined by the cloud name.</p>
+<ul>
+<li>TODO: assign for review and improvement</li>
+</ul>
+<h4 id="properties-defaults"><span class="header-section-number">9.3.4.1</span> Properties Defaults</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the default</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">type of the default</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">value of the default</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-6"><span class="header-section-number">9.3.4.2</span> Paths</h4>
+<h5 id="cloudmeshdefaults"><span class="header-section-number">9.3.4.2.1</span> /cloudmesh/defaults</h5>
+<h6 id="get-cloudmeshdefaults"><span class="header-section-number">9.3.4.2.1.1</span> GET /cloudmesh/defaults</h6>
+<p>Returns all defaults</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">default info</td>
+<td style="text-align: left;"><a href="#default">Default</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshdefaults"><span class="header-section-number">9.3.4.2.1.2</span> PUT /cloudmesh/defaults</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">default</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new default to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#default">Default</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshdefaultname"><span class="header-section-number">9.3.4.2.2</span> /cloudmesh/default/{name}</h5>
+<h6 id="get-cloudmeshdefaultname"><span class="header-section-number">9.3.4.2.2.1</span> GET /cloudmesh/default/{name}</h6>
+<p>Returns a default</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">default info</td>
+<td style="text-align: left;"><a href="#default">Default</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="default.yaml"><span class="header-section-number">9.3.4.3</span> default.yaml</h4>
+<pre data-include="./spec/default.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.2
+  date: 10-30-2018
+  title: default
+  description: |-
+  
+    A default is a special variable that has a context associated with
+    it. This allows one to define values that can be easily retrieved
+    based on the associated context. For example, a default could be
+    the image name for a cloud where the context is defined by the
+    cloud name.
+
+    * TODO: assign for review and improvement
+    
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/defaults:
+    get:
+      description: Returns all defaults
+      operationId: get_default
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: default info
+          schema:
+            $ref: &#39;#/definitions/Default&#39;
+    put:
+      summary: Create a new default
+      operationId: add_default
+      parameters:
+        - in: body
+          name: default
+          description: The new default to create
+          schema:
+            $ref: &#39;#/definitions/Default&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/default/{name}&#39;:
+    get:
+      description: Returns a default
+      operationId: get_default_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: default info
+          schema:
+            $ref: &#39;#/definitions/Default&#39;
+definitions:
+  Defaults:
+    type: object
+    description: the defaults
+    properties:
+      name:
+        type: string
+        description: name of the default
+      value:
+        type: string
+        description: type of the default
+      kind:
+        type: string
+        description: value of the default
+</code></pre>
+<!-- --- FILE MANAGEMENT -->
+<h2 id="data-management"><span class="header-section-number">9.4</span> Data Management</h2>
+<h3 id="database"><span class="header-section-number">9.4.1</span> Database</h3>
+<p>A database could have a name, an endpoint (e.g., host, port), and a protocol used (e.g., SQL, mongo).</p>
+<ul>
+<li>TODO: assign for review and improvement</li>
+</ul>
+<h4 id="properties-database"><span class="header-section-number">9.4.1.1</span> Properties Database</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the database</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">endpoint</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">endpoint of the database</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kind</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the kind of the database</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-7"><span class="header-section-number">9.4.1.2</span> Paths</h4>
+<h5 id="cloudmeshdatabases"><span class="header-section-number">9.4.1.2.1</span> /cloudmesh/databases</h5>
+<h6 id="get-cloudmeshdatabases"><span class="header-section-number">9.4.1.2.1.1</span> GET /cloudmesh/databases</h6>
+<p>Returns all databases</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">database info</td>
+<td style="text-align: left;"><a href="#database">Database</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshdatabases"><span class="header-section-number">9.4.1.2.1.2</span> PUT /cloudmesh/databases</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">database</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new database to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#database">Database</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshdatabasename"><span class="header-section-number">9.4.1.2.2</span> /cloudmesh/database/{name}</h5>
+<h6 id="get-cloudmeshdatabasename"><span class="header-section-number">9.4.1.2.2.1</span> GET /cloudmesh/database/{name}</h6>
+<p>Returns a database</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">database info</td>
+<td style="text-align: left;"><a href="#database">Database</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="database.yaml"><span class="header-section-number">9.4.1.3</span> database.yaml</h4>
+<pre data-include="../../services/database/database.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.2
+  date: 10-30-2018
+  title: database
+  description: |-
+  
+    A database could have a name, an endpoint (e.g., host, port),
+    and a protocol used (e.g., SQL, mongo).
+
+    * TODO: assign for review and improvement
+    
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/databases:
+    get:
+      description: Returns all databases
+      operationId: get_database
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: database info
+          schema:
+            $ref: &#39;#/definitions/Database&#39;
+    put:
+      summary: Create a new database
+      operationId: add_database
+      parameters:
+        - in: body
+          name: database
+          description: The new database to create
+          schema:
+            $ref: &#39;#/definitions/Database&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/database/{name}&#39;:
+    get:
+      description: Returns a database
+      operationId: get_database_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: database info
+          schema:
+            $ref: &#39;#/definitions/Database&#39;
+definitions:
+  Database:
+    type: object
+    description: the database
+    properties:
+      name:
+        type: string
+        description: name of the database
+      endpoint:
+        type: string
+        description: endpoint of the database
+      kind:
+        type: string
+        description: the kind of the database
+</code></pre>
+<h3 id="virtual-directory"><span class="header-section-number">9.4.2</span> Virtual Directory</h3>
 <p>A virtual directory is a collection of files or replicas of the files. A virtual directory can contain a number of entities including files, streams, and other virtual directories as part of a collection. The element in the collection can either be defined by uuid or by name.</p>
-<h3 id="properties-unauthorizederror"><span class="header-section-number">9.6.1</span> Properties UnauthorizedError</h3>
+<h4 id="properties-unauthorizederror"><span class="header-section-number">9.4.2.1</span> Properties UnauthorizedError</h4>
 <table>
 <thead>
 <tr class="header">
@@ -1262,7 +2332,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="properties-virtualdirectory"><span class="header-section-number">9.6.2</span> Properties Virtualdirectory</h3>
+<h4 id="properties-virtualdirectory"><span class="header-section-number">9.4.2.2</span> Properties Virtualdirectory</h4>
 <table style="width:97%;">
 <colgroup>
 <col style="width: 18%" />
@@ -1309,9 +2379,9 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="paths-2"><span class="header-section-number">9.6.3</span> Paths</h3>
-<h4 id="cloudmeshvirtualdirectory"><span class="header-section-number">9.6.3.1</span> /cloudmesh/virtualdirectory</h4>
-<h5 id="get-cloudmeshvirtualdirectory"><span class="header-section-number">9.6.3.1.1</span> GET /cloudmesh/virtualdirectory</h5>
+<h4 id="paths-8"><span class="header-section-number">9.4.2.3</span> Paths</h4>
+<h5 id="cloudmeshvirtualdirectory"><span class="header-section-number">9.4.2.3.1</span> /cloudmesh/virtualdirectory</h5>
+<h6 id="get-cloudmeshvirtualdirectory"><span class="header-section-number">9.4.2.3.1.1</span> GET /cloudmesh/virtualdirectory</h6>
 <p>Returns all virtualdirectorys</p>
 <p>Responses</p>
 <table>
@@ -1346,7 +2416,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h5 id="put-cloudmeshvirtualdirectory"><span class="header-section-number">9.6.3.1.2</span> PUT /cloudmesh/virtualdirectory</h5>
+<h6 id="put-cloudmeshvirtualdirectory"><span class="header-section-number">9.4.2.3.1.2</span> PUT /cloudmesh/virtualdirectory</h6>
 <p>ERROR: missing</p>
 <p>Responses</p>
 <table>
@@ -1393,8 +2463,8 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h4 id="cloudmeshvirtualdirectoryname"><span class="header-section-number">9.6.3.2</span> /cloudmesh/virtualdirectory/{name}</h4>
-<h5 id="get-cloudmeshvirtualdirectoryname"><span class="header-section-number">9.6.3.2.1</span> GET /cloudmesh/virtualdirectory/{name}</h5>
+<h5 id="cloudmeshvirtualdirectoryname"><span class="header-section-number">9.4.2.3.2</span> /cloudmesh/virtualdirectory/{name}</h5>
+<h6 id="get-cloudmeshvirtualdirectoryname"><span class="header-section-number">9.4.2.3.2.1</span> GET /cloudmesh/virtualdirectory/{name}</h6>
 <p>Returns a virtualdirectory</p>
 <p>Responses</p>
 <table>
@@ -1434,11 +2504,11 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="virtualdirectory.yaml"><span class="header-section-number">9.6.4</span> virtualdirectory.yaml</h3>
+<h4 id="virtualdirectory.yaml"><span class="header-section-number">9.4.2.4</span> virtualdirectory.yaml</h4>
 <pre data-include="../../services/virtualdirectory/virtualdirectory.yaml"><code>---
 swagger: &#39;2.0&#39;
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 06-11-2018
   title: virtualdirectory
   description: |-
@@ -1553,9 +2623,501 @@ definitions:
         description: credential to access, e.g., username, password
         type: &quot;object&quot;
 </code></pre>
-<h2 id="virtual-cluster"><span class="header-section-number">9.7</span> Virtual Cluster</h2>
+<h3 id="file"><span class="header-section-number">9.4.3</span> File</h3>
+<p>A file is a computer resource allowing storage of data that is being processed. The interface to a file provides the mechanism to appropriately locate a file in a distributed system. File identification includes the name, endpoint, checksum, and size. Additional parameters, such as the last access time, could also be stored. The interface only describes the location of the file. The file object has name, endpoint (location), size in GB, MB, Byte, checksum for integrity check, and last accessed timestamp.</p>
+<ul>
+<li>TODO: assign for review and improvement</li>
+</ul>
+<h4 id="properties-file"><span class="header-section-number">9.4.3.1</span> Properties File</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the name of the file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">endpoint</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The location of the file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">checksum</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The checksum of the file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">size</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">The size of the file in byte</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">The timestamp</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-9"><span class="header-section-number">9.4.3.2</span> Paths</h4>
+<h5 id="cloudmeshfiles"><span class="header-section-number">9.4.3.2.1</span> /cloudmesh/files</h5>
+<h6 id="get-cloudmeshfiles"><span class="header-section-number">9.4.3.2.1.1</span> GET /cloudmesh/files</h6>
+<p>Returns all files</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">file info</td>
+<td style="text-align: left;"><a href="#file">File</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshfiles"><span class="header-section-number">9.4.3.2.1.2</span> PUT /cloudmesh/files</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">file</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new file to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#file">File</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshfilename"><span class="header-section-number">9.4.3.2.2</span> /cloudmesh/file/{name}</h5>
+<h6 id="get-cloudmeshfilename"><span class="header-section-number">9.4.3.2.2.1</span> GET /cloudmesh/file/{name}</h6>
+<p>Returns a file</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">file info</td>
+<td style="text-align: left;"><a href="#file">File</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="file.yaml"><span class="header-section-number">9.4.3.3</span> file.yaml</h4>
+<pre data-include="../../services/file/file.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.2
+  date: 10-30-2018
+  title: file
+  description: |-
+  
+    A file is a computer resource allowing storage of data that is
+    being processed. The interface to a file provides the mechanism to
+    appropriately locate a file in a distributed system. File
+    identification includes the name, endpoint, checksum, and
+    size. Additional parameters, such as the last access time, could
+    also be stored. The interface only describes the location of the
+    file.  The file object has name, endpoint (location), size in GB,
+    MB, Byte, checksum for integrity check, and last accessed
+    timestamp.
+
+    * TODO: assign for review and improvement
+    
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/files:
+    get:
+      description: Returns all files
+      operationId: get_file
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: file info
+          schema:
+            $ref: &#39;#/definitions/File&#39;
+    put:
+      summary: Create a new file
+      operationId: add_file
+      parameters:
+        - in: body
+          name: file
+          description: The new file to create
+          schema:
+            $ref: &#39;#/definitions/File&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/file/{name}&#39;:
+    get:
+      description: Returns a file
+      operationId: get_file_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: file info
+          schema:
+            $ref: &#39;#/definitions/File&#39;
+definitions:
+  File:
+    type: object
+    description: the file
+    properties:
+      name:
+        type: string
+        description: the name of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        type: timestamp
+        description: The timestamp
+
+#        &quot;name&quot;: &quot;report.dat&quot;,
+#        &quot;endpoint&quot;: &quot;file://gregor@machine.edu:/data/report.dat&quot;,
+#        &quot;checksum&quot;: {&quot;sha256&quot;:&quot;c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b&quot;},
+#        &quot;accessed&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
+#        &quot;created&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
+#        &quot;modified&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
+#       &quot;size&quot;: [&quot;GB&quot;, &quot;Byte&quot;]
+</code></pre>
+<h3 id="replica"><span class="header-section-number">9.4.4</span> Replica</h3>
+<p>In many distributed systems, it is important that a file can be replicated among different systems to provide faster access. It is important to provide a mechanism to trace the pedigree of the file while pointing to its original source. A replica can be applied to all data types introduced in this document.</p>
+<ul>
+<li>TODO: assign and improve</li>
+</ul>
+<h4 id="properties-replica"><span class="header-section-number">9.4.4.1</span> Properties Replica</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the name of the replica</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">filename</td>
+<td style="text-align: left;">the original name of the file</td>
+<td style="text-align: left;">the original filename</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">endpoint</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The location of the file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">checksum</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The checksum of the file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">size</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">The size of the file in byte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">timestamp</td>
+<td style="text-align: left;">The timestamp</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-10"><span class="header-section-number">9.4.4.2</span> Paths</h4>
+<h5 id="cloudmeshreplicas"><span class="header-section-number">9.4.4.2.1</span> /cloudmesh/replicas</h5>
+<h6 id="get-cloudmeshreplicas"><span class="header-section-number">9.4.4.2.1.1</span> GET /cloudmesh/replicas</h6>
+<p>Returns all replicas</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">replica info</td>
+<td style="text-align: left;"><a href="#replica">Replica</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshreplicas"><span class="header-section-number">9.4.4.2.1.2</span> PUT /cloudmesh/replicas</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">replica</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new replica to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#replica">Replica</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshreplicaname"><span class="header-section-number">9.4.4.2.2</span> /cloudmesh/replica/{name}</h5>
+<h6 id="get-cloudmeshreplicaname"><span class="header-section-number">9.4.4.2.2.1</span> GET /cloudmesh/replica/{name}</h6>
+<p>Returns a replica</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">replica info</td>
+<td style="text-align: left;"><a href="#replica">Replica</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="replica.yaml"><span class="header-section-number">9.4.4.3</span> replica.yaml</h4>
+<pre data-include="../../services/replica/replica.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.2
+  date: 10-30-2018
+  title: replica
+  description: |-
+  
+    In many distributed systems, it is important that a file can be
+    replicated among different systems to provide faster access. It is
+    important to provide a mechanism to trace the pedigree of the file
+    while pointing to its original source. A replica can be applied to
+    all data types introduced in this document.
+
+    * TODO: assign and improve
+    
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/replicas:
+    get:
+      description: Returns all replicas
+      operationId: get_replica
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: replica info
+          schema:
+            $ref: &#39;#/definitions/Replica&#39;
+    put:
+      summary: Create a new replica
+      operationId: add_replica
+      parameters:
+        - in: body
+          name: replica
+          description: The new replica to create
+          schema:
+            $ref: &#39;#/definitions/Replica&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/replica/{name}&#39;:
+    get:
+      description: Returns a replica
+      operationId: get_replica_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: replica info
+          schema:
+            $ref: &#39;#/definitions/Replica&#39;
+definitions:
+  Replica:
+    type: object
+    description: the replica
+    properties:
+      name:
+        type: string
+        description: the name of the replica
+      filename:
+        type: the original name of the file
+        description: the original filename
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        type: timestamp
+        description: The timestamp</code></pre>
+<!-- --- COMPUTE MANAGEMENT -->
+<h2 id="compute-management---virtual-clutsers"><span class="header-section-number">9.5</span> Compute Management - Virtual Clutsers</h2>
+<h3 id="virtual-cluster"><span class="header-section-number">9.5.1</span> Virtual Cluster</h3>
 <p>Virtual Cluster example</p>
-<h3 id="properties-virtualcluster"><span class="header-section-number">9.7.1</span> Properties VirtualCluster</h3>
+<h4 id="properties-virtualcluster"><span class="header-section-number">9.5.1.1</span> Properties VirtualCluster</h4>
 <table>
 <thead>
 <tr class="header">
@@ -1597,7 +3159,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="properties-node"><span class="header-section-number">9.7.2</span> Properties Node</h3>
+<h4 id="properties-node"><span class="header-section-number">9.5.1.2</span> Properties Node</h4>
 <table>
 <thead>
 <tr class="header">
@@ -1639,7 +3201,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="properties-nic"><span class="header-section-number">9.7.3</span> Properties NIC</h3>
+<h4 id="properties-nic"><span class="header-section-number">9.5.1.3</span> Properties NIC</h4>
 <table>
 <thead>
 <tr class="header">
@@ -1661,9 +3223,9 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="paths-3"><span class="header-section-number">9.7.4</span> Paths</h3>
-<h4 id="cloudmeshvirtualclustervirtualcluster"><span class="header-section-number">9.7.4.1</span> /cloudmesh/virtualcluster/virtualcluster</h4>
-<h5 id="get-cloudmeshvirtualclustervirtualcluster"><span class="header-section-number">9.7.4.1.1</span> GET /cloudmesh/virtualcluster/virtualcluster</h5>
+<h4 id="paths-11"><span class="header-section-number">9.5.1.4</span> Paths</h4>
+<h5 id="cloudmeshvirtualclustervirtualcluster"><span class="header-section-number">9.5.1.4.1</span> /cloudmesh/virtualcluster/virtualcluster</h5>
+<h6 id="get-cloudmeshvirtualclustervirtualcluster"><span class="header-section-number">9.5.1.4.1.1</span> GET /cloudmesh/virtualcluster/virtualcluster</h6>
 <p>Returns all virtualcluster</p>
 <p>Responses</p>
 <table>
@@ -1682,7 +3244,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h5 id="put-cloudmeshvirtualclustervirtualcluster"><span class="header-section-number">9.7.4.1.2</span> PUT /cloudmesh/virtualcluster/virtualcluster</h5>
+<h6 id="put-cloudmeshvirtualclustervirtualcluster"><span class="header-section-number">9.5.1.4.1.2</span> PUT /cloudmesh/virtualcluster/virtualcluster</h6>
 <p>ERROR: missing</p>
 <p>Responses</p>
 <table>
@@ -1722,8 +3284,8 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h4 id="cloudmeshvirtualclustervirtualclustervirtualclustername"><span class="header-section-number">9.7.4.2</span> /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}</h4>
-<h5 id="get-cloudmeshvirtualclustervirtualclustervirtualclustername"><span class="header-section-number">9.7.4.2.1</span> GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}</h5>
+<h5 id="cloudmeshvirtualclustervirtualclustervirtualclustername"><span class="header-section-number">9.5.1.4.2</span> /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}</h5>
+<h6 id="get-cloudmeshvirtualclustervirtualclustervirtualclustername"><span class="header-section-number">9.5.1.4.2.1</span> GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}</h6>
 <p>Returns a virtualcluster by its name</p>
 <p>Responses</p>
 <table>
@@ -1763,8 +3325,8 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h4 id="cloudmeshvirtualclustervirtualclustervirtualclusternamefe"><span class="header-section-number">9.7.4.3</span> /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe</h4>
-<h5 id="get-cloudmeshvirtualclustervirtualclustervirtualclusternamefe"><span class="header-section-number">9.7.4.3.1</span> GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe</h5>
+<h5 id="cloudmeshvirtualclustervirtualclustervirtualclusternamefe"><span class="header-section-number">9.5.1.4.3</span> /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe</h5>
+<h6 id="get-cloudmeshvirtualclustervirtualclustervirtualclusternamefe"><span class="header-section-number">9.5.1.4.3.1</span> GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe</h6>
 <p>Returns the front-end node info of the specified virtualcluster</p>
 <p>Responses</p>
 <table>
@@ -1804,8 +3366,8 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h4 id="cloudmeshvirtualclustervirtualclustervirtualclusternamenodename"><span class="header-section-number">9.7.4.4</span> /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}</h4>
-<h5 id="get-cloudmeshvirtualclustervirtualclustervirtualclusternamenodename"><span class="header-section-number">9.7.4.4.1</span> GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}</h5>
+<h5 id="cloudmeshvirtualclustervirtualclustervirtualclusternamenodename"><span class="header-section-number">9.5.1.4.4</span> /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}</h5>
+<h6 id="get-cloudmeshvirtualclustervirtualclustervirtualclusternamenodename"><span class="header-section-number">9.5.1.4.4.1</span> GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}</h6>
 <p>Returns the specified node info of the specified virtualcluster</p>
 <p>Responses</p>
 <table>
@@ -1852,11 +3414,11 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="vc.yaml"><span class="header-section-number">9.7.5</span> vc.yaml</h3>
+<h4 id="vc.yaml"><span class="header-section-number">9.5.1.5</span> vc.yaml</h4>
 <pre data-include="../../services/virtualcluster/virtualcluster.yaml"><code>---
 swagger: &quot;2.0&quot;
 info:
-  version: 0.0.3
+  version: 3.0.3
   date: 06-11-2018
   title: &quot;Virtual Cluster&quot;
   description: |-
@@ -2019,1574 +3581,12 @@ definitions:
         type: &quot;string&quot;
         description: IP address of the node
 </code></pre>
-<h2 id="alias"><span class="header-section-number">9.8</span> Alias</h2>
-<p>A user may be interested to create an alias for a resource. This is a name useful to the user. Users can deploy an alias server in which they store such aliasses for resources. Such aliasses could naturally be shared with othere. A resource could have one or more aliasses. The reason for an alias is that a resource may have a complex name but a user may want to refer to the resource using a name that is suitable for the user’s application.</p>
-<h3 id="properties-alias"><span class="header-section-number">9.8.1</span> Properties Alias</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">The name of the alias</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">origin</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">The original object name</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paths-4"><span class="header-section-number">9.8.2</span> Paths</h3>
-<h4 id="cloudmeshalias"><span class="header-section-number">9.8.2.1</span> /cloudmesh/alias</h4>
-<h5 id="get-cloudmeshalias"><span class="header-section-number">9.8.2.1.1</span> GET /cloudmesh/alias</h5>
-<p>Returns all aliases</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">alias information</td>
-<td style="text-align: left;"><a href="#alias">Alias</a></td>
-</tr>
-</tbody>
-</table>
-<h5 id="put-cloudmeshalias"><span class="header-section-number">9.8.2.1.2</span> PUT /cloudmesh/alias</h5>
-<p>ERROR: missing</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">201</td>
-<td style="text-align: left;">Created</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">alias</td>
-<td style="text-align: left;">body</td>
-<td style="text-align: left;">The new alias to create</td>
-<td style="text-align: left;">False</td>
-<td style="text-align: left;"><a href="#alias">Alias</a></td>
-</tr>
-</tbody>
-</table>
-<h4 id="cloudmeshaliasname"><span class="header-section-number">9.8.2.2</span> /cloudmesh/alias/{name}</h4>
-<h5 id="get-cloudmeshaliasname"><span class="header-section-number">9.8.2.2.1</span> GET /cloudmesh/alias/{name}</h5>
-<p>Returns an alias</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">alias info</td>
-<td style="text-align: left;"><a href="#alias">Alias</a></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">path</td>
-<td style="text-align: left;">ERROR: description missing</td>
-<td style="text-align: left;">True</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="alias.yaml"><span class="header-section-number">9.8.3</span> alias.yaml</h3>
-<pre data-include="../../services/alias/alias.yaml"><code>swagger: &#39;2.0&#39;
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: alias
-  description: |-
-
-    A user may be interested to create an alias for a resource. This
-    is a name useful to the user. Users can deploy an alias server in
-    which they store such aliasses for resources. Such aliasses could
-    naturally be shared with othere. A resource could have one or more
-    aliasses.  The reason for an alias is that a resource may have a
-    complex name but a user may want to refer to the resource using a
-    name that is suitable for the user&#39;s application.
-
-  termsOfService: &#39;http://bin.io/terms/&#39;
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: &#39;localhost:8080&#39;
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/alias:
-    get:
-      description: Returns all aliases
-      operationId: get_alias
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: alias information
-          schema:
-            $ref: &#39;#/definitions/Alias&#39;
-    put:
-      summary: Create a new alias
-      operationId: add_alias
-      parameters:
-        - in: body
-          name: alias
-          description: The new alias to create
-          schema:
-            $ref: &#39;#/definitions/Alias&#39;
-      responses:
-        &#39;201&#39;:
-          description: Created
-  &#39;/cloudmesh/alias/{name}&#39;:
-    get:
-      description: Returns an alias
-      operationId: get_alias_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: alias info
-          schema:
-            $ref: &#39;#/definitions/Alias&#39;
-definitions:
-  Alias:
-    type: object
-    description: the alias
-    properties:
-      name:
-        type: string
-        description: The name of the alias
-      origin:
-        type: string
-        description: The original object name
-</code></pre>
-<h2 id="database"><span class="header-section-number">9.9</span> Database</h2>
-<p>A database could have a name, an endpoint (e.g., host, port), and a protocol used (e.g., SQL, mongo).</p>
-<ul>
-<li>TODO: assign for review and improvement</li>
-</ul>
-<h3 id="properties-database"><span class="header-section-number">9.9.1</span> Properties Database</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">name of the database</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">endpoint</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">endpoint of the database</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">kind</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">the kind of the database</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paths-5"><span class="header-section-number">9.9.2</span> Paths</h3>
-<h4 id="cloudmeshdatabases"><span class="header-section-number">9.9.2.1</span> /cloudmesh/databases</h4>
-<h5 id="get-cloudmeshdatabases"><span class="header-section-number">9.9.2.1.1</span> GET /cloudmesh/databases</h5>
-<p>Returns all databases</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">database info</td>
-<td style="text-align: left;"><a href="#database">Database</a></td>
-</tr>
-</tbody>
-</table>
-<h5 id="put-cloudmeshdatabases"><span class="header-section-number">9.9.2.1.2</span> PUT /cloudmesh/databases</h5>
-<p>ERROR: missing</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">201</td>
-<td style="text-align: left;">Created</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">database</td>
-<td style="text-align: left;">body</td>
-<td style="text-align: left;">The new database to create</td>
-<td style="text-align: left;">False</td>
-<td style="text-align: left;"><a href="#database">Database</a></td>
-</tr>
-</tbody>
-</table>
-<h4 id="cloudmeshdatabasename"><span class="header-section-number">9.9.2.2</span> /cloudmesh/database/{name}</h4>
-<h5 id="get-cloudmeshdatabasename"><span class="header-section-number">9.9.2.2.1</span> GET /cloudmesh/database/{name}</h5>
-<p>Returns a database</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">database info</td>
-<td style="text-align: left;"><a href="#database">Database</a></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">path</td>
-<td style="text-align: left;">ERROR: description missing</td>
-<td style="text-align: left;">True</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="database.yaml"><span class="header-section-number">9.9.3</span> database.yaml</h3>
-<pre data-include="../../services/database/database.yaml"><code>swagger: &#39;2.0&#39;
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: database
-  description: |-
-  
-    A database could have a name, an endpoint (e.g., host, port),
-    and a protocol used (e.g., SQL, mongo).
-
-    * TODO: assign for review and improvement
-    
-  termsOfService: &#39;http://bin.io/terms/&#39;
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: &#39;localhost:8080&#39;
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/databases:
-    get:
-      description: Returns all databases
-      operationId: get_database
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: database info
-          schema:
-            $ref: &#39;#/definitions/Database&#39;
-    put:
-      summary: Create a new database
-      operationId: add_database
-      parameters:
-        - in: body
-          name: database
-          description: The new database to create
-          schema:
-            $ref: &#39;#/definitions/Database&#39;
-      responses:
-        &#39;201&#39;:
-          description: Created
-  &#39;/cloudmesh/database/{name}&#39;:
-    get:
-      description: Returns a database
-      operationId: get_database_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: database info
-          schema:
-            $ref: &#39;#/definitions/Database&#39;
-definitions:
-  Database:
-    type: object
-    description: the database
-    properties:
-      name:
-        type: string
-        description: name of the database
-      endpoint:
-        type: string
-        description: endpoint of the database
-      kind:
-        type: string
-        description: the kind of the database
-</code></pre>
-<h2 id="default"><span class="header-section-number">9.10</span> Default</h2>
-<p>A default is a special variable that has a context associated with it. This allows one to define values that can be easily retrieved based on the associated context. For example, a default could be the image name for a cloud where the context is defined by the cloud name.</p>
-<ul>
-<li>TODO: assign for review and improvement</li>
-</ul>
-<h3 id="properties-defaults"><span class="header-section-number">9.10.1</span> Properties Defaults</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">name of the default</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">value</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">type of the default</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">kind</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">value of the default</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paths-6"><span class="header-section-number">9.10.2</span> Paths</h3>
-<h4 id="cloudmeshdefaults"><span class="header-section-number">9.10.2.1</span> /cloudmesh/defaults</h4>
-<h5 id="get-cloudmeshdefaults"><span class="header-section-number">9.10.2.1.1</span> GET /cloudmesh/defaults</h5>
-<p>Returns all defaults</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">default info</td>
-<td style="text-align: left;"><a href="#default">Default</a></td>
-</tr>
-</tbody>
-</table>
-<h5 id="put-cloudmeshdefaults"><span class="header-section-number">9.10.2.1.2</span> PUT /cloudmesh/defaults</h5>
-<p>ERROR: missing</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">201</td>
-<td style="text-align: left;">Created</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">default</td>
-<td style="text-align: left;">body</td>
-<td style="text-align: left;">The new default to create</td>
-<td style="text-align: left;">False</td>
-<td style="text-align: left;"><a href="#default">Default</a></td>
-</tr>
-</tbody>
-</table>
-<h4 id="cloudmeshdefaultname"><span class="header-section-number">9.10.2.2</span> /cloudmesh/default/{name}</h4>
-<h5 id="get-cloudmeshdefaultname"><span class="header-section-number">9.10.2.2.1</span> GET /cloudmesh/default/{name}</h5>
-<p>Returns a default</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">default info</td>
-<td style="text-align: left;"><a href="#default">Default</a></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">path</td>
-<td style="text-align: left;">ERROR: description missing</td>
-<td style="text-align: left;">True</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="default.yaml"><span class="header-section-number">9.10.3</span> default.yaml</h3>
-<pre data-include="./spec/default.yaml"><code>swagger: &#39;2.0&#39;
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: default
-  description: |-
-  
-    A default is a special variable that has a context associated with
-    it. This allows one to define values that can be easily retrieved
-    based on the associated context. For example, a default could be
-    the image name for a cloud where the context is defined by the
-    cloud name.
-
-    * TODO: assign for review and improvement
-    
-  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: &#39;localhost:8080&#39;
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/defaults:
-    get:
-      description: Returns all defaults
-      operationId: get_default
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: default info
-          schema:
-            $ref: &#39;#/definitions/Default&#39;
-    put:
-      summary: Create a new default
-      operationId: add_default
-      parameters:
-        - in: body
-          name: default
-          description: The new default to create
-          schema:
-            $ref: &#39;#/definitions/Default&#39;
-      responses:
-        &#39;201&#39;:
-          description: Created
-  &#39;/cloudmesh/default/{name}&#39;:
-    get:
-      description: Returns a default
-      operationId: get_default_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: default info
-          schema:
-            $ref: &#39;#/definitions/Default&#39;
-definitions:
-  Defaults:
-    type: object
-    description: the defaults
-    properties:
-      name:
-        type: string
-        description: name of the default
-      value:
-        type: string
-        description: type of the default
-      kind:
-        type: string
-        description: value of the default
-</code></pre>
-<h2 id="file"><span class="header-section-number">9.11</span> File</h2>
-<p>A file is a computer resource allowing storage of data that is being processed. The interface to a file provides the mechanism to appropriately locate a file in a distributed system. File identification includes the name, endpoint, checksum, and size. Additional parameters, such as the last access time, could also be stored. The interface only describes the location of the file. The file object has name, endpoint (location), size in GB, MB, Byte, checksum for integrity check, and last accessed timestamp.</p>
-<ul>
-<li>TODO: assign for review and improvement</li>
-</ul>
-<h3 id="properties-file"><span class="header-section-number">9.11.1</span> Properties File</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">the name of the file</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">endpoint</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">The location of the file</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">checksum</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">The checksum of the file</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">size</td>
-<td style="text-align: left;">integer</td>
-<td style="text-align: left;">The size of the file in byte</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">timestamp</td>
-<td style="text-align: left;">timestamp</td>
-<td style="text-align: left;">The timestamp</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paths-7"><span class="header-section-number">9.11.2</span> Paths</h3>
-<h4 id="cloudmeshfiles"><span class="header-section-number">9.11.2.1</span> /cloudmesh/files</h4>
-<h5 id="get-cloudmeshfiles"><span class="header-section-number">9.11.2.1.1</span> GET /cloudmesh/files</h5>
-<p>Returns all files</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">file info</td>
-<td style="text-align: left;"><a href="#file">File</a></td>
-</tr>
-</tbody>
-</table>
-<h5 id="put-cloudmeshfiles"><span class="header-section-number">9.11.2.1.2</span> PUT /cloudmesh/files</h5>
-<p>ERROR: missing</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">201</td>
-<td style="text-align: left;">Created</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">file</td>
-<td style="text-align: left;">body</td>
-<td style="text-align: left;">The new file to create</td>
-<td style="text-align: left;">False</td>
-<td style="text-align: left;"><a href="#file">File</a></td>
-</tr>
-</tbody>
-</table>
-<h4 id="cloudmeshfilename"><span class="header-section-number">9.11.2.2</span> /cloudmesh/file/{name}</h4>
-<h5 id="get-cloudmeshfilename"><span class="header-section-number">9.11.2.2.1</span> GET /cloudmesh/file/{name}</h5>
-<p>Returns a file</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">file info</td>
-<td style="text-align: left;"><a href="#file">File</a></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">path</td>
-<td style="text-align: left;">ERROR: description missing</td>
-<td style="text-align: left;">True</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="file.yaml"><span class="header-section-number">9.11.3</span> file.yaml</h3>
-<pre data-include="../../services/file/file.yaml"><code>swagger: &#39;2.0&#39;
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: file
-  description: |-
-  
-    A file is a computer resource allowing storage of data that is
-    being processed. The interface to a file provides the mechanism to
-    appropriately locate a file in a distributed system. File
-    identification includes the name, endpoint, checksum, and
-    size. Additional parameters, such as the last access time, could
-    also be stored. The interface only describes the location of the
-    file.  The file object has name, endpoint (location), size in GB,
-    MB, Byte, checksum for integrity check, and last accessed
-    timestamp.
-
-    * TODO: assign for review and improvement
-    
-  termsOfService: &#39;http://bin.io/terms/&#39;
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: &#39;localhost:8080&#39;
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/files:
-    get:
-      description: Returns all files
-      operationId: get_file
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: file info
-          schema:
-            $ref: &#39;#/definitions/File&#39;
-    put:
-      summary: Create a new file
-      operationId: add_file
-      parameters:
-        - in: body
-          name: file
-          description: The new file to create
-          schema:
-            $ref: &#39;#/definitions/File&#39;
-      responses:
-        &#39;201&#39;:
-          description: Created
-  &#39;/cloudmesh/file/{name}&#39;:
-    get:
-      description: Returns a file
-      operationId: get_file_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: file info
-          schema:
-            $ref: &#39;#/definitions/File&#39;
-definitions:
-  File:
-    type: object
-    description: the file
-    properties:
-      name:
-        type: string
-        description: the name of the file
-      endpoint:
-        type: string
-        description: The location of the file
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-        type: timestamp
-        description: The timestamp
-
-#        &quot;name&quot;: &quot;report.dat&quot;,
-#        &quot;endpoint&quot;: &quot;file://gregor@machine.edu:/data/report.dat&quot;,
-#        &quot;checksum&quot;: {&quot;sha256&quot;:&quot;c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b&quot;},
-#        &quot;accessed&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
-#        &quot;created&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
-#        &quot;modified&quot;: &quot;1.1.2017:05:00:00:EST&quot;,
-#       &quot;size&quot;: [&quot;GB&quot;, &quot;Byte&quot;]
-</code></pre>
-<h2 id="replica"><span class="header-section-number">9.12</span> Replica</h2>
-<p>In many distributed systems, it is important that a file can be replicated among different systems to provide faster access. It is important to provide a mechanism to trace the pedigree of the file while pointing to its original source. A replica can be applied to all data types introduced in this document.</p>
-<ul>
-<li>TODO: assign and improve</li>
-</ul>
-<h3 id="properties-replica"><span class="header-section-number">9.12.1</span> Properties Replica</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">the name of the replica</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">filename</td>
-<td style="text-align: left;">the original name of the file</td>
-<td style="text-align: left;">the original filename</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">endpoint</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">The location of the file</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">checksum</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">The checksum of the file</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">size</td>
-<td style="text-align: left;">integer</td>
-<td style="text-align: left;">The size of the file in byte</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">timestamp</td>
-<td style="text-align: left;">timestamp</td>
-<td style="text-align: left;">The timestamp</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paths-8"><span class="header-section-number">9.12.2</span> Paths</h3>
-<h4 id="cloudmeshreplicas"><span class="header-section-number">9.12.2.1</span> /cloudmesh/replicas</h4>
-<h5 id="get-cloudmeshreplicas"><span class="header-section-number">9.12.2.1.1</span> GET /cloudmesh/replicas</h5>
-<p>Returns all replicas</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">replica info</td>
-<td style="text-align: left;"><a href="#replica">Replica</a></td>
-</tr>
-</tbody>
-</table>
-<h5 id="put-cloudmeshreplicas"><span class="header-section-number">9.12.2.1.2</span> PUT /cloudmesh/replicas</h5>
-<p>ERROR: missing</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">201</td>
-<td style="text-align: left;">Created</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">replica</td>
-<td style="text-align: left;">body</td>
-<td style="text-align: left;">The new replica to create</td>
-<td style="text-align: left;">False</td>
-<td style="text-align: left;"><a href="#replica">Replica</a></td>
-</tr>
-</tbody>
-</table>
-<h4 id="cloudmeshreplicaname"><span class="header-section-number">9.12.2.2</span> /cloudmesh/replica/{name}</h4>
-<h5 id="get-cloudmeshreplicaname"><span class="header-section-number">9.12.2.2.1</span> GET /cloudmesh/replica/{name}</h5>
-<p>Returns a replica</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">replica info</td>
-<td style="text-align: left;"><a href="#replica">Replica</a></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">path</td>
-<td style="text-align: left;">ERROR: description missing</td>
-<td style="text-align: left;">True</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="replica.yaml"><span class="header-section-number">9.12.3</span> replica.yaml</h3>
-<pre data-include="../../services/replica/replica.yaml"><code>swagger: &#39;2.0&#39;
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: replica
-  description: |-
-  
-    In many distributed systems, it is important that a file can be
-    replicated among different systems to provide faster access. It is
-    important to provide a mechanism to trace the pedigree of the file
-    while pointing to its original source. A replica can be applied to
-    all data types introduced in this document.
-
-    * TODO: assign and improve
-    
-  termsOfService: &#39;http://bin.io/terms/&#39;
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: &#39;localhost:8080&#39;
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/replicas:
-    get:
-      description: Returns all replicas
-      operationId: get_replica
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: replica info
-          schema:
-            $ref: &#39;#/definitions/Replica&#39;
-    put:
-      summary: Create a new replica
-      operationId: add_replica
-      parameters:
-        - in: body
-          name: replica
-          description: The new replica to create
-          schema:
-            $ref: &#39;#/definitions/Replica&#39;
-      responses:
-        &#39;201&#39;:
-          description: Created
-  &#39;/cloudmesh/replica/{name}&#39;:
-    get:
-      description: Returns a replica
-      operationId: get_replica_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: replica info
-          schema:
-            $ref: &#39;#/definitions/Replica&#39;
-definitions:
-  Replica:
-    type: object
-    description: the replica
-    properties:
-      name:
-        type: string
-        description: the name of the replica
-      filename:
-        type: the original name of the file
-        description: the original filename
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-        type: timestamp
-        description: The timestamp</code></pre>
-<h2 id="timestamp"><span class="header-section-number">9.13</span> Timestamp</h2>
-<p>Often data needs to be timestamped to indicate when it has been accessed, created, or modified. All objects defined in this document will have, in their final version, a timestamp.</p>
-<ul>
-<li>TODO: assign and review, we do not need a service for this but some mechanism so each resource has timestamps</li>
-</ul>
-<h3 id="properties-timestamp"><span class="header-section-number">9.13.1</span> Properties Timestamp</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">accessed</td>
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">ERROR: description missing</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">ERROR: description missing</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">ERROR: description missing</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paths-9"><span class="header-section-number">9.13.2</span> Paths</h3>
-<h4 id="cloudmeshtimestamps"><span class="header-section-number">9.13.2.1</span> /cloudmesh/timestamps</h4>
-<h5 id="get-cloudmeshtimestamps"><span class="header-section-number">9.13.2.1.1</span> GET /cloudmesh/timestamps</h5>
-<p>Returns all timestamps</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">timestamp info</td>
-<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
-</tr>
-</tbody>
-</table>
-<h5 id="put-cloudmeshtimestamps"><span class="header-section-number">9.13.2.1.2</span> PUT /cloudmesh/timestamps</h5>
-<p>ERROR: missing</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">201</td>
-<td style="text-align: left;">Created</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">timestamp</td>
-<td style="text-align: left;">body</td>
-<td style="text-align: left;">The new timestamp to create</td>
-<td style="text-align: left;">False</td>
-<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
-</tr>
-</tbody>
-</table>
-<h4 id="cloudmeshtimestampname"><span class="header-section-number">9.13.2.2</span> /cloudmesh/timestamp/{name}</h4>
-<h5 id="get-cloudmeshtimestampname"><span class="header-section-number">9.13.2.2.1</span> GET /cloudmesh/timestamp/{name}</h5>
-<p>Returns a timestamp</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">timestamp info</td>
-<td style="text-align: left;"><a href="#timestamp">Timestamp</a></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">path</td>
-<td style="text-align: left;">ERROR: description missing</td>
-<td style="text-align: left;">True</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="timestamp.yaml"><span class="header-section-number">9.13.3</span> timestamp.yaml</h3>
-<pre data-include="../../services/timestamp/timestamp.yaml"><code>swagger: &#39;2.0&#39;
-info:
-  version: 0.0.2
-  date: 10-30-2018
-  title: timestamp
-  description: |-
-  
-    Often data needs to be timestamped to indicate when it has been
-    accessed, created, or modified. All objects defined in this
-    document will have, in their final version, a timestamp.
-
-    * TODO: assign and review, we do not need a service for this
-      but some mechanism so each resource has timestamps
-
-  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: &#39;localhost:8080&#39;
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/timestamps:
-    get:
-      description: Returns all timestamps
-      operationId: get_timestamp
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: timestamp info
-          schema:
-            $ref: &#39;#/definitions/Timestamp&#39;
-    put:
-      summary: Create a new timestamp
-      operationId: add_timestamp
-      parameters:
-        - in: body
-          name: timestamp
-          description: The new timestamp to create
-          schema:
-            $ref: &#39;#/definitions/Timestamp&#39;
-      responses:
-        &#39;201&#39;:
-          description: Created
-  &#39;/cloudmesh/timestamp/{name}&#39;:
-    get:
-      description: Returns a timestamp
-      operationId: get_timestamp_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: timestamp info
-          schema:
-            $ref: &#39;#/definitions/Timestamp&#39;
-definitions:
-  Timestamp:
-    type: object
-    description: the timestamp
-    properties:
-      accessed:
-        type: date
-      created:
-        type: date
-      modified:
-        type: date
-
-</code></pre>
-<h2 id="variables"><span class="header-section-number">9.14</span> Variables</h2>
-<p>Variables are used to store simple values. Each variable can have a type, which is also provided as demonstrated in the object below. The variable value format is defined as string to allow maximal probability.</p>
-<ul>
-<li>TODO: assign and review</li>
-</ul>
-<h3 id="properties-variables"><span class="header-section-number">9.14.1</span> Properties Variables</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">name of the variable</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">value</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">type of the variable</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">kind</td>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;">value of the variable</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paths-10"><span class="header-section-number">9.14.2</span> Paths</h3>
-<h4 id="cloudmeshvariables"><span class="header-section-number">9.14.2.1</span> /cloudmesh/variables</h4>
-<h5 id="get-cloudmeshvariables"><span class="header-section-number">9.14.2.1.1</span> GET /cloudmesh/variables</h5>
-<p>Returns all variabless</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">variables info</td>
-<td style="text-align: left;"><a href="#variables">Variables</a></td>
-</tr>
-</tbody>
-</table>
-<h5 id="put-cloudmeshvariables"><span class="header-section-number">9.14.2.1.2</span> PUT /cloudmesh/variables</h5>
-<p>Create a new variables</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">201</td>
-<td style="text-align: left;">Created</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">variables</td>
-<td style="text-align: left;">body</td>
-<td style="text-align: left;">The new variables to create</td>
-<td style="text-align: left;">False</td>
-<td style="text-align: left;"><a href="#variables">Variables</a></td>
-</tr>
-</tbody>
-</table>
-<h4 id="cloudmeshvariablesname"><span class="header-section-number">9.14.2.2</span> /cloudmesh/variables/{name}</h4>
-<h5 id="get-cloudmeshvariablesname"><span class="header-section-number">9.14.2.2.1</span> GET /cloudmesh/variables/{name}</h5>
-<p>Returns a variables</p>
-<p>Responses</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">variables info</td>
-<td style="text-align: left;"><a href="#variables">Variables</a></td>
-</tr>
-</tbody>
-</table>
-<p>Parameters</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Located in</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">path</td>
-<td style="text-align: left;">Name of the variable</td>
-<td style="text-align: left;">True</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="variables.yaml"><span class="header-section-number">9.14.3</span> variables.yaml</h3>
-<pre data-include="../../services/variables/variables.yaml"><code>swagger: &#39;2.0&#39;
-info:
-  version: 0.0.1
-  title: variables
-  description: |-
-  
-    Variables are used to store simple values. Each variable can have
-    a type, which is also provided as demonstrated in the object
-    below. The variable value format is defined as string to allow
-    maximal probability.
-
-    * TODO: assign and review
-    
-  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: &#39;localhost:8080&#39;
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/variables:
-    get:
-      description: Returns all variabless
-      operationId: get_variables
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: variables info
-          schema:
-            $ref: &#39;#/definitions/Variables&#39;
-    put:
-      description: Create a new variables
-      operationId: add_variables
-      parameters:
-        - in: body
-          name: variables
-          description: The new variables to create
-          schema:
-            $ref: &#39;#/definitions/Variables&#39;
-      responses:
-        &#39;201&#39;:
-          description: Created
-  &#39;/cloudmesh/variables/{name}&#39;:
-    get:
-      description: Returns a variables
-      operationId: get_variables_by_name
-      parameters:
-        - name: name
-          description: Name of the variable
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        &#39;200&#39;:
-          description: variables info
-          schema:
-            $ref: &#39;#/definitions/Variables&#39;
-definitions:
-  Variables:
-    type: object
-    description: the variables
-    properties:
-      name:
-        type: string
-        description: name of the variable
-      value:
-        type: string
-        description: type of the variable
-      kind:
-        type: string
-        description: value of the variable
-</code></pre>
-<h2 id="scheduler"><span class="header-section-number">9.15</span> Scheduler</h2>
+<h3 id="scheduler"><span class="header-section-number">9.5.2</span> Scheduler</h3>
 <p>A service to store scheduler, value, type information. All of them are stored as Strings.</p>
 <ul>
 <li>TODO: assign and improve</li>
 </ul>
-<h3 id="properties-scheduler"><span class="header-section-number">9.15.1</span> Properties Scheduler</h3>
+<h4 id="properties-scheduler"><span class="header-section-number">9.5.2.1</span> Properties Scheduler</h4>
 <table>
 <thead>
 <tr class="header">
@@ -3613,9 +3613,9 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="paths-11"><span class="header-section-number">9.15.2</span> Paths</h3>
-<h4 id="cloudmeshschedulers"><span class="header-section-number">9.15.2.1</span> /cloudmesh/schedulers</h4>
-<h5 id="get-cloudmeshschedulers"><span class="header-section-number">9.15.2.1.1</span> GET /cloudmesh/schedulers</h5>
+<h4 id="paths-12"><span class="header-section-number">9.5.2.2</span> Paths</h4>
+<h5 id="cloudmeshschedulers"><span class="header-section-number">9.5.2.2.1</span> /cloudmesh/schedulers</h5>
+<h6 id="get-cloudmeshschedulers"><span class="header-section-number">9.5.2.2.1.1</span> GET /cloudmesh/schedulers</h6>
 <p>Returns all schedulers</p>
 <p>Responses</p>
 <table>
@@ -3634,7 +3634,7 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h5 id="put-cloudmeshschedulers"><span class="header-section-number">9.15.2.1.2</span> PUT /cloudmesh/schedulers</h5>
+<h6 id="put-cloudmeshschedulers"><span class="header-section-number">9.5.2.2.1.2</span> PUT /cloudmesh/schedulers</h6>
 <p>ERROR: missing</p>
 <p>Responses</p>
 <table>
@@ -3674,8 +3674,8 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h4 id="cloudmeshschedulername"><span class="header-section-number">9.15.2.2</span> /cloudmesh/scheduler/{name}</h4>
-<h5 id="get-cloudmeshschedulername"><span class="header-section-number">9.15.2.2.1</span> GET /cloudmesh/scheduler/{name}</h5>
+<h5 id="cloudmeshschedulername"><span class="header-section-number">9.5.2.2.2</span> /cloudmesh/scheduler/{name}</h5>
+<h6 id="get-cloudmeshschedulername"><span class="header-section-number">9.5.2.2.2.1</span> GET /cloudmesh/scheduler/{name}</h6>
 <p>Returns a scheduler</p>
 <p>Responses</p>
 <table>
@@ -3715,10 +3715,10 @@ definitions:
 </tr>
 </tbody>
 </table>
-<h3 id="scheduler.yaml"><span class="header-section-number">9.15.3</span> scheduler.yaml</h3>
+<h3 id="scheduler.yaml"><span class="header-section-number">9.5.3</span> scheduler.yaml</h3>
 <pre data-include="../../services/scheduler/scheduler.yaml"><code>swagger: &#39;2.0&#39;
 info:
-  version: 0.0.2
+  version: 3.0.2
   date: 10-30-2018
   title: scheduler
   description: |-
@@ -3796,6 +3796,752 @@ definitions:
         type: string
         description: the scheduler kind or type
 </code></pre>
+<h2 id="compute-management---virtual-machines"><span class="header-section-number">9.6</span> Compute Management - Virtual Machines</h2>
+<p>This section is planed for a future verion.</p>
+<h3 id="image"><span class="header-section-number">9.6.1</span> Image</h3>
+<p>Just a placeholder fix</p>
+<ul>
+<li>TODO: this is a demo of the to do line</li>
+</ul>
+<h4 id="properties-image"><span class="header-section-number">9.6.1.1</span> Properties Image</h4>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 15%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">A unique id for the image</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The name of the image</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tag</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">A tag that can be defined by the user for the image</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">description</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">A description for the image</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cloud</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">os</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The OS of the image</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">osVersion</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The OS version of the image</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The status of the image</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">visibility</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The visibility of the image</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">extra</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Extra object of the image</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-13"><span class="header-section-number">9.6.1.2</span> Paths</h4>
+<h5 id="cloudmeshimage"><span class="header-section-number">9.6.1.2.1</span> /cloudmesh/image</h5>
+<h6 id="get-cloudmeshimage"><span class="header-section-number">9.6.1.2.1.1</span> GET /cloudmesh/image</h6>
+<p>Returns all general description images</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">abc info</td>
+<td style="text-align: left;"><a href="#abc">Abc</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshimage"><span class="header-section-number">9.6.1.2.1.2</span> PUT /cloudmesh/image</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">abc</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new abc to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#image">Image</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshimagename"><span class="header-section-number">9.6.1.2.2</span> /cloudmesh/image/{name}</h5>
+<h6 id="get-cloudmeshimagename"><span class="header-section-number">9.6.1.2.2.1</span> GET /cloudmesh/image/{name}</h6>
+<p>Returns a general description of an image</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">abc info</td>
+<td style="text-align: left;"><a href="#image">Image</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="image.yaml"><span class="header-section-number">9.6.1.3</span> image.yaml</h4>
+<pre data-include="../../services/image/image.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.2
+  date: 10-30-2018
+  title: abc
+  description: |-
+  
+    Just a placeholder fix
+
+    * TODO: this is a demo of the to do line
+    
+  termsOfService: &#39;http://bin.io/terms/&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/image:
+    get:
+      description: Returns all general description images
+      operationId: get_abc
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: abc info
+          schema:
+            $ref: &#39;#/definitions/Abc&#39;
+    put:
+      summary: Create a new image
+      operationId: add_image
+      parameters:
+        - in: body
+          name: abc
+          description: The new abc to create
+          schema:
+            $ref: &#39;#/definitions/Image&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/image/{name}&#39;:
+    get:
+      description: Returns a general description of an image
+      operationId: get_image_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: abc info
+          schema:
+            $ref: &#39;#/definitions/Image&#39;
+definitions:
+  Image:
+    type: object
+    properties:
+      id:
+        description: A unique id for the image      
+        type: string
+      name:
+        description: The name of the image
+        type: string
+      tag:
+        description: A tag that can be defined by the user for the image
+        type: string
+      description:
+        description: A description for the image
+        type: string
+      cloud:
+        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings      
+        type: string
+      os:
+        description: The OS of the image
+        type: string
+      osVersion:
+        description: The OS version of the image
+        type: string
+      status:
+        description: The status of the image
+        type: string
+      visibility:
+        description: The visibility of the image                   
+        type: string
+      extra:
+        description:  Extra object of the image                 
+        type: string
+</code></pre>
+<h3 id="flavor"><span class="header-section-number">9.6.2</span> Flavor</h3>
+<p>The flavor specifies elementary information about the compute node, such as memory and number of cores, as well as other attributes that can be added. Flavors are essential to size a virtual cluster appropriately.</p>
+<h4 id="properties-flavor"><span class="header-section-number">9.6.2.1</span> Properties Flavor</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the flavor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">label</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">a label that a user can set for this flavor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">uuid</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the uuid of the flavor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ncpu</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">number of cpus</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ram</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">number of bytes used for the image in RAM</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">disk</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">number of bytes used for the disk</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bandwidth</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the bandwidth</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">price</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">price for the flavor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cloud</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">name of the cloud this flavor is used</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cloud_flavor_id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">an id used by the cloud</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-14"><span class="header-section-number">9.6.2.2</span> Paths</h4>
+<h5 id="cloudmeshflavors"><span class="header-section-number">9.6.2.2.1</span> /cloudmesh/flavors</h5>
+<h6 id="get-cloudmeshflavors"><span class="header-section-number">9.6.2.2.1.1</span> GET /cloudmesh/flavors</h6>
+<p>Returns all flavors</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">flavor info</td>
+<td style="text-align: left;"><a href="#flavor">Flavor</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="put-cloudmeshflavors"><span class="header-section-number">9.6.2.2.1.2</span> PUT /cloudmesh/flavors</h6>
+<p>ERROR: missing</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">Created</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">flavor</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">The new flavor to create</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"><a href="#flavor">Flavor</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cloudmeshflavorname"><span class="header-section-number">9.6.2.2.2</span> /cloudmesh/flavor/{name}</h5>
+<h6 id="get-cloudmeshflavorname"><span class="header-section-number">9.6.2.2.2.1</span> GET /cloudmesh/flavor/{name}</h6>
+<p>Returns a flavor</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">flavor info</td>
+<td style="text-align: left;"><a href="#flavor">Flavor</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">ERROR: description missing</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="image.yaml-1"><span class="header-section-number">9.6.2.3</span> image.yaml</h4>
+<pre data-include="../../services/flavor/flavor.yaml"><code>swagger: &#39;2.0&#39;
+info:
+  version: 3.0.3
+  date: 10-30-2018
+  title: flavor
+  description: |-
+  
+    The flavor specifies elementary information about the compute
+    node, such as memory and number of cores, as well as other
+    attributes that can be added. Flavors are essential to size a
+    virtual cluster appropriately.
+
+  termsOfService: &#39;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&#39;
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: &#39;localhost:8080&#39;
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/flavors:
+    get:
+      description: Returns all flavors
+      operationId: get_flavor
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: flavor info
+          schema:
+            $ref: &#39;#/definitions/Flavor&#39;
+    put:
+      summary: Create a new flavor
+      operationId: add_flavor
+      parameters:
+        - in: body
+          name: flavor
+          description: The new flavor to create
+          schema:
+            $ref: &#39;#/definitions/Flavor&#39;
+      responses:
+        &#39;201&#39;:
+          description: Created
+  &#39;/cloudmesh/flavor/{name}&#39;:
+    get:
+      description: Returns a flavor
+      operationId: get_flavor_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        &#39;200&#39;:
+          description: flavor info
+          schema:
+            $ref: &#39;#/definitions/Flavor&#39;
+definitions:
+  Flavor:
+    type: object
+    description: the flavor
+    properties:
+      name:
+        type: string
+        description: name of the flavor
+      label:
+        type: string
+        description: a label that a user can set for this flavor
+      uuid:
+        type: string
+        description: the uuid of the flavor
+      ncpu:
+        type: integer
+        description: number of cpus
+      ram:
+        type: integer
+        description: number of bytes used for the image in RAM
+      disk:
+        type: integer
+        description: number of bytes used for the disk
+      bandwidth:
+        type: string
+        description: the bandwidth
+      price:
+        type: string
+        description: price for the flavor
+      cloud:
+        type: string
+        description: name of the cloud this flavor is used
+      cloud_flavor_id:
+        type: string
+        description: an id used by the cloud
+
+</code></pre>
+<h3 id="vm"><span class="header-section-number">9.6.3</span> Vm</h3>
+<p>A service to manage virtual machines</p>
+<h4 id="properties-vm"><span class="header-section-number">9.6.3.1</span> Properties VM</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">provider</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Name of the provider</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">a unique id for the vm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the name of the vm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">image</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">the image for the vm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">region</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">an optional region</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">size</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The size of the vm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">state</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The state of the vm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">private_ips</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The private IPs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">public_ips</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The public IPS</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">metadata</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">The meta data passed along to the VM</td>
+</tr>
+</tbody>
+</table>
+<h4 id="paths-15"><span class="header-section-number">9.6.3.2</span> Paths</h4>
+<h5 id="vm-1"><span class="header-section-number">9.6.3.2.1</span> /vm</h5>
+<h6 id="get-vm"><span class="header-section-number">9.6.3.2.1.1</span> GET /vm</h6>
+<p>Returns the list of the vms</p>
+<p>Responses</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">Listing the VMs</td>
+<td style="text-align: left;"><a href="#vm">VM</a></td>
+</tr>
+</tbody>
+</table>
+<p>Parameters</p>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 46%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Located in</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cloud</td>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">specify the cloud from which we list, if ommitted all clouds are returned.</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="vm.yaml"><span class="header-section-number">9.6.3.3</span> vm.yaml</h4>
+<pre data-include="../../services/vm/vm.yaml"><code>swagger: &quot;2.0&quot;
+info:
+  version: 3.0.4
+  date: 11-14-2018
+  title: &quot;Coludmesh VM&quot;
+  description: |-
+
+    A service to manage virtual machines
+
+  termsOfService: &quot;https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt&quot;
+  contact:
+    name: Gregor von Laszeewski
+  license:
+    name: &quot;Apache&quot;
+host: &quot;localhost:8080&quot;
+basePath: &quot;/cloudmesh&quot;
+schemes:
+  - &quot;http&quot;
+consumes:
+  - &quot;application/json&quot;
+produces:
+  - &quot;application/json&quot;
+paths:
+  /vm:
+    get:
+      tags:
+        - &quot;vm&quot;
+      operationId: vm_list
+      description: &quot;Returns the list of the vms&quot;
+      produces: 
+        - &quot;application/json&quot;
+      parameters:
+        - name: &quot;cloud&quot;
+          in: &quot;body&quot;
+          type: string
+          description: &quot;specify the cloud from which we list, if ommitted all clouds are returned.&quot;
+          required: false
+      schema:
+        $ref: &quot;#/definitions/VM&quot;
+      responses: 
+        &quot;200&quot;:
+          description: &quot;Listing the VMs&quot;
+          schema: 
+            $ref: &quot;#/definitions/VM&quot;
+definitions:
+  VM:
+    type: &quot;object&quot;
+    properties:
+      provider:
+        type: &quot;string&quot;
+        description: Name of the provider    
+      id:
+        type: &quot;string&quot;
+        description: a unique id for the vm
+      name:
+        type: &quot;string&quot;
+        description: the name of the vm
+      image:
+        type: &quot;string&quot;
+        description: the image for the vm
+      region:
+        type: &quot;string&quot;
+        description: an optional region
+      size:
+        type: &quot;string&quot;
+        description: The size of the vm
+      state:
+        type: &quot;string&quot;
+        description: The state of the vm
+      private_ips:
+        type: &quot;string&quot;   # will be changed to array
+        description: The private IPs
+      public_ips:
+        type: &quot;string&quot;   # will be changed to array
+        description: The public IPS
+      metadata:
+        type: &quot;string&quot;   # will be changed to dict
+        description: The meta data passed along to the VM
+        
+
+</code></pre>
+<h2 id="compute-management---containers"><span class="header-section-number">9.7</span> Compute Management - Containers</h2>
+<p>This section is planed for a future verion.</p>
+<h2 id="compute-management---functions"><span class="header-section-number">9.8</span> Compute Management - Functions</h2>
+<p>This section is planed for a future verion.</p>
+<h2 id="others"><span class="header-section-number">9.9</span> Others</h2>
+<p>Please notify us if you like to add other specifications.</p>
 <h1 id="status-codes-and-error-responses"><span class="header-section-number">10</span> Status Codes and Error Responses</h1>
 <p>In case of an error or a successful response, the response header contains a HTTP code (see <a href="https://tools.ietf.org/html/rfc7231" class="uri">https://tools.ietf.org/html/rfc7231</a>). The response body usually contains the following:</p>
 <ul>

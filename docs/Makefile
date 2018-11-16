@@ -1,5 +1,6 @@
 .PHONY: spec
 
+VERSION="Version 3.0.3"
 FILE=nistvol8-2
 
 MARKDOWN-OPTIONS=$(MERMAID)  --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
@@ -11,7 +12,7 @@ CSS=--css=template/epub.css
 CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
 TITLE=--metadata title="NIST BDRA Volume 8"
-
+LATEX=-N --template=./template.latex -V version=$(VERSION)
 DEST=dest
 SRC=../services
 
@@ -79,11 +80,19 @@ html: spec
 	cp $(DEST)/$(FILE).html .
 
 pdf: spec
+	cp template.latex dest
 	cp *.tex dest
 	cp -rf images dest
 #	cd dest; pandoc -H headers-include.tex $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) $(LATEX) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
 	cp $(DEST)/$(FILE).pdf .
+
+tex: spec
+	cp *.tex dest
+	cp -rf images dest
+#	cd dest; pandoc -H headers-include.tex $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).tex
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).tex
+	cp $(DEST)/$(FILE).tex .
 
 word: spec
 	cp format.docx	$(DEST)
