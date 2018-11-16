@@ -24,3 +24,22 @@
  'price': 0.012,
  'ram': 1024}
 ```
+```
+{'_uuid': None,
+ 'driver': <libcloud.compute.drivers.openstack.OpenStack_1_1_NodeDriver object at 0x1045d32b0>,
+ 'extra': {'created': '2018-10-24T17:48:11Z',
+           'metadata': {'build-os': 'ubuntu-trusty',
+                        'build-os-base-image-revision': '20181022',
+                        'build-repo': 'https://github.com/ChameleonCloud/CC-Ubuntu16.04',
+                        'build-repo-commit': 'f87a840fb0d7b0530696e751e42060decc6087be',
+                        'build-tag': 'jenkins-cc-ubuntu-trusty-builder-2',
+                        'build-variant': 'base'},
+           'minDisk': 0,
+           'minRam': 0,
+           'progress': 100,
+           'serverId': None,
+           'status': 'ACTIVE',
+           'updated': '2018-10-24T17:48:21Z'},
+ 'id': '1eabad70-eaa9-4724-b64d-67176066f9b1',
+ 'name': 'CC-Ubuntu14.04'}
+```
