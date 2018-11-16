@@ -10,3 +10,41 @@
     'sku': '16.04-LTS',
     'version': 'latest'}
 ```
+
+```
+{'_uuid': None,
+ 'driver': <libcloud.compute.drivers.ec2.EC2NodeDriver object at 0x11056fc50>,
+ 'extra': {'architecture': 'x86_64',
+           'billing_products': [],
+           'block_device_mapping': [{'device_name': '/dev/sda1',
+                                     'ebs': {'delete': 'true',
+                                             'iops': None,
+                                             'snapshot_id': 'snap-0576704bcf883d5ee',
+                                             'volume_id': None,
+                                             'volume_size': 8,
+                                             'volume_type': 'gp2'},
+                                     'virtual_name': None},
+                                    {'device_name': '/dev/sdb',
+                                     'virtual_name': 'ephemeral0'},
+                                    {'device_name': '/dev/sdc',
+                                     'virtual_name': 'ephemeral1'}],
+           'description': 'Canonical, Ubuntu, 18.04 LTS, amd64 bionic image '
+                          'build on 2018-09-12',
+           'ena_support': 'true',
+           'hypervisor': 'xen',
+           'image_location': '099720109477/ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20180912',
+           'image_type': 'machine',
+           'is_public': 'true',
+           'kernel_id': None,
+           'owner_alias': None,
+           'owner_id': '099720109477',
+           'platform': None,
+           'ramdisk_id': None,
+           'root_device_type': 'ebs',
+           'sriov_net_support': 'simple',
+           'state': 'available',
+           'tags': {},
+           'virtualization_type': 'hvm'},
+ 'id': 'ami-0bbe6b35405ecebdb',
+ 'name': 'ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20180912'}
+```
