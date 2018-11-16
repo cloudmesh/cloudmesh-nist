@@ -53,26 +53,27 @@
  'name': 'ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20180912'}
 ```
 
-# OPenSTack
-
-
+# OpenStack
 
 ```
+
 {'_uuid': None,
- 'driver': <libcloud.compute.drivers.openstack.OpenStack_1_1_NodeDriver object at 0x1045d32b0>,
- 'extra': {'created': '2018-10-24T17:48:11Z',
-           'metadata': {'build-os': 'ubuntu-trusty',
-                        'build-os-base-image-revision': '20181022',
+ 'driver': <libcloud.compute.drivers.openstack.OpenStack_1_1_NodeDriver object at 0x10d92c2e8>,
+ 'extra': {'created': '2018-10-24T18:55:12Z',
+           'metadata': {'build-os': 'ubuntu-xenial',
+                        'build-os-base-image-revision': '20181018',
                         'build-repo': 'https://github.com/ChameleonCloud/CC-Ubuntu16.04',
                         'build-repo-commit': 'f87a840fb0d7b0530696e751e42060decc6087be',
-                        'build-tag': 'jenkins-cc-ubuntu-trusty-builder-2',
+                        'build-tag': 'jenkins-cc-ubuntu-xenial-builder-2',
+
                         'build-variant': 'base'},
            'minDisk': 0,
            'minRam': 0,
            'progress': 100,
            'serverId': None,
            'status': 'ACTIVE',
-           'updated': '2018-10-24T17:48:21Z'},
- 'id': '1eabad70-eaa9-4724-b64d-67176066f9b1',
- 'name': 'CC-Ubuntu14.04'}
+           'updated': '2018-10-24T18:55:23Z'},
+ 'id': '0b261cb9-e9ab-4f38-8988-1ccc71f9c070',
+ 'name': 'CC-Ubuntu16.04'}
+
 ```
