@@ -1,6 +1,6 @@
 .PHONY: spec
 
-VERSION="Version 3.0.3"
+VERSION="Version 3.0.3"  
 FILE=nistvol8-2
 
 MARKDOWN-OPTIONS=$(MERMAID)  --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml

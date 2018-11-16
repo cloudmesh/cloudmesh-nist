@@ -360,7 +360,7 @@ $endif$
 \fancyfoot{} % clear all footer fields
 \fancyfoot[LE,RO]{\thepage}
 \fancyfoot[RE,LO]{von Laszewski, Wang, Wo, et.al.}
-\fancyfoot[CO,CE]{$version$}
+\fancyfoot[CO,CE]{$version$, \today}
 
 
 %\fancyhead[CO,CE]{$title-author$}
