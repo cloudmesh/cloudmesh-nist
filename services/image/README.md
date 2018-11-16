@@ -1,3 +1,5 @@
+# Azure
+
 ```    
 {   '_uuid': None,
     'driver': <libcloud.compute.drivers.azure_arm.AzureNodeDriver object at 0x000001DDAE20A588>,
@@ -10,6 +12,8 @@
     'sku': '16.04-LTS',
     'version': 'latest'}
 ```
+
+# AWS
 
 ```
 {'_uuid': None,
@@ -48,6 +52,9 @@
  'id': 'ami-0bbe6b35405ecebdb',
  'name': 'ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20180912'}
 ```
+
+# OpenStack
+
 ```
 
 {'_uuid': None,
@@ -58,6 +65,7 @@
                         'build-repo': 'https://github.com/ChameleonCloud/CC-Ubuntu16.04',
                         'build-repo-commit': 'f87a840fb0d7b0530696e751e42060decc6087be',
                         'build-tag': 'jenkins-cc-ubuntu-xenial-builder-2',
+
                         'build-variant': 'base'},
            'minDisk': 0,
            'minRam': 0,
