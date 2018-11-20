@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 3.0.2
-  date: 10-30-2018
+  x-date: 10-30-2018
   title: user
   description: |-
   

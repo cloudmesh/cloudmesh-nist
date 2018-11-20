@@ -9,7 +9,7 @@ info:
     attributes that can be added. Flavors are essential to size a
     virtual cluster appropriately.
 
-    date: 10-30-2018
+    x-date: 10-30-2018
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:

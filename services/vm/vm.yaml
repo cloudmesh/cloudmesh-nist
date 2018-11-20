@@ -5,7 +5,7 @@ info:
     A service to manage virtual machines
     
   version: 3.0.5
-  date: 11-16-2018
+  x-date: 11-16-2018
   title: Coludmesh VM
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
