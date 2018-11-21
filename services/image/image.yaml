@@ -2,10 +2,13 @@ swagger: '2.0'
 info:
   version: 3.0.2
   x-date: 10-30-2018
-  title: abc
+  title: image
   description: |-
   
-    Just a placeholder fix
+    An operating system image.
+
+    Image objects are typically returned by the driver for the 
+    cloud provider in response to the list_images function.
 
     * TODO: this is a demo of the to do line
     
@@ -26,21 +29,21 @@ paths:
   /cloudmesh/image:
     get:
       description: Returns all general description images
-      operationId: get_abc
+      operationId: get_image
       produces:
         - application/json
       responses:
         '200':
-          description: abc info
+          description: default image info
           schema:
-            $ref: '#/definitions/Abc'
+            $ref: '#/definitions/Image'
     put:
       summary: Create a new image
       operationId: add_image
       parameters:
         - in: body
-          name: abc
-          description: The new abc to create
+          name: image
+          description: The new image to create
           schema:
             $ref: '#/definitions/Image'
       responses:
@@ -59,7 +62,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: abc info
+          description: image info
           schema:
             $ref: '#/definitions/Image'
 definitions:

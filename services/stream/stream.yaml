@@ -80,5 +80,5 @@ definitions:
         type: integer
         description: the rate of messages
       limit:
-        type integer
+        type: integer
         description: the limit of items send

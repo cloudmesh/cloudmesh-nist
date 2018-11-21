@@ -71,9 +71,11 @@ definitions:
     description: the timestamp
     properties:
       accessed:
-        type: date
+        type: string
+        format: date
       created:
-        type: date
+        type: string
+        format: date
       modified:
-        type: date
-
+        type: string
+        format: date

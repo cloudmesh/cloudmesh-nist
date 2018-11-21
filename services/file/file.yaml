@@ -81,9 +81,6 @@ definitions:
       endpoint:
         type: string
         description: The location of the file
-      endpoint:
-        type: string
-        description: The location of the file
       checksum:
         type: string
         description: The checksum of the file
@@ -91,8 +88,7 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-        type: timestamp
-        description: The timestamp
+          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
 
 #        "name": "report.dat",
 #        "endpoint": "file://gregor@machine.edu:/data/report.dat",

@@ -72,9 +72,14 @@ definitions:
         Description for this user
     properties:
       description:
-        Description for this user
+        description: Description for this user
         type: string
       profile:
         type: string
         description: The pointer to a profile for this user (TBD)
 #        $ref: '#/definitions/User'
+  Users:
+    type: array
+    description: A collection of Users
+    items:
+      $ref: '#/definitions/User'

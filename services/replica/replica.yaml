@@ -75,7 +75,7 @@ definitions:
         type: string
         description: the name of the replica
       filename:
-        type: the original name of the file
+        type: string
         description: the original filename
       endpoint:
         type: string
@@ -87,5 +87,4 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-        type: timestamp
-        description: The timestamp
+          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'

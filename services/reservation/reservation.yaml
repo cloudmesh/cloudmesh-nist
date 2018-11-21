@@ -78,8 +78,10 @@ definitions:
         type: string
         description: the description of the reservation
       start:
-        type: date
+        type: string
+        format: date
         description: the start time and date
       end:
-        type: date
+        type: string
+        format: date
         description: the end time and date

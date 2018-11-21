@@ -67,7 +67,7 @@ paths:
           schema:
             $ref: '#/definitions/Default'
 definitions:
-  Defaults:
+  Default:
     type: object
     description: the defaults
     properties:

@@ -25,6 +25,17 @@ consumes:
   - application/json
 produces:
   - application/json
+securityDefinitions:
+  httpbasic:
+    type: basic
+  apikey:
+    type: apiKey
+    in: query
+    name: api_key
+  apisecret:
+    type: apiKey
+    in: query
+    name: api_secret
 paths:
   /cloudmesh/virtualdirectory:
     get:
