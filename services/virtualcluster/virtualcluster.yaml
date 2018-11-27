@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   version: 3.0.3
-  date: 06-11-2018
+  x-date: 06-11-2018
   title: "Virtual Cluster"
   description: |-
 

@@ -74,7 +74,7 @@ definitions:
         type: string
         description: the type of the deployer such as ansible
       deployment_git:
-        type: url
+        type: string
         description: the url where to find the deployment scripts
       resource_managers:
         type: integer
@@ -92,8 +92,8 @@ definitions:
         type: integer
         description: number of journal nodes
       yarn:
-        type: boolena
+        type: boolean
         description: true if yarn is used
       hdfs:
-        type: boolena
+        type: boolean
         description: true if hdfs is used

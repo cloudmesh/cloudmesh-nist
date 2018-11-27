@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 3.0.2
-  date: 10-30-2018
+  x-date: 10-30-2018
   title: timestamp
   description: |-
   
@@ -71,9 +71,11 @@ definitions:
     description: the timestamp
     properties:
       accessed:
-        type: date
+        type: string
+        format: date
       created:
-        type: date
+        type: string
+        format: date
       modified:
-        type: date
-
+        type: string
+        format: date

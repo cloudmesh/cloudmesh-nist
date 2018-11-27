@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 3.0.2
-  date: 10-30-2018
+  x-date: 10-30-2018
   title: user
   description: |-
   
@@ -72,9 +72,14 @@ definitions:
         Description for this user
     properties:
       description:
-        Description for this user
+        description: Description for this user
         type: string
       profile:
         type: string
         description: The pointer to a profile for this user (TBD)
 #        $ref: '#/definitions/User'
+  Users:
+    type: array
+    description: A collection of Users
+    items:
+      $ref: '#/definitions/User'

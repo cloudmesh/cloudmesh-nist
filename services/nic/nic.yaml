@@ -74,24 +74,24 @@ definitions:
         type: string
         description: kind of the nic, such as wireless
       mac:
-        type: srting
+        type: string
         description: the mac address
       ip:
-        type: srting
+        type: string
         description: the ip address
       mask:
-        type: srting
+        type: string
         description: the network mask
       broadcast:
-        type: srting
+        type: string
         description: the broadcast address
       gateway:
-        type: srting
+        type: string
         description: the gateway address
       mtu:
         type: integer
         description: the mtu
       bandwidth:
-        type: integre
+        type: integer
         description: the bandwidth in bps
 

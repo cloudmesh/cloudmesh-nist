@@ -82,6 +82,7 @@ definitions:
       users:
         description: list of users
         type: array
-        items: ../users/user.yaml#/definitions/Users
+        items: 
+          $ref: '../user/user.yaml#/definitions/Users'
 
 
