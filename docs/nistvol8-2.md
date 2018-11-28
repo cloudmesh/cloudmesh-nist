@@ -202,7 +202,7 @@ NIST would like to acknowledge the specific contributions to this
 volume, during Version 1 and/or Version 2 activities. *Contributors*
 are members of the NIST Big Data Public Working Group who dedicated
 great effort to prepare and gave substantial time on a regular basis
-to research and development in support of this document. THis includes
+to research and development in support of this document. This includes
 especially the following NBD-PWG members:
 
 
