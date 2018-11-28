@@ -282,8 +282,7 @@ This document is targeting Stage 2 of the NBDRA. Coordination of the
 group is conducted on the NBD-PWG web page
 (<https://bigdatawg.nist.gov>).
 
-Introduction
-============
+# Introduction
 
 Background
 ----------
