@@ -281,8 +281,7 @@ This document is targeting Stage 2 of the NBDRA. Coordination of the
 group is conducted on the NBD-PWG web page
 (<https://bigdatawg.nist.gov>).
 
-Introduction
-============
+# Introduction
 
 Background
 ----------
@@ -1024,26 +1023,26 @@ A resource-oriented architecture represents a software architecture and
 programming paradigm for designing and developing software in the form
 of resources. It is often associated with *REST* interfaces. The
 resources are software components which can be reused in concrete
-reference implementations. The srevice speccification is conducted with OpenAPI, allowing
-use to provide it in a very general form that is indepndent of the
-froamework or computer langusge in which the services can be specified.
+reference implementations. The service specification is conducted with OpenAPI, allowing
+use to provide it in a very general form that is independent of the
+framework or computer language in which the services can be specified.
 Note that OpenAPI defines services in REpresentational State Transfer (REST)
-The brevious verion only specified the resource objects.
+The previous version only specified the resource objects.
 
 Design by Example
 -----------------
 
 To accelerate discussion among the NBD-PWG members, we encourage
-contributors to this documemt to also provide us with examples that we
+contributors to this document to also provide us with examples that we
 can include in an appendix.
 
 Version Management
 ------------------
 
-During the design phase and inbetween versions of this document
-enhancemnents are managed through github and community contributions
+During the design phase and in between versions of this document
+enhancements are managed through github and community contributions
 are managed via github issues. This allows us to preserve the history
-of this document. When a new version is ready, we will tagg the
+of this document. When a new version is ready, we will tag the
 version in github. Older version will through this process also be
 available as historical documents. Discussions about objects in
 written form are communicated as github issues.
@@ -1088,12 +1087,12 @@ feedback.
 # Specification
 
 We will provide the specifications to this document through an
-automated document crearion process so that the actual OpenAPI
+automated document creation process so that the actual OpenAPI
 specifications are the source for the document. Thus we will have all
 OpenAPI specifications located in the following directory in github:
 
 ```
-Addd the link to the github dir
+Add the link to the github dir
 ```
 
 Limitations of the current implementation are as follows. It is a
@@ -1106,7 +1105,7 @@ application requirements.
 ## List of specifications
 
 The following table lists the current set of resource objects that we
-are defining in this draft. Additional objects are alos available at
+are defining in this draft. Additional objects are also available at
 
 * <https://github.com/cloudmesh-community/nist/tree/master/services>
 
@@ -1118,7 +1117,7 @@ are defining in this draft. Additional objects are alos available at
 
 As part of services we often need to specify an identity. In addition
 such persons are often part of groups and have roles within these
-groups. Thus we distinguis three important terms related to the identity:
+groups. Thus we distinguish three important terms related to the identity:
 
 * Profile - The information identifying the profile of a person
 * Group - A group that a person may belong to that is important to
@@ -1130,20 +1129,20 @@ groups. Thus we distinguis three important terms related to the identity:
 
 ### Authentication
 
-At this time we have not yet included the mechanims on how to manage
+At this time we have not yet included the mechanisms on how to manage
 authentication to external services such as clouds that can stage
 virtual machines. However in cloudmesh we have shown multiple
 solutions to this
 
 * Local configuration file: A configuration file is managed locally to
   allow access to the clouds. It is in the designers responsibility
-  npot to expose such credentials
-* Session based authentication. No passwords are stored in teh
-  configuration file and access is granted on a per session basis wher
-  ethe password neds to be entered
+  not to expose such credentials
+* Session based authentication. No passwords are stored in the
+  configuration file and access is granted on a per session basis where
+  the password needs to be entered
 * Service based authentication. The authentication is delegated to an
-  external process. One example here is alos oAuth.
-* The serive that acts in behalf of the user needs to have access to
+  external process. One example here is also Auth.
+* The service that acts in behalf of the user needs to have access to
   the appropriate cloud provider credentials
 
 An example for a configuration file is provided at
@@ -1289,7 +1288,7 @@ An example for a configuration file is provided at
 
 ## Compute Management - Virtual Machines
 
-This section is planed for a future verion.
+This section is planned for a future version.
 
 
 ### Image
@@ -1322,15 +1321,15 @@ This section is planed for a future verion.
 
 ## Compute Management - Containers
 
-This section is planed for a future verion.
+This section is planned for a future version.
 
 ## Compute Management - Functions
 
-This section is planed for a future verion.
+This section is planned for a future version.
 
 ## Others
 
-Please notify us if you like to add other specifications.
+Please notify us if you would like to add other specifications.
 
 
 
