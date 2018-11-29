@@ -206,7 +206,7 @@ to research and development in support of this document. THis includes
 especially the following NBD-PWG members:
 
 
-* Gregor von| Laszewski, Indiana University
+* Gregor von Laszewski, Indiana University
 * Wo Chang, National Institute of Standard and Technology,
 * Fugang Wang, Indiana University
 * Geoffrey C. Fox, Indiana University
