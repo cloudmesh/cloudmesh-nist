@@ -409,9 +409,7 @@ developed.
 
 Version 2 of the NBDIF volumes, resulting from Stage 2 work, can be
 downloaded from the NBD-PWG website
-(<https://bigdatawg.nist.gov/V2_output_docs.php>). Potential areas of
-future work for each volume during Stage 3 are highlighted in Section
-**1.5**???????? of each volume. The current effort documented in this volume
+(<https://bigdatawg.nist.gov/V2_output_docs.php>). The current effort documented in this volume
 reflects concepts developed within the rapidly evolving field of Big
 Data.
 
