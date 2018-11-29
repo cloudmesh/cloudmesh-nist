@@ -183,8 +183,7 @@ The editors for this document were the following:
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
 
-Laurie Aldape (Energetics Incorporated) provided editorial assistance
-across all NBDIF volumes.
+Laurie Aldape (Energetics Incorporated) and Elizabeth Lennon (NIST) provided editorial assistance across all NBDIF volumes.
 
 
 NIST SP 1500-9, Draft NIST Big Data Interoperability Framework: Volume
