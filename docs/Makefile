@@ -94,10 +94,10 @@ tex: spec
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).tex
 	cp $(DEST)/$(FILE).tex .
 
-word: spec
+word: clean dest rest spec epub
 	cp format.docx	$(DEST)
 	# cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=format.docx -s $(FILE).md -o $(FILE).docx
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=../../template/nist-bdra-template.docx -s $(FILE).md -o $(FILE).docx
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=../../template/nist-bdra-template3.docx -s $(FILE).md -o $(FILE).docx
 	cp $(DEST)/$(FILE).docx .
 
 
