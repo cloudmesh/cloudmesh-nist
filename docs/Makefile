@@ -35,7 +35,6 @@ volume: dest rest spec epub html pdf word
 dest: 
 	mkdir -p $(DEST)/spec
 
-
 #$(objects): dest/spec/%.md : ../services/%/%.yaml
 #	../bin/cm-openapi2md md $< --indent=3 > $@
 
@@ -63,7 +62,7 @@ lint:
 setup:
 	pip install -r ../requirements.txt
 
-spec: specstable openapi $(FILE).md
+spec: dest specstable openapi $(FILE).md
 #	cat dest/spec/*.md > dest/spec.md
 	cat nistvol8-2.md status.md acronyms.md bib.md  > dest/$(FILE).md
 	cd dest; ../../bin/cm-md-filter $(FILE).md > all.md
