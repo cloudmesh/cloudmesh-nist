@@ -34,7 +34,7 @@ paths:
       produces:
         - application/json
       responses:
-        '200':x
+        '200':
           description: alias information
           schema:
             $ref: '#/definitions/Alias'
