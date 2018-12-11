@@ -78,13 +78,14 @@ html: spec
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc -s $(FILE).md -o $(FILE).html
 	cp $(DEST)/$(FILE).html .
 
-pdf: spec
+pdf: spec  dest rest epub
 	cp template.latex dest
 	cp *.tex dest
 	cp -rf images dest
 #	cd dest; pandoc -H headers-include.tex $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) $(LATEX) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
 	cp $(DEST)/$(FILE).pdf .
+	open $(FILE).pdf .
 
 tex: spec
 	cp *.tex dest
