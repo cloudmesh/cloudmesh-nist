@@ -1,6 +1,15 @@
 # NIST Big Data Reference Architecture Interfaces
 
 
+pandoc-codeblock-include is broken, a fixed version can be installed
+from
+
+pip install --upgrade --force git+https://github.com/laszewsk/pandoc-codeblock-include
+
+
+
+
+
 The working draft of the specification is in
 
 * <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md>
