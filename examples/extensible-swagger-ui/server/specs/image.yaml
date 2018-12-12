@@ -1,0 +1,85 @@
+definitions:
+  Image:
+    type: object
+    description:  |-
+      An operating system image.
+
+      Image objects are typically returned by the driver for the 
+      cloud provider in response to the list_images function.
+    properties:
+      id:
+        description: A unique id for the image      
+        type: string
+      cloud:
+        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings      
+        type: string
+      name:
+        description: The name of the image
+        type: string
+      tag:
+        description: A tag that can be defined by the user for the image
+        type: string
+      description:
+        description: A description for the image
+        type: string
+      os:
+        description: The OS of the image
+        type: string
+      osVersion:
+        description: The OS version of the image
+        type: string
+      status:
+        description: The status of the image
+        type: string
+      visibility:
+        description: The visibility of the image                   
+        type: string
+      extra:
+        description:  Extra object of the image                 
+        type: string
+paths:
+  /image:
+    get:
+      tags: 
+        - image
+      description: Returns all general description images
+      operationId: image.get_image
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: default image info
+          schema:
+            $ref: '#/definitions/Image'
+    put:
+      tags: 
+        - image
+      summary: Create a new image
+      operationId: image.add_image
+      parameters:
+        - in: body
+          name: image
+          description: The new image to create
+          schema:
+            $ref: '#/definitions/Image'
+      responses:
+        '201':
+          description: Created
+  /image/{name}:
+    get:
+      description: Returns a general description of an image
+      operationId: image.get_image_by_name
+      tags: 
+        - image
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: image info
+          schema:
+            $ref: '#/definitions/Image'

@@ -1,0 +1,95 @@
+definitions:
+  VM:
+    type: object
+    description: A virtual machine
+    properties:
+      id:
+        description: an internal unique id for the vm
+        type: string
+      cloud:
+        description: Name of the cloud
+        type: string
+      name:
+        description: the name of the vm
+        type: string
+      image:
+        description: the image for the vm
+        type: string
+      region:
+        description: an optional region
+        type: string
+      size:
+        description: The size of the vm
+        type: string
+      state:
+        description: The state of the vm
+        type: string
+      private_ips:
+        description: The private IPs
+        type: array
+        items: 
+          type: string
+      public_ips:
+        description: The public IPS
+        type: array
+        items: 
+          type: string
+      metadata:
+        description: The meta data passed along to the VM
+        type: string
+    example:
+      image: image
+      metadata: metadata
+      size: size
+      provider: provider
+      name: name
+      private_ips: [priv1, priv2]
+      id: id
+      state: state
+      region: region
+      public_ips: [ip1, ip2]
+paths:
+  /vm:
+    get:
+      tags:
+        - vm
+      description: Returns the list of the vms
+      operationId: vm.vm_list
+      produces:
+        - application/json
+      parameters:
+        - name: cloud
+          in: query
+          type: string
+          description: 'specify the cloud from which we list, if ommitted all clouds are returned.'
+          required: false
+        - name: state
+          in: query
+          type: string
+          description: 'Only return VMs with this current state.'
+          required: false
+      responses:
+        '200':
+          description: Listing the VMs
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/VM"
+  /vm/{name}:
+    get:
+      description: Returns a vm
+      operationId: vm.get_vm_by_name
+      tags: 
+        - vm
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: vm info
+          schema:
+            $ref: '#/definitions/VM'

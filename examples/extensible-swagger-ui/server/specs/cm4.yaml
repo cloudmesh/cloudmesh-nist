@@ -1,0 +1,25 @@
+swagger: '2.0'
+
+info:
+  version: 3.0.2
+  x-date: 10-30-2018
+  title: Cloudmesh 4 Rest API
+  description: Cloudmesh 4 Rest API
+  termsOfService: 'http://bin.io/terms/'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+
+host: 'localhost:8080'
+
+schemes:
+  - http
+consumes:
+  - application/json
+
+produces:
+  - application/json
+  
+basePath: /api

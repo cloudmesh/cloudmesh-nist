@@ -1,0 +1,82 @@
+definitions:
+  Flavor:
+    type: object
+    description:
+      The flavor specifies elementary information about the compute
+      node, such as memory and number of cores, as well as other
+      attributes that can be added. Flavors are essential to size a
+      virtual cluster appropriately.
+    properties:
+      id:
+        type: string
+        description: the id of the flavor
+      cloud:
+        type: string
+        description: name of the cloud this flavor is used
+      name:
+        type: string
+        description: name of the flavor
+      label:
+        type: string
+        description: a label that a user can set for this flavor
+      metadata: 
+        type: string
+        description: A dictionary with additional metadata
+      uuid:
+        type: string
+        description: the uuid of the flavor
+      ram:
+        type: integer
+        description: number of bytes used for the image in RAM
+      disk:
+        type: integer
+        description: number of bytes used for the disk
+      price:
+        type: string
+        description: price for the flavor
+paths:
+  /flavor:
+    get:
+      description: Returns all flavors
+      operationId: flavor.get_flavor
+      tags: 
+        - flavor
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: flavor info
+          schema:
+            $ref: '#/definitions/Flavor'
+    put:
+      summary: Create a new flavor
+      operationId: flavor.add_flavor
+      tags: 
+        - flavor
+      parameters:
+        - in: body
+          name: flavor
+          description: The new flavor to create
+          schema:
+            $ref: '#/definitions/Flavor'
+      responses:
+        '201':
+          description: Created
+  /flavor/{name}:
+    get:
+      description: Returns a flavor
+      operationId: flavor.get_flavor_by_name
+      tags: 
+        - flavor
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: flavor info
+          schema:
+            $ref: '#/definitions/Flavor'
