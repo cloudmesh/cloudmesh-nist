@@ -1177,7 +1177,7 @@ An example for a configuration file is provided at
 ```{include=../../services/keystore/keystore.yaml}
 ```
 
-<!-- --- GENERAL  MANAGEMENT -->
+<!-- GENERAL MANAGEMENT -->
 
 ## General Resources
 
@@ -1219,7 +1219,7 @@ An example for a configuration file is provided at
 ```{include=./spec/default.yaml}
 ```
 
-<!-- --- FILE MANAGEMENT -->
+<!-- FILE MANAGEMENT -->
 
 ## Data Management
 
@@ -1262,7 +1262,7 @@ An example for a configuration file is provided at
 
 
 
-<!-- --- COMPUTE MANAGEMENT -->
+<!-- COMPUTE MANAGEMENT -->
 
 ## Compute Management - Virtual Clutsers
 
