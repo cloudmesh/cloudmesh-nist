@@ -1001,7 +1001,7 @@ are defining in this draft. Additional objects are also available at
   default            default            3.0.2     TBD
   file               file               3.0.2     TBD
   database           database           3.1.0     defined
-  replica            replica            3.0.2     TBD
+  replica            replica            3.1.0     defined
   virtualdirectory   virtualdirectory   3.1.0     defined
   virtualcluster     Virtual Cluster    3.1.0     defined
   keystore           key                3.1.0     defined
@@ -2791,8 +2791,6 @@ important to provide a mechanism to trace the pedigree of the file while
 pointing to its original source. A replica can be applied to all data
 types introduced in this document.
 
--   TODO: assign and improve
-
 #### Properties Replica
 
   Property    Type      Description
@@ -2820,15 +2818,15 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description                 Required   Schema
+  ------ ------------ --------------------------- ---------- --------
+  name   path         name of the replica entry   True       
 
-##### /cloudmesh/replicas
+##### /cloudmesh/replica
 
-###### PUT /cloudmesh/replicas
+###### PUT /cloudmesh/replica
 
-ERROR: missing
+Create a new replica record
 
 Responses
 
@@ -2838,13 +2836,13 @@ Responses
 
 Parameters
 
-  Name      Located in   Description                 Required   Schema
-  --------- ------------ --------------------------- ---------- ---------------------
-  replica   body         The new replica to create   False      [Replica](#replica)
+  Name      Located in   Description                       Required   Schema
+  --------- ------------ --------------------------------- ---------- ---------------------
+  replica   body         The new replica entry to create   True       [Replica](#replica)
 
-###### GET /cloudmesh/replicas
+###### GET /cloudmesh/replica
 
-Returns all replicas
+Returns all replicas records
 
 Responses
 
@@ -2857,8 +2855,9 @@ Responses
 ``` {include="../../services/replica/replica.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: replica
   description: |-
   
@@ -2868,9 +2867,8 @@ info:
     while pointing to its original source. A replica can be applied to
     all data types introduced in this document.
 
-    * TODO: assign and improve
     
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -2884,9 +2882,9 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/replicas:
+  /cloudmesh/replica:
     get:
-      description: Returns all replicas
+      description: Returns all replicas records
       operationId: get_replica
       produces:
         - application/json
@@ -2896,12 +2894,13 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
     put:
-      summary: Create a new replica
+      description: Create a new replica record
       operationId: add_replica
       parameters:
         - in: body
           name: replica
-          description: The new replica to create
+          required: true
+          description: The new replica entry to create
           schema:
             $ref: '#/definitions/Replica'
       responses:
@@ -2913,6 +2912,7 @@ paths:
       operationId: get_replica_by_name
       parameters:
         - name: name
+          description: name of the replica entry
           in: path
           required: true
           type: string
@@ -2926,7 +2926,7 @@ paths:
 definitions:
   Replica:
     type: object
-    description: the replica
+    description: An entry representing a file replica record
     properties:
       name:
         type: string
