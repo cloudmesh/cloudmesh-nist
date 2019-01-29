@@ -25,7 +25,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/replicas:
+  /cloudmesh/replica:
     get:
       description: Returns all replicas
       operationId: get_replica
@@ -38,6 +38,7 @@ paths:
             $ref: '#/definitions/Replica'
     put:
       summary: Create a new replica
+      description: Create a new replica      
       operationId: add_replica
       parameters:
         - in: body
@@ -57,6 +58,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the replica
       produces:
         - application/json
       responses:
@@ -85,4 +87,5 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        description: "The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to."

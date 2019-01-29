@@ -29,7 +29,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/files:
+  /cloudmesh/file:
     get:
       description: Returns all files
       operationId: get_file
@@ -42,6 +42,7 @@ paths:
             $ref: '#/definitions/File'
     put:
       summary: Create a new file
+      description: Create a new file      
       operationId: add_file
       parameters:
         - in: body
@@ -61,6 +62,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the file
       produces:
         - application/json
       responses:
@@ -75,7 +77,7 @@ definitions:
     properties:
       name:
         type: string
-        description: the name of the file
+        description: The name of the file
       endpoint:
         type: string
         description: The location of the file
@@ -86,7 +88,9 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        description: The timestamp of the file
+
 
 #        "name": "report.dat",
 #        "endpoint": "file://gregor@machine.edu:/data/report.dat",

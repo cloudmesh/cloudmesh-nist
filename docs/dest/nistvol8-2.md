@@ -998,30 +998,17 @@ are defining in this draft. Additional objects are also available at
   timestamp          Timestamp          3.1.0     defined
   alias              Alias              3.1.0     defined
   variables          Variables          3.1.0     defined
-<<<<<<< HEAD
   default            Default            3.1.0     defined
   file               File               3.1.0     defined
   database           Database           3.1.0     defined
   replica            Replica            3.1.0     defined
-  virtualdirectory   virtualdirectory   3.0.3     TBD
-=======
-  default            default            3.0.2     TBD
-  file               file               3.0.2     TBD
-  database           database           3.0.2     TBD
-  replica            replica            3.0.2     TBD
   virtualdirectory   virtualdirectory   3.1.0     defined
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
   virtualcluster     Virtual Cluster    3.1.0     defined
   keystore           key                3.1.0     defined
   vm                 Coludmesh VM       3.1.0     defined
   scheduler          scheduler          3.1.0     defined
-<<<<<<< HEAD
-  image              image              3.0.2     TBD
-  flavor             flavor             3.0.3     TBD
-=======
   image              image              3.1.0     defined
   flavor             flavor             3.1.0     defined
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 Identity
 --------
@@ -1081,25 +1068,17 @@ distinguish different access rights to services.
 
 #### Paths
 
-##### /cloudmesh/organization/{name}
+##### /cloudmesh/organization
 
-###### GET /cloudmesh/organization/{name}
+###### GET /cloudmesh/organization
 
-Returns the organization
+Returns all users of the organization
 
 Responses
 
   Code   Description         Schema
   ------ ------------------- -------------------------------
   200    organization info   [Organization](#organization)
-
-Parameters
-
-  Name   Located in   Description                    Required   Schema
-  ------ ------------ ------------------------------ ---------- --------
-  name   path         The name of the organization   True       
-
-##### /cloudmesh/organization
 
 ###### PUT /cloudmesh/organization
 
@@ -1117,15 +1096,23 @@ Parameters
   -------------- ------------ -------------------------------- ---------- -------------------------------
   organization   body         The new organization to create   False      [Organization](#organization)
 
-###### GET /cloudmesh/organization
+##### /cloudmesh/organization/{name}
 
-Returns all users of the organization
+###### GET /cloudmesh/organization/{name}
+
+Returns the organization
 
 Responses
 
   Code   Description         Schema
   ------ ------------------- -------------------------------
   200    organization info   [Organization](#organization)
+
+Parameters
+
+  Name   Located in   Description                    Required   Schema
+  ------ ------------ ------------------------------ ---------- --------
+  name   path         The name of the organization   True       
 
 ##### /cloudmesh/organization/{username}
 
@@ -1261,38 +1248,30 @@ Terminology
 
   Property      Type              Description
   ------------- ----------------- --------------------------------------------------
-  username      string            The unique username associated with the user
-  resource      array\[string\]   A list of resources the user has access to
   uuid          string            A unique id for the user
+  username      string            The unique username associated with the user
+  group         array\[string\]   A list of groups that are associated to the user
+  role          array\[string\]   A list of groups that are associated to the user
+  resource      array\[string\]   A list of resources the user has access to
+  description   string            A description for this user
   firstname     string            The firstanme of the user
   lastname      string            The lastname of the user
   publickey     string            The lastname of the user
-  role          array\[string\]   A list of groups that are associated to the user
-  group         array\[string\]   A list of groups that are associated to the user
   email         string            The email of the user
-  description   string            A description for this user
 
 #### Paths
 
-##### /cloudmesh/user/user/{uuid}
+##### /cloudmesh/user/user
 
-###### GET /cloudmesh/user/user/{uuid}
+###### GET /cloudmesh/user/user
 
-Returns the user of a user while looking it up with the UUID
+Returns all users
 
 Responses
 
   Code   Description        Schema
   ------ ------------------ ---------------
   200    user information   [User](#user)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  uuid   path         ERROR: description missing   True       
-
-##### /cloudmesh/user/user
 
 ###### PUT /cloudmesh/user/user
 
@@ -1310,9 +1289,11 @@ Parameters
   ------ ------------ ------------------------ ---------- ---------------
   user   body         The new user to create   False      [User](#user)
 
-###### GET /cloudmesh/user/user
+##### /cloudmesh/user/user/{username}
 
-Returns all users
+###### GET /cloudmesh/user/user/{username}
+
+Returns the user of a user while looking it up with the username
 
 Responses
 
@@ -1320,7 +1301,6 @@ Responses
   ------ ------------------ ---------------
   200    user information   [User](#user)
 
-<<<<<<< HEAD
 Parameters
 
   Name   Located in   Description    Required   Schema
@@ -1328,13 +1308,10 @@ Parameters
   uuid   path         The username   True       
 
 ##### /cloudmesh/user/user/{uuid}
-=======
-##### /cloudmesh/user/user/{username}
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
-###### GET /cloudmesh/user/user/{username}
+###### GET /cloudmesh/user/user/{uuid}
 
-Returns the user of a user while looking it up with the username
+Returns the user of a user while looking it up with the UUID
 
 Responses
 
@@ -1504,15 +1481,25 @@ as Strings.
 
   Property      Type     Description
   ------------- -------- -----------------------------------------------------
+  uuid          string   The uuid of the key, tha uuid must be unique
   name          string   The name to access the key. The name must be unique
-  kind          string   The type of the key
   description   string   A description of the key
   value         string   The value, or content of the key
-  uuid          string   The uuid of the key, tha uuid must be unique
+  kind          string   The type of the key
 
 #### Paths
 
 ##### /cloudmesh/keystore/key
+
+###### GET /cloudmesh/keystore/key
+
+Returns all keys with their values and types included
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- -------------
+  200    key info      [Key](#key)
 
 ###### PUT /cloudmesh/keystore/key
 
@@ -1529,16 +1516,6 @@ Parameters
   Name   Located in   Description             Required   Schema
   ------ ------------ ----------------------- ---------- -------------
   key    body         The new key to create   True       [Key](#key)
-
-###### GET /cloudmesh/keystore/key
-
-Returns all keys with their values and types included
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- -------------
-  200    key info      [Key](#key)
 
 ##### /cloudmesh/keystore/key/{name}
 
@@ -1668,18 +1645,28 @@ their final version, a timestamp.
 #### Properties Timestamp
 
   Property   Type     Description
-  ---------- -------- ----------------------------
-  accessed   string   ERROR: description missing
-  modified   string   ERROR: description missing
-  created    string   ERROR: description missing
+  ---------- -------- --------------------------------------------------
+  accessed   string   The time stamp when the object was last accessed
+  created    string   The time stamp when the object was created
+  modified   string   The time stamp when the object was modified
 
 #### Paths
 
 ##### /cloudmesh/timestamps
 
+###### GET /cloudmesh/timestamps
+
+Returns all timestamps
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    timestamp info   [Timestamp](#timestamp)
+
 ###### PUT /cloudmesh/timestamps
 
-ERROR: missing
+Create a new timestamp
 
 Responses
 
@@ -1692,16 +1679,6 @@ Parameters
   Name        Located in   Description                   Required   Schema
   ----------- ------------ ----------------------------- ---------- -------------------------
   timestamp   body         The new timestamp to create   False      [Timestamp](#timestamp)
-
-###### GET /cloudmesh/timestamps
-
-Returns all timestamps
-
-Responses
-
-  Code   Description      Schema
-  ------ ---------------- -------------------------
-  200    timestamp info   [Timestamp](#timestamp)
 
 ##### /cloudmesh/timestamp/{name}
 
@@ -1719,7 +1696,7 @@ Parameters
 
   Name   Located in   Description                  Required   Schema
   ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  name   path         the name of the time stamp   True       
 
 #### timestamp.yaml
 
@@ -1763,6 +1740,7 @@ paths:
             $ref: '#/definitions/Timestamp'
     put:
       summary: Create a new timestamp
+      description: Create a new timestamp
       operationId: add_timestamp
       parameters:
         - in: body
@@ -1782,6 +1760,7 @@ paths:
           in: path
           required: true
           type: string
+          description: the name of the time stamp
       produces:
         - application/json
       responses:
@@ -1797,12 +1776,15 @@ definitions:
       accessed:
         type: string
         format: date
+        description: The time stamp when the object was last accessed
       created:
         type: string
         format: date
+        description: The time stamp when the object was created 
       modified:
         type: string
         format: date
+        description: The time stamp when the object was modified        
 ```
 
 ### Alias
@@ -1819,16 +1801,26 @@ application.
 
   Property   Type     Description
   ---------- -------- --------------------------
-  origin     string   The original object name
   name       string   The name of the alias
+  origin     string   The original object name
 
 #### Paths
 
 ##### /cloudmesh/alias
 
+###### GET /cloudmesh/alias
+
+Returns all aliases
+
+Responses
+
+  Code   Description         Schema
+  ------ ------------------- -----------------
+  200    alias information   [Alias](#alias)
+
 ###### PUT /cloudmesh/alias
 
-ERROR: missing
+Create a new alias
 
 Responses
 
@@ -1841,16 +1833,6 @@ Parameters
   Name    Located in   Description               Required   Schema
   ------- ------------ ------------------------- ---------- -----------------
   alias   body         The new alias to create   False      [Alias](#alias)
-
-###### GET /cloudmesh/alias
-
-Returns all aliases
-
-Responses
-
-  Code   Description         Schema
-  ------ ------------------- -----------------
-  200    alias information   [Alias](#alias)
 
 ##### /cloudmesh/alias/{name}
 
@@ -1866,9 +1848,9 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description             Required   Schema
+  ------ ------------ ----------------------- ---------- --------
+  name   path         The name of the alias   True       
 
 #### alias.yaml
 
@@ -1916,6 +1898,7 @@ paths:
             $ref: '#/definitions/Alias'
     put:
       summary: Create a new alias
+      description: Create a new alias      
       operationId: add_alias
       parameters:
         - in: body
@@ -1928,13 +1911,15 @@ paths:
           description: Created
   '/cloudmesh/alias/{name}':
     get:
-      description: Returns an alias by name
+      summary: Returns an alias by name
+      description: Returns an alias by name      
       operationId: get_alias_by_name
       parameters:
         - name: name
           in: path
           required: true
           type: string
+          description: The name of the alias
       produces:
         - application/json
       responses:
@@ -1965,11 +1950,39 @@ variable value format is defined as string to allow maximal probability.
 
   Property   Type     Description
   ---------- -------- -----------------------
-  kind       string   value of the variable
   name       string   name of the variable
   value      string   type of the variable
+  kind       string   value of the variable
 
 #### Paths
+
+##### /cloudmesh/variables
+
+###### GET /cloudmesh/variables
+
+Returns all variabless
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    variables info   [Variables](#variables)
+
+###### PUT /cloudmesh/variables
+
+Create a new variables
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name        Located in   Description                   Required   Schema
+  ----------- ------------ ----------------------------- ---------- -------------------------
+  variables   body         The new variables to create   False      [Variables](#variables)
 
 ##### /cloudmesh/variables/{name}
 
@@ -1989,34 +2002,6 @@ Parameters
   ------ ------------ ---------------------- ---------- --------
   name   path         Name of the variable   True       
 
-##### /cloudmesh/variables
-
-###### PUT /cloudmesh/variables
-
-Create a new variables
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name        Located in   Description                   Required   Schema
-  ----------- ------------ ----------------------------- ---------- -------------------------
-  variables   body         The new variables to create   False      [Variables](#variables)
-
-###### GET /cloudmesh/variables
-
-Returns all variabless
-
-Responses
-
-  Code   Description      Schema
-  ------ ---------------- -------------------------
-  200    variables info   [Variables](#variables)
-
 #### variables.yaml
 
 ``` {include="../../services/variables/variables.yaml"}
@@ -2024,11 +2009,7 @@ swagger: '2.0'
 info:
   version: 3.1.0
   x-status: defined
-<<<<<<< HEAD
   x-date: 01-29-2019
-=======
-  x-date: 01-29-2019  
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
   title: Variables
   description: |-
   
@@ -2119,12 +2100,40 @@ multiple context.
 #### Properties Default
 
   Property   Type     Description
-  ---------- -------- ----------------------
-  kind       string   value of the default
-  name       string   name of the default
-  value      string   type of the default
+  ---------- -------- --------------------------
+  name       string   The name of the default
+  value      string   The type of the default
+  kind       string   The value of the default
 
 #### Paths
+
+##### /cloudmesh/default
+
+###### GET /cloudmesh/default
+
+Returns all defaults
+
+Responses
+
+  Code   Description    Schema
+  ------ -------------- ---------------------
+  200    default info   [Default](#default)
+
+###### PUT /cloudmesh/default
+
+Create a new default
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name      Located in   Description                 Required   Schema
+  --------- ------------ --------------------------- ---------- ---------------------
+  default   body         The new default to create   False      [Default](#default)
 
 ##### /cloudmesh/default/{name}
 
@@ -2140,37 +2149,9 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-##### /cloudmesh/defaults
-
-###### PUT /cloudmesh/defaults
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name      Located in   Description                 Required   Schema
-  --------- ------------ --------------------------- ---------- ---------------------
-  default   body         The new default to create   False      [Default](#default)
-
-###### GET /cloudmesh/defaults
-
-Returns all defaults
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- ---------------------
-  200    default info   [Default](#default)
+  Name   Located in   Description               Required   Schema
+  ------ ------------ ------------------------- ---------- --------
+  name   path         The name of the default   True       
 
 #### default.yaml
 
@@ -2204,7 +2185,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/defaults:
+  /cloudmesh/default:
     get:
       description: Returns all defaults
       operationId: get_default
@@ -2217,6 +2198,7 @@ paths:
             $ref: '#/definitions/Default'
     put:
       summary: Create a new default
+      description: Create a new default      
       operationId: add_default
       parameters:
         - in: body
@@ -2236,6 +2218,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the default
       produces:
         - application/json
       responses:
@@ -2250,13 +2233,13 @@ definitions:
     properties:
       name:
         type: string
-        description: name of the default
+        description: The name of the default
       value:
         type: string
-        description: type of the default
+        description: The type of the default
       kind:
         type: string
-        description: value of the default
+        description: The value of the default
 ```
 
 Data Management
@@ -2274,28 +2257,19 @@ size in GB, MB, Byte, checksum for integrity check.
 
 #### Properties File
 
-<<<<<<< HEAD
   Property    Type      Description
   ----------- --------- ------------------------------
-  name        string    the name of the file
+  name        string    The name of the file
   endpoint    string    The location of the file
   checksum    string    The checksum of the file
   size        integer   The size of the file in byte
-  timestamp             ERROR: description missing
-=======
-  Property   Type     Description
-  ---------- -------- --------------------------
-  kind       string   the kind of the database
-  endpoint   string   endpoint of the database
-  name       string   name of the database
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
+  timestamp             The timestamp of the file
 
 #### Paths
 
-##### /cloudmesh/files
+##### /cloudmesh/file
 
-<<<<<<< HEAD
-###### GET /cloudmesh/files
+###### GET /cloudmesh/file
 
 Returns all files
 
@@ -2305,12 +2279,9 @@ Responses
   ------ ------------- ---------------
   200    file info     [File](#file)
 
-###### PUT /cloudmesh/files
-=======
-###### PUT /cloudmesh/databases
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
+###### PUT /cloudmesh/file
 
-ERROR: missing
+Create a new file
 
 Responses
 
@@ -2324,21 +2295,7 @@ Parameters
   ------ ------------ ------------------------ ---------- ---------------
   file   body         The new file to create   False      [File](#file)
 
-<<<<<<< HEAD
 ##### /cloudmesh/file/{name}
-=======
-###### GET /cloudmesh/databases
-
-Returns all databases
-
-Responses
-
-  Code   Description     Schema
-  ------ --------------- -----------------------
-  200    database info   [Database](#database)
-
-##### /cloudmesh/database/{name}
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 ###### GET /cloudmesh/file/{name}
 
@@ -2352,9 +2309,9 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description            Required   Schema
+  ------ ------------ ---------------------- ---------- --------
+  name   path         The name of the file   True       
 
 #### file.yaml
 
@@ -2390,7 +2347,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/files:
+  /cloudmesh/file:
     get:
       description: Returns all files
       operationId: get_file
@@ -2403,6 +2360,7 @@ paths:
             $ref: '#/definitions/File'
     put:
       summary: Create a new file
+      description: Create a new file      
       operationId: add_file
       parameters:
         - in: body
@@ -2422,6 +2380,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the file
       produces:
         - application/json
       responses:
@@ -2436,50 +2395,20 @@ definitions:
     properties:
       name:
         type: string
-        description: the name of the file
+        description: The name of the file
       endpoint:
         type: string
         description: The location of the file
       checksum:
         type: string
-<<<<<<< HEAD
         description: The checksum of the file
       size:
         type: integer
         description: The size of the file in byte
       timestamp:
-          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
-=======
-        description: the kind of the database
-```
+        $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        description: The timestamp of the file
 
-### Virtual Directory
-
-A virtual directory is a collection of files or replicas of the files. A
-virtual directory can contain a number of entities including files,
-streams, and other virtual directories as part of a collection. The
-element in the collection can either be defined by uuid or by name.
-
-#### Properties UnauthorizedError
-
-  Property   Type     Description
-  ---------- -------- ----------------------------------
-  message    string   Human readable form of the error
-  code       string   Code form of the error
-
-#### Properties Virtualdirectory
-
-  --------------------------------------------------------------------------
-  Property      Type        Description
-  ------------- ----------- ------------------------------------------------
-  credential    object      credential to access, e.g., username, password
-
-  host          string      remote host of the virtual directory
-
-  protocol      string      access protocol, e.g., HTTP, FTP, SSH, etc.
-
-  name          string      The name of the virtual directory
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 #        "name": "report.dat",
 #        "endpoint": "file://gregor@machine.edu:/data/report.dat",
@@ -2490,7 +2419,6 @@ element in the collection can either be defined by uuid or by name.
 #       "size": ["GB", "Byte"]
 ```
 
-<<<<<<< HEAD
 ### Replica
 
 In many distributed systems, it is important that a file can be
@@ -2500,20 +2428,30 @@ pointing to its original source.
 
 #### Properties Replica
 
-  Property    Type      Description
-  ----------- --------- ------------------------------
-  name        string    the name of the replica
-  filename    string    the original filename
-  endpoint    string    The location of the file
-  checksum    string    The checksum of the file
-  size        integer   The size of the file in byte
-  timestamp             ERROR: description missing
+  ------------------------------------------------------------------------
+  Property    Type        Description
+  ----------- ----------- ------------------------------------------------
+  name        string      the name of the replica
+
+  filename    string      the original filename
+
+  endpoint    string      The location of the file
+
+  checksum    string      The checksum of the file
+
+  size        integer     The size of the file in byte
+
+  timestamp               The timestamp of the replica. The timestamp
+                          refers to when this entry has been accessed or
+                          changed, not the object this replica is pointing
+                          to.
+  ------------------------------------------------------------------------
 
 #### Paths
 
-##### /cloudmesh/replicas
+##### /cloudmesh/replica
 
-###### GET /cloudmesh/replicas
+###### GET /cloudmesh/replica
 
 Returns all replicas
 
@@ -2522,37 +2460,10 @@ Responses
   Code   Description    Schema
   ------ -------------- ---------------------
   200    replica info   [Replica](#replica)
-=======
-  location      string      remote location, e.g., a directory with full
-                            path on a host
-  --------------------------------------------------------------------------
 
-#### Paths
+###### PUT /cloudmesh/replica
 
-##### /cloudmesh/virtualdirectory/{name}
-
-###### GET /cloudmesh/virtualdirectory/{name}
-
-Returns a virtualdirectory
-
-Responses
-
-  Code   Description             Schema
-  ------ ----------------------- ---------------------------------------
-  200    virtualdirectory info   [Virtualdirectory](#virtualdirectory)
-
-Parameters
-
-  Name   Located in   Description                     Required   Schema
-  ------ ------------ ------------------------------- ---------- --------
-  name   path         name of the virtual directory   True       
-
-##### /cloudmesh/virtualdirectory
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
-
-###### PUT /cloudmesh/replicas
-
-Create a new virtualdirectory
+Create a new replica
 
 Responses
 
@@ -2562,7 +2473,6 @@ Responses
 
 Parameters
 
-<<<<<<< HEAD
   Name      Located in   Description                 Required   Schema
   --------- ------------ --------------------------- ---------- ---------------------
   replica   body         The new replica to create   False      [Replica](#replica)
@@ -2572,19 +2482,6 @@ Parameters
 ###### GET /cloudmesh/replica/{name}
 
 Returns a replica by name
-=======
-  --------------------------------------------------------------------------------------------------------------------
-  Name               Located   Description                          Required   Schema
-                     in                                                        
-  ------------------ --------- ------------------------------------ ---------- ---------------------------------------
-  virtualdirectory   body      The new virtualdirectory to create   True       [Virtualdirectory](#virtualdirectory)
-
-  --------------------------------------------------------------------------------------------------------------------
-
-###### GET /cloudmesh/virtualdirectory
-
-Returns all virtualdirectorys
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 Responses
 
@@ -2592,9 +2489,11 @@ Responses
   ------ -------------- ---------------------
   200    replica info   [Replica](#replica)
 
-  Code   Description          Schema
-  ------ -------------------- -----------------------------------------
-  401    unauthorized error   [UnauthorizedError](#unauthorizederror)
+Parameters
+
+  Name   Located in   Description               Required   Schema
+  ------ ------------ ------------------------- ---------- --------
+  name   path         The name of the replica   True       
 
 #### replica.yaml
 
@@ -2602,15 +2501,9 @@ Responses
 swagger: '2.0'
 info:
   version: 3.1.0
-<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019
   title: Replica
-=======
-  x-date: 01-29-2019
-  x-status: defined
-  title: virtualdirectory
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
   description: |-
   
     In many distributed systems, it is important that a file can be
@@ -2632,7 +2525,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/replicas:
+  /cloudmesh/replica:
     get:
       description: Returns all replicas
       operationId: get_replica
@@ -2644,24 +2537,13 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
     put:
-<<<<<<< HEAD
       summary: Create a new replica
+      description: Create a new replica      
       operationId: add_replica
       parameters:
         - in: body
           name: replica
           description: The new replica to create
-=======
-      tags:
-        - "virtualdirectory"
-      description: Create a new virtualdirectory
-      operationId: add_virtualdirectory
-      parameters:
-        - in: body
-          name: virtualdirectory
-          required: true
-          description: The new virtualdirectory to create
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
           schema:
             $ref: '#/definitions/Replica'
       responses:
@@ -2673,10 +2555,10 @@ paths:
       operationId: get_replica_by_name
       parameters:
         - name: name
-          description: name of the virtual directory
           in: path
           required: true
           type: string
+          description: The name of the replica
       produces:
         - application/json
       responses:
@@ -2685,7 +2567,6 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
 definitions:
-<<<<<<< HEAD
   Replica:
     type: object
     description: the replica
@@ -2706,41 +2587,8 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
-=======
-  UnauthorizedError:
-    type: "object"
-    description: unauthorized error
-    properties:
-      code:
-        type: "string"
-        description: Code form of the error
-      message:
-        type: "string"
-        description: Human readable form of the error
-  Virtualdirectory:
-    type: "object"
-    description: the virtualdirectory
-    properties:
-      name:
-        description: The name of the virtual directory
-        type: "string"
-      description:
-        description: description of the virtual directory
-        type: "string"
-      host:
-        description: remote host of the virtual directory
-        type: "string"
-      location:
-        description: remote location, e.g., a directory with full path on a host
-        type: "string"
-      protocol:
-        description: access protocol, e.g., HTTP, FTP, SSH, etc.
-        type: "string"
-      credential:
-        description: credential to access, e.g., username, password
-        type: "object"
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
+        $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        description: "The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to."
 ```
 
 ### Database
@@ -2750,7 +2598,6 @@ protocol used (e.g., SQL, MongoDB, ...).
 
 #### Properties Database
 
-<<<<<<< HEAD
   Property   Type     Description
   ---------- -------- --------------------------
   name       string   name of the database
@@ -2759,28 +2606,11 @@ protocol used (e.g., SQL, MongoDB, ...).
 
 #### Paths
 
-##### /cloudmesh/databases
+##### /cloudmesh/database
 
-###### GET /cloudmesh/databases
+###### GET /cloudmesh/database
 
 Returns all databases
-=======
-  Property    Type      Description
-  ----------- --------- ------------------------------
-  size        integer   The size of the file in byte
-  checksum    string    The checksum of the file
-  endpoint    string    The location of the file
-  name        string    the name of the file
-  timestamp             ERROR: description missing
-
-#### Paths
-
-##### /cloudmesh/file/{name}
-
-###### GET /cloudmesh/file/{name}
-
-Returns a file
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 Responses
 
@@ -2788,21 +2618,9 @@ Responses
   ------ --------------- -----------------------
   200    database info   [Database](#database)
 
-<<<<<<< HEAD
-###### PUT /cloudmesh/databases
-=======
-Parameters
+###### PUT /cloudmesh/database
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-##### /cloudmesh/files
-
-###### PUT /cloudmesh/files
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
-
-ERROR: missing
+Create a new database
 
 Responses
 
@@ -2816,17 +2634,11 @@ Parameters
   ---------- ------------ ---------------------------- ---------- -----------------------
   database   body         The new database to create   False      [Database](#database)
 
-<<<<<<< HEAD
 ##### /cloudmesh/database/{name}
 
 ###### GET /cloudmesh/database/{name}
 
 Returns a database by name
-=======
-###### GET /cloudmesh/files
-
-Returns all files
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 Responses
 
@@ -2834,17 +2646,13 @@ Responses
   ------ --------------- -----------------------
   200    database info   [Database](#database)
 
-<<<<<<< HEAD
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description                Required   Schema
+  ------ ------------ -------------------------- ---------- --------
+  name   path         The name of the database   True       
 
 #### database.yaml
-=======
-#### file.yaml
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 ``` {include="../../services/database/database.yaml"}
 swagger: '2.0'
@@ -2872,7 +2680,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/databases:
+  /cloudmesh/database:
     get:
       description: Returns all databases
       operationId: get_database
@@ -2885,6 +2693,7 @@ paths:
             $ref: '#/definitions/Database'
     put:
       summary: Create a new database
+      description: Create a new database      
       operationId: add_database
       parameters:
         - in: body
@@ -2904,6 +2713,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the database
       produces:
         - application/json
       responses:
@@ -2941,7 +2751,6 @@ element in the collection can either be defined by uuid or by name.
   code       string   Code form of the error
   message    string   Human readable form of the error
 
-<<<<<<< HEAD
 #### Properties Virtualdirectory
 
   --------------------------------------------------------------------------
@@ -2968,24 +2777,6 @@ element in the collection can either be defined by uuid or by name.
 ###### GET /cloudmesh/virtualdirectory
 
 Returns all virtualdirectorys
-=======
-  Property    Type      Description
-  ----------- --------- ------------------------------
-  endpoint    string    The location of the file
-  name        string    the name of the replica
-  timestamp             ERROR: description missing
-  checksum    string    The checksum of the file
-  size        integer   The size of the file in byte
-  filename    string    the original filename
-
-#### Paths
-
-##### /cloudmesh/replica/{name}
-
-###### GET /cloudmesh/replica/{name}
-
-Returns a replica
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 Responses
 
@@ -2993,25 +2784,13 @@ Responses
   ------ ----------------------- ---------------------------------------
   200    virtualdirectory info   [Virtualdirectory](#virtualdirectory)
 
-<<<<<<< HEAD
   Code   Description          Schema
   ------ -------------------- -----------------------------------------
   401    unauthorized error   [UnauthorizedError](#unauthorizederror)
 
 ###### PUT /cloudmesh/virtualdirectory
-=======
-Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-##### /cloudmesh/replicas
-
-###### PUT /cloudmesh/replicas
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
-
-ERROR: missing
+Create a new virtualdirectory
 
 Responses
 
@@ -3025,9 +2804,8 @@ Parameters
   Name               Located   Description                          Required   Schema
                      in                                                        
   ------------------ --------- ------------------------------------ ---------- ---------------------------------------
-  virtualdirectory   body      The new virtualdirectory to create   False      [Virtualdirectory](#virtualdirectory)
+  virtualdirectory   body      The new virtualdirectory to create   True       [Virtualdirectory](#virtualdirectory)
 
-<<<<<<< HEAD
   --------------------------------------------------------------------------------------------------------------------
 
 ##### /cloudmesh/virtualdirectory/{name}
@@ -3035,11 +2813,6 @@ Parameters
 ###### GET /cloudmesh/virtualdirectory/{name}
 
 Returns a virtualdirectory
-=======
-###### GET /cloudmesh/replicas
-
-Returns all replicas
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 Responses
 
@@ -3047,24 +2820,21 @@ Responses
   ------ ----------------------- ---------------------------------------
   200    virtualdirectory info   [Virtualdirectory](#virtualdirectory)
 
-<<<<<<< HEAD
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description                     Required   Schema
+  ------ ------------ ------------------------------- ---------- --------
+  name   path         name of the virtual directory   True       
 
 #### virtualdirectory.yaml
-=======
-#### replica.yaml
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 ``` {include="../../services/virtualdirectory/virtualdirectory.yaml"}
 ---
 swagger: '2.0'
 info:
-  version: 3.0.3
-  x-date: 06-11-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: virtualdirectory
   description: |-
   
@@ -3074,7 +2844,7 @@ info:
     a collection.  The element in the collection can either be defined
     by uuid or by name.
 
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Virtual Directory Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -3121,11 +2891,12 @@ paths:
     put:
       tags:
         - "virtualdirectory"
-      summary: Create a new virtualdirectory
+      description: Create a new virtualdirectory
       operationId: add_virtualdirectory
       parameters:
         - in: body
           name: virtualdirectory
+          required: true
           description: The new virtualdirectory to create
           schema:
             $ref: '#/definitions/Virtualdirectory'
@@ -3143,6 +2914,7 @@ paths:
       operationId: get_virtualdirectory_by_name
       parameters:
         - name: name
+          description: name of the virtual directory
           in: path
           required: true
           type: string
@@ -3157,14 +2929,14 @@ paths:
             $ref: '#/definitions/Virtualdirectory'
 definitions:
   UnauthorizedError:
-    type: object
-    description: A specific error
+    type: "object"
+    description: unauthorized error
     properties:
       code:
-        type: string
+        type: "string"
         description: Code form of the error
       message:
-        type: string
+        type: "string"
         description: Human readable form of the error
   Virtualdirectory:
     type: "object"
@@ -3197,68 +2969,64 @@ Compute Management - Virtual Clutsers
 
 Virtual Cluster example
 
+#### Properties VirtualCluster
+
+  Property      Type                           Description
+  ------------- ------------------------------ ----------------------------------------
+  name          string                         The name of the virtual cluster
+  description   string                         A description of the virtual cluster
+  nnodes        integer                        number of nodes of the virtual cluster
+  owner         string                         owner of the virtual cluster
+  fe                                           Front-end node of the virtual cluster
+  nodes         array\[\#/definitions/Node\]   List of nodes of the virtual cluster
+
 #### Properties Node
 
   Property   Type                          Description
   ---------- ----------------------------- ----------------------------------------
-  ncpu       integer                       number of virtual CPUs of the node
-  state      string                        power state of the node
-  disk       string                        Disk size of the node
   name       string                        name of the node
-  nics       array\[\#/definitions/NIC\]   List of network interfaces of the node
+  state      string                        power state of the node
+  ncpu       integer                       number of virtual CPUs of the node
   ram        string                        RAM size of the node
+  disk       string                        Disk size of the node
+  nics       array\[\#/definitions/NIC\]   List of network interfaces of the node
 
 #### Properties NIC
 
   Property   Type     Description
   ---------- -------- -------------------------
-  ip         string   IP address of the node
   mac        string   MAC address of the node
-
-#### Properties VirtualCluster
-
-<<<<<<< HEAD
-Returns all virtual clusters
-=======
-  Property      Type                           Description
-  ------------- ------------------------------ ----------------------------------------
-  nnodes        integer                        number of nodes of the virtual cluster
-  name          string                         The name of the virtual cluster
-  owner         string                         owner of the virtual cluster
-  nodes         array\[\#/definitions/Node\]   List of nodes of the virtual cluster
-  description   string                         A description of the virtual cluster
-  fe                                           Front-end node of the virtual cluster
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
+  ip         string   IP address of the node
 
 #### Paths
 
-##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
+##### /cloudmesh/virtualcluster/virtualcluster
 
-###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
+###### GET /cloudmesh/virtualcluster/virtualcluster
 
-<<<<<<< HEAD
-Create a new virtual cluster
-=======
-Returns the front-end node info of the specified virtual cluster
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
+Returns all virtual clusters
 
 Responses
 
-  Code   Description                           Schema
-  ------ ------------------------------------- ---------------
-  200    virtual cluster front-end node info   [Node](#node)
+  Code   Description    Schema
+  ------ -------------- -----------------------------------
+  200    profile info   [VirtualCluster](#virtualcluster)
+
+###### PUT /cloudmesh/virtualcluster/virtualcluster
+
+Create a new virtual cluster
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
 
 Parameters
 
-<<<<<<< HEAD
   Name             Located in   Description                         Required   Schema
   ---------------- ------------ ----------------------------------- ---------- -----------------------------------
   virtualcluster   body         The new virtual cluster to create   True       [VirtualCluster](#virtualcluster)
-=======
-  Name                 Located in   Description                  Required   Schema
-  -------------------- ------------ ---------------------------- ---------- --------
-  virtualclustername   path         name of the virtua cluster   True       
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 ##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}
 
@@ -3278,11 +3046,10 @@ Parameters
   -------------------- ------------ ----------------------------- ---------- --------
   virtualclustername   path         name of the virtual cluster   True       
 
-##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
+##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
 
-###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
+###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
 
-<<<<<<< HEAD
 Returns the front-end node info of the specified virtual cluster
 
 Responses
@@ -3290,7 +3057,17 @@ Responses
   Code   Description                           Schema
   ------ ------------------------------------- ---------------
   200    virtual cluster front-end node info   [Node](#node)
-=======
+
+Parameters
+
+  Name                 Located in   Description                  Required   Schema
+  -------------------- ------------ ---------------------------- ---------- --------
+  virtualclustername   path         name of the virtua cluster   True       
+
+##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
+
+###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
+
 Returns the specified node info of the specified virtualcluster
 
 Responses
@@ -3298,52 +3075,13 @@ Responses
   Code   Description                Schema
   ------ -------------------------- ---------------
   200    virtualcluster node info   [Node](#node)
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 Parameters
 
   Name                 Located in   Description                  Required   Schema
   -------------------- ------------ ---------------------------- ---------- --------
   virtualclustername   path         name of the virtua cluster   True       
-<<<<<<< HEAD
-=======
   nodename             path         name of the name             True       
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
-
-##### /cloudmesh/virtualcluster/virtualcluster
-
-###### PUT /cloudmesh/virtualcluster/virtualcluster
-
-Create a new virtual cluster
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-<<<<<<< HEAD
-  Name                 Located in   Description                  Required   Schema
-  -------------------- ------------ ---------------------------- ---------- --------
-  virtualclustername   path         name of the virtua cluster   True       
-  nodename             path         name of the name             True       
-=======
-  Name             Located in   Description                         Required   Schema
-  ---------------- ------------ ----------------------------------- ---------- -----------------------------------
-  virtualcluster   body         The new virtual cluster to create   True       [VirtualCluster](#virtualcluster)
-
-###### GET /cloudmesh/virtualcluster/virtualcluster
-
-Returns all virtual clusters
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- -----------------------------------
-  200    profile info   [VirtualCluster](#virtualcluster)
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 
 #### vc.yaml
 
@@ -3530,16 +3268,39 @@ stored as Strings.
 
   Property   Type     Description
   ---------- -------- ------------------------------
-<<<<<<< HEAD
   name       string   name of the scheduler
   value      string   information of the scheduler
-=======
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
   kind       string   the scheduler kind or type
-  name       string   name of the scheduler
-  value      string   information of the scheduler
 
 #### Paths
+
+##### /cloudmesh/schedulers
+
+###### GET /cloudmesh/schedulers
+
+Returns all schedulers
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    scheduler info   [Scheduler](#scheduler)
+
+###### PUT /cloudmesh/schedulers
+
+Create a new scheduler
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name        Located in   Description                   Required   Schema
+  ----------- ------------ ----------------------------- ---------- -------------------------
+  scheduler   body         The new scheduler to create   False      [Scheduler](#scheduler)
 
 ##### /cloudmesh/scheduler/{name}
 
@@ -3559,43 +3320,6 @@ Parameters
   ------ ------------ ----------------------- ---------- --------
   name   path         name of the scheduler   True       
 
-##### /cloudmesh/schedulers
-
-###### PUT /cloudmesh/schedulers
-
-Create a new scheduler
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name        Located in   Description                   Required   Schema
-  ----------- ------------ ----------------------------- ---------- -------------------------
-  scheduler   body         The new scheduler to create   False      [Scheduler](#scheduler)
-
-###### GET /cloudmesh/schedulers
-
-Returns all schedulers
-
-Responses
-
-  Code   Description      Schema
-  ------ ---------------- -------------------------
-  200    scheduler info   [Scheduler](#scheduler)
-
-<<<<<<< HEAD
-Parameters
-
-  Name   Located in   Description             Required   Schema
-  ------ ------------ ----------------------- ---------- --------
-  name   path         name of the scheduler   True       
-
-=======
->>>>>>> 6101ee8b7682377e3f5d3a4c7200f7017181f529
 #### scheduler.yaml
 
 ``` {include="../../services/scheduler/scheduler.yaml"}
@@ -3698,31 +3422,59 @@ provider in response to the list\_images function.
   --------------------------------------------------------------------------
   Property      Type        Description
   ------------- ----------- ------------------------------------------------
-  status        string      The status of the image
+  id            string      A unique id for the image
 
-  description   string      A description for the image
-
-  extra         string      Extra object of the image
-
-  visibility    string      The visibility of the image
+  name          string      The name of the image
 
   tag           string      A tag that can be defined by the user for the
                             image
 
-  osVersion     string      The OS version of the image
-
-  os            string      The OS of the image
-
-  id            string      A unique id for the image
+  description   string      A description for the image
 
   cloud         string      A cloud provider for which the image is
                             designed. If multiple are using the image, they
                             are passed along as space seperated strings
 
-  name          string      The name of the image
+  os            string      The OS of the image
+
+  osVersion     string      The OS version of the image
+
+  status        string      The status of the image
+
+  visibility    string      The visibility of the image
+
+  extra         string      Extra object of the image
   --------------------------------------------------------------------------
 
 #### Paths
+
+##### /cloudmesh/image
+
+###### GET /cloudmesh/image
+
+Returns all general description images
+
+Responses
+
+  Code   Description          Schema
+  ------ -------------------- -----------------
+  200    default image info   [Image](#image)
+
+###### PUT /cloudmesh/image
+
+Create a new image
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name    Located in   Description                      Required   Schema
+  ------- ------------ -------------------------------- ---------- -----------------
+  image   body         The new image record to create   True       [Image](#image)
 
 ##### /cloudmesh/image/{name}
 
@@ -3741,34 +3493,6 @@ Parameters
   Name   Located in   Description         Required   Schema
   ------ ------------ ------------------- ---------- --------
   name   path         name of the image   True       
-
-##### /cloudmesh/image
-
-###### PUT /cloudmesh/image
-
-Create a new image
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name    Located in   Description                      Required   Schema
-  ------- ------------ -------------------------------- ---------- -----------------
-  image   body         The new image record to create   True       [Image](#image)
-
-###### GET /cloudmesh/image
-
-Returns all general description images
-
-Responses
-
-  Code   Description          Schema
-  ------ -------------------- -----------------
-  200    default image info   [Image](#image)
 
 #### image.yaml
 
@@ -3888,18 +3612,46 @@ added. Flavors are essential to size a virtual cluster appropriately.
 
   Property    Type      Description
   ----------- --------- ---------------------------------------------
-  uuid        string    the uuid of the flavor
-  price       string    price for the flavor
-  ram         integer   number of bytes used for the image in RAM
-  metadata    string    A dictionary with additional metadata
-  label       string    a label that a user can set for this flavor
-  cloud\_id   string    an id used by the cloud
-  disk        integer   number of bytes used for the disk
-  id          string    the id of the flavor
-  cloud       string    name of the cloud this flavor is used
   name        string    name of the flavor
+  id          string    the id of the flavor
+  label       string    a label that a user can set for this flavor
+  metadata    string    A dictionary with additional metadata
+  uuid        string    the uuid of the flavor
+  ram         integer   number of bytes used for the image in RAM
+  disk        integer   number of bytes used for the disk
+  price       string    price for the flavor
+  cloud       string    name of the cloud this flavor is used
+  cloud\_id   string    an id used by the cloud
 
 #### Paths
+
+##### /cloudmesh/flavors
+
+###### GET /cloudmesh/flavors
+
+Returns all flavors
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- -------------------
+  200    flavor info   [Flavor](#flavor)
+
+###### PUT /cloudmesh/flavors
+
+Create a new flavor
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name     Located in   Description                Required   Schema
+  -------- ------------ -------------------------- ---------- -------------------
+  flavor   body         The new flavor to create   True       [Flavor](#flavor)
 
 ##### /cloudmesh/flavor/{name}
 
@@ -3918,34 +3670,6 @@ Parameters
   Name   Located in   Description          Required   Schema
   ------ ------------ -------------------- ---------- --------
   name   path         name of the flavor   True       
-
-##### /cloudmesh/flavors
-
-###### PUT /cloudmesh/flavors
-
-Create a new flavor
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name     Located in   Description                Required   Schema
-  -------- ------------ -------------------------- ---------- -------------------
-  flavor   body         The new flavor to create   True       [Flavor](#flavor)
-
-###### GET /cloudmesh/flavors
-
-Returns all flavors
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- -------------------
-  200    flavor info   [Flavor](#flavor)
 
 #### flavor.yaml
 
@@ -4065,16 +3789,16 @@ A service to manage virtual machines
 
   Property       Type     Description
   -------------- -------- --------------------------------------
-  size           string   The size of the vm
-  name           string   the name of the vm
-  region         string   an optional region
-  state          string   The state of the vm
-  public\_ips    string   The public IPS
-  image          string   the image for the vm
   provider       string   Name of the provider
-  metadata       string   The meta data passed along to the VM
   id             string   a unique id for the vm
+  name           string   the name of the vm
+  image          string   the image for the vm
+  region         string   an optional region
+  size           string   The size of the vm
+  state          string   The state of the vm
   private\_ips   string   The private IPs
+  public\_ips    string   The public IPS
+  metadata       string   The meta data passed along to the VM
 
 #### Paths
 
