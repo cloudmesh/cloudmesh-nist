@@ -56,9 +56,11 @@ def analyse():
            filename = "../services/{service}/{service}.yaml".format(service=service)
            with open(filename, "r") as f:
                 spec = yaml.load(f)["info"]
-                for field in ["status", "version", "title", "description"]:
+                for field in ["x-status", "version", "title", "description"]:
                     if field  in spec:
                         data[field] = spec[field]
+                        if field == 'x-status':
+                            data["status"] = spec[field]                            
 
                 data["description"] = data["description"].strip().replace("\n", "")
                          

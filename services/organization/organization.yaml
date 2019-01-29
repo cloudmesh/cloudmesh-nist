@@ -1,20 +1,20 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
-  version: 3.0.3
-  title: organization
+  version: "3.1.0"
+  x-status: defined
+  x-date: 01-29-2019  
+  title: Organization
   description: |-
   
-    An important concept in many applications is the management of a
-    group of users in an organization that manages a Big Data
-    application or infrastructure. User group management can be
-    achieved through three concepts. First, it can be achieved by
-    using the profile and user resources itself as they contain the
-    ability to manage multiple users as part of the REST
-    interface. The second concept is to create a (virtual)
-    organization that lists all users within the virtual
-    organization. The third concept is to introduce groups and roles
-    either as part of the user definition or as part of a simple list
-    similar to the organization.
+    An important concept in many services is the management of a group
+    of users in an organization that includes big data services. User
+    management within an organization can be achieved through several
+    concepts. First, it can be achieved by defining the
+    organization. Second, this organization contains a number of
+    users.  Third, users within the organization can have a variety of
+    roles and be separated in variopus groups.  These roles and groups
+    are used for example to distinguish different access rights to
+    services.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -65,6 +65,17 @@ paths:
           in: path
           required: true
           type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: organization info
+          schema:
+            $ref: '#/definitions/Organization'
+  /cloudmesh/organization/{username}:
+    get:
+      description: Returns the spcific user of that organization. 
+      operationId: get_organization
       produces:
         - application/json
       responses:

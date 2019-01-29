@@ -992,9 +992,9 @@ are defining in this draft. Additional objects are also available at
 -   <https://github.com/cloudmesh-community/nist/tree/master/services>
 
   Service            Title              Version   Status
-  ------------------ ------------------ --------- --------
-  organization       organization       3.0.3     TBD
-  user               User               3.0.3     TBD
+  ------------------ ------------------ --------- ---------
+  organization       Organization       3.1.0     defined
+  user               User               3.1.0     defined
   timestamp          timestamp          3.0.2     TBD
   alias              alias              3.0.2     TBD
   variables          variables          3.0.1     TBD
@@ -1050,15 +1050,14 @@ An example for a configuration file is provided at
 
 ### Organization
 
-An important concept in many applications is the management of a group
-of users in an organization that manages a Big Data application or
-infrastructure. User group management can be achieved through three
-concepts. First, it can be achieved by using the profile and user
-resources itself as they contain the ability to manage multiple users as
-part of the REST interface. The second concept is to create a (virtual)
-organization that lists all users within the virtual organization. The
-third concept is to introduce groups and roles either as part of the
-user definition or as part of a simple list similar to the organization.
+An important concept in many services is the management of a group of
+users in an organization that includes big data services. User
+management within an organization can be achieved through several
+concepts. First, it can be achieved by defining the organization.
+Second, this organization contains a number of users. Third, users
+within the organization can have a variety of roles and be separated in
+variopus groups. These roles and groups are used for example to
+distinguish different access rights to services.
 
 #### Properties Organization
 
@@ -1114,6 +1113,18 @@ Parameters
   Name   Located in   Description                    Required   Schema
   ------ ------------ ------------------------------ ---------- --------
   name   path         The name of the organization   True       
+
+##### /cloudmesh/organization/{username}
+
+###### GET /cloudmesh/organization/{username}
+
+Returns the spcific user of that organization.
+
+Responses
+
+  Code   Description         Schema
+  ------ ------------------- -------------------------------
+  200    organization info   [Organization](#organization)
 
 #### organization.yaml
 
