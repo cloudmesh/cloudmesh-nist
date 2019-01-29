@@ -18,7 +18,7 @@ DEST=dest
 SRC=../services
 
 
-service_4 =organization user timestamp alias variables default file database replica virtualdirectory virtualcluster keystore vm scheduler image flavor
+service_4 =organization user timestamp alias variables default file database replica virtualdirectory virtualcluster keystore key vm scheduler image flavor
 service=$(service_4)
 
 broken= organization

@@ -1037,11 +1037,11 @@ An example for a configuration file is provided at
 ```{include=../../services/user/user.yaml}
 ```
 
-### Keystore
+### Key
 
 {include=./spec/keystore.md}
 
-#### keystore.yaml
+#### key.yaml
 
 ```{include=../../services/keystore/keystore.yaml}
 ```
@@ -1081,6 +1081,15 @@ An example for a configuration file is provided at
 ```{include=../../services/variables/variables.yaml}
 ```
 
+### Keystore
+
+{include=./spec/keystore.md}
+
+#### keystore.yaml
+
+```{include=../../services/keystore/keystore.yaml}
+```
+
 ### Default
 
 {include=./spec/default.md}
@@ -1089,6 +1098,7 @@ An example for a configuration file is provided at
 
 ```{include=./spec/default.yaml}
 ```
+
 
 
 [comment]: # FILE MANAGEMENT
