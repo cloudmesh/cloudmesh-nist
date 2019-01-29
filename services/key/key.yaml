@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: 3.0.3
   x-date: 11-06-2018
-  title: key
+  title: Key
   description: |-
   
     Many services and frameworks use Secure Shell (SSH) keys to
