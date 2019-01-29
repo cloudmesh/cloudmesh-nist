@@ -18,7 +18,7 @@ SRC=../services
 
 
 service_4 =timestamp alias variables default file profile database replica virtualdirectory virtualcluster keystore vm scheduler organization image flavor
-
+service=$(service_4)
 
 broken= organization
 #service=profile keystore virtualdirectory virtualcluster
