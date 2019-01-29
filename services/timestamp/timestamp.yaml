@@ -36,6 +36,10 @@ paths:
           schema:
             $ref: '#/definitions/Timestamp'
     put:
+<<<<<<< HEAD
+      summary: Create a new timestamp
+=======
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       description: Create a new timestamp
       operationId: add_timestamp
       parameters:
@@ -57,6 +61,7 @@ paths:
           in: path
           required: true
           type: string
+          description: the name of the time stamp
       produces:
         - application/json
       responses:
@@ -73,11 +78,14 @@ definitions:
         type: string
         description: last accessed time
         format: date
+        description: The time stamp when the object was last accessed
       created:
         type: string
         description: created time
         format: date
+        description: The time stamp when the object was created 
       modified:
         type: string
         description: last modified time
         format: date
+        description: The time stamp when the object was modified        

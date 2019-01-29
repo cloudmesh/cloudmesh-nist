@@ -1,20 +1,30 @@
 swagger: '2.0'
 info:
   version: 3.1.0
+<<<<<<< HEAD
+  x-status: defined
+  x-date: 01-29-2019  
+  title: File
+=======
   x-date: 01-29-2019
   x-status: defined
   title: file
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
-    A file is a computer resource allowing storage of data that is
+    A file is a resource allowing storage of data as a traditional file
     being processed. The interface to a file provides the mechanism to
     appropriately locate a file in a distributed system. File
     identification includes the name, endpoint, checksum, and
-    size. Additional parameters, such as the last access time, could
+    size. Additional parameters, such as a timestamp can
     also be stored. The interface only describes the location of the
     file.  The file object has name, endpoint (location), size in GB,
+<<<<<<< HEAD
+    MB, Byte, checksum for integrity check.
+=======
     MB, Byte, checksum for integrity check, and last accessed
     timestamp.
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -42,7 +52,12 @@ paths:
           schema:
             $ref: '#/definitions/File'
     put:
+<<<<<<< HEAD
+      summary: Create a new file
+      description: Create a new file      
+=======
       description: Create a new file record
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_file
       parameters:
         - in: body
@@ -56,7 +71,7 @@ paths:
           description: Created
   '/cloudmesh/file/{name}':
     get:
-      description: Returns a file
+      description: Returns a file by name
       operationId: get_file_by_name
       parameters:
         - name: name
@@ -64,6 +79,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the file
       produces:
         - application/json
       responses:
@@ -78,7 +94,7 @@ definitions:
     properties:
       name:
         type: string
-        description: the name of the file
+        description: The name of the file
       endpoint:
         type: string
         description: The location of the file
@@ -91,6 +107,7 @@ definitions:
       timestamp:
         description: timestamps associated with the file
         $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+
 
 #        "name": "report.dat",
 #        "endpoint": "file://gregor@machine.edu:/data/report.dat",

@@ -40,7 +40,12 @@ paths:
           schema:
             $ref: '#/definitions/Alias'
     put:
+<<<<<<< HEAD
+      summary: Create a new alias
+      description: Create a new alias      
+=======
       description: Create a new alias
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_alias
       parameters:
         - in: body
@@ -54,7 +59,8 @@ paths:
           description: Created
   '/cloudmesh/alias/{name}':
     get:
-      description: Returns an alias by name
+      summary: Returns an alias by name
+      description: Returns an alias by name      
       operationId: get_alias_by_name
       parameters:
         - name: name
@@ -62,6 +68,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the alias
       produces:
         - application/json
       responses:

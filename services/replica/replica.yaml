@@ -1,18 +1,26 @@
 swagger: '2.0'
 info:
   version: 3.1.0
+<<<<<<< HEAD
+  x-status: defined
+  x-date: 01-29-2019
+  title: Replica
+=======
   x-date: 01-29-2019
   x-status: defined
   title: replica
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
     In many distributed systems, it is important that a file can be
     replicated among different systems to provide faster access. It is
     important to provide a mechanism to trace the pedigree of the file
-    while pointing to its original source. A replica can be applied to
-    all data types introduced in this document.
+    while pointing to its original source. 
 
+<<<<<<< HEAD
+=======
     
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
@@ -39,7 +47,12 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
     put:
+<<<<<<< HEAD
+      summary: Create a new replica
+      description: Create a new replica      
+=======
       description: Create a new replica record
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_replica
       parameters:
         - in: body
@@ -53,7 +66,7 @@ paths:
           description: Created
   '/cloudmesh/replica/{name}':
     get:
-      description: Returns a replica
+      description: Returns a replica by name
       operationId: get_replica_by_name
       parameters:
         - name: name
@@ -61,6 +74,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The name of the replica
       produces:
         - application/json
       responses:
@@ -89,5 +103,6 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-        description: timestamps associated with the replica
         $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        description: "The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to."
+
