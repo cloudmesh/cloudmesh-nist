@@ -1,7 +1,8 @@
 swagger: '2.0'
 info:
-  version: 3.0.3
-  x-date: 11-06-2018
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019  
   title: Key
   description: |-
   
@@ -49,13 +50,14 @@ paths:
           description: Created
   '/cloudmesh/key/{name}':
     get:
-      description: Returns a key
+      description: Returns a key by name
       operationId: get_key_by_name
       parameters:
         - name: name
           in: path
           required: true
           type: string
+          description: the name of the key
       produces:
         - application/json
       responses:
@@ -70,19 +72,19 @@ definitions:
     properties:
       name:
         type: string
-        description: name of the key
+        description: The name of the key
       value:
         type: string
-        description: value of the key
+        description: The value of the key
       kind:
         type: string
-        description: the key kind such as rsa, dsa
+        description: The key kind such as rsa, dsa
       comment:
         type: string
-        description: a comment for the key
+        description: A comment for the key
       uri:
         type: string
-        description: the uri
+        description: The uri
       fingerprint:
         type: string
-        description: the fingerprint
+        description: The fingerprint
