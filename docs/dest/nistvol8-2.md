@@ -998,10 +998,17 @@ are defining in this draft. Additional objects are also available at
   timestamp          Timestamp          3.1.0     defined
   alias              Alias              3.1.0     defined
   variables          Variables          3.1.0     defined
+<<<<<<< HEAD
   default            Default            3.1.0     defined
   file               File               3.1.0     defined
   database           Database           3.1.0     defined
   replica            Replica            3.1.0     defined
+=======
+  default            default            3.1.0     defined
+  file               file               3.1.0     defined
+  database           database           3.1.0     defined
+  replica            replica            3.1.0     defined
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   virtualdirectory   virtualdirectory   3.1.0     defined
   virtualcluster     Virtual Cluster    3.1.0     defined
   keystore           key                3.1.0     defined
@@ -1261,9 +1268,15 @@ Terminology
 
 #### Paths
 
+<<<<<<< HEAD
 ##### /cloudmesh/user/user
 
 ###### GET /cloudmesh/user/user
+=======
+##### /cloudmesh/user/{uuid}
+
+###### GET /cloudmesh/user/{uuid}
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Returns all users
 
@@ -1273,7 +1286,19 @@ Responses
   ------ ------------------ ---------------
   200    user information   [User](#user)
 
+<<<<<<< HEAD
 ###### PUT /cloudmesh/user/user
+=======
+Parameters
+
+  Name   Located in   Description              Required   Schema
+  ------ ------------ ------------------------ ---------- --------
+  uuid   path         uuid of the user entry   True       
+
+##### /cloudmesh/user
+
+###### PUT /cloudmesh/user
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Create a new user
 
@@ -1289,7 +1314,11 @@ Parameters
   ------ ------------ ------------------------ ---------- ---------------
   user   body         The new user to create   False      [User](#user)
 
+<<<<<<< HEAD
 ##### /cloudmesh/user/user/{username}
+=======
+###### GET /cloudmesh/user
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 ###### GET /cloudmesh/user/user/{username}
 
@@ -1301,11 +1330,17 @@ Responses
   ------ ------------------ ---------------
   200    user information   [User](#user)
 
+<<<<<<< HEAD
 Parameters
 
   Name   Located in   Description    Required   Schema
   ------ ------------ -------------- ---------- --------
   uuid   path         The username   True       
+=======
+##### /cloudmesh/user/{username}
+
+###### GET /cloudmesh/user/{username}
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 ##### /cloudmesh/user/user/{uuid}
 
@@ -1321,9 +1356,15 @@ Responses
 
 Parameters
 
+<<<<<<< HEAD
   Name   Located in   Description   Required   Schema
   ------ ------------ ------------- ---------- --------
   uuid   path         The UUID      True       
+=======
+  Name   Located in   Description        Required   Schema
+  ------ ------------ ------------------ ---------- --------
+  name   path         name of the user   True       
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 #### user.yaml
 
@@ -1364,7 +1405,7 @@ consumes:
 produces:
   - "application/json"
 paths:
-  /cloudmesh/user/user:
+  /cloudmesh/user:
     get:
       tags:
         - "user"
@@ -1392,14 +1433,15 @@ paths:
       responses:
         "201":
           description: Created
-  /cloudmesh/user/user/{username}:
+  /cloudmesh/user/{username}:
     get:
       tags:
         - "user"
       description: "Returns the user of a user while looking it up with the username"
       operationId: getUserByUsername
       parameters:
-        - name: uuid
+        - name: name
+          description: name of the user
           in: path
           required: true
           type: string
@@ -1411,7 +1453,7 @@ paths:
           description: "user information"
           schema:
             $ref: "#/definitions/User"
-  /cloudmesh/user/user/{uuid}:
+  /cloudmesh/user/{uuid}:
     get:
       tags:
         - "user"
@@ -1419,6 +1461,7 @@ paths:
       operationId: getUserByUuid
       parameters:
         - name: uuid
+          description: uuid of the user entry
           in: path
           required: true
           type: string
@@ -1645,15 +1688,23 @@ their final version, a timestamp.
 #### Properties Timestamp
 
   Property   Type     Description
+<<<<<<< HEAD
   ---------- -------- --------------------------------------------------
   accessed   string   The time stamp when the object was last accessed
   created    string   The time stamp when the object was created
   modified   string   The time stamp when the object was modified
+=======
+  ---------- -------- --------------------
+  accessed   string   last accessed time
+  modified   string   last modified time
+  created    string   created time
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 #### Paths
 
-##### /cloudmesh/timestamps
+##### /cloudmesh/timestamp
 
+<<<<<<< HEAD
 ###### GET /cloudmesh/timestamps
 
 Returns all timestamps
@@ -1665,6 +1716,9 @@ Responses
   200    timestamp info   [Timestamp](#timestamp)
 
 ###### PUT /cloudmesh/timestamps
+=======
+###### PUT /cloudmesh/timestamp
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Create a new timestamp
 
@@ -1680,6 +1734,19 @@ Parameters
   ----------- ------------ ----------------------------- ---------- -------------------------
   timestamp   body         The new timestamp to create   False      [Timestamp](#timestamp)
 
+<<<<<<< HEAD
+=======
+###### GET /cloudmesh/timestamp
+
+Returns all timestamps
+
+Responses
+
+  Code   Description      Schema
+  ------ ---------------- -------------------------
+  200    timestamp info   [Timestamp](#timestamp)
+
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 ##### /cloudmesh/timestamp/{name}
 
 ###### GET /cloudmesh/timestamp/{name}
@@ -1694,9 +1761,15 @@ Responses
 
 Parameters
 
+<<<<<<< HEAD
   Name   Located in   Description                  Required   Schema
   ------ ------------ ---------------------------- ---------- --------
   name   path         the name of the time stamp   True       
+=======
+  Name   Located in   Description             Required   Schema
+  ------ ------------ ----------------------- ---------- --------
+  name   path         name of the timestamp   True       
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 #### timestamp.yaml
 
@@ -1727,7 +1800,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/timestamps:
+  /cloudmesh/timestamp:
     get:
       description: Returns all timestamps
       operationId: get_timestamp
@@ -1739,7 +1812,10 @@ paths:
           schema:
             $ref: '#/definitions/Timestamp'
     put:
+<<<<<<< HEAD
       summary: Create a new timestamp
+=======
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       description: Create a new timestamp
       operationId: add_timestamp
       parameters:
@@ -1757,6 +1833,7 @@ paths:
       operationId: get_timestamp_by_name
       parameters:
         - name: name
+          description: name of the timestamp
           in: path
           required: true
           type: string
@@ -1775,14 +1852,17 @@ definitions:
     properties:
       accessed:
         type: string
+        description: last accessed time
         format: date
         description: The time stamp when the object was last accessed
       created:
         type: string
+        description: created time
         format: date
         description: The time stamp when the object was created 
       modified:
         type: string
+        description: last modified time
         format: date
         description: The time stamp when the object was modified        
 ```
@@ -1832,7 +1912,7 @@ Parameters
 
   Name    Located in   Description               Required   Schema
   ------- ------------ ------------------------- ---------- -----------------
-  alias   body         The new alias to create   False      [Alias](#alias)
+  alias   body         The new alias to create   True       [Alias](#alias)
 
 ##### /cloudmesh/alias/{name}
 
@@ -1897,12 +1977,17 @@ paths:
           schema:
             $ref: '#/definitions/Alias'
     put:
+<<<<<<< HEAD
       summary: Create a new alias
       description: Create a new alias      
+=======
+      description: Create a new alias
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_alias
       parameters:
         - in: body
           name: alias
+          required: true
           description: The new alias to create
           schema:
             $ref: '#/definitions/Alias'
@@ -1916,6 +2001,7 @@ paths:
       operationId: get_alias_by_name
       parameters:
         - name: name
+          descripion: name of the alias
           in: path
           required: true
           type: string
@@ -2093,9 +2179,13 @@ definitions:
 A default is a special variable that has a context associated with it.
 This allows one to define values that can be easily retrieved based on
 the associated context. For example, a default could be the image name
+<<<<<<< HEAD
 for a cloud where the context is defined by the cloud name. In addition
 to the context we also specify the service name as a service could have
 multiple context.
+=======
+for a cloud where the context is defined by the cloud name.
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 #### Properties Default
 
@@ -2119,6 +2209,17 @@ Responses
   ------ -------------- ---------------------
   200    default info   [Default](#default)
 
+<<<<<<< HEAD
+=======
+Parameters
+
+  Name   Located in   Description           Required   Schema
+  ------ ------------ --------------------- ---------- --------
+  name   path         name of the default   True       
+
+##### /cloudmesh/default
+
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 ###### PUT /cloudmesh/default
 
 Create a new default
@@ -2133,9 +2234,13 @@ Parameters
 
   Name      Located in   Description                 Required   Schema
   --------- ------------ --------------------------- ---------- ---------------------
-  default   body         The new default to create   False      [Default](#default)
+  default   body         The new default to create   True       [Default](#default)
 
+<<<<<<< HEAD
 ##### /cloudmesh/default/{name}
+=======
+###### GET /cloudmesh/default
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 ###### GET /cloudmesh/default/{name}
 
@@ -2159,17 +2264,27 @@ Parameters
 swagger: '2.0'
 info:
   version: 3.1.0
+<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019  
   title: Default
+=======
+  x-date: 01-29-2019
+  x-status: defined
+  title: default
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
     A default is a special variable that has a context associated with
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
+<<<<<<< HEAD
     cloud name. In addition to the context we also specify the service
     name as a service could have multiple context.
+=======
+    cloud name.
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -2197,12 +2312,17 @@ paths:
           schema:
             $ref: '#/definitions/Default'
     put:
+<<<<<<< HEAD
       summary: Create a new default
       description: Create a new default      
+=======
+      description: Create a new default
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_default
       parameters:
         - in: body
           name: default
+          required: true
           description: The new default to create
           schema:
             $ref: '#/definitions/Default'
@@ -2215,6 +2335,7 @@ paths:
       operationId: get_default_by_name
       parameters:
         - name: name
+          description: name of the default
           in: path
           required: true
           type: string
@@ -2247,6 +2368,7 @@ Data Management
 
 ### File
 
+<<<<<<< HEAD
 A file is a resource allowing storage of data as a traditional file
 being processed. The interface to a file provides the mechanism to
 appropriately locate a file in a distributed system. File identification
@@ -2278,9 +2400,34 @@ Responses
   Code   Description   Schema
   ------ ------------- ---------------
   200    file info     [File](#file)
+=======
+#### Properties Database
+
+  Property      Type     Description
+  ------------- -------- -----------------------------
+  kind          string   the kind of the database
+  endpoint      string   endpoint of the database
+  name          string   name of the database
+  description   string   description of the database
+
+#### Paths
+
+##### /cloudmesh/database/{name}
+
+###### GET /cloudmesh/database/{name}
+
+Returns a database
+
+Responses
+
+  Code   Description     Schema
+  ------ --------------- -----------------------
+  200    database info   [Database](#database)
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 ###### PUT /cloudmesh/file
 
+<<<<<<< HEAD
 Create a new file
 
 Responses
@@ -2288,9 +2435,21 @@ Responses
   Code   Description   Schema
   ------ ------------- --------
   201    Created       
+=======
+  Name   Located in   Description            Required   Schema
+  ------ ------------ ---------------------- ---------- --------
+  name   path         name of the database   True       
+
+##### /cloudmesh/database
+
+###### PUT /cloudmesh/database
+
+Create a new database entry
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Parameters
 
+<<<<<<< HEAD
   Name   Located in   Description              Required   Schema
   ------ ------------ ------------------------ ---------- ---------------
   file   body         The new file to create   False      [File](#file)
@@ -2300,6 +2459,21 @@ Parameters
 ###### GET /cloudmesh/file/{name}
 
 Returns a file by name
+=======
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name       Located in   Description                         Required   Schema
+  ---------- ------------ ----------------------------------- ---------- -----------------------
+  database   body         The new database record to create   True       [Database](#database)
+
+###### GET /cloudmesh/database
+
+Returns all databases
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Responses
 
@@ -2307,6 +2481,7 @@ Responses
   ------ ------------- ---------------
   200    file info     [File](#file)
 
+<<<<<<< HEAD
 Parameters
 
   Name   Located in   Description            Required   Schema
@@ -2314,11 +2489,15 @@ Parameters
   name   path         The name of the file   True       
 
 #### file.yaml
+=======
+#### database.yaml
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 ``` {include="../../services/file/file.yaml"}
 swagger: '2.0'
 info:
   version: 3.1.0
+<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019  
   title: File
@@ -2332,6 +2511,15 @@ info:
     also be stored. The interface only describes the location of the
     file.  The file object has name, endpoint (location), size in GB,
     MB, Byte, checksum for integrity check.
+=======
+  x-date: 01-29-2019
+  x-status: defined
+  title: database
+  description: |-
+  
+    A database could have a name, an endpoint (e.g., host, port),
+    and a protocol used (e.g., SQL, mongo).
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -2347,7 +2535,11 @@ consumes:
 produces:
   - application/json
 paths:
+<<<<<<< HEAD
   /cloudmesh/file:
+=======
+  /cloudmesh/database:
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     get:
       description: Returns all files
       operationId: get_file
@@ -2359,6 +2551,7 @@ paths:
           schema:
             $ref: '#/definitions/File'
     put:
+<<<<<<< HEAD
       summary: Create a new file
       description: Create a new file      
       operationId: add_file
@@ -2366,6 +2559,15 @@ paths:
         - in: body
           name: file
           description: The new file to create
+=======
+      description: Create a new database entry
+      operationId: add_database
+      parameters:
+        - in: body
+          name: database
+          required: true
+          description: The new database record to create
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
           schema:
             $ref: '#/definitions/File'
       responses:
@@ -2377,6 +2579,7 @@ paths:
       operationId: get_file_by_name
       parameters:
         - name: name
+          description: name of the database
           in: path
           required: true
           type: string
@@ -2391,11 +2594,22 @@ paths:
 definitions:
   File:
     type: object
+<<<<<<< HEAD
     description: the file
     properties:
       name:
         type: string
         description: The name of the file
+=======
+    description: This defines a database object as an entry
+    properties:
+      name:
+        type: string
+        description: name of the database
+      description:
+        type: string
+        description: description of the database
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       endpoint:
         type: string
         description: The location of the file
@@ -2593,10 +2807,14 @@ definitions:
 
 ### Database
 
+<<<<<<< HEAD
 A database could have a name, an endpoint (e.g., host, port), and a
 protocol used (e.g., SQL, MongoDB, ...).
 
 #### Properties Database
+=======
+#### Properties File
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
   Property   Type     Description
   ---------- -------- --------------------------
@@ -2614,6 +2832,7 @@ Returns all databases
 
 Responses
 
+<<<<<<< HEAD
   Code   Description     Schema
   ------ --------------- -----------------------
   200    database info   [Database](#database)
@@ -2621,6 +2840,23 @@ Responses
 ###### PUT /cloudmesh/database
 
 Create a new database
+=======
+  Code   Description   Schema
+  ------ ------------- ---------------
+  200    file info     [File](#file)
+
+Parameters
+
+  Name   Located in   Description        Required   Schema
+  ------ ------------ ------------------ ---------- --------
+  name   path         name of the file   True       
+
+##### /cloudmesh/file
+
+###### PUT /cloudmesh/file
+
+Create a new file record
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Responses
 
@@ -2630,11 +2866,19 @@ Responses
 
 Parameters
 
+<<<<<<< HEAD
   Name       Located in   Description                  Required   Schema
   ---------- ------------ ---------------------------- ---------- -----------------------
   database   body         The new database to create   False      [Database](#database)
 
 ##### /cloudmesh/database/{name}
+=======
+  Name   Located in   Description                     Required   Schema
+  ------ ------------ ------------------------------- ---------- ---------------
+  file   body         The new file record to create   True       [File](#file)
+
+###### GET /cloudmesh/file
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 ###### GET /cloudmesh/database/{name}
 
@@ -2658,6 +2902,7 @@ Parameters
 swagger: '2.0'
 info:
   version: 3.1.0
+<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019  
   title: Database
@@ -2666,6 +2911,23 @@ info:
     A database could have a name, an endpoint (e.g., host, port),
     and a protocol used (e.g., SQL, MongoDB, ...).
 
+=======
+  x-date: 01-29-2019
+  x-status: defined
+  title: file
+  description: |-
+  
+    A file is a computer resource allowing storage of data that is
+    being processed. The interface to a file provides the mechanism to
+    appropriately locate a file in a distributed system. File
+    identification includes the name, endpoint, checksum, and
+    size. Additional parameters, such as the last access time, could
+    also be stored. The interface only describes the location of the
+    file.  The file object has name, endpoint (location), size in GB,
+    MB, Byte, checksum for integrity check, and last accessed
+    timestamp.
+    
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
@@ -2680,7 +2942,11 @@ consumes:
 produces:
   - application/json
 paths:
+<<<<<<< HEAD
   /cloudmesh/database:
+=======
+  /cloudmesh/file:
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     get:
       description: Returns all databases
       operationId: get_database
@@ -2692,6 +2958,7 @@ paths:
           schema:
             $ref: '#/definitions/Database'
     put:
+<<<<<<< HEAD
       summary: Create a new database
       description: Create a new database      
       operationId: add_database
@@ -2699,6 +2966,15 @@ paths:
         - in: body
           name: database
           description: The new database to create
+=======
+      description: Create a new file record
+      operationId: add_file
+      parameters:
+        - in: body
+          name: file
+          required: true
+          description: The new file record to create
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
           schema:
             $ref: '#/definitions/Database'
       responses:
@@ -2710,6 +2986,7 @@ paths:
       operationId: get_database_by_name
       parameters:
         - name: name
+          description: name of the file
           in: path
           required: true
           type: string
@@ -2724,7 +3001,11 @@ paths:
 definitions:
   Database:
     type: object
+<<<<<<< HEAD
     description: the database
+=======
+    description: an object representing a file
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     properties:
       name:
         type: string
@@ -2744,12 +3025,16 @@ virtual directory can contain a number of entities including files,
 streams, and other virtual directories as part of a collection. The
 element in the collection can either be defined by uuid or by name.
 
+<<<<<<< HEAD
 #### Properties UnauthorizedError
 
   Property   Type     Description
   ---------- -------- ----------------------------------
   code       string   Code form of the error
   message    string   Human readable form of the error
+=======
+#### Properties Replica
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 #### Properties Virtualdirectory
 
@@ -2772,6 +3057,7 @@ element in the collection can either be defined by uuid or by name.
 
 #### Paths
 
+<<<<<<< HEAD
 ##### /cloudmesh/virtualdirectory
 
 ###### GET /cloudmesh/virtualdirectory
@@ -2791,6 +3077,17 @@ Responses
 ###### PUT /cloudmesh/virtualdirectory
 
 Create a new virtualdirectory
+=======
+  Name   Located in   Description                 Required   Schema
+  ------ ------------ --------------------------- ---------- --------
+  name   path         name of the replica entry   True       
+
+##### /cloudmesh/replica
+
+###### PUT /cloudmesh/replica
+
+Create a new replica record
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Responses
 
@@ -2800,6 +3097,7 @@ Responses
 
 Parameters
 
+<<<<<<< HEAD
   --------------------------------------------------------------------------------------------------------------------
   Name               Located   Description                          Required   Schema
                      in                                                        
@@ -2813,6 +3111,15 @@ Parameters
 ###### GET /cloudmesh/virtualdirectory/{name}
 
 Returns a virtualdirectory
+=======
+  Name      Located in   Description                       Required   Schema
+  --------- ------------ --------------------------------- ---------- ---------------------
+  replica   body         The new replica entry to create   True       [Replica](#replica)
+
+###### GET /cloudmesh/replica
+
+Returns all replicas records
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
 
 Responses
 
@@ -2835,7 +3142,11 @@ info:
   version: 3.1.0
   x-date: 01-29-2019
   x-status: defined
+<<<<<<< HEAD
   title: virtualdirectory
+=======
+  title: replica
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
     A virtual directory is a collection of files or replicas of the
@@ -2844,6 +3155,10 @@ info:
     a collection.  The element in the collection can either be defined
     by uuid or by name.
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Virtual Directory Service Example
@@ -2869,12 +3184,19 @@ securityDefinitions:
     in: query
     name: api_secret
 paths:
+<<<<<<< HEAD
   /cloudmesh/virtualdirectory:
     get:
       tags:
         - "virtualdirectory"
       description: Returns all virtualdirectorys
       operationId: get_virtualdirectory
+=======
+  /cloudmesh/replica:
+    get:
+      description: Returns all replicas records
+      operationId: get_replica
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       produces:
         - application/json
       security:
@@ -2889,6 +3211,7 @@ paths:
           schema:
             $ref: '#/definitions/UnauthorizedError'
     put:
+<<<<<<< HEAD
       tags:
         - "virtualdirectory"
       description: Create a new virtualdirectory
@@ -2898,6 +3221,15 @@ paths:
           name: virtualdirectory
           required: true
           description: The new virtualdirectory to create
+=======
+      description: Create a new replica record
+      operationId: add_replica
+      parameters:
+        - in: body
+          name: replica
+          required: true
+          description: The new replica entry to create
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
           schema:
             $ref: '#/definitions/Virtualdirectory'
       security:
@@ -2914,7 +3246,11 @@ paths:
       operationId: get_virtualdirectory_by_name
       parameters:
         - name: name
+<<<<<<< HEAD
           description: name of the virtual directory
+=======
+          description: name of the replica entry
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
           in: path
           required: true
           type: string
@@ -2928,9 +3264,15 @@ paths:
           schema:
             $ref: '#/definitions/Virtualdirectory'
 definitions:
+<<<<<<< HEAD
   UnauthorizedError:
     type: "object"
     description: unauthorized error
+=======
+  Replica:
+    type: object
+    description: An entry representing a file replica record
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     properties:
       code:
         type: "string"

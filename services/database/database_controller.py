@@ -36,6 +36,6 @@ def get_database_by_name(name):
 	for element in databases.find({'name':name}):
 		return (element['name'],
                 element['description'],
-                element['value'],
+                element['endpoint'],
                 element['kind'])
 

@@ -1,6 +1,7 @@
 swagger: '2.0'
 info:
   version: 3.1.0
+<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019  
   title: Database
@@ -9,6 +10,16 @@ info:
     A database could have a name, an endpoint (e.g., host, port),
     and a protocol used (e.g., SQL, MongoDB, ...).
 
+=======
+  x-date: 01-29-2019
+  x-status: defined
+  title: database
+  description: |-
+  
+    A database could have a name, an endpoint (e.g., host, port),
+    and a protocol used (e.g., SQL, mongo).
+    
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
@@ -35,13 +46,18 @@ paths:
           schema:
             $ref: '#/definitions/Database'
     put:
+<<<<<<< HEAD
       summary: Create a new database
       description: Create a new database      
+=======
+      description: Create a new database entry
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_database
       parameters:
         - in: body
           name: database
-          description: The new database to create
+          required: true
+          description: The new database record to create
           schema:
             $ref: '#/definitions/Database'
       responses:
@@ -53,6 +69,7 @@ paths:
       operationId: get_database_by_name
       parameters:
         - name: name
+          description: name of the database
           in: path
           required: true
           type: string
@@ -67,11 +84,14 @@ paths:
 definitions:
   Database:
     type: object
-    description: the database
+    description: This defines a database object as an entry
     properties:
       name:
         type: string
         description: name of the database
+      description:
+        type: string
+        description: description of the database
       endpoint:
         type: string
         description: endpoint of the database

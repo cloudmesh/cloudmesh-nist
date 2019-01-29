@@ -1,9 +1,15 @@
 swagger: '2.0'
 info:
   version: 3.1.0
+<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019
   title: Replica
+=======
+  x-date: 01-29-2019
+  x-status: defined
+  title: replica
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
     In many distributed systems, it is important that a file can be
@@ -11,6 +17,10 @@ info:
     important to provide a mechanism to trace the pedigree of the file
     while pointing to its original source. 
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
@@ -27,7 +37,7 @@ produces:
 paths:
   /cloudmesh/replica:
     get:
-      description: Returns all replicas
+      description: Returns all replicas records
       operationId: get_replica
       produces:
         - application/json
@@ -37,13 +47,18 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
     put:
+<<<<<<< HEAD
       summary: Create a new replica
       description: Create a new replica      
+=======
+      description: Create a new replica record
+>>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_replica
       parameters:
         - in: body
           name: replica
-          description: The new replica to create
+          required: true
+          description: The new replica entry to create
           schema:
             $ref: '#/definitions/Replica'
       responses:
@@ -55,6 +70,7 @@ paths:
       operationId: get_replica_by_name
       parameters:
         - name: name
+          description: name of the replica entry
           in: path
           required: true
           type: string
@@ -69,7 +85,7 @@ paths:
 definitions:
   Replica:
     type: object
-    description: the replica
+    description: An entry representing a file replica record
     properties:
       name:
         type: string
