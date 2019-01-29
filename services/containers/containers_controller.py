@@ -35,7 +35,10 @@ def get_containers_by_name(name):
     # BUG: not yet gaurantiied there is only one name
 	for element in containerss.find({'name':name}):
 		return (element['name'],
-                element['description'],
-                element['value'],
-                element['kind'])
+                element['version'],
+                element['label'],
+                element['type'],
+                element['definition'],
+                element['imgURI'],
+                element['tags'])
 

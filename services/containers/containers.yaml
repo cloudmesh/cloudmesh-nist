@@ -1,13 +1,12 @@
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: containers
   description: |-
   
     A service to store containers.
-
-    * TODO: assigned for review and improvement
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -23,9 +22,10 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/containerss:
+  /cloudmesh/container:
     get:
-      description: Returns all containerss
+      summary: Returns all containers
+      description: Returns all containers
       operationId: get_containers
       produces:
         - application/json
@@ -36,6 +36,7 @@ paths:
             $ref: '#/definitions/Containers'
     put:
       summary: Create a new containers
+      description: Create a new containers
       operationId: add_containers
       parameters:
         - in: body
@@ -46,12 +47,13 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/containers/{name}':
+  '/cloudmesh/container/{name}':
     get:
       description: Returns a containers
       operationId: get_containers_by_name
       parameters:
         - name: name
+          description: name of the container
           in: path
           required: true
           type: string
@@ -65,20 +67,28 @@ paths:
 definitions:
   Containers:
     type: object
-    description: the containers
+    description: A record representing a container
     properties:
       name:
         type: string
-        description: name of the containers
+        description: name of the container
+      version:
+        type: string
+        description: version of the container
       label:
         type: string
-        description: label of the containers
-      memory:
+        description: label of the container
+      type:
         type: string
-        description: memory of the containers in Byte
-      endpoint:
+        description: type of the container
+      definition:
         type: string
-        description: endpoint of the containers
-      ip:
+        description: definition or manifest of the container
+      imgURI:
         type: string
-        description: the ip address of the container
+        description: URI of the container
+      tags:
+        type: array
+        description: tags of the container
+        items:
+          string
