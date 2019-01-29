@@ -1,27 +1,18 @@
 swagger: '2.0'
 info:
   version: 3.1.0
-<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019  
   title: Default
-=======
-  x-date: 01-29-2019
-  x-status: defined
-  title: default
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
     A default is a special variable that has a context associated with
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
-<<<<<<< HEAD
     cloud name. In addition to the context we also specify the service
-    name as a service could have multiple context.
-=======
-    cloud name.
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
+    name as a service could have multiple context. To be ab;le to
+    define the kind of service there is also a kind attribute.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -49,12 +40,8 @@ paths:
           schema:
             $ref: '#/definitions/Default'
     put:
-<<<<<<< HEAD
       summary: Create a new default
       description: Create a new default      
-=======
-      description: Create a new default
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_default
       parameters:
         - in: body
@@ -98,3 +85,9 @@ definitions:
       kind:
         type: string
         description: The value of the default
+      service:
+        type: string
+        description: The name of the service
+      context:
+        type: string
+        description: The context of the service
