@@ -1,15 +1,9 @@
 swagger: '2.0'
 info:
   version: 3.1.0
-<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019  
   title: File
-=======
-  x-date: 01-29-2019
-  x-status: defined
-  title: file
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
     A file is a resource allowing storage of data as a traditional file
@@ -19,12 +13,7 @@ info:
     size. Additional parameters, such as a timestamp can
     also be stored. The interface only describes the location of the
     file.  The file object has name, endpoint (location), size in GB,
-<<<<<<< HEAD
     MB, Byte, checksum for integrity check.
-=======
-    MB, Byte, checksum for integrity check, and last accessed
-    timestamp.
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -52,12 +41,8 @@ paths:
           schema:
             $ref: '#/definitions/File'
     put:
-<<<<<<< HEAD
       summary: Create a new file
       description: Create a new file      
-=======
-      description: Create a new file record
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_file
       parameters:
         - in: body
