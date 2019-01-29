@@ -3,15 +3,16 @@
 VERSION="Version 3.0.3"  
 FILE=nistvol8-2
 
-MARKDOWN-OPTIONS=$(MERMAID)  --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
+MARKDOWN-OPTIONS=--verbose  --template=template.epub $(MERMAID)  --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml 
+#MARKDOWN-OPTIONS=$(MERMAID)  --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
 CSL=--csl=template/ieee-with-url.csl
-FORMAT=--number-sections --standalone
+FORMAT=--toc --number-sections --standalone
 FONTS=--epub-embed-font='fonts/*.ttf'
-BIB=--bibliography references.bib
-CSS=--css=template/epub.css
+BIB=--metadata link-citations=true --bibliography references.bib
+#CSS=--css=template/epub.css
 CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
-TITLE=--metadata title="NIST BDRA Volume 8"
+#TITLE=--metadata title="NIST BDRA Volume 8"
 LATEX=-N --template=./template.latex -V version=$(VERSION)
 DEST=dest
 SRC=../services
@@ -34,12 +35,14 @@ volume: dest rest spec epub html pdf word
 
 dest: 
 	mkdir -p $(DEST)/spec
+	cp -r template dest
+	cp -r images dest
+	cp references.bib dest
+	cp -r cover dest
+	cp template.epub dest
 
 #$(objects): dest/spec/%.md : ../services/%/%.yaml
 #	../bin/cm-openapi2md md $< --indent=3 > $@
-
-toc:
-	pandoc -t markdown_github --toc -o example-with-toc.md example.md
 
 specstable:
 	echo "Generate:" $(DEST)/spec/specstable.md ; \
@@ -70,7 +73,8 @@ spec: dest specstable openapi $(FILE).md
 
 epub: spec
 	cp -rf images dest
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc  -s all.md -o $(FILE).epub
+	cd dest; pandoc $(RESOURCE) $(MARKDOWN-OPTIONS)  $(FORMAT) $(FONTS) $(BIB)  $(CSL) $(CSS) -o $(FILE).epub ../metadata.txt all.md
+	#cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc  -s all.md -o $(FILE).epub
 	cp $(DEST)/$(FILE).epub .
 
 html: spec
@@ -110,3 +114,6 @@ all:
 
 clean:
 	rm -rf dest
+
+shell:
+	docker run -v `pwd`:/book -w /book --rm -it cloudmesh/book:${VERSION}  /bin/bash 

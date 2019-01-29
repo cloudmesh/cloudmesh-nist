@@ -1,7 +1,7 @@
 ---
 title:
 - type: main
-  text: Vol8
+  text: "NIST Big Data Interoperability Framework: Volume 8, Reference Architecture Interfaces"
 creator:
 - role: editor
   text: Editor Gregor von Laszewski
@@ -9,5 +9,20 @@ description: NIST Volume 8
 rights: (c) Gregor von Laszewski, 2018
 language: en-US
 stylesheet: template/epub.css
-cover-image: cover/cover.jpg
+# cover-image: cover/cover.jpg
+figureTitle: Figure
+figPrefix: Figure
+eqnPrefix: Equation
+secPrefix: Section
+tblPrefix: Table
+linkReferences: True
+nameInLink: True
+fignos-caption-name: Figure
+fignos-plus-name: Figure
+xnos-number-sections: True
+keywords: [cloud, container]
+mustache: abbrev.yaml
+fontsize: 10pt
+abstract: |
+  This book contains the lecture notes for e516
 ...
