@@ -1000,7 +1000,7 @@ are defining in this draft. Additional objects are also available at
   variables          Variables          3.1.0     defined
   default            default            3.0.2     TBD
   file               file               3.0.2     TBD
-  database           database           3.0.2     TBD
+  database           database           3.1.0     defined
   replica            replica            3.0.2     TBD
   virtualdirectory   virtualdirectory   3.1.0     defined
   virtualcluster     Virtual Cluster    3.1.0     defined
@@ -2238,45 +2238,16 @@ Data Management
 A database could have a name, an endpoint (e.g., host, port), and a
 protocol used (e.g., SQL, mongo).
 
--   TODO: assign for review and improvement
-
 #### Properties Database
 
-  Property   Type     Description
-  ---------- -------- --------------------------
-  kind       string   the kind of the database
-  endpoint   string   endpoint of the database
-  name       string   name of the database
+  Property      Type     Description
+  ------------- -------- -----------------------------
+  kind          string   the kind of the database
+  endpoint      string   endpoint of the database
+  name          string   name of the database
+  description   string   description of the database
 
 #### Paths
-
-##### /cloudmesh/databases
-
-###### PUT /cloudmesh/databases
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name       Located in   Description                  Required   Schema
-  ---------- ------------ ---------------------------- ---------- -----------------------
-  database   body         The new database to create   False      [Database](#database)
-
-###### GET /cloudmesh/databases
-
-Returns all databases
-
-Responses
-
-  Code   Description     Schema
-  ------ --------------- -----------------------
-  200    database info   [Database](#database)
 
 ##### /cloudmesh/database/{name}
 
@@ -2292,26 +2263,53 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description            Required   Schema
+  ------ ------------ ---------------------- ---------- --------
+  name   path         name of the database   True       
+
+##### /cloudmesh/database
+
+###### PUT /cloudmesh/database
+
+Create a new database entry
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name       Located in   Description                         Required   Schema
+  ---------- ------------ ----------------------------------- ---------- -----------------------
+  database   body         The new database record to create   True       [Database](#database)
+
+###### GET /cloudmesh/database
+
+Returns all databases
+
+Responses
+
+  Code   Description     Schema
+  ------ --------------- -----------------------
+  200    database info   [Database](#database)
 
 #### database.yaml
 
 ``` {include="../../services/database/database.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: database
   description: |-
   
     A database could have a name, an endpoint (e.g., host, port),
     and a protocol used (e.g., SQL, mongo).
-
-    * TODO: assign for review and improvement
     
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -2325,7 +2323,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/databases:
+  /cloudmesh/database:
     get:
       description: Returns all databases
       operationId: get_database
@@ -2337,12 +2335,13 @@ paths:
           schema:
             $ref: '#/definitions/Database'
     put:
-      summary: Create a new database
+      description: Create a new database entry
       operationId: add_database
       parameters:
         - in: body
           name: database
-          description: The new database to create
+          required: true
+          description: The new database record to create
           schema:
             $ref: '#/definitions/Database'
       responses:
@@ -2354,6 +2353,7 @@ paths:
       operationId: get_database_by_name
       parameters:
         - name: name
+          description: name of the database
           in: path
           required: true
           type: string
@@ -2367,11 +2367,14 @@ paths:
 definitions:
   Database:
     type: object
-    description: the database
+    description: This defines a database object as an entry
     properties:
       name:
         type: string
         description: name of the database
+      description:
+        type: string
+        description: description of the database
       endpoint:
         type: string
         description: endpoint of the database
