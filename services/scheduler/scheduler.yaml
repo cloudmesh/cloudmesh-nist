@@ -1,14 +1,13 @@
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: scheduler
   description: |-
   
     A service to store scheduler, value, type information. All of them
     are stored as Strings.
-
-    * TODO: assign and improve
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -36,7 +35,7 @@ paths:
           schema:
             $ref: '#/definitions/Scheduler'
     put:
-      summary: Create a new scheduler
+      description: Create a new scheduler
       operationId: add_scheduler
       parameters:
         - in: body
@@ -53,6 +52,7 @@ paths:
       operationId: get_scheduler_by_name
       parameters:
         - name: name
+          description: name of the scheduler
           in: path
           required: true
           type: string
@@ -73,7 +73,7 @@ definitions:
         description: name of the scheduler
       value:
         type: string
-        description: value of the scheduler
+        description: information of the scheduler
       kind:
         type: string
         description: the scheduler kind or type

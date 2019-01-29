@@ -1154,7 +1154,7 @@ An example for a configuration file is provided at
 
 {include=./spec/scheduler.md}
 
-### scheduler.yaml
+#### scheduler.yaml
 
 ```{include=../../services/scheduler/scheduler.yaml}
 ```

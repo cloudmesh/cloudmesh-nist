@@ -1,8 +1,9 @@
 ---
 swagger: "2.0"
 info:
-  version: 3.0.3
-  x-date: 06-11-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: "Virtual Cluster"
   description: |-
 
@@ -26,7 +27,7 @@ paths:
     get:
       tags:
         - "virtualcluster"
-      description: "Returns all virtualcluster"
+      description: "Returns all virtual clusters"
       operationId: get_virtualcluster
       produces:
         - "application/json"
@@ -38,12 +39,13 @@ paths:
     put:
       tags:
         - "virtualcluster"
-      summary: "Create a new virtualcluster"
+      description: "Create a new virtual cluster"
       operationId: add_virtualcluster
       parameters:
         - in: body
           name: virtualcluster
-          description: "The new virtualcluster to create"
+          description: "The new virtual cluster to create"
+          required: true
           schema:
             $ref: "#/definitions/VirtualCluster"
       responses:
@@ -53,10 +55,11 @@ paths:
     get:
       tags:
         - "virtualcluster"
-      description: "Returns a virtualcluster by its name"
+      description: "Returns a virtual cluster by its name"
       operationId: getVirtualclusterByName
       parameters:
         - name: virtualclustername
+          description: name of the virtual cluster
           in: path
           required: true
           type: string
@@ -71,10 +74,11 @@ paths:
     get:
       tags:
         - "virtualcluster"
-      description: "Returns the front-end node info of the specified virtualcluster"
+      description: "Returns the front-end node info of the specified virtual cluster"
       operationId: getVirtualclusterFeByName
       parameters:
         - name: virtualclustername
+          description: name of the virtua cluster
           in: path
           required: true
           type: string
@@ -82,7 +86,7 @@ paths:
         - "application/json"
       responses:
         "200":
-          description: "virtualcluster front-end info"
+          description: "virtual cluster front-end node info"
           schema:
             $ref: "#/definitions/Node"
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
@@ -93,10 +97,12 @@ paths:
       operationId: getVirtualclusterNodeByName
       parameters:
         - name: virtualclustername
+          description: name of the virtua cluster
           in: path
           required: true
           type: string
         - name: nodename
+          description: name of the name
           in: path
           required: true
           type: string
