@@ -1051,7 +1051,7 @@ An example for a configuration file is provided at
 ### Profile
 
 Profiles are used to store information about users. User information can
-be reused in other services. THis is useful to create virtual
+be reused in other services. Profiles are useful to create virtual
 organization the depend on user data. Profiles can be added, removed and
 listed. A group in the profile can be used to augment users to be part
 of one or more groups. A number of roles can specify a specific role of
@@ -1059,9 +1059,8 @@ a user.
 
 Terminology
 
-Group: A Person with profile can be part of a Group
-
-Role: A person with profile can have a role within that Group
+-   Group: A Person with profile can be part of a Group
+-   Role: A person with profile can have a role within that Group
 
 #### Properties Profile
 
