@@ -35,7 +35,13 @@ def get_hadoop_by_name(name):
     # BUG: not yet gaurantiied there is only one name
 	for element in hadoops.find({'name':name}):
 		return (element['name'],
-                element['description'],
-                element['value'],
-                element['kind'])
+                element['deployment_type'],
+                element['deployment_git'],
+                element['resource_managers'],
+                element['namenodes'],
+                element['dataodes'],
+                element['historynodes'],
+                element['journalnodes'],
+                element['yarn'],
+                element['hdfs'])
 

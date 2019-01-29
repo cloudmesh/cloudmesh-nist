@@ -1,11 +1,13 @@
 swagger: '2.0'
 info:
-  version: 3.0.1
-  title: hadoop
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
+  title: Hadoop
   description: |-
   
-    A service to store hadoop, value, type information. All of them
-    are stored as Strings.
+    A service to store the information of a hadoop deployment definition. All of the
+    attributes are stored as Strings.
 
     * TODO: assign for review and imporvement
     
@@ -23,8 +25,9 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/hadoops:
+  /cloudmesh/hadoop:
     get:
+      summary: Returns all hadoops
       description: Returns all hadoops
       operationId: get_hadoop
       produces:
@@ -36,6 +39,7 @@ paths:
             $ref: '#/definitions/Hadoop'
     put:
       summary: Create a new hadoop
+      description: Create a new hadoop
       operationId: add_hadoop
       parameters:
         - in: body
@@ -48,11 +52,13 @@ paths:
           description: Created
   '/cloudmesh/hadoop/{name}':
     get:
+      summary: Returns a hadoop
       description: Returns a hadoop
       operationId: get_hadoop_by_name
       parameters:
         - name: name
           in: path
+          description: name of the hadoop
           required: true
           type: string
       produces:
@@ -65,7 +71,7 @@ paths:
 definitions:
   Hadoop:
     type: object
-    description: the hadoop
+    description: An object representing a Hadoop deployment definition
     properties:
       name:
         type: string
