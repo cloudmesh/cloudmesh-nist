@@ -4,7 +4,7 @@ info:
   version: 3.1.0
   x-date: 01-29-2019
   x-status: defined
-  title: virtualdirectory
+  title: Virtualdirectory
   description: |-
   
     A virtual directory is a collection of files or replicas of the
