@@ -46,22 +46,27 @@ Akhil Manchanda (GE) for the Security and Privacy Subgroup; David Boyd
 Architecture Subgroup; and Russell Reinsch (Center for Government
 Interoperability), David Boyd (InCadence Strategic Solutions), Carl
 Buffington (Vistronix), and Dan McClary (Oracle), for the Standards
-Roadmap Subgroup.
+Roadmap Subgroup, Gregor von Laszewski (Indiana University) for the
+Interface Subgroup.
 
-The editors for this document were the following:
+The following milestone releases exist:
 
-* ***Version 2.1***: A previous volume used just the definition of the
+* **Version 2.1**: A previous volume used just the definition of the
   schema based on examples it was easier to read but did only include
   the definition of the resources and not the interaction with the resources.
   This volume was in place till June 2018.
-* ***Version 2.2***: This version was significantly changed and uses now
+* **Version 2.2**: This version was significantly changed and uses now
   OpenAPI to specify the Interfaces between the various services and components.
   Editors of this volume are:
-* ***Version 2.3***: The version includes the 
+* **Version 3.1.0**: The version includes the significant improvements
+  of the object specifications 
 
-Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
+The editors for these documents are:
 
-Laurie Aldape (Energetics Incorporated) and Elizabeth Lennon (NIST) provided editorial assistance across all NBDIF volumes.
+* Gregor von Laszewski (Indiana University)
+* Wo Chang (NIST).
+
+Laurie Aldape (Energetics Incorporated) Elizabeth Lennon (NIST) provided editorial assistance across all NBDIF volumes.
 
 
 NIST SP 1500-9, Draft NIST Big Data Interoperability Framework: Volume
@@ -104,12 +109,11 @@ Big Data Public Working Group (NBD-PWG) Interface Subgroup to identify
 interfaces in support of the NIST Big Data Reference Architecture
 (NBDRA) The interfaces contain two different aspects:
 
-- The definition of resources that are part of the NBDRA. These
- resources are formulated in JSON format and can be integrated into a
- REST framework or an object-based framework easily.
-
-- The definition of simple interface use cases that allow us to
- illustrate the usefulness of the resources defined.
+* The definition of resources that are part of the NBDRA. These
+  resources are formulated in JSON format and can be integrated into a
+  REST framework or an object-based framework easily.
+* The definition of simple interface use cases that allow us to
+  illustrate the usefulness of the resources defined.
 
 The resources were categorized in groups that are identified by the
 NBDRA set forward in the *NBDIF: Volume 6, Reference Architecture*
@@ -151,7 +155,7 @@ This document is targeting Stage 2 of the NBDRA. Coordination of the
 group is conducted on the NBD-PWG web page
 (<https://bigdatawg.nist.gov>).
 
-# Introduction
+# Introduction {#sec:introduction}
 
 ## Background
 
@@ -279,12 +283,7 @@ downloaded from the NBD-PWG website
 reflects concepts developed within the rapidly evolving field of Big
 Data.
 
-```
-Note Section numbers
-```
-
-Scope and Objectives of the Reference Architectures Subgroup
-------------------------------------------------------------
+## Scope and Objectives of the Reference Architectures Subgroup
 
 Reference architectures provide "an authoritative source of information
 about a specific subject area that guides and constrains the
@@ -330,10 +329,10 @@ The NBDRA does not address the following:
   products.
 
 The goals of the Subgroup will be realized throughout the three planned
-phases of the NBD-PWG work, as outlined in Section 1.1.
+phases of the NBD-PWG work, as outlined in @sec:production.
 
-Report Production
------------------
+## Report Production {#sec:production}
+
 
 The *NBDIF: Volume 8,* *References Architecture Interfaces* is one of
 nine volumes, whose overall aims are to define and prioritize Big Data
@@ -377,14 +376,15 @@ Report Structure
 
 The organization of this document roughly corresponds to the process
 used by the NBD-PWG to develop the interfaces. Following the
-introductory material presented in Section 1, the remainder of this
+introductory material presented in @sec:introduction, the remainder of this
 document is organized as follows:
 
-* Section 2 presents the interface requirements;
-* Section 3 summarizes the elementary objects that are important to
-  the NBDRA;
-* Section 4 presents several objects grouped by functional use; and
-* Four appendices provide supplementary information.
+* @sec:interface-requirements presents the interface requirements;
+* @sec:spec-paradigm presents the specification paradign the we use;
+* @sec:specification presents several objects grouped by functional
+  use while providing a summary table of selected proposed objects in
+  @sec:spec-table.
+
 
 Future Work on this Volume
 --------------------------
@@ -393,8 +393,8 @@ A number of topics have not been discussed and clarified sufficiently to
 be included in Version 2.2. Future topics will be identified during
 discussions within the Reference Architecture Subgroup.
 
-NBDRA Interface Requirements
-============================
+# NBDRA Interface Requirements {#sec:interface-requirements}
+
 
 The development of a Big Data reference architecture requires a thorough
 understanding of current techniques, issues, and concerns. To this end,
@@ -404,15 +404,15 @@ to understand commonalities within Big Data architectures in use,
 developed a taxonomy to understand and organize the information
 collected, and reviewed existing technologies and trends relevant to Big
 Data. The results of these NBD-PWG activities were used in the
-development of the NBDRA (Figure 1) and the interfaces presented herein.
+development of the NBDRA (@fig:arch) and the interfaces presented herein.
 Detailed descriptions of these activities can be found in the other
 volumes of the *NBDIF*.
 
-![**Figure 1:** NIST Big Data Reference Architecture (NBDRA)](images/bdra.png)
+![NIST Big Data Reference Architecture (NBDRA)](images/bdra.png){#fig:arch}
 
 
 This vendor-neutral, technology- and infrastructure-agnostic conceptual
-model, the NBDRA, is shown in Figure 1 and represents a Big Data system
+model, the NBDRA, is shown in @fig:arch and represents a Big Data system
 composed of five logical functional components connected by
 interoperability interfaces (i.e., services). Two fabrics envelop the
 components, representing the interwoven nature of management and
@@ -466,7 +466,7 @@ High-Level Requirements of the Interface Approach
 
 This section focuses on the high-level requirements of the interface
 approach that are needed to implement the reference architecture
-depicted in Figure 1.
+depicted in @fig:arch.
 
 ### Technology- and Vendor-Agnostic
 
@@ -587,36 +587,33 @@ Component-Specific Interface Requirements
 -----------------------------------------
 
 This section summarizes the requirements for the interfaces of the NBDRA
-components. The five components are listed in Figure 1 and addressed in
-each of the subsections as part of Section 2.2.1 (System Orchestrator
-Interface Requirements) and Section 2.2.6 (Big Data Application Provider
+components. The five components are listed in @fig:arch and addressed in
+each of the subsections as part of @sec:system-orchestrator-requirements (System Orchestrator
+Interface Requirements) and @sec:data-application-requirements (Big Data Application Provider
 to Big Data Framework Provider Interface) of this document. The five
 main functional components of the NBDRA represent the different
 technical roles within a Big Data system. The functional components are
 listed below and discussed in subsequent subsections.
 
-```
-NOTE: SECTION NUMBERS
-```
 * System Orchestrator: Defines and integrates the required data
   application activities into an operational vertical system (see
-  Section 2.2.1);
+  @sec:system-orchestrator-requirements);
 * Data Provider: Introduces new data or information feeds into the Big
-  Data system (see Section 2.2.2);
+  Data system (see @sec:data-provider-requirements);
 * Data Consumer: Includes end users or other systems that use the
-  results of the Big Data Application Provider (see Section 2.2.3);
+  results of the Big Data Application Provider (see @sec:data-consumer-requirements);
 * Big Data Application Provider: Executes a data life cycle to meet
   security and privacy requirements as well as System
-  Orchestrator-defined requirements (see Section 2.2.4);
+  Orchestrator-defined requirements (see @sec:data-application-requirements);
 * Big Data Framework Provider: Establishes a computing framework in
   which to execute certain transformation applications while
-  protecting the privacy and integrity of data (see Section 2.2.5);
+  protecting the privacy and integrity of data (see @sec:provider-requirements);
   and
 * Big Data Application Provider to Framework Provider Interface:
   Defines an interface between the application specification and the
-  provider (see Section 2.2.4).
+  provider (see @sec:app-provider-requirements).
 
-### System Orchestrator Interface Requirements
+### System Orchestrator Interface Requirements {#sec:system-orchestrator-requirements}
 
 The System Orchestrator role includes defining and integrating the
 required data application activities into an operational vertical
@@ -645,7 +642,7 @@ or as a workflow specification is needed to facilitate the overall
 coordination. Integration of existing tools and services into the System
 Orchestrator as extensible interfaces is desirable.
 
-### Data Provider Interface Requirements
+### Data Provider Interface Requirements {#sec:data-provider-requirements}
 
 The Data Provider role introduces new data or information feeds into the
 Big Data system for discovery, access, and transformation by the Big
@@ -659,7 +656,7 @@ by a data consumer. It also must include enough details to identify the
 services offered so they can be pragmatically reused by consumers.
 Interfaces to describe pipes and filters must be addressed.
 
-### Data Consumer Interface Requirements
+### Data Consumer Interface Requirements {#sec:data-consumer-requirements}
 
 Like the Data Provider, the role of Data Consumer within the NBDRA can
 be an actual end user or another system. In many ways, this role is the
@@ -678,7 +675,7 @@ The interface for the data consumer must be able to describe the
 consuming services and how they retrieve information or leverage data
 consumers.
 
-### Big Data Application Interface Provider Requirements
+### Big Data Application Interface Provider Requirements {#sec:data-application-requirements}
 
 The Big Data Application Provider role executes a specific set of
 operations along the data life cycle to meet the requirements
@@ -788,7 +785,7 @@ transferred to the Data Consumer. The interface with the Data Consumer
 may be synchronous or asynchronous in nature and may use a pull or push
 paradigm for data transfer.
 
-### Big Data Provider Framework Interface Requirements
+### Big Data Provider Framework Interface Requirements {#sec:provider-requirements}
 
 Data for Big Data applications are delivered through data providers.
 They can be either local providers, data contributed by a user, or
@@ -860,7 +857,7 @@ requirements for these tools. However, Big Data frameworks tend to fall
 more into a distributed computing paradigm, which presents additional
 challenges.
 
-### Big Data Application Provider to Big Data Framework Provider Interface
+### Big Data Application Provider to Big Data Framework Provider Interface {#sec:app-provider-requirements}
 
 The Big Data Framework Provider typically consists of one or more
 hierarchically organized instances of the components in the NBDRA IT
@@ -870,14 +867,12 @@ Big Data implementations are hybrids that combine multiple technology
 approaches to provide flexibility or meet the complete range of
 requirements, which are driven from the Big Data Application Provider.
 
-Specification Paradigm
-======================
+# Specification Paradigm {#sec:spec-paradigm}
 
 This section summarizes the elementary services that are important to the
 NBDRA.
 
-Hybrid and Multiple Frameworks
-------------------------------
+## Hybrid and Multiple Frameworks
 
 To avoid vendor lock-in, Big Data systems must be able to deal with
 hybrid and multiple frameworks. This is not only true for Clouds,
@@ -951,7 +946,7 @@ feedback.
 
 
 
-# Specification
+# Specification {#sec:specification}
 
 We will provide the specifications to this document through an
 automated document creation process so that the actual OpenAPI
@@ -969,7 +964,7 @@ document. However, it is expected that scalability, distribution of
 services, and other advanced options need to be addressed based on
 application requirements.
 
-## List of specifications
+## List of specifications {#sec:spec-table}
 
 The following table lists the current set of resource objects that we
 are defining in this draft. Additional objects are also available at
@@ -1167,7 +1162,7 @@ An example for a configuration file is provided at
 
 ## Compute Management - Virtual Machines
 
-This section is planned for a future version.
+This section summarizes a basic interface specification of virtual machines.
 
 
 ### Image
