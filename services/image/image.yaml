@@ -3,7 +3,7 @@ info:
   version: 3.1.0
   x-date: 01-29-2019
   x-status: defined
-  title: image
+  title: Image
   description: |-
   
     Image is defined as an object representing a system image
