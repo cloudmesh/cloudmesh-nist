@@ -7,7 +7,7 @@ info:
   version: 3.1.0
   x-date: 01-29-2019
   x-status: defined
-  title: Virtual MachineColudmesh VM
+  title: Virtual Machine
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Gregor von Laszeewski
