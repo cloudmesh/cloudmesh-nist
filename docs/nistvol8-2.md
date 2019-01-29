@@ -1096,6 +1096,24 @@ An example for a configuration file is provided at
 
 ## Data Management
 
+### File
+
+{include=./spec/file.md}
+
+#### file.yaml
+
+```{include=../../services/file/file.yaml}
+```
+
+### Replica
+
+{include=./spec/replica.md}
+
+#### replica.yaml
+
+```{include=../../services/replica/replica.yaml}
+```
+
 ### Database
 
 {include=./spec/database.md}
@@ -1114,24 +1132,6 @@ An example for a configuration file is provided at
 ```{include=../../services/virtualdirectory/virtualdirectory.yaml}
 ```
 
-### File
-
-{include=./spec/file.md}
-
-#### file.yaml
-
-```{include=../../services/file/file.yaml}
-```
-
-
-### Replica
-
-{include=./spec/replica.md}
-
-#### replica.yaml
-
-```{include=../../services/replica/replica.yaml}
-```
 
 
 

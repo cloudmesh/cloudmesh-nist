@@ -73,6 +73,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The username
       produces:
         - "application/json"
       responses:
@@ -91,6 +92,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The UUID 
       produces:
         - "application/json"
       responses:

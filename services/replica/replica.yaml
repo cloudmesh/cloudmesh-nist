@@ -1,19 +1,17 @@
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
-  title: replica
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019
+  title: Replica
   description: |-
   
     In many distributed systems, it is important that a file can be
     replicated among different systems to provide faster access. It is
     important to provide a mechanism to trace the pedigree of the file
-    while pointing to its original source. A replica can be applied to
-    all data types introduced in this document.
+    while pointing to its original source. 
 
-    * TODO: assign and improve
-    
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -52,7 +50,7 @@ paths:
           description: Created
   '/cloudmesh/replica/{name}':
     get:
-      description: Returns a replica
+      description: Returns a replica by name
       operationId: get_replica_by_name
       parameters:
         - name: name

@@ -998,10 +998,10 @@ are defining in this draft. Additional objects are also available at
   timestamp          Timestamp          3.1.0     defined
   alias              Alias              3.1.0     defined
   variables          Variables          3.1.0     defined
-  default            default            3.0.2     TBD
-  file               file               3.0.2     TBD
-  database           database           3.0.2     TBD
-  replica            replica            3.0.2     TBD
+  default            Default            3.1.0     defined
+  file               File               3.1.0     defined
+  database           Database           3.1.0     defined
+  replica            Replica            3.1.0     defined
   virtualdirectory   virtualdirectory   3.0.3     TBD
   virtualcluster     Virtual Cluster    3.1.0     defined
   keystore           key                3.1.0     defined
@@ -1303,9 +1303,9 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  uuid   path         ERROR: description missing   True       
+  Name   Located in   Description    Required   Schema
+  ------ ------------ -------------- ---------- --------
+  uuid   path         The username   True       
 
 ##### /cloudmesh/user/user/{uuid}
 
@@ -1321,9 +1321,9 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  uuid   path         ERROR: description missing   True       
+  Name   Located in   Description   Required   Schema
+  ------ ------------ ------------- ---------- --------
+  uuid   path         The UUID      True       
 
 #### user.yaml
 
@@ -1403,6 +1403,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The username
       produces:
         - "application/json"
       responses:
@@ -1421,6 +1422,7 @@ paths:
           in: path
           required: true
           type: string
+          description: The UUID 
       produces:
         - "application/json"
       responses:
@@ -1999,7 +2001,7 @@ swagger: '2.0'
 info:
   version: 3.1.0
   x-status: defined
-  x-date: 01-29-2019  
+  x-date: 01-29-2019
   title: Variables
   description: |-
   
@@ -2083,9 +2085,9 @@ definitions:
 A default is a special variable that has a context associated with it.
 This allows one to define values that can be easily retrieved based on
 the associated context. For example, a default could be the image name
-for a cloud where the context is defined by the cloud name.
-
--   TODO: assign for review and improvement
+for a cloud where the context is defined by the cloud name. In addition
+to the context we also specify the service name as a service could have
+multiple context.
 
 #### Properties Default
 
@@ -2148,18 +2150,18 @@ Parameters
 ``` {include="./spec/default.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
-  title: default
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019  
+  title: Default
   description: |-
   
     A default is a special variable that has a context associated with
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
-    cloud name.
-
-    * TODO: assign for review and improvement
+    cloud name. In addition to the context we also specify the service
+    name as a service could have multiple context.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -2233,12 +2235,339 @@ definitions:
 Data Management
 ---------------
 
+### File
+
+A file is a resource allowing storage of data as a traditional file
+being processed. The interface to a file provides the mechanism to
+appropriately locate a file in a distributed system. File identification
+includes the name, endpoint, checksum, and size. Additional parameters,
+such as a timestamp can also be stored. The interface only describes the
+location of the file. The file object has name, endpoint (location),
+size in GB, MB, Byte, checksum for integrity check.
+
+#### Properties File
+
+  Property    Type      Description
+  ----------- --------- ------------------------------
+  name        string    the name of the file
+  endpoint    string    The location of the file
+  checksum    string    The checksum of the file
+  size        integer   The size of the file in byte
+  timestamp             ERROR: description missing
+
+#### Paths
+
+##### /cloudmesh/files
+
+###### GET /cloudmesh/files
+
+Returns all files
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- ---------------
+  200    file info     [File](#file)
+
+###### PUT /cloudmesh/files
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name   Located in   Description              Required   Schema
+  ------ ------------ ------------------------ ---------- ---------------
+  file   body         The new file to create   False      [File](#file)
+
+##### /cloudmesh/file/{name}
+
+###### GET /cloudmesh/file/{name}
+
+Returns a file by name
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- ---------------
+  200    file info     [File](#file)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### file.yaml
+
+``` {include="../../services/file/file.yaml"}
+swagger: '2.0'
+info:
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019  
+  title: File
+  description: |-
+  
+    A file is a resource allowing storage of data as a traditional file
+    being processed. The interface to a file provides the mechanism to
+    appropriately locate a file in a distributed system. File
+    identification includes the name, endpoint, checksum, and
+    size. Additional parameters, such as a timestamp can
+    also be stored. The interface only describes the location of the
+    file.  The file object has name, endpoint (location), size in GB,
+    MB, Byte, checksum for integrity check.
+    
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/files:
+    get:
+      description: Returns all files
+      operationId: get_file
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+    put:
+      summary: Create a new file
+      operationId: add_file
+      parameters:
+        - in: body
+          name: file
+          description: The new file to create
+          schema:
+            $ref: '#/definitions/File'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/file/{name}':
+    get:
+      description: Returns a file by name
+      operationId: get_file_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+definitions:
+  File:
+    type: object
+    description: the file
+    properties:
+      name:
+        type: string
+        description: the name of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+
+#        "name": "report.dat",
+#        "endpoint": "file://gregor@machine.edu:/data/report.dat",
+#        "checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
+#        "accessed": "1.1.2017:05:00:00:EST",
+#        "created": "1.1.2017:05:00:00:EST",
+#        "modified": "1.1.2017:05:00:00:EST",
+#       "size": ["GB", "Byte"]
+```
+
+### Replica
+
+In many distributed systems, it is important that a file can be
+replicated among different systems to provide faster access. It is
+important to provide a mechanism to trace the pedigree of the file while
+pointing to its original source.
+
+#### Properties Replica
+
+  Property    Type      Description
+  ----------- --------- ------------------------------
+  name        string    the name of the replica
+  filename    string    the original filename
+  endpoint    string    The location of the file
+  checksum    string    The checksum of the file
+  size        integer   The size of the file in byte
+  timestamp             ERROR: description missing
+
+#### Paths
+
+##### /cloudmesh/replicas
+
+###### GET /cloudmesh/replicas
+
+Returns all replicas
+
+Responses
+
+  Code   Description    Schema
+  ------ -------------- ---------------------
+  200    replica info   [Replica](#replica)
+
+###### PUT /cloudmesh/replicas
+
+ERROR: missing
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name      Located in   Description                 Required   Schema
+  --------- ------------ --------------------------- ---------- ---------------------
+  replica   body         The new replica to create   False      [Replica](#replica)
+
+##### /cloudmesh/replica/{name}
+
+###### GET /cloudmesh/replica/{name}
+
+Returns a replica by name
+
+Responses
+
+  Code   Description    Schema
+  ------ -------------- ---------------------
+  200    replica info   [Replica](#replica)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  name   path         ERROR: description missing   True       
+
+#### replica.yaml
+
+``` {include="../../services/replica/replica.yaml"}
+swagger: '2.0'
+info:
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019
+  title: Replica
+  description: |-
+  
+    In many distributed systems, it is important that a file can be
+    replicated among different systems to provide faster access. It is
+    important to provide a mechanism to trace the pedigree of the file
+    while pointing to its original source. 
+
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: 'localhost:8080'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/replicas:
+    get:
+      description: Returns all replicas
+      operationId: get_replica
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: replica info
+          schema:
+            $ref: '#/definitions/Replica'
+    put:
+      summary: Create a new replica
+      operationId: add_replica
+      parameters:
+        - in: body
+          name: replica
+          description: The new replica to create
+          schema:
+            $ref: '#/definitions/Replica'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/replica/{name}':
+    get:
+      description: Returns a replica by name
+      operationId: get_replica_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: replica info
+          schema:
+            $ref: '#/definitions/Replica'
+definitions:
+  Replica:
+    type: object
+    description: the replica
+    properties:
+      name:
+        type: string
+        description: the name of the replica
+      filename:
+        type: string
+        description: the original filename
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+```
+
 ### Database
 
 A database could have a name, an endpoint (e.g., host, port), and a
-protocol used (e.g., SQL, mongo).
-
--   TODO: assign for review and improvement
+protocol used (e.g., SQL, MongoDB, ...).
 
 #### Properties Database
 
@@ -2282,7 +2611,7 @@ Parameters
 
 ###### GET /cloudmesh/database/{name}
 
-Returns a database
+Returns a database by name
 
 Responses
 
@@ -2301,17 +2630,16 @@ Parameters
 ``` {include="../../services/database/database.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
-  title: database
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019  
+  title: Database
   description: |-
   
     A database could have a name, an endpoint (e.g., host, port),
-    and a protocol used (e.g., SQL, mongo).
+    and a protocol used (e.g., SQL, MongoDB, ...).
 
-    * TODO: assign for review and improvement
-    
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -2350,7 +2678,7 @@ paths:
           description: Created
   '/cloudmesh/database/{name}':
     get:
-      description: Returns a database
+      description: Returns a database by name
       operationId: get_database_by_name
       parameters:
         - name: name
@@ -2600,345 +2928,6 @@ definitions:
       credential:
         description: credential to access, e.g., username, password
         type: "object"
-```
-
-### File
-
-A file is a computer resource allowing storage of data that is being
-processed. The interface to a file provides the mechanism to
-appropriately locate a file in a distributed system. File identification
-includes the name, endpoint, checksum, and size. Additional parameters,
-such as the last access time, could also be stored. The interface only
-describes the location of the file. The file object has name, endpoint
-(location), size in GB, MB, Byte, checksum for integrity check, and last
-accessed timestamp.
-
--   TODO: assign for review and improvement
-
-#### Properties File
-
-  Property    Type      Description
-  ----------- --------- ------------------------------
-  name        string    the name of the file
-  endpoint    string    The location of the file
-  checksum    string    The checksum of the file
-  size        integer   The size of the file in byte
-  timestamp             ERROR: description missing
-
-#### Paths
-
-##### /cloudmesh/files
-
-###### GET /cloudmesh/files
-
-Returns all files
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- ---------------
-  200    file info     [File](#file)
-
-###### PUT /cloudmesh/files
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name   Located in   Description              Required   Schema
-  ------ ------------ ------------------------ ---------- ---------------
-  file   body         The new file to create   False      [File](#file)
-
-##### /cloudmesh/file/{name}
-
-###### GET /cloudmesh/file/{name}
-
-Returns a file
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- ---------------
-  200    file info     [File](#file)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-#### file.yaml
-
-``` {include="../../services/file/file.yaml"}
-swagger: '2.0'
-info:
-  version: 3.0.2
-  x-date: 10-30-2018
-  title: file
-  description: |-
-  
-    A file is a computer resource allowing storage of data that is
-    being processed. The interface to a file provides the mechanism to
-    appropriately locate a file in a distributed system. File
-    identification includes the name, endpoint, checksum, and
-    size. Additional parameters, such as the last access time, could
-    also be stored. The interface only describes the location of the
-    file.  The file object has name, endpoint (location), size in GB,
-    MB, Byte, checksum for integrity check, and last accessed
-    timestamp.
-
-    * TODO: assign for review and improvement
-    
-  termsOfService: 'http://bin.io/terms/'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/files:
-    get:
-      description: Returns all files
-      operationId: get_file
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: file info
-          schema:
-            $ref: '#/definitions/File'
-    put:
-      summary: Create a new file
-      operationId: add_file
-      parameters:
-        - in: body
-          name: file
-          description: The new file to create
-          schema:
-            $ref: '#/definitions/File'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/file/{name}':
-    get:
-      description: Returns a file
-      operationId: get_file_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: file info
-          schema:
-            $ref: '#/definitions/File'
-definitions:
-  File:
-    type: object
-    description: the file
-    properties:
-      name:
-        type: string
-        description: the name of the file
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
-
-#        "name": "report.dat",
-#        "endpoint": "file://gregor@machine.edu:/data/report.dat",
-#        "checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
-#        "accessed": "1.1.2017:05:00:00:EST",
-#        "created": "1.1.2017:05:00:00:EST",
-#        "modified": "1.1.2017:05:00:00:EST",
-#       "size": ["GB", "Byte"]
-```
-
-### Replica
-
-In many distributed systems, it is important that a file can be
-replicated among different systems to provide faster access. It is
-important to provide a mechanism to trace the pedigree of the file while
-pointing to its original source. A replica can be applied to all data
-types introduced in this document.
-
--   TODO: assign and improve
-
-#### Properties Replica
-
-  Property    Type      Description
-  ----------- --------- ------------------------------
-  name        string    the name of the replica
-  filename    string    the original filename
-  endpoint    string    The location of the file
-  checksum    string    The checksum of the file
-  size        integer   The size of the file in byte
-  timestamp             ERROR: description missing
-
-#### Paths
-
-##### /cloudmesh/replicas
-
-###### GET /cloudmesh/replicas
-
-Returns all replicas
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- ---------------------
-  200    replica info   [Replica](#replica)
-
-###### PUT /cloudmesh/replicas
-
-ERROR: missing
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name      Located in   Description                 Required   Schema
-  --------- ------------ --------------------------- ---------- ---------------------
-  replica   body         The new replica to create   False      [Replica](#replica)
-
-##### /cloudmesh/replica/{name}
-
-###### GET /cloudmesh/replica/{name}
-
-Returns a replica
-
-Responses
-
-  Code   Description    Schema
-  ------ -------------- ---------------------
-  200    replica info   [Replica](#replica)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
-
-#### replica.yaml
-
-``` {include="../../services/replica/replica.yaml"}
-swagger: '2.0'
-info:
-  version: 3.0.2
-  x-date: 10-30-2018
-  title: replica
-  description: |-
-  
-    In many distributed systems, it is important that a file can be
-    replicated among different systems to provide faster access. It is
-    important to provide a mechanism to trace the pedigree of the file
-    while pointing to its original source. A replica can be applied to
-    all data types introduced in this document.
-
-    * TODO: assign and improve
-    
-  termsOfService: 'http://bin.io/terms/'
-  contact:
-    name: Cloudmesh RESTful Service Example
-    url: https://cloudmesh-community.github.io/nist/spec/
-  license:
-    name: Apache
-host: 'localhost:8080'
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /cloudmesh/replicas:
-    get:
-      description: Returns all replicas
-      operationId: get_replica
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: replica info
-          schema:
-            $ref: '#/definitions/Replica'
-    put:
-      summary: Create a new replica
-      operationId: add_replica
-      parameters:
-        - in: body
-          name: replica
-          description: The new replica to create
-          schema:
-            $ref: '#/definitions/Replica'
-      responses:
-        '201':
-          description: Created
-  '/cloudmesh/replica/{name}':
-    get:
-      description: Returns a replica
-      operationId: get_replica_by_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: replica info
-          schema:
-            $ref: '#/definitions/Replica'
-definitions:
-  Replica:
-    type: object
-    description: the replica
-    properties:
-      name:
-        type: string
-        description: the name of the replica
-      filename:
-        type: string
-        description: the original filename
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
 ```
 
 Compute Management - Virtual Clutsers
