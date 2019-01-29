@@ -169,17 +169,14 @@ Roadmap Subgroup.
 
 The editors for this document were the following:
 
-- ***Version 2.1***: A previous volume used just the definition of the
+* ***Version 2.1***: A previous volume used just the definition of the
   schema based on examples it was easier to read but did only include
   the definition of the resources and not the interaction with the resources.
   This volume was in place till June 2018.
-
-
-- ***Version 2.2***: This version was significantly changed and uses now
+* ***Version 2.2***: This version was significantly changed and uses now
   OpenAPI to specify the Interfaces between the various services and components.
   Editors of this volume are:
-
-- ***Version 2.3***: The version includes the 
+* ***Version 2.3***: The version includes the 
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
 
@@ -1177,7 +1174,7 @@ An example for a configuration file is provided at
 ```{include=../../services/keystore/keystore.yaml}
 ```
 
-<!-- --- GENERAL  MANAGEMENT -->
+[comment]: # GENERAL  MANAGEMENT
 
 ## General Resources
 
@@ -1219,7 +1216,7 @@ An example for a configuration file is provided at
 ```{include=./spec/default.yaml}
 ```
 
-<!-- --- FILE MANAGEMENT -->
+[comment]: # FILE MANAGEMENT
 
 ## Data Management
 
@@ -1262,7 +1259,7 @@ An example for a configuration file is provided at
 
 
 
-<!-- --- COMPUTE MANAGEMENT -->
+[comment]: # COMPUTE MANAGEMENT
 
 ## Compute Management - Virtual Clutsers
 

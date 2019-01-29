@@ -26,7 +26,7 @@
 ```{include=../../services/keystore/keystore.yaml}
 ```
 
-<!-- --- GENERAL  MANAGEMENT -->
+[comment]: # GENERAL  MANAGEMENT
 
 ## General Resources
 
@@ -68,7 +68,7 @@
 ```{include=./spec/default.yaml}
 ```
 
-<!-- --- FILE MANAGEMENT -->
+[comment]: # FILE MANAGEMENT
 
 ## Data Management
 
@@ -111,7 +111,7 @@
 
 
 
-<!-- --- COMPUTE MANAGEMENT -->
+[comment]: # COMPUTE MANAGEMENT
 
 ## Compute Management - Virtual Clutsers
 

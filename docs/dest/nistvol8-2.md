@@ -178,11 +178,9 @@ The editors for this document were the following:
     schema based on examples it was easier to read but did only include
     the definition of the resources and not the interaction with the
     resources. This volume was in place till June 2018.
-
 -   ***Version 2.2***: This version was significantly changed and uses
     now OpenAPI to specify the Interfaces between the various services
     and components. Editors of this volume are:
-
 -   ***Version 2.3***: The version includes the
 
 Gregor von Laszewski (Indiana University), and Wo Chang (NIST).
@@ -1666,8 +1664,6 @@ definitions:
         description: The type of the key        
 ```
 
-<!-- --- GENERAL  MANAGEMENT -->
-
 General Resources
 -----------------
 
@@ -2272,8 +2268,6 @@ definitions:
         type: string
         description: value of the default
 ```
-
-<!-- --- FILE MANAGEMENT -->
 
 Data Management
 ---------------
@@ -2985,8 +2979,6 @@ definitions:
       timestamp:
           $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
 ```
-
-<!-- --- COMPUTE MANAGEMENT -->
 
 Compute Management - Virtual Clutsers
 -------------------------------------

@@ -16,10 +16,10 @@ controller:
 		cp services/$(svc)/*controller.py service/;)
 
 mongo-start:
-	make -f Makefile mongo_start
+	cd mongo; make -f Makefile mongo_start
 
 mongo-kill:
-	make -f Makefile mongo_kill
+	cd mongo; make -f Makefile mongo_kill
 
 editor-install:
 	docker pull swaggerapi/swagger-editor
