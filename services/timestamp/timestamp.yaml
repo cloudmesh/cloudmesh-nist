@@ -10,9 +10,6 @@ info:
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
 
-    * TODO: assign and review, we do not need a service for this
-      but some mechanism so each resource has timestamps
-
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example

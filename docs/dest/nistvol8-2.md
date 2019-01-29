@@ -995,8 +995,8 @@ are defining in this draft. Additional objects are also available at
   ------------------ ------------------ --------- ---------
   organization       Organization       3.1.0     defined
   user               User               3.1.0     defined
-  timestamp          timestamp          3.1.0     defined
-  alias              alias              3.0.2     TBD
+  timestamp          Timestamp          3.1.0     defined
+  alias              Alias              3.1.0     defined
   variables          variables          3.0.1     TBD
   default            default            3.0.2     TBD
   file               file               3.0.2     TBD
@@ -1707,7 +1707,7 @@ info:
   version: 3.1.0
   x-status: defined
   x-date: 01-29-2019
-  title: timestamp
+  title: Timestamp
   description: |-
   
     Data often need to be timestamped to indicate when it has been
@@ -1789,12 +1789,12 @@ definitions:
 ### Alias
 
 A user may be interested to create an alias for a resource. This is a
-name useful to the user. Users can deploy an alias server in which they
-store such aliasses for resources. Such aliasses could naturally be
-shared with othere. A resource could have one or more aliasses. The
-reason for an alias is that a resource may have a complex name but a
-user may want to refer to the resource using a name that is suitable for
-the user's application.
+name useful to the user. A User can deploy a service in which such
+aliasses are stored. The aliasses could naturally be shared with other
+users. A resource could have one or more aliasses. The reason for an
+alias is that a resource may have a complex name but a user may want to
+refer to the resource using a name that is suitable for the user's
+application.
 
 #### Properties Alias
 
@@ -1837,7 +1837,7 @@ Parameters
 
 ###### GET /cloudmesh/alias/{name}
 
-Returns an alias
+Returns an alias by name
 
 Responses
 
@@ -1856,20 +1856,21 @@ Parameters
 ``` {include="../../services/alias/alias.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
-  title: alias
+  version: 3.1.0
+  x-status: defined
+  x-date: 29-01-2019
+  title: Alias
   description: |-
 
     A user may be interested to create an alias for a resource. This
-    is a name useful to the user. Users can deploy an alias server in
-    which they store such aliasses for resources. Such aliasses could
-    naturally be shared with othere. A resource could have one or more
-    aliasses.  The reason for an alias is that a resource may have a
-    complex name but a user may want to refer to the resource using a
-    name that is suitable for the user's application.
+    is a name useful to the user. A User can deploy a service in which
+    such aliasses are stored. The aliasses could naturally be shared
+    with other users. A resource could have one or more aliasses.  The
+    reason for an alias is that a resource may have a complex name but
+    a user may want to refer to the resource using a name that is
+    suitable for the user's application.
 
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -1908,7 +1909,7 @@ paths:
           description: Created
   '/cloudmesh/alias/{name}':
     get:
-      description: Returns an alias
+      description: Returns an alias by name
       operationId: get_alias_by_name
       parameters:
         - name: name
