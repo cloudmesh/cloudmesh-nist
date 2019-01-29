@@ -34,7 +34,7 @@ consumes:
 produces:
   - "application/json"
 paths:
-  /cloudmesh/user/user:
+  /cloudmesh/user:
     get:
       tags:
         - "user"
@@ -62,14 +62,15 @@ paths:
       responses:
         "201":
           description: Created
-  /cloudmesh/user/user/{username}:
+  /cloudmesh/user/{username}:
     get:
       tags:
         - "user"
       description: "Returns the user of a user while looking it up with the username"
       operationId: getUserByUsername
       parameters:
-        - name: uuid
+        - name: name
+          description: name of the user
           in: path
           required: true
           type: string
@@ -80,7 +81,7 @@ paths:
           description: "user information"
           schema:
             $ref: "#/definitions/User"
-  /cloudmesh/user/user/{uuid}:
+  /cloudmesh/user/{uuid}:
     get:
       tags:
         - "user"
@@ -88,6 +89,7 @@ paths:
       operationId: getUserByUuid
       parameters:
         - name: uuid
+          description: uuid of the user entry
           in: path
           required: true
           type: string
