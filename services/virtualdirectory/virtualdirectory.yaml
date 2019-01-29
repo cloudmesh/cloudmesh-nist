@@ -1,8 +1,9 @@
 ---
 swagger: '2.0'
 info:
-  version: 3.0.3
-  x-date: 06-11-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: virtualdirectory
   description: |-
   
@@ -12,7 +13,7 @@ info:
     a collection.  The element in the collection can either be defined
     by uuid or by name.
 
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Virtual Directory Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -59,11 +60,12 @@ paths:
     put:
       tags:
         - "virtualdirectory"
-      summary: Create a new virtualdirectory
+      description: Create a new virtualdirectory
       operationId: add_virtualdirectory
       parameters:
         - in: body
           name: virtualdirectory
+          required: true
           description: The new virtualdirectory to create
           schema:
             $ref: '#/definitions/Virtualdirectory'
@@ -81,6 +83,7 @@ paths:
       operationId: get_virtualdirectory_by_name
       parameters:
         - name: name
+          description: name of the virtual directory
           in: path
           required: true
           type: string
@@ -95,14 +98,14 @@ paths:
             $ref: '#/definitions/Virtualdirectory'
 definitions:
   UnauthorizedError:
-    type: object
-    description: A specific error
+    type: "object"
+    description: unauthorized error
     properties:
       code:
-        type: string
+        type: "string"
         description: Code form of the error
       message:
-        type: string
+        type: "string"
         description: Human readable form of the error
   Virtualdirectory:
     type: "object"

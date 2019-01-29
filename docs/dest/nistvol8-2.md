@@ -1002,7 +1002,7 @@ are defining in this draft. Additional objects are also available at
   file               file               3.0.2     TBD
   database           database           3.0.2     TBD
   replica            replica            3.0.2     TBD
-  virtualdirectory   virtualdirectory   3.0.3     TBD
+  virtualdirectory   virtualdirectory   3.1.0     defined
   virtualcluster     Virtual Cluster    3.1.0     defined
   keystore           key                3.1.0     defined
   vm                 Coludmesh VM       3.1.0     defined
@@ -2429,15 +2429,15 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description                     Required   Schema
+  ------ ------------ ------------------------------- ---------- --------
+  name   path         name of the virtual directory   True       
 
 ##### /cloudmesh/virtualdirectory
 
 ###### PUT /cloudmesh/virtualdirectory
 
-ERROR: missing
+Create a new virtualdirectory
 
 Responses
 
@@ -2451,7 +2451,7 @@ Parameters
   Name               Located   Description                          Required   Schema
                      in                                                        
   ------------------ --------- ------------------------------------ ---------- ---------------------------------------
-  virtualdirectory   body      The new virtualdirectory to create   False      [Virtualdirectory](#virtualdirectory)
+  virtualdirectory   body      The new virtualdirectory to create   True       [Virtualdirectory](#virtualdirectory)
 
   --------------------------------------------------------------------------------------------------------------------
 
@@ -2475,8 +2475,9 @@ Responses
 ---
 swagger: '2.0'
 info:
-  version: 3.0.3
-  x-date: 06-11-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: virtualdirectory
   description: |-
   
@@ -2486,7 +2487,7 @@ info:
     a collection.  The element in the collection can either be defined
     by uuid or by name.
 
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Virtual Directory Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -2533,11 +2534,12 @@ paths:
     put:
       tags:
         - "virtualdirectory"
-      summary: Create a new virtualdirectory
+      description: Create a new virtualdirectory
       operationId: add_virtualdirectory
       parameters:
         - in: body
           name: virtualdirectory
+          required: true
           description: The new virtualdirectory to create
           schema:
             $ref: '#/definitions/Virtualdirectory'
@@ -2555,6 +2557,7 @@ paths:
       operationId: get_virtualdirectory_by_name
       parameters:
         - name: name
+          description: name of the virtual directory
           in: path
           required: true
           type: string
@@ -2569,14 +2572,14 @@ paths:
             $ref: '#/definitions/Virtualdirectory'
 definitions:
   UnauthorizedError:
-    type: object
-    description: A specific error
+    type: "object"
+    description: unauthorized error
     properties:
       code:
-        type: string
+        type: "string"
         description: Code form of the error
       message:
-        type: string
+        type: "string"
         description: Human readable form of the error
   Virtualdirectory:
     type: "object"
@@ -3490,7 +3493,7 @@ info:
     Image objects are typically returned by the driver for the 
     cloud provider in response to the list_images function.
     
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
