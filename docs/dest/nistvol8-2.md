@@ -998,8 +998,8 @@ are defining in this draft. Additional objects are also available at
   timestamp          Timestamp          3.1.0     defined
   alias              Alias              3.1.0     defined
   variables          Variables          3.1.0     defined
-  default            default            3.0.2     TBD
-  file               file               3.0.2     TBD
+  default            default            3.1.0     defined
+  file               file               3.1.0     defined
   database           database           3.1.0     defined
   replica            replica            3.1.0     defined
   virtualdirectory   virtualdirectory   3.1.0     defined
@@ -1809,7 +1809,7 @@ application.
 
 ###### PUT /cloudmesh/alias
 
-ERROR: missing
+Create a new alias
 
 Responses
 
@@ -1821,7 +1821,7 @@ Parameters
 
   Name    Located in   Description               Required   Schema
   ------- ------------ ------------------------- ---------- -----------------
-  alias   body         The new alias to create   False      [Alias](#alias)
+  alias   body         The new alias to create   True       [Alias](#alias)
 
 ###### GET /cloudmesh/alias
 
@@ -1896,11 +1896,12 @@ paths:
           schema:
             $ref: '#/definitions/Alias'
     put:
-      summary: Create a new alias
+      description: Create a new alias
       operationId: add_alias
       parameters:
         - in: body
           name: alias
+          required: true
           description: The new alias to create
           schema:
             $ref: '#/definitions/Alias'
@@ -1913,6 +1914,7 @@ paths:
       operationId: get_alias_by_name
       parameters:
         - name: name
+          descripion: name of the alias
           in: path
           required: true
           type: string
@@ -2091,8 +2093,6 @@ This allows one to define values that can be easily retrieved based on
 the associated context. For example, a default could be the image name
 for a cloud where the context is defined by the cloud name.
 
--   TODO: assign for review and improvement
-
 #### Properties Default
 
   Property   Type     Description
@@ -2117,15 +2117,15 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description           Required   Schema
+  ------ ------------ --------------------- ---------- --------
+  name   path         name of the default   True       
 
-##### /cloudmesh/defaults
+##### /cloudmesh/default
 
-###### PUT /cloudmesh/defaults
+###### PUT /cloudmesh/default
 
-ERROR: missing
+Create a new default
 
 Responses
 
@@ -2137,9 +2137,9 @@ Parameters
 
   Name      Located in   Description                 Required   Schema
   --------- ------------ --------------------------- ---------- ---------------------
-  default   body         The new default to create   False      [Default](#default)
+  default   body         The new default to create   True       [Default](#default)
 
-###### GET /cloudmesh/defaults
+###### GET /cloudmesh/default
 
 Returns all defaults
 
@@ -2154,8 +2154,9 @@ Responses
 ``` {include="./spec/default.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: default
   description: |-
   
@@ -2164,8 +2165,6 @@ info:
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
     cloud name.
-
-    * TODO: assign for review and improvement
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -2181,7 +2180,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/defaults:
+  /cloudmesh/default:
     get:
       description: Returns all defaults
       operationId: get_default
@@ -2193,11 +2192,12 @@ paths:
           schema:
             $ref: '#/definitions/Default'
     put:
-      summary: Create a new default
+      description: Create a new default
       operationId: add_default
       parameters:
         - in: body
           name: default
+          required: true
           description: The new default to create
           schema:
             $ref: '#/definitions/Default'
@@ -2210,6 +2210,7 @@ paths:
       operationId: get_default_by_name
       parameters:
         - name: name
+          description: name of the default
           in: path
           required: true
           type: string
@@ -2625,8 +2626,6 @@ describes the location of the file. The file object has name, endpoint
 (location), size in GB, MB, Byte, checksum for integrity check, and last
 accessed timestamp.
 
--   TODO: assign for review and improvement
-
 #### Properties File
 
   Property    Type      Description
@@ -2653,15 +2652,15 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description        Required   Schema
+  ------ ------------ ------------------ ---------- --------
+  name   path         name of the file   True       
 
-##### /cloudmesh/files
+##### /cloudmesh/file
 
-###### PUT /cloudmesh/files
+###### PUT /cloudmesh/file
 
-ERROR: missing
+Create a new file record
 
 Responses
 
@@ -2671,11 +2670,11 @@ Responses
 
 Parameters
 
-  Name   Located in   Description              Required   Schema
-  ------ ------------ ------------------------ ---------- ---------------
-  file   body         The new file to create   False      [File](#file)
+  Name   Located in   Description                     Required   Schema
+  ------ ------------ ------------------------------- ---------- ---------------
+  file   body         The new file record to create   True       [File](#file)
 
-###### GET /cloudmesh/files
+###### GET /cloudmesh/file
 
 Returns all files
 
@@ -2690,8 +2689,9 @@ Responses
 ``` {include="../../services/file/file.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: file
   description: |-
   
@@ -2704,10 +2704,8 @@ info:
     file.  The file object has name, endpoint (location), size in GB,
     MB, Byte, checksum for integrity check, and last accessed
     timestamp.
-
-    * TODO: assign for review and improvement
     
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -2721,7 +2719,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/files:
+  /cloudmesh/file:
     get:
       description: Returns all files
       operationId: get_file
@@ -2733,12 +2731,13 @@ paths:
           schema:
             $ref: '#/definitions/File'
     put:
-      summary: Create a new file
+      description: Create a new file record
       operationId: add_file
       parameters:
         - in: body
           name: file
-          description: The new file to create
+          required: true
+          description: The new file record to create
           schema:
             $ref: '#/definitions/File'
       responses:
@@ -2750,6 +2749,7 @@ paths:
       operationId: get_file_by_name
       parameters:
         - name: name
+          description: name of the file
           in: path
           required: true
           type: string
@@ -2763,7 +2763,7 @@ paths:
 definitions:
   File:
     type: object
-    description: the file
+    description: an object representing a file
     properties:
       name:
         type: string

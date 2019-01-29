@@ -35,7 +35,8 @@ def get_file_by_name(name):
     # BUG: not yet gaurantiied there is only one name
 	for element in files.find({'name':name}):
 		return (element['name'],
-                element['description'],
-                element['value'],
-                element['kind'])
+                element['endpoint'],
+                element['checksum'],
+                element['size'],
+                element['timestamp'])
 
