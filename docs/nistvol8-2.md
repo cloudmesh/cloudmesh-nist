@@ -1,6 +1,5 @@
 
 
-
 # Abstract
 
 This document summarizes interfaces that are instrumental for the
@@ -154,8 +153,7 @@ group is conducted on the NBD-PWG web page
 
 # Introduction
 
-Background
-----------
+## Background
 
 There is broad agreement among commercial, academic, and government
 leaders about the remarkable potential of Big Data to spark innovation,
@@ -165,13 +163,11 @@ sensor-laden, and information-driven world. The availability of vast
 data resources carries the potential to answer questions previously out
 of reach, including the following:
 
-- How can a potential pandemic reliably be detected early enough to
+* How can a potential pandemic reliably be detected early enough to
   intervene?
-
-- Can new materials with advanced properties be predicted before these
+* Can new materials with advanced properties be predicted before these
   materials have ever been synthesized?
-
-- How can the current advantage of the attacker over the defender in
+* How can the current advantage of the attacker over the defender in
   guarding against cybersecurity threats be reversed?
 
 There is also broad agreement on the ability of Big Data to overwhelm
@@ -184,17 +180,17 @@ limitations of Big Data, a lack of consensus on some important
 fundamental questions continues to confuse potential users and stymie
 progress. These questions include the following:
 
-- How is Big Data defined?
-- What attributes define Big Data solutions?
-- What is new in Big Data?
-- What is the difference between Big Data and *bigger data* that has
+* How is Big Data defined?
+* What attributes define Big Data solutions?
+* What is new in Big Data?
+* What is the difference between Big Data and *bigger data* that has
   been collected for years?
-- How is Big Data different from traditional data environments and
+* How is Big Data different from traditional data environments and
   related applications?
-- What are the essential characteristics of Big Data environments?
-- How do these environments integrate with currently deployed
+* What are the essential characteristics of Big Data environments?
+* How do these environments integrate with currently deployed
   architectures?
-- What are the central scientific, technological, and standardization
+* What are the central scientific, technological, and standardization
   challenges that need to be addressed to accelerate the deployment of
   robust, secure Big Data solutions?
 
@@ -259,13 +255,13 @@ On September 16, 2015, seven NBDIF Version 1 volumes were published
 addresses a specific key topic, resulting from the work of the NBD-PWG.
 The seven volumes are as follows:
 
-- Volume 1, Definitions
-- Volume 2, Taxonomies
-- Volume 3, Use Cases and General Requirements
-- Volume 4, Security and Privacy
-- Volume 5, Architectures White Paper Survey
-- Volume 6, Reference Architecture
-- Volume 7, Standards Roadmap
+* Volume 1, Definitions
+* Volume 2, Taxonomies
+* Volume 3, Use Cases and General Requirements
+* Volume 4, Security and Privacy
+* Volume 5, Architectures White Paper Survey
+* Volume 6, Reference Architecture
+* Volume 7, Standards Roadmap
 
 Currently, the NBD-PWG is working on Stage 2 with the goals to enhance
 the Version 1 content, define general interfaces between the NBDRA
@@ -274,8 +270,8 @@ interfaces, and demonstrate how the NBDRA can be used. As a result of
 the Stage 2 work, the following two additional NBDIF volumes have been
 developed.
 
-- Volume 8, Reference Architecture Interfaces
-- Volume 9, Adoption and Modernization
+* Volume 8, Reference Architecture Interfaces
+* Volume 9, Adoption and Modernization
 
 Version 2 of the NBDIF volumes, resulting from Stage 2 work, can be
 downloaded from the NBD-PWG website
@@ -301,18 +297,18 @@ The goal of the NBD-PWG Reference Architecture Subgroup is to develop an
 open reference architecture for Big Data that achieves the following
 objectives:
 
-- Provides a common language for the various stakeholders;
-- Encourages adherence to common standards, specifications, and
+* Provides a common language for the various stakeholders;
+* Encourages adherence to common standards, specifications, and
   patterns;
-- Provides consistent methods for implementation of technology to
+* Provides consistent methods for implementation of technology to
   solve similar problem sets;
-- Illustrates and improves understanding of the various Big Data
+* Illustrates and improves understanding of the various Big Data
   components, processes, and systems, in the context of a vendor- and
   technology-agnostic Big Data conceptual model;
-- Provides a technical reference for U.S. government departments,
+* Provides a technical reference for U.S. government departments,
   agencies, and other consumers to understand, discuss, categorize,
   and compare Big Data solutions; and
-- Facilitates analysis of candidate standards for interoperability,
+* Facilitates analysis of candidate standards for interoperability,
   portability, reusability, and extendibility.
 
 The NBDRA is a high-level conceptual model crafted to serve as a tool to
@@ -328,9 +324,9 @@ inhibit innovation.
 
 The NBDRA does not address the following:
 
-- Detailed specifications for any organization's operational systems;
-- Detailed specifications of information exchanges or services; and
-- Recommendations or standards for integration of infrastructure
+* Detailed specifications for any organization's operational systems;
+* Detailed specifications of information exchanges or services; and
+* Recommendations or standards for integration of infrastructure
   products.
 
 The goals of the Subgroup will be realized throughout the three planned
@@ -384,11 +380,11 @@ used by the NBD-PWG to develop the interfaces. Following the
 introductory material presented in Section 1, the remainder of this
 document is organized as follows:
 
-- Section 2 presents the interface requirements;
-- Section 3 summarizes the elementary objects that are important to
+* Section 2 presents the interface requirements;
+* Section 3 summarizes the elementary objects that are important to
   the NBDRA;
-- Section 4 presents several objects grouped by functional use; and
-- Four appendices provide supplementary information.
+* Section 4 presents several objects grouped by functional use; and
+* Four appendices provide supplementary information.
 
 Future Work on this Volume
 --------------------------
@@ -602,21 +598,21 @@ listed below and discussed in subsequent subsections.
 ```
 NOTE: SECTION NUMBERS
 ```
-- System Orchestrator: Defines and integrates the required data
+* System Orchestrator: Defines and integrates the required data
   application activities into an operational vertical system (see
   Section 2.2.1);
-- Data Provider: Introduces new data or information feeds into the Big
+* Data Provider: Introduces new data or information feeds into the Big
   Data system (see Section 2.2.2);
-- Data Consumer: Includes end users or other systems that use the
+* Data Consumer: Includes end users or other systems that use the
   results of the Big Data Application Provider (see Section 2.2.3);
-- Big Data Application Provider: Executes a data life cycle to meet
+* Big Data Application Provider: Executes a data life cycle to meet
   security and privacy requirements as well as System
   Orchestrator-defined requirements (see Section 2.2.4);
-- Big Data Framework Provider: Establishes a computing framework in
+* Big Data Framework Provider: Establishes a computing framework in
   which to execute certain transformation applications while
   protecting the privacy and integrity of data (see Section 2.2.5);
   and
-- Big Data Application Provider to Framework Provider Interface:
+* Big Data Application Provider to Framework Provider Interface:
   Defines an interface between the application specification and the
   provider (see Section 2.2.4).
 
@@ -671,12 +667,12 @@ mirror image of the Data Provider, with the entire Big Data framework
 appearing like a Data Provider to the Data Consumer. The activities
 associated with the Data Consumer role include the following:
 
-- Search and Retrieve,
-- Download,
-- Analyze Locally,
-- Reporting,
-- Visualization, and
-- Data to Use for Their Own Processes.
+* Search and Retrieve,
+* Download,
+* Analyze Locally,
+* Reporting,
+* Visualization, and
+* Data to Use for Their Own Processes.
 
 The interface for the data consumer must be able to describe the
 consuming services and how they retrieve information or leverage data
@@ -799,10 +795,10 @@ They can be either local providers, data contributed by a user, or
 distributed data providers, data on the Internet. This interface must be
 able to provide the following functionality:
 
-- Interfaces to files,
-- Interfaces to virtual data directories,
-- Interfaces to data streams, and
-- Interfaces to data filters.
+* Interfaces to files,
+* Interfaces to virtual data directories,
+* Interfaces to data streams, and
+* Interfaces to data filters.
 
 #### Infrastructures Interface Requirements
 
@@ -926,13 +922,13 @@ implicit interfaces, it is important to introduce a terminology that
 allows the definition of interface compliancy. We define
 three levels of interface compliance as follows:
 
-- **Full Compliance:** These are reference implementations that provide
+* **Full Compliance:** These are reference implementations that provide
   full compliance to the objects defined in this document. A version
   number will be added to assure that the snapshot in time of the
   objects is associated with the version. This reference
   implementation will implement all objects.
 
-- **Partial Compliance:** These are reference implementations that provide
+* **Partial Compliance:** These are reference implementations that provide
   partial compliance to the objects defined in this document. A
   version number will be added to assure that the snapshot in time of
   the objects is associated with the version. This reference
@@ -942,7 +938,7 @@ three levels of interface compliance as follows:
   defined by the reference architecture. The document will outline
   which objects and interfaces have been implemented.
 
-- **Full and Extended Compliance:** These are interfaces that in addition
+* **Full and Extended Compliance:** These are interfaces that in addition
   to the full compliance also introduce additional interfaces and
   extend them. A document will be generated during the reference
   implementation that lists the differences to the document defined
