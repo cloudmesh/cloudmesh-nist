@@ -3,7 +3,7 @@
 VERSION="Version 3.0.3"  
 FILE=nistvol8-2
 
-MARKDOWN-OPTIONS=--verbose  -V curdate="$(date)" --template=template.epub $(MERMAID)  --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml 
+MARKDOWN-OPTIONS=--verbose  -V curdate="$(date)" --template=template.epub $(MERMAID)   --filter pandoc-codeblock-include --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml 
 #MARKDOWN-OPTIONS=$(MERMAID)  --filter pandoc-codeblock-include -f markdown+emoji -f markdown+header_attributes -f markdown+smart --indented-code-classes=bash,python,yaml
 CSL=--csl=template/ieee-with-url.csl
 FORMAT=--toc --number-sections --standalone
