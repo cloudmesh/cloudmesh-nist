@@ -1,11 +1,12 @@
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  status: draft
+  x-date: 01-29-2019
   title: timestamp
   description: |-
   
-    Often data needs to be timestamped to indicate when it has been
+    Data often need to be timestamped to indicate when it has been
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
 
