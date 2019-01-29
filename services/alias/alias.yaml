@@ -60,7 +60,7 @@ paths:
       operationId: get_alias_by_name
       parameters:
         - name: name
-          descripion: name of the alias
+          description: name of the alias
           in: path
           required: true
           type: string

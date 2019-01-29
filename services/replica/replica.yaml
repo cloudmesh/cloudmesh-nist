@@ -97,3 +97,4 @@ definitions:
       timestamp:
         $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
         description: "The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to."
+

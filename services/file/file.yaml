@@ -105,8 +105,8 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
+        description: timestamps associated with the file
         $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
-        description: The timestamp of the file
 
 
 #        "name": "report.dat",
