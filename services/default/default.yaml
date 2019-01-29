@@ -1,7 +1,8 @@
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019  
   title: default
   description: |-
   
@@ -9,9 +10,8 @@ info:
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
-    cloud name.
-
-    * TODO: assign for review and improvement
+    cloud name. In addition to the context we also specify the service
+    name as a service could have multiple context.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:

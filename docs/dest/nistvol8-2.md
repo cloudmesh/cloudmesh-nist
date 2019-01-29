@@ -997,16 +997,16 @@ are defining in this draft. Additional objects are also available at
   user               User               3.1.0     defined
   timestamp          Timestamp          3.1.0     defined
   alias              Alias              3.1.0     defined
-  variables          variables          3.0.1     TBD
+  variables          Variables          3.1.0     defined
   default            default            3.0.2     TBD
   file               file               3.0.2     TBD
   database           database           3.0.2     TBD
   replica            replica            3.0.2     TBD
   virtualdirectory   virtualdirectory   3.0.3     TBD
-  virtualcluster     Virtual Cluster    3.0.3     TBD
-  keystore           key                3.1.0     TBD
-  vm                 Coludmesh VM       3.0.5     TBD
-  scheduler          scheduler          3.0.2     TBD
+  virtualcluster     Virtual Cluster    3.1.0     defined
+  keystore           key                3.1.0     defined
+  vm                 Coludmesh VM       3.1.0     defined
+  scheduler          scheduler          3.1.0     defined
   image              image              3.0.2     TBD
   flavor             flavor             3.0.3     TBD
 
@@ -1540,7 +1540,7 @@ Parameters
 swagger: '2.0'
 info:
   version: 3.1.0
-  status: draft
+  x-status: defined
   x-date: 01-29-2019
   title: key
   description: |-
@@ -1640,9 +1640,6 @@ Data often need to be timestamped to indicate when it has been accessed,
 created, or modified. All objects defined in this document will have, in
 their final version, a timestamp.
 
--   TODO: assign and review, we do not need a service for this but some
-    mechanism so each resource has timestamps
-
 #### Properties Timestamp
 
   Property   Type     Description
@@ -1713,9 +1710,6 @@ info:
     Data often need to be timestamped to indicate when it has been
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
-
-    * TODO: assign and review, we do not need a service for this
-      but some mechanism so each resource has timestamps
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -1942,8 +1936,6 @@ Variables are used to store simple values. Each variable can have a
 type, which is also provided as demonstrated in the object below. The
 variable value format is defined as string to allow maximal probability.
 
--   TODO: assign and review
-
 #### Properties Variables
 
   Property   Type     Description
@@ -2005,16 +1997,16 @@ Parameters
 ``` {include="../../services/variables/variables.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.1
-  title: variables
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019  
+  title: Variables
   description: |-
   
     Variables are used to store simple values. Each variable can have
     a type, which is also provided as demonstrated in the object
     below. The variable value format is defined as string to allow
     maximal probability.
-
-    * TODO: assign and review
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -2991,7 +2983,7 @@ Virtual Cluster example
 
 ###### GET /cloudmesh/virtualcluster/virtualcluster
 
-Returns all virtualcluster
+Returns all virtual clusters
 
 Responses
 
@@ -3001,7 +2993,7 @@ Responses
 
 ###### PUT /cloudmesh/virtualcluster/virtualcluster
 
-ERROR: missing
+Create a new virtual cluster
 
 Responses
 
@@ -3011,15 +3003,15 @@ Responses
 
 Parameters
 
-  Name             Located in   Description                        Required   Schema
-  ---------------- ------------ ---------------------------------- ---------- -----------------------------------
-  virtualcluster   body         The new virtualcluster to create   False      [VirtualCluster](#virtualcluster)
+  Name             Located in   Description                         Required   Schema
+  ---------------- ------------ ----------------------------------- ---------- -----------------------------------
+  virtualcluster   body         The new virtual cluster to create   True       [VirtualCluster](#virtualcluster)
 
 ##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}
 
 ###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}
 
-Returns a virtualcluster by its name
+Returns a virtual cluster by its name
 
 Responses
 
@@ -3029,27 +3021,27 @@ Responses
 
 Parameters
 
-  Name                 Located in   Description                  Required   Schema
-  -------------------- ------------ ---------------------------- ---------- --------
-  virtualclustername   path         ERROR: description missing   True       
+  Name                 Located in   Description                   Required   Schema
+  -------------------- ------------ ----------------------------- ---------- --------
+  virtualclustername   path         name of the virtual cluster   True       
 
 ##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
 
 ###### GET /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe
 
-Returns the front-end node info of the specified virtualcluster
+Returns the front-end node info of the specified virtual cluster
 
 Responses
 
-  Code   Description                     Schema
-  ------ ------------------------------- ---------------
-  200    virtualcluster front-end info   [Node](#node)
+  Code   Description                           Schema
+  ------ ------------------------------------- ---------------
+  200    virtual cluster front-end node info   [Node](#node)
 
 Parameters
 
   Name                 Located in   Description                  Required   Schema
   -------------------- ------------ ---------------------------- ---------- --------
-  virtualclustername   path         ERROR: description missing   True       
+  virtualclustername   path         name of the virtua cluster   True       
 
 ##### /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}
 
@@ -3067,8 +3059,8 @@ Parameters
 
   Name                 Located in   Description                  Required   Schema
   -------------------- ------------ ---------------------------- ---------- --------
-  virtualclustername   path         ERROR: description missing   True       
-  nodename             path         ERROR: description missing   True       
+  virtualclustername   path         name of the virtua cluster   True       
+  nodename             path         name of the name             True       
 
 #### vc.yaml
 
@@ -3076,8 +3068,9 @@ Parameters
 ---
 swagger: "2.0"
 info:
-  version: 3.0.3
-  x-date: 06-11-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: "Virtual Cluster"
   description: |-
 
@@ -3101,7 +3094,7 @@ paths:
     get:
       tags:
         - "virtualcluster"
-      description: "Returns all virtualcluster"
+      description: "Returns all virtual clusters"
       operationId: get_virtualcluster
       produces:
         - "application/json"
@@ -3113,12 +3106,13 @@ paths:
     put:
       tags:
         - "virtualcluster"
-      summary: "Create a new virtualcluster"
+      description: "Create a new virtual cluster"
       operationId: add_virtualcluster
       parameters:
         - in: body
           name: virtualcluster
-          description: "The new virtualcluster to create"
+          description: "The new virtual cluster to create"
+          required: true
           schema:
             $ref: "#/definitions/VirtualCluster"
       responses:
@@ -3128,10 +3122,11 @@ paths:
     get:
       tags:
         - "virtualcluster"
-      description: "Returns a virtualcluster by its name"
+      description: "Returns a virtual cluster by its name"
       operationId: getVirtualclusterByName
       parameters:
         - name: virtualclustername
+          description: name of the virtual cluster
           in: path
           required: true
           type: string
@@ -3146,10 +3141,11 @@ paths:
     get:
       tags:
         - "virtualcluster"
-      description: "Returns the front-end node info of the specified virtualcluster"
+      description: "Returns the front-end node info of the specified virtual cluster"
       operationId: getVirtualclusterFeByName
       parameters:
         - name: virtualclustername
+          description: name of the virtua cluster
           in: path
           required: true
           type: string
@@ -3157,7 +3153,7 @@ paths:
         - "application/json"
       responses:
         "200":
-          description: "virtualcluster front-end info"
+          description: "virtual cluster front-end node info"
           schema:
             $ref: "#/definitions/Node"
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
@@ -3168,10 +3164,12 @@ paths:
       operationId: getVirtualclusterNodeByName
       parameters:
         - name: virtualclustername
+          description: name of the virtua cluster
           in: path
           required: true
           type: string
         - name: nodename
+          description: name of the name
           in: path
           required: true
           type: string
@@ -3245,14 +3243,12 @@ definitions:
 A service to store scheduler, value, type information. All of them are
 stored as Strings.
 
--   TODO: assign and improve
-
 #### Properties Scheduler
 
   Property   Type     Description
-  ---------- -------- ----------------------------
+  ---------- -------- ------------------------------
   name       string   name of the scheduler
-  value      string   value of the scheduler
+  value      string   information of the scheduler
   kind       string   the scheduler kind or type
 
 #### Paths
@@ -3271,7 +3267,7 @@ Responses
 
 ###### PUT /cloudmesh/schedulers
 
-ERROR: missing
+Create a new scheduler
 
 Responses
 
@@ -3299,24 +3295,23 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description             Required   Schema
+  ------ ------------ ----------------------- ---------- --------
+  name   path         name of the scheduler   True       
 
-### scheduler.yaml
+#### scheduler.yaml
 
 ``` {include="../../services/scheduler/scheduler.yaml"}
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: scheduler
   description: |-
   
     A service to store scheduler, value, type information. All of them
     are stored as Strings.
-
-    * TODO: assign and improve
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -3344,7 +3339,7 @@ paths:
           schema:
             $ref: '#/definitions/Scheduler'
     put:
-      summary: Create a new scheduler
+      description: Create a new scheduler
       operationId: add_scheduler
       parameters:
         - in: body
@@ -3361,6 +3356,7 @@ paths:
       operationId: get_scheduler_by_name
       parameters:
         - name: name
+          description: name of the scheduler
           in: path
           required: true
           type: string
@@ -3381,7 +3377,7 @@ definitions:
         description: name of the scheduler
       value:
         type: string
-        description: value of the scheduler
+        description: information of the scheduler
       kind:
         type: string
         description: the scheduler kind or type
@@ -3817,8 +3813,9 @@ info:
 
     A service to manage virtual machines
     
-  version: 3.0.5
-  x-date: 11-16-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: Coludmesh VM
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
