@@ -1176,12 +1176,12 @@ This section is planned for a future version.
 
 {include=./spec/flavor.md}
 
-#### image.yaml
+#### flavor.yaml
 
 ```{include=../../services/flavor/flavor.yaml}
 ```
 
-### Vm
+### VM
 
 {include=./spec/vm.md}
 

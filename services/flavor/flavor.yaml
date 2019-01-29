@@ -1,6 +1,8 @@
 swagger: '2.0'
 info:
-  version: 3.0.3
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: flavor
   description: |-
   
@@ -8,8 +10,6 @@ info:
     node, such as memory and number of cores, as well as other
     attributes that can be added. Flavors are essential to size a
     virtual cluster appropriately.
-
-    x-date: 10-30-2018
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -38,11 +38,12 @@ paths:
           schema:
             $ref: '#/definitions/Flavor'
     put:
-      summary: Create a new flavor
+      description: Create a new flavor
       operationId: add_flavor
       parameters:
         - in: body
           name: flavor
+          required: true
           description: The new flavor to create
           schema:
             $ref: '#/definitions/Flavor'
@@ -55,6 +56,7 @@ paths:
       operationId: get_flavor_by_name
       parameters:
         - name: name
+          description: name of the flavor
           in: path
           required: true
           type: string

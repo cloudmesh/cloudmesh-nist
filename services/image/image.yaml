@@ -1,18 +1,18 @@
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
   title: image
   description: |-
   
-    An operating system image.
+    Image is defined as an object representing a system image
+    in cloud that can be used to start virtual machines.
 
     Image objects are typically returned by the driver for the 
     cloud provider in response to the list_images function.
-
-    * TODO: this is a demo of the to do line
     
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -38,12 +38,13 @@ paths:
           schema:
             $ref: '#/definitions/Image'
     put:
-      summary: Create a new image
+      description: Create a new image
       operationId: add_image
       parameters:
         - in: body
           name: image
-          description: The new image to create
+          required: true
+          description: The new image record to create
           schema:
             $ref: '#/definitions/Image'
       responses:
@@ -51,10 +52,11 @@ paths:
           description: Created
   '/cloudmesh/image/{name}':
     get:
-      description: Returns a general description of an image
+      description: Returns general description of an image
       operationId: get_image_by_name
       parameters:
         - name: name
+          description: name of the image
           in: path
           required: true
           type: string
