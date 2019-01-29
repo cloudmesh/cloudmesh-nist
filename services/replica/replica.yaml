@@ -89,4 +89,5 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-          $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        description: timestamps associated with the replica
+        $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
