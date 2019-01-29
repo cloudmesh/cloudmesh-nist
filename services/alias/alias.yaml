@@ -40,12 +40,8 @@ paths:
           schema:
             $ref: '#/definitions/Alias'
     put:
-<<<<<<< HEAD
       summary: Create a new alias
       description: Create a new alias      
-=======
-      description: Create a new alias
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_alias
       parameters:
         - in: body

@@ -17,10 +17,6 @@ info:
     important to provide a mechanism to trace the pedigree of the file
     while pointing to its original source. 
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
@@ -47,12 +43,8 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
     put:
-<<<<<<< HEAD
       summary: Create a new replica
       description: Create a new replica      
-=======
-      description: Create a new replica record
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       operationId: add_replica
       parameters:
         - in: body

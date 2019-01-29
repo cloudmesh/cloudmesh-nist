@@ -36,10 +36,7 @@ paths:
           schema:
             $ref: '#/definitions/Timestamp'
     put:
-<<<<<<< HEAD
       summary: Create a new timestamp
-=======
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
       description: Create a new timestamp
       operationId: add_timestamp
       parameters:
