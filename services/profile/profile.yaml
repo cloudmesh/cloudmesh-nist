@@ -100,11 +100,10 @@ definitions:
         items:
           type: "string"
       resource:
-        type: "string"
-        description: A resource this profile may belong to
-      context:
-        type: "string"
-        description: The context the profile may belong to
+        type: array
+        description: A list of resources the profile has access to
+        items:
+          type: "string"
       description:
         type: "string"
         description: A description for this profile
