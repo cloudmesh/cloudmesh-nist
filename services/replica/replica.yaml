@@ -1,15 +1,9 @@
 swagger: '2.0'
 info:
   version: 3.1.0
-<<<<<<< HEAD
   x-status: defined
   x-date: 01-29-2019
   title: Replica
-=======
-  x-date: 01-29-2019
-  x-status: defined
-  title: replica
->>>>>>> bcc466b0301e60fce4d7bf1b594ba5e66a6eff77
   description: |-
   
     In many distributed systems, it is important that a file can be
