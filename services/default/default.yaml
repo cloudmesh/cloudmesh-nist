@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 01-29-2019
   title: default
   description: |-
   
@@ -10,8 +10,6 @@ info:
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
     cloud name.
-
-    * TODO: assign for review and improvement
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -27,7 +25,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/defaults:
+  /cloudmesh/default:
     get:
       description: Returns all defaults
       operationId: get_default
@@ -39,11 +37,12 @@ paths:
           schema:
             $ref: '#/definitions/Default'
     put:
-      summary: Create a new default
+      description: Create a new default
       operationId: add_default
       parameters:
         - in: body
           name: default
+          required: true
           description: The new default to create
           schema:
             $ref: '#/definitions/Default'
@@ -56,6 +55,7 @@ paths:
       operationId: get_default_by_name
       parameters:
         - name: name
+          description: name of the default
           in: path
           required: true
           type: string

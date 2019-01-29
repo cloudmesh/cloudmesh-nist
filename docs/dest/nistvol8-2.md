@@ -1261,9 +1261,9 @@ Terminology
 
 #### Paths
 
-##### /cloudmesh/user/user/{uuid}
+##### /cloudmesh/user/{uuid}
 
-###### GET /cloudmesh/user/user/{uuid}
+###### GET /cloudmesh/user/{uuid}
 
 Returns the user of a user while looking it up with the UUID
 
@@ -1275,13 +1275,13 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  uuid   path         ERROR: description missing   True       
+  Name   Located in   Description              Required   Schema
+  ------ ------------ ------------------------ ---------- --------
+  uuid   path         uuid of the user entry   True       
 
-##### /cloudmesh/user/user
+##### /cloudmesh/user
 
-###### PUT /cloudmesh/user/user
+###### PUT /cloudmesh/user
 
 Create a new user
 
@@ -1297,7 +1297,7 @@ Parameters
   ------ ------------ ------------------------ ---------- ---------------
   user   body         The new user to create   False      [User](#user)
 
-###### GET /cloudmesh/user/user
+###### GET /cloudmesh/user
 
 Returns all users
 
@@ -1307,9 +1307,9 @@ Responses
   ------ ------------------ ---------------
   200    user information   [User](#user)
 
-##### /cloudmesh/user/user/{username}
+##### /cloudmesh/user/{username}
 
-###### GET /cloudmesh/user/user/{username}
+###### GET /cloudmesh/user/{username}
 
 Returns the user of a user while looking it up with the username
 
@@ -1321,9 +1321,9 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  uuid   path         ERROR: description missing   True       
+  Name   Located in   Description        Required   Schema
+  ------ ------------ ------------------ ---------- --------
+  name   path         name of the user   True       
 
 #### user.yaml
 
@@ -1364,7 +1364,7 @@ consumes:
 produces:
   - "application/json"
 paths:
-  /cloudmesh/user/user:
+  /cloudmesh/user:
     get:
       tags:
         - "user"
@@ -1392,14 +1392,15 @@ paths:
       responses:
         "201":
           description: Created
-  /cloudmesh/user/user/{username}:
+  /cloudmesh/user/{username}:
     get:
       tags:
         - "user"
       description: "Returns the user of a user while looking it up with the username"
       operationId: getUserByUsername
       parameters:
-        - name: uuid
+        - name: name
+          description: name of the user
           in: path
           required: true
           type: string
@@ -1410,7 +1411,7 @@ paths:
           description: "user information"
           schema:
             $ref: "#/definitions/User"
-  /cloudmesh/user/user/{uuid}:
+  /cloudmesh/user/{uuid}:
     get:
       tags:
         - "user"
@@ -1418,6 +1419,7 @@ paths:
       operationId: getUserByUuid
       parameters:
         - name: uuid
+          description: uuid of the user entry
           in: path
           required: true
           type: string
@@ -1643,18 +1645,18 @@ their final version, a timestamp.
 #### Properties Timestamp
 
   Property   Type     Description
-  ---------- -------- ----------------------------
-  accessed   string   ERROR: description missing
-  modified   string   ERROR: description missing
-  created    string   ERROR: description missing
+  ---------- -------- --------------------
+  accessed   string   last accessed time
+  modified   string   last modified time
+  created    string   created time
 
 #### Paths
 
-##### /cloudmesh/timestamps
+##### /cloudmesh/timestamp
 
-###### PUT /cloudmesh/timestamps
+###### PUT /cloudmesh/timestamp
 
-ERROR: missing
+Create a new timestamp
 
 Responses
 
@@ -1668,7 +1670,7 @@ Parameters
   ----------- ------------ ----------------------------- ---------- -------------------------
   timestamp   body         The new timestamp to create   False      [Timestamp](#timestamp)
 
-###### GET /cloudmesh/timestamps
+###### GET /cloudmesh/timestamp
 
 Returns all timestamps
 
@@ -1692,9 +1694,9 @@ Responses
 
 Parameters
 
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  name   path         ERROR: description missing   True       
+  Name   Located in   Description             Required   Schema
+  ------ ------------ ----------------------- ---------- --------
+  name   path         name of the timestamp   True       
 
 #### timestamp.yaml
 
@@ -1725,7 +1727,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/timestamps:
+  /cloudmesh/timestamp:
     get:
       description: Returns all timestamps
       operationId: get_timestamp
@@ -1737,7 +1739,7 @@ paths:
           schema:
             $ref: '#/definitions/Timestamp'
     put:
-      summary: Create a new timestamp
+      description: Create a new timestamp
       operationId: add_timestamp
       parameters:
         - in: body
@@ -1754,6 +1756,7 @@ paths:
       operationId: get_timestamp_by_name
       parameters:
         - name: name
+          description: name of the timestamp
           in: path
           required: true
           type: string
@@ -1771,12 +1774,15 @@ definitions:
     properties:
       accessed:
         type: string
+        description: last accessed time
         format: date
       created:
         type: string
+        description: created time
         format: date
       modified:
         type: string
+        description: last modified time
         format: date
 ```
 
