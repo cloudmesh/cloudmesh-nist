@@ -1174,7 +1174,9 @@ An example for a configuration file is provided at
 ```{include=../../services/keystore/keystore.yaml}
 ```
 
+
 [comment]: # GENERAL  MANAGEMENT
+
 
 ## General Resources
 
@@ -1216,7 +1218,9 @@ An example for a configuration file is provided at
 ```{include=./spec/default.yaml}
 ```
 
+
 [comment]: # FILE MANAGEMENT
+
 
 ## Data Management
 
