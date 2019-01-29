@@ -92,16 +92,8 @@ especially the following NBD-PWG members:
 * Robert C. Whetsel, DISA/NBIS
 * Pratik Thakkar, Philips
 
-Past contributors of earlier versions of this document include
-
-* Badi Abdhul Wahid, formerly Indiana University
-
-
 
 ---
-
-# Table of Contents
-
 
 
 # Executive Summary

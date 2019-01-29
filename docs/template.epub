@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"$if(lang)$ xml:lang="$lang$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <title>$pagetitle$</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+$if(quotes)$
+      q { quotes: "“" "”" "‘" "’"; }
+$endif$
+  </style>
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+$for(css)$
+  <link rel="stylesheet" type="text/css" href="$css$" />
+$endfor$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body$if(coverpage)$ id="cover"$endif$$if(body-type)$ epub:type="$body-type$"$endif$>
+
+
+
+$if(titlepage)$
+<section epub:type="titlepage">
+
+<div style="page-break-before:always;">
+<p>.</p>
+</div>
+<hr />
+<div style="text-align: right">
+<p><strong>NIST Special Publication 1500-9</strong></p>
+<div class="line-block"><font size="3"><strong>DRAFT NIST Big Data Interoperability Framework:</strong></font><br />
+<font size="3"><strong>Volume 8, Reference Architecture Interfaces</strong></font><br />
+</div>
+<p>
+</p>
+<p>
+</p>
+<div class="line-block">NIST Big Data Public Working Group<br />
+Reference Architecture Subgroup<br />
+Version 3.0.1<br />
+January 29, 2019</div>
+<p><a href="https://bigdatawg.nist.gov/V2_output_docs.php" class="uri">https://bigdatawg.nist.gov/V2_output_docs.php</a></p>
+<p><img src="https://github.com/cloudmesh-community/nist/raw/master/docs/images/nist.png" style="height:1in" /></p>
+</div>
+<hr />
+<div style="page-break-before:always;">
+</div>
+
+<hr />
+<div style="text-align: right">
+<div class="line-block">NIST Special Publication 1500-9<br />
+  Information Technology Laboratory<br />
+<br />
+<br />
+  
+<strong>DRAFT NIST Big Data Interoperability Framework:</strong><br />
+<strong>Volume 8, Reference Architecture Interfaces</strong><br />
+<strong>Version 2</strong></div>
+<br />
+
+<div class="line-block">NIST Big Data Public Working Group (NBD-PWG)<br />
+Definitions and Taxonomies Subgroup<br />
+National Institute of Standards and Technology<br />
+Gaithersburg, MD 20899</div>
+<p>This draft publication is available free of charge from:</p>
+<p><a href="https://bigdatawg.nist.gov/V2_output_docs.php" class="uri">https://bigdatawg.nist.gov/V2_output_docs.php</a></p>
+<p>October 2017</p>
+
+<img src="https://github.com/cloudmesh-community/nist/raw/master/docs/images/seal.png" style="height:1in" />
+
+<div class="line-block">U. S. Department of Commerce<br />
+<em>Wilbur L. Ross, Jr., Secretary</em><br />
+National Institute of Standards and Technology<br />
+<em>Dr. Kent Rochford, Acting Under Secretary of Commerce for Standards and Technology and Acting NIST Director</em></div>
+<hr />
+</div>
+
+<div style="page-break-before:always;">
+<p>.</p>
+</div>
+<p><strong>National Institute of Standards and Technology (NIST) Special Publication 1500-9</strong></p>
+<p>This document is created for electronic viewing and has no fixed
+pagenumbers</p>
+
+<p>NIST Special Publication series 1500 is intended to capture
+external perspectives related to NIST standards, measurement, and
+testing-related efforts. These external perspectives can come from
+industry, academia, government, and others. These reports are intended
+to document external perspectives and do not represent official NIST
+positions.</p>
+
+<p>Certain commercial entities, equipment, or materials may be
+identified in this document to describe an experimental procedure or
+concept adequately. Such identification is not intended to imply
+recommendation or endorsement by NIST, nor is it intended to imply
+that the entities, materials, or equipment are necessarily the best
+available for the purpose.</p>
+
+<p>There may be references in this publication to other publications
+currently under development by NIST in accordance with its assigned
+statutory responsibilities. The information in this publication,
+including concepts and methodologies, may be used by federal agencies
+even before the completion of such companion publications. Thus, until
+each publication is completed, current requirements, guidelines, and
+procedures, where they exist, remain operative. For planning and
+transition purposes, federal agencies may wish to closely follow the
+development of these new publications by NIST.</p>
+
+<p>Organizations are encouraged to review all draft publications
+during public comment periods and provide feedback to NIST. All NIST
+publications are available at <a
+href="http://www.nist.gov/publication-portal.cfm"
+class="uri">http://www.nist.gov/publication-portal.cfm</a>.</p>
+
+<p><strong>Comments on this publication may be submitted to Wo Chang</strong></p>
+<p>National Institute of Standards and Technology</p>
+<p>Attn: Wo Chang, Information Technology Laboratory</p>
+<p>100 Bureau Drive (Mail Stop 8900) Gaithersburg, MD 20899-8930</p>
+<p>Email: <a href="mailto:SP1500comments@nist.gov" class="email">SP1500comments@nist.gov</a></p>
+<hr />
+<p>Reports on Computer Systems Technology</p>
+
+<p>The Information Technology Laboratory (ITL) at NIST promotes the
+U.S. economy and public welfare by providing technical leadership for
+the Nation’s measurement and standards infrastructure. ITL develops
+tests, test methods, reference data, proof of concept implementations,
+and technical analyses to advance the development and productive use
+of information technology. ITL’s responsibilities include the
+development of management, administrative, technical, and physical
+standards and guidelines for the cost-effective security and privacy
+of other than national security-related information in federal
+information systems. This document reports on ITL’s research,
+guidance, and outreach efforts in Information Technology and its
+collaborative activities with industry, government, and academic
+organizations.</p>
+
+
+</section>
+$else$
+$for(include-before)$
+$include-before$
+$endfor$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+$endif$
+</body>
+</html>
+
