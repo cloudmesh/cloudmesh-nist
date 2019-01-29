@@ -1059,15 +1059,15 @@ a user.
 
 Terminology
 
--   Group: A Person with profile can be part of a Group
--   Role: A person with profile can have a role within that Group
+-   *Group*: A Person with profile can be part of a Group
+-   *Role*: A person with profile can have a role within that Group
 
 #### Properties Profile
 
   Property      Type              Description
   ------------- ----------------- -----------------------------------------------------
   uuid          string            A unique id for the profile
-  username      string            The username associated with the profile
+  username      string            The unique username associated with the profile
   group         array\[string\]   A list of groups that are associated to the profile
   role          array\[string\]   A list of groups that are associated to the profile
   resource      string            A resource this profile may belong to
