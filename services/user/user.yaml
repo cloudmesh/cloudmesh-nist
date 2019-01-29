@@ -1,85 +1,139 @@
-swagger: '2.0'
+---
+swagger: "2.0"
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
-  title: user
+  version: 3.0.3
+  x-date: 11-06-2018
+  title: "User"
   description: |-
   
-    In contrast to the profile, a user contains additional attributes
-    that define the role of the user within the multiuser system. The
-    user associates different roles to individuals. These roles
-    potentially have gradations of responsibility and privilege.
-
-    * TODO: this object has to be reviewed and improved
+    Services need to specify which users have access to them. User
+    information can be reused in other services. Users are useful to
+    create virtual organization the depend on user data.  Users can
+    be added, removed and listed. A group in the user can be used
+    to augment users to be part of one or more groups.  A number of
+    roles can specify a specific role of a user.
     
+    Terminology
+
+    * *Group*: A user can be part of a Group
+    * *Role*: A user can have a role within that Group
+
+
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: "Cloudmesh User"
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
-host: 'localhost:8080'
+    name: "Apache"
+host: "localhost:8080"
 schemes:
-  - http
+  - "http"
 consumes:
-  - application/json
+  - "application/json"
 produces:
-  - application/json
+  - "application/json"
 paths:
-  /cloudmesh/users:
+  /cloudmesh/user/user:
     get:
-      description: Returns all users
+      tags:
+        - "user"
+      description: "Returns all users"
       operationId: get_user
       produces:
-        - application/json
+        - "application/json"
       responses:
-        '200':
-          description: user info
+        "200":
+          description: "user information"
           schema:
-            $ref: '#/definitions/User'
+            $ref: "#/definitions/User"
     put:
-      summary: Create a new user
+      tags:
+        - "user"
+      summary: "Create a new user"
+      description: "Create a new user"      
       operationId: add_user
       parameters:
         - in: body
           name: user
-          description: The new user to create
+          description: "The new user to create"
           schema:
-            $ref: '#/definitions/User'
+            $ref: "#/definitions/User"
       responses:
-        '201':
+        "201":
           description: Created
-  '/cloudmesh/user/{name}':
+  /cloudmesh/user/user/{username}:
     get:
-      description: Returns a general description of a user
-      operationId: get_user_by_name
+      tags:
+        - "user"
+      description: "Returns the user of a user while looking it up with the username"
+      operationId: getUserByUsername
       parameters:
-        - name: name
+        - name: uuid
           in: path
           required: true
           type: string
       produces:
-        - application/json
+        - "application/json"
       responses:
-        '200':
-          description: user info
+        "200":
+          description: "user information"
           schema:
-            $ref: '#/definitions/User'
+            $ref: "#/definitions/User"
+  /cloudmesh/user/user/{uuid}:
+    get:
+      tags:
+        - "user"
+      description: "Returns the user of a user while looking it up with the UUID"
+      operationId: getUserByUuid
+      parameters:
+        - name: uuid
+          in: path
+          required: true
+          type: string
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "user information"
+          schema:
+            $ref: "#/definitions/User"
 definitions:
   User:
-    type: object
-    description:
-        Description for this user
+    type: "object"
     properties:
+      uuid:
+        type: "string"
+        description: A unique id for the user
+      username:
+        type: "string"
+        description: The unique username associated with the user
+      group:
+        type: array
+        description: A list of groups that are associated to the user
+        items:
+          type: "string"
+      role:
+        type: array
+        description: A list of groups that are associated to the user
+        items:
+          type: "string"
+      resource:
+        type: array
+        description: A list of resources the user has access to
+        items:
+          type: "string"
       description:
-        description: Description for this user
-        type: string
-      profile:
-        type: string
-        description: The pointer to a profile for this user (TBD)
-#        $ref: '#/definitions/User'
-  Users:
-    type: array
-    description: A collection of Users
-    items:
-      $ref: '#/definitions/User'
+        type: "string"
+        description: A description for this user
+      firstname:
+        type: "string"
+        description: The firstanme of the user
+      lastname:
+        type: "string"
+        description: The lastname of the user 
+      publickey:
+        type: "string"
+        description: The lastname of the user
+      email:
+        type: "string"
+        description: The email of the user

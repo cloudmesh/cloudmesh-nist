@@ -988,7 +988,7 @@ As part of services we often need to specify an identity. In addition
 such persons are often part of groups and have roles within these
 groups. Thus we distinguish three important terms related to the identity:
 
-* Profile - The information identifying the profile of a person
+* User - The information identifying the profile of a person
 * Group - A group that a person may belong to that is important to
   define access to services
 * Role - A role given to a person as part of the group that can refine
@@ -1019,17 +1019,6 @@ An example for a configuration file is provided at
 * <https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml>
 
 
-
-
-### Profile
-
-{include=./spec/profile.md}
-
-#### profile.yaml
-
-```{include=../../services/profile/profile.yaml}
-```
-
 ### Organization
 
 {include=./spec/organization.md}
@@ -1037,6 +1026,15 @@ An example for a configuration file is provided at
 #### organization.yaml
 
 ```{include=../../services/organization/organization.yaml}
+```
+
+### User
+
+{include=./spec/user.md}
+
+#### user.yaml
+
+```{include=../../services/user/user.yaml}
 ```
 
 ### Keystore

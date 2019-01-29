@@ -993,12 +993,13 @@ are defining in this draft. Additional objects are also available at
 
   Service            Title              Version   Status
   ------------------ ------------------ --------- --------
+  organization       organization       3.0.3     TBD
+  user               User               3.0.3     TBD
   timestamp          timestamp          3.0.2     TBD
   alias              alias              3.0.2     TBD
   variables          variables          3.0.1     TBD
   default            default            3.0.2     TBD
   file               file               3.0.2     TBD
-  profile            Profile            3.0.3     TBD
   database           database           3.0.2     TBD
   replica            replica            3.0.2     TBD
   virtualdirectory   virtualdirectory   3.0.3     TBD
@@ -1006,7 +1007,6 @@ are defining in this draft. Additional objects are also available at
   keystore           key                3.0.3     TBD
   vm                 Coludmesh VM       3.0.5     TBD
   scheduler          scheduler          3.0.2     TBD
-  organization       organization       3.0.3     TBD
   image              image              3.0.2     TBD
   flavor             flavor             3.0.3     TBD
 
@@ -1018,7 +1018,7 @@ such persons are often part of groups and have roles within these
 groups. Thus we distinguish three important terms related to the
 identity:
 
--   Profile - The information identifying the profile of a person
+-   User - The information identifying the profile of a person
 -   Group - A group that a person may belong to that is important to
     define access to services
 -   Role - A role given to a person as part of the group that can refine
@@ -1047,89 +1047,6 @@ to this
 An example for a configuration file is provided at
 
 -   <https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml>
-
-### Profile
-
-Profiles are used to store information about users. User information can
-be reused in other services. Profiles are useful to create virtual
-organization the depend on user data. Profiles can be added, removed and
-listed. A group in the profile can be used to augment users to be part
-of one or more groups. A number of roles can specify a specific role of
-a user.
-
-Terminology
-
--   *Group*: A Person with profile can be part of a Group
--   *Role*: A person with profile can have a role within that Group
-
-#### Properties Profile
-
-  Property      Type              Description
-  ------------- ----------------- -----------------------------------------------------
-  uuid          string            A unique id for the profile
-  username      string            The unique username associated with the profile
-  group         array\[string\]   A list of groups that are associated to the profile
-  role          array\[string\]   A list of groups that are associated to the profile
-  resource      string            A resource this profile may belong to
-  context       string            The context the profile may belong to
-  description   string            A description for this profile
-  firstname     string            The firstanme of the profile user
-  lastname      string            The lastname of the profile user
-  publickey     string            The lastname of the profile user
-  email         string            The email of the profile user
-
-#### Paths
-
-##### /cloudmesh/profile/profile
-
-###### GET /cloudmesh/profile/profile
-
-Returns all profiles
-
-Responses
-
-  Code   Description           Schema
-  ------ --------------------- ---------------------
-  200    profile information   [Profile](#profile)
-
-###### PUT /cloudmesh/profile/profile
-
-Create a new profile
-
-Responses
-
-  Code   Description   Schema
-  ------ ------------- --------
-  201    Created       
-
-Parameters
-
-  Name      Located in   Description                 Required   Schema
-  --------- ------------ --------------------------- ---------- ---------------------
-  profile   body         The new profile to create   False      [Profile](#profile)
-
-##### /cloudmesh/profile/profile/{uuid}
-
-###### GET /cloudmesh/profile/profile/{uuid}
-
-Returns the profile of a user while looking it up with the UUID
-
-Responses
-
-  Code   Description           Schema
-  ------ --------------------- ---------------------
-  200    profile information   [Profile](#profile)
-
-Parameters
-
-  Name   Located in   Description                  Required   Schema
-  ------ ------------ ---------------------------- ---------- --------
-  uuid   path         ERROR: description missing   True       
-
-#### profile.yaml
-
-``` {include="../../services/profile/profile.yaml"}
-```
 
 ### Organization
 
@@ -1201,6 +1118,106 @@ Parameters
 #### organization.yaml
 
 ``` {include="../../services/organization/organization.yaml"}
+```
+
+### User
+
+Services need to specify which users have access to them. User
+information can be reused in other services. Users are useful to create
+virtual organization the depend on user data. Users can be added,
+removed and listed. A group in the user can be used to augment users to
+be part of one or more groups. A number of roles can specify a specific
+role of a user.
+
+Terminology
+
+-   *Group*: A user can be part of a Group
+-   *Role*: A user can have a role within that Group
+
+#### Properties User
+
+  Property      Type              Description
+  ------------- ----------------- --------------------------------------------------
+  uuid          string            A unique id for the user
+  username      string            The unique username associated with the user
+  group         array\[string\]   A list of groups that are associated to the user
+  role          array\[string\]   A list of groups that are associated to the user
+  resource      array\[string\]   A list of resources the user has access to
+  description   string            A description for this user
+  firstname     string            The firstanme of the user
+  lastname      string            The lastname of the user
+  publickey     string            The lastname of the user
+  email         string            The email of the user
+
+#### Paths
+
+##### /cloudmesh/user/user
+
+###### GET /cloudmesh/user/user
+
+Returns all users
+
+Responses
+
+  Code   Description        Schema
+  ------ ------------------ ---------------
+  200    user information   [User](#user)
+
+###### PUT /cloudmesh/user/user
+
+Create a new user
+
+Responses
+
+  Code   Description   Schema
+  ------ ------------- --------
+  201    Created       
+
+Parameters
+
+  Name   Located in   Description              Required   Schema
+  ------ ------------ ------------------------ ---------- ---------------
+  user   body         The new user to create   False      [User](#user)
+
+##### /cloudmesh/user/user/{username}
+
+###### GET /cloudmesh/user/user/{username}
+
+Returns the user of a user while looking it up with the username
+
+Responses
+
+  Code   Description        Schema
+  ------ ------------------ ---------------
+  200    user information   [User](#user)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  uuid   path         ERROR: description missing   True       
+
+##### /cloudmesh/user/user/{uuid}
+
+###### GET /cloudmesh/user/user/{uuid}
+
+Returns the user of a user while looking it up with the UUID
+
+Responses
+
+  Code   Description        Schema
+  ------ ------------------ ---------------
+  200    user information   [User](#user)
+
+Parameters
+
+  Name   Located in   Description                  Required   Schema
+  ------ ------------ ---------------------------- ---------- --------
+  uuid   path         ERROR: description missing   True       
+
+#### user.yaml
+
+``` {include="../../services/user/user.yaml"}
 ```
 
 ### Keystore
