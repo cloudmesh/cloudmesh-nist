@@ -1,2 +1,2 @@
 flask
-connexion
+connexion[swagger-ui]
