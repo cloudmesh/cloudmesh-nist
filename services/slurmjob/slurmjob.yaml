@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   version: 3.0.0
-  x-date: 01-29-2019
-  title: Slurm Job
+  x-date: 02-08-2019
+  title: Batch Job
   description: |-
   
     Computing jobs based on a slurm script that can be run on a remote
@@ -27,7 +27,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/slurmjob/job:
+  /cloudmesh/batch/job:
     get:
       description: Returns all slurmjobs
       operationId: get_slurmjob
@@ -67,13 +67,13 @@ paths:
           schema:
             $ref: '#/definitions/Slurmjob'
 definitions:
-  Slurmjob:
+  Batchjob:
     type: object
-    description: the slurmjob
+    description: the batch job
     properties:
       name:
         type: string
-        description: name of the slurmjob
+        description: name of the batch job
       suffix:
         type: string
         description: the suffix of the filename for a job
@@ -82,7 +82,9 @@ definitions:
         description: slurm cluster on which the job is gonna run
       input_type:
         type: string
-        description: type of the input for the script that is going to be run on remote cluster, possible values are "params", "params+file"
+        description: type of the input for the script that is going to be run on remote cluster, 
+                     possible values are `params`, 
+                     `params+file`
       remote_path:
         type: string
         description: path in the remotes on which the scripts is gonna be copied to and ran from
