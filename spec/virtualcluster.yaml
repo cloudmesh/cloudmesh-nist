@@ -70,12 +70,12 @@ paths:
           description: virtualcluster info
           schema:
             $ref: "#/definitions/VirtualCluster"
-  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe:
+  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/manager:
     get:
       tags:
         - virtualcluster
-      description: Returns the front-end node info of the specified virtual cluster
-      operationId: getVirtualclusterFeByName
+      description: Returns the manager node info of the specified virtual cluster
+      operationId: getVirtualclusterManagerByName
       parameters:
         - name: virtualclustername
           description: name of the virtua cluster
@@ -86,7 +86,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: virtual cluster front-end node info
+          description: virtual cluster manager node info
           schema:
             $ref: "#/definitions/Node"
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
@@ -129,8 +129,8 @@ definitions:
       owner:
         type: string
         description: owner of the virtual cluster
-      fe:
-        description: Front-end node of the virtual cluster
+      manager:
+        description: Manager node of the virtual cluster
         $ref: "#/definitions/Node"
       nodes:
         description: List of nodes of the virtual cluster
