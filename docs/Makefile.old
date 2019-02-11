@@ -14,7 +14,7 @@ RESOURCE=--resource-path=".."
 #TITLE=--metadata title="NIST BDRA Volume 8"
 LATEX=-N --template=./template.latex -V version=$(VERSION)
 DEST=dest
-SRC=../spec
+SRC=../services
 
 
 service_4 =organization user timestamp alias variables default file database replica virtualdirectory virtualcluster keystore key vm scheduler image flavor
@@ -23,7 +23,7 @@ service=$(service_4)
 broken= organization
 #service=user keystore virtualdirectory virtualcluster
 
-YAML := $(wildcard $(SRC)/*.yaml)
+YAML := $(wildcard $(SRC)/*/*.yaml)
 
 fast: dest rest spec epub
 	open $(DEST)/$(FILE).epub
@@ -50,8 +50,8 @@ specstable:
 rest:
 	for entry in $(service_4); do \
 		echo "Generate:" $(DEST)/spec/$$entry.md ; \
-		../bin/cm-openapi2md md $(SRC)/$$entry.yaml --indent=4 > $(DEST)/spec/$$entry.md ; \
-		cp  $(SRC)/$$entry.yaml $(DEST)/spec; \
+		../bin/cm-openapi2md md $(SRC)/$$entry/$$entry.yaml --indent=4 > $(DEST)/spec/$$entry.md ; \
+		cp  $(SRC)/$$entry/$$entry.yaml $(DEST)/spec; \
 	done
 
 lint:

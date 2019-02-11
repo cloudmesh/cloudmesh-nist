@@ -1,0 +1,88 @@
+swagger: "2.0"
+info:
+  description: |-
+
+    A service to manage virtual machines
+    
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
+  title: Virtual Machine
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  contact:
+    name: Gregor von Laszeewski
+  license:
+    name: Apache
+host: localhost:8080
+basePath: /cloudmesh/v3
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /vm:
+    get:
+      tags:
+        - vm
+      description: Returns the list of the vms
+      operationId: vm_list
+      produces:
+        - application/json
+      parameters:
+        - name: cloud
+          in: query
+          type: string
+          description: 'specify the cloud from which we list, if ommitted all clouds are returned.'
+          required: false
+      responses:
+        '200':
+          description: Listing the VMs
+          schema:
+            $ref: '#/definitions/VM'
+definitions:
+  VM:
+    type: object
+    properties:
+      provider:
+        type: string
+        description: Name of the provider
+      id:
+        type: string
+        description: a unique id for the vm
+      name:
+        type: string
+        description: the name of the vm
+      image:
+        type: string
+        description: the image for the vm
+      region:
+        type: string
+        description: an optional region
+      size:
+        type: string
+        description: The size of the vm
+      state:
+        type: string
+        description: The state of the vm
+      private_ips:
+        type: string
+        description: The private IPs
+      public_ips:
+        type: string
+        description: The public IPS
+      metadata:
+        type: string
+        description: The meta data passed along to the VM
+    example:
+      image: image
+      metadata: metadata
+      size: size
+      provider: provider
+      name: name
+      private_ips: private_ips
+      id: id
+      state: state
+      region: region
+      public_ips: public_ips

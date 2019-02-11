@@ -1,0 +1,876 @@
+swagger: "2.0"
+info:
+  version: 3.0.2
+  x-date: 10-30-2018
+  title: Coludmesh Compute and Storage
+  description: |-
+
+    A service to use compute and storage resources accross multiple
+    clouds using swagger -2.0 specification and codegen
+
+    * TODO: assign and review
+
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  contact:
+    name: Sushant Athaley, Harshad Pitkar, Michael Robinson
+  license:
+    name: Apache
+host: localhost:8080
+basePath: /cloudmesh
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /compute/aws/ec2:
+    post:
+      tags:
+      - vm
+      summary: create a new ec2 vm instance
+      description:
+      operationId: createVm
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: VM object that needs to be added
+        required: true
+        schema:
+          $ref: '#/definitions/AWSVM'
+      responses:
+        200:
+          description: VM Created
+        405:
+          description: Invalid input
+  /compute/aws/ec2/findByRegion:
+    get:
+      tags:
+      - vm
+      description: Returns list on VMs
+      operationId: findByRegion
+      produces:
+        - application/json
+      parameters:
+      - name: region
+        in: query
+        description: region
+        required: true
+        type: string
+      responses:
+        200:
+          description: VM Instances
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AWSVM'
+  /compute/aws/ec2/{vmname}:
+    get:
+      tags:
+      - vm
+      summary: Find vm by Name
+      description: Returns a single vm
+      operationId: getVMByName
+      produces:
+        - application/json
+      parameters:
+      - name: vmname
+        in: path
+        description: vm name
+        required: true
+        type: string
+      - name: region
+        in: query
+        description: region
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AWSVM'
+        400:
+          description: Invalid name supplied
+        404:
+          description: VM not found
+  /compute/aws/ec2/{vmname}/start:
+    post:
+      tags:
+      - vm
+      summary: start ec2 vm instance
+      description:
+        operationId: startVm
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: vmname
+        in: path
+        description: vm name
+        required: true
+        type: string
+      - name: region
+        in: formData
+        description: region
+        required: true
+        type: string
+      responses:
+        200:
+          description: VM Started
+        405:
+          description: Invalid input
+  /compute/aws/ec2/{vmname}/stop:
+    post:
+      tags:
+      - vm
+      summary: stop ec2 vm instance
+      description:
+      operationId: stopVm
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: vmname
+        in: path
+        description: vm name
+        required: true
+        type: string
+      - name: region
+        in: formData
+        description: region
+        required: true
+        type: string
+      responses:
+        200:
+          description: VM stopped
+        405:
+          description: Invalid input
+  /compute/aws/ec2/{vmname}/terminate:
+    delete:
+      tags:
+      - vm
+      summary: terminate ec2 vm instance
+      description:
+      operationId: terminateVm
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: vmname
+        in: path
+        description: vm name
+        required: true
+        type: string
+      - name: region
+        in: formData
+        description: region
+        required: true
+        type: string
+      responses:
+        200:
+          description: VM terminated
+        405:
+          description: Invalid input
+  /storage/aws/s3/bucket:
+    get:
+      tags:
+      - s3
+      description: Returns list of buckets
+      operationId: getBuckets
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Buckets
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AWSS3'
+    post:
+      tags:
+      - s3
+      summary: create bucket
+      description: create s3 bucket
+      operationId: createBucket
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: bucketName
+        in: formData
+        description: s3 bucket name
+        required: true
+        type: string
+      responses:
+        200:
+          description: Bucket Created
+        405:
+          description: Invalid input
+    delete:
+      tags:
+      - s3
+      summary: delete bucket
+      description: delete s3 bucket
+      operationId: deleteBucket
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: bucketName
+        in: formData
+        description: s3 bucket name
+        required: true
+        type: string
+      responses:
+        200:
+          description: Bucket Deleted
+        405:
+          description: Invalid input
+  /storage/aws/s3/{bucketName}:
+    get:
+      tags:
+      - s3
+      summary: list bucket files
+      description: list bucket files
+      operationId: getFiles
+      produces:
+        - application/json
+      parameters:
+      - name: bucketName
+        in: path
+        description: bucket name
+        required: true
+        type: string
+      responses:
+        200:
+          description: files
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AWSS3'
+        400:
+          description: Invalid name supplied
+        404:
+          description: Bucket not found
+  /storage/aws/s3/{bucketName}/deleteFile:
+    delete:
+      tags:
+      - s3
+      summary: delete file
+      description:
+      operationId: deleteFile
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: bucketName
+        in: path
+        description: bucket name
+        required: true
+        type: string
+      - name: fileName
+        in: formData
+        description: file name
+        required: true
+        type: string
+      responses:
+        200:
+          description: File Deleted
+        405:
+          description: Invalid input
+  /storage/aws/s3/{bucketName}/uploadFile:
+    post:
+      tags:
+      - s3
+      summary: upload file
+      description:
+      operationId: uploadFile
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - name: bucketName
+        in: path
+        description: bucket name
+        required: true
+        type: string
+      - name: fileName
+        in: formData
+        description: file name
+        required: true
+        type: file
+      responses:
+        200:
+          description: File uploaded
+        405:
+          description: Invalid input
+  /storage/aws/s3/{bucketName}/downloadFile:
+    get:
+      tags:
+      - s3
+      summary: download file
+      description: download file to download directory
+      operationId: downloadFile
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: bucketName
+        in: path
+        description: bucket name
+        required: true
+        type: string
+      - name: fileName
+        in: formData
+        description: file name
+        required: true
+        type: string
+      responses:
+        200:
+          description: File downloaded
+        405:
+          description: Invalid input
+  /compute/azure/createvm:
+    get:
+      tags:
+      - azvm
+      description: Create a new VM
+      operationId: createvm
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: name
+          required: true
+          type: string
+          description: Name of VM
+        - in: query
+          name: size
+          required: true
+          type: string
+          description: Size of VM
+        - in: query
+          name: image_name
+          required: true
+          type: string
+          description: Source Image to create VM
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of the resource group
+        - in: query
+          name: storage_account
+          required: true
+          type: string
+          description: Storage Account
+        - in: query
+          name: network_intf
+          required: true
+          type: string
+          description: Network interface name
+        - in: query
+          name: blob_container
+          required: true
+          type: string
+          description: Storage blob container name
+      responses:
+        200:
+          description: Status
+          schema:
+            $ref: '#/definitions/AZUREVM'
+  /compute/azure/deletevm:
+    get:
+      tags:
+      - azvm
+      description: Deletes the virtual machine
+      operationId: deletevm
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: vmname
+          required: true
+          type: string
+          description: Name of the VM
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of the resource group
+      responses:
+        200:
+          description: Status
+          schema:
+            $ref: '#/definitions/AZUREVM'
+  /compute/azure/startvm:
+    get:
+      tags:
+      - azvm
+      description: Starts the virtual machine
+      operationId: startvm
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: vmname
+          required: true
+          type: string
+          description: Name of the VM
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of the resource group
+      responses:
+        200:
+          description: Status
+          schema:
+            $ref: '#/definitions/AZUREVM'
+  /compute/azure/stopvm:
+    get:
+      tags:
+      - azvm
+      description: Stops the virtual machine
+      operationId: stopvm
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: vmname
+          required: true
+          type: string
+          description: Name of the VM
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of the resource group
+      responses:
+        200:
+          description: Status
+          schema:
+            $ref: '#/definitions/AZUREVM'
+  /compute/azure/listvm:
+    get:
+      tags:
+      - azvm
+      description: List all the VM's
+      operationId: listvm
+      produces:
+        - application/json
+      responses:
+        200:
+          description: VM Details
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AZUREVM'
+  /storage/azure/createVol:
+    get:
+      tags:
+      - azstorage
+      description: Create Azure Storage Vol
+      operationId: createVol
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: volname
+          required: true
+          type: string
+          description: Name of Storage Volume
+        - in: query
+          name: volsize
+          required: true
+          type: string
+          description: Size of Storage Vol
+        - in: query
+          name: location
+          required: true
+          type: string
+          description: Locaton or region
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of the resource group
+        - in: query
+          name: ex_account_type
+          required: true
+          type: string
+          description: Storage Account Type
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/AZURESTORAGE'
+  /storage/azure/createVolSnap:
+    get:
+      tags:
+      - azstorage
+      description: Create Azure Storage Vol Snapshot
+      operationId: createVolSnap
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: volname
+          required: true
+          type: string
+          description: Name of Storage Volume
+        - in: query
+          name: snapname
+          required: true
+          type: string
+          description: Name of Storage Vol Snapshot
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of Resource Group
+        - in: query
+          name: location
+          required: true
+          type: string
+          description: Locaton or region
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/AZURESTORAGE'
+  /storage/azure/deleteVol:
+    get:
+      tags:
+      - azstorage
+      description: Create Azure Storage Vol
+      operationId: deleteVol
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: volname
+          required: true
+          type: string
+          description: Name of Storage Volume
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of Resource Group
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/AZURESTORAGE'
+  /storage/azure/deleteVolSnap:
+    get:
+      tags:
+      - azstorage
+      description: Create Azure Storage Vol
+      operationId: delVolsnap
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: snapname
+          required: true
+          type: string
+          description: Name of Storage Volume Snapshot
+        - in: query
+          name: resource_group
+          required: true
+          type: string
+          description: Name of Resource Group
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/AZURESTORAGE'
+  /compute/google/createvm:
+    get:
+      tags:
+      - googleVM
+      description: Create a new VM
+      operationId: createGoogleVM
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: name
+          required: true
+          type: string
+          description: Name of VM
+        - in: query
+          name: size
+          required: true
+          type: string
+          description: Size of VM
+        - in: query
+          name: image_name
+          required: true
+          type: string
+          description: Source Image to create VM
+        - in: query
+          name: location
+          required: true
+          type: string
+          description: Name of the location/region
+      responses:
+        200:
+          description: Status
+          schema:
+            $ref: '#/definitions/GOOGLEVM'
+  /compute/google/deletevm:
+    get:
+      tags:
+      - googleVM
+      description: Deletes the virtual machine
+      operationId: deleteGoogleVM
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: vmname
+          required: true
+          type: string
+          description: Name of the VM
+        - in: query
+          name: location
+          required: true
+          type: string
+          description: Name of the vm location
+      responses:
+        '200':
+          description: Status
+          schema:
+            $ref: '#/definitions/GOOGLEVM'
+  /compute/google/startvm:
+    get:
+      tags:
+      - googleVM
+      description: Starts the virtual machine
+      operationId: startGoogleVM
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: vmname
+          required: true
+          type: string
+          description: Name of the VM
+      responses:
+        200:
+          description: Status
+          schema:
+            $ref: '#/definitions/GOOGLEVM'
+  /compute/google/stopvm:
+    get:
+      tags:
+      - googleVM
+      description: Stops the virtual machine
+      operationId: stopGoogleVM
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: vmname
+          required: true
+          type: string
+          description: Name of the VM
+        - in: query
+          name: location
+          required: true
+          type: string
+          description: Name of the VM location
+      responses:
+        200:
+          description: Status
+          schema:
+            $ref: '#/definitions/GOOGLEVM'
+  /compute/google/listvm:
+    get:
+      tags:
+      - googleVM
+      description: List all the VM's
+      operationId: listGoogleVM
+      produces:
+        - application/json
+      responses:
+        200:
+          description: VM Details
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GOOGLEVM'
+  /storage/google/createVol:
+    get:
+      tags:
+      - googleStorage
+      description: Create google Storage Vol
+      operationId: createGoogleVol
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: volname
+          required: true
+          type: string
+          description: Name of Storage Volume
+        - in: query
+          name: volsize
+          required: true
+          type: string
+          description: Size of Storage Vol
+        - in: query
+          name: location
+          required: true
+          type: string
+          description: Locaton or region
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/GOOGLESTORAGE'
+  /storage/google/createVolSnap:
+    get:
+      tags:
+      - googleStorage
+      description: Create google Storage Vol Snapshot
+      operationId: createGoogleVolSnap
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: volname
+          required: true
+          type: string
+          description: Name of Storage Volume
+        - in: query
+          name: snapname
+          required: true
+          type: string
+          description: Name of Storage Vol Snapshot
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/GOOGLESTORAGE'
+  /storage/google/deleteVol:
+    get:
+      tags:
+      - googleStorage
+      description: Delete google Storage Vol
+      operationId: deleteGoogleVol
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: volname
+          required: true
+          type: string
+          description: Name of Storage Volume
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/GOOGLESTORAGE'
+  /storage/google/deleteVolSnap:
+    get:
+      tags:
+      - googleStorage
+      description: Delete google Storage Vol snap
+      operationId: delGoogleVolsnap
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: snapname
+          required: true
+          type: string
+          description: Name of Storage Volume Snapshot
+      responses:
+        200:
+          description: Storage Volume
+          schema:
+            $ref: '#/definitions/GOOGLESTORAGE'
+definitions:
+  AWSVM:
+    type: object
+    properties:
+      vmId:
+        type: string
+      name:
+        type: string
+      image:
+        type: string
+        default: ami-25615740
+      region:
+        type: string
+        default: us-east-2
+      size:
+        type: string
+        default: t2.micro
+      status:
+        type: string
+        description: VM Status
+
+  Cloudvm:
+    type: object
+    properties:
+      provider:
+        type: string
+      name:
+        type: string
+      resource_group:
+        type: string
+      size:
+        type: string
+      storage_ccount:
+        type: string
+      image_name:
+        type: string
+      network_intf:
+        type: string
+      blob_container:
+        type: string
+
+  AWSS3:
+    type: object
+    properties:
+      bucketName:
+        type: string
+      fileName:
+        type: string
+  # Google, Azure
+  Cloudvolume:
+    type: object
+    properties:
+      provider:
+        type: string
+      name:
+        type: string
+      size:
+        type: integer
+      resource_group:
+        type: string
+      snapname:
+        type: string
+
+  Cloudprovider:
+    type: object
+    properties:
+      name:
+        type: string

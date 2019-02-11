@@ -1,0 +1,171 @@
+---
+swagger: "2.0"
+info:
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
+  title: "Virtual Cluster"
+  description: |-
+
+    Virtual Cluster example
+    
+  termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
+  contact:
+    name: "Cloudmesh REST Service Example"
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: "Apache"
+host: "localhost:8080"
+schemes:
+  - "http"
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/virtualcluster/virtualcluster:
+    get:
+      tags:
+        - virtualcluster
+      description: Returns all virtual clusters
+      operationId: get_virtualcluster
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: profile info
+          schema:
+            $ref: "#/definitions/VirtualCluster"
+    put:
+      tags:
+        - virtualcluster
+      description: Create a new virtual cluster
+      operationId: add_virtualcluster
+      parameters:
+        - in: body
+          name: virtualcluster
+          description: The new virtual cluster to create
+          required: true
+          schema:
+            $ref: "#/definitions/VirtualCluster"
+      responses:
+        "201":
+          description: Created
+  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}:
+    get:
+      tags:
+        - virtualcluster
+      description: Returns a virtual cluster by its name
+      operationId: getVirtualclusterByName
+      parameters:
+        - name: virtualclustername
+          description: name of the virtual cluster
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: virtualcluster info
+          schema:
+            $ref: "#/definitions/VirtualCluster"
+  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe:
+    get:
+      tags:
+        - virtualcluster
+      description: Returns the front-end node info of the specified virtual cluster
+      operationId: getVirtualclusterFeByName
+      parameters:
+        - name: virtualclustername
+          description: name of the virtua cluster
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: virtual cluster front-end node info
+          schema:
+            $ref: "#/definitions/Node"
+  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
+    get:
+      tags:
+        - virtualcluster
+      description: Returns the specified node info of the specified virtualcluster
+      operationId: getVirtualclusterNodeByName
+      parameters:
+        - name: virtualclustername
+          description: name of the virtua cluster
+          in: path
+          required: true
+          type: string
+        - name: nodename
+          description: name of the name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: virtualcluster node info
+          schema:
+            $ref: "#/definitions/Node"
+definitions:
+  VirtualCluster:
+    type: object
+    properties:
+      name:
+        description: The name of the virtual cluster
+        type: string
+      description:
+        type: string
+        description: A description of the virtual cluster
+      nnodes:
+        type: integer
+        description: number of nodes of the virtual cluster
+      owner:
+        type: string
+        description: owner of the virtual cluster
+      fe:
+        description: Front-end node of the virtual cluster
+        $ref: "#/definitions/Node"
+      nodes:
+        description: List of nodes of the virtual cluster
+        type: array
+        items:
+          $ref: "#/definitions/Node"
+  Node:
+    type: object
+    properties:
+      name:
+        type: string
+        description: name of the node
+      state:
+        type: string
+        description: power state of the node
+      ncpu:
+        type: integer
+        description: number of virtual CPUs of the node
+      ram:
+        type: string
+        description: RAM size of the node
+      disk:
+        type: string
+        description: Disk size of the node
+      nics:
+        type: array
+        description: List of network interfaces of the node
+        items:
+          $ref: "#/definitions/NIC"
+  NIC:
+    type: object
+    properties:
+      mac:
+        type: string
+        description: MAC address of the node
+      ip:
+        type: string
+        description: IP address of the node
