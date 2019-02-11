@@ -8,6 +8,9 @@ doc:
 word:
 	cd docs; make word
 
+view:
+	open docs/dest/nistvol8-2.epub 
+
 all: service controller
 	@echo
 
