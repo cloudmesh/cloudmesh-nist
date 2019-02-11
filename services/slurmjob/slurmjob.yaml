@@ -86,18 +86,38 @@ definitions:
       remote_path:
         type: string
         description: path in the remotes on which the scripts is gonna be copied to and ran from
-      remote_script:
-        type: string
-        description: name of the script containing the suffix in the remote
-      slurm_script_path:
+        items:
+          $ref: '#/definitions/Path'
+      slurm_script:
         type: string
         description: path of the slurm script
-      job_script_path:
+        items:
+          $ref: '#/definitions/Path'
+      job_script:
         type: string
         description: path of the file that is going to be run on the cluster via slurm script
-      argfile_path:
+        items:
+          $ref: '#/definitions/Path'
+      argfile:
         type: string
         description: path of the file that has to be passed to the file as an argument (if any)
-      local_path:
+        items:
+          $ref: '#/definitions/Path'
+      local_folder:
         type: string
         description: local path to which the results are gonna be copied
+        items:
+          $ref: '#/definitions/Path'
+  Path:
+    type: object
+    description: path information
+    properties:
+      folder_path:
+        type: string
+        description: absolute path to the folder
+      file_path:
+        type: string
+        description: absolute path to the file
+      file_name:
+        type: string
+        description: the name of the script/file
