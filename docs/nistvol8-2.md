@@ -969,14 +969,20 @@ application requirements.
 The following table lists the current set of resource objects that we
 are defining in this draft. Additional objects are also available at
 
-* <https://github.com/cloudmesh-community/nist/tree/master/services>
+* <https://github.com/cloudmesh-community/nist/tree/master/spec>
 
 {include=./specstable.md}
 
 
+See @fig:bdra-provider-view for the specification resources
+
+![Provider view](images/nist-bdra.png){#fig:bdra-provider-view}
+
+
+
 See @fig:spec for the specification resources
 
-![Specification](images/nist-specification.png){#fig:spec}
+![Resource view](images/nist-specification.png){#fig:spec}
 
 
 ## Identity
@@ -1022,7 +1028,7 @@ An example for a configuration file is provided at
 
 #### organization.yaml
 
-```{include=../../services/organization/organization.yaml}
+```{include=./spec/organization.yaml}
 ```
 
 ### User
@@ -1031,7 +1037,7 @@ An example for a configuration file is provided at
 
 #### user.yaml
 
-```{include=../../services/user/user.yaml}
+```{include=./spec/user.yaml}
 ```
 
 ### Key
@@ -1040,7 +1046,7 @@ An example for a configuration file is provided at
 
 #### key.yaml
 
-```{include=../../services/keystore/keystore.yaml}
+```{include=./spec/keystore.yaml}
 ```
 
 
@@ -1056,7 +1062,7 @@ An example for a configuration file is provided at
 #### timestamp.yaml
 
 
-```{include=../../services/timestamp/timestamp.yaml}
+```{include=./spec/timestamp.yaml}
 ```
 
 
@@ -1066,7 +1072,7 @@ An example for a configuration file is provided at
 
 #### alias.yaml
 
-```{include=../../services/alias/alias.yaml}
+```{include=./spec/alias.yaml}
 ```
 
 ### Variables
@@ -1075,7 +1081,7 @@ An example for a configuration file is provided at
 
 #### variables.yaml
 
-```{include=../../services/variables/variables.yaml}
+```{include=./spec/variables.yaml}
 ```
 
 ### Keystore
@@ -1084,7 +1090,7 @@ An example for a configuration file is provided at
 
 #### keystore.yaml
 
-```{include=../../services/keystore/keystore.yaml}
+```{include=./spec/keystore.yaml}
 ```
 
 ### Default
@@ -1121,7 +1127,7 @@ size": ["GB", "Byte"]
 
 #### file.yaml
 
-```{include=../../services/file/file.yaml}
+```{include=./spec/file.yaml}
 ```
 
 ### Replica
@@ -1130,7 +1136,7 @@ size": ["GB", "Byte"]
 
 #### replica.yaml
 
-```{include=../../services/replica/replica.yaml}
+```{include=./spec/replica.yaml}
 ```
 
 ### Database
@@ -1139,7 +1145,7 @@ size": ["GB", "Byte"]
 
 #### database.yaml
 
-```{include=../../services/database/database.yaml}
+```{include=./spec/database.yaml}
 ```
 
 ### Virtual Directory
@@ -1148,7 +1154,7 @@ size": ["GB", "Byte"]
 
 #### virtualdirectory.yaml
 
-```{include=../../services/virtualdirectory/virtualdirectory.yaml}
+```{include=./spec/virtualdirectory.yaml}
 ```
 
 
@@ -1164,7 +1170,7 @@ size": ["GB", "Byte"]
 
 #### vc.yaml
 
-```{include=../../services/virtualcluster/virtualcluster.yaml}
+```{include=./spec/virtualcluster.yaml}
 ```
 
 
@@ -1175,7 +1181,7 @@ size": ["GB", "Byte"]
 
 #### scheduler.yaml
 
-```{include=../../services/scheduler/scheduler.yaml}
+```{include=./spec/scheduler.yaml}
 ```
 
 ## Compute Management - Virtual Machines
@@ -1189,7 +1195,7 @@ This section summarizes a basic interface specification of virtual machines.
 
 #### image.yaml
 
-```{include=../../services/image/image.yaml}
+```{include=./spec/image.yaml}
 ```
 ### Flavor
 
@@ -1197,7 +1203,7 @@ This section summarizes a basic interface specification of virtual machines.
 
 #### flavor.yaml
 
-```{include=../../services/flavor/flavor.yaml}
+```{include=./spec/flavor.yaml}
 ```
 
 ### VM
@@ -1206,7 +1212,7 @@ This section summarizes a basic interface specification of virtual machines.
 
 #### vm.yaml
 
-```{include=../../services/vm/vm.yaml}
+```{include=./spec/vm.yaml}
 ```
 
 
