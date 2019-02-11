@@ -1,0 +1,105 @@
+swagger: "2.0"
+info:
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
+  title: Hadoop
+  description: |-
+  
+    A service to store the information of a hadoop deployment definition. All of the
+    attributes are stored as Strings.
+
+    * TODO: assign for review and imporvement
+    
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/hadoop:
+    get:
+      summary: Returns all hadoops
+      description: Returns all hadoops
+      operationId: get_hadoop
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: hadoop info
+          schema:
+            $ref: '#/definitions/Hadoop'
+    put:
+      summary: Create a new hadoop
+      description: Create a new hadoop
+      operationId: add_hadoop
+      parameters:
+        - in: body
+          name: hadoop
+          description: The new hadoop to create
+          schema:
+            $ref: '#/definitions/Hadoop'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/hadoop/{name}':
+    get:
+      summary: Returns a hadoop
+      description: Returns a hadoop
+      operationId: get_hadoop_by_name
+      parameters:
+        - name: name
+          in: path
+          description: name of the hadoop
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: hadoop info
+          schema:
+            $ref: '#/definitions/Hadoop'
+definitions:
+  Hadoop:
+    type: object
+    description: An object representing a Hadoop deployment definition
+    properties:
+      name:
+        type: string
+        description: name of the hadoop cluster
+      deployment_type:
+        type: string
+        description: the type of the deployer such as ansible
+      deployment_git:
+        type: string
+        description: the url where to find the deployment scripts
+      resource_managers:
+        type: integer
+        description: number of resource managers
+      namenodes:
+        type: integer
+        description: number of name nodes
+      datanodes:
+        type: integer
+        description: number of data nodes
+      historynodes:
+        type: integer
+        description: number of history nodes
+      journalnodes:
+        type: integer
+        description: number of journal nodes
+      yarn:
+        type: boolean
+        description: true if yarn is used
+      hdfs:
+        type: boolean
+        description: true if hdfs is used

@@ -1,0 +1,8 @@
+# add user: pass pair to this section for http basic auth
+httpbasicauth:
+  - admin: secret
+  - testuser: testpassword
+
+# add apikey: apisecret pair to this section for apikey auth
+apikey:
+  - alongstringtobeaapikey: anotherlongstringtobeaapisecret

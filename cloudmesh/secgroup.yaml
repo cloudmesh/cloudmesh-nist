@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  version: 3.0.2
+  x-date: 10-30-2018
+  title: secgroup
+  description: |-
+  
+   To allow secure communication between the nodes, security groups
+   are introduced. They define the typical security groups that will
+   be deployed once a compute node is specified.
+
+   * TODO: assign and improve
+   
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/secgroups:
+    get:
+      description: Returns all secgroups
+      operationId: get_secgroup
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: secgroup info
+          schema:
+            $ref: '#/definitions/Secgroup'
+    put:
+      summary: Create a new secgroup
+      operationId: add_secgroup
+      parameters:
+        - in: body
+          name: secgroup
+          description: The new secgroup to create
+          schema:
+            $ref: '#/definitions/Secgroup'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/secgroup/{name}':
+    get:
+      description: Returns a secgroup
+      operationId: get_secgroup_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: secgroup info
+          schema:
+            $ref: '#/definitions/Secgroup'
+definitions:
+  Secgroup:
+    type: object
+    description: the secgroup
+    properties:
+      ingress:
+        type: string
+        description: the ingress
+      egress:
+        type: string
+        description: the egress
+      protocols:
+        type: string
+        description: the protocol used such as tcp
+      ports:
+        type: string
+        description: the port

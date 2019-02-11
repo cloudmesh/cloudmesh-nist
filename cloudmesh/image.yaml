@@ -1,0 +1,103 @@
+swagger: "2.0"
+info:
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
+  title: Image
+  description: |-
+  
+    Image is defined as an object representing a system image
+    in cloud that can be used to start virtual machines.
+
+    Image objects are typically returned by the driver for the 
+    cloud provider in response to the list_images function.
+    
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/image:
+    get:
+      description: Returns all general description images
+      operationId: get_image
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: default image info
+          schema:
+            $ref: '#/definitions/Image'
+    put:
+      description: Create a new image
+      operationId: add_image
+      parameters:
+        - in: body
+          name: image
+          required: true
+          description: The new image record to create
+          schema:
+            $ref: '#/definitions/Image'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/image/{name}':
+    get:
+      description: Returns general description of an image
+      operationId: get_image_by_name
+      parameters:
+        - name: name
+          description: name of the image
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: image info
+          schema:
+            $ref: '#/definitions/Image'
+definitions:
+  Image:
+    type: object
+    properties:
+      id:
+        description: A unique id for the image      
+        type: string
+      name:
+        description: The name of the image
+        type: string
+      tag:
+        description: A tag that can be defined by the user for the image
+        type: string
+      description:
+        description: A description for the image
+        type: string
+      cloud:
+        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings      
+        type: string
+      os:
+        description: The OS of the image
+        type: string
+      osVersion:
+        description: The OS version of the image
+        type: string
+      status:
+        description: The status of the image
+        type: string
+      visibility:
+        description: The visibility of the image                   
+        type: string
+      extra:
+        description:  Extra object of the image                 
+        type: string

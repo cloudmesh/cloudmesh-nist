@@ -1,0 +1,79 @@
+swagger: "2.0"
+info:
+  version: 3.1.0
+  x-date: 01-29-2019
+  x-status: defined
+  title: Scheduler
+  description: |-
+  
+    A service to store scheduler, value, type information. All of them
+    are stored as Strings.
+    
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/schedulers:
+    get:
+      description: Returns all schedulers
+      operationId: get_scheduler
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: scheduler info
+          schema:
+            $ref: '#/definitions/Scheduler'
+    put:
+      description: Create a new scheduler
+      operationId: add_scheduler
+      parameters:
+        - in: body
+          name: scheduler
+          description: The new scheduler to create
+          schema:
+            $ref: '#/definitions/Scheduler'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/scheduler/{name}':
+    get:
+      description: Returns a scheduler
+      operationId: get_scheduler_by_name
+      parameters:
+        - name: name
+          description: name of the scheduler
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: scheduler info
+          schema:
+            $ref: '#/definitions/Scheduler'
+definitions:
+  Scheduler:
+    type: object
+    description: the scheduler
+    properties:
+      name:
+        type: string
+        description: name of the scheduler
+      value:
+        type: string
+        description: information of the scheduler
+      kind:
+        type: string
+        description: the scheduler kind or type
