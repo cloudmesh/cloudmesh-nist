@@ -2,6 +2,8 @@ OBJECTS=keystore profile virtualcluster virtualdirectory
 
 .PHONY: service
 
+doc:
+	cd docs; make
 
 all: service controller
 	@echo

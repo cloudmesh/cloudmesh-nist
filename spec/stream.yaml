@@ -1,0 +1,84 @@
+swagger: "2.0"
+info:
+  version: 3.0.2
+  x-date: 10-30-2018
+  title: stream
+  description: |-
+  
+   The stream object describes a data flow, providing information
+   about the rate and number of items exchanged while issuing requests
+   to the stream. A stream may return data items in a specific format
+   that is defined by the stream.
+
+   * TODO: assign and improve
+   
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/streams:
+    get:
+      description: Returns all streams
+      operationId: get_stream
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: stream info
+          schema:
+            $ref: '#/definitions/Stream'
+    put:
+      summary: Create a new stream
+      operationId: add_stream
+      parameters:
+        - in: body
+          name: stream
+          description: The new stream to create
+          schema:
+            $ref: '#/definitions/Stream'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/stream/{name}':
+    get:
+      description: Returns a stream
+      operationId: get_stream_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: stream info
+          schema:
+            $ref: '#/definitions/Stream'
+definitions:
+  Stream:
+    type: object
+    description: the stream
+    properties:
+      name:
+        type: string
+        description: name of the stream
+      format:
+        type: string
+        description: format of the stream
+      rate:
+        type: integer
+        description: the rate of messages
+      limit:
+        type: integer
+        description: the limit of items send

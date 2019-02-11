@@ -1,0 +1,103 @@
+swagger: "2.0"
+info:
+  version: 3.1.0
+  x-status: defined
+  x-date: 01-29-2019  
+  title: File
+  description: |-
+  
+    A file is a resource allowing storage of data as a traditional file
+    being processed. The interface to a file provides the mechanism to
+    appropriately locate a file in a distributed system. File
+    identification includes the name, endpoint, checksum, and
+    size. Additional parameters, such as a timestamp can
+    also be stored. The interface only describes the location of the
+    file.  The file object has name, endpoint (location), size in GB,
+    MB, Byte, checksum for integrity check.
+    
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: Cloudmesh RESTful Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/file:
+    get:
+      description: Returns all files
+      operationId: get_file
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+    put:
+      summary: Create a new file
+      description: Create a new file      
+      operationId: add_file
+      parameters:
+        - in: body
+          name: file
+          required: true
+          description: The new file record to create
+          schema:
+            $ref: '#/definitions/File'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/file/{name}':
+    get:
+      description: Returns a file by name
+      operationId: get_file_by_name
+      parameters:
+        - name: name
+          description: name of the file
+          in: path
+          required: true
+          type: string
+          description: The name of the file
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+definitions:
+  File:
+    type: object
+    description: an object representing a file
+    properties:
+      name:
+        type: string
+        description: The name of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        description: timestamps associated with the file
+        $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+
+
+#        "name": "report.dat",
+#        "endpoint": "file://gregor@machine.edu:/data/report.dat",
+#        "checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
+#        "accessed": "1.1.2017:05:00:00:EST",
+#        "created": "1.1.2017:05:00:00:EST",
+#        "modified": "1.1.2017:05:00:00:EST",
+#       "size": ["GB", "Byte"]
