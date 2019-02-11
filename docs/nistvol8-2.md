@@ -973,6 +973,12 @@ are defining in this draft. Additional objects are also available at
 
 {include=./specstable.md}
 
+
+See @fig:spec for the specification resources
+
+![Specification](images/nist-specification.png){#fig:spec}
+
+
 ## Identity
 
 As part of services we often need to specify an identity. In addition
