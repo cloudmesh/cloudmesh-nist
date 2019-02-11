@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  version: "3.1.0"
+  version: 3.1.0
   x-status: defined
   x-date: 01-29-2019
   title: User
@@ -20,53 +20,53 @@ info:
     * *Role*: A user can have a role within that Group
 
 
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: "Cloudmesh User"
+    name: Cloudmesh User
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: "Apache"
-host: "localhost:8080"
+    name: Apache
+host: localhost:8080
 schemes:
-  - "http"
+  - http
 consumes:
-  - "application/json"
+  - application/json
 produces:
-  - "application/json"
+  - application/json
 paths:
   /cloudmesh/user:
     get:
       tags:
-        - "user"
-      description: "Returns all users"
+        - user
+      description: Returns all users
       operationId: get_user
       produces:
-        - "application/json"
+        - application/json
       responses:
-        "200":
-          description: "user information"
+        200:
+          description: user information
           schema:
-            $ref: "#/definitions/User"
+            $ref: '#/definitions/User'
     put:
       tags:
-        - "user"
-      summary: "Create a new user"
-      description: "Create a new user"      
+        - user
+      summary: Create a new user
+      description: Create a new user
       operationId: add_user
       parameters:
         - in: body
           name: user
-          description: "The new user to create"
+          description: The new user to create
           schema:
-            $ref: "#/definitions/User"
+            $ref: '#/definitions/User'
       responses:
-        "201":
+        201:
           description: Created
   /cloudmesh/user/{username}:
     get:
       tags:
-        - "user"
-      description: "Returns the user of a user while looking it up with the username"
+        - user
+      description: Returns the user of a user while looking it up with the username
       operationId: getUserByUsername
       parameters:
         - name: name
@@ -74,19 +74,18 @@ paths:
           in: path
           required: true
           type: string
-          description: The username
       produces:
-        - "application/json"
+        - application/json
       responses:
-        "200":
-          description: "user information"
+        200:
+          description: user information
           schema:
-            $ref: "#/definitions/User"
+            $ref: '#/definitions/User'
   /cloudmesh/user/{uuid}:
     get:
       tags:
-        - "user"
-      description: "Returns the user of a user while looking it up with the UUID"
+        - user
+      description: Returns the user of a user while looking it up with the UUID
       operationId: getUserByUuid
       parameters:
         - name: uuid
@@ -94,51 +93,50 @@ paths:
           in: path
           required: true
           type: string
-          description: The UUID 
       produces:
-        - "application/json"
+        - application/json
       responses:
-        "200":
-          description: "user information"
+        200:
+          description: user information
           schema:
-            $ref: "#/definitions/User"
+            $ref: '#/definitions/User'
 definitions:
   User:
-    type: "object"
+    type: object
     properties:
       uuid:
-        type: "string"
+        type: string
         description: A unique id for the user
       username:
-        type: "string"
+        type: string
         description: The unique username associated with the user
       group:
         type: array
         description: A list of groups that are associated to the user
         items:
-          type: "string"
+          type: string
       role:
         type: array
         description: A list of groups that are associated to the user
         items:
-          type: "string"
+          type: string
       resource:
         type: array
         description: A list of resources the user has access to
         items:
-          type: "string"
+          type: string
       description:
-        type: "string"
+        type: string
         description: A description for this user
       firstname:
-        type: "string"
+        type: string
         description: The firstanme of the user
       lastname:
-        type: "string"
+        type: string
         description: The lastname of the user 
       publickey:
-        type: "string"
+        type: string
         description: The lastname of the user
       email:
-        type: "string"
+        type: string
         description: The email of the user

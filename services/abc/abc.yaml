@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 0.0.2
   x-date: 10-30-2018
@@ -16,7 +16,7 @@ info:
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
-host: 'localhost:8080'
+host: localhost:8080
 schemes:
   - http
 consumes:

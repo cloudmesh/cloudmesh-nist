@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 3.1.0
   x-status: defined
@@ -11,13 +11,13 @@ info:
     below. The variable value format is defined as string to allow
     maximal probability.
     
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
-host: 'localhost:8080'
+host: localhost:8080
 schemes:
   - http
 consumes:
@@ -32,7 +32,7 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: variables info
           schema:
             $ref: '#/definitions/Variables'
@@ -46,7 +46,7 @@ paths:
           schema:
             $ref: '#/definitions/Variables'
       responses:
-        '201':
+        201:
           description: Created
   '/cloudmesh/variables/{name}':
     get:
@@ -61,7 +61,7 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: variables info
           schema:
             $ref: '#/definitions/Variables'

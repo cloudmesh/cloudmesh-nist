@@ -1,5 +1,5 @@
 ---
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 3.1.0
   x-date: 01-29-2019
@@ -19,7 +19,7 @@ info:
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
-host: 'localhost:8080'
+host: localhost:8080
 schemes:
   - http
 consumes:
@@ -41,7 +41,7 @@ paths:
   /cloudmesh/virtualdirectory:
     get:
       tags:
-        - "virtualdirectory"
+        - virtualdirectory
       description: Returns all virtualdirectorys
       operationId: get_virtualdirectory
       produces:
@@ -59,7 +59,7 @@ paths:
             $ref: '#/definitions/UnauthorizedError'
     put:
       tags:
-        - "virtualdirectory"
+        - virtualdirectory
       description: Create a new virtualdirectory
       operationId: add_virtualdirectory
       parameters:
@@ -78,7 +78,7 @@ paths:
   '/cloudmesh/virtualdirectory/{name}':
     get:
       tags:
-        - "virtualdirectory"
+        - virtualdirectory
       description: Returns a virtualdirectory
       operationId: get_virtualdirectory_by_name
       parameters:
@@ -98,34 +98,34 @@ paths:
             $ref: '#/definitions/Virtualdirectory'
 definitions:
   UnauthorizedError:
-    type: "object"
+    type: object
     description: unauthorized error
     properties:
       code:
-        type: "string"
+        type: string
         description: Code form of the error
       message:
-        type: "string"
+        type: string
         description: Human readable form of the error
   Virtualdirectory:
-    type: "object"
+    type: object
     description: the virtualdirectory
     properties:
       name:
         description: The name of the virtual directory
-        type: "string"
+        type: string
       description:
         description: description of the virtual directory
-        type: "string"
+        type: string
       host:
         description: remote host of the virtual directory
-        type: "string"
+        type: string
       location:
         description: remote location, e.g., a directory with full path on a host
-        type: "string"
+        type: string
       protocol:
         description: access protocol, e.g., HTTP, FTP, SSH, etc.
-        type: "string"
+        type: string
       credential:
         description: credential to access, e.g., username, password
-        type: "object"
+        type: object

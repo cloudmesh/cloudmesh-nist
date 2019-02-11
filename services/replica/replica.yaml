@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 3.1.0
   x-status: defined
@@ -17,7 +17,7 @@ info:
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
-host: 'localhost:8080'
+host: localhost:8080
 schemes:
   - http
 consumes:
@@ -32,7 +32,7 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: replica info
           schema:
             $ref: '#/definitions/Replica'
@@ -48,7 +48,7 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
       responses:
-        '201':
+        201:
           description: Created
   '/cloudmesh/replica/{name}':
     get:
@@ -60,11 +60,10 @@ paths:
           in: path
           required: true
           type: string
-          description: The name of the replica
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: replica info
           schema:
             $ref: '#/definitions/Replica'
@@ -90,5 +89,5 @@ definitions:
         description: The size of the file in byte
       timestamp:
         $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
-        description: "The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to."
+        description: The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to.
 
