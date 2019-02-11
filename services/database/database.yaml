@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 3.1.0
   x-status: defined
@@ -15,7 +15,7 @@ info:
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
-host: 'localhost:8080'
+host: localhost:8080
 schemes:
   - http
 consumes:
@@ -30,7 +30,7 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: database info
           schema:
             $ref: '#/definitions/Database'
@@ -46,7 +46,7 @@ paths:
           schema:
             $ref: '#/definitions/Database'
       responses:
-        '201':
+        201:
           description: Created
   '/cloudmesh/database/{name}':
     get:
@@ -58,11 +58,10 @@ paths:
           in: path
           required: true
           type: string
-          description: The name of the database
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: database info
           schema:
             $ref: '#/definitions/Database'

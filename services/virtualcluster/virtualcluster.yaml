@@ -19,32 +19,32 @@ host: "localhost:8080"
 schemes:
   - "http"
 consumes:
-  - "application/json"
+  - application/json
 produces:
-  - "application/json"
+  - application/json
 paths:
   /cloudmesh/virtualcluster/virtualcluster:
     get:
       tags:
-        - "virtualcluster"
-      description: "Returns all virtual clusters"
+        - virtualcluster
+      description: Returns all virtual clusters
       operationId: get_virtualcluster
       produces:
-        - "application/json"
+        - application/json
       responses:
         "200":
-          description: "profile info"
+          description: profile info
           schema:
             $ref: "#/definitions/VirtualCluster"
     put:
       tags:
-        - "virtualcluster"
-      description: "Create a new virtual cluster"
+        - virtualcluster
+      description: Create a new virtual cluster
       operationId: add_virtualcluster
       parameters:
         - in: body
           name: virtualcluster
-          description: "The new virtual cluster to create"
+          description: The new virtual cluster to create
           required: true
           schema:
             $ref: "#/definitions/VirtualCluster"
@@ -54,8 +54,8 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}:
     get:
       tags:
-        - "virtualcluster"
-      description: "Returns a virtual cluster by its name"
+        - virtualcluster
+      description: Returns a virtual cluster by its name
       operationId: getVirtualclusterByName
       parameters:
         - name: virtualclustername
@@ -64,17 +64,17 @@ paths:
           required: true
           type: string
       produces:
-        - "application/json"
+        - application/json
       responses:
         "200":
-          description: "virtualcluster info"
+          description: virtualcluster info
           schema:
             $ref: "#/definitions/VirtualCluster"
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/fe:
     get:
       tags:
-        - "virtualcluster"
-      description: "Returns the front-end node info of the specified virtual cluster"
+        - virtualcluster
+      description: Returns the front-end node info of the specified virtual cluster
       operationId: getVirtualclusterFeByName
       parameters:
         - name: virtualclustername
@@ -83,17 +83,17 @@ paths:
           required: true
           type: string
       produces:
-        - "application/json"
+        - application/json
       responses:
         "200":
-          description: "virtual cluster front-end node info"
+          description: virtual cluster front-end node info
           schema:
             $ref: "#/definitions/Node"
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
     get:
       tags:
-        - "virtualcluster"
-      description: "Returns the specified node info of the specified virtualcluster"
+        - virtualcluster
+      description: Returns the specified node info of the specified virtualcluster
       operationId: getVirtualclusterNodeByName
       parameters:
         - name: virtualclustername
@@ -107,27 +107,27 @@ paths:
           required: true
           type: string
       produces:
-        - "application/json"
+        - application/json
       responses:
         "200":
-          description: "virtualcluster node info"
+          description: virtualcluster node info
           schema:
             $ref: "#/definitions/Node"
 definitions:
   VirtualCluster:
-    type: "object"
+    type: object
     properties:
       name:
         description: The name of the virtual cluster
-        type: "string"
+        type: string
       description:
-        type: "string"
+        type: string
         description: A description of the virtual cluster
       nnodes:
-        type: "integer"
+        type: integer
         description: number of nodes of the virtual cluster
       owner:
-        type: "string"
+        type: string
         description: owner of the virtual cluster
       fe:
         description: Front-end node of the virtual cluster
@@ -138,34 +138,34 @@ definitions:
         items:
           $ref: "#/definitions/Node"
   Node:
-    type: "object"
+    type: object
     properties:
       name:
-        type: "string"
+        type: string
         description: name of the node
       state:
-        type: "string"
+        type: string
         description: power state of the node
       ncpu:
-        type: "integer"
+        type: integer
         description: number of virtual CPUs of the node
       ram:
-        type: "string"
+        type: string
         description: RAM size of the node
       disk:
-        type: "string"
+        type: string
         description: Disk size of the node
       nics:
-        type: "array"
+        type: array
         description: List of network interfaces of the node
         items:
           $ref: "#/definitions/NIC"
   NIC:
-    type: "object"
+    type: object
     properties:
       mac:
-        type: "string"
+        type: string
         description: MAC address of the node
       ip:
-        type: "string"
+        type: string
         description: IP address of the node

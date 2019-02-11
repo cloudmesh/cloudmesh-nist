@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 3.1.0
   x-date: 01-29-2019
@@ -8,13 +8,13 @@ info:
   
     A service to store containers.
     
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
-host: 'localhost:8080'
+host: localhost:8080
 schemes:
   - http
 consumes:
@@ -30,7 +30,7 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: containers info
           schema:
             $ref: '#/definitions/Containers'
@@ -45,7 +45,7 @@ paths:
           schema:
             $ref: '#/definitions/Containers'
       responses:
-        '201':
+        201:
           description: Created
   '/cloudmesh/container/{name}':
     get:
@@ -60,7 +60,7 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        200:
           description: containers info
           schema:
             $ref: '#/definitions/Containers'
