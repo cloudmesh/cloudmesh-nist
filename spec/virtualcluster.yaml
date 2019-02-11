@@ -7,7 +7,13 @@ info:
   title: "Virtual Cluster"
   description: |-
 
-    Virtual Cluster example
+    A Virtual Cluster is modeled as one Front-end, or manager node, and one or multiple
+    compute nodes. The manager node usually served as a login node and can be accessed
+    from outside via a public IP. The compute nodes are connected to the manager node
+    via a private, usually high performance (high throughput and low latency), network
+    and thus accessible only from the manager node. To use the virtual cluster, you
+    login to the manager node, and from there you can login to any compute node, or
+    submit a job to run on the compute nodes.
     
   termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
   contact:
