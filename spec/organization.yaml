@@ -94,6 +94,6 @@ definitions:
         description: list of users
         type: array
         items: 
-          $ref: '../user/user.yaml#/definitions/Users'
+          $ref: 'user.yaml#/definitions/Users'
 
 

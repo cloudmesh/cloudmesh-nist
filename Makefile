@@ -5,6 +5,9 @@ OBJECTS=keystore profile virtualcluster virtualdirectory
 doc:
 	cd docs; make
 
+word:
+	cd docs; make word
+
 all: service controller
 	@echo
 

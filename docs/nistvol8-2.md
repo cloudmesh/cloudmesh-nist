@@ -1105,6 +1105,18 @@ An example for a configuration file is provided at
 
 ### File
 
+Example:
+
+```yaml
+"name": "report.dat",
+"endpoint": "file://gregor@machine.edu:/data/report.dat",
+"checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
+"accessed": "1.1.2017:05:00:00:EST",
+"created": "1.1.2017:05:00:00:EST",
+"modified": "1.1.2017:05:00:00:EST",
+size": ["GB", "Byte"]
+```
+
 {include=./spec/file.md}
 
 #### file.yaml
