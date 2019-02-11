@@ -91,7 +91,7 @@ definitions:
         description: The size of the file in byte
       timestamp:
         description: timestamps associated with the file
-        $ref: '../timestamp/timestamp.yaml#/definitions/Timestamp'
+        $ref: 'timestamp.yaml#/definitions/Timestamp'
 
 
 #        "name": "report.dat",
