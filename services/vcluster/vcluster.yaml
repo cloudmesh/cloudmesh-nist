@@ -7,11 +7,20 @@ info:
   title: VCluster
   description: |-
 
-    VCluster is a tool to create a cluster over a selection of nodes. The nodes can be selected from a yaml file that 
-    contains all clusters and nodes. VCluster can submit a batch of jobs to the selected nodes, and wait for the results 
-    and gather the results when they are ready. Alternatively the results can be retrieved manually at a later time. 
-    The comminucation between the vcluster and nodes are via SSH and the authentication is handled with the SSH configuration 
-    file. 
+    VCluster is a tool to create a network of workstations and run jobs on them remotely. The nodes of the vcluster can
+    be selected from a previously prepared yaml file. VCluster initiates the comminucation to nodes via SSH and therefore
+    authentication is required. The easiest way to handle authentication in VCluster is to SSH configuration file.
+    After creating a VCluster, it is indeed possible to test the connection to the corresponding nodes.
+    VCluster assumes that the job running remotely, is a executable file which could be possibly accomponied with some
+    data files or some arguments. Therefore, to submit a job to a vcluster it is required to create a runtime-config.
+    The runtime-config defines the executable's input and output types. For instance, an executable might run with just
+    some command line arguments and just outputs the results in the standard output, whereas another executable works on
+    a data file and outputs the result in another file. This is important for the be defined since the vcluster should
+    know how to run the executable and how to retrieve the results properly.
+    After submitting a job to a network of workstations, vcluster waits for the results and gathers them when they are
+    ready. Alternatively the results can be retrieved manually, provided that the metadata related to the vcluster,
+    runtime-config and job, are available. Finally, the vcluster can clean up the workstations by deleting its workspace
+    remotely. 
     
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
