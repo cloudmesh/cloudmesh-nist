@@ -2,6 +2,7 @@ swagger: "2.0"
 info:
   version: 3.1.0
   x-date: 02-12-2019
+  x-status: defined
   title: secgroup
   description: |-
   
@@ -9,12 +10,12 @@ info:
    which can then be assigned to a node when a node is being created.
    Once the node is up the connection to and from the node will be
    decided by the security group rules, in addition to any other possible
-   rules applied on network devices or from the instance's firewall
+   rules applied on network devices or from the instance"s firewall
    settings.
    A security group may have one or multiple rules and a node may be
    associated with one or more security groups.
    
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist
@@ -35,10 +36,10 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: secgroup info
           schema:
-            $ref: '#/definitions/Secgroup'
+            $ref: "#/definitions/Secgroup"
     post:
       summary: Create a new secgroup
       description: Create a new secgroup
@@ -48,11 +49,11 @@ paths:
           name: secgroup
           description: The new secgroup to create
           schema:
-            $ref: '#/definitions/Secgroup'
+            $ref: "#/definitions/Secgroup"
       responses:
-        '201':
+        "201":
           description: Created
-  '/cloudmesh/secgroup/{secgroup}':
+  "/cloudmesh/secgroup/{secgroup}":
     get:
       description: Find a secgroup by name
       operationId: get_secgroup_by_name
@@ -65,11 +66,11 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: secgroup info
           schema:
-            $ref: '#/definitions/Secgroup'
-  '/cloudmesh/secgroup/{secgroup}/rule':
+            $ref: "#/definitions/Secgroup"
+  "/cloudmesh/secgroup/{secgroup}/rule":
     get:
       description: Get the defiend security group rules for a specified secgroup
       operationId: get_rules_in_secgroup
@@ -82,12 +83,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: security group rules info
           schema:
             type: array
             items:
-              $ref: '#/definitions/SecGroupRule'
+              $ref: "#/definitions/SecGroupRule"
     post:
       summary: Create a new rule in the specified security group
       description: Create a new rule in secgroup
@@ -103,11 +104,11 @@ paths:
           required: true
           description: The secgroup object to create
           schema:
-            $ref: '#/definitions/SecGroupRule'
+            $ref: "#/definitions/SecGroupRule"
       responses:
-        '201':
+        "201":
           description: Created
-  '/cloudmesh/secgroup/{secgroup}/rule/{ruleid}':
+  "/cloudmesh/secgroup/{secgroup}/rule/{ruleid}":
     get:
       summary: Get an existing rule from the specified security group
       description: Create a new rule in secgroup
@@ -124,10 +125,10 @@ paths:
           description: The uuid of the rule to be deleted
           type: string
       responses:
-        '200':
+        "200":
           description: The security group rule definition info
           schema:
-              $ref: '#/definitions/SecGroupRule'
+              $ref: "#/definitions/SecGroupRule"
     delete:
       summary: Delete an existing rule from the specified security group
       description: Create a new rule in secgroup
@@ -144,7 +145,7 @@ paths:
           description: The uuid of the rule to be deleted
           type: string
       responses:
-        '202':
+        "202":
           description: Deletion request accepted and will be performed
 definitions:
   Secgroup:
