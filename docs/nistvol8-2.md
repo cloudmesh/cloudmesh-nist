@@ -940,14 +940,12 @@ feedback.
 
 # Specification {#sec:specification}
 
-We will provide the specifications to this document through an
+The specifications to this document are provided through an
 automated document creation process so that the actual OpenAPI
 specifications are the source for the document. Thus we will have all
-OpenAPI specifications located in the following directory in github:
+OpenAPI specifications located in the following directory in GitHub:
 
-```
-Add the link to the github dir
-```
+* <https://github.com/cloudmesh-community/nist/tree/master/spec>
 
 Limitations of the current implementation are as follows. It is a
 demonstration that showcases the generation of a fully functioning
@@ -959,7 +957,7 @@ application requirements.
 ## List of specifications {#sec:spec-table}
 
 The following table lists the current set of resource objects that we
-are defining in this draft. Additional objects are also available at
+are defining in this draft. Additional objects are also available at:
 
 * <https://github.com/cloudmesh-community/nist/tree/master/spec>
 
