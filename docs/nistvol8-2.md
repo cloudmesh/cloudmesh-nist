@@ -110,8 +110,8 @@ interfaces in support of the NIST Big Data Reference Architecture
 (NBDRA) The interfaces contain two different aspects:
 
 * The definition of resources that are part of the NBDRA. These
-  resources are formulated in JSON format and can be integrated into a
-  REST framework or an object-based framework easily.
+  resources are formulated in JavaScript Object Notation (JSON) format and can be easily integrated into a
+  REpresentational State Transfer (REST) framework or an object-based framework.
 * The definition of simple interface use cases that allow us to
   illustrate the usefulness of the resources defined.
 
@@ -123,9 +123,8 @@ cases, the use cases defined in this document are subsets of them and
 focus on *interface* use cases. The interface use cases are not meant to
 be complete examples, but showcase why the resource has been defined.
 Hence, the interfaces use cases are only representative, and do not
-represent the entire spectrum of Big Data usage. All the interfaces were
-openly discussed in the working group. Additions are welcome and we like
-to discuss your contributions in the group.
+encompass the entire spectrum of Big Data usage. All the interfaces were
+openly discussed in the working group. Additions to the interfaces are welcome and the NBD-PWG is open to discuss any contributions.
 
 The NIST Big Data Interoperability Framework consists of nine volumes,
 each of which addresses a specific key topic, resulting from the work of
