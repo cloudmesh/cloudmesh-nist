@@ -1,15 +1,18 @@
 swagger: "2.0"
 info:
-  version: 3.0.2
-  x-date: 10-30-2018
+  version: 3.1.0
+  x-date: 02-12-2019
   title: secgroup
   description: |-
   
-   To allow secure communication between the nodes, security groups
-   are introduced. They define the typical security groups that will
-   be deployed once a compute node is specified.
-
-   * TODO: assign and improve
+   A security group defines the incoming and outgoing security rules
+   which can then be assigned to a node when a node is being created.
+   Once the node is up the connection to and from the node will be
+   decided by the security group rules, in addition to any other possible
+   rules applied on network devices or from the instance's firewall
+   settings.
+   A security group may have one or multiple rules and a node may be
+   associated with one or more security groups.
    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -25,7 +28,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/secgroups:
+  /cloudmesh/secgroup:
     get:
       description: Returns all secgroups
       operationId: get_secgroup
@@ -36,8 +39,9 @@ paths:
           description: secgroup info
           schema:
             $ref: '#/definitions/Secgroup'
-    put:
+    post:
       summary: Create a new secgroup
+      description: Create a new secgroup
       operationId: add_secgroup
       parameters:
         - in: body
@@ -48,12 +52,13 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/secgroup/{name}':
+  '/cloudmesh/secgroup/{secgroup}':
     get:
-      description: Returns a secgroup
+      description: Find a secgroup by name
       operationId: get_secgroup_by_name
       parameters:
-        - name: name
+        - name: secgroup
+          description: name of the security group
           in: path
           required: true
           type: string
@@ -64,20 +69,127 @@ paths:
           description: secgroup info
           schema:
             $ref: '#/definitions/Secgroup'
+  '/cloudmesh/secgroup/{secgroup}/rule':
+    get:
+      description: Get the defiend security group rules for a specified secgroup
+      operationId: get_rules_in_secgroup
+      parameters:
+        - name: secgroup
+          description: name of the security group
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: security group rules info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SecGroupRule'
+    post:
+      summary: Create a new rule in the specified security group
+      description: Create a new rule in secgroup
+      operationId: add_rule_in_secgroup
+      parameters:
+        - in: path
+          name: secgroup
+          required: true
+          description: The name of the new secgroup to create
+          type: string
+        - in: body
+          name: secgroupobj
+          required: true
+          description: The secgroup object to create
+          schema:
+            $ref: '#/definitions/SecGroupRule'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/secgroup/{secgroup}/rule/{ruleid}':
+    get:
+      summary: Get an existing rule from the specified security group
+      description: Create a new rule in secgroup
+      operationId: get_rule_by_id_in_secgroup
+      parameters:
+        - in: path
+          name: secgroup
+          required: true
+          description: The named of the secgroup from which the rule will be deleted
+          type: string
+        - in: path
+          name: ruleid
+          required: true
+          description: The uuid of the rule to be deleted
+          type: string
+      responses:
+        '200':
+          description: The security group rule definition info
+          schema:
+              $ref: '#/definitions/SecGroupRule'
+    delete:
+      summary: Delete an existing rule from the specified security group
+      description: Create a new rule in secgroup
+      operationId: delete_rule_by_id_in_secgroup
+      parameters:
+        - in: path
+          name: secgroup
+          required: true
+          description: The named of the secgroup from which the rule will be deleted
+          type: string
+        - in: path
+          name: ruleid
+          required: true
+          description: The uuid of the rule to be deleted
+          type: string
+      responses:
+        '202':
+          description: Deletion request accepted and will be performed
 definitions:
   Secgroup:
     type: object
-    description: the secgroup
+    description: the security group object
     properties:
+      uuid:
+        type: string
+        description: Unique identifier of the security group
+      name:
+        type: string
+        description: name of the secgroup
+      description:
+        type: string
+        description: describes what the secgroup is for
+      rules:
+        type: array
+        description: List of Secgroup rules
+        items:
+          $ref: "#/definitions/SecGroupRule"
+  SecGroupRule:
+    type: object
+    description: security group rule
+    properties:
+      uuid:
+        type: string
+        description: Unique identifier of the rule
       ingress:
-        type: string
-        description: the ingress
+        type: boolean
+        description: The defined security group rule is for ingress if True
       egress:
+        type: boolean
+        description: The defined security group rule is for egress if True
+      remote_group:
         type: string
-        description: the egress
-      protocols:
+        description: Name of the group if the rule is defined by group instead of IP range
+      protocol:
         type: string
-        description: the protocol used such as tcp
-      ports:
+        description: The protocol used such as TCP, UDP, ICMP
+      from_port:
+        type: integer
+        description: Port range starting port
+      to_port:
+        type: integer
+        description: Port range ending port
+      cidr:
         type: string
-        description: the port
+        description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
