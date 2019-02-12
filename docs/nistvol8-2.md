@@ -128,7 +128,7 @@ openly discussed in the working group. Additions to the interfaces are welcome a
 
 The NIST Big Data Interoperability Framework consists of nine volumes,
 each of which addresses a specific key topic, resulting from the work of
-the NBD-PWG. The nine volumes are:
+the NBD-PWG. The nine volumes are as follows:
 
 * Volume 1: Definitions
 * Volume 2: Taxonomies
@@ -144,13 +144,13 @@ The NBDIF will be released in three versions, which correspond to the
 three development stages of the NBD-PWG work. The three stages aim to
 achieve the following with respect to the NBDRA.
 
-1. Identify the high-level Big Data reference architecture key components, which
-   are technology-, infrastructure-, and vendor-agnostic.
-2. Define general interfaces between the NBDRA components.
-3. Validate the NBDRA by building Big Data general applications through
-   the general interfaces.
+Stage 1. Identify the high-level Big Data reference architecture key components, which
+          are technology-, infrastructure-, and vendor-agnostic.
+Stage 2. Define general interfaces between the NBDRA components.
+Stage 3. Validate the NBDRA by building Big Data general applications through
+          the general interfaces.
 
-This document is targeting Stage 2 of the NBDRA. Coordination of the
+This document is the result of Stage 3 work of the NBD-PWG. Coordination of the
 group is conducted on the NBD-PWG web page
 (<https://bigdatawg.nist.gov>).
 
