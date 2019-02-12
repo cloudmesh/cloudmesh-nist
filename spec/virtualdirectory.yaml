@@ -129,3 +129,7 @@ definitions:
       credential:
         description: credential to access, e.g., username, password
         type: object
+      timestamp:
+        description: timestamps associated with the resource
+        $ref: 'timestamp.yaml#/definitions/Timestamp'
+
