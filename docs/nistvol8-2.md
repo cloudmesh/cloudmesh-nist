@@ -878,17 +878,16 @@ To avoid vendor lock-in, Big Data systems must be able to deal with
 hybrid and multiple frameworks. This is not only true for Clouds,
 containers, DevOps, but also for components of the NBDRA.
 
-Design by Research Oriented Architecture
-----------------------------------------
+## Design by Resource-Oriented Architecture
 
 A resource-oriented architecture represents a software architecture and
 programming paradigm for designing and developing software in the form
-of resources. It is often associated with *REST* interfaces. The
+of resources. It is often associated with *REpresentational State Transfer (REST)* interfaces. The
 resources are software components which can be reused in concrete
 reference implementations. The service specification is conducted with OpenAPI, allowing
 use to provide it in a very general form that is independent of the
 framework or computer language in which the services can be specified.
-Note that OpenAPI defines services in REpresentational State Transfer (REST)
+Note that OpenAPI defines services in REST
 The previous version only specified the resource objects.
 
 Design by Example
