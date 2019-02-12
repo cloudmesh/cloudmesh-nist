@@ -287,7 +287,7 @@ Data.
 
 Reference architectures provide "an authoritative source of information
 about a specific subject area that guides and constrains the
-instantiations of multiple architectures and solutions." (Reference needed) Reference
+instantiations of multiple architectures and solutions" [@www-dodaf-arch]. Reference
 architectures generally serve as a foundation for solution architectures
 and may also be used for comparison and alignment of instantiations of
 architectures and solutions.
