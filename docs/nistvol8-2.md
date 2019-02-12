@@ -966,10 +966,10 @@ application requirements.
 
 ## List of specifications {#sec:spec-table}
 
-The following table lists the current set of resource objects that we
-are defining in this draft. Additional objects are also available at
+The following table lists the current set of resource objects that 
+are defined in this document. Additional objects are also available at
 
-* <https://github.com/cloudmesh-community/nist/tree/master/spec>
+<https://github.com/cloudmesh-community/nist/tree/master/spec>
 
 {include=./specstable.md}
 
