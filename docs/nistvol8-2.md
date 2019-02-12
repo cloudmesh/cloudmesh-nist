@@ -987,16 +987,16 @@ See @fig:spec for the specification resources
 
 ## Identity
 
-As part of services we often need to specify an identity. In addition
+As part of services an identity often needs to be specified. In addition,
 such persons are often part of groups and have roles within these
-groups. Thus we distinguish three important terms related to the identity:
+groups. Thus, four important terms related to the identity are distinguished as follows:
 
-* User - The information identifying the profile of a person
-* Group - A group that a person may belong to that is important to
+* User: The information identifying the profile of a person
+* Group: A group that a person may belong to that is important to
   define access to services
-* Role - A role given to a person as part of the group that can refine
+* Role: A role given to a person as part of the group that can refine
   access rights.
-* Organization - The information representing an Organization that
+* Organization: The information representing an Organization that
   manages a Big Data Service
 
 ### Authentication
