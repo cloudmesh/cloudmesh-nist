@@ -85,7 +85,7 @@ definitions:
         description: A description for the image
       collection:
         type: string
-        description: The collection in which the image fits
+        description: The collection in which the image fits in
       cloud:
         type: string
         description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings
@@ -107,10 +107,6 @@ definitions:
       visibility:
         description: The visibility of the image                   
         type: string
-      last_update:
-        type: string
-        format: date-time
-        description: Date and time of the last update on the image
       timestamp:
         description: timestamps associated with the file
         $ref: 'timestamp.yaml#/definitions/Timestamp'

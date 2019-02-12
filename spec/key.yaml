@@ -72,19 +72,33 @@ definitions:
     properties:
       name:
         type: string
-        description: The name of the key
-      value:
+        description: Name of the key
+      description:
         type: string
-        description: The value of the key
+        description: A description for the key
+      fingerprint:
+        type: string
+        description: Key fingerprint
+      publicKey:
+        type: string
+        description: Public key
+      clouds:
+        type: arrray
+        items:
+          type: string
+        description: List of cloud providers on which the key works on
+      nodes:
+        type: arrray
+        items:
+          type: string
+        description: List of nodes on which the key works on
+      collection:
+        type: string
+        description: The collection in which the key fits in
       kind:
         type: string
         description: The key kind such as rsa, dsa
-      comment:
-        type: string
-        description: A comment for the key
-      uri:
-        type: string
-        description: The uri
-      fingerprint:
-        type: string
-        description: The fingerprint
+      timestamp:
+        description: timestamps associated with the key
+        $ref: 'timestamp.yaml#/definitions/Timestamp'
+
