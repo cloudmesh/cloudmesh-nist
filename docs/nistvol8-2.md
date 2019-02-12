@@ -347,6 +347,15 @@ volume represents the groundwork for additional content planned for
 Phase 3. During the discussions, the NBD-PWG identified the need to
 specify a variety of interfaces.
 
+This document is expected to grow with the help of contributions from
+the community to achieve a comprehensive set of interfaces that will be
+usable for the implementation of Big Data Architectures. To achieve
+technical and high-quality document content, this document will go
+through a public comment period along with NIST internal review.
+
+Report Structure
+----------------
+
 To enable interoperability between the NBDRA components, a list of
 well-defined NBDRA interfaces is needed. These interfaces are documented
 in this volume. To introduce them, the NBDRA structure will be followed,
@@ -364,15 +373,6 @@ towards the design of the NBDRA. Hence the expectation is that: (1) the
 interfaces can be used to help implement a Big Data architecture for a
 specific use case; and (2) the proper implementation. This approach can
 facilitate subsequent analysis and comparison of the use cases.
-
-This document is expected to grow with the help of contributions from
-the community to achieve a comprehensive set of interfaces that will be
-usable for the implementation of Big Data Architectures. To achieve
-technical and high-quality document content, this document will go
-through a public comment period along with NIST internal review.
-
-Report Structure
-----------------
 
 The organization of this document roughly corresponds to the process
 used by the NBD-PWG to develop the interfaces. Following the
