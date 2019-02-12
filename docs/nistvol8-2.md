@@ -891,12 +891,11 @@ framework or computer language in which the services can be specified.
 Note that OpenAPI defines services in REpresentational State Transfer (REST)
 The previous version only specified the resource objects.
 
-Design by Example
------------------
+## Design by Example
 
-To accelerate discussion among the NBD-PWG members, we encourage
-contributors to this document to also provide us with examples that we
-can include in an appendix.
+To accelerate discussion among the NBD-PWG members, 
+contributors to this document are encouraged to also provide the NBD-PWG with examples that
+can be included in an appendix.
 
 Version Management
 ------------------
