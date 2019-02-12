@@ -6,9 +6,11 @@ info:
   title: Flavor
   description: |-
   
-    The flavor specifies elementary information about the compute
-    node, such as memory and number of cores, as well as other
-    attributes that can be added. Flavors are essential to size a
+    The flavor specifies elementary information about a compute
+    node. This information includes name, id, label, ram size,
+    swap size, disk space, availability of ephemeral disk, available
+    bandwidth, price value, cloud name, and date and time of last update.
+    Flavors and the correponding information are essential to size a
     virtual cluster appropriately.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
@@ -81,25 +83,28 @@ definitions:
       label:
         type: string
         description: a label that a user can set for this flavor
-      metadata: 
-        type: string
-        description: A dictionary with additional metadata
-      uuid:
-        type: string
-        description: the uuid of the flavor
       ram:
         type: integer
         description: number of bytes used for the image in RAM
+      swap:
+        type: integer
+        description: number of bytes used for the image in SWAP
       disk:
         type: integer
         description: number of bytes used for the disk
+      ephemeral_disk:
+        type: boolean
+        description: specifies wether the flavor features an ephemeral disk
+      bandwidth:
+        type: integer
+        description: bandwidth of the node
       price:
-        type: string
+        type: integer
         description: price for the flavor
       cloud:
         type: string
         description: name of the cloud this flavor is used
-      cloud_id:
+      last_update:
         type: string
-        description: an id used by the cloud
-
+        format: date-time
+        description: Date and time of the last update
