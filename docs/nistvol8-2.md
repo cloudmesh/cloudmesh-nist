@@ -440,7 +440,7 @@ Provider and Big Data Framework Provider is there to indicate that those
 roles provide or implement specific activities and functions within the
 system. It does not designate a service model or business entity.
 
-The DATA arrows in Figure 1 show the flow of data between the system's
+The DATA arrows in @fig:arch show the flow of data between the system's
 main roles. Data flows between the roles either physically (i.e., by
 value) or by providing its location and the means to access it (i.e., by
 reference). The SW arrows show transfer of software tools for processing
@@ -857,7 +857,7 @@ challenges.
 
 The Big Data Framework Provider typically consists of one or more
 hierarchically organized instances of the components in the NBDRA IT
-value chain (Figure 1). There is no requirement that all instances at a
+value chain (@fig:arch). There is no requirement that all instances at a
 given level in the hierarchy be of the same technology. In fact, most
 Big Data implementations are hybrids that combine multiple technology
 approaches to provide flexibility or meet the complete range of
