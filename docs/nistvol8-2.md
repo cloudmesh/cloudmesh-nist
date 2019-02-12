@@ -440,11 +440,7 @@ Provider and Big Data Framework Provider is there to indicate that those
 roles provide or implement specific activities and functions within the
 system. It does not designate a service model or business entity.
 
-```
-:warning: FIGURE 2 was at one point removed by somone, but the text was not updated
-```
-
-The DATA arrows in Figure 2 show the flow of data between the system's
+The DATA arrows in Figure 1 show the flow of data between the system's
 main roles. Data flows between the roles either physically (i.e., by
 value) or by providing its location and the means to access it (i.e., by
 reference). The SW arrows show transfer of software tools for processing
