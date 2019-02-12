@@ -948,14 +948,12 @@ feedback.
 
 # Specification {#sec:specification}
 
-We will provide the specifications to this document through an
+The specifications to this document are provided through an
 automated document creation process so that the actual OpenAPI
 specifications are the source for the document. Thus we will have all
-OpenAPI specifications located in the following directory in github:
+OpenAPI specifications located in the following directory in GitHub:
 
-```
-Add the link to the github dir
-```
+https://github.com/cloudmesh-community/nist/tree/master/services
 
 Limitations of the current implementation are as follows. It is a
 demonstration that showcases the generation of a fully functioning
