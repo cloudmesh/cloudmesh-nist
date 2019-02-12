@@ -90,3 +90,6 @@ definitions:
       context:
         type: string
         description: The context of the service
+      timestamp:
+        description: timestamps associated with the resource
+        $ref: 'timestamp.yaml#/definitions/Timestamp'

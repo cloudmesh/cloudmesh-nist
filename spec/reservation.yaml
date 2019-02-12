@@ -85,3 +85,6 @@ definitions:
         type: string
         format: date
         description: the end time and date
+      timestamp:
+        description: timestamps associated with the resource
+        $ref: 'timestamp.yaml#/definitions/Timestamp'
