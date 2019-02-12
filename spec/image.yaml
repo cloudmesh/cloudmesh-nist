@@ -111,6 +111,9 @@ definitions:
         type: string
         format: date-time
         description: Date and time of the last update on the image
+      timestamp:
+        description: timestamps associated with the file
+        $ref: 'timestamp.yaml#/definitions/Timestamp'
 
   Minimum_Requirements:
     type: object

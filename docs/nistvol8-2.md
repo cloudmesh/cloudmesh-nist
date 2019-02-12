@@ -200,8 +200,7 @@ progress. These questions include the following:
 Within this context, on March 29, 2012, the White House announced the
 Big Data Research and Development Initiative (The White House Office
 of Science and Technology Policy, "Big Data is a Big Deal," *OSTP
-Blog*, accessed February 21, 2014,
-<http://www.whitehouse.gov/blog/2012/03/29/big-data-big-deal>).  The
+Blog*, accessed February 21, 2014 [@www-whitehous-bigdata].  The
 initiative's goals include helping to accelerate the pace of discovery
 in science and engineering, strengthening national security, and
 transforming teaching and learning by improving analysts' ability to
@@ -961,6 +960,11 @@ are defining in this draft. Additional objects are also available at:
 
 {include=./specstable.md}
 
+
+* information flow
+* service use
+* software tools and algorithm transfer ( does it mean use either
+  transfer data or compute service/spec)
 
 See @fig:bdra-provider-view for the specification resources
 
