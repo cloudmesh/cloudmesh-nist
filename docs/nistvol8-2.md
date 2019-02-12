@@ -957,6 +957,7 @@ application requirements.
 
 ## List of specifications {#sec:spec-table}
 
+
 The following table lists the current set of resource objects that we
 are defining in this draft. Additional objects are also available at:
 
