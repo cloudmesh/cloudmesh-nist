@@ -105,7 +105,7 @@ especially the following NBD-PWG members:
 
 The *NIST Big Data Interoperability Framework (NBDIF): Volume 8,
 Reference Architecture Interfaces* document was prepared by the NIST
-Big Data Public Working Group (NBD-PWG) Interface Subgroup to identify
+Big Data Public Working Group (NBD-PWG) Reference Architecture Subgroup to identify
 interfaces in support of the NIST Big Data Reference Architecture
 (NBDRA) The interfaces contain two different aspects:
 
