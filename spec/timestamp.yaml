@@ -9,6 +9,8 @@ info:
     Data often need to be timestamped to indicate when it has been
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
+    The date-time string is defined in
+    [RFC3339](https://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14).
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -54,7 +56,6 @@ paths:
       operationId: get_timestamp_by_name
       parameters:
         - name: name
-          description: name of the timestamp
           in: path
           required: true
           type: string
@@ -73,16 +74,13 @@ definitions:
     properties:
       accessed:
         type: string
-        description: last accessed time
-        format: date
+        format: date-time
         description: The time stamp when the object was last accessed
       created:
         type: string
-        description: created time
-        format: date
+        format: date-time
         description: The time stamp when the object was created 
       modified:
         type: string
-        description: last modified time
-        format: date
+        format: date-time
         description: The time stamp when the object was modified        

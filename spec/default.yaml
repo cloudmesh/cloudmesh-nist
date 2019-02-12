@@ -59,7 +59,6 @@ paths:
       operationId: get_default_by_name
       parameters:
         - name: name
-          description: name of the default
           in: path
           required: true
           type: string

@@ -60,7 +60,6 @@ paths:
       operationId: get_file_by_name
       parameters:
         - name: name
-          description: name of the file
           in: path
           required: true
           type: string
