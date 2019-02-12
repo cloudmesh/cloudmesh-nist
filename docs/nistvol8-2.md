@@ -890,16 +890,16 @@ To accelerate discussion among the NBD-PWG members, we encourage
 contributors to this document to also provide us with examples that we
 can include in an appendix.
 
-Version Management
-------------------
+## Version Management
 
-During the design phase and in between versions of this document
-enhancements are managed through github and community contributions
-are managed via github issues. This allows us to preserve the history
-of this document. When a new version is ready, we will tag the
-version in github. Older version will through this process also be
+
+During the design phase and development period of each version of this document,
+enhancements are managed through GitHub and community contributions
+are managed via GitHub issues. This allows preservation of the history
+of this document. When a new version is ready, the
+version will be tagged in GitHub. Older versions will, through this process, also be
 available as historical documents. Discussions about objects in
-written form are communicated as github issues.
+written form are communicated as GitHub issues.
 
 
 ## Interface Compliancy
