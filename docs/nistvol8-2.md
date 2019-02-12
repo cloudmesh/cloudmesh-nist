@@ -385,12 +385,6 @@ document is organized as follows:
   @sec:spec-table.
 
 
-Future Work on this Volume
---------------------------
-
-A number of topics have not been discussed and clarified sufficiently to
-be included in Version 2.2. Future topics will be identified during
-discussions within the Reference Architecture Subgroup.
 
 # NBDRA Interface Requirements {#sec:interface-requirements}
 
