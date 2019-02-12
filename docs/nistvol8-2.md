@@ -523,7 +523,7 @@ the Big Data Framework Provider, and enable the Data Consumer to consume
 Big Data processing results. An interface is needed to describe these
 interactions and to allow leveraging of experiment management frameworks
 in scripted fashion. A customization of parameters is needed on several
-levels. On the highest level, high--level, application-motivated
+levels. On the highest level, application-motivated
 parameters are needed to drive the orchestration of the experiment. On
 lower levels, these high-level parameters may drive and create
 service-level agreements, augmented specifications, and parameters that
@@ -569,9 +569,8 @@ in healthcare, they differ in the integration of security interfaces and
 policies. While in physics the protection of data is less of an issue,
 it is a stringent requirement in healthcare. Thus, deriving
 architectural frameworks for both may use largely similar components,
-but addressing security issues will be very different. In future
-versions of this document, the security of interfaces may be addressed.
-In the meanwhile, they are considered an advanced use case showcasing
+but addressing security issues will be very different. The security of interfaces may be addressed in other documents.
+In this document, they are considered an advanced use case showcasing
 that the validity of the specifications introduced here is preserved,
 even if security and privacy requirements differ vastly among
 application use cases.
