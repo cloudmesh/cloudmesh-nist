@@ -100,18 +100,18 @@ especially the following NBD-PWG members:
 ---
 
 
-# Executive Summary
+**Executive Summary**
 
 
 The *NIST Big Data Interoperability Framework (NBDIF): Volume 8,
 Reference Architecture Interfaces* document was prepared by the NIST
-Big Data Public Working Group (NBD-PWG) Interface Subgroup to identify
+Big Data Public Working Group (NBD-PWG) Reference Architecture Subgroup to identify
 interfaces in support of the NIST Big Data Reference Architecture
 (NBDRA) The interfaces contain two different aspects:
 
 * The definition of resources that are part of the NBDRA. These
-  resources are formulated in JSON format and can be integrated into a
-  REST framework or an object-based framework easily.
+  resources are formulated in JavaScript Object Notation (JSON) format and can be easily integrated into a
+  REpresentational State Transfer (REST) framework or an object-based framework.
 * The definition of simple interface use cases that allow us to
   illustrate the usefulness of the resources defined.
 
@@ -123,13 +123,12 @@ cases, the use cases defined in this document are subsets of them and
 focus on *interface* use cases. The interface use cases are not meant to
 be complete examples, but showcase why the resource has been defined.
 Hence, the interfaces use cases are only representative, and do not
-represent the entire spectrum of Big Data usage. All the interfaces were
-openly discussed in the working group. Additions are welcome and we like
-to discuss your contributions in the group.
+encompass the entire spectrum of Big Data usage. All the interfaces were
+openly discussed in the working group. Additions to the interfaces are welcome and the NBD-PWG is open to discuss any contributions.
 
 The NIST Big Data Interoperability Framework consists of nine volumes,
 each of which addresses a specific key topic, resulting from the work of
-the NBD-PWG. The nine volumes are:
+the NBD-PWG. The nine volumes are as follows:
 
 * Volume 1: Definitions
 * Volume 2: Taxonomies
@@ -145,13 +144,13 @@ The NBDIF will be released in three versions, which correspond to the
 three development stages of the NBD-PWG work. The three stages aim to
 achieve the following with respect to the NBDRA.
 
-1. Identify the high-level Big Data reference architecture key components, which
-   are technology-, infrastructure-, and vendor-agnostic.
-2. Define general interfaces between the NBDRA components.
-3. Validate the NBDRA by building Big Data general applications through
-   the general interfaces.
+Stage 1. Identify the high-level Big Data reference architecture key components, which
+          are technology-, infrastructure-, and vendor-agnostic.
+Stage 2. Define general interfaces between the NBDRA components.
+Stage 3. Validate the NBDRA by building Big Data general applications through
+          the general interfaces.
 
-This document is targeting Stage 2 of the NBDRA. Coordination of the
+This document is the result of Stage 3 work of the NBD-PWG. Coordination of the
 group is conducted on the NBD-PWG web page
 (<https://bigdatawg.nist.gov>).
 
@@ -267,11 +266,11 @@ The seven volumes are as follows:
 * Volume 6, Reference Architecture
 * Volume 7, Standards Roadmap
 
-Currently, the NBD-PWG is working on Stage 2 with the goals to enhance
+The NBD-PWG worked on Stage 2 with the goals to enhance
 the Version 1 content, define general interfaces between the NBDRA
 components by aggregating low-level interactions into high-level general
 interfaces, and demonstrate how the NBDRA can be used. As a result of
-the Stage 2 work, the following two additional NBDIF volumes have been
+the Stage 2 work, the following two additional NBDIF volumes were
 developed.
 
 * Volume 8, Reference Architecture Interfaces
@@ -287,7 +286,7 @@ Data.
 
 Reference architectures provide "an authoritative source of information
 about a specific subject area that guides and constrains the
-instantiations of multiple architectures and solutions." Reference
+instantiations of multiple architectures and solutions" [@www-dodaf-arch]. Reference
 architectures generally serve as a foundation for solution architectures
 and may also be used for comparison and alignment of instantiations of
 architectures and solutions.
@@ -328,7 +327,7 @@ The NBDRA does not address the following:
 * Recommendations or standards for integration of infrastructure
   products.
 
-The goals of the Subgroup will be realized throughout the three planned
+The goals of the Subgroup were realized throughout the three planned
 phases of the NBD-PWG work, as outlined in @sec:production.
 
 ## Report Production {#sec:production}
@@ -342,10 +341,23 @@ infrastructure to support secure and effective adoption of Big Data. The
 overall goals of this volume are to define and specify interfaces to
 implement the Big Data Reference Architecture. This volume arose from
 discussions during the weekly NBD-PWG conference calls. Topics included
-in this volume began to take form in Phase 2 of the NBD-PWG work. This
-volume represents the groundwork for additional content planned for
-Phase 3. During the discussions, the NBD-PWG identified the need to
+in this volume began to take form in Phase 2 of the NBD-PWG work. During 
+the discussions, the NBD-PWG identified the need to
 specify a variety of interfaces.
+
+
+Phase 3 work, which built upon the groundwork developed during Phase 2, 
+included an early specification based on resource object specifications 
+that provided a simplified version of an API interface design.
+
+This document is expected to grow with the help of contributions from
+the community to achieve a comprehensive set of interfaces that will be
+usable for the implementation of Big Data Architectures. To achieve
+technical and high-quality document content, this document will go
+through a public comment period along with NIST internal review.
+
+Report Structure
+----------------
 
 To enable interoperability between the NBDRA components, a list of
 well-defined NBDRA interfaces is needed. These interfaces are documented
@@ -365,15 +377,6 @@ interfaces can be used to help implement a Big Data architecture for a
 specific use case; and (2) the proper implementation. This approach can
 facilitate subsequent analysis and comparison of the use cases.
 
-This document is expected to grow with the help of contributions from
-the community to achieve a comprehensive set of interfaces that will be
-usable for the implementation of Big Data Architectures. To achieve
-technical and high-quality document content, this document will go
-through a public comment period along with NIST internal review.
-
-Report Structure
-----------------
-
 The organization of this document roughly corresponds to the process
 used by the NBD-PWG to develop the interfaces. Following the
 introductory material presented in @sec:introduction, the remainder of this
@@ -386,12 +389,6 @@ document is organized as follows:
   @sec:spec-table.
 
 
-Future Work on this Volume
---------------------------
-
-A number of topics have not been discussed and clarified sufficiently to
-be included in Version 2.2. Future topics will be identified during
-discussions within the Reference Architecture Subgroup.
 
 # NBDRA Interface Requirements {#sec:interface-requirements}
 
@@ -440,11 +437,7 @@ Provider and Big Data Framework Provider is there to indicate that those
 roles provide or implement specific activities and functions within the
 system. It does not designate a service model or business entity.
 
-```
-:warning: FIGURE 2 was at one point removed by somone, but the text was not updated
-```
-
-The DATA arrows in Figure 2 show the flow of data between the system's
+The DATA arrows in @fig:arch show the flow of data between the system's
 main roles. Data flows between the roles either physically (i.e., by
 value) or by providing its location and the means to access it (i.e., by
 reference). The SW arrows show transfer of software tools for processing
@@ -461,8 +454,8 @@ Detailed information on the NBDRA conceptual model is presented in the
 Prior to outlining the specific interfaces, general requirements are
 introduced and the interfaces are defined.
 
-High-Level Requirements of the Interface Approach
--------------------------------------------------
+## High-Level Requirements of the Interface Approach
+
 
 This section focuses on the high-level requirements of the interface
 approach that are needed to implement the reference architecture
@@ -472,7 +465,7 @@ depicted in @fig:arch.
 
 Due to the many different tools, services, and infrastructures
 available in the general area of Big Data, an interface ought to be as
-vendor-independent as possible, while at the same time be able to
+vendor-independent as possible, while, at the same time, be able to
 leverage best practices. Hence, a methodology is needed that allows
 extension of interfaces to adapt and leverage existing approaches, but
 also allows the interfaces to provide merit in easy specifications
@@ -487,13 +480,13 @@ to integrate (or plug-in) various compute resources and services to
 provide the necessary compute power to analyze the data. These
 resources and services include the following:
 
--Access to hierarchy of compute resources from the laptop/desktop,
- servers, data clusters, and clouds;
--The ability to integrate special-purpose hardware such as GPUs and
- FPGAs that are used in accelerated analysis of data; and
--The integration of services including micro services that allow the
- analysis of the data by delegating them to hosted or dynamically
- deployed services on the infrastructure of choice.
+* Access to hierarchy of compute resources from the laptop/desktop,
+  servers, data clusters, and clouds;
+* The ability to integrate special-purpose hardware such as graphics processing units (GPUs) and
+  field-programmable gate arrays (FPGAs) that are used in accelerated analysis of data; and
+* The integration of services including microservices that allow the
+  analysis of the data by delegating them to hosted or dynamically
+  deployed services on the infrastructure of choice.
 
 ### Orchestration of Infrastructure and Services
 
@@ -530,7 +523,7 @@ the Big Data Framework Provider, and enable the Data Consumer to consume
 Big Data processing results. An interface is needed to describe these
 interactions and to allow leveraging of experiment management frameworks
 in scripted fashion. A customization of parameters is needed on several
-levels. On the highest level, high--level, application-motivated
+levels. On the highest level, application-motivated
 parameters are needed to drive the orchestration of the experiment. On
 lower levels, these high-level parameters may drive and create
 service-level agreements, augmented specifications, and parameters that
@@ -576,24 +569,22 @@ in healthcare, they differ in the integration of security interfaces and
 policies. While in physics the protection of data is less of an issue,
 it is a stringent requirement in healthcare. Thus, deriving
 architectural frameworks for both may use largely similar components,
-but addressing security issues will be very different. In future
-versions of this document, the security of interfaces may be addressed.
-In the meanwhile, they are considered an advanced use case showcasing
+but addressing security issues will be very different. The security of interfaces may be addressed in other documents.
+In this document, they are considered an advanced use case showcasing
 that the validity of the specifications introduced here is preserved,
 even if security and privacy requirements differ vastly among
 application use cases.
 
-Component-Specific Interface Requirements
------------------------------------------
+## Component-Specific Interface Requirements
+
 
 This section summarizes the requirements for the interfaces of the NBDRA
 components. The five components are listed in @fig:arch and addressed in
-each of the subsections as part of @sec:system-orchestrator-requirements (System Orchestrator
+@sec:system-orchestrator-requirements (System Orchestrator
 Interface Requirements) and @sec:data-application-requirements (Big Data Application Provider
 to Big Data Framework Provider Interface) of this document. The five
 main functional components of the NBDRA represent the different
-technical roles within a Big Data system. The functional components are
-listed below and discussed in subsequent subsections.
+technical roles within a Big Data system and are the following: 
 
 * System Orchestrator: Defines and integrates the required data
   application activities into an operational vertical system (see
@@ -861,7 +852,7 @@ challenges.
 
 The Big Data Framework Provider typically consists of one or more
 hierarchically organized instances of the components in the NBDRA IT
-value chain (Figure 1). There is no requirement that all instances at a
+value chain (@fig:arch). There is no requirement that all instances at a
 given level in the hierarchy be of the same technology. In fact, most
 Big Data implementations are hybrids that combine multiple technology
 approaches to provide flexibility or meet the complete range of
@@ -878,36 +869,34 @@ To avoid vendor lock-in, Big Data systems must be able to deal with
 hybrid and multiple frameworks. This is not only true for Clouds,
 containers, DevOps, but also for components of the NBDRA.
 
-Design by Research Oriented Architecture
-----------------------------------------
+## Design by Resource-Oriented Architecture
 
 A resource-oriented architecture represents a software architecture and
 programming paradigm for designing and developing software in the form
-of resources. It is often associated with *REST* interfaces. The
+of resources. It is often associated with *REpresentational State Transfer (REST)* interfaces. The
 resources are software components which can be reused in concrete
 reference implementations. The service specification is conducted with OpenAPI, allowing
 use to provide it in a very general form that is independent of the
 framework or computer language in which the services can be specified.
-Note that OpenAPI defines services in REpresentational State Transfer (REST)
+Note that OpenAPI defines services in REST
 The previous version only specified the resource objects.
 
-Design by Example
------------------
+## Design by Example
 
-To accelerate discussion among the NBD-PWG members, we encourage
-contributors to this document to also provide us with examples that we
-can include in an appendix.
+To accelerate discussion among the NBD-PWG members, 
+contributors to this document are encouraged to also provide the NBD-PWG with examples that
+can be included in an appendix.
 
-Version Management
-------------------
+## Version Management
 
-During the design phase and in between versions of this document
-enhancements are managed through github and community contributions
-are managed via github issues. This allows us to preserve the history
-of this document. When a new version is ready, we will tag the
-version in github. Older version will through this process also be
+
+During the design phase and development period of each version of this document,
+enhancements are managed through GitHub and community contributions
+are managed via GitHub issues. This allows preservation of the history
+of this document. When a new version is ready, the
+version will be tagged in GitHub. Older versions will, through this process, also be
 available as historical documents. Discussions about objects in
-written form are communicated as github issues.
+written form are communicated as GitHub issues.
 
 
 ## Interface Compliancy
@@ -948,14 +937,12 @@ feedback.
 
 # Specification {#sec:specification}
 
-We will provide the specifications to this document through an
+The specifications to this document are provided through an
 automated document creation process so that the actual OpenAPI
 specifications are the source for the document. Thus we will have all
-OpenAPI specifications located in the following directory in github:
+OpenAPI specifications located in the following directory in GitHub:
 
-```
-Add the link to the github dir
-```
+* <https://github.com/cloudmesh-community/nist/tree/master/spec>
 
 Limitations of the current implementation are as follows. It is a
 demonstration that showcases the generation of a fully functioning
@@ -966,8 +953,9 @@ application requirements.
 
 ## List of specifications {#sec:spec-table}
 
+
 The following table lists the current set of resource objects that we
-are defining in this draft. Additional objects are also available at
+are defining in this draft. Additional objects are also available at:
 
 * <https://github.com/cloudmesh-community/nist/tree/master/spec>
 
@@ -987,33 +975,33 @@ See @fig:spec for the specification resources
 
 ## Identity
 
-As part of services we often need to specify an identity. In addition
+As part of services an identity often needs to be specified. In addition,
 such persons are often part of groups and have roles within these
-groups. Thus we distinguish three important terms related to the identity:
+groups. Thus, four important terms related to the identity are distinguished as follows:
 
-* User - The information identifying the profile of a person
-* Group - A group that a person may belong to that is important to
+* User: The information identifying the profile of a person
+* Group: A group that a person may belong to that is important to
   define access to services
-* Role - A role given to a person as part of the group that can refine
+* Role: A role given to a person as part of the group that can refine
   access rights.
-* Organization - The information representing an Organization that
+* Organization: The information representing an Organization that
   manages a Big Data Service
 
 ### Authentication
 
-At this time we have not yet included the mechanisms on how to manage
+At this time, mechanisms are not yet included to manage
 authentication to external services such as clouds that can stage
-virtual machines. However in cloudmesh we have shown multiple
-solutions to this
+virtual machines. However, the group has shown multiple
+solutions to this in cloudmesh.
 
 * Local configuration file: A configuration file is managed locally to
-  allow access to the clouds. It is in the designers responsibility
-  not to expose such credentials
-* Session based authentication. No passwords are stored in the
+  allow access to the clouds. It is the designer's responsibility
+  not to expose such credentials.
+* Session based authentication: No passwords are stored in the
   configuration file and access is granted on a per session basis where
-  the password needs to be entered
-* Service based authentication. The authentication is delegated to an
-  external process. One example here is also Auth.
+  the password needs to be entered.
+* Service based authentication: The authentication is delegated to an
+  external process. One example here is Auth.
 * The service that acts in behalf of the user needs to have access to
   the appropriate cloud provider credentials
 
