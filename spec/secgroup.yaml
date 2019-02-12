@@ -85,7 +85,9 @@ paths:
         '200':
           description: security group rules info
           schema:
-            $ref: '#/definitions/Secgroup'
+            type: array
+            items:
+              $ref: '#/definitions/SecGroupRule'
     post:
       summary: Create a new rule in the specified security group
       description: Create a new rule in secgroup
@@ -101,7 +103,7 @@ paths:
           required: true
           description: The secgroup object to create
           schema:
-            $ref: '#/definitions/Secgroup'
+            $ref: '#/definitions/SecGroupRule'
       responses:
         '201':
           description: Created
