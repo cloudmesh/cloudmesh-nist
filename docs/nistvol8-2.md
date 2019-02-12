@@ -1018,7 +1018,8 @@ solutions to this in cloudmesh.
   the appropriate cloud provider credentials
 
 An example for a configuration file is provided at
-<https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml>
+
+* <https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml>
 
 
 ### Organization
