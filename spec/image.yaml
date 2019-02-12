@@ -6,7 +6,7 @@ info:
   title: Image
   description: |-
   
-    Image is defined as an object representing a system image
+    Image defines an object representing a system image
     in cloud that can be used to start virtual machines.
 
     Image objects are typically returned by the driver for the 
@@ -72,32 +72,55 @@ definitions:
     type: object
     properties:
       id:
-        description: A unique id for the image      
         type: string
+        description: A unique id for the image
       name:
-        description: The name of the image
         type: string
-      tag:
-        description: A tag that can be defined by the user for the image
+        description: Name of the image
+      label:
         type: string
+        description: A label that can be defined by the user for the image
       description:
+        type: string
         description: A description for the image
+      collection:
         type: string
+        description: The collection in which the image fits
       cloud:
-        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings      
         type: string
-      os:
+        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings
+      os_type:
+        type: string
         description: The OS of the image
-        type: string
       osVersion:
+        type: string
         description: The OS version of the image
-        type: string
+      min_requirement:
+        $ref: '#/definition/Minimum_Requirements'
+        description: minimum requirement to run the image
       status:
-        description: The status of the image
         type: string
+        description: The status of the image
+      progress:
+        type: integer
+        description: The loading progress percentage of the image
       visibility:
         description: The visibility of the image                   
         type: string
-      extra:
-        description:  Extra object of the image                 
+      last_update:
         type: string
+        format: date-time
+        description: Date and time of the last update on the image
+
+  Minimum_Requirements:
+    type: object
+    properties:
+      disk_space:
+        type: integer
+        description: Minimum disk space in bytes required for the image
+      ram:
+        type: integer
+        description: Minimum ram size in bytes to run the image
+      cpu:
+        type: string
+        description: Minimum cpu required to run the image including number of cores and clock speed
