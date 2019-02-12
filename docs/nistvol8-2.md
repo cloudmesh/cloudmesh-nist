@@ -454,8 +454,8 @@ Detailed information on the NBDRA conceptual model is presented in the
 Prior to outlining the specific interfaces, general requirements are
 introduced and the interfaces are defined.
 
-High-Level Requirements of the Interface Approach
--------------------------------------------------
+## High-Level Requirements of the Interface Approach
+
 
 This section focuses on the high-level requirements of the interface
 approach that are needed to implement the reference architecture
@@ -465,7 +465,7 @@ depicted in @fig:arch.
 
 Due to the many different tools, services, and infrastructures
 available in the general area of Big Data, an interface ought to be as
-vendor-independent as possible, while at the same time be able to
+vendor-independent as possible, while, at the same time, be able to
 leverage best practices. Hence, a methodology is needed that allows
 extension of interfaces to adapt and leverage existing approaches, but
 also allows the interfaces to provide merit in easy specifications
@@ -480,13 +480,13 @@ to integrate (or plug-in) various compute resources and services to
 provide the necessary compute power to analyze the data. These
 resources and services include the following:
 
--Access to hierarchy of compute resources from the laptop/desktop,
- servers, data clusters, and clouds;
--The ability to integrate special-purpose hardware such as GPUs and
- FPGAs that are used in accelerated analysis of data; and
--The integration of services including micro services that allow the
- analysis of the data by delegating them to hosted or dynamically
- deployed services on the infrastructure of choice.
+* Access to hierarchy of compute resources from the laptop/desktop,
+  servers, data clusters, and clouds;
+* The ability to integrate special-purpose hardware such as graphics processing units (GPUs) and
+  field-programmable gate arrays (FPGAs) that are used in accelerated analysis of data; and
+* The integration of services including microservices that allow the
+  analysis of the data by delegating them to hosted or dynamically
+  deployed services on the infrastructure of choice.
 
 ### Orchestration of Infrastructure and Services
 
