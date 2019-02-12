@@ -267,11 +267,11 @@ The seven volumes are as follows:
 * Volume 6, Reference Architecture
 * Volume 7, Standards Roadmap
 
-Currently, the NBD-PWG is working on Stage 2 with the goals to enhance
+The NBD-PWG worked on Stage 2 with the goals to enhance
 the Version 1 content, define general interfaces between the NBDRA
 components by aggregating low-level interactions into high-level general
 interfaces, and demonstrate how the NBDRA can be used. As a result of
-the Stage 2 work, the following two additional NBDIF volumes have been
+the Stage 2 work, the following two additional NBDIF volumes were
 developed.
 
 * Volume 8, Reference Architecture Interfaces
