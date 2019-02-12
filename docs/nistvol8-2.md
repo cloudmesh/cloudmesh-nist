@@ -341,10 +341,14 @@ infrastructure to support secure and effective adoption of Big Data. The
 overall goals of this volume are to define and specify interfaces to
 implement the Big Data Reference Architecture. This volume arose from
 discussions during the weekly NBD-PWG conference calls. Topics included
-in this volume began to take form in Phase 2 of the NBD-PWG work. This
-volume represents the groundwork for additional content planned for
-Phase 3. During the discussions, the NBD-PWG identified the need to
+in this volume began to take form in Phase 2 of the NBD-PWG work. During 
+the discussions, the NBD-PWG identified the need to
 specify a variety of interfaces.
+
+
+Phase 3 work, which built upon the groundwork developed during Phase 2, 
+included an early specification based on resource object specifications 
+that provided a simplified version of an API interface design.
 
 This document is expected to grow with the help of contributions from
 the community to achieve a comprehensive set of interfaces that will be
