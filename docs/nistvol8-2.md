@@ -583,17 +583,16 @@ that the validity of the specifications introduced here is preserved,
 even if security and privacy requirements differ vastly among
 application use cases.
 
-Component-Specific Interface Requirements
------------------------------------------
+## Component-Specific Interface Requirements
+
 
 This section summarizes the requirements for the interfaces of the NBDRA
 components. The five components are listed in @fig:arch and addressed in
-each of the subsections as part of @sec:system-orchestrator-requirements (System Orchestrator
+@sec:system-orchestrator-requirements (System Orchestrator
 Interface Requirements) and @sec:data-application-requirements (Big Data Application Provider
 to Big Data Framework Provider Interface) of this document. The five
 main functional components of the NBDRA represent the different
-technical roles within a Big Data system. The functional components are
-listed below and discussed in subsequent subsections.
+technical roles within a Big Data system and are the following: 
 
 * System Orchestrator: Defines and integrates the required data
   application activities into an operational vertical system (see
