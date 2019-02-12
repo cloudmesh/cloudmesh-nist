@@ -1001,19 +1001,19 @@ groups. Thus, four important terms related to the identity are distinguished as 
 
 ### Authentication
 
-At this time we have not yet included the mechanisms on how to manage
+At this time, mechanisms are not yet included to manage
 authentication to external services such as clouds that can stage
-virtual machines. However in cloudmesh we have shown multiple
-solutions to this
+virtual machines. However, the group has shown multiple
+solutions to this in cloudmesh.
 
 * Local configuration file: A configuration file is managed locally to
-  allow access to the clouds. It is in the designers responsibility
-  not to expose such credentials
-* Session based authentication. No passwords are stored in the
+  allow access to the clouds. It is the designer's responsibility
+  not to expose such credentials.
+* Session based authentication: No passwords are stored in the
   configuration file and access is granted on a per session basis where
-  the password needs to be entered
-* Service based authentication. The authentication is delegated to an
-  external process. One example here is also Auth.
+  the password needs to be entered.
+* Service based authentication: The authentication is delegated to an
+  external process. One example here is Auth.
 * The service that acts in behalf of the user needs to have access to
   the appropriate cloud provider credentials
 
