@@ -286,7 +286,7 @@ Data.
 
 Reference architectures provide "an authoritative source of information
 about a specific subject area that guides and constrains the
-instantiations of multiple architectures and solutions." Reference
+instantiations of multiple architectures and solutions" [@www-dodaf-arch]. Reference
 architectures generally serve as a foundation for solution architectures
 and may also be used for comparison and alignment of instantiations of
 architectures and solutions.
@@ -327,7 +327,7 @@ The NBDRA does not address the following:
 * Recommendations or standards for integration of infrastructure
   products.
 
-The goals of the Subgroup will be realized throughout the three planned
+The goals of the Subgroup were realized throughout the three planned
 phases of the NBD-PWG work, as outlined in @sec:production.
 
 ## Report Production {#sec:production}
