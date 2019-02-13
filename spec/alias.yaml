@@ -6,11 +6,11 @@ info:
   title: Alias
   description: |-
 
-    A user may be interested to create an alias for a resource. This
-    is a name useful to the user. A User can deploy a service in which
-    such aliasses are stored. The aliasses could naturally be shared
-    with other users. A resource could have one or more aliasses.  The
-    reason for an alias is that a resource may have a complex name but
+    A user may be interested to create an alias for a resource. An alias
+    is a name useful to the user. A user can deploy a service in which
+    such aliases are stored. The aliases could naturally be shared
+    with other users. A resource could have one or more aliases. 
+    An alias is useful, for example, when a resource may have a complex name but
     a user may want to refer to the resource using a name that is
     suitable for the user's application.
 
