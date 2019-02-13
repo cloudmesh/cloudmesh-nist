@@ -1209,13 +1209,13 @@ This section summarizes a basic interface specification of virtual machines.
 
 
 
-## Compute Management - Containers
+<!-- ## Compute Management - Containers -->
 
-This section is planned for a future version.
+<!-- This section is planned for a future version. -->
 
-## Compute Management - Functions
+<!-- ## Compute Management - Functions -->
 
-This section is planned for a future version.
+<!-- This section is planned for a future version. -->
 
 ## Others
 
