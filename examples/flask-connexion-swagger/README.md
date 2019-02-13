@@ -19,3 +19,7 @@ $ python server.py
 ```
 
 In the second terminal you run the curl call 
+
+```bash
+curl http://localhost:8080/cloudmesh/cpu
+```
