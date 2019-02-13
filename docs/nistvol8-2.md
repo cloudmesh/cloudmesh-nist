@@ -1217,8 +1217,7 @@ This section is planned for a future version.
 
 This section is planned for a future version.
 
-## Others
-
-Please notify us if you would like to add other specifications.
+<!-- ## Others -->
+<!-- Please notify us if you would like to add other specifications. -->
 
 
