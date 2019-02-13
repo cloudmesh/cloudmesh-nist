@@ -12,8 +12,8 @@ info:
     identification includes the name, endpoint, checksum, and
     size. Additional parameters, such as a timestamp can
     also be stored. The interface only describes the location of the
-    file.  The file object has name, endpoint (location), size in GB,
-    MB, Byte, checksum for integrity check.
+    file.  The file object has name, endpoint (location), size (in gigabytes [GB],
+    megabytes [MB], and Bytes), and checksum for integrity check.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
