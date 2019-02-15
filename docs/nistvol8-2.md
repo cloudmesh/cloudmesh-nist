@@ -1032,13 +1032,13 @@ An example for a configuration file is provided at
 ```{include=./spec/user.yaml}
 ```
 
-### Key
+### PublicKeyStore
 
-{include=./spec/keystore.md}
+{include=./spec/publickeystore.md}
 
-#### key.yaml
+#### publickeystore.yaml
 
-```{include=./spec/keystore.yaml}
+```{include=./spec/publickeystore.yaml}
 ```
 
 
@@ -1076,13 +1076,13 @@ An example for a configuration file is provided at
 ```{include=./spec/variables.yaml}
 ```
 
-### Keystore
+### Keyvaluestore
 
-{include=./spec/keystore.md}
+{include=./spec/keyvaluestore.md}
 
-#### keystore.yaml
+#### keyvaluestore.yaml
 
-```{include=./spec/keystore.yaml}
+```{include=./spec/keyvaluestore.yaml}
 ```
 
 ### Default
