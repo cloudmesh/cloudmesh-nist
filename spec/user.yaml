@@ -62,34 +62,15 @@ paths:
       responses:
         201:
           description: Created
-  /cloudmesh/user/{username}:
+  /cloudmesh/user/{name}:
     get:
       tags:
         - user
       description: Returns the user of a user while looking it up with the username
-      operationId: user.getByUsername
+      operationId: user.get_by_name
       parameters:
         - name: name
           description: name of the user
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        200:
-          description: user information
-          schema:
-            $ref: '#/definitions/User'
-  /cloudmesh/user/{uuid}:
-    get:
-      tags:
-        - user
-      description: Returns the user of a user while looking it up with the UUID
-      operationId: user.getByUuid
-      parameters:
-        - name: uuid
-          description: uuid of the user entry
           in: path
           required: true
           type: string
@@ -142,4 +123,4 @@ definitions:
         description: The email of the user
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: './timestamp.yaml#/definitions/Timestamp'

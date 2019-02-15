@@ -28,7 +28,10 @@ produces:
 paths:
   /cloudmesh/timestamp:
     get:
+      tags:
+        - timestamp
       description: Returns all timestamps
+      summary: Returns all timestamps
       operationId: timestamp.get
       produces:
         - application/json
@@ -38,9 +41,11 @@ paths:
           schema:
             $ref: '#/definitions/Timestamp'
     put:
+      tags:
+        - timestamp
       summary: Create a new timestamp
       description: Create a new timestamp
-      operationId: timestamp.add
+      operationId: timestamp.put
       parameters:
         - in: body
           name: timestamp
@@ -52,6 +57,9 @@ paths:
           description: Created
   '/cloudmesh/timestamp/{name}':
     get:
+      tags:
+        - timestamp
+      summary: Returns a timestamp
       description: Returns a timestamp
       operationId: timestamp.get_by_name
       parameters:
