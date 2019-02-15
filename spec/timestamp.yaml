@@ -30,10 +30,6 @@ paths:
     get:
       tags:
         - timestamp
-  <<<<<<< HEAD
-  =======
-summary: Returns all timestamps
-  >>>>>>> d26064a69b3dfcea9594df7ece6075beafd31644
       description: Returns all timestamps
       summary: Returns all timestamps
       operationId: timestamp.get
