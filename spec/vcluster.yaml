@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-date: 02-11-2019
   x-status: defined
   title: VCluster
