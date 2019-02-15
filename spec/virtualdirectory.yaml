@@ -13,9 +13,9 @@ info:
     a collection.  The element in the collection can either be defined
     by uuid or by name.
 
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: NIST BDRA Interface Subgroupful Virtual Directory Service Example
+    name: NIST BDRA Interface Subgroup Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -42,6 +42,7 @@ paths:
     get:
       tags:
         - virtualdirectory
+      summary: Returns all virtualdirectorys
       description: Returns all virtualdirectorys
       operationId: virtualdirectory.get
       produces:
@@ -60,6 +61,7 @@ paths:
     put:
       tags:
         - virtualdirectory
+      summary: Create a new virtualdirectory
       description: Create a new virtualdirectory
       operationId: virtualdirectory.add
       parameters:
@@ -79,7 +81,8 @@ paths:
     get:
       tags:
         - virtualdirectory
-      description: Returns a virtualdirectory
+      summary: Returns a virtualdirectory
+      description: Returns a virtualdirectory by name
       operationId: virtualdirectory.get_by_name
       parameters:
         - name: name

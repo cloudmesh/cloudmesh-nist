@@ -27,6 +27,9 @@ produces:
 paths:
   /cloudmesh/variables:
     get:
+      tags:
+        - variables
+      summary: Returns all variabless
       description: Returns all variabless
       operationId: variables.get
       produces:
@@ -37,6 +40,9 @@ paths:
           schema:
             $ref: '#/definitions/Variables'
     put:
+      tags:
+        - variables
+      summary: Create a new variables
       description: Create a new variables
       operationId: variables.add
       parameters:
@@ -50,6 +56,9 @@ paths:
           description: Created
   '/cloudmesh/variables/{name}':
     get:
+      tags:
+        - variables
+      summary: Returns a variables
       description: Returns a variables
       operationId: variables.get_by_name
       parameters:

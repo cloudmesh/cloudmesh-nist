@@ -18,27 +18,55 @@ SRC=../spec
 
 
 service_4= \
- organization\
- user timestamp\
  alias\
- variables\
+ database\
  default\
  file\
- database\
- replica\
- virtualdirectory\
- virtualcluster\
- keyvaluestore\
- publickeystore\
- vm\
- scheduler\
- image\
  flavor
+ image\
+ keyvaluestore\
+ organization\
+ publickeystore\
+ replica\
+ scheduler\
+ timestamp\
+ user \
+ variables\
+ virtualcluster\
+ virtualdirectory\
+ vm\
+
+other=\
+ abc\
+ batchjob\
+ containers\
+ deployment\
+ example\
+ filter\
+ hadoop\
+ microservice\
+ nic\
+ reservation-gvl\
+ reservation\
+ scheduler\
+ secgroup\
+ slurmjob\
+ stream\
+ timestamp\
+ user\
+ variables\
+ vcluster\
+ virtualcluster\
+ virtualdirectory\
+ vm\
+ vm1
+
 
 service=$(service_4)
 
 broken= organization
 #service=user keystore virtualdirectory virtualcluster
+
 
 YAML := $(wildcard $(SRC)/*.yaml)
 
