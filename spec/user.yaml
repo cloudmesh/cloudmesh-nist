@@ -37,8 +37,9 @@ paths:
   /cloudmesh/user:
     get:
       tags:
-        - user
-      description: Returns all users
+        - User
+      summary: Returns all users
+      description: Returns all users      
       operationId: user.get
       produces:
         - application/json
@@ -49,10 +50,10 @@ paths:
             $ref: '#/definitions/User'
     put:
       tags:
-        - user
+        - User
       summary: Create a new user
       description: Create a new user
-      operationId: user.add
+      operationId: user.put
       parameters:
         - in: body
           name: user
@@ -65,9 +66,10 @@ paths:
   /cloudmesh/user/{name}:
     get:
       tags:
-        - user
+        - User
       description: Returns the user of a user while looking it up with the username
-      operationId: user.getByUsername
+      summary: Returns the user of a user while looking it up with the username
+      operationId: user.get_by_name
       parameters:
         - name: name
           description: name of the user
@@ -81,7 +83,7 @@ paths:
           description: user information
           schema:
             $ref: '#/definitions/User'
- definitions:
+definitions:
   User:
     type: object
     properties:
