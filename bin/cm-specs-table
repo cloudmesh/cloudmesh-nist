@@ -53,7 +53,7 @@ def analyse():
                "service": service,
                "status": "TBD",                                             
                }
-           filename = "../services/{service}/{service}.yaml".format(service=service)
+           filename = "../spec/{service}.yaml".format(service=service)
            with open(filename, "r") as f:
                 spec = yaml.load(f)["info"]
                 for field in ["x-status", "version", "title", "description"]:
