@@ -15,7 +15,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: Cloudmesh REST
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
