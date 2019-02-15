@@ -10,7 +10,8 @@ info:
   title: Virtual Machine
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: Gregor von Laszeewski
+    name: NIST BDRA Interface Subgroup Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
 host: localhost:8080
