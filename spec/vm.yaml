@@ -27,6 +27,7 @@ paths:
     get:
       tags:
         - vm
+      summary: Returns the list of the vms
       description: Returns the list of the vms
       operationId: vm_list
       produces:

@@ -38,6 +38,7 @@ paths:
     get:
       tags:
         - user
+      summary: Returns all users
       description: Returns all users
       operationId: user.get
       produces:
@@ -66,6 +67,7 @@ paths:
     get:
       tags:
         - user
+      summary: Returns the user of a user while looking it up with the username
       description: Returns the user of a user while looking it up with the username
       operationId: user.getByUsername
       parameters:
@@ -85,6 +87,7 @@ paths:
     get:
       tags:
         - user
+      summary: Returns the user of a user while looking it up with the UUID
       description: Returns the user of a user while looking it up with the UUID
       operationId: user.getByUuid
       parameters:

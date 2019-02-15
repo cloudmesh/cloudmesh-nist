@@ -34,6 +34,7 @@ paths:
     get:
       tags:
         - vcluster
+      summary: Returns list of vclusters
       description: Returns list of vclusters
       operationId: vcluster.get
       produces:
@@ -46,6 +47,7 @@ paths:
     put:
       tags:
         - vcluster
+      summary: Create a new vcluster
       description: Create a new vcluster
       operationId: vcluster.add
       parameters:
@@ -63,6 +65,7 @@ paths:
     get:
       tags:
         - vcluster
+      summary: Returns a vcluster by its name
       description: Returns a vcluster by its name
       operationId: vcluster.getByName
       parameters:
@@ -81,6 +84,7 @@ paths:
     get:
       tags:
         - vcluster
+      summary: Returns the specified node info of the specified vcluster
       description: Returns the specified node info of the specified vcluster
       operationId: vcluster.getNodeByName
       parameters:
@@ -100,6 +104,7 @@ paths:
     get:
       tags:
         - vcluster
+      summary: Returns the specified job info submitted to a vcluster
       description: Returns the specified job info submitted to a vcluster
       operationId: vcluster.getJobByName
       parameters:

@@ -34,6 +34,7 @@ paths:
     get:
       tags:
         - virtualcluster
+      summary: Returns all virtual clusters
       description: Returns all virtual clusters
       operationId: virtualcluster.get
       produces:
@@ -46,6 +47,7 @@ paths:
     put:
       tags:
         - virtualcluster
+      summary: Create a new virtual cluster
       description: Create a new virtual cluster
       operationId: virtualcluster.add
       parameters:
@@ -62,6 +64,7 @@ paths:
     get:
       tags:
         - virtualcluster
+      summary: Returns a virtual cluster by its name
       description: Returns a virtual cluster by its name
       operationId: virtualcluster.getByName
       parameters:
@@ -81,6 +84,7 @@ paths:
     get:
       tags:
         - virtualcluster
+      summary: Returns the manager node info of the specified virtual cluster
       description: Returns the manager node info of the specified virtual cluster
       operationId: virtualcluster.getManagerByName
       parameters:
@@ -100,6 +104,7 @@ paths:
     get:
       tags:
         - virtualcluster
+      summary: Returns the specified node info of the specified virtualcluster
       description: Returns the specified node info of the specified virtualcluster
       operationId: virtualcluster.getNodeByName
       parameters:

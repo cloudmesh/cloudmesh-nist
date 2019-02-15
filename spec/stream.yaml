@@ -28,6 +28,9 @@ produces:
 paths:
   /cloudmesh/streams:
     get:
+      tags:
+        - stream
+      summary: Returns all streams
       description: Returns all streams
       operationId: stream.get
       produces:
@@ -38,7 +41,10 @@ paths:
           schema:
             $ref: '#/definitions/Stream'
     put:
+      tags:
+        - stream
       summary: Create a new stream
+      description: Create a new stream
       operationId: stream.add
       parameters:
         - in: body
@@ -51,6 +57,9 @@ paths:
           description: Created
   '/cloudmesh/stream/{name}':
     get:
+      tags:
+        - stream
+      summary: Returns a stream
       description: Returns a stream
       operationId: stream.get_by_name
       parameters:
