@@ -43,7 +43,7 @@ paths:
       tags:
         - virtualdirectory
       description: Returns all virtualdirectorys
-      operationId: get_virtualdirectory
+      operationId: virtualdirectory.get
       produces:
         - application/json
       security:
@@ -61,7 +61,7 @@ paths:
       tags:
         - virtualdirectory
       description: Create a new virtualdirectory
-      operationId: add_virtualdirectory
+      operationId: virtualdirectory.add
       parameters:
         - in: body
           name: virtualdirectory
@@ -80,7 +80,7 @@ paths:
       tags:
         - virtualdirectory
       description: Returns a virtualdirectory
-      operationId: get_virtualdirectory_by_name
+      operationId: virtualdirectory.get_by_name
       parameters:
         - name: name
           description: name of the virtual directory

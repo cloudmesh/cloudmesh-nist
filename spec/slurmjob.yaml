@@ -30,7 +30,7 @@ paths:
   /cloudmesh/batch/job:
     get:
       description: Returns all slurmjobs
-      operationId: get_slurmjob
+      operationId: slurmjob.get
       produces:
         - application/json
       responses:
@@ -40,7 +40,7 @@ paths:
             $ref: '#/definitions/Slurmjob'
     put:
       summary: Create a new slurmjob
-      operationId: add_slurmjob
+      operationId: slurmjob.add
       parameters:
         - name: slurmjob
           in: body
@@ -53,7 +53,7 @@ paths:
   '/cloudmesh/slurm/job/{name}':
     get:
       description: Returns a slurmjob
-      operationId: get_slurmjob_by_name
+      operationId: slurmjob.get_by_name
       parameters:
         - name: name
           in: path

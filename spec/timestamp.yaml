@@ -29,7 +29,7 @@ paths:
   /cloudmesh/timestamp:
     get:
       description: Returns all timestamps
-      operationId: get_timestamp
+      operationId: timestamp.get
       produces:
         - application/json
       responses:
@@ -40,7 +40,7 @@ paths:
     put:
       summary: Create a new timestamp
       description: Create a new timestamp
-      operationId: add_timestamp
+      operationId: timestamp.add
       parameters:
         - in: body
           name: timestamp
@@ -53,7 +53,7 @@ paths:
   '/cloudmesh/timestamp/{name}':
     get:
       description: Returns a timestamp
-      operationId: get_timestamp_by_name
+      operationId: timestamp.get_by_name
       parameters:
         - name: name
           in: path

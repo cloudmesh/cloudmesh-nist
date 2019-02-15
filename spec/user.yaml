@@ -39,7 +39,7 @@ paths:
       tags:
         - user
       description: Returns all users
-      operationId: get_user
+      operationId: user.get
       produces:
         - application/json
       responses:
@@ -52,7 +52,7 @@ paths:
         - user
       summary: Create a new user
       description: Create a new user
-      operationId: add_user
+      operationId: user.add
       parameters:
         - in: body
           name: user
@@ -67,7 +67,7 @@ paths:
       tags:
         - user
       description: Returns the user of a user while looking it up with the username
-      operationId: getUserByUsername
+      operationId: user.getByUsername
       parameters:
         - name: name
           description: name of the user
@@ -86,7 +86,7 @@ paths:
       tags:
         - user
       description: Returns the user of a user while looking it up with the UUID
-      operationId: getUserByUuid
+      operationId: user.getByUuid
       parameters:
         - name: uuid
           description: uuid of the user entry

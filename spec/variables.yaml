@@ -28,7 +28,7 @@ paths:
   /cloudmesh/variables:
     get:
       description: Returns all variabless
-      operationId: get_variables
+      operationId: variables.get
       produces:
         - application/json
       responses:
@@ -38,7 +38,7 @@ paths:
             $ref: '#/definitions/Variables'
     put:
       description: Create a new variables
-      operationId: add_variables
+      operationId: variables.add
       parameters:
         - in: body
           name: variables
@@ -51,7 +51,7 @@ paths:
   '/cloudmesh/variables/{name}':
     get:
       description: Returns a variables
-      operationId: get_variables_by_name
+      operationId: variables.get_by_name
       parameters:
         - name: name
           description: Name of the variable

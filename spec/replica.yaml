@@ -28,7 +28,7 @@ paths:
   /cloudmesh/replica:
     get:
       description: Returns all replicas records
-      operationId: get_replica
+      operationId: replica.get
       produces:
         - application/json
       responses:
@@ -39,7 +39,7 @@ paths:
     put:
       summary: Create a new replica
       description: Create a new replica      
-      operationId: add_replica
+      operationId: replica.add
       parameters:
         - in: body
           name: replica
@@ -53,7 +53,7 @@ paths:
   '/cloudmesh/replica/{name}':
     get:
       description: Returns a replica by name
-      operationId: get_replica_by_name
+      operationId: replica.get_by_name
       parameters:
         - name: name
           description: name of the replica entry
