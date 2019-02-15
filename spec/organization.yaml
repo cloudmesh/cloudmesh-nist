@@ -32,8 +32,10 @@ produces:
 paths:
   /cloudmesh/organization:
     get:
-      description: Returns all users of the organization
-      operationId: get_organization
+      tags:
+        - organization
+      description: Returns all organizations
+      operationId: organization.get
       produces:
         - application/json
       responses:
@@ -42,6 +44,8 @@ paths:
           schema:
             $ref: '#/definitions/Organization'
     put:
+      tags:
+        - organization
       summary: Create a new organization
       description: Create a new organization
       operationId: organization.put
@@ -56,7 +60,9 @@ paths:
           description: Created
   '/cloudmesh/organization/{name}':
     get:
-      summary: Returns the organization 
+      tags:
+        - organization
+      summary: Returns the organization
       description: Returns the organization
       operationId: organization.get_by_name
       parameters:
@@ -72,10 +78,50 @@ paths:
           description: organization info
           schema:
             $ref: '#/definitions/Organization'
-  /cloudmesh/organization/{username}:
+  /cloudmesh/organization/users:
     get:
-      description: Returns the spcific user of that organization. 
+      tags:
+        - organization
+      description: Returns all users of the organization
       operationId: organization.get
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: organization info
+          schema:
+            $ref: '#/definitions/Organization'
+  /cloudmesh/organization/users/{username}:
+    get:
+      tags:
+        - organization
+      description: Returns the spcific user of that organization.
+      operationId: organization.get_user
+      parameters:
+        - name: username
+          description: The username
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: organization info
+          schema:
+            $ref: '#/definitions/Organization'
+/cloudmesh/organization/users/{username}:
+    put:
+      tags:
+        - organization
+      description: Returns the spcific user of that organization.
+      operationId: organization.pu_user
+      parameters:
+        - name: username
+          description: The username
+          in: path
+          required: true
+          type: string
       produces:
         - application/json
       responses:
