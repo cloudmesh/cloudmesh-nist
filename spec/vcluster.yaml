@@ -35,7 +35,7 @@ paths:
       tags:
         - vcluster
       description: Returns list of vclusters
-      operationId: get_vcluster
+      operationId: vcluster.get
       produces:
         - application/json
       responses:
@@ -47,7 +47,7 @@ paths:
       tags:
         - vcluster
       description: Create a new vcluster
-      operationId: add_vcluster
+      operationId: vcluster.add
       parameters:
         - in: body
           name: vcluster
@@ -64,7 +64,7 @@ paths:
       tags:
         - vcluster
       description: Returns a vcluster by its name
-      operationId: getVclusterByName
+      operationId: vcluster.getByName
       parameters:
         - name: vclustername
           description: name of the vcluster
@@ -82,7 +82,7 @@ paths:
       tags:
         - vcluster
       description: Returns the specified node info of the specified vcluster
-      operationId: getVclusterNodeByName
+      operationId: vcluster.getNodeByName
       parameters:
         - name: nodename
           description: name of the node
@@ -101,7 +101,7 @@ paths:
       tags:
         - vcluster
       description: Returns the specified job info submitted to a vcluster
-      operationId: getJobByName
+      operationId: vcluster.getJobByName
       parameters:
         - name: vclustername
           description: name of the vcluster

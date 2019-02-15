@@ -35,7 +35,7 @@ paths:
       tags:
         - virtualcluster
       description: Returns all virtual clusters
-      operationId: get_virtualcluster
+      operationId: virtualcluster.get
       produces:
         - application/json
       responses:
@@ -47,7 +47,7 @@ paths:
       tags:
         - virtualcluster
       description: Create a new virtual cluster
-      operationId: add_virtualcluster
+      operationId: virtualcluster.add
       parameters:
         - in: body
           name: virtualcluster
@@ -63,7 +63,7 @@ paths:
       tags:
         - virtualcluster
       description: Returns a virtual cluster by its name
-      operationId: getVirtualclusterByName
+      operationId: virtualcluster.getByName
       parameters:
         - name: virtualclustername
           description: name of the virtual cluster
@@ -82,7 +82,7 @@ paths:
       tags:
         - virtualcluster
       description: Returns the manager node info of the specified virtual cluster
-      operationId: getVirtualclusterManagerByName
+      operationId: virtualcluster.getManagerByName
       parameters:
         - name: virtualclustername
           description: name of the virtua cluster
@@ -101,7 +101,7 @@ paths:
       tags:
         - virtualcluster
       description: Returns the specified node info of the specified virtualcluster
-      operationId: getVirtualclusterNodeByName
+      operationId: virtualcluster.getNodeByName
       parameters:
         - name: virtualclustername
           description: name of the virtua cluster
