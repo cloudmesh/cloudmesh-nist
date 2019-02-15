@@ -44,7 +44,7 @@ paths:
             $ref: '#/definitions/Batchjob'
     put:
       summary: Create a new batchjob
-      operationId: add_batchjob
+      operationId: batchjob.add
       parameters:
         - in: body
           name: batchjob
@@ -57,7 +57,7 @@ paths:
   '/cloudmesh/batch/job/{name}':
     get:
       description: Returns a batchjob
-      operationId: get_batchjob_by_name
+      operationId: batchjob.get_by_name
       parameters:
         - name: name
           in: path

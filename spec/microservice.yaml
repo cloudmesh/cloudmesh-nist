@@ -26,7 +26,7 @@ paths:
   /cloudmesh/microservices:
     get:
       description: Returns all microservices
-      operationId: get_microservice
+      operationId: microservice.get
       produces:
         - application/json
       responses:
@@ -36,7 +36,7 @@ paths:
             $ref: '#/definitions/Microservice'
     put:
       summary: Create a new microservice
-      operationId: add_microservice
+      operationId: microservice.put
       parameters:
         - in: body
           name: microservice
@@ -49,7 +49,7 @@ paths:
   '/cloudmesh/microservice/{name}':
     get:
       description: Returns a microservice
-      operationId: get_microservice_by_name
+      operationId: microservice.get_by_name
       parameters:
         - name: name
           in: path

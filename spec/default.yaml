@@ -31,7 +31,7 @@ paths:
   /cloudmesh/default:
     get:
       description: Returns all defaults
-      operationId: get_default
+      operationId: default.get
       produces:
         - application/json
       responses:
@@ -42,7 +42,7 @@ paths:
     put:
       summary: Create a new default
       description: Create a new default      
-      operationId: add_default
+      operationId: default.add
       parameters:
         - in: body
           name: default
@@ -56,7 +56,7 @@ paths:
   '/cloudmesh/default/{name}':
     get:
       description: Returns a default
-      operationId: get_default_by_name
+      operationId: default.get_by_name
       parameters:
         - name: name
           in: path

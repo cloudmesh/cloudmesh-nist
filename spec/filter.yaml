@@ -27,7 +27,7 @@ paths:
   /cloudmesh/filters:
     get:
       description: Returns all filters
-      operationId: get_filter
+      operationId: filter.get
       produces:
         - application/json
       responses:
@@ -37,7 +37,7 @@ paths:
             $ref: '#/definitions/Filter'
     put:
       summary: Create a new filter
-      operationId: add_filter
+      operationId: filter.put
       parameters:
         - in: body
           name: filter
@@ -50,7 +50,7 @@ paths:
   '/cloudmesh/filter/{name}':
     get:
       description: Returns a filter
-      operationId: get_filter_by_name
+      operationId: filter.get_by_name
       parameters:
         - name: name
           in: path

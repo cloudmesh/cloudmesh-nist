@@ -29,7 +29,7 @@ paths:
       tags:
         - keyvaluestore
       description: Returns all keys with their values and types included
-      operationId: get_key
+      operationId: keyvaluestore.get
       produces:
         - application/json
       responses:
@@ -42,7 +42,7 @@ paths:
         - keyvaluestore
       summary: Create a new key
       description: Create a new key      
-      operationId: add_key
+      operationId: keyvaluestore.put
       parameters:
         - in: body
           name: key
@@ -58,7 +58,7 @@ paths:
       tags:
         - keyvaluestore
       description: Returns the key with its detailed information by name of the key
-      operationId: get_key_by_name
+      operationId: keyvaluestore.get_by_name
       parameters:
         - name: name
           description: name of the key

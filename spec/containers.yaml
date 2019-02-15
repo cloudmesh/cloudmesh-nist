@@ -26,7 +26,7 @@ paths:
     get:
       summary: Returns all containers
       description: Returns all containers
-      operationId: get_containers
+      operationId: conteiners.get
       produces:
         - application/json
       responses:
@@ -37,7 +37,7 @@ paths:
     put:
       summary: Create a new containers
       description: Create a new containers
-      operationId: add_containers
+      operationId: containers.put
       parameters:
         - in: body
           name: containers
@@ -50,7 +50,7 @@ paths:
   '/cloudmesh/container/{name}':
     get:
       description: Returns a containers
-      operationId: get_containers_by_name
+      operationId: containers.get_by_name
       parameters:
         - name: name
           description: name of the container

@@ -27,7 +27,7 @@ paths:
   /cloudmesh/keys:
     get:
       description: Returns all keys
-      operationId: get_key
+      operationId: example.get
       produces:
         - application/json
       responses:
@@ -37,7 +37,7 @@ paths:
             $ref: '#/definitions/Key'
     put:
       summary: Create a new key
-      operationId: add_key
+      operationId: example.put
       parameters:
         - in: body
           name: key
@@ -50,7 +50,7 @@ paths:
   '/cloudmesh/key/{name}':
     get:
       description: Returns a key
-      operationId: get_key_by_name
+      operationId: example.get_by_name
       parameters:
         - name: name
           in: path

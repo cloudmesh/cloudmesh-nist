@@ -44,7 +44,7 @@ paths:
     put:
       summary: Create a new organization
       description: Create a new organization
-      operationId: add_organization
+      operationId: organization.put
       parameters:
         - in: body
           name: organization
@@ -58,7 +58,7 @@ paths:
     get:
       summary: Returns the organization 
       description: Returns the organization
-      operationId: get_organization_by_name
+      operationId: organization.get_by_name
       parameters:
         - name: name
           description: The name of the organization
@@ -75,7 +75,7 @@ paths:
   /cloudmesh/organization/{username}:
     get:
       description: Returns the spcific user of that organization. 
-      operationId: get_organization
+      operationId: organization.get
       produces:
         - application/json
       responses:

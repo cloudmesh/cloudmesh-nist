@@ -32,7 +32,7 @@ paths:
   /cloudmesh/file:
     get:
       description: Returns all files
-      operationId: get_file
+      operationId: file.get
       produces:
         - application/json
       responses:
@@ -43,7 +43,7 @@ paths:
     put:
       summary: Create a new file
       description: Create a new file      
-      operationId: add_file
+      operationId: file.put
       parameters:
         - in: body
           name: file
@@ -57,7 +57,7 @@ paths:
   '/cloudmesh/file/{name}':
     get:
       description: Returns a file by name
-      operationId: get_file_by_name
+      operationId: file.get_by_name
       parameters:
         - name: name
           in: path

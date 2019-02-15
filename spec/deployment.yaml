@@ -27,7 +27,7 @@ paths:
   /cloudmesh/deployments:
     get:
       description: Returns all deployments
-      operationId: get_deployment
+      operationId: deployment.get
       produces:
         - application/json
       responses:
@@ -37,7 +37,7 @@ paths:
             $ref: '#/definitions/Deployment'
     put:
       summary: Create a new deployment
-      operationId: add_deployment
+      operationId: deployment.add
       parameters:
         - in: body
           name: deployment
@@ -50,7 +50,7 @@ paths:
   '/cloudmesh/deployment/{name}':
     get:
       description: Returns a deployment
-      operationId: get_deployment_by_name
+      operationId: deployment.get_by_name
       parameters:
         - name: name
           in: path
