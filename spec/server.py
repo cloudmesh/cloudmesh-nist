@@ -19,7 +19,7 @@ def load_api(*args):
         app.add_api("{api}.yaml".format(api=api, spec=spec))
 
 
-load_api("timestamp")
+load_api("timestamp", "user")
 
 
 # create a URL route in our application for "/"
