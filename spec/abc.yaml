@@ -12,7 +12,7 @@ info:
     
   termsOfService: 'http://bin.io/terms/'
   contact:
-    name: Cloudmesh REST
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache

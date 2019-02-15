@@ -15,7 +15,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Virtual Directory Service Example
+    name: NIST BDRA Interface Subgroupful Virtual Directory Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
