@@ -7,10 +7,7 @@ info:
   description: |-
   
     Image defines an object representing a system image
-    in cloud that can be used to start virtual machines.
-
-    Image objects are typically returned by the driver for the 
-    cloud provider in response to the list_images function.
+    in a cloud that can be used to start virtual machines.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:

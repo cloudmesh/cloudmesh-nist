@@ -25,6 +25,8 @@ paths:
   /cloudmesh/container:
     get:
       summary: Returns all containers
+      tags:
+        - Container
       description: Returns all containers
       operationId: conteiners.get
       produces:
@@ -36,6 +38,8 @@ paths:
             $ref: '#/definitions/Containers'
     put:
       summary: Create a new containers
+      tags:
+        - Container
       description: Create a new containers
       operationId: containers.put
       parameters:
@@ -50,6 +54,8 @@ paths:
   '/cloudmesh/container/{name}':
     get:
       description: Returns a containers
+      tags:
+        - Container
       operationId: containers.get_by_name
       parameters:
         - name: name

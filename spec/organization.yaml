@@ -6,15 +6,13 @@ info:
   title: Organization
   description: |-
   
-    An important concept in many services is the management of a group
-    of users in an organization that includes big data services. User
-    management within an organization can be achieved through several
-    concepts. First, it can be achieved by defining the
-    organization. Second, this organization contains a number of
-    users.  Third, users within the organization can have a variety of
-    roles and be separated in variopus groups.  These roles and groups
-    are used for example to distinguish different access rights to
-    services.
+    An important concept in many services is the management of a group of users
+    in an organization that includes big data services. User management within
+    an organization can be achieved through several concepts. First, it can be
+    achieved by defining the organization. Second, this organization contains a
+    number of users.  Third, users within the organization can have a variety of
+    roles and be separated in variopus groups.  These roles and groups are used
+    for example to distinguish different access rights to services.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -33,7 +31,7 @@ paths:
   /cloudmesh/organization:
     get:
       tags:
-        - organization
+        - Organization
       description: Returns all organizations
       operationId: organization.get
       produces:
@@ -45,7 +43,7 @@ paths:
             $ref: '#/definitions/Organization'
     put:
       tags:
-        - organization
+        - Organization
       summary: Create a new organization
       description: Create a new organization
       operationId: organization.put
@@ -61,7 +59,7 @@ paths:
   '/cloudmesh/organization/{name}':
     get:
       tags:
-        - organization
+        - Organization
       summary: Returns the organization
       description: Returns the organization
       operationId: organization.get_by_name
@@ -81,7 +79,7 @@ paths:
   /cloudmesh/organization/users:
     get:
       tags:
-        - organization
+        - Organization
       description: Returns all users of the organization
       operationId: organization.get
       produces:
@@ -94,7 +92,7 @@ paths:
   /cloudmesh/organization/users/{username}:
     get:
       tags:
-        - organization
+        - Organization
       description: Returns the spcific user of that organization.
       operationId: organization.get_user
       parameters:
@@ -113,7 +111,7 @@ paths:
 /cloudmesh/organization/users/{username}:
     put:
       tags:
-        - organization
+        - Organization
       description: Returns the spcific user of that organization.
       operationId: organization.pu_user
       parameters:

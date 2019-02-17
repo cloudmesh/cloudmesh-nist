@@ -6,13 +6,12 @@ info:
   title: Alias
   description: |-
 
-    A user may be interested to create an alias for a resource. This
-    is a name useful to the user. A User can deploy a service in which
-    such aliasses are stored. The aliasses could naturally be shared
-    with other users. A resource could have one or more aliasses.  The
-    reason for an alias is that a resource may have a complex name but
-    a user may want to refer to the resource using a name that is
-    suitable for the user's application.
+    A user may desire to create an alias for a resource. An alias may be used to
+    more eaily remember a resource. A User can deploy a service in which such
+    aliasses are stored. The aliasses could naturally be shared with other
+    users. A resource could have one or more aliasses.  The reason for an alias
+    is that a resource may have a complex name but a user may want to refer to
+    the resource using a name that is suitable for the user's application.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -30,6 +29,8 @@ produces:
 paths:
   /cloudmesh/alias:
     get:
+      tags:
+        - Alias
       description: Returns all aliases
       operationId: alias.get
       produces:
@@ -41,7 +42,9 @@ paths:
             $ref: '#/definitions/Alias'
     put:
       summary: Create a new alias
-      description: Create a new alias      
+      tags:
+        - Alias
+      description: Create a new alias
       operationId: alias.put
       parameters:
         - in: body
@@ -56,7 +59,9 @@ paths:
   '/cloudmesh/alias/{name}':
     get:
       summary: Returns an alias by name
-      description: Returns an alias by name      
+      tags:
+        - Alias
+      description: Returns an alias by name
       operationId: alias.get_by_name
       parameters:
         - name: name

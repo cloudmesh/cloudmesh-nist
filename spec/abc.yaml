@@ -7,8 +7,6 @@ info:
   
     A service to store abc, value, type information. All of them are
     stored as Strings.
-
-    * TODO: this is a demo of the to do line
     
   termsOfService: 'http://bin.io/terms/'
   contact:

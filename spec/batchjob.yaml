@@ -11,7 +11,7 @@ info:
     submission and scheduling of many jobs in parallel while
     attempting to utilize the resources through a resource scheduler
     more efficiently or simply in sequential order. Batch processing
-    Scarce resources managed by batch queues are highly optimized and
+    scarce resources managed by batch queues are highly optimized and
     in many cases, provide significant performance advantages over
     other services. Disadvantages include the limited and preinstalled
     software stacks that, in some cases, do not allow the latest
@@ -34,6 +34,8 @@ paths:
   /cloudmesh/batch/job:
     get:
       description: Returns all batchjobs
+      tags:
+        - Batchjob
       operationId: get_batchjob
       produces:
         - application/json
@@ -44,6 +46,8 @@ paths:
             $ref: '#/definitions/Batchjob'
     put:
       summary: Create a new batchjob
+      tags:
+        - Batchjob
       operationId: batchjob.add
       parameters:
         - in: body
@@ -57,6 +61,8 @@ paths:
   '/cloudmesh/batch/job/{name}':
     get:
       description: Returns a batchjob
+      tags:
+        - Batchjob
       operationId: batchjob.get_by_name
       parameters:
         - name: name

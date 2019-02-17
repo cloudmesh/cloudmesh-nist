@@ -11,7 +11,7 @@ info:
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
     cloud name. In addition to the context we also specify the service
-    name as a service could have multiple context. To be ab;le to
+    name as a service could have multiple context. To be able to
     define the kind of service there is also a kind attribute.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
@@ -31,6 +31,8 @@ paths:
   /cloudmesh/default:
     get:
       description: Returns all defaults
+      tags:
+        - Default
       operationId: default.get
       produces:
         - application/json
@@ -41,7 +43,9 @@ paths:
             $ref: '#/definitions/Default'
     put:
       summary: Create a new default
-      description: Create a new default      
+      tags:
+        - Default
+      description: Create a new default
       operationId: default.add
       parameters:
         - in: body
@@ -56,6 +60,8 @@ paths:
   '/cloudmesh/default/{name}':
     get:
       description: Returns a default
+      tags:
+        - Default
       operationId: default.get_by_name
       parameters:
         - name: name
