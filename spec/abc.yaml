@@ -25,7 +25,7 @@ paths:
   /cloudmesh/abcstore/abcs:
     get:
       description: Returns all general description abcs
-      operationId: abc.get
+      operationId: cloudmesh.abc.get
       produces:
         - application/json
       responses:
@@ -35,7 +35,7 @@ paths:
             $ref: '#/definitions/Abc'
     put:
       summary: Create a new abc
-      operationId: abc.put
+      operationId: cloudmesh.abc.put
       parameters:
         - in: body
           name: abc
@@ -48,7 +48,7 @@ paths:
   '/cloudmesh/abcstore/abc/{name}':
     get:
       description: Returns a general description of a abc
-      operationId: abc.get_by_name
+      operationId: cloudmesh.abc.get_by_name
       parameters:
         - name: name
           in: path

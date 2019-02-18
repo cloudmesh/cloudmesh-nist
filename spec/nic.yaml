@@ -26,7 +26,7 @@ paths:
   /cloudmesh/nics:
     get:
       description: Returns all nics
-      operationId: nic.get
+      operationId: cloudmesh.nic.get
       produces:
         - application/json
       responses:
@@ -36,7 +36,7 @@ paths:
             $ref: '#/definitions/Nic'
     put:
       summary: Create a new nic
-      operationId: nic.put
+      operationId: cloudmesh.nic.put
       parameters:
         - in: body
           name: nic
@@ -49,7 +49,7 @@ paths:
   '/cloudmesh/nic/{name}':
     get:
       description: Returns a nic
-      operationId: nic.get_by_name
+      operationId: cloudmesh.nic.get_by_name
       parameters:
         - name: name
           in: path

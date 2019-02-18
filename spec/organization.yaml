@@ -33,7 +33,7 @@ paths:
       tags:
         - Organization
       description: Returns all organizations
-      operationId: organization.get
+      operationId: cloudmesh.organization.get
       produces:
         - application/json
       responses:

@@ -30,7 +30,7 @@ paths:
       tags:
         - keyvaluestore
       description: Returns all keys with their values and types included
-      operationId: keyvaluestore.get
+      operationId: cloudmesh.keyvaluestore.get
       produces:
         - application/json
       responses:
@@ -43,7 +43,7 @@ paths:
         - keyvaluestore
       summary: Create a new key
       description: Create a new key      
-      operationId: keyvaluestore.put
+      operationId: cloudmesh.keyvaluestore.put
       parameters:
         - in: body
           name: key
@@ -59,7 +59,7 @@ paths:
       tags:
         - keyvaluestore
       description: Returns the key with its detailed information by name of the key
-      operationId: keyvaluestore.get_by_name
+      operationId: cloudmesh.keyvaluestore.get_by_name
       parameters:
         - name: name
           description: name of the key

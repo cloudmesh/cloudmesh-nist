@@ -26,7 +26,7 @@ paths:
   /cloudmesh/schedulers:
     get:
       description: Returns all schedulers
-      operationId: scheduler.get
+      operationId: cloudmesh.scheduler.get
       produces:
         - application/json
       responses:
@@ -36,7 +36,7 @@ paths:
             $ref: '#/definitions/Scheduler'
     put:
       description: Create a new scheduler
-      operationId: scheduler.add
+      operationId: cloudmesh.scheduler.add
       parameters:
         - in: body
           name: scheduler
@@ -49,7 +49,7 @@ paths:
   '/cloudmesh/scheduler/{name}':
     get:
       description: Returns a scheduler
-      operationId: scheduler.get_by_name
+      operationId: cloudmesh.scheduler.get_by_name
       parameters:
         - name: name
           description: name of the scheduler

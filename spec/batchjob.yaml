@@ -36,7 +36,7 @@ paths:
       description: Returns all batchjobs
       tags:
         - Batchjob
-      operationId: get_batchjob
+      operationId: cloudmesh.get_batchjob
       produces:
         - application/json
       responses:
@@ -48,7 +48,7 @@ paths:
       summary: Create a new batchjob
       tags:
         - Batchjob
-      operationId: batchjob.add
+      operationId: cloudmesh.batchjob.add
       parameters:
         - in: body
           name: batchjob
@@ -63,7 +63,7 @@ paths:
       description: Returns a batchjob
       tags:
         - Batchjob
-      operationId: batchjob.get_by_name
+      operationId: cloudmesh.batchjob.get_by_name
       parameters:
         - name: name
           in: path

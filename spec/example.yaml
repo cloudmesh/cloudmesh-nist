@@ -30,7 +30,7 @@ paths:
       summary: Returns all keys
       tags:
         - Example
-      operationId: example.get
+      operationId: cloudmesh.example.get
       produces:
         - application/json
       responses:
@@ -42,7 +42,7 @@ paths:
       summary: Create a new key
       tags:
         - Example
-      operationId: example.put
+      operationId: cloudmesh.example.put
       parameters:
         - in: body
           name: key
@@ -58,7 +58,7 @@ paths:
       tags:
         - Example
       description: Returns a key
-      operationId: example.get_by_name
+      operationId: cloudmesh.example.get_by_name
       parameters:
         - name: name
           in: path

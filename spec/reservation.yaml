@@ -27,7 +27,7 @@ paths:
   /cloudmesh/reservations:
     get:
       description: Returns all reservations
-      operationId: reservation.get
+      operationId: cloudmesh.reservation.get
       produces:
         - application/json
       responses:
@@ -37,7 +37,7 @@ paths:
             $ref: '#/definitions/Reservation'
     put:
       summary: Create a new reservation
-      operationId: reservation.add
+      operationId: cloudmesh.reservation.add
       parameters:
         - in: body
           name: reservation
@@ -50,7 +50,7 @@ paths:
   '/cloudmesh/reservation/{name}':
     get:
       description: Returns a reservation
-      operationId: reservation.get_by_name
+      operationId: cloudmesh.reservation.get_by_name
       parameters:
         - name: name
           in: path
