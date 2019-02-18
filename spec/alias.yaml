@@ -32,7 +32,7 @@ paths:
       tags:
         - Alias
       description: Returns all aliases
-      operationId: alias.get
+      operationId: cloudmesh.alias.get
       produces:
         - application/json
       responses:
@@ -45,7 +45,7 @@ paths:
       tags:
         - Alias
       description: Create a new alias
-      operationId: alias.put
+      operationId: cloudmesh.alias.put
       parameters:
         - in: body
           name: alias
@@ -62,7 +62,7 @@ paths:
       tags:
         - Alias
       description: Returns an alias by name
-      operationId: alias.get_by_name
+      operationId: cloudmesh.alias.get_by_name
       parameters:
         - name: name
           in: path
