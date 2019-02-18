@@ -93,7 +93,7 @@ definitions:
         type: string
         description: The OS version of the image
       min_requirement:
-        $ref: '#/definition/Minimum_Requirements'
+        $ref: '#/definitions/Minimum_Requirements'
         description: minimum requirement to run the image
       status:
         type: string
@@ -111,7 +111,6 @@ definitions:
       timestamp:
         description: timestamps associated with the file
         $ref: '#/definitions/Timestamp'
-
   Minimum_Requirements:
     type: object
     properties:

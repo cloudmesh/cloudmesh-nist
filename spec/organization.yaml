@@ -81,7 +81,7 @@ paths:
       tags:
         - Organization
       description: Returns all users of the organization
-      operationId: organization.get
+      operationId: organization.get_user
       produces:
         - application/json
       responses:
@@ -94,7 +94,7 @@ paths:
       tags:
         - Organization
       description: Returns the spcific user of that organization.
-      operationId: organization.get_user
+      operationId: organization.get_user_by_name
       parameters:
         - name: username
           description: The username
@@ -113,7 +113,7 @@ paths:
       tags:
         - Organization
       description: Returns the spcific user of that organization.
-      operationId: organization.pu_user
+      operationId: organization.put_user
       parameters:
         - name: username
           description: The username
@@ -138,7 +138,7 @@ definitions:
         description: list of users
         type: array
         items: 
-          $ref: 'user.yaml#/definitions/Users'
+          $ref: '#/definitions/User'
       timestamp:
         description: timestamps associated with the organization
         $ref: '#/definitions/Timestamp'
