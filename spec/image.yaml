@@ -110,7 +110,7 @@ definitions:
         description: Date and time of the last update on the image
       timestamp:
         description: timestamps associated with the file
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 
   Minimum_Requirements:
     type: object

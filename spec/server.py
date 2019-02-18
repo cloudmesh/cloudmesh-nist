@@ -20,7 +20,7 @@ def load_api(*args):
 
 
 #load_api("timestamp", "user")
-load_api("user")
+load_api("spec")
 
 
 # create a URL route in our application for "/"

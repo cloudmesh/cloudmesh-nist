@@ -141,5 +141,5 @@ definitions:
           $ref: 'user.yaml#/definitions/Users'
       timestamp:
         description: timestamps associated with the organization
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 

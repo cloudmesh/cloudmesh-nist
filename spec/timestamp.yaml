@@ -29,7 +29,7 @@ paths:
   /cloudmesh/timestamp:
     get:
       tags:
-        - timestamp
+        - Timestamp
       description: Returns all timestamps
       summary: Returns all timestamps
       operationId: timestamp.get
@@ -42,7 +42,7 @@ paths:
             $ref: '#/definitions/Timestamp'
     put:
       tags:
-        - timestamp
+        - Timestamp
       summary: Create a new timestamp
       description: Create a new timestamp
       operationId: timestamp.put
@@ -58,7 +58,7 @@ paths:
   '/cloudmesh/timestamp/{name}':
     get:
       tags:
-        - timestamp
+        - Timestamp
       summary: Returns a timestamp
       description: Returns a timestamp
       operationId: timestamp.get_by_name

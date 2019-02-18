@@ -125,4 +125,4 @@ definitions:
         description: The email of the user
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'file:timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

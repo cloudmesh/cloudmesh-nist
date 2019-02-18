@@ -78,4 +78,4 @@ definitions:
         description: the function the  microservice represents
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

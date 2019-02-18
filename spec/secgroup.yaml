@@ -196,4 +196,4 @@ definitions:
         description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
