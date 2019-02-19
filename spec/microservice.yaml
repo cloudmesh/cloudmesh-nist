@@ -36,7 +36,7 @@ paths:
             $ref: '#/definitions/Microservice'
     put:
       summary: Create a new microservice
-      operationId: microservice.put
+      operationId: cloudmesh.microservice.put
       parameters:
         - in: body
           name: microservice
@@ -49,10 +49,11 @@ paths:
   '/cloudmesh/microservice/{name}':
     get:
       description: Returns a microservice
-      operationId: microservice.get_by_name
+      operationId: cloudmesh.microservice.get_by_name
       parameters:
         - name: name
           in: path
+          description: Get microservie info by name
           required: true
           type: string
       produces:

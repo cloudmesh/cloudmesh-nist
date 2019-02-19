@@ -52,6 +52,7 @@ paths:
       operationId: cloudmesh.nic.get_by_name
       parameters:
         - name: name
+          description: Get nic info by name
           in: path
           required: true
           type: string

@@ -46,7 +46,7 @@ paths:
         - Organization
       summary: Create a new organization
       description: Create a new organization
-      operationId: organization.put
+      operationId: cloudmesh.organization.put
       parameters:
         - in: body
           name: organization
@@ -62,7 +62,7 @@ paths:
         - Organization
       summary: Returns the organization
       description: Returns the organization
-      operationId: organization.get_by_name
+      operationId: cloudmesh.organization.get_by_name
       parameters:
         - name: name
           description: The name of the organization
@@ -81,7 +81,7 @@ paths:
       tags:
         - Organization
       description: Returns all users of the organization
-      operationId: organization.get_user
+      operationId: cloudmesh.organization.get_user
       produces:
         - application/json
       responses:
@@ -94,7 +94,7 @@ paths:
       tags:
         - Organization
       description: Returns the spcific user of that organization.
-      operationId: organization.get_user_by_name
+      operationId: cloudmesh.organization.get_user_by_name
       parameters:
         - name: username
           description: The username
@@ -113,7 +113,7 @@ paths:
       tags:
         - Organization
       description: Returns the spcific user of that organization.
-      operationId: organization.put_user
+      operationId: cloudmesh.organization.put_user
       parameters:
         - name: username
           description: The username

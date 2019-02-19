@@ -26,7 +26,7 @@ paths:
   /cloudmesh/image:
     get:
       description: Returns all general description images
-      operationId: image.get
+      operationId: cloudmesh.image.get
       produces:
         - application/json
       responses:
@@ -36,7 +36,7 @@ paths:
             $ref: '#/definitions/Image'
     put:
       description: Create a new image
-      operationId: image.put
+      operationId: cloudmesh.image.put
       parameters:
         - in: body
           name: image
@@ -50,7 +50,7 @@ paths:
   '/cloudmesh/image/{name}':
     get:
       description: Returns general description of an image
-      operationId: image.get_by_name
+      operationId: cloudmesh.image.get_by_name
       parameters:
         - name: name
           description: name of the image

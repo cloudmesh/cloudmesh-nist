@@ -1,10 +1,28 @@
-def get(name):
-    pass
+def get():
+  '''Returns all aliases
 
 
-def put(name):
-    pass
+  '''
 
+  return 'TO BE IMPLEMENTED'
+
+def put(alias):
+  '''Create a new alias
+
+  Params:
+    alias - The new alias to create
+
+  '''
+
+  return 'TO BE IMPLEMENTED'
 
 def get_by_name(name):
-    pass
+  '''Returns an alias by name
+
+  Params:
+    name - The name of the alias
+
+  '''
+
+  return 'TO BE IMPLEMENTED'
+

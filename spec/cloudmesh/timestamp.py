@@ -1,10 +1,28 @@
-def get(name):
-    pass
+def get():
+  '''Returns all timestamps
 
 
-def put(name):
-    pass
+  '''
 
+  return 'TO BE IMPLEMENTED'
+
+def put(timestamp):
+  '''Create a new timestamp
+
+  Params:
+    timestamp - The new timestamp to create
+
+  '''
+
+  return 'TO BE IMPLEMENTED'
 
 def get_by_name(name):
-    pass
+  '''Returns a timestamp
+
+  Params:
+    name - the name of the time stamp
+
+  '''
+
+  return 'TO BE IMPLEMENTED'
+

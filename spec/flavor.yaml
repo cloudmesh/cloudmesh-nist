@@ -31,7 +31,7 @@ paths:
   /cloudmesh/flavors:
     get:
       description: Returns all flavors
-      operationId: get_flavor
+      operationId: cloudmesh.flavor.get
       produces:
         - application/json
       responses:
@@ -41,7 +41,7 @@ paths:
             $ref: '#/definitions/Flavor'
     put:
       description: Create a new flavor
-      operationId: add_flavor
+      operationId: cloudmesh.flavor.add
       parameters:
         - in: body
           name: flavor
@@ -55,7 +55,7 @@ paths:
   '/cloudmesh/flavor/{name}':
     get:
       description: Returns a flavor
-      operationId: get_flavor_by_name
+      operationId: cloudmesh.flavor.get_by_name
       parameters:
         - name: name
           description: name of the flavor

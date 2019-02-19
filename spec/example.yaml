@@ -61,6 +61,7 @@ paths:
       operationId: cloudmesh.example.get_by_name
       parameters:
         - name: name
+          description: Get key info by name
           in: path
           required: true
           type: string

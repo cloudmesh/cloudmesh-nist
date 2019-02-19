@@ -29,7 +29,7 @@ paths:
         - vm
       summary: Returns the list of the vms
       description: Returns the list of the vms
-      operationId: vm_list
+      operationId: cloudmesh.vm.get
       produces:
         - application/json
       parameters:

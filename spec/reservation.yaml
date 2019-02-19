@@ -53,6 +53,7 @@ paths:
       operationId: cloudmesh.reservation.get_by_name
       parameters:
         - name: name
+          description: Get reservation info by name
           in: path
           required: true
           type: string

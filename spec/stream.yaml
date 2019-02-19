@@ -32,7 +32,7 @@ paths:
         - stream
       summary: Returns all streams
       description: Returns all streams
-      operationId: stream.get
+      operationId: cloudmesh.stream.get
       produces:
         - application/json
       responses:
@@ -45,7 +45,7 @@ paths:
         - stream
       summary: Create a new stream
       description: Create a new stream
-      operationId: stream.add
+      operationId: cloudmesh.stream.add
       parameters:
         - in: body
           name: stream
@@ -61,9 +61,10 @@ paths:
         - stream
       summary: Returns a stream
       description: Returns a stream
-      operationId: stream.get_by_name
+      operationId: cloudmesh.stream.get_by_name
       parameters:
         - name: name
+          description: Get stream info by name
           in: path
           required: true
           type: string

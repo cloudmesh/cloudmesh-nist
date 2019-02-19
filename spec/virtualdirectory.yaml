@@ -44,7 +44,7 @@ paths:
         - virtualdirectory
       summary: Returns all virtualdirectorys
       description: Returns all virtualdirectorys
-      operationId: virtualdirectory.get
+      operationId: cloudmesh.virtualdirectory.get
       produces:
         - application/json
       security:
@@ -63,7 +63,7 @@ paths:
         - virtualdirectory
       summary: Create a new virtualdirectory
       description: Create a new virtualdirectory
-      operationId: virtualdirectory.add
+      operationId: cloudmesh.virtualdirectory.add
       parameters:
         - in: body
           name: virtualdirectory
@@ -83,7 +83,7 @@ paths:
         - virtualdirectory
       summary: Returns a virtualdirectory
       description: Returns a virtualdirectory by name
-      operationId: virtualdirectory.get_by_name
+      operationId: cloudmesh.virtualdirectory.get_by_name
       parameters:
         - name: name
           description: name of the virtual directory

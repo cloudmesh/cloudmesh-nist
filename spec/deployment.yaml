@@ -29,7 +29,7 @@ paths:
       description: Returns all deployments
       tags:
         - Deployment
-      operationId: deployment.get
+      operationId: cloudmesh.deployment.get
       produces:
         - application/json
       responses:
@@ -41,7 +41,7 @@ paths:
       summary: Create a new deployment
       tags:
         - Deployment
-      operationId: deployment.add
+      operationId: cloudmesh.deployment.add
       parameters:
         - in: body
           name: deployment
@@ -56,9 +56,10 @@ paths:
       description: Returns a deployment
       tags:
         - Deployment
-      operationId: deployment.get_by_name
+      operationId: cloudmesh.deployment.get_by_name
       parameters:
         - name: name
+          description: Get deployment info by name
           in: path
           required: true
           type: string

@@ -31,7 +31,7 @@ paths:
         - variables
       summary: Returns all variabless
       description: Returns all variabless
-      operationId: variables.get
+      operationId: cloudmesh.variables.get
       produces:
         - application/json
       responses:
@@ -44,7 +44,7 @@ paths:
         - variables
       summary: Create a new variables
       description: Create a new variables
-      operationId: variables.add
+      operationId: cloudmesh.variables.add
       parameters:
         - in: body
           name: variables
@@ -60,7 +60,7 @@ paths:
         - variables
       summary: Returns a variables
       description: Returns a variables
-      operationId: variables.get_by_name
+      operationId: cloudmesh.variables.get_by_name
       parameters:
         - name: name
           description: Name of the variable

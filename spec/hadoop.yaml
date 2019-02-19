@@ -29,7 +29,7 @@ paths:
     get:
       summary: Returns all hadoops
       description: Returns all hadoops
-      operationId: hadoop.get
+      operationId: cloudmesh.hadoop.get
       produces:
         - application/json
       responses:
@@ -40,7 +40,7 @@ paths:
     put:
       summary: Create a new hadoop
       description: Create a new hadoop
-      operationId: hadoop.put
+      operationId: cloudmesh.hadoop.put
       parameters:
         - in: body
           name: hadoop
@@ -54,7 +54,7 @@ paths:
     get:
       summary: Returns a hadoop
       description: Returns a hadoop
-      operationId: hadoop.get_by_name
+      operationId: cloudmesh.hadoop.get_by_name
       parameters:
         - name: name
           in: path

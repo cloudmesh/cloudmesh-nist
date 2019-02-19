@@ -28,7 +28,7 @@ paths:
       description: Returns all databases
       tags:
         - Database
-      operationId: datbase.get
+      operationId: cloudmesh.datbase.get
       produces:
         - application/json
       responses:
@@ -41,7 +41,7 @@ paths:
       tags:
         - Database
       description: Create a new database      
-      operationId: database.put
+      operationId: cloudmesh.database.put
       parameters:
         - in: body
           name: database
@@ -57,7 +57,7 @@ paths:
       description: Returns a database by name
       tags:
         - Database
-      operationId: database.get_by_name
+      operationId: cloudmesh.database.get_by_name
       parameters:
         - name: name
           description: name of the database
