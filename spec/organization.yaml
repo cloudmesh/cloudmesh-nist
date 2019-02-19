@@ -6,13 +6,15 @@ info:
   title: Organization
   description: |-
   
-    An important concept in many services is the management of a group of users
-    in an organization that includes big data services. User management within
-    an organization can be achieved through several concepts. First, it can be
-    achieved by defining the organization. Second, this organization contains a
-    number of users.  Third, users within the organization can have a variety of
-    roles and be separated in variopus groups.  These roles and groups are used
-    for example to distinguish different access rights to services.
+    An important concept in many services is the management of a group
+    of users in an organization that includes Big Data services. User
+    management within an organization can be achieved through several
+    concepts. First, it can be achieved by defining the
+    organization. Second, this organization can contain a number of
+    users.  Third, users within the organization can have a variety of
+    roles and be separated in various groups.  These roles and groups
+    are used, for example, to distinguish different access rights to
+    services.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
