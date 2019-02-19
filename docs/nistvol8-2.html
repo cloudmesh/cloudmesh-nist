@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>nistvol8-2</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
@@ -74,28 +74,217 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" type="text/css" href="template/epub.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-
-
-
-<?xml version="1.0" encoding="UTF-8"?>
-&lt;!DOCTYPE html&gt;
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-<head>
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<title>
-</title>
-<style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sec:introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="#background"><span class="toc-section-number">1.1</span> Background</a></li>
+<li><a href="#scope-and-objectives-of-the-reference-architectures-subgroup"><span class="toc-section-number">1.2</span> Scope and Objectives of the Reference Architectures Subgroup</a></li>
+<li><a href="#sec:production"><span class="toc-section-number">1.3</span> Report Production</a></li>
+<li><a href="#report-structure"><span class="toc-section-number">1.4</span> Report Structure</a></li>
+</ul></li>
+<li><a href="#sec:interface-requirements"><span class="toc-section-number">2</span> NBDRA Interface Requirements</a><ul>
+<li><a href="#high-level-requirements-of-the-interface-approach"><span class="toc-section-number">2.1</span> High-Level Requirements of the Interface Approach</a><ul>
+<li><a href="#technology--and-vendor-agnostic"><span class="toc-section-number">2.1.1</span> Technology- and Vendor-Agnostic</a></li>
+<li><a href="#support-of-plug-in-compute-infrastructure"><span class="toc-section-number">2.1.2</span> Support of Plug-In Compute Infrastructure</a></li>
+<li><a href="#orchestration-of-infrastructure-and-services"><span class="toc-section-number">2.1.3</span> Orchestration of Infrastructure and Services</a></li>
+<li><a href="#orchestration-of-big-data-applications-and-experiments"><span class="toc-section-number">2.1.4</span> Orchestration of Big Data Applications and Experiments</a></li>
+<li><a href="#reusability"><span class="toc-section-number">2.1.5</span> Reusability</a></li>
+<li><a href="#execution-workloads"><span class="toc-section-number">2.1.6</span> Execution Workloads</a></li>
+<li><a href="#security-and-privacy-fabric-requirements"><span class="toc-section-number">2.1.7</span> Security and Privacy Fabric Requirements</a></li>
+</ul></li>
+<li><a href="#component-specific-interface-requirements"><span class="toc-section-number">2.2</span> Component-Specific Interface Requirements</a><ul>
+<li><a href="#sec:system-orchestrator-requirements"><span class="toc-section-number">2.2.1</span> System Orchestrator Interface Requirements</a></li>
+<li><a href="#sec:data-provider-requirements"><span class="toc-section-number">2.2.2</span> Data Provider Interface Requirements</a></li>
+<li><a href="#sec:data-consumer-requirements"><span class="toc-section-number">2.2.3</span> Data Consumer Interface Requirements</a></li>
+<li><a href="#sec:data-application-requirements"><span class="toc-section-number">2.2.4</span> Big Data Application Interface Provider Requirements</a></li>
+<li><a href="#sec:provider-requirements"><span class="toc-section-number">2.2.5</span> Big Data Provider Framework Interface Requirements</a></li>
+<li><a href="#sec:app-provider-requirements"><span class="toc-section-number">2.2.6</span> Big Data Application Provider to Big Data Framework Provider Interface</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#sec:spec-paradigm"><span class="toc-section-number">3</span> Specification Paradigm</a><ul>
+<li><a href="#hybrid-and-multiple-frameworks"><span class="toc-section-number">3.1</span> Hybrid and Multiple Frameworks</a></li>
+<li><a href="#design-by-resource-oriented-architecture"><span class="toc-section-number">3.2</span> Design by Resource-Oriented Architecture</a></li>
+<li><a href="#design-by-example"><span class="toc-section-number">3.3</span> Design by Example</a></li>
+<li><a href="#version-management"><span class="toc-section-number">3.4</span> Version Management</a></li>
+<li><a href="#interface-compliancy"><span class="toc-section-number">3.5</span> Interface Compliancy</a></li>
+</ul></li>
+<li><a href="#sec:specification"><span class="toc-section-number">4</span> Specification</a><ul>
+<li><a href="#sec:spec-table"><span class="toc-section-number">4.1</span> List of specifications</a></li>
+<li><a href="#identity"><span class="toc-section-number">4.2</span> Identity</a><ul>
+<li><a href="#authentication"><span class="toc-section-number">4.2.1</span> Authentication</a></li>
+<li><a href="#organization"><span class="toc-section-number">4.2.2</span> Organization</a></li>
+<li><a href="#user"><span class="toc-section-number">4.2.3</span> User</a></li>
+<li><a href="#publickeystore"><span class="toc-section-number">4.2.4</span> PublicKeyStore</a></li>
+</ul></li>
+<li><a href="#general-resources"><span class="toc-section-number">4.3</span> General Resources</a><ul>
+<li><a href="#timestamp"><span class="toc-section-number">4.3.1</span> Timestamp</a></li>
+<li><a href="#alias"><span class="toc-section-number">4.3.2</span> Alias</a></li>
+<li><a href="#variables"><span class="toc-section-number">4.3.3</span> Variables</a></li>
+<li><a href="#keyvaluestore"><span class="toc-section-number">4.3.4</span> Keyvaluestore</a></li>
+<li><a href="#default"><span class="toc-section-number">4.3.5</span> Default</a></li>
+</ul></li>
+<li><a href="#data-management"><span class="toc-section-number">4.4</span> Data Management</a><ul>
+<li><a href="#file"><span class="toc-section-number">4.4.1</span> File</a></li>
+<li><a href="#replica"><span class="toc-section-number">4.4.2</span> Replica</a></li>
+<li><a href="#database"><span class="toc-section-number">4.4.3</span> Database</a></li>
+<li><a href="#virtual-directory"><span class="toc-section-number">4.4.4</span> Virtual Directory</a></li>
+</ul></li>
+<li><a href="#compute-management---virtual-clusters"><span class="toc-section-number">4.5</span> Compute Management - Virtual Clusters</a><ul>
+<li><a href="#virtual-cluster"><span class="toc-section-number">4.5.1</span> Virtual Cluster</a></li>
+<li><a href="#scheduler"><span class="toc-section-number">4.5.2</span> Scheduler</a></li>
+</ul></li>
+<li><a href="#compute-management---virtual-machines"><span class="toc-section-number">4.6</span> Compute Management - Virtual Machines</a><ul>
+<li><a href="#image"><span class="toc-section-number">4.6.1</span> Image</a></li>
+<li><a href="#flavor"><span class="toc-section-number">4.6.2</span> Flavor</a></li>
+<li><a href="#vm"><span class="toc-section-number">4.6.3</span> VM</a></li>
+<li><a href="#secgroup"><span class="toc-section-number">4.6.4</span> Secgroup</a></li>
+<li><a href="#nic"><span class="toc-section-number">4.6.5</span> Nic</a></li>
+</ul></li>
+<li><a href="#compute-management---containers"><span class="toc-section-number">4.7</span> Compute Management - Containers</a><ul>
+<li><a href="#containers"><span class="toc-section-number">4.7.1</span> Containers</a></li>
+</ul></li>
+<li><a href="#compute-management---functions"><span class="toc-section-number">4.8</span> Compute Management - Functions</a><ul>
+<li><a href="#microservice"><span class="toc-section-number">4.8.1</span> Microservice</a></li>
+</ul></li>
+<li><a href="#batch-processing"><span class="toc-section-number">4.9</span> Batch Processing</a><ul>
+<li><a href="#batchjob"><span class="toc-section-number">4.9.1</span> Batchjob</a></li>
+<li><a href="#slurmjob"><span class="toc-section-number">4.9.2</span> Slurmjob</a></li>
+</ul></li>
+<li><a href="#reservation"><span class="toc-section-number">4.10</span> Reservation</a><ul>
+<li><a href="#reservation-1"><span class="toc-section-number">4.10.1</span> Reservation</a></li>
+</ul></li>
+<li><a href="#data-streams"><span class="toc-section-number">4.11</span> Data Streams</a><ul>
+<li><a href="#stream"><span class="toc-section-number">4.11.1</span> Stream</a></li>
+<li><a href="#filter"><span class="toc-section-number">4.11.2</span> Filter</a></li>
+</ul></li>
+<li><a href="#mapreduce"><span class="toc-section-number">4.12</span> MapReduce</a><ul>
+<li><a href="#hadoop"><span class="toc-section-number">4.12.1</span> Hadoop</a></li>
+</ul></li>
+<li><a href="#deployment"><span class="toc-section-number">4.13</span> Deployment</a><ul>
+<li><a href="#deployment-1"><span class="toc-section-number">4.13.1</span> Deployment</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#status-codes-and-error-responses"><span class="toc-section-number">5</span> Status Codes and Error Responses</a></li>
+<li><a href="#acronyms-and-terms"><span class="toc-section-number">6</span> Acronyms and Terms</a></li>
+<li><a href="#bibliography"><span class="toc-section-number">7</span> Bibliography</a></li>
+</ul>
+</nav>
+<ul>
+<li><a href="#sec:introduction">Introduction</a>
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#scope-and-objectives-of-the-reference-architectures-subgroup">Scope and Objectives of the Reference Architectures Subgroup</a></li>
+<li><a href="#sec:production">Report Production</a></li>
+<li><a href="#report-structure">Report Structure</a></li>
+</ul></li>
+<li><a href="#sec:interface-requirements">NBDRA Interface Requirements</a>
+<ul>
+<li><a href="#high-level-requirements-of-the-interface-approach">High-Level Requirements of the Interface Approach</a>
+<ul>
+<li><a href="#technology--and-vendor-agnostic">Technology- and Vendor-Agnostic</a></li>
+<li><a href="#support-of-plug-in-compute-infrastructure">Support of Plug-In Compute Infrastructure</a></li>
+<li><a href="#orchestration-of-infrastructure-and-services">Orchestration of Infrastructure and Services</a></li>
+<li><a href="#orchestration-of-big-data-applications-and-experiments">Orchestration of Big Data Applications and Experiments</a></li>
+<li><a href="#reusability">Reusability</a></li>
+<li><a href="#execution-workloads">Execution Workloads</a></li>
+<li><a href="#security-and-privacy-fabric-requirements">Security and Privacy Fabric Requirements</a></li>
+</ul></li>
+<li><a href="#component-specific-interface-requirements">Component-Specific Interface Requirements</a>
+<ul>
+<li><a href="#sec:system-orchestrator-requirements">System Orchestrator Interface Requirements</a></li>
+<li><a href="#sec:data-provider-requirements">Data Provider Interface Requirements</a></li>
+<li><a href="#sec:data-consumer-requirements">Data Consumer Interface Requirements</a></li>
+<li><a href="#sec:data-application-requirements">Big Data Application Interface Provider Requirements</a></li>
+<li><a href="#sec:provider-requirements">Big Data Provider Framework Interface Requirements</a></li>
+<li><a href="#sec:app-provider-requirements">Big Data Application Provider to Big Data Framework Provider Interface</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#sec:spec-paradigm">Specification Paradigm</a>
+<ul>
+<li><a href="#hybrid-and-multiple-frameworks">Hybrid and Multiple Frameworks</a></li>
+<li><a href="#design-by-resource-oriented-architecture">Design by Resource-Oriented Architecture</a></li>
+<li><a href="#design-by-example">Design by Example</a></li>
+<li><a href="#version-management">Version Management</a></li>
+<li><a href="#interface-compliancy">Interface Compliancy</a></li>
+</ul></li>
+<li><a href="#sec:specification">Specification</a>
+<ul>
+<li><a href="#sec:spec-table">List of specifications</a></li>
+<li><a href="#identity">Identity</a>
+<ul>
+<li><a href="#authentication">Authentication</a></li>
+<li><a href="#organization">Organization</a></li>
+<li><a href="#user">User</a></li>
+<li><a href="#publickeystore">PublicKeyStore</a></li>
+</ul></li>
+<li><a href="#general-resources">General Resources</a>
+<ul>
+<li><a href="#timestamp">Timestamp</a></li>
+<li><a href="#alias">Alias</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#keyvaluestore">Keyvaluestore</a></li>
+<li><a href="#default">Default</a></li>
+</ul></li>
+<li><a href="#data-management">Data Management</a>
+<ul>
+<li><a href="#file">File</a></li>
+<li><a href="#replica">Replica</a></li>
+<li><a href="#database">Database</a></li>
+<li><a href="#virtual-directory">Virtual Directory</a></li>
+</ul></li>
+<li><a href="#compute-management---virtual-clusters">Compute Management - Virtual Clusters</a>
+<ul>
+<li><a href="#virtual-cluster">Virtual Cluster</a></li>
+<li><a href="#scheduler">Scheduler</a></li>
+</ul></li>
+<li><a href="#compute-management---virtual-machines">Compute Management - Virtual Machines</a>
+<ul>
+<li><a href="#image">Image</a></li>
+<li><a href="#flavor">Flavor</a></li>
+<li><a href="#vm">VM</a></li>
+<li><a href="#secgroup">Secgroup</a></li>
+<li><a href="#nic">Nic</a></li>
+</ul></li>
+<li><a href="#compute-management---containers">Compute Management - Containers</a>
+<ul>
+<li><a href="#containers">Containers</a></li>
+</ul></li>
+<li><a href="#compute-management---functions">Compute Management - Functions</a>
+<ul>
+<li><a href="#microservice">Microservice</a></li>
+</ul></li>
+<li><a href="#batch-processing">Batch Processing</a>
+<ul>
+<li><a href="#batchjob">Batchjob</a></li>
+<li><a href="#slurmjob">Slurmjob</a></li>
+</ul></li>
+<li><a href="#reservation">Reservation</a>
+<ul>
+<li><a href="#reservation-1">Reservation</a></li>
+</ul></li>
+<li><a href="#data-streams">Data Streams</a>
+<ul>
+<li><a href="#stream">Stream</a></li>
+<li><a href="#filter">Filter</a></li>
+</ul></li>
+<li><a href="#mapreduce">MapReduce</a>
+<ul>
+<li><a href="#hadoop">Hadoop</a></li>
+</ul></li>
+<li><a href="#deployment">Deployment</a>
+<ul>
+<li><a href="#deployment-1">Deployment</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#status-codes-and-error-responses">Status Codes and Error Responses</a></li>
+<li><a href="#acronyms-and-terms">Acronyms and Terms</a></li>
+<li><a href="#bibliography">Bibliography</a></li>
+</ul>
 <p>nistvol8-2.md</p>
 <p><strong>Abstract</strong></p>
 <p>This document summarizes interfaces that are instrumental for the interaction with Clouds, Containers, and High Performance Computing (HPC) systems to manage virtual clusters to support the NIST Big Data Reference Architecture (NBDRA). The REpresentational State Transfer (REST) paradigm is used to define these interfaces, allowing easy integration and adoption by a wide variety of frameworks.</p>
@@ -355,197 +544,197 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <thead>
 <tr class="header">
 <th style="text-align: left;">Service</th>
-<th style="text-align: left;">Title</th>
 <th style="text-align: left;">Version</th>
-<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Date</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">alias</td>
 <td style="text-align: left;">Alias</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">29-01-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">batchjob</td>
 <td style="text-align: left;">Batch Job</td>
 <td style="text-align: left;">3.0.2</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;">10-30-2018</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">containers</td>
 <td style="text-align: left;">Containers</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">database</td>
 <td style="text-align: left;">Database</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">default</td>
 <td style="text-align: left;">Default</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">deployment</td>
-<td style="text-align: left;">deployment</td>
 <td style="text-align: left;">3.0.2</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;">10-30-2018</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">file</td>
 <td style="text-align: left;">File</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">filter</td>
-<td style="text-align: left;">filter</td>
 <td style="text-align: left;">3.0.2</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;">10-30-2018</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">flavor</td>
 <td style="text-align: left;">Flavor</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">hadoop</td>
 <td style="text-align: left;">Hadoop</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">image</td>
 <td style="text-align: left;">Image</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">keyvaluestore</td>
 <td style="text-align: left;">keyvaluestore</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">compare to variable and merge</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">microservice</td>
-<td style="text-align: left;">microservice</td>
 <td style="text-align: left;">3.0.1</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;"></td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">nic</td>
-<td style="text-align: left;">nic</td>
 <td style="text-align: left;">3.0.1</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;"></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">organization</td>
 <td style="text-align: left;">Organization</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">publickeystore</td>
 <td style="text-align: left;">Key</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">replica</td>
 <td style="text-align: left;">Replica</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">reservation</td>
 <td style="text-align: left;">reservation</td>
 <td style="text-align: left;">3.0.2</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;">10-30-2018</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">scheduler</td>
 <td style="text-align: left;">Scheduler</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">scheduler</td>
 <td style="text-align: left;">Scheduler</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">secgroup</td>
-<td style="text-align: left;">secgroup</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-12-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">slurmjob</td>
 <td style="text-align: left;">Batch Job</td>
 <td style="text-align: left;">3.0.0</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;">02-08-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">stream</td>
 <td style="text-align: left;">stream</td>
 <td style="text-align: left;">3.0.2</td>
-<td style="text-align: left;">TBD</td>
+<td style="text-align: left;">10-30-2018</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">timestamp</td>
 <td style="text-align: left;">Timestamp</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">user</td>
 <td style="text-align: left;">User</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">variables</td>
 <td style="text-align: left;">Variables</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">variables</td>
 <td style="text-align: left;">Variables</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">vcluster</td>
 <td style="text-align: left;">VCluster</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-11-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">virtualcluster</td>
 <td style="text-align: left;">Virtual Cluster</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-11-2019</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">virtualdirectory</td>
 <td style="text-align: left;">Virtualdirectory</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">vm</td>
 <td style="text-align: left;">Virtual Machine</td>
 <td style="text-align: left;">3.1.1</td>
-<td style="text-align: left;">defined</td>
+<td style="text-align: left;">02-15-2019</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -8720,10 +8909,7 @@ definitions:
 <li><p>[8] Arnab Roy, Mark Underwood, and Wo Chang. NIST Big Data Interoperability Framework: Volume 4, Security and Privacy. Special Publication (NIST SP) - 1500-4 1500-4, National Institute of Standards, 100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL: <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-4.pdf" class="uri">http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-4.pdf</a>, doi:NIST.SP.1500-4.</p></li>
 <li><p>[9] Gregor von Laszewski. Cloudmesh client. github. URL: <a href="https://github.com/cloudmesh/client" class="uri">https://github.com/cloudmesh/client</a>.</p></li>
 <li><p>[10] Gregor von Laszewski, Wo Chang, Fugang Wang, Badi Abdhul Wahid, Geoffrey C. Fox, Pratik Thakkar, Alicia Mara Zuniga-Alvarado, and Robert C. Whetsel. NIST Big Data Interoperability Framework: Volume 8, Reference Architecture Interfaces. Special Publication (NIST SP) - 1500-9 1500-9, National Institute of Standards, 100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL: <a href="https://laszewski.github.io/papers/NIST.SP.1500-9-draft.pdf" class="uri">https://laszewski.github.io/papers/NIST.SP.1500-9-draft.pdf</a>, doi:NIST.SP.1500-9.</p></li>
-<li>[11] Gregor von Laszewski, Fugang Wang, Badi Abdul-Wahid, Hyungro Lee, Geoffrey C. Fox, and Wo Chang. Cloudmesh in support of the nist big data architecture framework. Technical report, Indiana University, Bloomington, IN 47408, USA, April 2017. URL: <a href="https://laszewski.github.io/papers/vonLaszewski-nist.pdf" class="uri">https://laszewski.github.io/papers/vonLaszewski-nist.pdf</a>.</li>
+<li><p>[11] Gregor von Laszewski, Fugang Wang, Badi Abdul-Wahid, Hyungro Lee, Geoffrey C. Fox, and Wo Chang. Cloudmesh in support of the nist big data architecture framework. Technical report, Indiana University, Bloomington, IN 47408, USA, April 2017. URL: <a href="https://laszewski.github.io/papers/vonLaszewski-nist.pdf" class="uri">https://laszewski.github.io/papers/vonLaszewski-nist.pdf</a>.</p></li>
 </ul>
 </body>
 </html>
-</body>
-</html>
-
