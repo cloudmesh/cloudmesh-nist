@@ -58,8 +58,8 @@ The following milestone releases exist:
 * **Version 2.2**: This version was significantly changed and uses now
   OpenAPI to specify the Interfaces between the various services and components.
   Editors of this volume are:
-* **Version 3.1.0**: The version includes the significant improvements
-  of the object specifications 
+* **Version 3.1.1**: The version includes the significant improvements
+  of the object specifications   
 
 The editors for these documents are:
 
