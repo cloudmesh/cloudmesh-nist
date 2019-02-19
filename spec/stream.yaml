@@ -39,7 +39,9 @@ paths:
         '200':
           description: stream info
           schema:
-            $ref: '#/definitions/Stream'
+            type: array
+            items:
+              $ref: '#/definitions/Stream'
     put:
       tags:
         - Stream

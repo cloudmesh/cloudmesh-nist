@@ -24,9 +24,9 @@ produces:
 paths:
   /cloudmesh/container:
     get:
-      summary: Returns all containers
       tags:
         - Container
+      summary: Returns all containers
       description: Returns all containers
       operationId: cloudmesh.conteiners.get
       produces:
@@ -35,11 +35,13 @@ paths:
         200:
           description: containers info
           schema:
-            $ref: '#/definitions/Containers'
+            type: array
+            items:
+              $ref: '#/definitions/Container'
     put:
-      summary: Create a new containers
       tags:
         - Container
+      summary: Create a new containers
       description: Create a new containers
       operationId: cloudmesh.containers.put
       parameters:
@@ -47,15 +49,16 @@ paths:
           name: containers
           description: The new containers to create
           schema:
-            $ref: '#/definitions/Containers'
+            $ref: '#/definitions/Container'
       responses:
         201:
           description: Created
   '/cloudmesh/container/{name}':
     get:
-      description: Returns a containers
       tags:
         - Container
+      summary: Returns a containers
+      description: Returns a containers
       operationId: cloudmesh.containers.get_by_name
       parameters:
         - name: name
@@ -69,9 +72,9 @@ paths:
         200:
           description: containers info
           schema:
-            $ref: '#/definitions/Containers'
+            $ref: '#/definitions/Container'
 definitions:
-  Containers:
+  Container:
     type: object
     description: A record representing a container
     properties:
@@ -97,7 +100,7 @@ definitions:
         type: array
         description: tags of the container
         items:
-          string
+          type: string
       timestamp:
         description: timestamps associated with the resource
         $ref: '#/definitions/Timestamp'

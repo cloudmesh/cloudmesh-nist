@@ -36,7 +36,9 @@ paths:
         '200':
           description: default image info
           schema:
-            $ref: '#/definitions/Image'
+            type: array
+            items:
+              $ref: '#/definitions/Image'
     put:
       tags:
       - Image

@@ -37,7 +37,9 @@ paths:
         '200':
           description: filter info
           schema:
-            $ref: '#/definitions/Filter'
+            type: array
+            items:
+              $ref: '#/definitions/Filter'
     put:
       tags:
       - Filter

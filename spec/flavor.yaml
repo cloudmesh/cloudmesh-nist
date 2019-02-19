@@ -41,7 +41,9 @@ paths:
         '200':
           description: flavor info
           schema:
-            $ref: '#/definitions/Flavor'
+            type: array
+            items:
+              $ref: '#/definitions/Flavor'
     put:
       tags:
       - Flavor

@@ -35,7 +35,9 @@ paths:
         '200':
           description: abc info
           schema:
-            $ref: '#/definitions/Abc'
+            type: array
+            items:
+              $ref: '#/definitions/Abc'
     put:
       tags:
       - ABC

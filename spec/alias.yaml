@@ -40,7 +40,9 @@ paths:
         '200':
           description: alias information
           schema:
-            $ref: '#/definitions/Alias'
+            type: array
+            items:
+              $ref: '#/definitions/Alias'
     put:
       tags:
         - Alias

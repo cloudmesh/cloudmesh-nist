@@ -7,7 +7,7 @@ info:
   description: |-
   
     A database could have a name, an endpoint (e.g., host, port),
-    and a protocol used (e.g., SQL, MongoDB, ...).
+    and a protocol used (e.g., SQL, MongoDB).
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -36,7 +36,9 @@ paths:
         200:
           description: database info
           schema:
-            $ref: '#/definitions/Database'
+            type: array
+            items:
+              $ref: '#/definitions/Database'
     put:
       tags:
         - Database

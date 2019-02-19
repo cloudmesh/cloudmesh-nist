@@ -37,7 +37,9 @@ paths:
         '200':
           description: reservation info
           schema:
-            $ref: '#/definitions/Reservation'
+            type: array
+            items:
+              $ref: '#/definitions/Reservation'
     put:
       tags:
       - Reservation

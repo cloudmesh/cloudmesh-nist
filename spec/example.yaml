@@ -39,7 +39,9 @@ paths:
         200:
           description: key info
           schema:
-            $ref: '#/definitions/Key'
+            type: array
+            items:
+              $ref: '#/definitions/Key'
     put:
       tags:
       - Example

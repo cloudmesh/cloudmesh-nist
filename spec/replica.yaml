@@ -38,7 +38,9 @@ paths:
         200:
           description: replica info
           schema:
-            $ref: '#/definitions/Replica'
+            type: array
+            items:
+              $ref: '#/definitions/Replica'
     put:
       tags:
       - Replica

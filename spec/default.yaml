@@ -10,8 +10,8 @@ info:
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
-    cloud name. In addition to the context we also specify the service
-    name as a service could have multiple context. To be able to
+    cloud name. In addition to the context, the service name is also specified
+    since a service could have multiple contexts. To be able to
     define the kind of service there is also a kind attribute.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
@@ -41,7 +41,9 @@ paths:
         '200':
           description: default info
           schema:
-            $ref: '#/definitions/Default'
+            type: array
+            items:
+              $ref: '#/definitions/Default'
     put:
       tags:
         - Default

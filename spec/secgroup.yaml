@@ -42,7 +42,9 @@ paths:
         "200":
           description: secgroup info
           schema:
-            $ref: "#/definitions/Secgroup"
+            type: array
+            items:
+              $ref: "#/definitions/Secgroup"
     post:
       tags:
       - Secgroup

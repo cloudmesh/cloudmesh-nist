@@ -27,8 +27,11 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/batch/job:
+  /cloudmesh/slurmjob/job:
     get:
+      tags:
+        - Slurmjob
+      summary: Returns all slurmjobs
       description: Returns all slurmjobs
       operationId: cloudmesh.slurmjob.get
       produces:
@@ -37,9 +40,14 @@ paths:
         200:
           description: slurmjob info
           schema:
-            $ref: '#/definitions/Slurmjob'
+            type: array
+            items:
+              $ref: '#/definitions/Slurmjob'
     put:
+      tags:
+        - Slurmjob
       summary: Create a new slurmjob
+      description: Create a new slurmjob
       operationId: cloudmesh.slurmjob.add
       parameters:
         - name: slurmjob
@@ -50,12 +58,16 @@ paths:
       responses:
         200:
           description: Created
-  '/cloudmesh/slurm/job/{name}':
+  '/cloudmesh/slurmjob/job/{name}':
     get:
+      tags:
+        - Slurmjob
+      summary: Returns a slurmjob
       description: Returns a slurmjob
       operationId: cloudmesh.slurmjob.get_by_name
       parameters:
         - name: name
+          description: name of the slurmjob
           in: path
           required: true
           type: string
@@ -67,7 +79,7 @@ paths:
           schema:
             $ref: '#/definitions/Slurmjob'
 definitions:
-  Batchjob:
+  Slurmjob:
     type: object
     description: the batch job
     properties:

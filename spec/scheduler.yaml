@@ -6,8 +6,8 @@ info:
   title: Scheduler
   description: |-
   
-    A service to store scheduler, value, type information. All of them
-    are stored as Strings.
+    The scheduler is a service to store scheduler, value, and type information, all of which
+    are stored as strings.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -36,7 +36,9 @@ paths:
         '200':
           description: scheduler info
           schema:
-            $ref: '#/definitions/Scheduler'
+            type: array
+            items:
+              $ref: '#/definitions/Scheduler'
     put:
       tags:
       - Scheduler

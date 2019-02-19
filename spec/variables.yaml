@@ -38,7 +38,9 @@ paths:
         200:
           description: variables info
           schema:
-            $ref: '#/definitions/Variables'
+            type: array
+            items:
+              $ref: '#/definitions/Variables'
     put:
       tags:
         - Variables

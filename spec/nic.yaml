@@ -36,7 +36,9 @@ paths:
         '200':
           description: nic info
           schema:
-            $ref: '#/definitions/Nic'
+            type: array
+            items:
+              $ref: '#/definitions/Nic'
     put:
       tags:
       - NIC
