@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: |-
 
-    A service to manage virtual machines
+    VM is a service to manage virtual machines.
     
   version: 3.1.1
   x-date: 02-15-2019
