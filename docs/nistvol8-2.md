@@ -1154,7 +1154,7 @@ size": ["GB", "Byte"]
 
 [comment]: # COMPUTE MANAGEMENT
 
-## Compute Management - Virtual Clutsers
+## Compute Management - Virtual Clusters
 
 ### Virtual Cluster
 
