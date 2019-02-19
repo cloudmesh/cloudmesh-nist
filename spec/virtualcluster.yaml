@@ -16,15 +16,15 @@ info:
     from there you can login to any compute node, or submit a job to run on the
     compute nodes.
     
-  termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: "Cloudmesh REST Service Example"
+    name: NIST BDRA Interface Subgroup Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: "Apache"
-host: "localhost:8080"
+    name: Apache
+host: localhost:8080
 schemes:
-  - "http"
+  - http
 consumes:
   - application/json
 produces:
@@ -33,21 +33,25 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
+      summary: Returns all virtual clusters
       description: Returns all virtual clusters
-      operationId: get_virtualcluster
+      operationId: cloudmesh.virtualcluster.get
       produces:
         - application/json
       responses:
         "200":
           description: profile info
           schema:
-            $ref: "#/definitions/VirtualCluster"
+            type: array
+            items:
+              $ref: "#/definitions/VirtualCluster"
     put:
       tags:
-        - virtualcluster
+        - Virtualcluster
+      summary: Create a new virtual cluster
       description: Create a new virtual cluster
-      operationId: add_virtualcluster
+      operationId: cloudmesh.virtualcluster.add
       parameters:
         - in: body
           name: virtualcluster
@@ -61,9 +65,10 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
+      summary: Returns a virtual cluster by its name
       description: Returns a virtual cluster by its name
-      operationId: getVirtualclusterByName
+      operationId: cloudmesh.virtualcluster.getByName
       parameters:
         - name: virtualclustername
           description: name of the virtual cluster
@@ -80,9 +85,10 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/manager:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
+      summary: Returns the manager node info of the specified virtual cluster
       description: Returns the manager node info of the specified virtual cluster
-      operationId: getVirtualclusterManagerByName
+      operationId: cloudmesh.virtualcluster.getManagerByName
       parameters:
         - name: virtualclustername
           description: name of the virtua cluster
@@ -99,9 +105,10 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
+      summary: Returns the specified node info of the specified virtualcluster
       description: Returns the specified node info of the specified virtualcluster
-      operationId: getVirtualclusterNodeByName
+      operationId: cloudmesh.virtualcluster.getNodeByName
       parameters:
         - name: virtualclustername
           description: name of the virtua cluster
@@ -146,7 +153,7 @@ definitions:
           $ref: "#/definitions/Node"
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 
   Node:
     type: object

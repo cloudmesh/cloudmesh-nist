@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-status: defined
-  x-date: 01-29-2019
+  x-date: 02-15-2019
   title: Replica
   description: |-
   
@@ -13,7 +13,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -27,19 +27,26 @@ produces:
 paths:
   /cloudmesh/replica:
     get:
+      tags:
+      - Replica
+      summary: Returns all replicas records
       description: Returns all replicas records
-      operationId: get_replica
+      operationId: cloudmesh.replica.get
       produces:
         - application/json
       responses:
         200:
           description: replica info
           schema:
-            $ref: '#/definitions/Replica'
+            type: array
+            items:
+              $ref: '#/definitions/Replica'
     put:
+      tags:
+      - Replica
       summary: Create a new replica
       description: Create a new replica      
-      operationId: add_replica
+      operationId: cloudmesh.replica.add
       parameters:
         - in: body
           name: replica
@@ -52,8 +59,11 @@ paths:
           description: Created
   '/cloudmesh/replica/{name}':
     get:
+      tags:
+      - Replica
+      summary: Returns a replica by name
       description: Returns a replica by name
-      operationId: get_replica_by_name
+      operationId: cloudmesh.replica.get_by_name
       parameters:
         - name: name
           description: name of the replica entry
@@ -88,6 +98,6 @@ definitions:
         type: integer
         description: The size of the file in byte
       timestamp:
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
         description: The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to.
 

@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-status: defined
-  x-date: 01-29-2019  
+  x-date: 02-15-2019
   title: Default
   description: |-
   
@@ -11,12 +11,12 @@ info:
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
     cloud name. In addition to the context we also specify the service
-    name as a service could have multiple context. To be ab;le to
+    name as a service could have multiple context. To be able to
     define the kind of service there is also a kind attribute.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -30,19 +30,26 @@ produces:
 paths:
   /cloudmesh/default:
     get:
+      tags:
+        - Default
+      summary: Returns all defaults
       description: Returns all defaults
-      operationId: get_default
+      operationId: cloudmesh.default.get
       produces:
         - application/json
       responses:
         '200':
           description: default info
           schema:
-            $ref: '#/definitions/Default'
+            type: array
+            items:
+              $ref: '#/definitions/Default'
     put:
+      tags:
+        - Default
       summary: Create a new default
-      description: Create a new default      
-      operationId: add_default
+      description: Create a new default
+      operationId: cloudmesh.default.add
       parameters:
         - in: body
           name: default
@@ -55,8 +62,11 @@ paths:
           description: Created
   '/cloudmesh/default/{name}':
     get:
+      tags:
+        - Default
+      summary: Returns a default
       description: Returns a default
-      operationId: get_default_by_name
+      operationId: cloudmesh.default.get_by_name
       parameters:
         - name: name
           in: path
@@ -92,4 +102,4 @@ definitions:
         description: The context of the service
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-status: defined
-  x-date: 01-29-2019  
+  x-date: 02-15-2019
   title: Database
   description: |-
   
@@ -11,7 +11,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -25,19 +25,26 @@ produces:
 paths:
   /cloudmesh/database:
     get:
+      tags:
+        - Database
+      summary: Returns all databases
       description: Returns all databases
-      operationId: get_database
+      operationId: cloudmesh.datbase.get
       produces:
         - application/json
       responses:
         200:
           description: database info
           schema:
-            $ref: '#/definitions/Database'
+            type: array
+            items:
+              $ref: '#/definitions/Database'
     put:
+      tags:
+        - Database
       summary: Create a new database
       description: Create a new database      
-      operationId: add_database
+      operationId: cloudmesh.database.put
       parameters:
         - in: body
           name: database
@@ -50,8 +57,11 @@ paths:
           description: Created
   '/cloudmesh/database/{name}':
     get:
+      tags:
+        - Database
+      summary: Returns a database by name
       description: Returns a database by name
-      operationId: get_database_by_name
+      operationId: cloudmesh.database.get_by_name
       parameters:
         - name: name
           description: name of the database
@@ -84,4 +94,4 @@ definitions:
         description: the kind of the database
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

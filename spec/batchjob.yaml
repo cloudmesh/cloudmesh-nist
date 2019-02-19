@@ -11,7 +11,7 @@ info:
     submission and scheduling of many jobs in parallel while
     attempting to utilize the resources through a resource scheduler
     more efficiently or simply in sequential order. Batch processing
-    Scarce resources managed by batch queues are highly optimized and
+    scarce resources managed by batch queues are highly optimized and
     in many cases, provide significant performance advantages over
     other services. Disadvantages include the limited and preinstalled
     software stacks that, in some cases, do not allow the latest
@@ -19,7 +19,7 @@ info:
 
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -33,18 +33,26 @@ produces:
 paths:
   /cloudmesh/batch/job:
     get:
+      tags:
+        - Batchjob
+      summary: Returns all batchjobs
       description: Returns all batchjobs
-      operationId: get_batchjob
+      operationId: cloudmesh.batchjob.get
       produces:
         - application/json
       responses:
         200:
           description: batchjob info
           schema:
-            $ref: '#/definitions/Batchjob'
+            type: array
+            items:
+              $ref: '#/definitions/Batchjob'
     put:
+      tags:
+        - Batchjob
       summary: Create a new batchjob
-      operationId: add_batchjob
+      description: Create a new batchjob
+      operationId: cloudmesh.batchjob.add
       parameters:
         - in: body
           name: batchjob
@@ -56,10 +64,14 @@ paths:
           description: Created
   '/cloudmesh/batch/job/{name}':
     get:
+      tags:
+        - Batchjob
+      summary: Returns a batchjob
       description: Returns a batchjob
-      operationId: get_batchjob_by_name
+      operationId: cloudmesh.batchjob.get_by_name
       parameters:
         - name: name
+          description: Get batchjob info by name
           in: path
           required: true
           type: string
@@ -113,4 +125,4 @@ definitions:
         description: the directory in which to execute the job
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

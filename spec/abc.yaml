@@ -7,12 +7,10 @@ info:
   
     A service to store abc, value, type information. All of them are
     stored as Strings.
-
-    * TODO: this is a demo of the to do line
     
   termsOfService: 'http://bin.io/terms/'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -26,18 +24,26 @@ produces:
 paths:
   /cloudmesh/abcstore/abcs:
     get:
+      tags:
+      - ABC
+      summary: Returns all general description abcs
       description: Returns all general description abcs
-      operationId: get_abc
+      operationId: cloudmesh.abc.get
       produces:
         - application/json
       responses:
         '200':
           description: abc info
           schema:
-            $ref: '#/definitions/Abc'
+            type: array
+            items:
+              $ref: '#/definitions/Abc'
     put:
+      tags:
+      - ABC
       summary: Create a new abc
-      operationId: add_abc
+      description: Create a new abc
+      operationId: cloudmesh.abc.put
       parameters:
         - in: body
           name: abc
@@ -49,10 +55,14 @@ paths:
           description: Created
   '/cloudmesh/abcstore/abc/{name}':
     get:
+      tags:
+      - ABC
+      summary: Returns a general description of a abc
       description: Returns a general description of a abc
-      operationId: get_abc_by_name
+      operationId: cloudmesh.abc.get_by_name
       parameters:
         - name: name
+          description: Get abc info by name
           in: path
           required: true
           type: string

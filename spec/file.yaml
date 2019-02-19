@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-status: defined
-  x-date: 01-29-2019  
+  x-date: 02-15-2019
   title: File
   description: |-
   
@@ -17,7 +17,7 @@ info:
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -31,19 +31,26 @@ produces:
 paths:
   /cloudmesh/file:
     get:
+      tags:
+      - File
+      summary: Returns all files
       description: Returns all files
-      operationId: get_file
+      operationId: cloudmesh.file.get
       produces:
         - application/json
       responses:
         '200':
           description: file info
           schema:
-            $ref: '#/definitions/File'
+            type: array
+            items:
+              $ref: '#/definitions/File'
     put:
+      tags:
+      - File
       summary: Create a new file
       description: Create a new file      
-      operationId: add_file
+      operationId: cloudmesh.file.put
       parameters:
         - in: body
           name: file
@@ -56,8 +63,11 @@ paths:
           description: Created
   '/cloudmesh/file/{name}':
     get:
+      tags:
+      - File
+      summary: Returns a file by name
       description: Returns a file by name
-      operationId: get_file_by_name
+      operationId: cloudmesh.file.get_by_name
       parameters:
         - name: name
           in: path
@@ -90,6 +100,6 @@ definitions:
         description: The size of the file in byte
       timestamp:
         description: timestamps associated with the file
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 
 

@@ -1,20 +1,17 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
-  x-date: 01-29-2019
+  version: 3.1.1
+  x-date: 02-15-2019
   x-status: defined
   title: Image
   description: |-
   
     Image defines an object representing a system image
-    in cloud that can be used to start virtual machines.
-
-    Image objects are typically returned by the driver for the 
-    cloud provider in response to the list_images function.
+    in a cloud that can be used to start virtual machines.
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -28,18 +25,26 @@ produces:
 paths:
   /cloudmesh/image:
     get:
+      tags:
+      - Image
+      summary: Returns all general description images
       description: Returns all general description images
-      operationId: get_image
+      operationId: cloudmesh.image.get
       produces:
         - application/json
       responses:
         '200':
           description: default image info
           schema:
-            $ref: '#/definitions/Image'
+            type: array
+            items:
+              $ref: '#/definitions/Image'
     put:
+      tags:
+      - Image
+      summary: Create a new image
       description: Create a new image
-      operationId: add_image
+      operationId: cloudmesh.image.put
       parameters:
         - in: body
           name: image
@@ -52,8 +57,11 @@ paths:
           description: Created
   '/cloudmesh/image/{name}':
     get:
+      tags:
+      - Image
+      summary: Returns general description of an image
       description: Returns general description of an image
-      operationId: get_image_by_name
+      operationId: cloudmesh.image.get_by_name
       parameters:
         - name: name
           description: name of the image
@@ -96,7 +104,7 @@ definitions:
         type: string
         description: The OS version of the image
       min_requirement:
-        $ref: '#/definition/Minimum_Requirements'
+        $ref: '#/definitions/Minimum_Requirements'
         description: minimum requirement to run the image
       status:
         type: string
@@ -113,8 +121,7 @@ definitions:
         description: Date and time of the last update on the image
       timestamp:
         description: timestamps associated with the file
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
-
+        $ref: '#/definitions/Timestamp'
   Minimum_Requirements:
     type: object
     properties:

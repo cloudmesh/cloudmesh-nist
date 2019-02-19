@@ -1,18 +1,18 @@
 ---
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-status: defined
-  x-date: 01-29-2019
+  x-date: 02-15-2019
   title: User
   description: |-
   
     Services need to specify which users have access to them. User
     information can be reused in other services. Users are useful to
-    create virtual organization the depend on user data.  Users can
-    be added, removed and listed. A group in the user can be used
+    create a virtual organization that depends on user data.  Users can
+    be added, removed, and listed. A group associated with the user can be used
     to augment users to be part of one or more groups.  A number of
-    roles can specify a specific role of a user.
+    roles can identify a specific role of a user.
     
     Terminology
 
@@ -37,22 +37,25 @@ paths:
   /cloudmesh/user:
     get:
       tags:
-        - user
-      description: Returns all users
-      operationId: get_user
+        - User
+      summary: Returns all users
+      description: Returns all users      
+      operationId: cloudmesh.user.get
       produces:
         - application/json
       responses:
         200:
           description: user information
           schema:
-            $ref: '#/definitions/User'
+            type: array
+            items:
+              $ref: '#/definitions/User'
     put:
       tags:
-        - user
+        - User
       summary: Create a new user
       description: Create a new user
-      operationId: add_user
+      operationId: cloudmesh.user.put
       parameters:
         - in: body
           name: user
@@ -62,34 +65,16 @@ paths:
       responses:
         201:
           description: Created
-  /cloudmesh/user/{username}:
+  /cloudmesh/user/{name}:
     get:
       tags:
-        - user
+        - User
+      summary: Returns the user of a user while looking it up with the username
       description: Returns the user of a user while looking it up with the username
-      operationId: getUserByUsername
+      operationId: cloudmesh.user.get_by_name
       parameters:
         - name: name
           description: name of the user
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        200:
-          description: user information
-          schema:
-            $ref: '#/definitions/User'
-  /cloudmesh/user/{uuid}:
-    get:
-      tags:
-        - user
-      description: Returns the user of a user while looking it up with the UUID
-      operationId: getUserByUuid
-      parameters:
-        - name: uuid
-          description: uuid of the user entry
           in: path
           required: true
           type: string
@@ -142,4 +127,4 @@ definitions:
         description: The email of the user
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

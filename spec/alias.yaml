@@ -1,22 +1,21 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-status: defined
   x-date: 29-01-2019
   title: Alias
   description: |-
 
-    A user may be interested to create an alias for a resource. An alias
-    is a name useful to the user. A user can deploy a service in which
-    such aliases are stored. The aliases could naturally be shared
-    with other users. A resource could have one or more aliases. 
-    An alias is useful, for example, when a resource may have a complex name but
-    a user may want to refer to the resource using a name that is
-    suitable for the user's application.
+    A user may desire to create an alias for a resource. An alias may be used to
+    more eaily remember a resource. A User can deploy a service in which such
+    aliasses are stored. The aliasses could naturally be shared with other
+    users. A resource could have one or more aliasses.  The reason for an alias
+    is that a resource may have a complex name but a user may want to refer to
+    the resource using a name that is suitable for the user's application.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -30,19 +29,26 @@ produces:
 paths:
   /cloudmesh/alias:
     get:
+      tags:
+        - Alias
+      summary: Returns all aliases
       description: Returns all aliases
-      operationId: get_alias
+      operationId: cloudmesh.alias.get
       produces:
         - application/json
       responses:
         '200':
           description: alias information
           schema:
-            $ref: '#/definitions/Alias'
+            type: array
+            items:
+              $ref: '#/definitions/Alias'
     put:
+      tags:
+        - Alias
       summary: Create a new alias
-      description: Create a new alias      
-      operationId: add_alias
+      description: Create a new alias
+      operationId: cloudmesh.alias.put
       parameters:
         - in: body
           name: alias
@@ -55,9 +61,11 @@ paths:
           description: Created
   '/cloudmesh/alias/{name}':
     get:
+      tags:
+        - Alias
       summary: Returns an alias by name
-      description: Returns an alias by name      
-      operationId: get_alias_by_name
+      description: Returns an alias by name
+      operationId: cloudmesh.alias.get_by_name
       parameters:
         - name: name
           in: path
@@ -84,4 +92,4 @@ definitions:
         description: The original object name
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
