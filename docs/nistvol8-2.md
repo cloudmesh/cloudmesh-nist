@@ -298,7 +298,7 @@ objectives:
 
 * Provides a common language for the various stakeholders;
 * Encourages adherence to common standards, specifications, and
-  patterns;
+   patterns;
 * Provides consistent methods for implementation of technology to
   solve similar problem sets;
 * Illustrates and improves understanding of the various Big Data
@@ -936,7 +936,7 @@ feedback.
 
 
 
-# Specification {#sec:specification}
+# Example Specification {#sec:specification}
 
 The specifications to this document are provided through an
 automated document creation process so that the actual OpenAPI
