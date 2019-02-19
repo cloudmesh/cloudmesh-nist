@@ -113,10 +113,6 @@ definitions:
       visibility:
         description: The visibility of the image                   
         type: string
-      last_update:
-        type: string
-        format: date-time
-        description: Date and time of the last update on the image
       timestamp:
         description: timestamps associated with the file
         $ref: '#/definitions/Timestamp'
