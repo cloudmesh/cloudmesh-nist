@@ -6,7 +6,7 @@ info:
   title: Timestamp
   description: |-
   
-    Data often need to be timestamped to indicate when it has been
+    Data often needs to be timestamped to indicate when it has been
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
     The date-time string is defined in
