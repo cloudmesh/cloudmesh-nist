@@ -30,10 +30,10 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/vcluster/vcluster:
+  /cloudmesh/vcluster:
     get:
       tags:
-        - vcluster
+        - Vcluster
       summary: Returns list of vclusters
       description: Returns list of vclusters
       operationId: cloudmesh.vcluster.get
@@ -43,10 +43,12 @@ paths:
         200:
           description: profile info
           schema:
-            $ref: '#/definitions/VCluster'
+            type: array
+            items:
+              $ref: '#/definitions/VCluster'
     put:
       tags:
-        - vcluster
+        - Vcluster
       summary: Create a new vcluster
       description: Create a new vcluster
       operationId: cloudmesh.vcluster.add
@@ -61,15 +63,17 @@ paths:
         201:
           description: Created
 
-  /cloudmesh/vcluster/vcluster/{vclustername}:
+  /cloudmesh/vcluster/{vclustername}:
     get:
       tags:
-        - vcluster
+        - Vcluster
       summary: Returns a vcluster by its name
       description: Returns a vcluster by its name
       operationId: cloudmesh.vcluster.getByName
       parameters:
         - name: vclustername
+          in: path
+          required: true
           description: name of the vcluster
           type: string
       produces:
@@ -80,18 +84,24 @@ paths:
           schema:
             $ref: '#/definitions/VCluster'
 
-  /cloudmesh/vcluster/vcluster/{vclustername}/{nodename}:
+  /cloudmesh/vcluster/{vclustername}/{nodename}:
     get:
       tags:
-        - vcluster
+        - Vcluster
       summary: Returns the specified node info of the specified vcluster
       description: Returns the specified node info of the specified vcluster
       operationId: cloudmesh.vcluster.getNodeByName
       parameters:
+        - name: vclustername
+          in: path
+          required: true
+          description: name of the virtualcluster
+          type: string
         - name: nodename
+          in: path
+          required: true
           description: name of the node
           type: string
-        -
       produces:
         - application/json
       responses:
@@ -100,21 +110,16 @@ paths:
           schema:
             $ref: '#/definitions/Node'
 
-  /cloudmesh/vcluster/vcluster/{jobname}:
+  /cloudmesh/vcluster/jobs/{jobname}:
     get:
       tags:
-        - vcluster
+        - Vcluster
       summary: Returns the specified job info submitted to a vcluster
       description: Returns the specified job info submitted to a vcluster
       operationId: cloudmesh.vcluster.getJobByName
       parameters:
-        - name: vclustername
-          description: name of the vcluster
-          in: path
-          required: true
-          type: string
-        - name: nodename
-          description: name of the name
+        - name: jobname
+          description: name of the job
           in: path
           required: true
           type: string
@@ -137,17 +142,18 @@ definitions:
         type: string
         description: A description of the vcluster
       runtime-config:
-        type: array
         description: The type of input and output of the jobs in the cluster
-        $ref: '#definitions/RuntimeConfig'
-      nodes:
         type: array
+        items:
+          $ref: '#/definitions/RuntimeConfig'
+      nodes:
         description: List of nodes of the vcluster
+        type: array
         items:
           $ref: '#/definitions/Node'
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 
   RuntimeConfig:
     type: object
@@ -175,7 +181,7 @@ definitions:
         type: array
         description: credential information for connecting to the node
         items:
-          $ref: '#definitions/Credentials'
+          $ref: '#/definitions/Credentials'
 
   Credentials:
     type: object
@@ -220,46 +226,46 @@ definitions:
         type: array
         description: type of the runtime config used for the job
         items:
-          $ref: '#definitions/RuntimeConfig'
+          $ref: '#/definitions/RuntimeConfig'
       script_path_remote:
         type: array
         description: script path information in remote vcluster
         items:
-          $ref: '#definitions/Path'
+          $ref: '#/definitions/Path'
       argfiles_path_remote:
         type: array
         description: argument files path information in remote vcluster
         items:
-          $ref: '#definitions/Path'
+          $ref: '#/definitions/Path'
       script_path_local:
         type: array
         description: script path information locally
         items:
-          $ref: '#definitions/Path'
+          $ref: '#/definitions/Path'
       argfiles_path_local:
         type: array
         description: argument files path information locally
         items:
-          $ref: '#definitions/Path'
+          $ref: '#/definitions/Path'
       results_folder:
         type: array
         description: local folder to copy the results
         items:
-          $ref: '#definitions/Path'
+          $ref: '#/definitions/Path'
       node_pids:
         type: array
         description: pid in each node
         items:
-          $ref: '#definitions/NodePid'
+          $ref: '#/definitions/NodePid'
 
-    NodePid:
-      type: object
-      properties:
-        node:
-          type: array
-          description: node information
-          items:
-            $ref: '#definitions/Node'
-        pid:
-          type: string
-          description: pid number in remote node
+  NodePid:
+    type: object
+    properties:
+      node:
+        type: array
+        description: node information
+        items:
+          $ref: '#/definitions/Node'
+      pid:
+        type: string
+        description: pid number in remote node
