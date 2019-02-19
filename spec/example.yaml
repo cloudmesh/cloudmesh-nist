@@ -26,6 +26,8 @@ produces:
 paths:
   /cloudmesh/keys:
     get:
+      tags:
+      - Example
       description: Returns all keys
       summary: Returns all keys
       tags:
@@ -39,6 +41,8 @@ paths:
           schema:
             $ref: '#/definitions/Key'
     put:
+      tags:
+      - Example
       summary: Create a new key
       tags:
         - Example
@@ -54,6 +58,8 @@ paths:
           description: Created
   '/cloudmesh/key/{name}':
     get:
+      tags:
+      - Example
       summary: Returns a key
       tags:
         - Example

@@ -27,6 +27,8 @@ produces:
 paths:
   /cloudmesh/replica:
     get:
+      tags:
+      - Replica
       description: Returns all replicas records
       operationId: cloudmesh.replica.get
       produces:
@@ -37,6 +39,8 @@ paths:
           schema:
             $ref: '#/definitions/Replica'
     put:
+      tags:
+      - Replica
       summary: Create a new replica
       description: Create a new replica      
       operationId: cloudmesh.replica.add
@@ -52,6 +56,8 @@ paths:
           description: Created
   '/cloudmesh/replica/{name}':
     get:
+      tags:
+      - Replica
       description: Returns a replica by name
       operationId: cloudmesh.replica.get_by_name
       parameters:

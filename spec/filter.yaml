@@ -26,6 +26,8 @@ produces:
 paths:
   /cloudmesh/filters:
     get:
+      tags:
+      - Filter
       description: Returns all filters
       operationId: cloudmesh.filter.get
       produces:
@@ -36,6 +38,8 @@ paths:
           schema:
             $ref: '#/definitions/Filter'
     put:
+      tags:
+      - Filter
       summary: Create a new filter
       operationId: cloudmesh.filter.put
       parameters:
@@ -49,6 +53,8 @@ paths:
           description: Created
   '/cloudmesh/filter/{name}':
     get:
+      tags:
+      - Filter
       description: Returns a filter
       operationId: cloudmesh.filter.get_by_name
       parameters:

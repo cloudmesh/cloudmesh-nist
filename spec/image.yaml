@@ -25,6 +25,8 @@ produces:
 paths:
   /cloudmesh/image:
     get:
+      tags:
+      - Image
       description: Returns all general description images
       operationId: cloudmesh.image.get
       produces:
@@ -35,6 +37,8 @@ paths:
           schema:
             $ref: '#/definitions/Image'
     put:
+      tags:
+      - Image
       description: Create a new image
       operationId: cloudmesh.image.put
       parameters:
@@ -49,6 +53,8 @@ paths:
           description: Created
   '/cloudmesh/image/{name}':
     get:
+      tags:
+      - Image
       description: Returns general description of an image
       operationId: cloudmesh.image.get_by_name
       parameters:

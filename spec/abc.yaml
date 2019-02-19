@@ -24,6 +24,8 @@ produces:
 paths:
   /cloudmesh/abcstore/abcs:
     get:
+      tags:
+      - ABC
       description: Returns all general description abcs
       operationId: cloudmesh.abc.get
       produces:
@@ -34,6 +36,8 @@ paths:
           schema:
             $ref: '#/definitions/Abc'
     put:
+      tags:
+      - ABC
       summary: Create a new abc
       operationId: cloudmesh.abc.put
       parameters:
@@ -47,6 +51,8 @@ paths:
           description: Created
   '/cloudmesh/abcstore/abc/{name}':
     get:
+      tags:
+      - ABC
       description: Returns a general description of a abc
       operationId: cloudmesh.abc.get_by_name
       parameters:

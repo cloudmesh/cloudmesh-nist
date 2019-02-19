@@ -27,6 +27,8 @@ produces:
 paths:
   /cloudmesh/hadoop:
     get:
+      tags:
+      - Hadoop
       summary: Returns all hadoops
       description: Returns all hadoops
       operationId: cloudmesh.hadoop.get
@@ -38,6 +40,8 @@ paths:
           schema:
             $ref: '#/definitions/Hadoop'
     put:
+      tags:
+      - Hadoop
       summary: Create a new hadoop
       description: Create a new hadoop
       operationId: cloudmesh.hadoop.put
@@ -52,6 +56,8 @@ paths:
           description: Created
   '/cloudmesh/hadoop/{name}':
     get:
+      tags:
+      - Hadoop
       summary: Returns a hadoop
       description: Returns a hadoop
       operationId: cloudmesh.hadoop.get_by_name

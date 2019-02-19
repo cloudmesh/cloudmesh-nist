@@ -26,7 +26,7 @@ paths:
   /vm:
     get:
       tags:
-        - vm
+        - VM
       summary: Returns the list of the vms
       description: Returns the list of the vms
       operationId: cloudmesh.vm.get

@@ -41,7 +41,7 @@ paths:
   /cloudmesh/virtualdirectory:
     get:
       tags:
-        - virtualdirectory
+        - Virtualdirectory
       summary: Returns all virtualdirectorys
       description: Returns all virtualdirectorys
       operationId: cloudmesh.virtualdirectory.get
@@ -60,7 +60,7 @@ paths:
             $ref: '#/definitions/UnauthorizedError'
     put:
       tags:
-        - virtualdirectory
+        - Virtualdirectory
       summary: Create a new virtualdirectory
       description: Create a new virtualdirectory
       operationId: cloudmesh.virtualdirectory.add
@@ -80,7 +80,7 @@ paths:
   '/cloudmesh/virtualdirectory/{name}':
     get:
       tags:
-        - virtualdirectory
+        - Virtualdirectory
       summary: Returns a virtualdirectory
       description: Returns a virtualdirectory by name
       operationId: cloudmesh.virtualdirectory.get_by_name

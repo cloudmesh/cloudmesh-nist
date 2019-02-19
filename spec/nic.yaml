@@ -4,8 +4,8 @@ info:
   title: nic
   description: |-
   
-    A service to store nic, value, type information. All of them are
-    stored as Strings.
+    A service to store Network Interface Controller (NIC) information. All of
+    them are stored as Strings.
 
     * TODO: assign and improve
     
@@ -25,6 +25,8 @@ produces:
 paths:
   /cloudmesh/nics:
     get:
+      tags:
+      - NIC
       description: Returns all nics
       operationId: cloudmesh.nic.get
       produces:
@@ -35,6 +37,8 @@ paths:
           schema:
             $ref: '#/definitions/Nic'
     put:
+      tags:
+      - NIC
       summary: Create a new nic
       operationId: cloudmesh.nic.put
       parameters:
@@ -48,6 +52,8 @@ paths:
           description: Created
   '/cloudmesh/nic/{name}':
     get:
+      tags:
+      - NIC
       description: Returns a nic
       operationId: cloudmesh.nic.get_by_name
       parameters:

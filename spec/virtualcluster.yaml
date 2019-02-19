@@ -33,7 +33,7 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
       summary: Returns all virtual clusters
       description: Returns all virtual clusters
       operationId: cloudmesh.virtualcluster.get
@@ -46,7 +46,7 @@ paths:
             $ref: "#/definitions/VirtualCluster"
     put:
       tags:
-        - virtualcluster
+        - Virtualcluster
       summary: Create a new virtual cluster
       description: Create a new virtual cluster
       operationId: cloudmesh.virtualcluster.add
@@ -63,7 +63,7 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
       summary: Returns a virtual cluster by its name
       description: Returns a virtual cluster by its name
       operationId: cloudmesh.virtualcluster.getByName
@@ -83,7 +83,7 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/manager:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
       summary: Returns the manager node info of the specified virtual cluster
       description: Returns the manager node info of the specified virtual cluster
       operationId: cloudmesh.virtualcluster.getManagerByName
@@ -103,7 +103,7 @@ paths:
   /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
     get:
       tags:
-        - virtualcluster
+        - Virtualcluster
       summary: Returns the specified node info of the specified virtualcluster
       description: Returns the specified node info of the specified virtualcluster
       operationId: cloudmesh.virtualcluster.getNodeByName

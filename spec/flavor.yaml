@@ -30,6 +30,8 @@ produces:
 paths:
   /cloudmesh/flavors:
     get:
+      tags:
+      - Flavor
       description: Returns all flavors
       operationId: cloudmesh.flavor.get
       produces:
@@ -40,6 +42,8 @@ paths:
           schema:
             $ref: '#/definitions/Flavor'
     put:
+      tags:
+      - Flavor
       description: Create a new flavor
       operationId: cloudmesh.flavor.add
       parameters:
@@ -54,6 +58,8 @@ paths:
           description: Created
   '/cloudmesh/flavor/{name}':
     get:
+      tags:
+      - Flavor
       description: Returns a flavor
       operationId: cloudmesh.flavor.get_by_name
       parameters:

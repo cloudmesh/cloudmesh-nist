@@ -31,6 +31,8 @@ produces:
 paths:
   /cloudmesh/file:
     get:
+      tags:
+      - File
       description: Returns all files
       operationId: cloudmesh.file.get
       produces:
@@ -41,6 +43,8 @@ paths:
           schema:
             $ref: '#/definitions/File'
     put:
+      tags:
+      - File
       summary: Create a new file
       description: Create a new file      
       operationId: cloudmesh.file.put
@@ -56,6 +60,8 @@ paths:
           description: Created
   '/cloudmesh/file/{name}':
     get:
+      tags:
+      - File
       description: Returns a file by name
       operationId: cloudmesh.file.get_by_name
       parameters:

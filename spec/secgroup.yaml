@@ -31,6 +31,8 @@ produces:
 paths:
   /cloudmesh/secgroup:
     get:
+      tags:
+      - Secgroup
       description: Returns all secgroups
       operationId: cloudmesh.secgroup.get
       produces:
@@ -41,6 +43,8 @@ paths:
           schema:
             $ref: "#/definitions/Secgroup"
     post:
+      tags:
+      - Secgroup
       summary: Create a new secgroup
       description: Create a new secgroup
       operationId: cloudmesh.secgroup.add
@@ -55,6 +59,8 @@ paths:
           description: Created
   "/cloudmesh/secgroup/{secgroup}":
     get:
+      tags:
+      - Secgroup
       description: Find a secgroup by name
       operationId: cloudmesh.secgroup.get_by_name
       parameters:
@@ -72,6 +78,8 @@ paths:
             $ref: "#/definitions/Secgroup"
   "/cloudmesh/secgroup/{secgroup}/rule":
     get:
+      tags:
+      - Secgroup
       description: Get the defiend security group rules for a specified secgroup
       operationId: cloudmesh.secgroup.get_rules_in_secgroup
       parameters:
@@ -90,6 +98,8 @@ paths:
             items:
               $ref: "#/definitions/SecGroupRule"
     post:
+      tags:
+      - Secgroup
       summary: Create a new rule in the specified security group
       description: Create a new rule in secgroup
       operationId: cloudmesh.secgroup.add_rule_in_secgroup
@@ -110,6 +120,8 @@ paths:
           description: Created
   "/cloudmesh/secgroup/{secgroup}/rule/{ruleid}":
     get:
+      tags:
+      - Secgroup
       summary: Get an existing rule from the specified security group
       description: Create a new rule in secgroup
       operationId: cloudmesh.secgroup.get_rule_by_id_in_secgroup
@@ -130,6 +142,8 @@ paths:
           schema:
               $ref: "#/definitions/SecGroupRule"
     delete:
+      tags:
+      - Secgroup
       summary: Delete an existing rule from the specified security group
       description: Create a new rule in secgroup
       operationId: cloudmesh.secgroup.delete_rule_by_id_in_secgroup

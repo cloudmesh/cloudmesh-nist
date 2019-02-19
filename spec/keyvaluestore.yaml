@@ -28,7 +28,7 @@ paths:
   /cloudmesh/keyvaluestore/key:
     get:
       tags:
-        - keyvaluestore
+        - Keyvaluestore
       description: Returns all keys with their values and types included
       operationId: cloudmesh.keyvaluestore.get
       produces:
@@ -40,7 +40,7 @@ paths:
             $ref: '#/definitions/Key'
     put:
       tags:
-        - keyvaluestore
+        - Keyvaluestore
       summary: Create a new key
       description: Create a new key      
       operationId: cloudmesh.keyvaluestore.put
@@ -57,7 +57,7 @@ paths:
   /cloudmesh/keyvaluestore/key/{name}:
     get:
       tags:
-        - keyvaluestore
+        - Keyvaluestore
       description: Returns the key with its detailed information by name of the key
       operationId: cloudmesh.keyvaluestore.get_by_name
       parameters:
