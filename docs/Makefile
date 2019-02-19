@@ -8,7 +8,7 @@ CSL=--csl=template/ieee-with-url.csl
 FORMAT=--toc --number-sections --standalone
 FONTS=--epub-embed-font='fonts/*.ttf'
 BIB=--metadata link-citations=true --bibliography references.bib
-#CSS=--css=template/epub.css
+CSS=--css=template/epub.css
 CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
 #TITLE=--metadata title="NIST BDRA Volume 8"

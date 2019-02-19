@@ -81,7 +81,7 @@ p { margin-left: 5%; }
 ul { margin-left: 5%; }
 ol { margin-left: 5%; }
 table {
-    margin-left: auto;
+    margin-left: 5%;
     margin-right: auto;
     margin-bottom: 24px;
     border-spacing: 0;
