@@ -66,7 +66,8 @@ The editors for these documents are:
 * Gregor von Laszewski (Indiana University)
 * Wo Chang (NIST).
 
-Laurie Aldape (Energetics Incorporated) Elizabeth Lennon (NIST) provided editorial assistance across all NBDIF volumes.
+Laurie Aldape (Energetics Incorporated) Elizabeth Lennon (NIST) provided
+editorial assistance across all NBDIF volumes.
 
 
 NIST SP 1500-9, Draft NIST Big Data Interoperability Framework: Volume
@@ -103,28 +104,29 @@ especially the following NBD-PWG members:
 **Executive Summary**
 
 
-The *NIST Big Data Interoperability Framework (NBDIF): Volume 8,
-Reference Architecture Interfaces* document was prepared by the NIST
-Big Data Public Working Group (NBD-PWG) Reference Architecture Subgroup to identify
-interfaces in support of the NIST Big Data Reference Architecture
-(NBDRA) The interfaces contain two different aspects:
+The *NIST Big Data Interoperability Framework (NBDIF): Volume 8, Reference
+Architecture Interfaces* document was prepared by the NIST Big Data Public
+Working Group (NBD-PWG) Reference Architecture Subgroup to identify interfaces
+in support of the NIST Big Data Reference Architecture (NBDRA) The interfaces
+contain two different aspects:
 
-* The definition of resources that are part of the NBDRA. These
-  resources are formulated in JavaScript Object Notation (JSON) format and can be easily integrated into a
-  REpresentational State Transfer (REST) framework or an object-based framework.
+* The definition of resources that are part of the NBDRA. These resources are
+  formulated in JavaScript Object Notation (JSON) format and can be easily
+  integrated into a REpresentational State Transfer (REST) framework or an
+  object-based framework. 
 * The definition of simple interface use cases that allow us to
   illustrate the usefulness of the resources defined.
 
-The resources were categorized in groups that are identified by the
-NBDRA set forward in the *NBDIF: Volume 6, Reference Architecture*
-document. While the *NBDIF: Volume 3, Use Cases and General
-Requirements* document provides *application-*oriented high-level use
-cases, the use cases defined in this document are subsets of them and
-focus on *interface* use cases. The interface use cases are not meant to
-be complete examples, but showcase why the resource has been defined.
-Hence, the interfaces use cases are only representative, and do not
-encompass the entire spectrum of Big Data usage. All the interfaces were
-openly discussed in the working group. Additions to the interfaces are welcome and the NBD-PWG is open to discuss any contributions.
+The resources were categorized in groups that are identified by the NBDRA set
+forward in the *NBDIF: Volume 6, Reference Architecture* document. While the
+*NBDIF: Volume 3, Use Cases and General Requirements* document provides
+*application-*oriented high-level use cases, the use cases defined in this
+document are subsets of them and focus on *interface* use cases. The interface
+use cases are not meant to be complete examples, but showcase why the resource
+has been defined. Hence, the interfaces use cases are only representative, and
+do not encompass the entire spectrum of Big Data usage. All the interfaces were
+openly discussed in the working group. Additions to the interfaces are welcome
+and the NBD-PWG is open to discuss any contributions.
 
 The NIST Big Data Interoperability Framework consists of nine volumes,
 each of which addresses a specific key topic, resulting from the work of
@@ -144,11 +146,11 @@ The NBDIF will be released in three versions, which correspond to the
 three development stages of the NBD-PWG work. The three stages aim to
 achieve the following with respect to the NBDRA.
 
-Stage 1. Identify the high-level Big Data reference architecture key components, which
-          are technology-, infrastructure-, and vendor-agnostic.
-Stage 2. Define general interfaces between the NBDRA components.
-Stage 3. Validate the NBDRA by building Big Data general applications through
-          the general interfaces.
+* Stage 1. Identify the high-level Big Data reference architecture key 
+  components, which are technology-, infrastructure-, and vendor-agnostic.
+* Stage 2. Define general interfaces between the NBDRA components.
+* Stage 3. Validate the NBDRA by building Big Data general applications through
+  the general interfaces.
 
 This document is the result of Stage 3 work of the NBD-PWG. Coordination of the
 group is conducted on the NBD-PWG web page
