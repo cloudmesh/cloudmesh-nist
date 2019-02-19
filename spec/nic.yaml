@@ -4,14 +4,14 @@ info:
   title: nic
   description: |-
   
-    A service to store nic, value, type information. All of them are
-    stored as Strings.
+    A service to store Network Interface Controller (NIC) information. All of
+    them are stored as Strings.
 
     * TODO: assign and improve
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -25,18 +25,26 @@ produces:
 paths:
   /cloudmesh/nics:
     get:
+      tags:
+      - NIC
+      summary: Returns all nics
       description: Returns all nics
-      operationId: get_nic
+      operationId: cloudmesh.nic.get
       produces:
         - application/json
       responses:
         '200':
           description: nic info
           schema:
-            $ref: '#/definitions/Nic'
+            type: array
+            items:
+              $ref: '#/definitions/Nic'
     put:
+      tags:
+      - NIC
       summary: Create a new nic
-      operationId: add_nic
+      description: Create a new nic
+      operationId: cloudmesh.nic.put
       parameters:
         - in: body
           name: nic
@@ -48,10 +56,14 @@ paths:
           description: Created
   '/cloudmesh/nic/{name}':
     get:
+      tags:
+      - NIC
+      summary: Returns a nic
       description: Returns a nic
-      operationId: get_nic_by_name
+      operationId: cloudmesh.nic.get_by_name
       parameters:
         - name: name
+          description: Get nic info by name
           in: path
           required: true
           type: string
@@ -96,5 +108,5 @@ definitions:
         description: the bandwidth in bps
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 

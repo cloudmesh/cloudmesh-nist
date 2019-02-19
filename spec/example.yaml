@@ -12,7 +12,7 @@ info:
     
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -26,18 +26,30 @@ produces:
 paths:
   /cloudmesh/keys:
     get:
+      tags:
+      - Example
+      summary: Returns all keys
       description: Returns all keys
-      operationId: get_key
+      tags:
+        - Example
+      operationId: cloudmesh.example.get
       produces:
         - application/json
       responses:
         200:
           description: key info
           schema:
-            $ref: '#/definitions/Key'
+            type: array
+            items:
+              $ref: '#/definitions/Key'
     put:
+      tags:
+      - Example
       summary: Create a new key
-      operationId: add_key
+      description: Create a new key
+      tags:
+        - Example
+      operationId: cloudmesh.example.put
       parameters:
         - in: body
           name: key
@@ -49,10 +61,14 @@ paths:
           description: Created
   '/cloudmesh/key/{name}':
     get:
+      tags:
+      - Example
+      summary: Returns a key
       description: Returns a key
-      operationId: get_key_by_name
+      operationId: cloudmesh.example.get_by_name
       parameters:
         - name: name
+          description: Get key info by name
           in: path
           required: true
           type: string
@@ -79,4 +95,4 @@ definitions:
         description: the key kind or type
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

@@ -12,7 +12,7 @@ info:
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -26,18 +26,26 @@ produces:
 paths:
   /cloudmesh/reservations:
     get:
+      tags:
+      - Reservation
+      summary: Returns all reservations
       description: Returns all reservations
-      operationId: get_reservation
+      operationId: cloudmesh.reservation.get
       produces:
         - application/json
       responses:
         '200':
           description: reservation info
           schema:
-            $ref: '#/definitions/Reservation'
+            type: array
+            items:
+              $ref: '#/definitions/Reservation'
     put:
+      tags:
+      - Reservation
       summary: Create a new reservation
-      operationId: add_reservation
+      description: Create a new reservation
+      operationId: cloudmesh.reservation.add
       parameters:
         - in: body
           name: reservation
@@ -49,10 +57,14 @@ paths:
           description: Created
   '/cloudmesh/reservation/{name}':
     get:
+      tags:
+      - Reservation
+      summary: Returns a reservation
       description: Returns a reservation
-      operationId: get_reservation_by_name
+      operationId: cloudmesh.reservation.get_by_name
       parameters:
         - name: name
+          description: Get reservation info by name
           in: path
           required: true
           type: string
@@ -87,4 +99,4 @@ definitions:
         description: the end time and date
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

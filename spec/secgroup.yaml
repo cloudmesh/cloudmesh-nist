@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-date: 02-12-2019
   x-status: defined
   title: secgroup
@@ -17,7 +17,7 @@ info:
    
   termsOfService: "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt"
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -31,19 +31,26 @@ produces:
 paths:
   /cloudmesh/secgroup:
     get:
+      tags:
+      - Secgroup
+      summary: Returns all secgroups
       description: Returns all secgroups
-      operationId: get_secgroup
+      operationId: cloudmesh.secgroup.get
       produces:
         - application/json
       responses:
         "200":
           description: secgroup info
           schema:
-            $ref: "#/definitions/Secgroup"
+            type: array
+            items:
+              $ref: "#/definitions/Secgroup"
     post:
+      tags:
+      - Secgroup
       summary: Create a new secgroup
       description: Create a new secgroup
-      operationId: add_secgroup
+      operationId: cloudmesh.secgroup.add
       parameters:
         - in: body
           name: secgroup
@@ -55,8 +62,11 @@ paths:
           description: Created
   "/cloudmesh/secgroup/{secgroup}":
     get:
+      tags:
+      - Secgroup
+      summary: Find a secgroup by name
       description: Find a secgroup by name
-      operationId: get_secgroup_by_name
+      operationId: cloudmesh.secgroup.get_by_name
       parameters:
         - name: secgroup
           description: name of the security group
@@ -72,8 +82,11 @@ paths:
             $ref: "#/definitions/Secgroup"
   "/cloudmesh/secgroup/{secgroup}/rule":
     get:
+      tags:
+      - Secgroup
+      summary: Get the defiend security group rules for a specified secgroup
       description: Get the defiend security group rules for a specified secgroup
-      operationId: get_rules_in_secgroup
+      operationId: cloudmesh.secgroup.get_rules_in_secgroup
       parameters:
         - name: secgroup
           description: name of the security group
@@ -90,9 +103,11 @@ paths:
             items:
               $ref: "#/definitions/SecGroupRule"
     post:
+      tags:
+      - Secgroup
       summary: Create a new rule in the specified security group
       description: Create a new rule in secgroup
-      operationId: add_rule_in_secgroup
+      operationId: cloudmesh.secgroup.add_rule_in_secgroup
       parameters:
         - in: path
           name: secgroup
@@ -110,9 +125,11 @@ paths:
           description: Created
   "/cloudmesh/secgroup/{secgroup}/rule/{ruleid}":
     get:
+      tags:
+      - Secgroup
       summary: Get an existing rule from the specified security group
       description: Create a new rule in secgroup
-      operationId: get_rule_by_id_in_secgroup
+      operationId: cloudmesh.secgroup.get_rule_by_id_in_secgroup
       parameters:
         - in: path
           name: secgroup
@@ -130,9 +147,11 @@ paths:
           schema:
               $ref: "#/definitions/SecGroupRule"
     delete:
+      tags:
+      - Secgroup
       summary: Delete an existing rule from the specified security group
       description: Create a new rule in secgroup
-      operationId: delete_rule_by_id_in_secgroup
+      operationId: cloudmesh.secgroup.delete_rule_by_id_in_secgroup
       parameters:
         - in: path
           name: secgroup
@@ -196,4 +215,4 @@ definitions:
         description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

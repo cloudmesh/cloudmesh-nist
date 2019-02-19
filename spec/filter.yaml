@@ -12,7 +12,7 @@ info:
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -26,18 +26,26 @@ produces:
 paths:
   /cloudmesh/filters:
     get:
+      tags:
+      - Filter
+      summary: Returns all filters
       description: Returns all filters
-      operationId: get_filter
+      operationId: cloudmesh.filter.get
       produces:
         - application/json
       responses:
         '200':
           description: filter info
           schema:
-            $ref: '#/definitions/Filter'
+            type: array
+            items:
+              $ref: '#/definitions/Filter'
     put:
+      tags:
+      - Filter
       summary: Create a new filter
-      operationId: add_filter
+      description: Create a new filter
+      operationId: cloudmesh.filter.put
       parameters:
         - in: body
           name: filter
@@ -49,10 +57,14 @@ paths:
           description: Created
   '/cloudmesh/filter/{name}':
     get:
+      tags:
+      - Filter
+      summary: Returns a filter
       description: Returns a filter
-      operationId: get_filter_by_name
+      operationId: cloudmesh.filter.get_by_name
       parameters:
         - name: name
+          description: Get filter info by name
           in: path
           required: true
           type: string
@@ -79,4 +91,4 @@ definitions:
         description: the filter kind or type
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

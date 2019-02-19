@@ -1,12 +1,12 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
+  version: 3.1.1
   x-status: defined
-  x-date: 01-29-2019
+  x-date: 02-15-2019
   title: Timestamp
   description: |-
   
-    Data often need to be timestamped to indicate when it has been
+    Data often needs to be timestamped to indicate when it has been
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
     The date-time string is defined in
@@ -14,7 +14,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -28,19 +28,26 @@ produces:
 paths:
   /cloudmesh/timestamp:
     get:
+      tags:
+        - Timestamp
+      summary: Returns all timestamps
       description: Returns all timestamps
-      operationId: get_timestamp
+      operationId: cloudmesh.timestamp.get
       produces:
         - application/json
       responses:
         '200':
           description: timestamp info
           schema:
-            $ref: '#/definitions/Timestamp'
+            type: array
+            items:
+              $ref: '#/definitions/Timestamp'
     put:
+      tags:
+        - Timestamp
       summary: Create a new timestamp
       description: Create a new timestamp
-      operationId: add_timestamp
+      operationId: cloudmesh.timestamp.put
       parameters:
         - in: body
           name: timestamp
@@ -52,8 +59,11 @@ paths:
           description: Created
   '/cloudmesh/timestamp/{name}':
     get:
+      tags:
+        - Timestamp
+      summary: Returns a timestamp
       description: Returns a timestamp
-      operationId: get_timestamp_by_name
+      operationId: cloudmesh.timestamp.get_by_name
       parameters:
         - name: name
           in: path

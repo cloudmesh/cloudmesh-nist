@@ -4,7 +4,7 @@ info:
   x-date: 02-08-2019
   title: Batch Job
   description: |-
-  
+
     Computing jobs based on a slurm script that can be run on a remote
     slurm cluster without end user interaction are called Slurm jobs.
     Slurm jobs are helpful to minimize the user's interaction with the
@@ -15,7 +15,7 @@ info:
 
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -30,7 +30,7 @@ paths:
   /cloudmesh/batch/job:
     get:
       description: Returns all slurmjobs
-      operationId: get_slurmjob
+      operationId: cloudmesh.slurmjob.get
       produces:
         - application/json
       responses:
@@ -40,7 +40,7 @@ paths:
             $ref: '#/definitions/Slurmjob'
     put:
       summary: Create a new slurmjob
-      operationId: add_slurmjob
+      operationId: cloudmesh.slurmjob.add
       parameters:
         - name: slurmjob
           in: body
@@ -53,7 +53,7 @@ paths:
   '/cloudmesh/slurm/job/{name}':
     get:
       description: Returns a slurmjob
-      operationId: get_slurmjob_by_name
+      operationId: cloudmesh.slurmjob.get_by_name
       parameters:
         - name: name
           in: path
@@ -110,7 +110,7 @@ definitions:
           $ref: '#/definitions/Path'
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 
   Path:
     type: object

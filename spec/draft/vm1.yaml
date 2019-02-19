@@ -30,7 +30,7 @@ paths:
       - vm
       summary: create a new ec2 vm instance
       description:
-      operationId: createVm
+      operationId: cloudmesh.createVm
       consumes:
       - application/json
       produces:
@@ -52,7 +52,7 @@ paths:
       tags:
       - vm
       description: Returns list on VMs
-      operationId: findByRegion
+      operationId: cloudmesh.findByRegion
       produces:
         - application/json
       parameters:
@@ -74,7 +74,7 @@ paths:
       - vm
       summary: Find vm by Name
       description: Returns a single vm
-      operationId: getVMByName
+      operationId: cloudmesh.getVMByName
       produces:
         - application/json
       parameters:
@@ -103,7 +103,7 @@ paths:
       - vm
       summary: start ec2 vm instance
       description:
-        operationId: startVm
+        operationId: cloudmesh.startVm
       consumes:
       - application/x-www-form-urlencoded
       produces:
@@ -130,7 +130,7 @@ paths:
       - vm
       summary: stop ec2 vm instance
       description:
-      operationId: stopVm
+      operationId: cloudmesh.stopVm
       consumes:
       - application/x-www-form-urlencoded
       produces:
@@ -157,7 +157,7 @@ paths:
       - vm
       summary: terminate ec2 vm instance
       description:
-      operationId: terminateVm
+      operationId: cloudmesh.terminateVm
       consumes:
       - application/x-www-form-urlencoded
       produces:
@@ -183,7 +183,7 @@ paths:
       tags:
       - s3
       description: Returns list of buckets
-      operationId: getBuckets
+      operationId: cloudmesh.getBuckets
       produces:
         - application/json
       responses:
@@ -198,7 +198,7 @@ paths:
       - s3
       summary: create bucket
       description: create s3 bucket
-      operationId: createBucket
+      operationId: cloudmesh.createBucket
       consumes:
       - application/x-www-form-urlencoded
       produces:
@@ -219,7 +219,7 @@ paths:
       - s3
       summary: delete bucket
       description: delete s3 bucket
-      operationId: deleteBucket
+      operationId: cloudmesh.deleteBucket
       consumes:
       - application/x-www-form-urlencoded
       produces:
@@ -241,7 +241,7 @@ paths:
       - s3
       summary: list bucket files
       description: list bucket files
-      operationId: getFiles
+      operationId: cloudmesh.getFiles
       produces:
         - application/json
       parameters:
@@ -267,7 +267,7 @@ paths:
       - s3
       summary: delete file
       description:
-      operationId: deleteFile
+      operationId: cloudmesh.deleteFile
       consumes:
       - application/x-www-form-urlencoded
       produces:
@@ -294,7 +294,7 @@ paths:
       - s3
       summary: upload file
       description:
-      operationId: uploadFile
+      operationId: cloudmesh.uploadFile
       consumes:
       - multipart/form-data
       produces:
@@ -321,7 +321,7 @@ paths:
       - s3
       summary: download file
       description: download file to download directory
-      operationId: downloadFile
+      operationId: cloudmesh.downloadFile
       consumes:
       - application/x-www-form-urlencoded
       produces:
@@ -347,7 +347,7 @@ paths:
       tags:
       - azvm
       description: Create a new VM
-      operationId: createvm
+      operationId: cloudmesh.createvm
       produces:
         - application/json
       parameters:
@@ -396,7 +396,7 @@ paths:
       tags:
       - azvm
       description: Deletes the virtual machine
-      operationId: deletevm
+      operationId: cloudmesh.deletevm
       produces:
         - application/json
       parameters:
@@ -420,7 +420,7 @@ paths:
       tags:
       - azvm
       description: Starts the virtual machine
-      operationId: startvm
+      operationId: cloudmesh.startvm
       produces:
         - application/json
       parameters:
@@ -444,7 +444,7 @@ paths:
       tags:
       - azvm
       description: Stops the virtual machine
-      operationId: stopvm
+      operationId: cloudmesh.stopvm
       produces:
         - application/json
       parameters:
@@ -468,7 +468,7 @@ paths:
       tags:
       - azvm
       description: List all the VM's
-      operationId: listvm
+      operationId: cloudmesh.listvm
       produces:
         - application/json
       responses:
@@ -483,7 +483,7 @@ paths:
       tags:
       - azstorage
       description: Create Azure Storage Vol
-      operationId: createVol
+      operationId: cloudmesh.createVol
       produces:
         - application/json
       parameters:
@@ -522,7 +522,7 @@ paths:
       tags:
       - azstorage
       description: Create Azure Storage Vol Snapshot
-      operationId: createVolSnap
+      operationId: cloudmesh.createVolSnap
       produces:
         - application/json
       parameters:
@@ -556,7 +556,7 @@ paths:
       tags:
       - azstorage
       description: Create Azure Storage Vol
-      operationId: deleteVol
+      operationId: cloudmesh.deleteVol
       produces:
         - application/json
       parameters:
@@ -580,7 +580,7 @@ paths:
       tags:
       - azstorage
       description: Create Azure Storage Vol
-      operationId: delVolsnap
+      operationId: cloudmesh.delVolsnap
       produces:
         - application/json
       parameters:
@@ -604,7 +604,7 @@ paths:
       tags:
       - googleVM
       description: Create a new VM
-      operationId: createGoogleVM
+      operationId: cloudmesh.createGoogleVM
       produces:
         - application/json
       parameters:
@@ -638,7 +638,7 @@ paths:
       tags:
       - googleVM
       description: Deletes the virtual machine
-      operationId: deleteGoogleVM
+      operationId: cloudmesh.deleteGoogleVM
       produces:
         - application/json
       parameters:
@@ -662,7 +662,7 @@ paths:
       tags:
       - googleVM
       description: Starts the virtual machine
-      operationId: startGoogleVM
+      operationId: cloudmesh.startGoogleVM
       produces:
         - application/json
       parameters:
@@ -681,7 +681,7 @@ paths:
       tags:
       - googleVM
       description: Stops the virtual machine
-      operationId: stopGoogleVM
+      operationId: cloudmesh.stopGoogleVM
       produces:
         - application/json
       parameters:
@@ -705,7 +705,7 @@ paths:
       tags:
       - googleVM
       description: List all the VM's
-      operationId: listGoogleVM
+      operationId: cloudmesh.listGoogleVM
       produces:
         - application/json
       responses:
@@ -720,7 +720,7 @@ paths:
       tags:
       - googleStorage
       description: Create google Storage Vol
-      operationId: createGoogleVol
+      operationId: cloudmesh.createGoogleVol
       produces:
         - application/json
       parameters:
@@ -749,7 +749,7 @@ paths:
       tags:
       - googleStorage
       description: Create google Storage Vol Snapshot
-      operationId: createGoogleVolSnap
+      operationId: cloudmesh.createGoogleVolSnap
       produces:
         - application/json
       parameters:
@@ -773,7 +773,7 @@ paths:
       tags:
       - googleStorage
       description: Delete google Storage Vol
-      operationId: deleteGoogleVol
+      operationId: cloudmesh.deleteGoogleVol
       produces:
         - application/json
       parameters:
@@ -792,7 +792,7 @@ paths:
       tags:
       - googleStorage
       description: Delete google Storage Vol snap
-      operationId: delGoogleVolsnap
+      operationId: cloudmesh.delGoogleVolsnap
       produces:
         - application/json
       parameters:

@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
-  version: 3.1.0
-  x-date: 01-29-2019
+  version: 3.1.1
+  x-date: 02-15-2019
   x-status: defined
   title: Flavor
   description: |-
@@ -15,7 +15,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -30,18 +30,26 @@ produces:
 paths:
   /cloudmesh/flavors:
     get:
+      tags:
+      - Flavor
+      summary: Returns all flavors
       description: Returns all flavors
-      operationId: get_flavor
+      operationId: cloudmesh.flavor.get
       produces:
         - application/json
       responses:
         '200':
           description: flavor info
           schema:
-            $ref: '#/definitions/Flavor'
+            type: array
+            items:
+              $ref: '#/definitions/Flavor'
     put:
+      tags:
+      - Flavor
+      summary: Create a new flavor
       description: Create a new flavor
-      operationId: add_flavor
+      operationId: cloudmesh.flavor.add
       parameters:
         - in: body
           name: flavor
@@ -54,8 +62,11 @@ paths:
           description: Created
   '/cloudmesh/flavor/{name}':
     get:
+      tags:
+      - Flavor
+      summary: Returns a flavor
       description: Returns a flavor
-      operationId: get_flavor_by_name
+      operationId: cloudmesh.flavor.get_by_name
       parameters:
         - name: name
           description: name of the flavor
@@ -109,4 +120,4 @@ definitions:
         description: name of the cloud this flavor is used
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
