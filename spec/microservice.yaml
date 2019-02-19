@@ -11,7 +11,7 @@ info:
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -25,18 +25,26 @@ produces:
 paths:
   /cloudmesh/microservices:
     get:
+      tags:
+      - Microservice
+      summary: Returns all microservices
       description: Returns all microservices
-      operationId: get_microservice
+      operationId: cloudmesh.microservice.get
       produces:
         - application/json
       responses:
         '200':
           description: microservice info
           schema:
-            $ref: '#/definitions/Microservice'
+            type: array
+            items:
+              $ref: '#/definitions/Microservice'
     put:
+      tags:
+      - Microservice
       summary: Create a new microservice
-      operationId: add_microservice
+      description: Create a new microservice
+      operationId: cloudmesh.microservice.put
       parameters:
         - in: body
           name: microservice
@@ -48,11 +56,15 @@ paths:
           description: Created
   '/cloudmesh/microservice/{name}':
     get:
+      tags:
+      - Microservice
+      summary: Returns a microservice
       description: Returns a microservice
-      operationId: get_microservice_by_name
+      operationId: cloudmesh.microservice.get_by_name
       parameters:
         - name: name
           in: path
+          description: Get microservie info by name
           required: true
           type: string
       produces:
@@ -78,4 +90,4 @@ definitions:
         description: the function the  microservice represents
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

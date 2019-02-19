@@ -14,7 +14,7 @@ info:
    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
@@ -28,18 +28,26 @@ produces:
 paths:
   /cloudmesh/streams:
     get:
+      tags:
+        - Stream
+      summary: Returns all streams
       description: Returns all streams
-      operationId: get_stream
+      operationId: cloudmesh.stream.get
       produces:
         - application/json
       responses:
         '200':
           description: stream info
           schema:
-            $ref: '#/definitions/Stream'
+            type: array
+            items:
+              $ref: '#/definitions/Stream'
     put:
+      tags:
+        - Stream
       summary: Create a new stream
-      operationId: add_stream
+      description: Create a new stream
+      operationId: cloudmesh.stream.add
       parameters:
         - in: body
           name: stream
@@ -51,10 +59,14 @@ paths:
           description: Created
   '/cloudmesh/stream/{name}':
     get:
+      tags:
+        - Stream
+      summary: Returns a stream
       description: Returns a stream
-      operationId: get_stream_by_name
+      operationId: cloudmesh.stream.get_by_name
       parameters:
         - name: name
+          description: Get stream info by name
           in: path
           required: true
           type: string
@@ -84,4 +96,4 @@ definitions:
         description: the limit of items send
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'

@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  version: "3.1.0"
+  version: "3.1.1"
   x-status: defined
-  x-date: 01-29-2019  
+  x-date: 02-15-2019
   title: Organization
   description: |-
   
@@ -18,7 +18,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
-    name: Cloudmesh RESTful Service Example
+    name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
@@ -32,19 +32,26 @@ produces:
 paths:
   /cloudmesh/organization:
     get:
-      description: Returns all users of the organization
-      operationId: get_organization
+      tags:
+        - Organization
+      summary: Returns all organizations
+      description: Returns all organizations
+      operationId: cloudmesh.organization.get
       produces:
         - application/json
       responses:
         '200':
           description: organization info
           schema:
-            $ref: '#/definitions/Organization'
+            type: array
+            items:
+              $ref: '#/definitions/Organization'
     put:
+      tags:
+        - Organization
       summary: Create a new organization
       description: Create a new organization
-      operationId: add_organization
+      operationId: cloudmesh.organization.put
       parameters:
         - in: body
           name: organization
@@ -56,9 +63,11 @@ paths:
           description: Created
   '/cloudmesh/organization/{name}':
     get:
-      summary: Returns the organization 
+      tags:
+        - Organization
+      summary: Returns the organization
       description: Returns the organization
-      operationId: get_organization_by_name
+      operationId: cloudmesh.organization.get_by_name
       parameters:
         - name: name
           description: The name of the organization
@@ -72,10 +81,53 @@ paths:
           description: organization info
           schema:
             $ref: '#/definitions/Organization'
-  /cloudmesh/organization/{username}:
+  /cloudmesh/organization/users:
     get:
-      description: Returns the spcific user of that organization. 
-      operationId: get_organization
+      tags:
+        - Organization
+      summary: Returns all users of the organization
+      description: Returns all users of the organization
+      operationId: cloudmesh.organization.get_user
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: organization info
+          schema:
+            $ref: '#/definitions/Organization'
+  /cloudmesh/organization/users/{username}:
+    get:
+      tags:
+        - Organization
+      summary: Returns the spcific user of that organization
+      description: Returns the spcific user of that organization
+      operationId: cloudmesh.organization.get_user_by_name
+      parameters:
+        - name: username
+          description: The username
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: organization info
+          schema:
+            $ref: '#/definitions/Organization'
+/cloudmesh/organization/users/{username}:
+    put:
+      tags:
+        - Organization
+      summary: Create a new user in the organization
+      description: Create a new user in the organization
+      operationId: cloudmesh.organization.put_user
+      parameters:
+        - name: username
+          description: The username
+          in: path
+          required: true
+          type: string
       produces:
         - application/json
       responses:
@@ -94,8 +146,8 @@ definitions:
         description: list of users
         type: array
         items: 
-          $ref: 'user.yaml#/definitions/Users'
+          $ref: '#/definitions/User'
       timestamp:
         description: timestamps associated with the organization
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
 

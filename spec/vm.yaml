@@ -2,15 +2,16 @@ swagger: "2.0"
 info:
   description: |-
 
-    A service to manage virtual machines
+    VM is a service to manage virtual machines.
     
-  version: 3.1.0
-  x-date: 01-29-2019
+  version: 3.1.1
+  x-date: 02-15-2019
   x-status: defined
   title: Virtual Machine
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
-    name: Gregor von Laszeewski
+    name: NIST BDRA Interface Subgroup Service Example
+    url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
 host: localhost:8080
@@ -25,9 +26,10 @@ paths:
   /vm:
     get:
       tags:
-        - vm
+        - VM
+      summary: Returns the list of the vms
       description: Returns the list of the vms
-      operationId: vm_list
+      operationId: cloudmesh.vm.get
       produces:
         - application/json
       parameters:
@@ -40,7 +42,9 @@ paths:
         '200':
           description: Listing the VMs
           schema:
-            $ref: '#/definitions/VM'
+            type: array
+            items:
+              $ref: '#/definitions/VM'
 definitions:
   VM:
     type: object
@@ -77,7 +81,7 @@ definitions:
         description: The meta data passed along to the VM
       timestamp:
         description: timestamps associated with the resource
-        $ref: 'timestamp.yaml#/definitions/Timestamp'
+        $ref: '#/definitions/Timestamp'
     example:
       image: image
       metadata: metadata
