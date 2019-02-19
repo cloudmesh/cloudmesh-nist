@@ -33,6 +33,7 @@ paths:
     get:
       tags:
       - File
+      summary: Returns all files
       description: Returns all files
       operationId: cloudmesh.file.get
       produces:
@@ -62,6 +63,7 @@ paths:
     get:
       tags:
       - File
+      summary: Returns a file by name
       description: Returns a file by name
       operationId: cloudmesh.file.get_by_name
       parameters:

@@ -28,8 +28,8 @@ paths:
     get:
       tags:
       - Example
-      description: Returns all keys
       summary: Returns all keys
+      description: Returns all keys
       tags:
         - Example
       operationId: cloudmesh.example.get
@@ -44,6 +44,7 @@ paths:
       tags:
       - Example
       summary: Create a new key
+      description: Create a new key
       tags:
         - Example
       operationId: cloudmesh.example.put
@@ -61,8 +62,6 @@ paths:
       tags:
       - Example
       summary: Returns a key
-      tags:
-        - Example
       description: Returns a key
       operationId: cloudmesh.example.get_by_name
       parameters:

@@ -67,8 +67,8 @@ paths:
     get:
       tags:
         - User
-      description: Returns the user of a user while looking it up with the username
       summary: Returns the user of a user while looking it up with the username
+      description: Returns the user of a user while looking it up with the username
       operationId: cloudmesh.user.get_by_name
       parameters:
         - name: name

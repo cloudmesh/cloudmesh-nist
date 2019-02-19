@@ -30,9 +30,10 @@ produces:
 paths:
   /cloudmesh/default:
     get:
-      description: Returns all defaults
       tags:
         - Default
+      summary: Returns all defaults
+      description: Returns all defaults
       operationId: cloudmesh.default.get
       produces:
         - application/json
@@ -42,9 +43,9 @@ paths:
           schema:
             $ref: '#/definitions/Default'
     put:
-      summary: Create a new default
       tags:
         - Default
+      summary: Create a new default
       description: Create a new default
       operationId: cloudmesh.default.add
       parameters:
@@ -59,9 +60,10 @@ paths:
           description: Created
   '/cloudmesh/default/{name}':
     get:
-      description: Returns a default
       tags:
         - Default
+      summary: Returns a default
+      description: Returns a default
       operationId: cloudmesh.default.get_by_name
       parameters:
         - name: name

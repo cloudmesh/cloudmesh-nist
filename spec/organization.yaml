@@ -32,6 +32,7 @@ paths:
     get:
       tags:
         - Organization
+      summary: Returns all organizations
       description: Returns all organizations
       operationId: cloudmesh.organization.get
       produces:
@@ -80,6 +81,7 @@ paths:
     get:
       tags:
         - Organization
+      summary: Returns all users of the organization
       description: Returns all users of the organization
       operationId: cloudmesh.organization.get_user
       produces:
@@ -93,7 +95,8 @@ paths:
     get:
       tags:
         - Organization
-      description: Returns the spcific user of that organization.
+      summary: Returns the spcific user of that organization
+      description: Returns the spcific user of that organization
       operationId: cloudmesh.organization.get_user_by_name
       parameters:
         - name: username
@@ -112,7 +115,8 @@ paths:
     put:
       tags:
         - Organization
-      description: Returns the spcific user of that organization.
+      summary: Create a new user in the organization
+      description: Create a new user in the organization
       operationId: cloudmesh.organization.put_user
       parameters:
         - name: username
