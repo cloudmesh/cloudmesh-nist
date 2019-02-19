@@ -9,10 +9,10 @@ info:
   
     Services need to specify which users have access to them. User
     information can be reused in other services. Users are useful to
-    create virtual organization the depend on user data.  Users can
-    be added, removed and listed. A group in the user can be used
+    create a virtual organization that depends on user data.  Users can
+    be added, removed, and listed. A group associated with the user can be used
     to augment users to be part of one or more groups.  A number of
-    roles can specify a specific role of a user.
+    roles can identify a specific role of a user.
     
     Terminology
 
