@@ -20,8 +20,7 @@ service:
 controller:
 	@#bin/cm-openapi controller generate $(OBJECTS) --target=service
 	@echo $(OBJECTS)
-	$(foreach svc, ${OBJECTS}, \
-		cp services/$(svc)/*controller.py service/;)
+	$(foreach svc, ${OBJECTS}, cp services/$(svc)/*controller.py service/;)
 
 mongo-start:
 	cd mongo; make -f Makefile mongo_start

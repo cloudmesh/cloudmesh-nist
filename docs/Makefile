@@ -19,35 +19,24 @@ SRC=../spec
 
 service_4= \
  alias\
+ batchjob\
+ containers\
  database\
  default\
+ deployment\
  file\
- flavor
+ filter\
+ flavor\
+ hadoop\
  image\
  keyvaluestore\
+ microservice\
+ nic\
  organization\
  publickeystore\
  replica\
- scheduler\
- timestamp\
- user \
- variables\
- virtualcluster\
- virtualdirectory\
- vm\
-
-other=\
- abc\
- batchjob\
- containers\
- deployment\
- example\
- filter\
- hadoop\
- microservice\
- nic\
- reservation-gvl\
  reservation\
+ scheduler\
  scheduler\
  secgroup\
  slurmjob\
@@ -55,10 +44,16 @@ other=\
  timestamp\
  user\
  variables\
+ variables\
  vcluster\
  virtualcluster\
  virtualdirectory\
- vm\
+ vm
+
+
+other=\
+ abc\
+ example\
  vm1
 
 

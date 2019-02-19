@@ -1209,18 +1209,127 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/vm.yaml}
 ```
 
+### Secgroup
 
+{include=./spec/secgroup.md}
+
+#### secgroup.yaml
+
+```{include=./spec/secgroup.yaml}
+```
+
+### Nic
+
+{include=./spec/nic.md}
+
+#### nic.yaml
+
+```{include=./spec/nic.yaml}
+```
 
 ## Compute Management - Containers
 
-This section is planned for a future version.
+### Containers
+
+{include=./spec/containers.md}
+
+#### containers.yaml
+
+```{include=./spec/containers.yaml}
+```
 
 ## Compute Management - Functions
 
-This section is planned for a future version.
 
-## Others
+### Microservice
 
-Please notify us if you would like to add other specifications.
+{include=./spec/microservice.md}
+
+#### microservice.yaml
+
+```{include=./spec/microservice.yaml}
+```
+
+## Batch Processing
+
+### Batchjob
+
+{include=./spec/vm.md}
+
+#### batchjob.yaml
+
+```{include=./spec/batchjob.yaml}
+```
+
+### Slurmjob
+
+:o: compare with batchjob
+
+{include=./spec/vm.md}
+
+#### slurmjob.yaml
+
+```{include=./spec/slurmjob.yaml}
+```
 
 
+## Reservation
+
+### Reservation
+
+{include=./spec/reservation.md}
+
+#### reservation.yaml
+
+```{include=./spec/reservation.yaml}
+```
+
+
+
+
+## Data Streams
+
+### Stream
+
+{include=./spec/stream.md}
+
+#### stream.yaml
+
+```{include=./spec/stream.yaml}
+```
+
+### Filter
+
+{include=./spec/filter.md}
+
+#### filter.yaml
+
+```{include=./spec/filter.yaml}
+```
+
+
+## MapReduce
+
+
+### Hadoop
+
+:o: rename to mapreduce
+
+{include=./spec/hadoop.md}
+
+#### hadoop.yaml
+
+```{include=./spec/hadoop.yaml}
+```
+
+## Deployment
+
+
+### Deployment
+
+{include=./spec/deployment.md}
+
+#### deployment.yaml
+
+```{include=./spec/deployment.yaml}
+```
