@@ -27,6 +27,7 @@ paths:
     get:
       tags:
       - NIC
+      summary: Returns all nics
       description: Returns all nics
       operationId: cloudmesh.nic.get
       produces:
@@ -40,6 +41,7 @@ paths:
       tags:
       - NIC
       summary: Create a new nic
+      description: Create a new nic
       operationId: cloudmesh.nic.put
       parameters:
         - in: body
@@ -54,6 +56,7 @@ paths:
     get:
       tags:
       - NIC
+      summary: Returns a nic
       description: Returns a nic
       operationId: cloudmesh.nic.get_by_name
       parameters:

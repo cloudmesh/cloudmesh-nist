@@ -25,9 +25,10 @@ produces:
 paths:
   /cloudmesh/database:
     get:
-      description: Returns all databases
       tags:
         - Database
+      summary: Returns all databases
+      description: Returns all databases
       operationId: cloudmesh.datbase.get
       produces:
         - application/json
@@ -37,9 +38,9 @@ paths:
           schema:
             $ref: '#/definitions/Database'
     put:
-      summary: Create a new database
       tags:
         - Database
+      summary: Create a new database
       description: Create a new database      
       operationId: cloudmesh.database.put
       parameters:
@@ -54,9 +55,10 @@ paths:
           description: Created
   '/cloudmesh/database/{name}':
     get:
-      description: Returns a database by name
       tags:
         - Database
+      summary: Returns a database by name
+      description: Returns a database by name
       operationId: cloudmesh.database.get_by_name
       parameters:
         - name: name

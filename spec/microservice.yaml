@@ -27,6 +27,7 @@ paths:
     get:
       tags:
       - Microservice
+      summary: Returns all microservices
       description: Returns all microservices
       operationId: cloudmesh.microservice.get
       produces:
@@ -40,6 +41,7 @@ paths:
       tags:
       - Microservice
       summary: Create a new microservice
+      description: Create a new microservice
       operationId: cloudmesh.microservice.put
       parameters:
         - in: body
@@ -54,6 +56,7 @@ paths:
     get:
       tags:
       - Microservice
+      summary: Returns a microservice
       description: Returns a microservice
       operationId: cloudmesh.microservice.get_by_name
       parameters:

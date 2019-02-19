@@ -28,6 +28,7 @@ paths:
     get:
       tags:
       - Reservation
+      summary: Returns all reservations
       description: Returns all reservations
       operationId: cloudmesh.reservation.get
       produces:
@@ -41,6 +42,7 @@ paths:
       tags:
       - Reservation
       summary: Create a new reservation
+      description: Create a new reservation
       operationId: cloudmesh.reservation.add
       parameters:
         - in: body
@@ -55,6 +57,7 @@ paths:
     get:
       tags:
       - Reservation
+      summary: Returns a reservation
       description: Returns a reservation
       operationId: cloudmesh.reservation.get_by_name
       parameters:

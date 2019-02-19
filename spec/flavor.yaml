@@ -32,6 +32,7 @@ paths:
     get:
       tags:
       - Flavor
+      summary: Returns all flavors
       description: Returns all flavors
       operationId: cloudmesh.flavor.get
       produces:
@@ -44,6 +45,7 @@ paths:
     put:
       tags:
       - Flavor
+      summary: Create a new flavor
       description: Create a new flavor
       operationId: cloudmesh.flavor.add
       parameters:
@@ -60,6 +62,7 @@ paths:
     get:
       tags:
       - Flavor
+      summary: Returns a flavor
       description: Returns a flavor
       operationId: cloudmesh.flavor.get_by_name
       parameters:

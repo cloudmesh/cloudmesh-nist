@@ -33,6 +33,7 @@ paths:
     get:
       tags:
       - Secgroup
+      summary: Returns all secgroups
       description: Returns all secgroups
       operationId: cloudmesh.secgroup.get
       produces:
@@ -61,6 +62,7 @@ paths:
     get:
       tags:
       - Secgroup
+      summary: Find a secgroup by name
       description: Find a secgroup by name
       operationId: cloudmesh.secgroup.get_by_name
       parameters:
@@ -80,6 +82,7 @@ paths:
     get:
       tags:
       - Secgroup
+      summary: Get the defiend security group rules for a specified secgroup
       description: Get the defiend security group rules for a specified secgroup
       operationId: cloudmesh.secgroup.get_rules_in_secgroup
       parameters:

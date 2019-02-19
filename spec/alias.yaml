@@ -31,6 +31,7 @@ paths:
     get:
       tags:
         - Alias
+      summary: Returns all aliases
       description: Returns all aliases
       operationId: cloudmesh.alias.get
       produces:
@@ -41,9 +42,9 @@ paths:
           schema:
             $ref: '#/definitions/Alias'
     put:
-      summary: Create a new alias
       tags:
         - Alias
+      summary: Create a new alias
       description: Create a new alias
       operationId: cloudmesh.alias.put
       parameters:
@@ -58,9 +59,9 @@ paths:
           description: Created
   '/cloudmesh/alias/{name}':
     get:
-      summary: Returns an alias by name
       tags:
         - Alias
+      summary: Returns an alias by name
       description: Returns an alias by name
       operationId: cloudmesh.alias.get_by_name
       parameters:

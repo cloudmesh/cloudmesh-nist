@@ -26,6 +26,7 @@ paths:
     get:
       tags:
       - ABC
+      summary: Returns all general description abcs
       description: Returns all general description abcs
       operationId: cloudmesh.abc.get
       produces:
@@ -39,6 +40,7 @@ paths:
       tags:
       - ABC
       summary: Create a new abc
+      description: Create a new abc
       operationId: cloudmesh.abc.put
       parameters:
         - in: body
@@ -53,6 +55,7 @@ paths:
     get:
       tags:
       - ABC
+      summary: Returns a general description of a abc
       description: Returns a general description of a abc
       operationId: cloudmesh.abc.get_by_name
       parameters:

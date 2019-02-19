@@ -27,6 +27,7 @@ paths:
     get:
       tags:
       - Scheduler
+      summary: Returns all schedulers
       description: Returns all schedulers
       operationId: cloudmesh.scheduler.get
       produces:
@@ -39,6 +40,7 @@ paths:
     put:
       tags:
       - Scheduler
+      summary: Create a new scheduler
       description: Create a new scheduler
       operationId: cloudmesh.scheduler.add
       parameters:
@@ -54,6 +56,7 @@ paths:
     get:
       tags:
       - Scheduler
+      summary: Returns a scheduler
       description: Returns a scheduler
       operationId: cloudmesh.scheduler.get_by_name
       parameters:

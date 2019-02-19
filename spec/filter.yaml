@@ -28,6 +28,7 @@ paths:
     get:
       tags:
       - Filter
+      summary: Returns all filters
       description: Returns all filters
       operationId: cloudmesh.filter.get
       produces:
@@ -41,6 +42,7 @@ paths:
       tags:
       - Filter
       summary: Create a new filter
+      description: Create a new filter
       operationId: cloudmesh.filter.put
       parameters:
         - in: body
@@ -55,6 +57,7 @@ paths:
     get:
       tags:
       - Filter
+      summary: Returns a filter
       description: Returns a filter
       operationId: cloudmesh.filter.get_by_name
       parameters:

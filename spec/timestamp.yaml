@@ -30,8 +30,8 @@ paths:
     get:
       tags:
         - Timestamp
-      description: Returns all timestamps
       summary: Returns all timestamps
+      description: Returns all timestamps
       operationId: cloudmesh.timestamp.get
       produces:
         - application/json

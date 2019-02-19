@@ -27,6 +27,7 @@ paths:
     get:
       tags:
       - Image
+      summary: Returns all general description images
       description: Returns all general description images
       operationId: cloudmesh.image.get
       produces:
@@ -39,6 +40,7 @@ paths:
     put:
       tags:
       - Image
+      summary: Create a new image
       description: Create a new image
       operationId: cloudmesh.image.put
       parameters:
@@ -55,6 +57,7 @@ paths:
     get:
       tags:
       - Image
+      summary: Returns general description of an image
       description: Returns general description of an image
       operationId: cloudmesh.image.get_by_name
       parameters:

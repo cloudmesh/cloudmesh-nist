@@ -29,6 +29,7 @@ paths:
     get:
       tags:
       - Replica
+      summary: Returns all replicas records
       description: Returns all replicas records
       operationId: cloudmesh.replica.get
       produces:
@@ -58,6 +59,7 @@ paths:
     get:
       tags:
       - Replica
+      summary: Returns a replica by name
       description: Returns a replica by name
       operationId: cloudmesh.replica.get_by_name
       parameters:

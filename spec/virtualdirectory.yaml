@@ -81,7 +81,7 @@ paths:
     get:
       tags:
         - Virtualdirectory
-      summary: Returns a virtualdirectory
+      summary: Returns a virtualdirectory by name
       description: Returns a virtualdirectory by name
       operationId: cloudmesh.virtualdirectory.get_by_name
       parameters:
