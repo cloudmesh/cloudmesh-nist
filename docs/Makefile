@@ -3,19 +3,20 @@
 VERSION="Version 3.0.3"  
 FILE=nistvol8-2
 
-MARKDOWN-OPTIONS=--verbose  -V curdate="$(date)" --template=template.epub $(MERMAID)   --filter pandoc-codeblock-include --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml 
 CSL=--csl=template/ieee-with-url.csl
 FORMAT=--toc --number-sections --standalone
 FONTS=--epub-embed-font='fonts/*.ttf'
 BIB=--metadata link-citations=true --bibliography references.bib
-#CSS=--css=template/epub.css
+CSS=--css=template/epub.css
 CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
 #TITLE=--metadata title="NIST BDRA Volume 8"
 LATEX=-N --template=./template.latex -V version=$(VERSION)
 DEST=dest
 SRC=../spec
+MARKDOWN-OPTIONS=--verbose  -V curdate="$(date)"   --filter pandoc-codeblock-include --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml
 
+# --template=template.epub $(MERMAID) 
 
 service_4= \
  alias\
