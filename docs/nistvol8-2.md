@@ -1,6 +1,6 @@
 
 
-# Abstract
+**Abstract**
 
 This document summarizes interfaces that are instrumental for the
 interaction with Clouds, Containers, and High Performance Computing
@@ -22,14 +22,14 @@ Volume 8, uses the work performed by the NBD-PWG to identify objects
 instrumental for the NIST Big Data Reference Architecture (NBDRA) which
 is introduced in the NBDIF: Volume 6, *Reference Architecture*.
 
-# Keywords
+**Keywords**
 
 Adoption; barriers; implementation; interfaces; market maturity;
 organizational maturity; project maturity; system modernization.
 
 ---
 
-# Acknowledgements
+**Acknowledgements**
 
 This document reflects the contributions and discussions by the
 membership of the NBD-PWG, cochaired by Wo Chang (NIST ITL), Bob
