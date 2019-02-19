@@ -41,7 +41,9 @@ paths:
         '200':
           description: organization info
           schema:
-            $ref: '#/definitions/Organization'
+            type: array
+            items:
+              $ref: '#/definitions/Organization'
     put:
       tags:
         - Organization

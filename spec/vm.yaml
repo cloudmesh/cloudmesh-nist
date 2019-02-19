@@ -42,7 +42,9 @@ paths:
         '200':
           description: Listing the VMs
           schema:
-            $ref: '#/definitions/VM'
+            type: array
+            items:
+              $ref: '#/definitions/VM'
 definitions:
   VM:
     type: object

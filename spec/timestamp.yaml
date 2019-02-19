@@ -39,7 +39,9 @@ paths:
         '200':
           description: timestamp info
           schema:
-            $ref: '#/definitions/Timestamp'
+            type: array
+            items:
+              $ref: '#/definitions/Timestamp'
     put:
       tags:
         - Timestamp

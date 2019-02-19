@@ -36,7 +36,9 @@ paths:
         '200':
           description: scheduler info
           schema:
-            $ref: '#/definitions/Scheduler'
+            type: array
+            items:
+              $ref: '#/definitions/Scheduler'
     put:
       tags:
       - Scheduler

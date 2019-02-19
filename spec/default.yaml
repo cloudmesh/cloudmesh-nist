@@ -41,7 +41,9 @@ paths:
         '200':
           description: default info
           schema:
-            $ref: '#/definitions/Default'
+            type: array
+            items:
+              $ref: '#/definitions/Default'
     put:
       tags:
         - Default

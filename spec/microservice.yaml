@@ -36,7 +36,9 @@ paths:
         '200':
           description: microservice info
           schema:
-            $ref: '#/definitions/Microservice'
+            type: array
+            items:
+              $ref: '#/definitions/Microservice'
     put:
       tags:
       - Microservice

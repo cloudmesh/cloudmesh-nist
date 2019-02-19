@@ -43,7 +43,9 @@ paths:
         "200":
           description: profile info
           schema:
-            $ref: "#/definitions/VirtualCluster"
+            type: array
+            items:
+              $ref: "#/definitions/VirtualCluster"
     put:
       tags:
         - Virtualcluster

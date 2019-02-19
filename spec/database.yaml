@@ -36,7 +36,9 @@ paths:
         200:
           description: database info
           schema:
-            $ref: '#/definitions/Database'
+            type: array
+            items:
+              $ref: '#/definitions/Database'
     put:
       tags:
         - Database

@@ -44,7 +44,9 @@ paths:
         200:
           description: batchjob info
           schema:
-            $ref: '#/definitions/Batchjob'
+            type: array
+            items:
+              $ref: '#/definitions/Batchjob'
     put:
       tags:
         - Batchjob

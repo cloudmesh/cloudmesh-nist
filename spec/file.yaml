@@ -42,7 +42,9 @@ paths:
         '200':
           description: file info
           schema:
-            $ref: '#/definitions/File'
+            type: array
+            items:
+              $ref: '#/definitions/File'
     put:
       tags:
       - File

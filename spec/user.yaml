@@ -47,7 +47,9 @@ paths:
         200:
           description: user information
           schema:
-            $ref: '#/definitions/User'
+            type: array
+            items:
+              $ref: '#/definitions/User'
     put:
       tags:
         - User
