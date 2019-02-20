@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  version: "3.1.1"
+  x-status: defined
+  x-date: 02-15-2019
+  title: Cloudmesh NIST BDRA Specification API Example
+  description:
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: NIST BDRA Interface Subgroup
+  license:
+    name: Apache
+host: localhost:8080
+externalDocs:
+  description: more infortion abut the NIST BDRA
+  url: https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.epub?raw=true
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  httpbasic:
+    type: basic
+  apikey:
+    type: apiKey
+    in: query
+    name: api_key
+  apisecret:
+    type: apiKey
+    in: query
+    name: api_secret
+definitions:
+  account:
+    type: object
+    description: the batchjob
+    properties:
+      name:
+        type: string
+        description: name of account
+      user:
+        description: The username the charge is made for
+        $ref: '#/definitions/User'
+      organization:
+         description: the organization this chargi is made for
+         $ref: '#/definitions/Organization'
+      group:
+        type: string
+        description: a name of a group this count belongs to
+      purpose:
+        type: string
+        description: the purpose of the account
+      charge:
+        type: float
+        description: The current chare of the account
+      unit:
+         type: string
+         description: the unit in which the account is charged and the charge
+                      value is stored

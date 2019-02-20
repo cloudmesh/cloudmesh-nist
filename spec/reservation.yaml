@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: 3.0.2
   x-date: 10-30-2018
-  title: reservation
+  title: Reservation
   description: |-
   
     Some services may consume a considerable amount of resources,

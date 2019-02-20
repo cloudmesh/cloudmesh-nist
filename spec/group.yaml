@@ -1,0 +1,102 @@
+swagger: "2.0"
+info:
+  version: 3.0.0
+  x-status: defined
+  x-date: 02-15-2019
+  title: Default
+  description: |-
+  
+    A group  is a service to mange associate a number of users so they can be
+    represented as a group.
+
+    TODO: add users  to a named group
+
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/group:
+    get:
+      tags:
+        - Group
+      summary: Returns all groups
+      description: Returns all groups
+      operationId: cloudmesh.group.get
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: group info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Group'
+    put:
+      tags:
+        - Group
+      summary: Create a new group
+      description: Create a new group
+      operationId: cloudmesh.group.add
+      parameters:
+        - in: body
+          name: group
+          required: true
+          description: The new group to create
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '201':
+          description: Created
+  '/cloudmesh/group/{name}':
+    get:
+      tags:
+        - Group
+      summary: Returns a group
+      description: Returns a group
+      operationId: cloudmesh.group.get_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the group
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: group info
+          schema:
+            $ref: '#/definitions/Group'
+definitions:
+  Group:
+    type: object
+    description: the groups
+    properties:
+      name:
+        type: string
+        description: The name of the group
+      value:
+        type: string
+        description: The type of the group
+      kind:
+        type: string
+        description: The value of the group
+      service:
+        type: string
+        description: The name of the service
+      context:
+        type: string
+        description: The context of the service
+      timestamp:
+        description: timestamps associated with the resource
+        $ref: '#/definitions/Timestamp'

@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   version: 3.0.1
-  title: microservice
+  title: Microservice
   description: |-
   
     As part of microservices, a function with parameters that can be
