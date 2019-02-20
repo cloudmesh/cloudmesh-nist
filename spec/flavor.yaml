@@ -10,7 +10,7 @@ info:
     node. This information includes name, id, label, ram size,
     swap size, disk space, availability of ephemeral disk, available
     bandwidth, price value, cloud name, and date and time of last update.
-    Flavors and the correponding information are essential to size a
+    Flavors and the corresponding information are essential to size a
     virtual cluster appropriately.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
@@ -96,7 +96,7 @@ definitions:
         description: a label that a user can set for this flavor
       description:
           type: string
-          description: A description for the commpute node
+          description: A description for the compute node
       ram:
         type: integer
         description: number of bytes used for the image in RAM
@@ -108,7 +108,7 @@ definitions:
         description: number of bytes used for the disk
       ephemeral_disk:
         type: boolean
-        description: specifies wether the flavor features an ephemeral disk
+        description: specifies whether the flavor features an ephemeral disk
       bandwidth:
         type: integer
         description: bandwidth of the node
