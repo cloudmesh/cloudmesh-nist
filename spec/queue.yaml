@@ -1,0 +1,105 @@
+swagger: "2.0"
+info:
+  version: 3.0.2
+  x-date: 02-20-2018
+  title: Queue
+  description: |-
+  
+    Queue containing the submitted jobs. 
+
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /cloudmesh/queue/job:
+    get:
+      tags:
+        - Queue
+      summary: Returns all queues
+      description: Returns all queues
+      operationId: cloudmesh.queue.get
+      produces:
+        - application/json
+      responses:
+        200:
+          description: queue info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Queue'
+    put:
+      tags:
+        - Queue
+      summary: Create a new queue
+      description: Create a new queue
+      operationId: cloudmesh.queue.add
+      parameters:
+        - in: body
+          name: queue
+          description: The new of the queue to create
+          schema:
+            $ref: '#/definitions/Queue'
+      responses:
+        201:
+          description: Created
+  '/cloudmesh/queue/job/{name}':
+    get:
+      tags:
+        - Queue
+      summary: Returns a queue
+      description: Returns the queue by its name
+      operationId: cloudmesh.queue.get_by_name
+      parameters:
+        - name: name
+          description: Get queue info by name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: queue info
+          schema:
+            $ref: '#/definitions/Queue'
+definitions:
+  Queue:
+    type: object
+    description: the queue
+    properties:
+      name:
+        type: string
+        description: name of the queue
+      policy: 
+        type: string
+        description: policy of the queue, e.g. FIFO, RR, FILO, etc.
+      active: 
+        type: boolean
+        description: activity indicator of the queue, meaning whether the queue is active or not 
+      status:
+        type: string
+        description: space status of the queue, e.g. FULL, EMPTY
+      kind: 
+        type: string 
+        description: kind of the queue
+      charge: 
+        type: integer
+        minimum: 0 
+        description: charge of the queue
+      unit: 
+        type: string 
+        description: the unit in which the charge value is stored
+      timestamp:
+        description: timestamps associated with the resource
+        $ref: '#/definitions/Timestamp'
+
