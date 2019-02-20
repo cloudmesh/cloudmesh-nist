@@ -91,11 +91,29 @@ definitions:
         type: string
         description: name of the batchjob
       output:
-        type: string
-        description: name of the output file(s) TBD array
+        type: array
+        description: name of the output files
+        items: 
+           type: string 
+      input:
+        type: array
+        description: name of the input files
+        items: 
+           type: string 
       script:
         type: string
         description: the script of the job
+      kind:
+        type: string
+        description: the kind of the batch queue, such as slurm, PBS 
+      tmp: 
+        type: array
+        description: a list of temporary files or directories
+        items: 
+           type: string
+      status: 
+        type: string
+        description: status of the batchjob
       cmd:
         type: string
         description: a command can be scpecified alternatively to the script
@@ -114,9 +132,6 @@ definitions:
       duration:
         type: string
         description: the duration of the job
-      script_path:
-        type: string
-        description: the path to a script
       nodes:
         type: string
         description: the nodes used to execute the job
