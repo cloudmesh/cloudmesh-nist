@@ -9,8 +9,6 @@ info:
     A group  is a service to mange associate a number of users so they can be
     represented as a group.
 
-    TODO: add users  to a named group
-
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
@@ -97,6 +95,11 @@ definitions:
       context:
         type: string
         description: The context of the service
+      users: 
+        type: array
+        description: the users that are member of the group
+        items: 
+          $ref: '#/definitions/User'
       timestamp:
         description: timestamps associated with the resource
         $ref: '#/definitions/Timestamp'
