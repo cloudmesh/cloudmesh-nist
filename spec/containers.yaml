@@ -6,7 +6,10 @@ info:
   title: Containers
   description: |-
 
-    A service to store containers.
+    Numerous different containers are likely to be created and handling them 
+    becomes more and more time consuming as their number increases. This service 
+    helps to solve that issue by storing containers and their corresponding 
+    information. 
 
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
@@ -28,7 +31,7 @@ paths:
         - Container
       summary: Returns all containers
       description: Returns all containers
-      operationId: cloudmesh.conteiners.get
+      operationId: cloudmesh.containers.get
       produces:
         - application/json
       responses:
