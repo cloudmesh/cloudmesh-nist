@@ -6,8 +6,9 @@ info:
   title: Database
   description: |-
   
-    A database could have a name, an endpoint (e.g., host, port),
-    and a protocol used (e.g., SQL, MongoDB).
+    There are several types of databases used in the wild and this service helps 
+    to keep track of them. A database record could have a name, an endpoint 
+    (e.g., host, port), and a protocol used (e.g., SQL, MongoDB).
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -29,7 +30,7 @@ paths:
         - Database
       summary: Returns all databases
       description: Returns all databases
-      operationId: cloudmesh.datbase.get
+      operationId: cloudmesh.database.get
       produces:
         - application/json
       responses:
@@ -78,7 +79,7 @@ paths:
 definitions:
   Database:
     type: object
-    description: This defines a database object as an entry
+    description: defines a database object as an entry
     properties:
       name:
         type: string

@@ -12,7 +12,7 @@ info:
     all clusters and nodes. NOW can submit a batch of jobs to the
     selected nodes, and wait for the results and gather the results
     when they are ready. Alternatively the results can be retrieved
-    manually at a later time.  The comminucation between the local
+    manually at a later time.  The communication between the local
     management machine and the NOW nodes are via SSH and the authentication
     is handled with the SSH configuration file.
 

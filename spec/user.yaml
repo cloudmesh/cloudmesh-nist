@@ -99,7 +99,12 @@ definitions:
         type: array
         description: A list of groups that are associated to the user
         items:
-          type: string
+          $ref: '#/definitions/Group'
+      accounting:
+        type: array 
+        description: A list of accounts that are associated to the user
+        items: 
+          $ref: '#/definitions/Accounting'
       role:
         type: array
         description: A list of groups that are associated to the user
