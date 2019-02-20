@@ -13,7 +13,7 @@ info:
     more efficiently or simply in sequential order. Batch processing
     scarce resources managed by batch queues are highly optimized and
     in many cases, provide significant performance advantages over
-    other services. Disadvantages include the limited and preinstalled
+    other services. Disadvantages include the limited and pre-installed
     software stacks that, in some cases, do not allow the latest
     applications to run.
 
@@ -105,7 +105,7 @@ definitions:
         description: the script of the job
       kind:
         type: string
-        description: the kind of the batch queue, such as slurm, PBS 
+        description: the kind of the batch queue, such as SLURM, PBS 
       tmp: 
         type: array
         description: a list of temporary files or directories
@@ -116,16 +116,16 @@ definitions:
         description: status of the batchjob
       cmd:
         type: string
-        description: a command can be scpecified alternatively to the script
+        description: a command can be specified alternatively to the script
       queue:
         type: string
         description: the queue name
       id:
         type: string
-        description: after submissin the job gets an id
+        description: after submission, the job gets an id
       cluster:
         type: string
-        description: the name of the cluster th job is submitted to
+        description: the name of the cluster the job is submitted to
       time:
         type: string
         description: the time the job is to be started

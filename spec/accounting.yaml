@@ -6,7 +6,9 @@ info:
   title: Cloudmesh NIST BDRA Specification API Example
   description: |-
 
-    TODO: Descriptions needed
+    Each user should be part of at least one account with a specific charge and quota 
+    that determines how much more resources the users of that account are allowed to use. 
+    It is of course possible for a user to be part of several accounts. 
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
@@ -90,20 +92,22 @@ paths:
 definitions:
   account:
     type: object
-    description: the accounting information of a user
+    description: account information including finances and summary. 
     properties:
       name:
         type: string
         description: name of account
-      user:
+      users:
+        type: array
         description: The username the charge is made for
-        $ref: '#/definitions/User'
+        items: 
+          $ref: '#/definitions/User'
       organization:
          description: the organization this chargi is made for
          $ref: '#/definitions/Organization'
       group:
         type: string
-        description: a name of a group this count belongs to
+        description: a name of a group this acount belongs to
       purpose:
         type: string
         description: the purpose of the account
