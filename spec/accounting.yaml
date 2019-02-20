@@ -31,6 +31,59 @@ securityDefinitions:
     type: apiKey
     in: query
     name: api_secret
+paths:
+  /cloudmesh/keyvaluestore/key:
+    get:
+      tags:
+        - Accounting
+      summary: Returns all keys with their values and types included
+      description: Returns all keys with their values and types included
+      operationId: cloudmesh.accounting.get
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: key info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Key'
+    put:
+      tags:
+        - Accounting
+      summary: Create a new key
+      description: Create a new key
+      operationId: cloudmesh.accounting.put
+      parameters:
+        - in: body
+          name: key
+          description: The new key to create
+          required: true
+          schema:
+            $ref: '#/definitions/Key'
+      responses:
+        '201':
+          description: Created
+  /cloudmesh/Accounting/key/{name}:
+    get:
+      tags:
+        - Accounting
+      summary: Returns the key with its detailed information by name of the key
+      description: Returns the key with its detailed information by name of the key
+      operationId: cloudmesh.accounting.get_by_name
+      parameters:
+        - name: name
+          description: name of the key
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: key info
+          schema:
+            $ref: '#/definitions/Key'
 definitions:
   account:
     type: object
