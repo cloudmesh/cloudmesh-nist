@@ -4,7 +4,10 @@ info:
   x-status: defined
   x-date: 02-15-2019
   title: Cloudmesh NIST BDRA Specification API Example
-  description:
+  description: |-
+
+    TODO: Descriptions needed
+
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
@@ -32,7 +35,7 @@ securityDefinitions:
     in: query
     name: api_secret
 paths:
-  /cloudmesh/keyvaluestore/key:
+  /cloudmesh/accounting/key:
     get:
       tags:
         - Accounting
@@ -64,7 +67,7 @@ paths:
       responses:
         '201':
           description: Created
-  /cloudmesh/Accounting/key/{name}:
+  /cloudmesh/accounting/key/{name}:
     get:
       tags:
         - Accounting
@@ -105,7 +108,7 @@ definitions:
         type: string
         description: the purpose of the account
       charge:
-        type: float
+        type: number
         description: The current chare of the account
       unit:
          type: string
