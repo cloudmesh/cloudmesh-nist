@@ -90,7 +90,7 @@ definitions:
         description: the mac address
       ip:
         type: string
-        description: the ip address
+        description: the IP address
       mask:
         type: string
         description: the network mask
@@ -102,7 +102,7 @@ definitions:
         description: the gateway address
       mtu:
         type: integer
-        description: the mtu
+        description: the MTU of the NIC
       bandwidth:
         type: integer
         description: the bandwidth in bps

@@ -11,8 +11,8 @@ info:
     management within an organization can be achieved through several
     concepts. First, it can be achieved by defining the
     organization. Second, this organization can contain a number of
-    users.  Third, users within the organization can have a variety of
-    roles and be separated in various groups.  These roles and groups
+    users. Third, users within the organization can have a variety of
+    roles and be separated in various groups. These roles and groups
     are used, for example, to distinguish different access rights to
     services.
 
@@ -99,8 +99,8 @@ paths:
     get:
       tags:
         - Organization
-      summary: Returns the spcific user of that organization
-      description: Returns the spcific user of that organization
+      summary: Returns the specific user of that organization
+      description: Returns the specific user of that organization
       operationId: cloudmesh.organization.get_user_by_name
       parameters:
         - name: username

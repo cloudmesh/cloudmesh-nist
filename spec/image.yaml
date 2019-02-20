@@ -96,7 +96,7 @@ definitions:
         description: The collection in which the image fits
       cloud:
         type: string
-        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space seperated strings
+        description: A cloud provider for which the image is designed. If multiple are using the image, they are passed along as space separated strings
       os_type:
         type: string
         description: The OS of the image
@@ -129,4 +129,4 @@ definitions:
         description: Minimum ram size in bytes to run the image
       cpu:
         type: string
-        description: Minimum cpu required to run the image including number of cores and clock speed
+        description: Minimum CPU required to run the image including number of cores and clock speed
