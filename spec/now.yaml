@@ -4,17 +4,17 @@ info:
   version: 3.1.1
   x-date: 02-11-2019
   x-status: defined
-  title: VCluster
+  title: NOW
   description: |-
 
-    VCluster is a tool to create a cluster over a selection of
+    A Network of Stations (NOW) is a cluster over a selection of
     nodes. The nodes can be selected from a yaml file that contains
-    all clusters and nodes. VCluster can submit a batch of jobs to the
+    all clusters and nodes. NOW can submit a batch of jobs to the
     selected nodes, and wait for the results and gather the results
     when they are ready. Alternatively the results can be retrieved
-    manually at a later time.  The comminucation between the vcluster
-    and nodes are via SSH and the authentication is handled with the
-    SSH configuration file.
+    manually at a later time.  The comminucation between the local
+    management machine and the NOW nodes are via SSH and the authentication
+    is handled with the SSH configuration file.
 
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
@@ -30,13 +30,13 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/vcluster:
+  /cloudmesh/now:
     get:
       tags:
-        - Vcluster
-      summary: Returns list of vclusters
-      description: Returns list of vclusters
-      operationId: cloudmesh.vcluster.get
+        - NOW
+      summary: Returns list of NOWs
+      description: Returns list of NOWs
+      operationId: cloudmesh.now.get
       produces:
         - application/json
       responses:
@@ -45,57 +45,57 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/VCluster'
+              $ref: '#/definitions/NOW'
     put:
       tags:
-        - Vcluster
-      summary: Create a new vcluster
-      description: Create a new vcluster
-      operationId: cloudmesh.vcluster.add
+        - NOW
+      summary: Create a new NOW
+      description: Create a new NOW
+      operationId: cloudmesh.now.add
       parameters:
         - in: body
-          name: vcluster
-          description: The new vcluster to create
+          name: now
+          description: The new NOW to create
           required: true
           schema:
-            $ref: '#/definitions/VCluster'
+            $ref: '#/definitions/NOW'
       responses:
         201:
           description: Created
 
-  /cloudmesh/vcluster/{vclustername}:
+  /cloudmesh/now/{nowname}:
     get:
       tags:
-        - Vcluster
-      summary: Returns a vcluster by its name
-      description: Returns a vcluster by its name
-      operationId: cloudmesh.vcluster.getByName
+        - NOW
+      summary: Returns a now by its name
+      description: Returns a now by its name
+      operationId: cloudmesh.now.getByName
       parameters:
-        - name: vclustername
+        - name: nowname
           in: path
           required: true
-          description: name of the vcluster
+          description: name of the now
           type: string
       produces:
         - application/json
       responses:
         200:
-          description: vcluster info
+          description: now info
           schema:
-            $ref: '#/definitions/VCluster'
+            $ref: '#/definitions/NOW'
 
-  /cloudmesh/vcluster/{vclustername}/{nodename}:
+  /cloudmesh/now/{nowname}/{nodename}:
     get:
       tags:
-        - Vcluster
-      summary: Returns the specified node info of the specified vcluster
-      description: Returns the specified node info of the specified vcluster
-      operationId: cloudmesh.vcluster.getNodeByName
+        - NOW
+      summary: Returns the specified node info of the specified now
+      description: Returns the specified node info of the specified now
+      operationId: cloudmesh.now.getNodeByName
       parameters:
-        - name: vclustername
+        - name: nowname
           in: path
           required: true
-          description: name of the virtualcluster
+          description: name of the now
           type: string
         - name: nodename
           in: path
@@ -106,17 +106,17 @@ paths:
         - application/json
       responses:
         200:
-          description: vcluster node info
+          description: NOW node info
           schema:
-            $ref: '#/definitions/Node'
+            $ref: '#/definitions/NowNode'
 
-  /cloudmesh/vcluster/jobs/{jobname}:
+  /cloudmesh/now/jobs/{jobname}:
     get:
       tags:
-        - Vcluster
-      summary: Returns the specified job info submitted to a vcluster
-      description: Returns the specified job info submitted to a vcluster
-      operationId: cloudmesh.vcluster.getJobByName
+        - NOW
+      summary: Returns the specified job info submitted to a now
+      description: Returns the specified job info submitted to a now
+      operationId: cloudmesh.now.getJobByName
       parameters:
         - name: jobname
           description: name of the job
@@ -129,28 +129,28 @@ paths:
         200:
           description: job info
           schema:
-            $ref: '#/definitions/Node'
+            $ref: '#/definitions/NowNode'
 
 definitions:
-  VCluster:
+  NOW:
     type: object
     properties:
       name:
-        description: The name of the vcluster
+        description: The name of the now
         type: string
       description:
         type: string
-        description: A description of the vcluster
+        description: A description of the now
       runtime-config:
-        description: The type of input and output of the jobs in the cluster
+        description: The type of input and output of the jobs in the now
         type: array
         items:
           $ref: '#/definitions/RuntimeConfig'
       nodes:
-        description: List of nodes of the vcluster
+        description: List of nodes of the now
         type: array
         items:
-          $ref: '#/definitions/Node'
+          $ref: '#/definitions/NowNode'
       timestamp:
         description: timestamps associated with the resource
         $ref: '#/definitions/Timestamp'
@@ -160,12 +160,12 @@ definitions:
     properties:
       input:
         type: string
-        description: the type of input for the jobs submitted to vcluster, possible values are params or params+file
+        description: the type of input for the jobs submitted to NOW, possible values are params or params+file
       output:
         type: string
-        description: the type of input for the jobs submitted to vcluster, possible values are stdout, file or file+stdout
+        description: the type of input for the jobs submitted to NOW, possible values are stdout, file or file+stdout
 
-  Node:
+  NowNode:
     type: object
     properties:
       name:
@@ -219,9 +219,9 @@ definitions:
       suffix:
         type: string
         description: suffix of the job in the remote
-      clustername:
+      nowname:
         type: string
-        description: name of the cluster on which job is submitted
+        description: name of the NOW on which job is submitted
       job_runtimeconfig:
         type: array
         description: type of the runtime config used for the job
@@ -229,12 +229,12 @@ definitions:
           $ref: '#/definitions/RuntimeConfig'
       script_path_remote:
         type: array
-        description: script path information in remote vcluster
+        description: script path information in remote NOW
         items:
           $ref: '#/definitions/Path'
       argfiles_path_remote:
         type: array
-        description: argument files path information in remote vcluster
+        description: argument files path information in remote NOW
         items:
           $ref: '#/definitions/Path'
       script_path_local:
@@ -265,7 +265,7 @@ definitions:
         type: array
         description: node information
         items:
-          $ref: '#/definitions/Node'
+          $ref: '#/definitions/NowNode'
       pid:
         type: string
         description: pid number in remote node
