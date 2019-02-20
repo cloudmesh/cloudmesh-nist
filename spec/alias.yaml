@@ -6,12 +6,12 @@ info:
   title: Alias
   description: |-
 
-    A user may desire to create an alias for a resource. An alias may be used to
-    more eaily remember a resource. A User can deploy a service in which such
-    aliasses are stored. The aliasses could naturally be shared with other
-    users. A resource could have one or more aliasses.  The reason for an alias
-    is that a resource may have a complex name but a user may want to refer to
-    the resource using a name that is suitable for the user's application.
+    A user may desire to create an alias for a resource. An alias helps users to
+    distinguish a resource more easily. A User can deploy a service in which such
+    aliases are stored. The aliases could naturally be shared with other users. 
+    A resource could have one or more aliases. The reason for using an alias is 
+    that a resource may have a complex name but a user may want to refer to the 
+    resource using a name that is suitable for the users' application.
 
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
