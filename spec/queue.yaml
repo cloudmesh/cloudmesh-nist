@@ -96,6 +96,10 @@ definitions:
         type: integer
         minimum: 0 
         description: charge of the queue
+      unit: 
+        type: string 
+        description: the unit in which the charge value is stored
       timestamp:
         description: timestamps associated with the resource
         $ref: '#/definitions/Timestamp'
+
