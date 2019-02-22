@@ -104,7 +104,7 @@ definitions:
         type: array 
         description: A list of accounts that are associated to the user
         items: 
-          $ref: '#/definitions/Accounting'
+          $ref: '#/definitions/Account'
       role:
         type: array
         description: A list of groups that are associated to the user
