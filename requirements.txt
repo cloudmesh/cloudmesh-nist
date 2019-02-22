@@ -3,4 +3,4 @@ prompter
 panflute
 decorator
 pandoc-codeblock-include
-pip install connexion[swagger-ui]
+connexion[swagger-ui]
