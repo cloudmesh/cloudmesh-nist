@@ -14,7 +14,7 @@ current_dir = path.dirname(__file__)
 spec_path = Path(f"{current_dir}/{spec_dir}").resolve()
 
 spec = SpecBuilder()\
-    .add_spec(spec_path.joinpath("cm4.yaml")) \
+    .add_spec(spec_path.joinpath("cloud.yaml")) \
     .add_spec(spec_path.joinpath("vm.yaml")) \
     .add_spec(spec_path.joinpath("flavor.yaml"))\
     .add_spec(spec_path.joinpath("image.yaml"))
