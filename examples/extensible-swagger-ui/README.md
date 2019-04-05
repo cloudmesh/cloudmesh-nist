@@ -95,7 +95,7 @@ In server code, object definitions and their associated paths can be included pr
 from specsynthase.specbuilder import SpecBuilder
 
 spec = SpecBuilder()\
-    .add_spec(spec_path.joinpath("cm4.yaml")) \
+    .add_spec(spec_path.joinpath("cloud.yaml")) \
     .add_spec(spec_path.joinpath("vm.yaml")) \
     .add_spec(spec_path.joinpath("image.yaml"))
 
