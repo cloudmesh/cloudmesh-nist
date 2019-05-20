@@ -1044,9 +1044,6 @@ An example for a configuration file is provided at
 ```
 
 
-[comment]: # GENERAL  MANAGEMENT
-
-
 ## General Resources
 
 ### Timestamp
@@ -1097,8 +1094,6 @@ An example for a configuration file is provided at
 ```
 
 
-
-[comment]: # FILE MANAGEMENT
 
 
 ## Data Management
@@ -1151,10 +1146,6 @@ size": ["GB", "Byte"]
 ```{include=./spec/virtualdirectory.yaml}
 ```
 
-
-
-
-[comment]: # COMPUTE MANAGEMENT
 
 ## Compute Management - Virtual Clusters
 
@@ -1254,22 +1245,11 @@ This section summarizes a basic interface specification of virtual machines.
 
 ### Batchjob
 
-{include=./spec/vm.md}
+{include=./spec/batchjob.md}
 
 #### batchjob.yaml
 
 ```{include=./spec/batchjob.yaml}
-```
-
-### Slurmjob
-
-:o: compare with batchjob
-
-{include=./spec/vm.md}
-
-#### slurmjob.yaml
-
-```{include=./spec/slurmjob.yaml}
 ```
 
 
@@ -1310,16 +1290,11 @@ This section summarizes a basic interface specification of virtual machines.
 
 ## MapReduce
 
+{include=./spec/mapreduce.md}
 
-### Hadoop
+### mapreduce.yaml
 
-:o: rename to mapreduce
-
-{include=./spec/hadoop.md}
-
-#### hadoop.yaml
-
-```{include=./spec/hadoop.yaml}
+```{include=./spec/mapreduce.yaml}
 ```
 
 ## Deployment
