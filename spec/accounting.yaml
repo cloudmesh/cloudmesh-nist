@@ -10,7 +10,7 @@ info:
     that determines how much more resources the users of that account are allowed to use. 
     It is of course possible for a user to be part of several accounts. 
 
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
   license:

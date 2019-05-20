@@ -16,7 +16,7 @@ info:
     from there you can login to any compute node, or submit a job to run on the
     compute nodes.
     
-  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup Service Example
     url: https://cloudmesh-community.github.io/nist/spec/

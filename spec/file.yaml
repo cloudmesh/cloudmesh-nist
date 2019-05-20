@@ -15,7 +15,7 @@ info:
     file.  The file object has name, endpoint (location), size (in gigabytes [GB],
     megabytes [MB], and Bytes), and checksum for integrity check.
     
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/

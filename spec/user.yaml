@@ -20,7 +20,7 @@ info:
     * *Role*: A user can have a role within that Group
 
 
-  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
     name: Cloudmesh User
     url: https://cloudmesh-community.github.io/nist/spec/

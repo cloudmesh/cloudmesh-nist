@@ -13,7 +13,7 @@ info:
     a collection.  The element in the collection can either be defined
     by uuid or by name.
 
-  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup Service Example
     url: https://cloudmesh-community.github.io/nist/spec/
