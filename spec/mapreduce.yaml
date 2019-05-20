@@ -3,10 +3,10 @@ info:
   version: 3.1.1
   x-date: 02-15-2019
   x-status: defined
-  title: Hadoop
+  title: MapReduce
   description: |-
   
-    A service to store the information of a hadoop deployment definition. All of the
+    A service to store the information of a mapreduce deployment definition. All of the
     attributes are stored as Strings.
 
     * TODO: assign for review and imporvement
@@ -25,65 +25,65 @@ consumes:
 produces:
   - application/json
 paths:
-  /cloudmesh/hadoop:
+  /cloudmesh/mapreduce:
     get:
       tags:
-      - Hadoop
-      summary: Returns all hadoops
-      description: Returns all hadoops
-      operationId: cloudmesh.hadoop.get
+      - mapreduce
+      summary: Returns all mapreduces
+      description: Returns all mapreduces
+      operationId: cloudmesh.mapreduce.get
       produces:
         - application/json
       responses:
         '200':
-          description: hadoop info
+          description: mapreduce info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Hadoop'
+              $ref: '#/definitions/mapreduce'
     put:
       tags:
-      - Hadoop
-      summary: Create a new hadoop
-      description: Create a new hadoop
-      operationId: cloudmesh.hadoop.put
+      - mapreduce
+      summary: Create a new mapreduce
+      description: Create a new mapreduce
+      operationId: cloudmesh.mapreduce.put
       parameters:
         - in: body
-          name: hadoop
-          description: The new hadoop to create
+          name: mapreduce
+          description: The new mapreduce to create
           schema:
-            $ref: '#/definitions/Hadoop'
+            $ref: '#/definitions/mapreduce'
       responses:
         '201':
           description: Created
-  '/cloudmesh/hadoop/{name}':
+  '/cloudmesh/mapreduce/{name}':
     get:
       tags:
-      - Hadoop
-      summary: Returns a hadoop
-      description: Returns a hadoop
-      operationId: cloudmesh.hadoop.get_by_name
+      - mapreduce
+      summary: Returns a mapreduce
+      description: Returns a mapreduce
+      operationId: cloudmesh.mapreduce.get_by_name
       parameters:
         - name: name
           in: path
-          description: name of the hadoop
+          description: name of the mapreduce
           required: true
           type: string
       produces:
         - application/json
       responses:
         '200':
-          description: hadoop info
+          description: mapreduce info
           schema:
-            $ref: '#/definitions/Hadoop'
+            $ref: '#/definitions/mapreduce'
 definitions:
-  Hadoop:
+  mapreduce:
     type: object
-    description: An object representing a Hadoop deployment definition
+    description: An object representing a mapreduce deployment definition
     properties:
       name:
         type: string
-        description: name of the hadoop cluster
+        description: name of the mapreduce cluster
       deployment_type:
         type: string
         description: the type of the deployer such as ansible
