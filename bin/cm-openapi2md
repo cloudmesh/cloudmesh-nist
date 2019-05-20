@@ -56,13 +56,18 @@ def ERROR(*args, **kwargs):
 
 def convert_definitions(filename, indent=1):
     with open(filename, "r") as f:
-        spec = yaml.load(f)
+        spec = yaml.load(f, Loader=yaml.SafeLoader)
         # print (yaml.dump( spec, default_flow_style=False, default_style='' ))
         print (spec["info"]["description"])
         print ()
         for definition in spec["definitions"]:
             #print (indent * "#", definition)
+            ldefinition = definition.lower()
             print (indent * "#", 'Properties', definition)
+            print (f"[Reference: :cloud:]("
+                   f"https://github.com/cloudmesh/cloudmesh-nist/blob"
+                   f"/master/spec/{ldefinition}.yaml)")
+
             print ()
             print ("|", "Property", "|", "Type", "|", "Description", "|")
             print ("|", "---", "|", "---", "|", "-------------", "|")            
@@ -102,7 +107,7 @@ def section_link_from_ref(response):
             
 def convert_paths(filename, indent=1):
      with open(filename, "r") as f:
-        spec = yaml.load(f)
+        spec = yaml.load(f,  Loader=yaml.SafeLoader)
         # print (yaml.dump( spec, default_flow_style=False, default_style='' ))
         print()
         print(indent * "#", "Paths")

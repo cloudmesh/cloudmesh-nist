@@ -28,9 +28,9 @@ service_4= \
  file\
  filter\
  flavor\
- hadoop\
  image\
  keyvaluestore\
+ mapreduce\
  microservice\
  nic\
  organization\
@@ -40,16 +40,16 @@ service_4= \
  scheduler\
  scheduler\
  secgroup\
- slurmjob\
  stream\
  timestamp\
  user\
  variables\
- variables\
- vcluster\
  virtualcluster\
  virtualdirectory\
  vm
+
+# slurmjob\
+# vcluster\
 
 
 other=\
@@ -66,12 +66,15 @@ broken= organization
 
 YAML := $(wildcard $(SRC)/*.yaml)
 
-fast: dest rest spec epub
+fast: dest rest spec epub cover
 	open $(DEST)/$(FILE).epub
 
 volume: dest rest spec epub html pdf word
 	@echo "To open the document use:"
 	@echo "open $(FILE).md"
+
+cover:
+	cd ..; bin/cover.py
 
 dest: 
 	mkdir -p $(DEST)/spec
@@ -112,7 +115,7 @@ spec: dest specstable openapi $(FILE).md
 
 epub: spec
 	cp -rf images dest
-	cd dest; pandoc $(RESOURCE) $(MARKDOWN-OPTIONS)  $(FORMAT) $(FONTS) $(BIB)  $(CSL) $(CSS) -o $(FILE).epub ../metadata.txt all.md
+	cd dest; pandoc --epub-cover-image=cover.png $(RESOURCE) $(MARKDOWN-OPTIONS)  $(FORMAT) $(FONTS) $(BIB)  $(CSL) $(CSS) -o $(FILE).epub ../metadata.txt all.md
 	#cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc  -s all.md -o $(FILE).epub
 	cp $(DEST)/$(FILE).epub .
 

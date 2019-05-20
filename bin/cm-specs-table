@@ -44,15 +44,19 @@ def analyse():
        services = arguments["SERVICES"]
        #print (services)
        services = services.split(" ")
-       print ("|", "Service", "|", "Version", "|", "Date", "|")
-       print ("|", "---", "|", "---", "|", "---", "|", "-------------", "|")
+       print ("| Service | Version | Date | Refernce ")
+       print ("| --- | --- | --- | ------------- | ------------ |")
        for service in services:
+           lservice = service.lower()
            data = {
                "title": "",
                "version": "",
                "service": service,
-               "date": ""
-               }
+               "date": "",
+               "reference": f"[:cloud:]("
+                     f"https://github.com/cloudmesh/cloudmesh-nist/blob"
+                     f"/master/spec/{lservice}.yaml)"
+           }
            filename = "../spec/{service}.yaml".format(service=service)
            with open(filename, "r") as f:
                 spec = yaml.load(f)["info"]
@@ -62,10 +66,10 @@ def analyse():
                         if field == 'x-date':
                             data["date"] = spec[field]
 
-
                 #data["description"] = data["description"].strip().replace("\n","")
                          
-                print ("| {title} | {version} | {date} |".format(**data))
+                print ("| {title} | {version} | {date} | {reference} | ".format(
+                    **data))
        print ()
 
 if __name__ == '__main__':
