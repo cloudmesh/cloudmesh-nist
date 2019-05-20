@@ -7,18 +7,6 @@
 * [3] Cloudmesh enhanced Eveengine. Github. URL:
   <https://github.com/cloudmesh/cloudmesh>. evegenie.
 
-* [4] Geoffrey C. Fox and Wo Chang. NIST Big Data Interoperability
-  Framework: Volume 3, Use Cases and General Requirements. Special
-  Publication (NIST SP) - 1500-3 1500-3, National Institute of Standards,
-  100 Bureau Drive, Gaithersburg, MD 20899, October 2015. URL:
-  <http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-3.pdf>, doi:NIST.SP.1500-3.
-
-* [5] Internet2. eduPerson Object Class Specification (201602).
-  Internet2 Middleware Architecture Committee for Education, Directory
-  Working Group internet2-mace-dir-eduperson-201602, Internet2,
-  March 2016.
-  URL: <http://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html>
-
 * [6] Orit Levin, David Boyd, and Wo Chang. NIST Big Data
   Interoperability Framework: Volume 6, Reference Architecture. Special
   Publication (NIST SP) - 1500-6 1500-6, National Institute of Standards,

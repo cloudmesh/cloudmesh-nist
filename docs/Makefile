@@ -6,7 +6,7 @@ FILE=nistvol8-2
 CSL=--csl=template/ieee-with-url.csl
 FORMAT=--toc --number-sections --standalone
 FONTS=--epub-embed-font='fonts/*.ttf'
-BIB=--metadata link-citations=true --bibliography references.bib
+BIB=--metadata link-citations=true --bibliography ./references.bib
 CSS=--css=template/epub.css
 CSS_HTML=--css=template/pandoc.css
 RESOURCE=--resource-path=".."
@@ -14,7 +14,7 @@ RESOURCE=--resource-path=".."
 LATEX=-N --template=./template.latex -V version=$(VERSION)
 DEST=dest
 SRC=../spec
-MARKDOWN-OPTIONS=--verbose  -V curdate="$(date)"   --filter pandoc-codeblock-include --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml
+MARKDOWN-OPTIONS=--verbose -V curdate="$(date)" --filter pandoc-codeblock-include --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml
 
 # --template=template.epub $(MERMAID) 
 
@@ -66,7 +66,7 @@ broken= organization
 
 YAML := $(wildcard $(SRC)/*.yaml)
 
-fast: dest rest spec epub cover
+fast: dest rest spec cover epub
 	open $(DEST)/$(FILE).epub
 
 volume: dest rest spec epub html pdf word
@@ -74,7 +74,7 @@ volume: dest rest spec epub html pdf word
 	@echo "open $(FILE).md"
 
 cover:
-	cd ..; bin/cover.py
+	../bin/cover.py
 
 dest: 
 	mkdir -p $(DEST)/spec
@@ -115,8 +115,7 @@ spec: dest specstable openapi $(FILE).md
 
 epub: spec
 	cp -rf images dest
-	cd dest; pandoc --epub-cover-image=cover.png $(RESOURCE) $(MARKDOWN-OPTIONS)  $(FORMAT) $(FONTS) $(BIB)  $(CSL) $(CSS) -o $(FILE).epub ../metadata.txt all.md
-	#cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc  -s all.md -o $(FILE).epub
+	cd dest; pandoc --epub-cover-image=cover.png $(RESOURCE) $(MARKDOWN-OPTIONS)  $(FORMAT) $(FONTS) $(BIB)  $(CSL) $(CSS) --bibliography references.bib -o $(FILE).epub ../metadata.txt all.md
 	cp $(DEST)/$(FILE).epub .
 
 html: spec
@@ -124,7 +123,7 @@ html: spec
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc -s $(FILE).md -o $(FILE).html
 	cp $(DEST)/$(FILE).html .
 
-pdf: spec  dest rest epub
+pdf: spec  dest rest cover epub
 	cp template.latex dest
 	cp *.tex dest
 	cp -rf images dest
@@ -140,10 +139,10 @@ tex: spec
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).tex
 	cp $(DEST)/$(FILE).tex .
 
-word: clean dest rest spec epub
+word: clean dest rest spec cover epub
 	cp format.docx	$(DEST)
 	# cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=format.docx -s $(FILE).md -o $(FILE).docx
-	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=../../template/nist-bdra-template3.docx -s $(FILE).md -o $(FILE).docx
+	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --bibliography references.bib --reference-doc=../../template/nist-bdra-template3.docx -s $(FILE).md -o $(FILE).docx
 	cp $(DEST)/$(FILE).docx .
 
 

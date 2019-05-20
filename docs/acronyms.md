@@ -3,9 +3,13 @@
 
 The following acronyms and terms are used in this volume.
 
-**ACID** - Atomicity, Consistency, Isolation, Durability
+ACID
+ 
+: Atomicity, Consistency, Isolation, Durability
 
-**API** - Application Programming Interface
+API
+ 
+: Application Programming Interface
 
 ASCII
 

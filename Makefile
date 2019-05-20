@@ -35,7 +35,7 @@ editor-run:
 	docker run -d -p 80:8080 swaggerapi/swagger-editor
 
 clean:
-	cd service; make clean
+	cd docs; make clean
 
 volume:
 	cd docs; make volume

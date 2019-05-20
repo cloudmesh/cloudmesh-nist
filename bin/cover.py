@@ -12,10 +12,10 @@ import os
 def cover():
     cover = Cover()
 
-    Path(os.path.dirname("docs/dest")).mkdir(parents=True, exist_ok=True)
+    Path(os.path.dirname("./dest")).mkdir(parents=True, exist_ok=True)
 
-    source = Path("./docs/template/cover-image.png").resolve()
-    destination = Path("./docs/dest/cover.png").resolve()
+    source = Path("./template/cover-image.png").resolve()
+    destination = Path("./dest/cover.png").resolve()
 
     copyfile(source, destination)
 

@@ -143,6 +143,7 @@ infrastructure-, and vendor-agnostic.
 The NBDIF consists of nine volumes, each of which addresses a specific key topic, 
 resulting from the work of the NBD-PWG. The nine volumes are as follows:
 
+
 *	Volume 1, Definitions [@www-vol1-v3]
 *	Volume 2, Taxonomies  [@www-vol2-v3]
 *	Volume 3, Use Cases and General Requirements [@www-vol3-v3]
@@ -150,7 +151,7 @@ resulting from the work of the NBD-PWG. The nine volumes are as follows:
 *	Volume 5, Architectures White Paper Survey [@www-vol5-v3]
 *	Volume 6, Reference Architecture [@www-vol6-v3]
 *	Volume 7, Standards Roadmap [@www-vol7-v3]
-*	Volume 8, Reference Architecture Interfaces (this volume)
+*	Volume 8, Reference Architecture Interfaces (this volume) [@www-vol8-v3]
 *	Volume 9, Adoption and Modernization [@www-vol9-v3]
 
 During Stage 1, Volumes 1 through 7 were conceptualized, organized and written. The finalized Version 1 
@@ -281,7 +282,7 @@ resulting from the work of the NBD-PWG. The nine volumes are as follows:
 *	Volume 5, Architectures White Paper Survey [@www-vol5-v3]
 *	Volume 6, Reference Architecture [@www-vol6-v3]
 *	Volume 7, Standards Roadmap [@www-vol7-v3]
-*	Volume 8, Reference Architecture Interfaces (this volume)
+*	Volume 8, Reference Architecture Interfaces (this volume) [@www-vol8-v3]
 *	Volume 9, Adoption and Modernization [@www-vol9-v3]
 
 During Stage 1, Volumes 1 through 7 were conceptualized, organized and written. The finalized Version 1 
@@ -506,7 +507,7 @@ resources and services include the following:
 ### Orchestration of Infrastructure and Services
 
 From review of the use case collection, presented in the *NBDIF: Volume
-3, Use Cases and General Requirements* document [4], the need arose to
+3, Use Cases and General Requirements* document [@www-vol3-v3], the need arose to
 address the mechanism of preparing suitable infrastructures for various
 use cases. As not every infrastructure is suited for every use case, a
 custom infrastructure may be needed. As such, this document is not
@@ -570,7 +571,8 @@ authentication and authorization in mind).
 ### Security and Privacy Fabric Requirements
 
 Although the focus of this document is not security and privacy, which
-are documented in the *NBDIF: Volume 4, Security and Privacy* [8], the
+are documented in the *NBDIF: Volume 4, Security and Privacy* [@www-vol4-v3],
+ the
 interfaces defined herein must be capable of integration into a secure
 reference architecture that supports secure execution, secure data
 transfer, and privacy. Consequently, the interfaces defined herein can
@@ -996,7 +998,8 @@ See @fig:spec for the specification resources
 ## Identity
 
 As part of services an identity often needs to be specified. In addition,
-such persons are often part of groups and have roles within these
+such persons [@www-eduperson] are often part of groups and have roles within 
+these
 groups. Thus, four important terms related to the identity are distinguished as follows:
 
 * User: The information identifying the profile of a person
