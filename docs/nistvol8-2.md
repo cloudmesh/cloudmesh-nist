@@ -125,7 +125,8 @@ document are subsets of them and focus on *interface* use cases. The interface
 use cases are not meant to be complete examples, but showcase why the resource
 has been defined. Hence, the interfaces use cases are only representative, and
 do not encompass the entire spectrum of Big Data usage. All the interfaces were
-openly discussed in the working group. Additions to the interfaces are welcome
+openly discussed in the working group [@www-bdra-working group]. Additions to
+ the interfaces are welcome
 and the NBD-PWG is open to discuss any contributions.
 
 The *NIST Big Data Interoperability Framework (NBDIF)* was released in three versions, which correspond 
