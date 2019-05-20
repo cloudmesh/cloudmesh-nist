@@ -79,13 +79,13 @@ definitions:
         description: the suffix of the filename for a job
       clustername:
         type: string
-        description: slurm cluster on which the job is gonna run
+        description: slurm cluster on which the job is running
       input_type:
         type: string
         description: type of the input for the script that is going to be run on remote cluster, possible values are params OR params+file
       remote_path:
         type: string
-        description: path in the remotes on which the scripts is gonna be copied to and ran from
+        description: path in the remotes on which the scripts is copied to and ran from
         items:
           $ref: '#/definitions/Path'
       slurm_script:
@@ -95,7 +95,8 @@ definitions:
           $ref: '#/definitions/Path'
       job_script:
         type: string
-        description: path of the file that is going to be run on the cluster via slurm script
+        description: path of the file that is running on the cluster via slurm
+        script
         items:
           $ref: '#/definitions/Path'
       argfile:
@@ -105,7 +106,7 @@ definitions:
           $ref: '#/definitions/Path'
       local_folder:
         type: string
-        description: local path to which the results are gonna be copied
+        description: local path to which the results are copied
         items:
           $ref: '#/definitions/Path'
   Path:

@@ -936,7 +936,7 @@ feedback.
 
 
 
-# Example Specification {#sec:specification}
+# Specification {#sec:specification}
 
 The specifications to this document are provided through an
 automated document creation process so that the actual OpenAPI
