@@ -86,7 +86,7 @@ definitions:
         description: name of the mapreduce cluster
       deployment_type:
         type: string
-        description: the type of the deployer such as ansible
+        description: the type of the deployement framework
       deployment_git:
         type: string
         description: the url where to find the deployment scripts
