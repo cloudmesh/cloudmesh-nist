@@ -6,9 +6,7 @@ info:
   description: |-
 
     A service to use compute and storage resources accross multiple
-    clouds using swagger -2.0 specification and codegen
-
-    * TODO: assign and review
+    clouds
 
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:

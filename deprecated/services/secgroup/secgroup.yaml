@@ -8,8 +8,6 @@ info:
    To allow secure communication between the nodes, security groups
    are introduced. They define the typical security groups that will
    be deployed once a compute node is specified.
-
-   * TODO: assign and improve
    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:

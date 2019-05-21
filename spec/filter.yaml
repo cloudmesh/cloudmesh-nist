@@ -7,8 +7,6 @@ info:
   
     Filters can operate on a variety of objects and reduce the
     information received based on a search criterion.
-
-    * TODO: assign for review and improvement
     
   termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:

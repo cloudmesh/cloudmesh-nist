@@ -8,8 +8,6 @@ info:
   
     A service to store the information of a mapreduce deployment definition. All of the
     attributes are stored as Strings.
-
-    * TODO: assign for review and imporvement
     
   termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:

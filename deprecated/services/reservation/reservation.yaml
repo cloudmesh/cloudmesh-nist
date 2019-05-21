@@ -7,8 +7,6 @@ info:
   
     Some services may consume a considerable amount of resources,
     necessitating the reservation of resources.
-
-    * TODO: assign and improve
     
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:

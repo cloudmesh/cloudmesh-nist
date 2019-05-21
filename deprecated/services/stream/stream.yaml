@@ -9,8 +9,6 @@ info:
    about the rate and number of items exchanged while issuing requests
    to the stream. A stream may return data items in a specific format
    that is defined by the stream.
-
-   * TODO: assign and improve
    
   termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
   contact:
