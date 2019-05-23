@@ -5,7 +5,7 @@ info:
   x-status: defined
   title: Database
   description: |-
-  
+
     The database specification allows to register a database and perform
     elementary operations to use this database. We distinguish actions
     related to the registration, the adding of a schema, the insertion of
@@ -31,7 +31,7 @@ paths:
   /database:
     get:
       tags:
-        - database
+        - "Database Registry"
       summary: Returns all databases
       description: Returns all databases
       operationId: cloudmesh.database.get
@@ -50,29 +50,12 @@ paths:
           description: "Invalid credentials"
         404:
           description: "Database not found"
-    put:
+    delete:
       tags:
-        - database
-      summary: Create a new database
-      description: Create a new database
-      operationId: cloudmesh.database.put
-      parameters:
-        - in: body
-          name: database
-          descriptiion: The new database specification
-          required: true
-          schema:
-            $ref: '#/definitions/Database'
-      responses:
-        201:
-          description: Created
-  '/database/{name}':
-    get:
-      tags:
-        - database
-      summary: Returns a database by name
-      description: Returns a database by name
-      operationId: cloudmesh.database.get_by_name
+        - "Database Registry"
+      summary: Deletes a database from the list of databases
+      description: Deletes a database from the list of databases
+      operationId: cloudmesh.database.delete
       parameters:
         - name: name
           description: name of the database
@@ -86,158 +69,142 @@ paths:
           description: database info
           schema:
             $ref: '#/definitions/Database'
-  "database/{name}/delete":
-     tags:
-       - database
-     summary: Deletes a database from the list of databases
-     description: Deletes a database from the list of databases
-     operationId: cloudmesh.database.delete
-     parameters:
+        400:
+          description: "Invalid name supplied"
+        404:
+          description: "Database Information not found"
+  /database/{name}:
+    get:
+      tags:
+      - "Database Definition"
+      summary: "Get the list of tables or collections for the database"
+      description: ""
+      operationId: "cloudmesh.database.get.collections_or_tables"
+      produces:
+        - "application/json"
+      parameters:
+        - name: name
+          description: name of the collections or tables
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: "successfully returned the list"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Definition"
+        400:
+          description: "Invalid name supplied"
+        401:
+          description: "Invalid credentials"
+        405:
+          description: "Invalid input"
+    put:
+      tags:
+      - "Database Definition"
+      summary: "Upload  a news table or collection"
+      description: ""
+      operationId: "cloudmesh.database.put.collections_or_tables"
+      produces:
+        - "application/json"
+      parameters:
+        - name: name
+          description: name of the collections or tables
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: "successfully returned the list"
+          schema:
+            $ref: "#/definitions/Definition"
+        400:
+          description: "Invalid name supplied"
+        401:
+          description: "Invalid credentials"
+        405:
+          description: "Invalid input"
+
+  /database/{name}/{table_or_collection}:
+     get:
+       tags:
+       - "Database Data Interaction"
+       summary: "Query the table or collection"
+       description: ""
+       operationId: "cloudmesh.database.data.get"
+       produces:
+       - "application/json"
+       parameters:
        - name: name
          description: name of the database
          in: path
          required: true
          type: string
-     produces:
-       - application/json
-     responses:
-       200:
-         description: database info
+       - name: table_or_collection
+         description: name of the table or collection
+         in: path
+         required: true
+         type: string
+       - name: "query"
+         in: "query"
+         description: "Database Query"
+         required: true
+         type: "string"
+         format: base64
+       responses:
+         200:
+           description: "successfully ran the Query"
+           schema:
+             type: array
+             items:
+               $ref: "#/definitions/Record"
+         400:
+           description: "Invalid name supplied"
+         401:
+           description: "Invalid credentials"
+         405:
+           description: "Invalid input"
+     put:
+       tags:
+       - "Database Data Interaction"
+       summary: "add data to teh table or collection"
+       description: ""
+       operationId: "cloudmesh.database.data.put"
+       produces:
+       - "application/json"
+       parameters:
+       - name: name
+         description: name of the database
+         in: path
+         required: true
+         type: string
+       - name: table_or_collection
+         description: name of the table or collection
+         in: path
+         required: true
+         type: string
+       - name: "record"
+         in: "body"
          schema:
-           $ref: '#/definitions/Database'
-       400:
-         description: "Invalid name supplied"
-       404:
-         description: "Database Information not found"
-   /database/{name}/query:
-      patch:
-        tags:
-        - "database"
-        summary: "Query a database"
-        description: ""
-        operationId: "cloudmesh.database.query"
-        produces:
-        - "application/json"
-        parameters:
-         - name: name
-           description: name of the database
-           in: path
-           required: true
-           type: string
-        - name: "query"
-          in: "query"
-          description: "Database Query"
-          required: true
-          type: "string"
-          format: base64
-        responses:
-          200:
-            description: "successfully ran the Query"
-            schema:
-              $ref: "#/definitions/database"
-          400:
-            description: "Invalid name supplied"
-          401:
-            description: "Invalid credentials"
-          405:
-            description: "Invalid input"
-   /database/{name}/import:
-      patch:
-        tags:
-        - "database"
-        summary: "Import information in the database"
-        description: ""
-        operationId: "cloudmesh.database.add"
-        produces:
-        - "application/json"
-        parameters:
-         - name: name
-           description: name of the database
-           in: path
-           required: true
-           type: string
-        - name: "add"
-          in: "query"
-          description: "Database Add"
-          required: true
-          type: "string"
-          format: base64
-        responses:
-          200:
-            description: "successfully ran the Import"
-            schema:
-              $ref: "#/definitions/database"
-          400:
-            description: "Invalid name supplied"
-          401:
-            description: "Invalid credentials"
-          405:
-            description: "Invalid input"
-   /database/{name}/add:
-      patch:
-        tags:
-        - "database"
-        summary: "Add information in the database"
-        description: ""
-        operationId: "cloudmesh.database.add"
-        produces:
-        - "application/json"
-        parameters:
-         - name: name
-           description: name of the database
-           in: path
-           required: true
-           type: string
-        - name: "add"
-          in: "query"
-          description: "Database Add"
-          required: true
-          type: "string"
-          format: base64
-        responses:
-          200:
-            description: "successfully added information to database"
-            schema:
-              $ref: "#/definitions/database"
-          400:
-            description: "Invalid name supplied"
-          401:
-            description: "Invalid credentials"
-          405:
-            description: "Invalid input"
+           $ref: "#/definitions/Record"
+         description: "Information to be uploaded"
+         required: true
+       responses:
+         200:
+           description: "successfully uploaded"
+           schema:
+             $ref: "#/definitions/Record"
+         400:
+           description: "Invalid name supplied"
+         401:
+           description: "Invalid credentials"
+         405:
+           description: "Invalid input"
+         404:
+           description: "Invalid database name or table or collection name supplied"
 
-   /database/{name}/modify:
-      patch:
-        tags:
-        - "database"
-        summary: "Modify information in the database"
-        description: ""
-        operationId: "cloudmesh.database.modify"
-        produces:
-        - "application/json"
-        parameters:
-         - name: name
-           description: name of the database
-           in: path
-           required: true
-           type: string
-        - name: "modify"
-          in: "query"
-          description: "Database Modififation"
-          required: true
-          type: "string"
-          format: base64
-        responses:
-          200:
-            description: "successfully ran the modifications"
-            schema:
-              $ref: "#/definitions/database"
-          400:
-            description: "Invalid name supplied"
-          401:
-            description: "Invalid credentials"
-          405:
-            description: "Invalid input"
 definitions:
   Database:
     type: object
@@ -258,3 +225,33 @@ definitions:
       timestamp:
         description: timestamps associated with the resource
         $ref: '#/definitions/Timestamp'
+  Definition:
+    type: object
+    description: defines a database collection or Table
+    properties:
+      name:
+        type: string
+        description: name of the database
+      description:
+        type: string
+        description: description of the database
+      kind:
+        type: string
+        description: the kind of the definition
+      schema:
+         type: string
+         description: the schema associated with the table or collection
+      timestamp:
+        description: timestamps associated with the resource
+        $ref: '#/definitions/Timestamp'
+  Record:
+    type: object
+    description: The result of a query
+    properties:
+      status:
+        type: string
+        description: The status of the reurn
+      result:
+        type: string
+        description: The result of the quesry in json string format
+
