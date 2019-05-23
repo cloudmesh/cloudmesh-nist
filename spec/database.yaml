@@ -145,7 +145,7 @@ paths:
       patch:
         tags:
         - "database"
-        summary: "Bulk add information in the database"
+        summary: "Import information in the database"
         description: ""
         operationId: "cloudmesh.database.add"
         produces:
@@ -210,7 +210,7 @@ paths:
       patch:
         tags:
         - "database"
-        summary: "Modify information in the database (DDL/DML/change/modify operations)"
+        summary: "Modify information in the database"
         description: ""
         operationId: "cloudmesh.database.modify"
         produces:
