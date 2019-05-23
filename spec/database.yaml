@@ -145,7 +145,7 @@ paths:
       patch:
         tags:
         - "database"
-        summary: "Add information in the database"
+        summary: "Bulk add information in the database"
         description: ""
         operationId: "cloudmesh.database.add"
         produces:
@@ -164,7 +164,7 @@ paths:
           format: base64
         responses:
           200:
-            description: "successfully ran the Query"
+            description: "successfully ran the Import"
             schema:
               $ref: "#/definitions/database"
           400:
@@ -196,7 +196,7 @@ paths:
           format: base64
         responses:
           200:
-            description: "successfully ran the Query"
+            description: "successfully added information to database"
             schema:
               $ref: "#/definitions/database"
           400:
@@ -210,7 +210,7 @@ paths:
       patch:
         tags:
         - "database"
-        summary: "Modify information in the database"
+        summary: "Modify information in the database (DDL/DML/change/modify operations)"
         description: ""
         operationId: "cloudmesh.database.modify"
         produces:
@@ -229,7 +229,7 @@ paths:
           format: base64
         responses:
           200:
-            description: "successfully ran the Query"
+            description: "successfully ran the modifications"
             schema:
               $ref: "#/definitions/database"
           400:
