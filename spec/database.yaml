@@ -28,7 +28,7 @@ produces:
   - application/json
 basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/database:
+  /database:
     get:
       tags:
         - Database
@@ -44,23 +44,13 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Database'
-    put:
-      tags:
-        - Database
-      summary: Create a new database
-      description: Create a new database      
-      operationId: cloudmesh.database.put
-      parameters:
-        - in: body
-          name: database
-          required: true
-          description: The new database record to create
-          schema:
-            $ref: '#/definitions/Database'
-      responses:
-        201:
-          description: Created
-  '/cloudmesh/database/{name}':
+        400:
+          description: "Invalid name supplied"
+        401:
+          description: "Invalid credentials"
+        404:
+          description: "Database not found"
+  '/database/{name}':
     get:
       tags:
         - Database
@@ -80,6 +70,22 @@ paths:
           description: database info
           schema:
             $ref: '#/definitions/Database'
+    put:
+      tags:
+        - Database
+      summary: Create a new database
+      description: Create a new database      
+      operationId: cloudmesh.database.put
+      parameters:
+        - in: body
+          name: database
+          required: true
+          description: The new database record to create
+          schema:
+            $ref: '#/definitions/Database'
+      responses:
+        201:
+          description: Created
 definitions:
   Database:
     type: object
