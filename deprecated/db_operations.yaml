@@ -98,6 +98,10 @@ paths:
           description: "Invalid credentials"
         405:
           description: "Invalid input"
+
+
+integrated
+
   /query/{dbId}:
     patch:
       tags:

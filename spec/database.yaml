@@ -86,7 +86,7 @@ paths:
           description: database info
           schema:
             $ref: '#/definitions/Database'
-  `database/{name}/delete':
+  "database/{name}/delete":
      tags:
        - database
      summary: Deletes a database from the list of databases
@@ -141,6 +141,38 @@ paths:
             description: "Invalid credentials"
           405:
             description: "Invalid input"
+   /database/{name}/import:
+      patch:
+        tags:
+        - "database"
+        summary: "Add information in the database"
+        description: ""
+        operationId: "cloudmesh.database.add"
+        produces:
+        - "application/json"
+        parameters:
+         - name: name
+           description: name of the database
+           in: path
+           required: true
+           type: string
+        - name: "add"
+          in: "query"
+          description: "Database Add"
+          required: true
+          type: "string"
+          format: base64
+        responses:
+          200:
+            description: "successfully ran the Query"
+            schema:
+              $ref: "#/definitions/database"
+          400:
+            description: "Invalid name supplied"
+          401:
+            description: "Invalid credentials"
+          405:
+            description: "Invalid input"
    /database/{name}/add:
       patch:
         tags:
@@ -173,6 +205,7 @@ paths:
             description: "Invalid credentials"
           405:
             description: "Invalid input"
+
    /database/{name}/modify:
       patch:
         tags:
