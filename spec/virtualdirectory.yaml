@@ -1,8 +1,8 @@
 ---
 swagger: "2.0"
 info:
-  version: 3.1.1
-  x-date: 02-15-2019
+  version: 3.2.0
+  x-date: 05-23-2019
   x-status: defined
   title: Virtualdirectory
   description: |-
@@ -15,7 +15,7 @@ info:
 
   termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
-    name: NIST BDRA Interface Subgroup Service Example
+    name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
