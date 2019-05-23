@@ -1,0 +1,168 @@
+swagger: "2.0"
+info:
+  description: "This is an OpenAPI for Database Registration"
+  version: "1.0.0"
+  title: "Database Registration"
+  termsOfService: "IU <todo>"
+  contact:
+    email: "joshish@iu.edu"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/cloudmesh/v1/database/registry"
+tags:
+- name: "database registry"
+  description: "Database Registry"
+  externalDocs:
+    description: "Get information and operate on Database"
+    url: "http://swagger.io"
+schemes:
+- "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  /registration:
+    get:
+      tags:
+      - "database registration"
+      summary: "List all registry entries"
+      description: "Detailed description of all databases"
+      operationId: "cloudmesh.databases.Provider.describe_databases"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successfully listed databases"
+          schema:
+            $ref: "#/definitions/databaseRegistry"
+        400:
+          description: "Invalid status value"
+  /registration/{dbId}:
+    get:
+      tags:
+      - "database registration"
+      summary: "Describe database by id"
+      description: "Returns a single database description"
+      operationId: "cloudmesh.redshift.Provider.describe_database"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "dbId"
+        in: "path"
+        description: "ID of database"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successfully listed database"
+          schema:
+            $ref: "#/definitions/databaseRegistry"
+        400:
+          description: "Invalid ID supplied"
+        401:
+          description: "Invalid credentials for listing"
+        404:
+          description: "Database not found"
+    post:
+      tags:
+      - "database registration"
+      summary: "Registers a database"
+      description: ""
+      operationId: "cloudmesh.database.Provider.register_database"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "dbId"
+        in: "path"
+        description: "ID of database to be registered"
+        required: true
+        type: "string"
+      - name: "dbName"
+        in: "query"
+        description: "Name of the DB"
+        required: true
+        type: "string"
+      - name: "JDBCconnectionString"
+        in: "query"
+        description: "JDBC Connection String"
+        required: true
+        type: "string"
+      - name: "ODBCconnectionString"
+        in: "query"
+        description: "ODBC Connection String"
+        required: true
+        type: "string"
+      - name: "dbType"
+        in: "query"
+        description: "Type of the database (RDBMS, NoSQL)"
+        type: "string"
+        default: 'RDBMS'
+      - name: "cloudProvider"
+        in: "query"
+        description: "Cloud provider"
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+    delete:
+      tags:
+      - "database registration"
+      summary: "Deletes information from the registry about a database"
+      description: "Delete database information"
+      operationId: "cloudmesh.database.Provider.delete_dbinfo"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "dbId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successfully deleted database"
+          schema:
+            $ref: "#/definitions/databaseRegistry"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Database Information not found"
+  /registration/challenge:
+    post:
+      tags:
+      - "database registration"
+      summary: "Authenticate with registry"
+      description: ""
+      operationId: "cloudmesh.database.Provider.verifyPermission"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "Username"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "Password"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/databaseRegistry"
+        401:
+          description: "authentication failed"
+          schema:
+            $ref: "#/definitions/databaseRegistry"            
+definitions:
+  databaseRegistry:
+    type: "object"
+    required:
+    - "dbId"
+    properties:
+      dbId:
+        type: "string"
