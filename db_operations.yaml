@@ -1,0 +1,146 @@
+swagger: "2.0"
+info:
+  description: "This is an OpenAPI for Database Operations"
+  version: "1.0.0"
+  title: "Database Operations"
+  termsOfService: "IU <todo>"
+  contact:
+    email: "joshish@iu.edu"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/cloudmesh/v1/database/operations"
+tags:
+- name: "database operations"
+  description: "Database Operation"
+  externalDocs:
+    description: "Operate the database - create objects, insert data, query data"
+    url: "http://swagger.io"
+schemes:
+- "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  /modify/{dbId}:
+    patch:
+      tags:
+      - "database operation"
+      summary: "Modify a database - run DDL and DML statements"
+      description: ""
+      operationId: "cloudmesh.database.Provider.runDDLDML"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "dbId"
+        in: "path"
+        description: "ID of database"
+        required: true
+        type: "string"
+      - name: "JDBCConnectionString"
+        in: "query"
+        description: "JDBC Connection String"
+        required: true
+        type: "string"
+      - name: "sql_file_contents"
+        in: "query"
+        description: "Contents of an SQL file"
+        required: true
+        type: "string"
+        format: base64
+      responses:
+        200:
+          description: "successfully ran the DDL/DML statements"
+          schema:
+            $ref: "#/definitions/databaseObject"
+        400:
+          description: "Invalid ID supplied"
+        401:
+          description: "Invalid credentials"
+        405:
+          description: "Invalid input"
+  /importdata/{dbId}:
+    patch:
+      tags:
+      - "database operation"
+      summary: "Import data"
+      description: ""
+      operationId: "cloudmesh.database.Provider.importdata"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "dbId"
+        in: "path"
+        description: "ID of database"
+        required: true
+        type: "string"
+      - name: "JDBCConnectionString"
+        in: "query"
+        description: "JDBC Connection String"
+        required: true
+        type: "string"
+      - name: "import_command"
+        in: "query"
+        description: "Command to import data"
+        required: true
+        type: "string"
+        format: base64
+      responses:
+        200:
+          description: "successfully ran the import statement"
+          schema:
+            $ref: "#/definitions/databaseObject"
+        400:
+          description: "Invalid ID supplied"
+        401:
+          description: "Invalid credentials"
+        405:
+          description: "Invalid input"
+  /query/{dbId}:
+    patch:
+      tags:
+      - "database operation"
+      summary: "Query a database"
+      description: ""
+      operationId: "cloudmesh.database.Provider.runQuery"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "dbId"
+        in: "path"
+        description: "ID of database"
+        required: true
+        type: "string"
+      - name: "JDBCConnectionString"
+        in: "query"
+        description: "JDBC Connection String"
+        required: true
+        type: "string"
+      - name: "query_text"
+        in: "query"
+        description: "SQL Query"
+        required: true
+        type: "string"
+        format: base64
+      responses:
+        200:
+          description: "successfully ran the Query"
+          schema:
+            $ref: "#/definitions/databaseObject"
+        400:
+          description: "Invalid ID supplied"
+        401:
+          description: "Invalid credentials"
+        405:
+          description: "Invalid input"
+
+definitions:
+  databaseObject:
+    type: "object"
+    required:
+    - "dbId"
+    properties:
+      dbId:
+        type: "string"
