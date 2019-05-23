@@ -31,7 +31,7 @@ paths:
   /database:
     get:
       tags:
-        - Database
+        - database
       summary: Returns all databases
       description: Returns all databases
       operationId: cloudmesh.database.get
@@ -50,10 +50,26 @@ paths:
           description: "Invalid credentials"
         404:
           description: "Database not found"
+    put:
+      tags:
+        - database
+      summary: Create a new database
+      description: Create a new database
+      operationId: cloudmesh.database.put
+      parameters:
+        - in: body
+          name: database
+          descriptiion: The new database specification
+          required: true
+          schema:
+            $ref: '#/definitions/Database'
+      responses:
+        201:
+          description: Created
   '/database/{name}':
     get:
       tags:
-        - Database
+        - database
       summary: Returns a database by name
       description: Returns a database by name
       operationId: cloudmesh.database.get_by_name
@@ -70,22 +86,93 @@ paths:
           description: database info
           schema:
             $ref: '#/definitions/Database'
-    put:
-      tags:
-        - Database
-      summary: Create a new database
-      description: Create a new database      
-      operationId: cloudmesh.database.put
-      parameters:
-        - in: body
-          name: database
+  `database/{name}/delete':
+     tags:
+       - database
+     summary: Deletes a database from the list of databases
+     description: Deletes a database from the list of databases
+     operationId: cloudmesh.database.delete
+     parameters:
+       - name: name
+         description: name of the database
+         in: path
+         required: true
+         type: string
+     produces:
+       - application/json
+     responses:
+       200:
+         description: database info
+         schema:
+           $ref: '#/definitions/Database'
+       400:
+         description: "Invalid name supplied"
+       404:
+         description: "Database Information not found"
+   /database/{name}/query:
+      patch:
+        tags:
+        - "database"
+        summary: "Query a database"
+        description: ""
+        operationId: "cloudmesh.database.query"
+        produces:
+        - "application/json"
+        parameters:
+         - name: name
+           description: name of the database
+           in: path
+           required: true
+           type: string
+        - name: "query"
+          in: "query"
+          description: "Database Query"
           required: true
-          description: The new database record to create
-          schema:
-            $ref: '#/definitions/Database'
-      responses:
-        201:
-          description: Created
+          type: "string"
+          format: base64
+        responses:
+          200:
+            description: "successfully ran the Query"
+            schema:
+              $ref: "#/definitions/database"
+          400:
+            description: "Invalid name supplied"
+          401:
+            description: "Invalid credentials"
+          405:
+            description: "Invalid input"
+   /database/{name}/modify:
+      patch:
+        tags:
+        - "database"
+        summary: "Modify information in the database"
+        description: ""
+        operationId: "cloudmesh.database.modify"
+        produces:
+        - "application/json"
+        parameters:
+         - name: name
+           description: name of the database
+           in: path
+           required: true
+           type: string
+        - name: "modify"
+          in: "query"
+          description: "Database Modififation"
+          required: true
+          type: "string"
+          format: base64
+        responses:
+          200:
+            description: "successfully ran the Query"
+            schema:
+              $ref: "#/definitions/database"
+          400:
+            description: "Invalid name supplied"
+          401:
+            description: "Invalid credentials"
+          405:
+            description: "Invalid input"
 definitions:
   Database:
     type: object
