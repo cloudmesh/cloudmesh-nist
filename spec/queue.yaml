@@ -20,8 +20,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/queue/job:
+  /queue/job:
     get:
       tags:
         - Queue
@@ -52,7 +53,7 @@ paths:
       responses:
         201:
           description: Created
-  '/cloudmesh/queue/job/{name}':
+  '/queue/job/{name}':
     get:
       tags:
         - Queue

@@ -28,8 +28,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/secgroup:
+  /secgroup:
     get:
       tags:
       - Secgroup
@@ -60,7 +61,7 @@ paths:
       responses:
         "201":
           description: Created
-  "/cloudmesh/secgroup/{secgroup}":
+  "/secgroup/{secgroup}":
     get:
       tags:
       - Secgroup
@@ -80,7 +81,7 @@ paths:
           description: secgroup info
           schema:
             $ref: "#/definitions/Secgroup"
-  "/cloudmesh/secgroup/{secgroup}/rule":
+  "/secgroup/{secgroup}/rule":
     get:
       tags:
       - Secgroup
@@ -123,7 +124,7 @@ paths:
       responses:
         "201":
           description: Created
-  "/cloudmesh/secgroup/{secgroup}/rule/{ruleid}":
+  "/secgroup/{secgroup}/rule/{ruleid}":
     get:
       tags:
       - Secgroup

@@ -29,8 +29,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/virtualcluster/virtualcluster:
+  /virtualcluster/virtualcluster:
     get:
       tags:
         - Virtualcluster
@@ -62,7 +63,7 @@ paths:
       responses:
         "201":
           description: Created
-  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}:
+  /virtualcluster/virtualcluster/{virtualclustername}:
     get:
       tags:
         - Virtualcluster
@@ -82,7 +83,7 @@ paths:
           description: virtualcluster info
           schema:
             $ref: "#/definitions/VirtualCluster"
-  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/manager:
+  /virtualcluster/virtualcluster/{virtualclustername}/manager:
     get:
       tags:
         - Virtualcluster
@@ -102,7 +103,7 @@ paths:
           description: virtual cluster manager node info
           schema:
             $ref: "#/definitions/Node"
-  /cloudmesh/virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
+  /virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
     get:
       tags:
         - Virtualcluster

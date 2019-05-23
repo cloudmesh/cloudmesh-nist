@@ -37,8 +37,9 @@ securityDefinitions:
     type: apiKey
     in: query
     name: api_secret
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/virtualdirectory:
+  /virtualdirectory:
     get:
       tags:
         - Virtualdirectory
@@ -79,7 +80,7 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/virtualdirectory/{name}':
+  '/virtualdirectory/{name}':
     get:
       tags:
         - Virtualdirectory

@@ -21,8 +21,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/deployments:
+  /deployments:
     get:
       tags:
         - Deployment
@@ -53,7 +54,7 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/deployment/{name}':
+  '/deployment/{name}':
     get:
       tags:
         - Deployment

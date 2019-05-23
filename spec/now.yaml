@@ -29,8 +29,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/now:
+  /now:
     get:
       tags:
         - NOW
@@ -63,7 +64,7 @@ paths:
         201:
           description: Created
 
-  /cloudmesh/now/{nowname}:
+  /now/{nowname}:
     get:
       tags:
         - NOW
@@ -84,7 +85,7 @@ paths:
           schema:
             $ref: '#/definitions/NOW'
 
-  /cloudmesh/now/{nowname}/{nodename}:
+  /now/{nowname}/{nodename}:
     get:
       tags:
         - NOW
@@ -110,7 +111,7 @@ paths:
           schema:
             $ref: '#/definitions/NowNode'
 
-  /cloudmesh/now/jobs/{jobname}:
+  /now/jobs/{jobname}:
     get:
       tags:
         - NOW

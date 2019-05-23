@@ -24,8 +24,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/streams:
+  /streams:
     get:
       tags:
         - Stream
@@ -56,7 +57,7 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/stream/{name}':
+  '/stream/{name}':
     get:
       tags:
         - Stream

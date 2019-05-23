@@ -36,8 +36,9 @@ securityDefinitions:
     type: apiKey
     in: query
     name: api_secret
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/accounting/key:
+  /accounting/key:
     get:
       tags:
         - Accounting
@@ -69,7 +70,7 @@ paths:
       responses:
         '201':
           description: Created
-  /cloudmesh/accounting/key/{name}:
+  /accounting/key/{name}:
     get:
       tags:
         - Accounting

@@ -33,8 +33,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/user:
+  /user:
     get:
       tags:
         - User
@@ -65,7 +66,7 @@ paths:
       responses:
         201:
           description: Created
-  /cloudmesh/user/{name}:
+  /user/{name}:
     get:
       tags:
         - User

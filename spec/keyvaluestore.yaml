@@ -24,8 +24,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/keyvaluestore/key:
+  /keyvaluestore/key:
     get:
       tags:
         - Keyvaluestore
@@ -57,7 +58,7 @@ paths:
       responses:
         '201':
           description: Created
-  /cloudmesh/keyvaluestore/key/{name}:
+  /keyvaluestore/key/{name}:
     get:
       tags:
         - Keyvaluestore

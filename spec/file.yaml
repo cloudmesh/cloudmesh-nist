@@ -28,8 +28,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/v3"
 paths:
-  /cloudmesh/file:
+  /file:
     get:
       tags:
       - File

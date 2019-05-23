@@ -22,8 +22,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/schedulers:
+  /schedulers:
     get:
       tags:
       - Scheduler
@@ -54,7 +55,7 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/scheduler/{name}':
+  '/scheduler/{name}':
     get:
       tags:
       - Scheduler

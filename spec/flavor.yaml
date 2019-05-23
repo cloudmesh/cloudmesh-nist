@@ -27,8 +27,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/flavors:
+  /flavors:
     get:
       tags:
       - Flavor
@@ -60,7 +61,7 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/flavor/{name}':
+  '/flavor/{name}':
     get:
       tags:
       - Flavor

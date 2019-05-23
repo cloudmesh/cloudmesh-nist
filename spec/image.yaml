@@ -22,8 +22,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/image:
+  /image:
     get:
       tags:
       - Image
@@ -55,7 +56,7 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/image/{name}':
+  '/image/{name}':
     get:
       tags:
       - Image

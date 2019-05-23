@@ -1,14 +1,17 @@
 swagger: "2.0"
 info:
-  version: 3.1.1
+  version: 3.1.2
   x-status: defined
-  x-date: 02-15-2019
+  x-date: 05-23-2019
   title: Database
   description: |-
   
-    There are several types of databases used in the wild and this service helps 
-    to keep track of them. A database record could have a name, an endpoint 
-    (e.g., host, port), and a protocol used (e.g., SQL, MongoDB).
+    The database specification allows to register a database and perform
+    elementary operations to use this database. We distinguish actions
+    related to the registration, the adding of a schema, the insertion of
+    data and the query of data. The data base is defined by a name an endpoint
+    (e.g., host, port), and a protocol used (e.g., SQL, MongoDB, graphgl, and
+     others).
 
   termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
@@ -23,6 +26,7 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
   /cloudmesh/database:
     get:

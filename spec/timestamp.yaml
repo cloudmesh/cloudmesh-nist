@@ -25,8 +25,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/timestamp:
+  /timestamp:
     get:
       tags:
         - Timestamp
@@ -57,7 +58,7 @@ paths:
       responses:
         '201':
           description: Created
-  '/cloudmesh/timestamp/{name}':
+  '/timestamp/{name}':
     get:
       tags:
         - Timestamp

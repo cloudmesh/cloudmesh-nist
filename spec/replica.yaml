@@ -24,8 +24,9 @@ consumes:
   - application/json
 produces:
   - application/json
+basePath: "/cloudmesh/v3"
 paths:
-  /cloudmesh/replica:
+  /replica:
     get:
       tags:
       - Replica
@@ -57,7 +58,7 @@ paths:
       responses:
         201:
           description: Created
-  '/cloudmesh/replica/{name}':
+  '/replica/{name}':
     get:
       tags:
       - Replica
