@@ -1,6 +1,10 @@
 
+![](./images/cover-nist-formal.png)
 
-**Abstract**
+![](./images/cover-2-nist-formal.png)
+
+
+<center>**Abstract**</center>
 
 This document summarizes interfaces that are instrumental for the
 interaction with Clouds, Containers, and High Performance Computing
@@ -22,14 +26,14 @@ Volume 8, uses the work performed by the NBD-PWG to identify objects
 instrumental for the NIST Big Data Reference Architecture (NBDRA) which
 is introduced in the NBDIF: Volume 6, *Reference Architecture*.
 
-**Keywords**
+<center>**Keywords**</center>
 
 Adoption; barriers; implementation; interfaces; market maturity;
 organizational maturity; project maturity; system modernization.
 
 ---
 
-**Acknowledgements**
+<center>**Acknowledgements**</center>
 
 This document reflects the contributions and discussions by the
 membership of the NBD-PWG, cochaired by Wo Chang (NIST ITL), Bob
@@ -86,13 +90,14 @@ volume, during Version 1 and/or Version 2 activities. *Contributors*
 are members of the NIST Big Data Public Working Group who dedicated
 great effort to prepare and gave substantial time on a regular basis
 to research and development in support of this document. This includes
-especially the following NBD-PWG members:
+the following NBD-PWG members:
 
 
 * Gregor von Laszewski, Indiana University
 * Wo Chang, National Institute of Standard and Technology,
 * Fugang Wang, Indiana University
 * Geoffrey C. Fox, Indiana University
+* Badi Abdul-Wahid, formerly Indiana Univresity
 * Alicia Zuniga-Alvarado, Consultant
 * Robert C. Whetsel, DISA/NBIS
 * Pratik Thakkar, Philips
@@ -125,7 +130,7 @@ document are subsets of them and focus on *interface* use cases. The interface
 use cases are not meant to be complete examples, but showcase why the resource
 has been defined. Hence, the interfaces use cases are only representative, and
 do not encompass the entire spectrum of Big Data usage. All the interfaces were
-openly discussed in the working group [@www-bdra-working group]. Additions to
+openly discussed in the working group [@www-bdra-working-group]. Additions to
  the interfaces are welcome
 and the NBD-PWG is open to discuss any contributions.
 
@@ -157,7 +162,7 @@ resulting from the work of the NBD-PWG. The nine volumes are as follows:
 
 During Stage 1, Volumes 1 through 7 were conceptualized, organized and written. The finalized Version 1 
 documents can be downloaded from the V1.0 Final Version page of the NBD-PWG 
-website (<https://bigdatawg.nist.gov/V1_output_docs.php>). 
+website [@www-nist-bdra-v1-wegpage].
 
 During Stage 2, the NBD-PWG developed Version 2 of the NBDIF Version 1 volumes, with the exception of Volume 5, 
 which contained the completed architecture survey work that was used to inform Stage 1 work of the NBD-PWG. 
@@ -166,12 +171,11 @@ components by aggregating low-level interactions into high-level general interfa
 NBDRA can be used. As a result of the Stage 2 work, the need for NBDIF Volume 8 and NBDIF Volume 9 were 
 identified and the two new volumes were created. Version 2 of the NBDIF volumes, resulting from Stage 2 work, 
 can be downloaded from the V2.0Final Version page of the NBD-PWG 
-website (<https://bigdatawg.nist.gov/V2_output_docs.php>).
+website [@www-nist-bdra-v2-wegpage].
 
 
 This document is the result of Stage 3 work of the NBD-PWG. Coordination of the
-group is conducted on the NBD-PWG web page
-(<https://bigdatawg.nist.gov>).
+group is conducted on the NBD-PWG web page [@www-bdra-working-group].
 
 # Introduction {#sec:introduction}
 
@@ -226,7 +230,7 @@ transforming teaching and learning by improving analysts' ability to
 extract knowledge and insights from large and complex collections of
 digital data.
 
-Six federal departments and their agencies announced more than \$200
+Six federal departments and their agencies announced more than $200
 million in commitments spread across more than 80 projects, which aim to
 significantly improve the tools and techniques needed to access,
 organize, and draw conclusions from huge volumes of digital data. The
@@ -288,7 +292,7 @@ resulting from the work of the NBD-PWG. The nine volumes are as follows:
 
 During Stage 1, Volumes 1 through 7 were conceptualized, organized and written. The finalized Version 1 
 documents can be downloaded from the V1.0 Final Version page of the NBD-PWG 
-website (<https://bigdatawg.nist.gov/V1_output_docs.php>). 
+website [@www-nist-bdra-v1-wegpage].
 
 During Stage 2, the NBD-PWG developed Version 2 of the NBDIF Version 1 volumes, with the exception of Volume 5, 
 which contained the completed architecture survey work that was used to inform Stage 1 work of the NBD-PWG. 
@@ -297,7 +301,8 @@ components by aggregating low-level interactions into high-level general interfa
 NBDRA can be used. As a result of the Stage 2 work, the need for NBDIF Volume 8 and NBDIF Volume 9 were 
 identified and the two new volumes were created. Version 2 of the NBDIF volumes, resulting from Stage 2 work, 
 can be downloaded from the V2.0Final Version page of the NBD-PWG 
-website (<https://bigdatawg.nist.gov/V2_output_docs.php>).
+website [@www-nist-bdra-v2-wegpage].
+
 
 ## Scope and Objectives of the Reference Architectures Subgroup
 
@@ -907,15 +912,16 @@ can be included in an appendix.
 
 ## Version Management
 
-
 During the design phase and development period of each version of this document,
 enhancements are managed through GitHub and community contributions
 are managed via GitHub issues. This allows preservation of the history
 of this document. When a new version is ready, the
 version will be tagged in GitHub. Older versions will, through this process, also be
 available as historical documents. Discussions about objects in
-written form are communicated as GitHub issues.
+written form are communicated as GitHub issues [@nist-github-bdra-issues].
 
+Previos documents that lead up to this document are 
+[@nist-vol8-draft][@nist-cloudmesh].
 
 ## Interface Compliancy
 
@@ -958,9 +964,8 @@ feedback.
 The specifications to this document are provided through an
 automated document creation process so that the actual OpenAPI
 specifications are the source for the document. Thus we will have all
-OpenAPI specifications located in the following directory in GitHub:
-
-* <https://github.com/cloudmesh-community/nist/tree/master/spec>
+OpenAPI specifications located in the following directory in GitHub 
+[@nist-github-bdra-spec].
 
 Limitations of the current implementation are as follows. It is a
 demonstration that showcases the generation of a fully functioning
@@ -973,9 +978,9 @@ application requirements.
 
 
 The following table lists the current set of resource objects that we
-are defining in this draft. Additional objects are also available at:
+are defining in this draft. Additional objects are also available in Github 
+[@nist-github-bdra-spec].
 
-* <https://github.com/cloudmesh-community/nist/tree/master/spec>
 
 {include=./specstable.md}
 
@@ -1029,9 +1034,7 @@ solutions to this in cloudmesh.
 * The service that acts in behalf of the user needs to have access to
   the appropriate cloud provider credentials
 
-An example for a configuration file is provided at
-
-* <https://github.com/cloudmesh-community/cm/blob/master/cm4/etc/cloudmesh4.yaml>
+An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 
 ### Organization
@@ -1124,10 +1127,10 @@ Example:
 "name": "report.dat",
 "endpoint": "file://gregor@machine.edu:/data/report.dat",
 "checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
-"accessed": "1.1.2017:05:00:00:EST",
-"created": "1.1.2017:05:00:00:EST",
-"modified": "1.1.2017:05:00:00:EST",
-size": ["GB", "Byte"]
+"accessed": "1.1.2019:05:00:00:EST",
+"created": "1.1.2019:05:00:00:EST",
+"modified": "1.1.2019:05:00:00:EST",
+"size": ["GB", "Byte"]
 ```
 
 {include=./spec/file.md}

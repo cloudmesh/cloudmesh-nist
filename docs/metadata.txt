@@ -4,12 +4,12 @@ title:
   text: "NIST Big Data Interoperability Framework: Volume 8, Reference Architecture Interfaces"
 creator:
 - role: editor
-  text: Editor Gregor von Laszewski
+  text: "Editor: Gregor von Laszewski,\nWorking Group co-Chair: Wo Chang"
 description: NIST Volume 8
-rights: (c) Gregor von Laszewski, 2018
+rights: "Copyrights and Permissions: Official publications of the National Institute of Standards and Technology are not subject to copyright in the United States.  Foreign rights are reserved.  Questions concerning the possibility of copyrights in foreign countries should be referred to the Office of Chief Counsel at NIST via email to nistcounsel@nist.gov."
 language: en-US
 stylesheet: template/epub.css
-# cover-image: cover/cover.jpg
+cover-image: cover.jpg
 figureTitle: Figure
 figPrefix: Figure
 eqnPrefix: Equation
@@ -24,5 +24,5 @@ keywords: [cloud, container]
 mustache: abbrev.yaml
 fontsize: 10pt
 abstract: |
-  This book contains the lecture notes for e516
+  This documnet contains the interface definitions for the NIST BDRA.
 ...

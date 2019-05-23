@@ -43,7 +43,7 @@ def analyse():
     #
     if arguments["FILE"]:
        filename = arguments["FILE"]
-       print (filename)
+       # print (filename)
        with open(filename, 'r') as f:
            for line in f:
                line = line.strip()

@@ -1,5 +1,3 @@
-
-
 # Status Codes and Error Responses
 
 In case of an error or a successful response, the response header

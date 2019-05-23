@@ -75,6 +75,9 @@ volume: dest rest spec epub html pdf word
 
 cover:
 	../bin/cover.py
+	mkdir -p dest/images
+	#cp template/cover-2-nist-formal.png dest/images
+	#cp template/cover-nist-formal.png dest/images
 
 dest: 
 	mkdir -p $(DEST)/spec
@@ -107,7 +110,7 @@ lint:
 setup:
 	pip install -r ../requirements.txt
 
-spec: dest specstable openapi $(FILE).md
+spec: dest cover specstable openapi $(FILE).md
 #	cat dest/spec/*.md > dest/spec.md
 	cat nistvol8-2.md status.md acronyms.md bib.md  > dest/$(FILE).md
 	cd dest; ../../bin/cm-md-filter $(FILE).md > all.md
@@ -123,7 +126,7 @@ html: spec
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --toc -s $(FILE).md -o $(FILE).html
 	cp $(DEST)/$(FILE).html .
 
-pdf: spec  dest rest cover epub
+pdf: spec  dest rest epub
 	cp template.latex dest
 	cp *.tex dest
 	cp -rf images dest
@@ -139,7 +142,7 @@ tex: spec
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).tex
 	cp $(DEST)/$(FILE).tex .
 
-word: clean dest rest spec cover epub
+word: clean dest rest spec epub
 	cp format.docx	$(DEST)
 	# cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --reference-doc=format.docx -s $(FILE).md -o $(FILE).docx
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) --bibliography references.bib --reference-doc=../../template/nist-bdra-template3.docx -s $(FILE).md -o $(FILE).docx

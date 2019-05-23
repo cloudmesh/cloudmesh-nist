@@ -1,4 +1,3 @@
-
 ### Profile
 
 {include=./spec/profile.md}

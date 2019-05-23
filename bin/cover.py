@@ -26,9 +26,9 @@ def cover():
     cover.generate(
         image=destination,
         background=source,
-        title="NIST Big Data \n Interoperability Framework",
-        subtitle = "Volume 8: Refernce Architecture \nInterfaces",
-        author="Wo L Chang \n Gregor von Laszewski",
+        title="NIST Big Data\nInteroperability Framework",
+        subtitle = "\nVolume 8: Refernce Architecture \nInterfaces",
+        author="Wo L Chang\nGregor von Laszewski",
         email="laszewski@gmail.com",
         webpage="https://github.com/cloudmesh/cloudmesh-nist"
     )
