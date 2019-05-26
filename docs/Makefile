@@ -20,7 +20,6 @@ MARKDOWN-OPTIONS=--verbose -V curdate="$(date)" --filter pandoc-codeblock-includ
 
 service_4= \
  alias\
- batchjob\
  containers\
  database\
  default\
@@ -47,6 +46,9 @@ service_4= \
  virtualcluster\
  virtualdirectory\
  vm
+
+
+# batchqueue\
 
 # slurmjob\
 # vcluster\

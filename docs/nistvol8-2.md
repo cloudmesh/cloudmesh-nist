@@ -1262,17 +1262,6 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/microservice.yaml}
 ```
 
-## Batch Processing
-
-### Batchjob
-
-{include=./spec/batchjob.md}
-
-#### batchjob.yaml
-
-```{include=./spec/batchjob.yaml}
-```
-
 
 ## Reservation
 

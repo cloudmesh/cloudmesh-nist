@@ -59,7 +59,7 @@ def analyse():
            }
            filename = "../spec/{service}.yaml".format(service=service)
            with open(filename, "r") as f:
-                spec = yaml.load(f)["info"]
+                spec = yaml.load(f, Loader=yaml.SafeLoader)["info"]
                 for field in ["x-date", "version", "title"]:
                     if field  in spec:
                         data[field] = spec[field]
