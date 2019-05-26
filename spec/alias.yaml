@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -11,9 +11,9 @@ info:
     aliases are stored. The aliases could naturally be shared with other users. 
     A resource could have one or more aliases. The reason for using an alias is 
     that a resource may have a complex name but a user may want to refer to the 
-    resource using a name that is suitable for the users' application.
+    resource using a name that is suitable for the users" application.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -38,12 +38,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: alias information
           schema:
             type: array
             items:
-              $ref: '#/definitions/Alias'
+              $ref: "#/definitions/Alias"
     put:
       tags:
         - Alias
@@ -56,11 +56,11 @@ paths:
           required: true
           description: The new alias to create
           schema:
-            $ref: '#/definitions/Alias'
+            $ref: "#/definitions/Alias"
       responses:
-        '201':
+        "201":
           description: Created
-  '/alias/{name}':
+  "/alias/{name}":
     get:
       tags:
         - Alias
@@ -76,21 +76,22 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: alias info
           schema:
-            $ref: '#/definitions/Alias'
-definitions:
-  Alias:
-    type: object
-    description: the alias
-    properties:
-      name:
-        type: string
-        description: The name of the alias
-      origin:
-        type: string
-        description: The original object name
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Alias"
+components:
+  schemas:
+    Alias:
+      type: object
+      description: the alias
+      properties:
+        name:
+          type: string
+          description: The name of the alias
+        origin:
+          type: string
+          description: The original object name
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

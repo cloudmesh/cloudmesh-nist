@@ -1,5 +1,5 @@
----
-swagger: "2.0"
+
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -16,7 +16,7 @@ info:
     from there you can login to any compute node, or submit a job to run on the
     compute nodes.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -128,63 +128,64 @@ paths:
           description: virtualcluster node info
           schema:
             $ref: "#/definitions/Node"
-definitions:
-  VirtualCluster:
-    type: object
-    properties:
-      name:
-        description: The name of the virtual cluster
-        type: string
-      description:
-        type: string
-        description: A description of the virtual cluster
-      nnodes:
-        type: integer
-        description: number of nodes of the virtual cluster
-      owner:
-        type: string
-        description: owner of the virtual cluster
-      manager:
-        description: Manager node of the virtual cluster
-        $ref: "#/definitions/Node"
-      nodes:
-        description: List of nodes of the virtual cluster
-        type: array
-        items:
+components:
+  schemas:
+    VirtualCluster:
+      type: object
+      properties:
+        name:
+          description: The name of the virtual cluster
+          type: string
+        description:
+          type: string
+          description: A description of the virtual cluster
+        nnodes:
+          type: integer
+          description: number of nodes of the virtual cluster
+        owner:
+          type: string
+          description: owner of the virtual cluster
+        manager:
+          description: Manager node of the virtual cluster
           $ref: "#/definitions/Node"
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+        nodes:
+          description: List of nodes of the virtual cluster
+          type: array
+          items:
+            $ref: "#/definitions/Node"
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
 
-  Node:
-    type: object
-    properties:
-      name:
-        type: string
-        description: name of the node
-      state:
-        type: string
-        description: power state of the node
-      ncpu:
-        type: integer
-        description: number of virtual CPUs of the node
-      ram:
-        type: string
-        description: RAM size of the node
-      disk:
-        type: string
-        description: Disk size of the node
-      nics:
-        type: array
-        description: List of network interfaces of the node
-        items:
-          $ref: "#/definitions/NIC"
-  NIC:
-    type: object
-    properties:
-      mac:
-        type: string
-        description: MAC address of the node
-      ip:
-        type: string
-        description: IP address of the node
+    Node:
+      type: object
+      properties:
+        name:
+          type: string
+          description: name of the node
+        state:
+          type: string
+          description: power state of the node
+        ncpu:
+          type: integer
+          description: number of virtual CPUs of the node
+        ram:
+          type: string
+          description: RAM size of the node
+        disk:
+          type: string
+          description: Disk size of the node
+        nics:
+          type: array
+          description: List of network interfaces of the node
+          items:
+            $ref: "#/definitions/NIC"
+    NIC:
+      type: object
+      properties:
+        mac:
+          type: string
+          description: MAC address of the node
+        ip:
+          type: string
+          description: IP address of the node

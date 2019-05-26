@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -8,7 +8,7 @@ info:
     A service to store Network Interface Controller (NIC) information. All of
     them are stored as Strings.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -33,12 +33,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: nic info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Nic'
+              $ref: "#/definitions/Nic"
     put:
       tags:
       - NIC
@@ -50,11 +50,11 @@ paths:
           name: nic
           description: The new nic to create
           schema:
-            $ref: '#/definitions/Nic'
+            $ref: "#/definitions/Nic"
       responses:
-        '201':
+        "201":
           description: Created
-  '/nic/{name}':
+  "/nic/{name}":
     get:
       tags:
       - NIC
@@ -70,43 +70,82 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: nic info
           schema:
-            $ref: '#/definitions/Nic'
-definitions:
-  Nic:
-    type: object
-    description: the nic
-    properties:
-      name:
-        type: string
-        description: name of the nic
-      kind:
-        type: string
-        description: kind of the nic, such as wireless
-      mac:
-        type: string
-        description: the mac address
-      ip:
-        type: string
-        description: the IP address
-      mask:
-        type: string
-        description: the network mask
-      broadcast:
-        type: string
-        description: the broadcast address
-      gateway:
-        type: string
-        description: the gateway address
-      mtu:
-        type: integer
-        description: the MTU of the NIC
-      bandwidth:
-        type: integer
-        description: the bandwidth in bps
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Nic"
+    put:
+      tags:
+        - NIC
+      summary: Uploads a nic by name
+      description: Uploads a nic by name
+      operationId: cloudmesh.nic.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the nic
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: nic info
+          schema:
+            $ref: "#/definitions/Nic"
+    delete:
+      tags:
+        - NIC
+      summary: Deletes a nic by name
+      description: Deletes a nic by name
+      operationId: cloudmesh.nic.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the nic
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: nic info
+          schema:
+            $ref: "#/definitions/Nic"
+components:
+  schemas:
+    Nic:
+      type: object
+      description: the nic
+      properties:
+        name:
+          type: string
+          description: name of the nic
+        kind:
+          type: string
+          description: kind of the nic, such as wireless
+        mac:
+          type: string
+          description: the mac address
+        ip:
+          type: string
+          description: the IP address
+        mask:
+          type: string
+          description: the network mask
+        broadcast:
+          type: string
+          description: the broadcast address
+        gateway:
+          type: string
+          description: the gateway address
+        mtu:
+          type: integer
+          description: the MTU of the NIC
+        bandwidth:
+          type: integer
+          description: the bandwidth in bps
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
 

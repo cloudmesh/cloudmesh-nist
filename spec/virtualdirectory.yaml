@@ -1,5 +1,5 @@
----
-swagger: "2.0"
+
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -13,7 +13,7 @@ info:
     a collection.  The element in the collection can either be defined
     by uuid or by name.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -51,16 +51,16 @@ paths:
       security:
         - httpbasic: []
       responses:
-        '200':
+        "200":
           description: virtualdirectory info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Virtualdirectory'
-        '401':
+              $ref: "#/definitions/Virtualdirectory"
+        "401":
           description: unauthorized error
           schema:
-            $ref: '#/definitions/UnauthorizedError'
+            $ref: "#/definitions/UnauthorizedError"
     put:
       tags:
         - Virtualdirectory
@@ -73,14 +73,14 @@ paths:
           required: true
           description: The new virtualdirectory to create
           schema:
-            $ref: '#/definitions/Virtualdirectory'
+            $ref: "#/definitions/Virtualdirectory"
       security:
         - apikey: []
           apisecret: []
       responses:
-        '201':
+        "201":
           description: Created
-  '/virtualdirectory/{name}':
+  "/virtualdirectory/{name}":
     get:
       tags:
         - Virtualdirectory
@@ -98,44 +98,45 @@ paths:
       security:
         - httpbasic: []
       responses:
-        '200':
+        "200":
           description: virtualdirectory info
           schema:
-            $ref: '#/definitions/Virtualdirectory'
-definitions:
-  UnauthorizedError:
-    type: object
-    description: unauthorized error
-    properties:
-      code:
-        type: string
-        description: Code form of the error
-      message:
-        type: string
-        description: Human readable form of the error
-  Virtualdirectory:
-    type: object
-    description: the virtualdirectory
-    properties:
-      name:
-        description: The name of the virtual directory
-        type: string
-      description:
-        description: description of the virtual directory
-        type: string
-      host:
-        description: remote host of the virtual directory
-        type: string
-      location:
-        description: remote location, e.g., a directory with full path on a host
-        type: string
-      protocol:
-        description: access protocol, e.g., HTTP, FTP, SSH, etc.
-        type: string
-      credential:
-        description: credential to access, e.g., username, password
-        type: object
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Virtualdirectory"
+components:
+  schemas:
+    UnauthorizedError:
+      type: object
+      description: unauthorized error
+      properties:
+        code:
+          type: string
+          description: Code form of the error
+        message:
+          type: string
+          description: Human readable form of the error
+    Virtualdirectory:
+      type: object
+      description: the virtualdirectory
+      properties:
+        name:
+          description: The name of the virtual directory
+          type: string
+        description:
+          description: description of the virtual directory
+          type: string
+        host:
+          description: remote host of the virtual directory
+          type: string
+        location:
+          description: remote location, e.g., a directory with full path on a host
+          type: string
+        protocol:
+          description: access protocol, e.g., HTTP, FTP, SSH, etc.
+          type: string
+        credential:
+          description: credential to access, e.g., username, password
+          type: object
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
 

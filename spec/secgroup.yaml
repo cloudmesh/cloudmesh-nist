@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -15,7 +15,7 @@ info:
    A security group may have one or multiple rules and a node may be
    associated with one or more security groups.
    
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -167,53 +167,54 @@ paths:
       responses:
         "202":
           description: Deletion request accepted and will be performed
-definitions:
-  Secgroup:
-    type: object
-    description: the security group object
-    properties:
-      uuid:
-        type: string
-        description: Unique identifier of the security group
-      name:
-        type: string
-        description: name of the secgroup
-      description:
-        type: string
-        description: describes what the secgroup is for
-      rules:
-        type: array
-        description: List of Secgroup rules
-        items:
-          $ref: "#/definitions/SecGroupRule"
-  SecGroupRule:
-    type: object
-    description: security group rule
-    properties:
-      uuid:
-        type: string
-        description: Unique identifier of the rule
-      ingress:
-        type: boolean
-        description: The defined security group rule is for ingress if True
-      egress:
-        type: boolean
-        description: The defined security group rule is for egress if True
-      remote_group:
-        type: string
-        description: Name of the group if the rule is defined by group instead of IP range
-      protocol:
-        type: string
-        description: The protocol used such as TCP, UDP, ICMP
-      from_port:
-        type: integer
-        description: Port range starting port
-      to_port:
-        type: integer
-        description: Port range ending port
-      cidr:
-        type: string
-        description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+components:
+  schemas:
+    Secgroup:
+      type: object
+      description: the security group object
+      properties:
+        uuid:
+          type: string
+          description: Unique identifier of the security group
+        name:
+          type: string
+          description: name of the secgroup
+        description:
+          type: string
+          description: describes what the secgroup is for
+        rules:
+          type: array
+          description: List of Secgroup rules
+          items:
+            $ref: "#/definitions/SecGroupRule"
+    SecGroupRule:
+      type: object
+      description: security group rule
+      properties:
+        uuid:
+          type: string
+          description: Unique identifier of the rule
+        ingress:
+          type: boolean
+          description: The defined security group rule is for ingress if True
+        egress:
+          type: boolean
+          description: The defined security group rule is for egress if True
+        remote_group:
+          type: string
+          description: Name of the group if the rule is defined by group instead of IP range
+        protocol:
+          type: string
+          description: The protocol used such as TCP, UDP, ICMP
+        from_port:
+          type: integer
+          description: Port range starting port
+        to_port:
+          type: integer
+          description: Port range ending port
+        cidr:
+          type: string
+          description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

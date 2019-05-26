@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -36,60 +36,61 @@ paths:
         - name: cloud
           in: query
           type: string
-          description: 'specify the cloud from which we list, if ommitted all clouds are returned.'
+          description: "specify the cloud from which we list, if ommitted all clouds are returned."
           required: false
       responses:
-        '200':
+        "200":
           description: Listing the VMs
           schema:
             type: array
             items:
-              $ref: '#/definitions/VM'
-definitions:
-  VM:
-    type: object
-    properties:
-      provider:
-        type: string
-        description: Name of the provider
-      id:
-        type: string
-        description: a unique id for the vm
-      name:
-        type: string
-        description: the name of the vm
-      image:
-        type: string
-        description: the image for the vm
-      region:
-        type: string
-        description: an optional region
-      size:
-        type: string
-        description: The size of the vm
-      state:
-        type: string
-        description: The state of the vm
-      private_ips:
-        type: string
-        description: The private IPs
-      public_ips:
-        type: string
-        description: The public IPS
-      metadata:
-        type: string
-        description: The meta data passed along to the VM
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
-    example:
-      image: image
-      metadata: metadata
-      size: size
-      provider: provider
-      name: name
-      private_ips: private_ips
-      id: id
-      state: state
-      region: region
-      public_ips: public_ips
+              $ref: "#/definitions/VM"
+components:
+  schemas:
+    VM:
+      type: object
+      properties:
+        provider:
+          type: string
+          description: Name of the provider
+        id:
+          type: string
+          description: a unique id for the vm
+        name:
+          type: string
+          description: the name of the vm
+        image:
+          type: string
+          description: the image for the vm
+        region:
+          type: string
+          description: an optional region
+        size:
+          type: string
+          description: The size of the vm
+        state:
+          type: string
+          description: The state of the vm
+        private_ips:
+          type: string
+          description: The private IPs
+        public_ips:
+          type: string
+          description: The public IPS
+        metadata:
+          type: string
+          description: The meta data passed along to the VM
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+      example:
+        image: image
+        metadata: metadata
+        size: size
+        provider: provider
+        name: name
+        private_ips: private_ips
+        id: id
+        state: state
+        region: region
+        public_ips: public_ips

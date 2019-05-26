@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -10,7 +10,7 @@ info:
     that determines how much more resources the users of that account are allowed to use. 
     It is of course possible for a user to be part of several accounts. 
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
   license:
@@ -48,12 +48,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: key info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Key'
+              $ref: "#/definitions/Key"
     put:
       tags:
         - Accounting
@@ -66,9 +66,9 @@ paths:
           description: The new key to create
           required: true
           schema:
-            $ref: '#/definitions/Key'
+            $ref: "#/definitions/Key"
       responses:
-        '201':
+        "201":
           description: Created
   /accounting/key/{name}:
     get:
@@ -86,36 +86,37 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: key info
           schema:
-            $ref: '#/definitions/Key'
-definitions:
-  Account:
-    type: object
-    description: account information including finances and summary. 
-    properties:
-      name:
-        type: string
-        description: name of account
-      users:
-        type: array
-        description: The username the charge is made for
-        items: 
-          $ref: '#/definitions/User'
-      organization:
-         description: the organization this chargi is made for
-         $ref: '#/definitions/Organization'
-      group:
-        type: string
-        description: a name of a group this acount belongs to
-      purpose:
-        type: string
-        description: the purpose of the account
-      charge:
-        type: integer
-        minimum: 0 
-        description: The current chare of the account
-      unit:
-         type: string
-         description: the unit in which the account is charged and the charge value is stored
+            $ref: "#/definitions/Key"
+components:
+  schemas:
+    Account:
+      type: object
+      description: account information including finances and summary.
+      properties:
+        name:
+          type: string
+          description: name of account
+        users:
+          type: array
+          description: The username the charge is made for
+          items:
+            $ref: "#/definitions/User"
+        organization:
+           description: the organization this chargi is made for
+           $ref: "#/definitions/Organization"
+        group:
+          type: string
+          description: a name of a group this acount belongs to
+        purpose:
+          type: string
+          description: the purpose of the account
+        charge:
+          type: integer
+          minimum: 0
+          description: The current chare of the account
+        unit:
+           type: string
+           description: the unit in which the account is charged and the charge value is stored

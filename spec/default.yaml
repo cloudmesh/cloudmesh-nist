@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -14,7 +14,7 @@ info:
     since a service could have multiple contexts. To be able to
     define the kind of service there is also a kind attribute.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -39,12 +39,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: default info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Default'
+              $ref: "#/definitions/Default"
     put:
       tags:
         - Default
@@ -57,11 +57,11 @@ paths:
           required: true
           description: The new default to create
           schema:
-            $ref: '#/definitions/Default'
+            $ref: "#/definitions/Default"
       responses:
-        '201':
+        "201":
           description: Created
-  '/default/{name}':
+  "/default/{name}":
     get:
       tags:
         - Default
@@ -77,30 +77,31 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: default info
           schema:
-            $ref: '#/definitions/Default'
-definitions:
-  Default:
-    type: object
-    description: the defaults
-    properties:
-      name:
-        type: string
-        description: The name of the default
-      value:
-        type: string
-        description: The type of the default
-      kind:
-        type: string
-        description: The value of the default
-      service:
-        type: string
-        description: The name of the service
-      context:
-        type: string
-        description: The context of the service
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Default"
+components:
+  schemas:
+    Default:
+      type: object
+      description: the defaults
+      properties:
+        name:
+          type: string
+          description: The name of the default
+        value:
+          type: string
+          description: The type of the default
+        kind:
+          type: string
+          description: The value of the default
+        service:
+          type: string
+          description: The name of the service
+        context:
+          type: string
+          description: The context of the service
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

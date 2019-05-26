@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 0.0.2
   x-date: 10-30-2018
@@ -8,7 +8,7 @@ info:
     A service to store abc, value, type information. All of them are
     stored as Strings.
     
-  termsOfService: 'http://bin.io/terms/'
+  termsOfService: "http://bin.io/terms/"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -32,12 +32,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: abc info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Abc'
+              $ref: "#/definitions/Abc"
     put:
       tags:
       - ABC
@@ -49,11 +49,11 @@ paths:
           name: abc
           description: The new abc to create
           schema:
-            $ref: '#/definitions/Abc'
+            $ref: "#/definitions/Abc"
       responses:
-        '201':
+        "201":
           description: Created
-  '/cloudmesh/abcstore/abc/{name}':
+  "/cloudmesh/abcstore/abc/{name}":
     get:
       tags:
       - ABC
@@ -69,10 +69,10 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: abc info
           schema:
-            $ref: '#/definitions/Abc'
+            $ref: "#/definitions/Abc"
 definitions:
   Abc:
     type: object

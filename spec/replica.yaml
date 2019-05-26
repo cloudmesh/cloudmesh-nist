@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -11,7 +11,7 @@ info:
     important to provide a mechanism to trace the pedigree of the file
     while pointing to its original source. 
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -41,7 +41,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Replica'
+              $ref: "#/definitions/Replica"
     put:
       tags:
       - Replica
@@ -54,11 +54,11 @@ paths:
           required: true
           description: The new replica entry to create
           schema:
-            $ref: '#/definitions/Replica'
+            $ref: "#/definitions/Replica"
       responses:
         201:
           description: Created
-  '/replica/{name}':
+  "/replica/{name}":
     get:
       tags:
       - Replica
@@ -77,28 +77,68 @@ paths:
         200:
           description: replica info
           schema:
-            $ref: '#/definitions/Replica'
-definitions:
-  Replica:
-    type: object
-    description: An entry representing a file replica record
-    properties:
-      name:
-        type: string
-        description: the name of the replica
-      filename:
-        type: string
-        description: the original filename
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-        $ref: '#/definitions/Timestamp'
-        description: The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to.
+            $ref: "#/definitions/Replica"
+    put:
+      tags:
+        - Replica
+      summary: Uploads a replica by name
+      description: Uploads a replica by name
+      operationId: cloudmesh.replica.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the replica
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: replica info
+          schema:
+            $ref: "#/definitions/Replica"
+    delete:
+      tags:
+        - Replica
+      summary: Deletes a replica by name
+      description: Deletes a replica by name
+      operationId: cloudmesh.replica.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the replica
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: replica info
+          schema:
+            $ref: "#/definitions/Replica"
+
+components:
+  schemas:
+    Replica:
+      type: object
+      description: An entry representing a file replica record
+      properties:
+        name:
+          type: string
+          description: the name of the replica
+        filename:
+          type: string
+          description: the original filename
+        endpoint:
+          type: string
+          description: The location of the file
+        checksum:
+          type: string
+          description: The checksum of the file
+        size:
+          type: integer
+          description: The size of the file in byte
+        timestamp:
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          description: The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to.
 

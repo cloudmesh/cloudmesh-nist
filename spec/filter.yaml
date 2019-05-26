@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -8,7 +8,7 @@ info:
     Filters can operate on a variety of objects and reduce the
     information received based on a search criterion.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -23,7 +23,7 @@ produces:
   - application/json
 basePath: "/cloudmesh/v3"
 paths:
-  /filters:
+  /filter:
     get:
       tags:
       - Filter
@@ -33,12 +33,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: filter info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Filter'
+              $ref: "#/definitions/Filter"
     put:
       tags:
       - Filter
@@ -50,11 +50,11 @@ paths:
           name: filter
           description: The new filter to create
           schema:
-            $ref: '#/definitions/Filter'
+            $ref: "#/definitions/Filter"
       responses:
-        '201':
+        "201":
           description: Created
-  '/filter/{name}':
+  "/filter/{name}":
     get:
       tags:
       - Filter
@@ -70,24 +70,63 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: filter info
           schema:
-            $ref: '#/definitions/Filter'
-definitions:
-  Filter:
-    type: object
-    description: the filter
-    properties:
-      name:
-        type: string
-        description: name of the filter
-      function:
-        type: string
-        description: the function  of the data exchanged in the stream
-      kind:
-        type: string
-        description: the filter kind or type
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Filter"
+    put:
+      tags:
+        - Filter
+      summary: Uploads a filter by name
+      description: Uploads a filter by name
+      operationId: cloudmesh.filter.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the filter
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: filter info
+          schema:
+            $ref: "#/definitions/Filter"
+    delete:
+      tags:
+        - Filter
+      summary: Deletes a filter by name
+      description: Deletes a filter by name
+      operationId: cloudmesh.filter.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the filter
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: filter info
+          schema:
+            $ref: "#/definitions/Filter"
+components:
+  schemas:
+    Filter:
+      type: object
+      description: the filter
+      properties:
+        name:
+          type: string
+          description: name of the filter
+        function:
+          type: string
+          description: the function  of the data exchanged in the stream
+        kind:
+          type: string
+          description: the filter kind or type
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

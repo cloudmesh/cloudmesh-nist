@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -9,7 +9,7 @@ info:
     The scheduler is a service to store scheduler, value, and type information, all of which
     are stored as strings.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -24,7 +24,7 @@ produces:
   - application/json
 basePath: "/cloudmesh/v3"
 paths:
-  /schedulers:
+  /scheduler:
     get:
       tags:
       - Scheduler
@@ -34,12 +34,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: scheduler info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Scheduler'
+              $ref: "#/definitions/Scheduler"
     put:
       tags:
       - Scheduler
@@ -51,11 +51,11 @@ paths:
           name: scheduler
           description: The new scheduler to create
           schema:
-            $ref: '#/definitions/Scheduler'
+            $ref: "#/definitions/Scheduler"
       responses:
-        '201':
+        "201":
           description: Created
-  '/scheduler/{name}':
+  "/scheduler/{name}":
     get:
       tags:
       - Scheduler
@@ -71,24 +71,63 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: scheduler info
           schema:
-            $ref: '#/definitions/Scheduler'
-definitions:
-  Scheduler:
-    type: object
-    description: the scheduler
-    properties:
-      name:
-        type: string
-        description: name of the scheduler
-      value:
-        type: string
-        description: information of the scheduler
-      kind:
-        type: string
-        description: the scheduler kind or type
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Scheduler"
+    put:
+      tags:
+        - Scheduler
+      summary: Uploads a scheduler by name
+      description: Uploads a scheduler by name
+      operationId: cloudmesh.scheduler.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the scheduler
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: scheduler info
+          schema:
+            $ref: "#/definitions/Scheduler"
+    delete:
+      tags:
+        - Scheduler
+      summary: Deletes a scheduler by name
+      description: Deletes a scheduler by name
+      operationId: cloudmesh.scheduler.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the scheduler
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: scheduler info
+          schema:
+            $ref: "#/definitions/Scheduler"
+components:
+  schemas:
+    Scheduler:
+      type: object
+      description: the scheduler
+      properties:
+        name:
+          type: string
+          description: name of the scheduler
+        value:
+          type: string
+          description: information of the scheduler
+        kind:
+          type: string
+          description: the scheduler kind or type
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

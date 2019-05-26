@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -11,7 +11,7 @@ info:
     helps to solve that issue by storing containers and their corresponding 
     information. 
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -41,11 +41,11 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Container'
+              $ref: "#/definitions/Container"
     put:
       tags:
         - Container
-      summary: Create a new containers
+      summary: Create a new container
       description: Create a new containers
       operationId: cloudmesh.containers.put
       parameters:
@@ -53,15 +53,15 @@ paths:
           name: containers
           description: The new containers to create
           schema:
-            $ref: '#/definitions/Container'
+            $ref: "#/definitions/Container"
       responses:
         201:
           description: Created
-  '/container/{name}':
+  "/container/{name}":
     get:
       tags:
         - Container
-      summary: Returns a containers
+      summary: Returns a container
       description: Returns a containers
       operationId: cloudmesh.containers.get_by_name
       parameters:
@@ -76,35 +76,36 @@ paths:
         200:
           description: containers info
           schema:
-            $ref: '#/definitions/Container'
-definitions:
-  Container:
-    type: object
-    description: A record representing a container
-    properties:
-      name:
-        type: string
-        description: name of the container
-      version:
-        type: string
-        description: version of the container
-      label:
-        type: string
-        description: label of the container
-      type:
-        type: string
-        description: type of the container
-      definition:
-        type: string
-        description: definition or manifest of the container
-      imgURI:
-        type: string
-        description: URI of the container
-      tags:
-        type: array
-        description: tags of the container
-        items:
+            $ref: "#/definitions/Container"
+components:
+  schemas:
+    Container:
+      type: object
+      description: A record representing a container
+      properties:
+        name:
           type: string
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+          description: name of the container
+        version:
+          type: string
+          description: version of the container
+        label:
+          type: string
+          description: label of the container
+        type:
+          type: string
+          description: type of the container
+        definition:
+          type: string
+          description: definition or manifest of the container
+        imgURI:
+          type: string
+          description: URI of the container
+        tags:
+          type: array
+          description: tags of the container
+          items:
+            type: string
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

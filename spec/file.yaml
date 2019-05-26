@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -15,7 +15,7 @@ info:
     file.  The file object has name, endpoint (location), size (in gigabytes [GB],
     megabytes [MB], and Bytes), and checksum for integrity check.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -28,7 +28,7 @@ consumes:
   - application/json
 produces:
   - application/json
-basePath: "/v3"
+basePath: "/cloudmesh/v3"
 paths:
   /file:
     get:
@@ -40,12 +40,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: file info
           schema:
             type: array
             items:
-              $ref: '#/definitions/File'
+              $ref: "#/definitions/File"
     put:
       tags:
       - File
@@ -58,11 +58,11 @@ paths:
           required: true
           description: The new file record to create
           schema:
-            $ref: '#/definitions/File'
+            $ref: "#/definitions/File"
       responses:
-        '201':
+        "201":
           description: Created
-  '/cloudmesh/file/{name}':
+  "/cloudmesh/file/{name}":
     get:
       tags:
       - File
@@ -78,29 +78,68 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: file info
           schema:
-            $ref: '#/definitions/File'
-definitions:
-  File:
-    type: object
-    description: an object representing a file
-    properties:
-      name:
-        type: string
-        description: The name of the file
-      endpoint:
-        type: string
-        description: The location of the file
-      checksum:
-        type: string
-        description: The checksum of the file
-      size:
-        type: integer
-        description: The size of the file in byte
-      timestamp:
-        description: timestamps associated with the file
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/File"
+    put:
+      tags:
+        - File
+      summary: Uploads a file by name
+      description: Uploads a file by name
+      operationId: cloudmesh.file.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the file
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: file info
+          schema:
+            $ref: "#/definitions/File"
+    delete:
+      tags:
+        - File
+      summary: Deletes a file by name
+      description: Deletes a file by name
+      operationId: cloudmesh.file.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the file
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: file info
+          schema:
+            $ref: "#/definitions/File"
+components:
+  schemas:
+    File:
+      type: object
+      description: an object representing a file
+      properties:
+        name:
+          type: string
+          description: The name of the file
+        endpoint:
+          type: string
+          description: The location of the file
+        checksum:
+          type: string
+          description: The checksum of the file
+        size:
+          type: integer
+          description: The size of the file in byte
+        timestamp:
+          description: timestamps associated with the file
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
 
 

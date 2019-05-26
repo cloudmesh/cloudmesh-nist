@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -8,7 +8,7 @@ info:
     A service to store deployment, value, type information. All of
     them are stored as Strings.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -38,7 +38,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Deployment'
+              $ref: "#/definitions/Deployment"
     put:
       tags:
         - Deployment
@@ -50,11 +50,11 @@ paths:
           name: deployment
           description: The new deployment to create
           schema:
-            $ref: '#/definitions/Deployment'
+            $ref: "#/definitions/Deployment"
       responses:
-        '201':
+        "201":
           description: Created
-  '/deployment/{name}':
+  "/deployment/{name}":
     get:
       tags:
         - Deployment
@@ -70,23 +70,24 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: deployment info
           schema:
-            $ref: '#/definitions/Deployment'
-definitions:
-  Deployment:
-    type: object
-    description: the deployment
-    properties:
-      cluster:
-        type: string
-        description: the name of the cluster
-      stack:
-        type: array
-        items:
-           type: object
-           #layers: string
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Deployment"
+components:
+  schemas:
+    Deployment:
+      type: object
+      description: the deployment
+      properties:
+        cluster:
+          type: string
+          description: the name of the cluster
+        stack:
+          type: array
+          items:
+             type: object
+             #layers: string
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

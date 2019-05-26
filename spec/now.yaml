@@ -1,5 +1,5 @@
----
-swagger: "2.0"
+
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -16,7 +16,7 @@ info:
     management machine and the NOW nodes are via SSH and the authentication
     is handled with the SSH configuration file.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -35,8 +35,8 @@ paths:
     get:
       tags:
         - NOW
-      summary: Returns list of NOWs
-      description: Returns list of NOWs
+      summary: Returns a list of NOWs
+      description: Returns a list of NOWs
       operationId: cloudmesh.now.get
       produces:
         - application/json
@@ -46,7 +46,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/NOW'
+              $ref: "#/definitions/NOW"
     put:
       tags:
         - NOW
@@ -59,7 +59,7 @@ paths:
           description: The new NOW to create
           required: true
           schema:
-            $ref: '#/definitions/NOW'
+            $ref: "#/definitions/NOW"
       responses:
         201:
           description: Created
@@ -83,8 +83,45 @@ paths:
         200:
           description: now info
           schema:
-            $ref: '#/definitions/NOW'
-
+            $ref: "#/definitions/NOW"
+    put:
+      tags:
+        - NOW
+      summary: Uploads a now by name
+      description: Uploads a now by name
+      operationId: cloudmesh.now.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the now
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: now info
+          schema:
+            $ref: "#/definitions/Now"
+    delete:
+      tags:
+        - NOW
+      summary: Deletes a now by name
+      description: Deletes a now by name
+      operationId: cloudmesh.now.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the now
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: now info
+          schema:
+            $ref: "#/definitions/Now"
   /now/{nowname}/{nodename}:
     get:
       tags:
@@ -109,7 +146,7 @@ paths:
         200:
           description: NOW node info
           schema:
-            $ref: '#/definitions/NowNode'
+            $ref: "#/definitions/NowNode"
 
   /now/jobs/{jobname}:
     get:
@@ -130,143 +167,144 @@ paths:
         200:
           description: job info
           schema:
-            $ref: '#/definitions/NowNode'
+            $ref: "#/definitions/NowNode"
 
-definitions:
-  NOW:
-    type: object
-    properties:
-      name:
-        description: The name of the now
-        type: string
-      description:
-        type: string
-        description: A description of the now
-      runtime-config:
-        description: The type of input and output of the jobs in the now
-        type: array
-        items:
-          $ref: '#/definitions/RuntimeConfig'
-      nodes:
-        description: List of nodes of the now
-        type: array
-        items:
-          $ref: '#/definitions/NowNode'
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+components:
+  schemas:
+    NOW:
+      type: object
+      properties:
+        name:
+          description: The name of the now
+          type: string
+        description:
+          type: string
+          description: A description of the now
+        runtime-config:
+          description: The type of input and output of the jobs in the now
+          type: array
+          items:
+            $ref: "#/definitions/RuntimeConfig"
+        nodes:
+          description: List of nodes of the now
+          type: array
+          items:
+            $ref: "#/definitions/NowNode"
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
 
-  RuntimeConfig:
-    type: object
-    properties:
-      input:
-        type: string
-        description: the type of input for the jobs submitted to NOW, possible values are params or params+file
-      output:
-        type: string
-        description: the type of input for the jobs submitted to NOW, possible values are stdout, file or file+stdout
+    RuntimeConfig:
+      type: object
+      properties:
+        input:
+          type: string
+          description: the type of input for the jobs submitted to NOW, possible values are params or params+file
+        output:
+          type: string
+          description: the type of input for the jobs submitted to NOW, possible values are stdout, file or file+stdout
 
-  NowNode:
-    type: object
-    properties:
-      name:
-        type: string
-        description: name of the node
-      label:
-        type: string
-        description: label of the node
-      address:
-        type: string
-        description: address of the node (IP or URL)
-      credentials:
-        type: array
-        description: credential information for connecting to the node
-        items:
-          $ref: '#/definitions/Credentials'
+    NowNode:
+      type: object
+      properties:
+        name:
+          type: string
+          description: name of the node
+        label:
+          type: string
+          description: label of the node
+        address:
+          type: string
+          description: address of the node (IP or URL)
+        credentials:
+          type: array
+          description: credential information for connecting to the node
+          items:
+            $ref: "#/definitions/Credentials"
 
-  Credentials:
-    type: object
-    properties:
-      cred_type:
-        type: string
-        description: type of the credentials
-      username:
-        type: string
-        description: username for conenction
-      publickey:
-        type: string
-        description: path to the publickey
-      sshconfigpath:
-        type: string
-        description: path to the ssh config which is used for connecting to the node
+    Credentials:
+      type: object
+      properties:
+        cred_type:
+          type: string
+          description: type of the credentials
+        username:
+          type: string
+          description: username for conenction
+        publickey:
+          type: string
+          description: path to the publickey
+        sshconfigpath:
+          type: string
+          description: path to the ssh config which is used for connecting to the node
 
-  Path:
-    type: object
-    description: path information
-    properties:
-      folder_path:
-        type: string
-        description: absolute path to the folder
-      file_path:
-        type: string
-        description: absolute path to the file
-      file_name:
-        type: string
-        description: the name of the script/file
+    Path:
+      type: object
+      description: path information
+      properties:
+        folder_path:
+          type: string
+          description: absolute path to the folder
+        file_path:
+          type: string
+          description: absolute path to the file
+        file_name:
+          type: string
+          description: the name of the script/file
 
-  Job:
-    type: object
-    properties:
-      suffix:
-        type: string
-        description: suffix of the job in the remote
-      nowname:
-        type: string
-        description: name of the NOW on which job is submitted
-      job_runtimeconfig:
-        type: array
-        description: type of the runtime config used for the job
-        items:
-          $ref: '#/definitions/RuntimeConfig'
-      script_path_remote:
-        type: array
-        description: script path information in remote NOW
-        items:
-          $ref: '#/definitions/Path'
-      argfiles_path_remote:
-        type: array
-        description: argument files path information in remote NOW
-        items:
-          $ref: '#/definitions/Path'
-      script_path_local:
-        type: array
-        description: script path information locally
-        items:
-          $ref: '#/definitions/Path'
-      argfiles_path_local:
-        type: array
-        description: argument files path information locally
-        items:
-          $ref: '#/definitions/Path'
-      results_folder:
-        type: array
-        description: local folder to copy the results
-        items:
-          $ref: '#/definitions/Path'
-      node_pids:
-        type: array
-        description: pid in each node
-        items:
-          $ref: '#/definitions/NodePid'
+    Job:
+      type: object
+      properties:
+        suffix:
+          type: string
+          description: suffix of the job in the remote
+        nowname:
+          type: string
+          description: name of the NOW on which job is submitted
+        job_runtimeconfig:
+          type: array
+          description: type of the runtime config used for the job
+          items:
+            $ref: "#/definitions/RuntimeConfig"
+        script_path_remote:
+          type: array
+          description: script path information in remote NOW
+          items:
+            $ref: "#/definitions/Path"
+        argfiles_path_remote:
+          type: array
+          description: argument files path information in remote NOW
+          items:
+            $ref: "#/definitions/Path"
+        script_path_local:
+          type: array
+          description: script path information locally
+          items:
+            $ref: "#/definitions/Path"
+        argfiles_path_local:
+          type: array
+          description: argument files path information locally
+          items:
+            $ref: "#/definitions/Path"
+        results_folder:
+          type: array
+          description: local folder to copy the results
+          items:
+            $ref: "#/definitions/Path"
+        node_pids:
+          type: array
+          description: pid in each node
+          items:
+            $ref: "#/definitions/NodePid"
 
-  NodePid:
-    type: object
-    properties:
-      node:
-        type: array
-        description: node information
-        items:
-          $ref: '#/definitions/NowNode'
-      pid:
-        type: string
-        description: pid number in remote node
+    NodePid:
+      type: object
+      properties:
+        node:
+          type: array
+          description: node information
+          items:
+            $ref: "#/definitions/NowNode"
+        pid:
+          type: string
+          description: pid number in remote node

@@ -1,15 +1,15 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: MapReduce
   description: |-
   
-    A service to store the information of a mapreduce deployment definition. All of the
-    attributes are stored as Strings.
+    A service to store the information of a mapreduce deployment definition.
+    All of the attributes are stored as Strings.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -34,12 +34,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: mapreduce info
           schema:
             type: array
             items:
-              $ref: '#/definitions/mapreduce'
+              $ref: "#/definitions/mapreduce"
     put:
       tags:
       - mapreduce
@@ -51,11 +51,11 @@ paths:
           name: mapreduce
           description: The new mapreduce to create
           schema:
-            $ref: '#/definitions/mapreduce'
+            $ref: "#/definitions/mapreduce"
       responses:
-        '201':
+        "201":
           description: Created
-  '/mapreduce/{name}':
+  "/mapreduce/{name}":
     get:
       tags:
       - mapreduce
@@ -71,45 +71,46 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: mapreduce info
           schema:
-            $ref: '#/definitions/mapreduce'
-definitions:
-  mapreduce:
-    type: object
-    description: An object representing a mapreduce deployment definition
-    properties:
-      name:
-        type: string
-        description: name of the mapreduce cluster
-      deployment_type:
-        type: string
-        description: the type of the deployement framework
-      deployment_git:
-        type: string
-        description: the url where to find the deployment scripts
-      resource_managers:
-        type: integer
-        description: number of resource managers
-      namenodes:
-        type: integer
-        description: number of name nodes
-      datanodes:
-        type: integer
-        description: number of data nodes
-      historynodes:
-        type: integer
-        description: number of history nodes
-      journalnodes:
-        type: integer
-        description: number of journal nodes
-      yarn:
-        type: boolean
-        description: true if yarn is used
-      hdfs:
-        type: boolean
-        description: true if hdfs is used
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/mapreduce"
+components:
+  schemas:
+    mapreduce:
+      type: object
+      description: An object representing a mapreduce deployment definition
+      properties:
+        name:
+          type: string
+          description: name of the mapreduce cluster
+        deployment_type:
+          type: string
+          description: the type of the deployement framework
+        deployment_git:
+          type: string
+          description: the url where to find the deployment scripts
+        resource_managers:
+          type: integer
+          description: number of resource managers
+        namenodes:
+          type: integer
+          description: number of name nodes
+        datanodes:
+          type: integer
+          description: number of data nodes
+        historynodes:
+          type: integer
+          description: number of history nodes
+        journalnodes:
+          type: integer
+          description: number of journal nodes
+        yarn:
+          type: boolean
+          description: true if yarn is used
+        hdfs:
+          type: boolean
+          description: true if hdfs is used
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

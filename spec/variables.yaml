@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -11,7 +11,7 @@ info:
     below. The variable value format is defined as string to allow
     maximal probability.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -41,7 +41,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Variables'
+              $ref: "#/definitions/Variables"
     put:
       tags:
         - Variables
@@ -53,11 +53,11 @@ paths:
           name: variables
           description: The new variables to create
           schema:
-            $ref: '#/definitions/Variables'
+            $ref: "#/definitions/Variables"
       responses:
         201:
           description: Created
-  '/variables/{name}':
+  "/variables/{name}":
     get:
       tags:
         - Variables
@@ -76,21 +76,22 @@ paths:
         200:
           description: variables info
           schema:
-            $ref: '#/definitions/Variables'
-definitions:
-  Variables:
-    type: object
-    description: the variables
-    properties:
-      name:
-        type: string
-        description: name of the variable
-      value:
-        type: string
-        description: type of the variable
-      kind:
-        type: string
-        description: value of the variable
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Variables"
+components:
+  schemas:
+    Variables:
+      type: object
+      description: the variables
+      properties:
+        name:
+          type: string
+          description: name of the variable
+        value:
+          type: string
+          description: type of the variable
+        kind:
+          type: string
+          description: value of the variable
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

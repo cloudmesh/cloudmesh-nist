@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -13,7 +13,7 @@ info:
     Flavors and the corresponding information are essential to size a
     virtual cluster appropriately.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -29,7 +29,7 @@ produces:
   - application/json
 basePath: "/cloudmesh/v3"
 paths:
-  /flavors:
+  /flavor:
     get:
       tags:
       - Flavor
@@ -39,12 +39,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: flavor info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Flavor'
+              $ref: "#/definitions/Flavor"
     put:
       tags:
       - Flavor
@@ -57,11 +57,11 @@ paths:
           required: true
           description: The new flavor to create
           schema:
-            $ref: '#/definitions/Flavor'
+            $ref: "#/definitions/Flavor"
       responses:
-        '201':
+        "201":
           description: Created
-  '/flavor/{name}':
+  "/flavor/{name}":
     get:
       tags:
       - Flavor
@@ -77,48 +77,87 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: flavor info
           schema:
-            $ref: '#/definitions/Flavor'
-definitions:
-  Flavor:
-    type: object
-    description: the flavor
-    properties:
-      name:
-        type: string
-        description: name of the flavor
-      id:
-        type: string
-        description: the id of the flavor
-      label:
-        type: string
-        description: a label that a user can set for this flavor
-      description:
+            $ref: "#/definitions/Flavor"
+    put:
+      tags:
+        - Flavor
+      summary: Uploads a flavor by name
+      description: Uploads a flavor by name
+      operationId: cloudmesh.flavor.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
           type: string
-          description: A description for the compute node
-      ram:
-        type: integer
-        description: number of bytes used for the image in RAM
-      swap:
-        type: integer
-        description: number of bytes used for the image in SWAP
-      disk:
-        type: integer
-        description: number of bytes used for the disk
-      ephemeral_disk:
-        type: boolean
-        description: specifies whether the flavor features an ephemeral disk
-      bandwidth:
-        type: integer
-        description: bandwidth of the node
-      price:
-        type: integer
-        description: price for the flavor
-      cloud:
-        type: string
-        description: name of the cloud this flavor is used
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+          description: The name of the flavor
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: flavor info
+          schema:
+            $ref: "#/definitions/Flavor"
+    delete:
+      tags:
+        - Flavor
+      summary: Deletes a flavor by name
+      description: Deletes a flavor by name
+      operationId: cloudmesh.flavor.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the flavor
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: flavor info
+          schema:
+            $ref: "#/definitions/Flavor"
+components:
+  schemas:
+    Flavor:
+      type: object
+      description: the flavor
+      properties:
+        name:
+          type: string
+          description: name of the flavor
+        id:
+          type: string
+          description: the id of the flavor
+        label:
+          type: string
+          description: a label that a user can set for this flavor
+        description:
+            type: string
+            description: A description for the compute node
+        ram:
+          type: integer
+          description: number of bytes used for the image in RAM
+        swap:
+          type: integer
+          description: number of bytes used for the image in SWAP
+        disk:
+          type: integer
+          description: number of bytes used for the disk
+        ephemeral_disk:
+          type: boolean
+          description: specifies whether the flavor features an ephemeral disk
+        bandwidth:
+          type: integer
+          description: bandwidth of the node
+        price:
+          type: integer
+          description: price for the flavor
+        cloud:
+          type: string
+          description: name of the cloud this flavor is used
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

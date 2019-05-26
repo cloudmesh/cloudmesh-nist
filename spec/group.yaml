@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -9,7 +9,7 @@ info:
     A group  is a service to mange associate a number of users so they can be
     represented as a group.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -34,12 +34,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: group info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Group'
+              $ref: "#/definitions/Group"
     put:
       tags:
         - Group
@@ -52,11 +52,11 @@ paths:
           required: true
           description: The new group to create
           schema:
-            $ref: '#/definitions/Group'
+            $ref: "#/definitions/Group"
       responses:
-        '201':
+        "201":
           description: Created
-  '/group/{name}':
+  "/group/{name}":
     get:
       tags:
         - Group
@@ -72,35 +72,74 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: group info
           schema:
-            $ref: '#/definitions/Group'
-definitions:
-  Group:
-    type: object
-    description: the groups
-    properties:
-      name:
-        type: string
-        description: The name of the group
-      value:
-        type: string
-        description: The type of the group
-      kind:
-        type: string
-        description: The value of the group
-      service:
-        type: string
-        description: The name of the service
-      context:
-        type: string
-        description: The context of the service
-      users: 
-        type: array
-        description: the users that are member of the group
-        items: 
-          $ref: '#/definitions/User'
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Group"
+    put:
+      tags:
+        - Group
+      summary: Uploads a group by name
+      description: Uploads a group by name
+      operationId: cloudmesh.group.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the group
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: group info
+          schema:
+            $ref: "#/definitions/Group"
+    delete:
+      tags:
+        - Group
+      summary: Deletes a group by name
+      description: Deletes a group by name
+      operationId: cloudmesh.group.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the group
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: group info
+          schema:
+            $ref: "#/definitions/Group"
+components:
+  schemas:
+    Group:
+      type: object
+      description: the groups
+      properties:
+        name:
+          type: string
+          description: The name of the group
+        value:
+          type: string
+          description: The type of the group
+        kind:
+          type: string
+          description: The value of the group
+        service:
+          type: string
+          description: The name of the service
+        context:
+          type: string
+          description: The context of the service
+        users:
+          type: array
+          description: the users that are member of the group
+          items:
+            $ref: "#/definitions/User"
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

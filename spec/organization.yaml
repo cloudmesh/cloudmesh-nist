@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -16,7 +16,7 @@ info:
     are used, for example, to distinguish different access rights to
     services.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -41,12 +41,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: organization info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Organization'
+              $ref: "#/definitions/Organization"
     put:
       tags:
         - Organization
@@ -58,11 +58,11 @@ paths:
           name: organization
           description: The new organization to create
           schema:
-            $ref: '#/definitions/Organization'
+            $ref: "#/definitions/Organization"
       responses:
-        '201':
+        "201":
           description: Created
-  '/organization/{name}':
+  "/organization/{name}":
     get:
       tags:
         - Organization
@@ -78,11 +78,49 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: organization info
           schema:
-            $ref: '#/definitions/Organization'
-  /organization/users:
+            $ref: "#/definitions/Organization"
+    put:
+      tags:
+        - Organization
+      summary: Uploads a organization by name
+      description: Uploads a organization by name
+      operationId: cloudmesh.organization.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the organization
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: organization info
+          schema:
+            $ref: "#/definitions/Organization"
+    delete:
+      tags:
+        - Organization
+      summary: Deletes a organization by name
+      description: Deletes a organization by name
+      operationId: cloudmesh.organization.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the organization
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: organization info
+          schema:
+            $ref: "#/definitions/Organization"
+  /organization/{name}/user:
     get:
       tags:
         - Organization
@@ -92,11 +130,11 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: organization info
           schema:
-            $ref: '#/definitions/Organization'
-  /organization/users/{username}:
+            $ref: "#/definitions/Organization"
+  /organization/{name}/user/{username}:
     get:
       tags:
         - Organization
@@ -112,11 +150,10 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: organization info
           schema:
-            $ref: '#/definitions/Organization'
-/organization/users/{username}:
+            $ref: "#/definitions/Organization"
     put:
       tags:
         - Organization
@@ -132,23 +169,44 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: organization info
           schema:
-            $ref: '#/definitions/Organization'
-definitions:
-  Organization:
-    type: object
-    properties:
-      name:
-        description: Name of the organization
-        type: string
-      users:
-        description: list of users
-        type: array
-        items: 
-          $ref: '#/definitions/User'
-      timestamp:
-        description: timestamps associated with the organization
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Organization"
+    delete:
+      tags:
+        - Organization
+      summary: Delete a new user in the organization
+      description: Delete a new user in the organization
+      operationId: cloudmesh.organization.delete_user
+      parameters:
+        - name: username
+          description: The username
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: organization info
+          schema:
+            $ref: "#/definitions/Organization"
+
+components:
+  schemas:
+    Organization:
+      type: object
+      properties:
+        name:
+          description: Name of the organization
+          type: string
+        users:
+          description: list of users
+          type: array
+          items:
+            $ref: "#/definitions/User"
+        timestamp:
+          description: timestamps associated with the organization
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
 

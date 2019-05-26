@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -8,7 +8,7 @@ info:
     Some services may consume a considerable amount of resources,
     necessitating the reservation of resources.
     
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -33,12 +33,12 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: reservation info
           schema:
             type: array
             items:
-              $ref: '#/definitions/Reservation'
+              $ref: "#/definitions/Reservation"
     put:
       tags:
       - Reservation
@@ -50,11 +50,11 @@ paths:
           name: reservation
           description: The new reservation to create
           schema:
-            $ref: '#/definitions/Reservation'
+            $ref: "#/definitions/Reservation"
       responses:
-        '201':
+        "201":
           description: Created
-  '/reservation/{name}':
+  "/reservation/{name}":
     get:
       tags:
       - Reservation
@@ -70,32 +70,71 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: reservation info
           schema:
-            $ref: '#/definitions/Reservation'
-definitions:
-  Reservation:
-    type: object
-    description: the reservation
-    properties:
-      name:
-        type: string
-        description: name of the reservation
-      service:
-        type: string
-        description: the name of the service on which we reserve
-      description:
-        type: string
-        description: the description of the reservation
-      start:
-        type: string
-        format: date
-        description: the start time and date
-      end:
-        type: string
-        format: date
-        description: the end time and date
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
+            $ref: "#/definitions/Reservation"
+    put:
+      tags:
+        - Reservation
+      summary: Uploads a reservation by name
+      description: Uploads a reservation by name
+      operationId: cloudmesh.reservation.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the reservation
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: reservation info
+          schema:
+            $ref: "#/definitions/Reservation"
+    delete:
+      tags:
+        - Reservation
+      summary: Deletes a reservation by name
+      description: Deletes a reservation by name
+      operationId: cloudmesh.reservation.put_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+          description: The name of the reservation
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: reservation info
+          schema:
+            $ref: "#/definitions/Reservation"
+components:
+  schemas:
+    Reservation:
+      type: object
+      description: the reservation
+      properties:
+        name:
+          type: string
+          description: name of the reservation
+        service:
+          type: string
+          description: the name of the service on which we reserve
+        description:
+          type: string
+          description: the description of the reservation
+        start:
+          type: string
+          format: date
+          description: the start time and date
+        end:
+          type: string
+          format: date
+          description: the end time and date
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"

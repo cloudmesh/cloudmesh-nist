@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -13,7 +13,7 @@ info:
     (e.g., host, port), and a protocol used (e.g., SQL, MongoDB, graphgl, and
      others).
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
@@ -43,7 +43,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Database'
+              $ref: "#/definitions/Database"
         400:
           description: "Invalid name supplied"
         401:
@@ -68,7 +68,7 @@ paths:
         200:
           description: database info
           schema:
-            $ref: '#/definitions/Database'
+            $ref: "#/definitions/Database"
         400:
           description: "Invalid name supplied"
         404:
@@ -205,53 +205,54 @@ paths:
          404:
            description: "Invalid database name or table or collection name supplied"
 
-definitions:
-  Database:
-    type: object
-    description: defines a database object as an entry
-    properties:
-      name:
-        type: string
-        description: name of the database
-      description:
-        type: string
-        description: description of the database
-      endpoint:
-        type: string
-        description: endpoint of the database
-      kind:
-        type: string
-        description: the kind of the database
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
-  Definition:
-    type: object
-    description: defines a database collection or Table
-    properties:
-      name:
-        type: string
-        description: name of the database
-      description:
-        type: string
-        description: description of the database
-      kind:
-        type: string
-        description: the kind of the definition
-      schema:
-         type: string
-         description: the schema associated with the table or collection
-      timestamp:
-        description: timestamps associated with the resource
-        $ref: '#/definitions/Timestamp'
-  Record:
-    type: object
-    description: The result of a query
-    properties:
-      status:
-        type: string
-        description: The status of the reurn
-      result:
-        type: string
-        description: The result of the quesry in json string format
+components:
+  schemas:
+    Database:
+      type: object
+      description: defines a database object as an entry
+      properties:
+        name:
+          type: string
+          description: name of the database
+        description:
+          type: string
+          description: description of the database
+        endpoint:
+          type: string
+          description: endpoint of the database
+        kind:
+          type: string
+          description: the kind of the database
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+    Definition:
+      type: object
+      description: defines a database collection or Table
+      properties:
+        name:
+          type: string
+          description: name of the database
+        description:
+          type: string
+          description: description of the database
+        kind:
+          type: string
+          description: the kind of the definition
+        schema:
+           type: string
+           description: the schema associated with the table or collection
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+    Record:
+      type: object
+      description: The result of a query
+      properties:
+        status:
+          type: string
+          description: The status of the reurn
+        result:
+          type: string
+          description: The result of the quesry in json string format
 
