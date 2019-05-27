@@ -39,12 +39,12 @@ paths:
           description: "specify the cloud from which we list, if ommitted all clouds are returned."
           required: false
       responses:
-        "200":
+        200:
           description: Listing the VMs
           schema:
             type: array
             items:
-              $ref: "#/definitions/VM"
+              $ref: "#/components/schemas/VM"
 components:
   schemas:
     VM:
@@ -82,7 +82,7 @@ components:
           description: The meta data passed along to the VM
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
       example:
         image: image
         metadata: metadata

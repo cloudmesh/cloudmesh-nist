@@ -33,12 +33,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: microservice info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Microservice"
+              $ref: "#/components/schemas/Microservice"
     put:
       tags:
       - Microservice
@@ -50,7 +50,7 @@ paths:
           name: microservice
           description: The new microservice to create
           schema:
-            $ref: "#/definitions/Microservice"
+            $ref: "#/components/schemas/Microservice"
       responses:
         "201":
           description: Created
@@ -70,10 +70,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: microservice info
           schema:
-            $ref: "#/definitions/Microservice"
+            $ref: "#/components/schemas/Microservice"
     put:
       tags:
         - Microservice
@@ -89,10 +89,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: microservice info
           schema:
-            $ref: "#/definitions/Microservice"
+            $ref: "#/components/schemas/Microservice"
     delete:
       tags:
         - Microservice
@@ -108,10 +108,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: microservice info
           schema:
-            $ref: "#/definitions/Microservice"
+            $ref: "#/components/schemas/Microservice"
 components:
   schemas:
     Microservice:
@@ -129,4 +129,4 @@ components:
           description: the function the  microservice represents
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

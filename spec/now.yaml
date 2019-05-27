@@ -46,7 +46,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/NOW"
+              $ref: "#/components/schemas/NOW"
     put:
       tags:
         - NOW
@@ -59,7 +59,7 @@ paths:
           description: The new NOW to create
           required: true
           schema:
-            $ref: "#/definitions/NOW"
+            $ref: "#/components/schemas/NOW"
       responses:
         201:
           description: Created
@@ -83,7 +83,7 @@ paths:
         200:
           description: now info
           schema:
-            $ref: "#/definitions/NOW"
+            $ref: "#/components/schemas/NOW"
     put:
       tags:
         - NOW
@@ -99,10 +99,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: now info
           schema:
-            $ref: "#/definitions/Now"
+            $ref: "#/components/schemas/NOW"
     delete:
       tags:
         - NOW
@@ -118,10 +118,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: now info
           schema:
-            $ref: "#/definitions/Now"
+            $ref: "#/components/schemas/NOW"
   /now/{nowname}/{nodename}:
     get:
       tags:
@@ -146,7 +146,7 @@ paths:
         200:
           description: NOW node info
           schema:
-            $ref: "#/definitions/NowNode"
+            $ref: "#/components/schemas/NowNode"
 
   /now/jobs/{jobname}:
     get:
@@ -167,7 +167,7 @@ paths:
         200:
           description: job info
           schema:
-            $ref: "#/definitions/NowNode"
+            $ref: "#/components/schemas/NowNode"
 
 components:
   schemas:
@@ -184,15 +184,15 @@ components:
           description: The type of input and output of the jobs in the now
           type: array
           items:
-            $ref: "#/definitions/RuntimeConfig"
+            $ref: "#/components/schemas/RuntimeConfig"
         nodes:
           description: List of nodes of the now
           type: array
           items:
-            $ref: "#/definitions/NowNode"
+            $ref: "#/components/schemas/NowNode"
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 
     RuntimeConfig:
       type: object
@@ -220,7 +220,7 @@ components:
           type: array
           description: credential information for connecting to the node
           items:
-            $ref: "#/definitions/Credentials"
+            $ref: "#/components/schemas/Credentials"
 
     Credentials:
       type: object
@@ -265,37 +265,37 @@ components:
           type: array
           description: type of the runtime config used for the job
           items:
-            $ref: "#/definitions/RuntimeConfig"
+            $ref: "#/components/schemas/RuntimeConfig"
         script_path_remote:
           type: array
           description: script path information in remote NOW
           items:
-            $ref: "#/definitions/Path"
+            $ref: "#/components/schemas/Path"
         argfiles_path_remote:
           type: array
           description: argument files path information in remote NOW
           items:
-            $ref: "#/definitions/Path"
+            $ref: "#/components/schemas/Path"
         script_path_local:
           type: array
           description: script path information locally
           items:
-            $ref: "#/definitions/Path"
+            $ref: "#/components/schemas/Path"
         argfiles_path_local:
           type: array
           description: argument files path information locally
           items:
-            $ref: "#/definitions/Path"
+            $ref: "#/components/schemas/Path"
         results_folder:
           type: array
           description: local folder to copy the results
           items:
-            $ref: "#/definitions/Path"
+            $ref: "#/components/schemas/Path"
         node_pids:
           type: array
           description: pid in each node
           items:
-            $ref: "#/definitions/NodePid"
+            $ref: "#/components/schemas/NodePid"
 
     NodePid:
       type: object
@@ -304,7 +304,7 @@ components:
           type: array
           description: node information
           items:
-            $ref: "#/definitions/NowNode"
+            $ref: "#/components/schemas/NowNode"
         pid:
           type: string
           description: pid number in remote node

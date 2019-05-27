@@ -32,18 +32,18 @@ paths:
     get:
       tags:
         - Alias
-      summary: Returns all aliases
-      description: Returns all aliases
+      summary: Returns a list of aliases
+      description: Returns a list of aliases
       operationId: cloudmesh.alias.get
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: alias information
           schema:
             type: array
             items:
-              $ref: "#/definitions/Alias"
+              $ref: "#/components/schemas/Alias"
     put:
       tags:
         - Alias
@@ -56,7 +56,7 @@ paths:
           required: true
           description: The new alias to create
           schema:
-            $ref: "#/definitions/Alias"
+            $ref: "#/components/schemas/Alias"
       responses:
         "201":
           description: Created
@@ -76,10 +76,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: alias info
           schema:
-            $ref: "#/definitions/Alias"
+            $ref: "#/components/schemas/Alias"
 components:
   schemas:
     Alias:
@@ -94,4 +94,4 @@ components:
           description: The original object name
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

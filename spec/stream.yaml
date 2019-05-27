@@ -36,12 +36,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: stream info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Stream"
+              $ref: "#/components/schemas/Stream"
     put:
       tags:
         - Stream
@@ -53,7 +53,7 @@ paths:
           name: stream
           description: The new stream to create
           schema:
-            $ref: "#/definitions/Stream"
+            $ref: "#/components/schemas/Stream"
       responses:
         "201":
           description: Created
@@ -73,10 +73,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: stream info
           schema:
-            $ref: "#/definitions/Stream"
+            $ref: "#/components/schemas/Stream"
 
 components:
   schemas:
@@ -98,4 +98,4 @@ components:
           description: the limit of items send
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

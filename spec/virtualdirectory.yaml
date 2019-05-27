@@ -26,17 +26,6 @@ consumes:
   - application/json
 produces:
   - application/json
-securityDefinitions:
-  httpbasic:
-    type: basic
-  apikey:
-    type: apiKey
-    in: query
-    name: api_key
-  apisecret:
-    type: apiKey
-    in: query
-    name: api_secret
 basePath: "/cloudmesh/v3"
 paths:
   /virtualdirectory:
@@ -48,19 +37,17 @@ paths:
       operationId: cloudmesh.virtualdirectory.get
       produces:
         - application/json
-      security:
-        - httpbasic: []
       responses:
-        "200":
+        200:
           description: virtualdirectory info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Virtualdirectory"
+              $ref: "#/components/schemas/Virtualdirectory"
         "401":
           description: unauthorized error
           schema:
-            $ref: "#/definitions/UnauthorizedError"
+            $ref: "#/components/schemas/UnauthorizedError"
     put:
       tags:
         - Virtualdirectory
@@ -73,10 +60,7 @@ paths:
           required: true
           description: The new virtualdirectory to create
           schema:
-            $ref: "#/definitions/Virtualdirectory"
-      security:
-        - apikey: []
-          apisecret: []
+            $ref: "#/components/schemas/Virtualdirectory"
       responses:
         "201":
           description: Created
@@ -95,13 +79,11 @@ paths:
           type: string
       produces:
         - application/json
-      security:
-        - httpbasic: []
       responses:
-        "200":
+        200:
           description: virtualdirectory info
           schema:
-            $ref: "#/definitions/Virtualdirectory"
+            $ref: "#/components/schemas/Virtualdirectory"
 components:
   schemas:
     UnauthorizedError:
@@ -138,5 +120,5 @@ components:
           type: object
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 

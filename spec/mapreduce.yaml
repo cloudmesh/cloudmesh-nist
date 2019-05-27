@@ -34,12 +34,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: mapreduce info
           schema:
             type: array
             items:
-              $ref: "#/definitions/mapreduce"
+              $ref: "#/components/schemas/mapreduce"
     put:
       tags:
       - mapreduce
@@ -51,7 +51,7 @@ paths:
           name: mapreduce
           description: The new mapreduce to create
           schema:
-            $ref: "#/definitions/mapreduce"
+            $ref: "#/components/schemas/mapreduce"
       responses:
         "201":
           description: Created
@@ -71,10 +71,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: mapreduce info
           schema:
-            $ref: "#/definitions/mapreduce"
+            $ref: "#/components/schemas/mapreduce"
 components:
   schemas:
     mapreduce:
@@ -113,4 +113,4 @@ components:
           description: true if hdfs is used
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

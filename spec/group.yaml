@@ -22,7 +22,7 @@ consumes:
   - application/json
 produces:
   - application/json
-basePath: "/cloudmesh/v3
+basePath: "/cloudmesh/v3"
 paths:
   /group:
     get:
@@ -34,12 +34,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: group info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Group"
+              $ref: "#/components/schemas/Group"
     put:
       tags:
         - Group
@@ -52,11 +52,11 @@ paths:
           required: true
           description: The new group to create
           schema:
-            $ref: "#/definitions/Group"
+            $ref: "#/components/schemas/Group"
       responses:
         "201":
           description: Created
-  "/group/{name}":
+  /group/{name}:
     get:
       tags:
         - Group
@@ -72,10 +72,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: group info
           schema:
-            $ref: "#/definitions/Group"
+            $ref: "#/components/schemas/Group"
     put:
       tags:
         - Group
@@ -91,10 +91,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: group info
           schema:
-            $ref: "#/definitions/Group"
+            $ref: "#/components/schemas/Group"
     delete:
       tags:
         - Group
@@ -110,10 +110,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: group info
           schema:
-            $ref: "#/definitions/Group"
+            $ref: "#/components/schemas/Group"
 components:
   schemas:
     Group:
@@ -139,7 +139,7 @@ components:
           type: array
           description: the users that are member of the group
           items:
-            $ref: "#/definitions/User"
+            $ref: "user.yaml#/components/schemas/User"
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

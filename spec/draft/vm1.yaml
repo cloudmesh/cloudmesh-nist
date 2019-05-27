@@ -39,7 +39,7 @@ paths:
         description: VM object that needs to be added
         required: true
         schema:
-          $ref: "#/definitions/AWSVM"
+          $ref: "#/components/schemas/AWSVM"
       responses:
         200:
           description: VM Created
@@ -65,7 +65,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/AWSVM"
+              $ref: "#/components/schemas/AWSVM"
   /compute/aws/ec2/{vmname}:
     get:
       tags:
@@ -90,7 +90,7 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: "#/definitions/AWSVM"
+            $ref: "#/components/schemas/AWSVM"
         400:
           description: Invalid name supplied
         404:
@@ -190,7 +190,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/AWSS3"
+              $ref: "#/components/schemas/AWSS3"
     post:
       tags:
       - s3
@@ -254,7 +254,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/AWSS3"
+              $ref: "#/components/schemas/AWSS3"
         400:
           description: Invalid name supplied
         404:
@@ -388,7 +388,7 @@ paths:
         200:
           description: Status
           schema:
-            $ref: "#/definitions/AZUREVM"
+            $ref: "#/components/schemas/AZUREVM"
   /compute/azure/deletevm:
     get:
       tags:
@@ -412,7 +412,7 @@ paths:
         200:
           description: Status
           schema:
-            $ref: "#/definitions/AZUREVM"
+            $ref: "#/components/schemas/AZUREVM"
   /compute/azure/startvm:
     get:
       tags:
@@ -436,7 +436,7 @@ paths:
         200:
           description: Status
           schema:
-            $ref: "#/definitions/AZUREVM"
+            $ref: "#/components/schemas/AZUREVM"
   /compute/azure/stopvm:
     get:
       tags:
@@ -460,7 +460,7 @@ paths:
         200:
           description: Status
           schema:
-            $ref: "#/definitions/AZUREVM"
+            $ref: "#/components/schemas/AZUREVM"
   /compute/azure/listvm:
     get:
       tags:
@@ -475,7 +475,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/AZUREVM"
+              $ref: "#/components/schemas/AZUREVM"
   /storage/azure/createVol:
     get:
       tags:
@@ -514,7 +514,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/AZURESTORAGE"
+            $ref: "#/components/schemas/AZURESTORAGE"
   /storage/azure/createVolSnap:
     get:
       tags:
@@ -548,7 +548,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/AZURESTORAGE"
+            $ref: "#/components/schemas/AZURESTORAGE"
   /storage/azure/deleteVol:
     get:
       tags:
@@ -572,7 +572,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/AZURESTORAGE"
+            $ref: "#/components/schemas/AZURESTORAGE"
   /storage/azure/deleteVolSnap:
     get:
       tags:
@@ -596,7 +596,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/AZURESTORAGE"
+            $ref: "#/components/schemas/AZURESTORAGE"
   /compute/google/createvm:
     get:
       tags:
@@ -630,7 +630,7 @@ paths:
         200:
           description: Status
           schema:
-            $ref: "#/definitions/GOOGLEVM"
+            $ref: "#/components/schemas/GOOGLEVM"
   /compute/google/deletevm:
     get:
       tags:
@@ -651,10 +651,10 @@ paths:
           type: string
           description: Name of the vm location
       responses:
-        "200":
+        200:
           description: Status
           schema:
-            $ref: "#/definitions/GOOGLEVM"
+            $ref: "#/components/schemas/GOOGLEVM"
   /compute/google/startvm:
     get:
       tags:
@@ -673,7 +673,7 @@ paths:
         200:
           description: Status
           schema:
-            $ref: "#/definitions/GOOGLEVM"
+            $ref: "#/components/schemas/GOOGLEVM"
   /compute/google/stopvm:
     get:
       tags:
@@ -697,7 +697,7 @@ paths:
         200:
           description: Status
           schema:
-            $ref: "#/definitions/GOOGLEVM"
+            $ref: "#/components/schemas/GOOGLEVM"
   /compute/google/listvm:
     get:
       tags:
@@ -712,7 +712,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/GOOGLEVM"
+              $ref: "#/components/schemas/GOOGLEVM"
   /storage/google/createVol:
     get:
       tags:
@@ -741,7 +741,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/GOOGLESTORAGE"
+            $ref: "#/components/schemas/GOOGLESTORAGE"
   /storage/google/createVolSnap:
     get:
       tags:
@@ -765,7 +765,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/GOOGLESTORAGE"
+            $ref: "#/components/schemas/GOOGLESTORAGE"
   /storage/google/deleteVol:
     get:
       tags:
@@ -784,7 +784,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/GOOGLESTORAGE"
+            $ref: "#/components/schemas/GOOGLESTORAGE"
   /storage/google/deleteVolSnap:
     get:
       tags:
@@ -803,7 +803,7 @@ paths:
         200:
           description: Storage Volume
           schema:
-            $ref: "#/definitions/GOOGLESTORAGE"
+            $ref: "#/components/schemas/GOOGLESTORAGE"
 definitions:
   AWSVM:
     type: object

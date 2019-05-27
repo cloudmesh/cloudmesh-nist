@@ -28,7 +28,7 @@ paths:
         - Batch Queue
       summary: Returns all batch queues
       description: Returns all batch queues
-      operationId: cloudmesh.queue.get
+      operationId: cloudmesh.batch.queue.get
       produces:
         - application/json
       responses:
@@ -37,87 +37,90 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Queue"
+              $ref: "#/components/schemas/Batchqueue"
     put:
       tags:
         - Queue
       summary: Create a new batch queue
       description: Create a new batch queue
-      operationId: cloudmesh.batchqueue.add
+      operationId: cloudmesh.batch.queue.add
       parameters:
         - in: body
           name: queue
           description: The new of the batchqueue to create
           schema:
-            $ref: "#/definitions/Queue"
+            $ref: "#/components/schemas/Batchqueue"
       responses:
         201:
           description: Created
-  delete:
-    tags:
-      - Batch Queue
-    summary: removes the batch queue
-    description: removes the batch queue
-    operationId: cloudmesh.queue.delete
-    produces:
-      - application/json
-    responses:
-      200:
-        description: batch queue deleted sucessfully
-        schema:
-          type: array
-          items:
-            $ref: "#/definitions/Queue"
-  "/queue/{name}":
-    get:
-      tags:
-        - Batch Queue Job
-      summary: Returns all jobs in the batch queue
-      description: Returns the jobs in the batch queue
-      operationId: cloudmesh.batchqueue.job.get
-      parameters:
-        - name: name
-          description: The name of the batchqueue
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        200:
-          description: the list of jobs
-          type: array
-            items:
-              $ref: "#/definitions/Job"
-    put:
-      tags:
-        - Batch Queue Job
-      summary: Add a job to the batch queue
-      description: Add a job to the batch queue
-      operationId: cloudmesh.batchqueue.jpb.add
-      parameters:
-        - name: name
-          description: The name of the batch queue
-          in: path
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        200:
-          description: the list of jobs
-          type: array
-            items:
-              $ref: "#/definitions/Job"
     delete:
       tags:
-        - Batch Queue Job
-      summary: Delete a job to the batch queue
-      description: Delete a job to the batch queue
-      operationId: cloudmesh.batchqueue.job.delete
+        - Batch Queue
+      summary: removes the batch queue
+      description: removes the batch queue
+      operationId: cloudmesh.batch.queue.delete
+      produces:
+        - application/json
+      responses:
+        200:
+          description: batch queue deleted sucessfully
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Batchqueue"
+  /queue/{name}:
+    get:
+      tags:
+        - Batch Job 
+      summary: Returns the jobs in the queue
+      description: Returns the jobes queue
+      operationId: cloudmesh.queue.job.get
       parameters:
         - name: name
           description: The name of the batch queue
+          in: path
+          required: true
+          type: string      
+      produces:
+        - application/json
+      responses:
+        200:
+          description: queue information
+          schema:
+            $ref: "#/components/schemas/Batchqueue"
+    add:
+      tags:
+        - User
+      summary: Adds a job to the queue
+      description: Adds a job to the queue
+      operationId: cloudmesh.queue.job.add
+      parameters:
+        - name: name
+          description: name of the queue
+          in: path
+          required: true
+          type: string
+        - schema:
+            $ref: "#/components/schemas/Batchjob"
+          in: body
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: queue information
+          schema:
+            $ref: "#/components/schemas/Batchqueue"
+    delete:
+      tags:
+        - User
+      summary: Deletes the queue
+      description: Deletes the queue
+      operationId: cloudmesh.queue.job.delete
+      parameters:
+        - name: name
+          description: name of the queue
           in: path
           required: true
           type: string
@@ -125,10 +128,10 @@ paths:
         - application/json
       responses:
         200:
-          description: job deleted sucessfully
-          type: array
-            items:
-              $ref: "#/definitions/Job"
+          description: queue information
+          schema:
+            $ref: "#/components/schemas/Batchqueue"
+
 components:
   schemas:
     Batchqueue:
@@ -163,7 +166,7 @@ components:
           description: the unit in which the charge value is stored
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
     Batchjob:
       type: object
       description: the batchjob
@@ -221,5 +224,5 @@ components:
           description: the directory in which to execute the job
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 

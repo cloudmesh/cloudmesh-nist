@@ -41,7 +41,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Replica"
+              $ref: "#/components/schemas/Replica"
     put:
       tags:
       - Replica
@@ -54,7 +54,7 @@ paths:
           required: true
           description: The new replica entry to create
           schema:
-            $ref: "#/definitions/Replica"
+            $ref: "#/components/schemas/Replica"
       responses:
         201:
           description: Created
@@ -77,7 +77,7 @@ paths:
         200:
           description: replica info
           schema:
-            $ref: "#/definitions/Replica"
+            $ref: "#/components/schemas/Replica"
     put:
       tags:
         - Replica
@@ -93,10 +93,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: replica info
           schema:
-            $ref: "#/definitions/Replica"
+            $ref: "#/components/schemas/Replica"
     delete:
       tags:
         - Replica
@@ -112,10 +112,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: replica info
           schema:
-            $ref: "#/definitions/Replica"
+            $ref: "#/components/schemas/Replica"
 
 components:
   schemas:
@@ -139,6 +139,6 @@ components:
           type: integer
           description: The size of the file in byte
         timestamp:
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
           description: The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to.
 

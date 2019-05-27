@@ -34,12 +34,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: scheduler info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Scheduler"
+              $ref: "#/components/schemas/Scheduler"
     put:
       tags:
       - Scheduler
@@ -51,7 +51,7 @@ paths:
           name: scheduler
           description: The new scheduler to create
           schema:
-            $ref: "#/definitions/Scheduler"
+            $ref: "#/components/schemas/Scheduler"
       responses:
         "201":
           description: Created
@@ -71,10 +71,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: scheduler info
           schema:
-            $ref: "#/definitions/Scheduler"
+            $ref: "#/components/schemas/Scheduler"
     put:
       tags:
         - Scheduler
@@ -90,10 +90,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: scheduler info
           schema:
-            $ref: "#/definitions/Scheduler"
+            $ref: "#/components/schemas/Scheduler"
     delete:
       tags:
         - Scheduler
@@ -109,10 +109,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: scheduler info
           schema:
-            $ref: "#/definitions/Scheduler"
+            $ref: "#/components/schemas/Scheduler"
 components:
   schemas:
     Scheduler:
@@ -130,4 +130,4 @@ components:
           description: the scheduler kind or type
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

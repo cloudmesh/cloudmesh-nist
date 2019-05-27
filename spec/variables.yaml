@@ -41,7 +41,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Variables"
+              $ref: "#/components/schemas/Variables"
     put:
       tags:
         - Variables
@@ -53,7 +53,7 @@ paths:
           name: variables
           description: The new variables to create
           schema:
-            $ref: "#/definitions/Variables"
+            $ref: "#/components/schemas/Variables"
       responses:
         201:
           description: Created
@@ -76,7 +76,7 @@ paths:
         200:
           description: variables info
           schema:
-            $ref: "#/definitions/Variables"
+            $ref: "#/components/schemas/Variables"
 components:
   schemas:
     Variables:
@@ -94,4 +94,4 @@ components:
           description: value of the variable
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

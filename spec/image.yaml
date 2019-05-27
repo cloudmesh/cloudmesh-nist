@@ -34,12 +34,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: default image info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Image"
+              $ref: "#/components/schemas/Image"
     put:
       tags:
       - Image
@@ -52,7 +52,7 @@ paths:
           required: true
           description: The new image record to create
           schema:
-            $ref: "#/definitions/Image"
+            $ref: "#/components/schemas/Image"
       responses:
         "201":
           description: Created
@@ -72,10 +72,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: image info
           schema:
-            $ref: "#/definitions/Image"
+            $ref: "#/components/schemas/Image"
     put:
       tags:
         - Image
@@ -91,10 +91,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: image info
           schema:
-            $ref: "#/definitions/Image"
+            $ref: "#/components/schemas/Image"
     delete:
       tags:
         - Image
@@ -110,10 +110,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: image info
           schema:
-            $ref: "#/definitions/Image"
+            $ref: "#/components/schemas/Image"
 components:
   schemas:
     Image:
@@ -144,7 +144,7 @@ components:
           type: string
           description: The OS version of the image
         min_requirement:
-          $ref: "#/definitions/Minimum_Requirements"
+          $ref: "#/components/schemas/Minimum_Requirements"
           description: minimum requirement to run the image
         status:
           type: string
@@ -157,7 +157,7 @@ components:
           type: string
         timestamp:
           description: timestamps associated with the image
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
     Minimum_Requirements:
       type: object
       properties:

@@ -41,7 +41,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Container"
+              $ref: "#/components/schemas/Container"
     put:
       tags:
         - Container
@@ -53,7 +53,7 @@ paths:
           name: containers
           description: The new containers to create
           schema:
-            $ref: "#/definitions/Container"
+            $ref: "#/components/schemas/Container"
       responses:
         201:
           description: Created
@@ -76,7 +76,7 @@ paths:
         200:
           description: containers info
           schema:
-            $ref: "#/definitions/Container"
+            $ref: "#/components/schemas/Container"
 components:
   schemas:
     Container:
@@ -108,4 +108,4 @@ components:
             type: string
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

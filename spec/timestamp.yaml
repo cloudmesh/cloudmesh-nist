@@ -26,6 +26,19 @@ consumes:
 produces:
   - application/json
 basePath: "/cloudmesh/v3"
+paths:
+  /timestamp:
+    get:
+      summary: Returns the time
+      description: Returns teh time to be used in a timestamp
+      responses:
+        200:
+          description: the current time and date
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 1985-04-12T23:20:50.52Z
 components:
   schemas:
     Timestamp:
@@ -36,11 +49,14 @@ components:
           type: string
           format: date-time
           description: The time stamp when the object was last accessed
+          example: 1985-04-12T23:20:50.52Z
         created:
           type: string
           format: date-time
           description: The time stamp when the object was created
+          example: 1985-04-12T23:20:50.52Z
         modified:
           type: string
           format: date-time
           description: The time stamp when the object was modified
+          example: 1985-04-12T23:20:50.52Z

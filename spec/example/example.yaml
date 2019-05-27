@@ -39,7 +39,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Key"
+              $ref: "#/components/schemas/Key"
     put:
       tags:
       - Example
@@ -53,7 +53,7 @@ paths:
           name: key
           description: The new key to create
           schema:
-            $ref: "#/definitions/Key"
+            $ref: "#/components/schemas/Key"
       responses:
         201:
           description: Created
@@ -76,7 +76,7 @@ paths:
         200:
           description: key info
           schema:
-            $ref: "#/definitions/Key"
+            $ref: "#/components/schemas/Key"
 definitions:
   Key:
     type: object
@@ -93,4 +93,4 @@ definitions:
         description: the key kind or type
       timestamp:
         description: timestamps associated with the resource
-        $ref: "#/definitions/Timestamp"
+        $ref: "#/components/schemas/Timestamp"

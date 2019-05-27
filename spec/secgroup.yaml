@@ -40,12 +40,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: secgroup info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Secgroup"
+              $ref: "#/components/schemas/Secgroup"
     post:
       tags:
       - Secgroup
@@ -57,7 +57,7 @@ paths:
           name: secgroup
           description: The new secgroup to create
           schema:
-            $ref: "#/definitions/Secgroup"
+            $ref: "#/components/schemas/Secgroup"
       responses:
         "201":
           description: Created
@@ -77,10 +77,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: secgroup info
           schema:
-            $ref: "#/definitions/Secgroup"
+            $ref: "#/components/schemas/Secgroup"
   "/secgroup/{secgroup}/rule":
     get:
       tags:
@@ -97,12 +97,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: security group rules info
           schema:
             type: array
             items:
-              $ref: "#/definitions/SecGroupRule"
+              $ref: "#/components/schemas/SecGroupRule"
     post:
       tags:
       - Secgroup
@@ -120,7 +120,7 @@ paths:
           required: true
           description: The secgroup object to create
           schema:
-            $ref: "#/definitions/SecGroupRule"
+            $ref: "#/components/schemas/SecGroupRule"
       responses:
         "201":
           description: Created
@@ -143,10 +143,10 @@ paths:
           description: The uuid of the rule to be deleted
           type: string
       responses:
-        "200":
+        200:
           description: The security group rule definition info
           schema:
-              $ref: "#/definitions/SecGroupRule"
+              $ref: "#/components/schemas/SecGroupRule"
     delete:
       tags:
       - Secgroup
@@ -186,7 +186,7 @@ components:
           type: array
           description: List of Secgroup rules
           items:
-            $ref: "#/definitions/SecGroupRule"
+            $ref: "#/components/schemas/SecGroupRule"
     SecGroupRule:
       type: object
       description: security group rule
@@ -217,4 +217,4 @@ components:
           description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

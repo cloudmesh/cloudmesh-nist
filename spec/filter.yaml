@@ -33,12 +33,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: filter info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Filter"
+              $ref: "#/components/schemas/Filter"
     put:
       tags:
       - Filter
@@ -50,7 +50,7 @@ paths:
           name: filter
           description: The new filter to create
           schema:
-            $ref: "#/definitions/Filter"
+            $ref: "#/components/schemas/Filter"
       responses:
         "201":
           description: Created
@@ -70,10 +70,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: filter info
           schema:
-            $ref: "#/definitions/Filter"
+            $ref: "#/components/schemas/Filter"
     put:
       tags:
         - Filter
@@ -89,10 +89,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: filter info
           schema:
-            $ref: "#/definitions/Filter"
+            $ref: "#/components/schemas/Filter"
     delete:
       tags:
         - Filter
@@ -108,10 +108,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: filter info
           schema:
-            $ref: "#/definitions/Filter"
+            $ref: "#/components/schemas/Filter"
 components:
   schemas:
     Filter:
@@ -129,4 +129,4 @@ components:
           description: the filter kind or type
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

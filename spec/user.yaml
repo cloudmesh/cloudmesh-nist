@@ -50,7 +50,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/User"
+              $ref: "#/components/schemas/User"
     put:
       tags:
         - User
@@ -62,7 +62,7 @@ paths:
           name: user
           description: The new user to create
           schema:
-            $ref: "#/definitions/User"
+            $ref: "#/components/schemas/User"
       responses:
         201:
           description: Created
@@ -85,7 +85,7 @@ paths:
         200:
           description: user information
           schema:
-            $ref: "#/definitions/User"
+            $ref: "#/components/schemas/User"
 components:
   schemas:
     User:
@@ -101,12 +101,12 @@ components:
           type: array
           description: A list of groups that are associated to the user
           items:
-            $ref: "#/definitions/Group"
+            $ref: "group.yaml#/components/schemas/Group"
         accounting:
           type: array
           description: A list of accounts that are associated to the user
           items:
-            $ref: "#/definitions/Account"
+            $ref: "accounting.yaml#/components/schemas/Account"
         role:
           type: array
           description: A list of groups that are associated to the user
@@ -134,4 +134,4 @@ components:
           description: The email of the user
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

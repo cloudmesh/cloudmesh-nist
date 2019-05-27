@@ -1,7 +1,7 @@
 
-![](./images/cover-nist-formal.png)
+![](./images/cover-1.png)
 
-![](./images/cover-2-nist-formal.png)
+![](./images/cover-2.png)
 
 
 <center>**Abstract**</center>
@@ -63,7 +63,10 @@ The following milestone releases exist:
   OpenAPI to specify the Interfaces between the various services and components.
   Editors of this volume are:
 * **Version 3.1.1**: The version includes the significant improvements
-  of the object specifications   
+  of the object specifications
+* **Version 3.2.0**: All specifications have been updated to
+  OpenAPI 3.0.2. Significant updates have been done to a number of
+  specifications.
 
 The editors for these documents are:
 
@@ -97,6 +100,7 @@ the following NBD-PWG members:
 * Wo Chang, National Institute of Standard and Technology,
 * Fugang Wang, Indiana University
 * Geoffrey C. Fox, Indiana University
+* Shirish Joshi, Indiana University
 * Badi Abdul-Wahid, formerly Indiana Univresity
 * Alicia Zuniga-Alvarado, Consultant
 * Robert C. Whetsel, DISA/NBIS
@@ -1181,6 +1185,7 @@ Example:
 
 
 
+
 ### Scheduler
 
 {include=./spec/scheduler.md}
@@ -1189,6 +1194,17 @@ Example:
 
 ```{include=./spec/scheduler.yaml}
 ```
+## Compute Management - Batch Processing
+
+### BatchQueue
+
+{include=./spec/batchqueue.md}
+
+#### batchqueue.yaml
+
+```{include=./spec/batchqueue.yaml}
+```
+
 
 ## Compute Management - Virtual Machines
 

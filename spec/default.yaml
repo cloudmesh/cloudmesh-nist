@@ -39,12 +39,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: default info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Default"
+              $ref: "#/components/schemas/Default"
     put:
       tags:
         - Default
@@ -57,7 +57,7 @@ paths:
           required: true
           description: The new default to create
           schema:
-            $ref: "#/definitions/Default"
+            $ref: "#/components/schemas/Default"
       responses:
         "201":
           description: Created
@@ -77,10 +77,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: default info
           schema:
-            $ref: "#/definitions/Default"
+            $ref: "#/components/schemas/Default"
 components:
   schemas:
     Default:
@@ -104,4 +104,4 @@ components:
           description: The context of the service
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

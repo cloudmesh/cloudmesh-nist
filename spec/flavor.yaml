@@ -39,12 +39,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: flavor info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Flavor"
+              $ref: "#/components/schemas/Flavor"
     put:
       tags:
       - Flavor
@@ -57,7 +57,7 @@ paths:
           required: true
           description: The new flavor to create
           schema:
-            $ref: "#/definitions/Flavor"
+            $ref: "#/components/schemas/Flavor"
       responses:
         "201":
           description: Created
@@ -77,10 +77,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: flavor info
           schema:
-            $ref: "#/definitions/Flavor"
+            $ref: "#/components/schemas/Flavor"
     put:
       tags:
         - Flavor
@@ -96,10 +96,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: flavor info
           schema:
-            $ref: "#/definitions/Flavor"
+            $ref: "#/components/schemas/Flavor"
     delete:
       tags:
         - Flavor
@@ -115,10 +115,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: flavor info
           schema:
-            $ref: "#/definitions/Flavor"
+            $ref: "#/components/schemas/Flavor"
 components:
   schemas:
     Flavor:
@@ -160,4 +160,4 @@ components:
           description: name of the cloud this flavor is used
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

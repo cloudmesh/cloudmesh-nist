@@ -38,7 +38,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Deployment"
+              $ref: "#/components/schemas/Deployment"
     put:
       tags:
         - Deployment
@@ -50,7 +50,7 @@ paths:
           name: deployment
           description: The new deployment to create
           schema:
-            $ref: "#/definitions/Deployment"
+            $ref: "#/components/schemas/Deployment"
       responses:
         "201":
           description: Created
@@ -70,10 +70,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: deployment info
           schema:
-            $ref: "#/definitions/Deployment"
+            $ref: "#/components/schemas/Deployment"
 components:
   schemas:
     Deployment:
@@ -90,4 +90,4 @@ components:
              #layers: string
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

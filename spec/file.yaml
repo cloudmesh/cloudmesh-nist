@@ -40,12 +40,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: file info
           schema:
             type: array
             items:
-              $ref: "#/definitions/File"
+              $ref: "#/components/schemas/File"
     put:
       tags:
       - File
@@ -58,7 +58,7 @@ paths:
           required: true
           description: The new file record to create
           schema:
-            $ref: "#/definitions/File"
+            $ref: "#/components/schemas/File"
       responses:
         "201":
           description: Created
@@ -78,10 +78,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: file info
           schema:
-            $ref: "#/definitions/File"
+            $ref: "#/components/schemas/File"
     put:
       tags:
         - File
@@ -97,10 +97,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: file info
           schema:
-            $ref: "#/definitions/File"
+            $ref: "#/components/schemas/File"
     delete:
       tags:
         - File
@@ -116,10 +116,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: file info
           schema:
-            $ref: "#/definitions/File"
+            $ref: "#/components/schemas/File"
 components:
   schemas:
     File:
@@ -140,6 +140,6 @@ components:
           description: The size of the file in byte
         timestamp:
           description: timestamps associated with the file
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 
 

@@ -33,12 +33,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: reservation info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Reservation"
+              $ref: "#/components/schemas/Reservation"
     put:
       tags:
       - Reservation
@@ -50,7 +50,7 @@ paths:
           name: reservation
           description: The new reservation to create
           schema:
-            $ref: "#/definitions/Reservation"
+            $ref: "#/components/schemas/Reservation"
       responses:
         "201":
           description: Created
@@ -70,10 +70,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: reservation info
           schema:
-            $ref: "#/definitions/Reservation"
+            $ref: "#/components/schemas/Reservation"
     put:
       tags:
         - Reservation
@@ -89,10 +89,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: reservation info
           schema:
-            $ref: "#/definitions/Reservation"
+            $ref: "#/components/schemas/Reservation"
     delete:
       tags:
         - Reservation
@@ -108,10 +108,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: reservation info
           schema:
-            $ref: "#/definitions/Reservation"
+            $ref: "#/components/schemas/Reservation"
 components:
   schemas:
     Reservation:
@@ -137,4 +137,4 @@ components:
           description: the end time and date
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

@@ -41,12 +41,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Organization"
+              $ref: "#/components/schemas/Organization"
     put:
       tags:
         - Organization
@@ -58,7 +58,7 @@ paths:
           name: organization
           description: The new organization to create
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
       responses:
         "201":
           description: Created
@@ -78,10 +78,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
     put:
       tags:
         - Organization
@@ -97,10 +97,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
     delete:
       tags:
         - Organization
@@ -116,10 +116,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
   /organization/{name}/user:
     get:
       tags:
@@ -130,10 +130,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
   /organization/{name}/user/{username}:
     get:
       tags:
@@ -150,10 +150,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
     put:
       tags:
         - Organization
@@ -169,10 +169,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
     delete:
       tags:
         - Organization
@@ -188,10 +188,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: organization info
           schema:
-            $ref: "#/definitions/Organization"
+            $ref: "#/components/schemas/Organization"
 
 components:
   schemas:
@@ -205,8 +205,8 @@ components:
           description: list of users
           type: array
           items:
-            $ref: "#/definitions/User"
+            $ref: "user.yaml#/components/schemas/User"
         timestamp:
           description: timestamps associated with the organization
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 

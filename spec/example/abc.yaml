@@ -32,12 +32,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: abc info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Abc"
+              $ref: "#/components/schemas/Abc"
     put:
       tags:
       - ABC
@@ -49,7 +49,7 @@ paths:
           name: abc
           description: The new abc to create
           schema:
-            $ref: "#/definitions/Abc"
+            $ref: "#/components/schemas/Abc"
       responses:
         "201":
           description: Created
@@ -69,10 +69,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: abc info
           schema:
-            $ref: "#/definitions/Abc"
+            $ref: "#/components/schemas/Abc"
 definitions:
   Abc:
     type: object

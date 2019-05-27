@@ -33,12 +33,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: nic info
           schema:
             type: array
             items:
-              $ref: "#/definitions/Nic"
+              $ref: "#/components/schemas/Nic"
     put:
       tags:
       - NIC
@@ -50,7 +50,7 @@ paths:
           name: nic
           description: The new nic to create
           schema:
-            $ref: "#/definitions/Nic"
+            $ref: "#/components/schemas/Nic"
       responses:
         "201":
           description: Created
@@ -70,10 +70,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: nic info
           schema:
-            $ref: "#/definitions/Nic"
+            $ref: "#/components/schemas/Nic"
     put:
       tags:
         - NIC
@@ -89,10 +89,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: nic info
           schema:
-            $ref: "#/definitions/Nic"
+            $ref: "#/components/schemas/Nic"
     delete:
       tags:
         - NIC
@@ -108,10 +108,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: nic info
           schema:
-            $ref: "#/definitions/Nic"
+            $ref: "#/components/schemas/Nic"
 components:
   schemas:
     Nic:
@@ -147,5 +147,5 @@ components:
           description: the bandwidth in bps
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 

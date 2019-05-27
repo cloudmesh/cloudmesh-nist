@@ -41,12 +41,12 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: profile info
           schema:
             type: array
             items:
-              $ref: "#/definitions/VirtualCluster"
+              $ref: "#/components/schemas/VirtualCluster"
     put:
       tags:
         - Virtualcluster
@@ -59,7 +59,7 @@ paths:
           description: The new virtual cluster to create
           required: true
           schema:
-            $ref: "#/definitions/VirtualCluster"
+            $ref: "#/components/schemas/VirtualCluster"
       responses:
         "201":
           description: Created
@@ -79,10 +79,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: virtualcluster info
           schema:
-            $ref: "#/definitions/VirtualCluster"
+            $ref: "#/components/schemas/VirtualCluster"
   /virtualcluster/virtualcluster/{virtualclustername}/manager:
     get:
       tags:
@@ -99,10 +99,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: virtual cluster manager node info
           schema:
-            $ref: "#/definitions/Node"
+            $ref: "#/components/schemas/Node"
   /virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
     get:
       tags:
@@ -124,10 +124,10 @@ paths:
       produces:
         - application/json
       responses:
-        "200":
+        200:
           description: virtualcluster node info
           schema:
-            $ref: "#/definitions/Node"
+            $ref: "#/components/schemas/Node"
 components:
   schemas:
     VirtualCluster:
@@ -147,15 +147,15 @@ components:
           description: owner of the virtual cluster
         manager:
           description: Manager node of the virtual cluster
-          $ref: "#/definitions/Node"
+          $ref: "#/components/schemas/Node"
         nodes:
           description: List of nodes of the virtual cluster
           type: array
           items:
-            $ref: "#/definitions/Node"
+            $ref: "#/components/schemas/Node"
         timestamp:
           description: timestamps associated with the resource
-          $ref: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/spec/timestamp.yaml#/definitions/Timestamp"
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 
     Node:
       type: object
@@ -179,7 +179,7 @@ components:
           type: array
           description: List of network interfaces of the node
           items:
-            $ref: "#/definitions/NIC"
+            $ref: "#/components/schemas/NIC"
     NIC:
       type: object
       properties:
