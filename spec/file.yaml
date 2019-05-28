@@ -57,7 +57,7 @@ paths:
       responses:
         "201":
           description: Created
-  "/cloudmesh/file/{name}":
+  "/file/{name}":
     get:
       tags:
       - File
@@ -89,7 +89,6 @@ paths:
           required: true
           type: string
           description: The name of the file
-\
       responses:
         200:
           description: file info

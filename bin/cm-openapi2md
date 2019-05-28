@@ -83,9 +83,13 @@ def convert_definitions(filename, indent=1):
                     if "type" in properties[property]["items"]:
                         properties[property]['type'] = "array[{}]".format(properties[property]["items"]["type"])
                     elif "$ref" in properties[property]["items"]:
-                        properties[property]['type'] = "array[{}]".format(properties[property]["items"]["$ref"])                        
-  
-                  
+
+                        kind = properties[property]["items"]["$ref"].split(
+                            "/")[-1:][0]
+
+                        properties[property]['type'] = f"array\[{kind}\]"
+
+
                 print ("|", property, "|", properties[property]['type'], "|",properties[property]['description'], "|")
             print ()
 
@@ -93,7 +97,7 @@ def section_link_from_ref(response):
     # See [section one](#section-one).
     link = ""                    
     try:
-        response["section"] = response['schema']['$ref'].replace("#/definitions/","")
+        response["section"] = response['schema']['$ref'].replace("#/components/schemas/","")
         response["lsection"] = response["section"].lower()
     except:
         response["section"] = ""
@@ -117,7 +121,7 @@ def convert_paths(filename, indent=1):
             print()
 
             print ("| HTTP | Path    | Summary       |")
-            print ("| ---- | ------- | ------------- |")
+            print ("| :---- | :------- | :------------- |")
 
             for path in paths:
                 element = paths[path]

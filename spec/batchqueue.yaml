@@ -83,19 +83,20 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Batchqueue"
-    add:
+    put:
       tags:
         - User
       summary: Adds a job to the queue
       description: Adds a job to the queue
       operationId: cloudmesh.queue.job.add
       parameters:
-        - name: name
+        - name: queue
           description: name of the queue
           in: path
           required: true
           type: string
-        - schema:
+        - name: job
+          schema:
             $ref: "#/components/schemas/Batchjob"
           in: body
           required: true
