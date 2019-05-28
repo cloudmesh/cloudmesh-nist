@@ -14,13 +14,8 @@ info:
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache
-host: localhost:8080
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
+servers:
+  - url: /cloudmesh/v3
 paths:
   /cloudmesh/keys:
     get:

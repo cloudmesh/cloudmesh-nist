@@ -26,14 +26,8 @@ info:
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
-host: localhost:8080
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-basePath: "/cloudmesh/v3"
+servers:
+  - url: /cloudmesh/v3
 paths:
   /user:
     get:

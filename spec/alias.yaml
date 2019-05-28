@@ -1,17 +1,12 @@
 openapi: "3.0.2"
 info:
-  version: 3.2.0
+  version: 3.0.0
   x-date: 05-23-2019
   x-status: defined
   title: Alias
   description: |-
 
-    A user may desire to create an alias for a resource. An alias helps users to
-    distinguish a resource more easily. A User can deploy a service in which such
-    aliases are stored. The aliases could naturally be shared with other users. 
-    A resource could have one or more aliases. The reason for using an alias is 
-    that a resource may have a complex name but a user may want to refer to the 
-    resource using a name that is suitable for the users" application.
+    Often a user has the desire to create a custom name for an object. An alias allows to do that while while assosication auser defined name or *alias* to a previouly used name. The aliases could be shared with other users. A name could have one or more aliases.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -19,31 +14,31 @@ info:
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache
-host: localhost:8080
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-basePath: "/cloudmesh/v3"
+servers:
+  - url: /cloudmesh/v3
 paths:
   /alias:
     get:
       tags:
         - Alias
       summary: Returns a list of aliases
-      description: Returns a list of aliases
+      description: Returns a list of all aliases
       operationId: cloudmesh.alias.get
-      produces:
-        - application/json
       responses:
-        200:
-          description: alias information
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Alias"
+        "200":
+          description: The list of Aliasses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Alias"
+        "400":
+          description: No Alias found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     put:
       tags:
         - Alias
@@ -51,14 +46,14 @@ paths:
       description: Create a new alias
       operationId: cloudmesh.alias.put
       parameters:
-        - in: body
+        - in: query
           name: alias
           required: true
           description: The new alias to create
           schema:
             $ref: "#/components/schemas/Alias"
       responses:
-        "201":
+        "200":
           description: Created
   "/alias/{name}":
     get:
@@ -71,15 +66,16 @@ paths:
         - name: name
           in: path
           required: true
-          type: string
+          schema:
+            type: string
           description: The name of the alias
-      produces:
-        - application/json
       responses:
         200:
-          description: alias info
-          schema:
-            $ref: "#/components/schemas/Alias"
+          description: Retruning the information of the alias
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Alias"
 components:
   schemas:
     Alias:
@@ -89,9 +85,16 @@ components:
         name:
           type: string
           description: The name of the alias
-        origin:
+        source:
           type: string
           description: The original object name
-        timestamp:
-          description: timestamps associated with the resource
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message

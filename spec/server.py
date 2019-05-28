@@ -26,7 +26,7 @@ load_api(".spec")
 # create a URL route in our application for "/"
 @app.route("/")
 def home():
-    msg = {"msg": "It"s working!"}
+    msg = {"msg": "It is working!"}
     return jsonify(msg)
 
 
