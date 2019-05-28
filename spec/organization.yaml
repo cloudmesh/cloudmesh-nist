@@ -21,7 +21,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -32,15 +33,15 @@ paths:
       summary: Returns all organizations
       description: Returns all organizations
       operationId: cloudmesh.organization.get
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Organization"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Organization"
     put:
       tags:
         - Organization
@@ -69,13 +70,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            $ref: "#/components/schemas/Organization"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
     put:
       tags:
         - Organization
@@ -88,13 +89,13 @@ paths:
           required: true
           type: string
           description: The name of the organization
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            $ref: "#/components/schemas/Organization"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
     delete:
       tags:
         - Organization
@@ -107,13 +108,13 @@ paths:
           required: true
           type: string
           description: The name of the organization
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            $ref: "#/components/schemas/Organization"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
   /organization/{name}/user:
     get:
       tags:
@@ -121,13 +122,13 @@ paths:
       summary: Returns all users of the organization
       description: Returns all users of the organization
       operationId: cloudmesh.organization.get_user
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            $ref: "#/components/schemas/Organization"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
   /organization/{name}/user/{username}:
     get:
       tags:
@@ -141,13 +142,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            $ref: "#/components/schemas/Organization"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
     put:
       tags:
         - Organization
@@ -160,13 +161,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            $ref: "#/components/schemas/Organization"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
     delete:
       tags:
         - Organization
@@ -179,14 +180,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: organization info
-          schema:
-            $ref: "#/components/schemas/Organization"
-
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
 components:
   schemas:
     Organization:

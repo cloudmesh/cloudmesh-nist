@@ -19,7 +19,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -30,28 +31,28 @@ paths:
       summary: Returns all defaults
       description: Returns all defaults
       operationId: cloudmesh.default.get
-      produces:
-        - application/json
       responses:
-        200:
+        "200":
           description: default info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Default"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Default"
     put:
       tags:
         - Default
       summary: Create a new default
       description: Create a new default
       operationId: cloudmesh.default.add
-      parameters:
-        - in: body
-          name: default
-          required: true
-          description: The new default to create
-          schema:
-            $ref: "#/components/schemas/Default"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Default"
+        description: The new default to create
+        required: true
       responses:
         "201":
           description: Created
@@ -66,15 +67,16 @@ paths:
         - name: name
           in: path
           required: true
-          type: string
           description: The name of the default
-      produces:
-        - application/json
-      responses:
-        200:
-          description: default info
           schema:
-            $ref: "#/components/schemas/Default"
+            type: string
+      responses:
+        "200":
+          description: default info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Default"
 components:
   schemas:
     Default:
@@ -96,6 +98,3 @@ components:
         context:
           type: string
           description: The context of the service
-        timestamp:
-          description: timestamps associated with the resource
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"

@@ -21,7 +21,8 @@ info:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -32,15 +33,15 @@ paths:
       summary: Returns all virtual clusters
       description: Returns all virtual clusters
       operationId: cloudmesh.virtualcluster.get
-      produces:
-        - application/json
       responses:
         200:
           description: profile info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/VirtualCluster"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VirtualCluster"
     put:
       tags:
         - Virtualcluster
@@ -70,13 +71,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: virtualcluster info
-          schema:
-            $ref: "#/components/schemas/VirtualCluster"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VirtualCluster"
   /virtualcluster/virtualcluster/{virtualclustername}/manager:
     get:
       tags:
@@ -90,13 +91,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: virtual cluster manager node info
-          schema:
-            $ref: "#/components/schemas/Node"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Node"
   /virtualcluster/virtualcluster/{virtualclustername}/{nodename}:
     get:
       tags:
@@ -115,13 +116,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: virtualcluster node info
-          schema:
-            $ref: "#/components/schemas/Node"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Node"
 components:
   schemas:
     VirtualCluster:

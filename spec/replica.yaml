@@ -16,7 +16,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -27,15 +28,15 @@ paths:
       summary: Returns all replicas records
       description: Returns all replicas records
       operationId: cloudmesh.replica.get
-      produces:
-        - application/json
       responses:
         200:
           description: replica info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Replica"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Replica"
     put:
       tags:
       - Replica
@@ -65,13 +66,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: replica info
-          schema:
-            $ref: "#/components/schemas/Replica"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Replica"
     put:
       tags:
         - Replica
@@ -84,13 +85,13 @@ paths:
           required: true
           type: string
           description: The name of the replica
-      produces:
-        - application/json
       responses:
         200:
           description: replica info
-          schema:
-            $ref: "#/components/schemas/Replica"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Replica"
     delete:
       tags:
         - Replica
@@ -103,13 +104,13 @@ paths:
           required: true
           type: string
           description: The name of the replica
-      produces:
-        - application/json
       responses:
         200:
           description: replica info
-          schema:
-            $ref: "#/components/schemas/Replica"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Replica"
 
 components:
   schemas:

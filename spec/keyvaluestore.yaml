@@ -15,7 +15,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -26,15 +27,15 @@ paths:
       summary: Returns all keys with their values and types included
       description: Returns all keys with their values and types included
       operationId: cloudmesh.keyvaluestore.get
-      produces:
-        - application/json
       responses:
         200:
           description: key info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Key"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Key"
     put:
       tags:
         - Keyvaluestore
@@ -64,13 +65,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: key info
-          schema:
-            $ref: "#/components/schemas/Key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Key"
     put:
       tags:
         - Keyvaluestore
@@ -83,13 +84,14 @@ paths:
           required: true
           type: string
           description: The name of the key
-      produces:
-        - application/json
+
       responses:
         200:
           description: key info
-          schema:
-            $ref: "#/components/schemas/Key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Key"
     delete:
       tags:
         - Keyvaluestore
@@ -102,13 +104,13 @@ paths:
           required: true
           type: string
           description: The name of the key
-      produces:
-        - application/json
       responses:
         200:
           description: key info
-          schema:
-            $ref: "#/components/schemas/Key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Key"
 components:
   schemas:
     Key:

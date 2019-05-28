@@ -6,14 +6,19 @@ info:
   title: Alias
   description: |-
 
-    Often a user has the desire to create a custom name for an object. An alias allows to do that while while assosication auser defined name or *alias* to a previouly used name. The aliases could be shared with other users. A name could have one or more aliases.
+    Often a user has the desire to create a custom name for an object. An
+    alias allows to do that while while assosication auser defined name or
+    *alias* to a previouly used name. The aliases could be shared with other
+    users. A name could have one or more aliases.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+
 servers:
   - url: /cloudmesh/v3
 paths:

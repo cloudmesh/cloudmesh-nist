@@ -14,7 +14,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -25,15 +26,15 @@ paths:
       summary: Returns all groups
       description: Returns all groups
       operationId: cloudmesh.group.get
-      produces:
-        - application/json
       responses:
         200:
           description: group info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Group"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Group"
     put:
       tags:
         - Group
@@ -63,13 +64,13 @@ paths:
           required: true
           type: string
           description: The name of the group
-      produces:
-        - application/json
       responses:
         200:
           description: group info
-          schema:
-            $ref: "#/components/schemas/Group"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
     put:
       tags:
         - Group
@@ -82,13 +83,14 @@ paths:
           required: true
           type: string
           description: The name of the group
-      produces:
-        - application/json
+
       responses:
         200:
           description: group info
-          schema:
-            $ref: "#/components/schemas/Group"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
     delete:
       tags:
         - Group
@@ -101,13 +103,13 @@ paths:
           required: true
           type: string
           description: The name of the group
-      produces:
-        - application/json
       responses:
         200:
           description: group info
-          schema:
-            $ref: "#/components/schemas/Group"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
 components:
   schemas:
     Group:

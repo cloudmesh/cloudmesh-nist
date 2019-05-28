@@ -1,31 +1,31 @@
-
 openapi: "3.0.2"
 info:
-  version: 3.2.0
+  version: "3.2.0"
   x-date: 05-23-2019
   x-status: defined
   title: User
   description: |-
-  
+
     Services need to specify which users have access to them. User
     information can be reused in other services. Users are useful to
     create a virtual organization that depends on user data.  Users can
     be added, removed, and listed. A group associated with the user can be used
     to augment users to be part of one or more groups.  A number of
     roles can identify a specific role of a user.
-    
+
     Terminology
 
     * *Group*: A user can be part of a Group
     * *Role*: A user can have a role within that Group
-
+    * *Organization*: An organization the user belongs to
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: Cloudmesh User
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -34,17 +34,17 @@ paths:
       tags:
         - User
       summary: Returns all users
-      description: Returns all users      
+      description: Returns all users
       operationId: cloudmesh.user.get
-      produces:
-        - application/json
       responses:
         200:
           description: user information
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/User"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
     put:
       tags:
         - User
@@ -52,7 +52,7 @@ paths:
       description: Create a new user
       operationId: cloudmesh.user.put
       parameters:
-        - in: body
+        - in: query
           name: user
           description: The new user to create
           schema:
@@ -69,17 +69,18 @@ paths:
       operationId: cloudmesh.user.get_by_name
       parameters:
         - name: name
-          description: name of the user
           in: path
+          description: name of the user
           required: true
-          type: string
-      produces:
-        - application/json
+          schema:
+            type: string
       responses:
         200:
           description: user information
-          schema:
-            $ref: "#/components/schemas/User"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
 components:
   schemas:
     User:

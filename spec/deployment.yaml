@@ -13,8 +13,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
-    name: Apache
-host: localhost:8080
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -25,15 +25,15 @@ paths:
       summary: Returns all deployments
       description: Returns all deployments
       operationId: cloudmesh.deployment.get
-      produces:
-        - application/json
       responses:
         200:
           description: deployment info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Deployment"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Deployment"
     put:
       tags:
         - Deployment
@@ -62,13 +62,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: deployment info
-          schema:
-            $ref: "#/components/schemas/Deployment"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Deployment"
 components:
   schemas:
     Deployment:

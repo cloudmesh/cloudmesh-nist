@@ -14,8 +14,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
-    name: Apache
-host: localhost:8080
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -26,15 +26,15 @@ paths:
       summary: Returns all mapreduces
       description: Returns all mapreduces
       operationId: cloudmesh.mapreduce.get
-      produces:
-        - application/json
       responses:
         200:
           description: mapreduce info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/mapreduce"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/mapreduce"
     put:
       tags:
       - mapreduce
@@ -63,13 +63,13 @@ paths:
           description: name of the mapreduce
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: mapreduce info
-          schema:
-            $ref: "#/components/schemas/mapreduce"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/mapreduce"
 components:
   schemas:
     mapreduce:

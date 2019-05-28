@@ -20,7 +20,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -31,15 +32,15 @@ paths:
       summary: Returns all secgroups
       description: Returns all secgroups
       operationId: cloudmesh.secgroup.get
-      produces:
-        - application/json
       responses:
         200:
           description: secgroup info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Secgroup"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Secgroup"
     post:
       tags:
       - Secgroup
@@ -68,13 +69,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: secgroup info
-          schema:
-            $ref: "#/components/schemas/Secgroup"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Secgroup"
   "/secgroup/{secgroup}/rule":
     get:
       tags:
@@ -88,15 +89,15 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: security group rules info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/SecGroupRule"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SecGroupRule"
     post:
       tags:
       - Secgroup
@@ -139,8 +140,10 @@ paths:
       responses:
         200:
           description: The security group rule definition info
-          schema:
-              $ref: "#/components/schemas/SecGroupRule"
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/SecGroupRule"
     delete:
       tags:
       - Secgroup

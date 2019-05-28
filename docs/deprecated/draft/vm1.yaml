@@ -17,10 +17,6 @@ host: localhost:8080
 basePath: /cloudmesh
 schemes:
   - http
-consumes:
-  - application/json
-produces:
-  - application/json
 paths:
   /compute/aws/ec2:
     post:
@@ -29,10 +25,6 @@ paths:
       summary: create a new ec2 vm instance
       description:
       operationId: cloudmesh.createVm
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: body
         name: body

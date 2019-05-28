@@ -20,8 +20,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
-host: localhost:8080
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -32,15 +32,15 @@ paths:
       summary: Returns all files
       description: Returns all files
       operationId: cloudmesh.file.get
-      produces:
-        - application/json
       responses:
         200:
           description: file info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/File"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/File"
     put:
       tags:
       - File
@@ -70,13 +70,13 @@ paths:
           required: true
           type: string
           description: The name of the file
-      produces:
-        - application/json
       responses:
         200:
           description: file info
-          schema:
-            $ref: "#/components/schemas/File"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/File"
     put:
       tags:
         - File
@@ -89,13 +89,14 @@ paths:
           required: true
           type: string
           description: The name of the file
-      produces:
-        - application/json
+\
       responses:
         200:
           description: file info
-          schema:
-            $ref: "#/components/schemas/File"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/File"
     delete:
       tags:
         - File
@@ -108,13 +109,13 @@ paths:
           required: true
           type: string
           description: The name of the file
-      produces:
-        - application/json
       responses:
         200:
           description: file info
-          schema:
-            $ref: "#/components/schemas/File"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/File"
 components:
   schemas:
     File:

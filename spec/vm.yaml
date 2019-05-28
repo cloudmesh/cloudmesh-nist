@@ -13,7 +13,8 @@ info:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -24,8 +25,6 @@ paths:
       summary: Returns the list of the vms
       description: Returns the list of the vms
       operationId: cloudmesh.vm.get
-      produces:
-        - application/json
       parameters:
         - name: cloud
           in: query
@@ -35,10 +34,12 @@ paths:
       responses:
         200:
           description: Listing the VMs
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/VM"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VM"
 components:
   schemas:
     VM:

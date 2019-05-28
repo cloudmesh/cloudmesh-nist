@@ -13,7 +13,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -24,15 +25,15 @@ paths:
       summary: Returns all reservations
       description: Returns all reservations
       operationId: cloudmesh.reservation.get
-      produces:
-        - application/json
       responses:
         200:
           description: reservation info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Reservation"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Reservation"
     put:
       tags:
       - Reservation
@@ -61,13 +62,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: reservation info
-          schema:
-            $ref: "#/components/schemas/Reservation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
     put:
       tags:
         - Reservation
@@ -80,13 +81,13 @@ paths:
           required: true
           type: string
           description: The name of the reservation
-      produces:
-        - application/json
       responses:
         200:
           description: reservation info
-          schema:
-            $ref: "#/components/schemas/Reservation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
     delete:
       tags:
         - Reservation
@@ -99,13 +100,13 @@ paths:
           required: true
           type: string
           description: The name of the reservation
-      produces:
-        - application/json
       responses:
         200:
           description: reservation info
-          schema:
-            $ref: "#/components/schemas/Reservation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
 components:
   schemas:
     Reservation:

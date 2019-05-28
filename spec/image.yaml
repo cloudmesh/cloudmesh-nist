@@ -14,7 +14,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -25,15 +26,15 @@ paths:
       summary: Returns all general description images
       description: Returns all general description images
       operationId: cloudmesh.image.get
-      produces:
-        - application/json
       responses:
         200:
           description: default image info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Image"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Image"
     put:
       tags:
       - Image
@@ -63,13 +64,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: image info
-          schema:
-            $ref: "#/components/schemas/Image"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Image"
     put:
       tags:
         - Image
@@ -82,13 +83,13 @@ paths:
           required: true
           type: string
           description: The name of the image
-      produces:
-        - application/json
       responses:
         200:
           description: image info
-          schema:
-            $ref: "#/components/schemas/Image"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Image"
     delete:
       tags:
         - Image
@@ -101,13 +102,13 @@ paths:
           required: true
           type: string
           description: The name of the image
-      produces:
-        - application/json
       responses:
         200:
           description: image info
-          schema:
-            $ref: "#/components/schemas/Image"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Image"
 components:
   schemas:
     Image:

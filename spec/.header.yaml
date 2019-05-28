@@ -16,18 +16,3 @@ externalDocs:
   url: https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.epub?raw=true
 schemes:
   - http
-consumes:
-  - application/json
-produces:
-  - application/json
-securityDefinitions:
-  httpbasic:
-    type: basic
-  apikey:
-    type: apiKey
-    in: query
-    name: api_key
-  apisecret:
-    type: apiKey
-    in: query
-    name: api_secret

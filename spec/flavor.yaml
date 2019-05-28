@@ -18,9 +18,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
-    name: Apache
-    url: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
-host: localhost:8080
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -31,15 +30,15 @@ paths:
       summary: Returns all flavors
       description: Returns all flavors
       operationId: cloudmesh.flavor.get
-      produces:
-        - application/json
       responses:
         200:
           description: flavor info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Flavor"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Flavor"
     put:
       tags:
       - Flavor
@@ -69,13 +68,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: flavor info
-          schema:
-            $ref: "#/components/schemas/Flavor"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Flavor"
     put:
       tags:
         - Flavor
@@ -88,13 +87,13 @@ paths:
           required: true
           type: string
           description: The name of the flavor
-      produces:
-        - application/json
       responses:
         200:
           description: flavor info
-          schema:
-            $ref: "#/components/schemas/Flavor"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Flavor"
     delete:
       tags:
         - Flavor
@@ -107,13 +106,13 @@ paths:
           required: true
           type: string
           description: The name of the flavor
-      produces:
-        - application/json
       responses:
         200:
           description: flavor info
-          schema:
-            $ref: "#/components/schemas/Flavor"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Flavor"
 components:
   schemas:
     Flavor:

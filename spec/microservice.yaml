@@ -13,8 +13,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
-    name: Apache
-host: localhost:8080
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -25,15 +25,15 @@ paths:
       summary: Returns all microservices
       description: Returns all microservices
       operationId: cloudmesh.microservice.get
-      produces:
-        - application/json
       responses:
         200:
           description: microservice info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Microservice"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Microservice"
     put:
       tags:
       - Microservice
@@ -62,13 +62,13 @@ paths:
           description: Get microservie info by name
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: microservice info
-          schema:
-            $ref: "#/components/schemas/Microservice"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Microservice"
     put:
       tags:
         - Microservice
@@ -81,13 +81,13 @@ paths:
           required: true
           type: string
           description: The name of the microservice
-      produces:
-        - application/json
       responses:
         200:
           description: microservice info
-          schema:
-            $ref: "#/components/schemas/Microservice"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Microservice"
     delete:
       tags:
         - Microservice
@@ -100,13 +100,13 @@ paths:
           required: true
           type: string
           description: The name of the microservice
-      produces:
-        - application/json
       responses:
         200:
           description: microservice info
-          schema:
-            $ref: "#/components/schemas/Microservice"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Microservice"
 components:
   schemas:
     Microservice:

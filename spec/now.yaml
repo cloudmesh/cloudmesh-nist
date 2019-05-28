@@ -21,8 +21,9 @@ info:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
-servers:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+ervers:
   - url: /cloudmesh/v3
 paths:
   /now:
@@ -32,15 +33,15 @@ paths:
       summary: Returns a list of NOWs
       description: Returns a list of NOWs
       operationId: cloudmesh.now.get
-      produces:
-        - application/json
       responses:
         200:
           description: profile info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/NOW"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/NOW"
     put:
       tags:
         - NOW
@@ -71,13 +72,13 @@ paths:
           required: true
           description: name of the now
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: now info
-          schema:
-            $ref: "#/components/schemas/NOW"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NOW"
     put:
       tags:
         - NOW
@@ -90,13 +91,13 @@ paths:
           required: true
           type: string
           description: The name of the now
-      produces:
-        - application/json
       responses:
         200:
           description: now info
-          schema:
-            $ref: "#/components/schemas/NOW"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NOW"
     delete:
       tags:
         - NOW
@@ -109,13 +110,13 @@ paths:
           required: true
           type: string
           description: The name of the now
-      produces:
-        - application/json
       responses:
         200:
           description: now info
-          schema:
-            $ref: "#/components/schemas/NOW"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NOW"
   /now/{nowname}/{nodename}:
     get:
       tags:
@@ -134,13 +135,13 @@ paths:
           required: true
           description: name of the node
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: NOW node info
-          schema:
-            $ref: "#/components/schemas/NowNode"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NowNode"
 
   /now/jobs/{jobname}:
     get:
@@ -155,13 +156,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: job info
-          schema:
-            $ref: "#/components/schemas/NowNode"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NowNode"
 
 components:
   schemas:

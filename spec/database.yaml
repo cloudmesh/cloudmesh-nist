@@ -18,7 +18,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -29,15 +30,15 @@ paths:
       summary: Returns all databases
       description: Returns all databases
       operationId: cloudmesh.database.get
-      produces:
-        - application/json
       responses:
         200:
           description: database info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Database"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Database"
         400:
           description: "Invalid name supplied"
         401:
@@ -56,13 +57,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: database info
-          schema:
-            $ref: "#/components/schemas/Database"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Database"
         400:
           description: "Invalid name supplied"
         404:
@@ -74,8 +75,6 @@ paths:
       summary: "Get the list of tables or collections for the database"
       description: ""
       operationId: "cloudmesh.database.get.collections_or_tables"
-      produces:
-        - "application/json"
       parameters:
         - name: name
           description: name of the collections or tables
@@ -85,10 +84,12 @@ paths:
       responses:
         200:
           description: "successfully returned the list"
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Definition"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Definition"
         400:
           description: "Invalid name supplied"
         401:
@@ -101,8 +102,6 @@ paths:
       summary: "Upload  a news table or collection"
       description: ""
       operationId: "cloudmesh.database.put.collections_or_tables"
-      produces:
-        - "application/json"
       parameters:
         - name: name
           description: name of the collections or tables
@@ -112,8 +111,10 @@ paths:
       responses:
         200:
           description: "successfully returned the list"
-          schema:
-            $ref: "#/components/schemas/Definition"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Definition"
         400:
           description: "Invalid name supplied"
         401:
@@ -128,8 +129,6 @@ paths:
        summary: "Query the table or collection"
        description: ""
        operationId: "cloudmesh.database.data.get"
-       produces:
-       - "application/json"
        parameters:
        - name: name
          description: name of the database
@@ -150,10 +149,12 @@ paths:
        responses:
          200:
            description: "successfully ran the Query"
-           schema:
-             type: array
-             items:
-               $ref: "#/components/schemas/Record"
+           content:
+             application/json:
+               schema:
+                 type: array
+                 items:
+                   $ref: "#/components/schemas/Record"
          400:
            description: "Invalid name supplied"
          401:
@@ -166,8 +167,6 @@ paths:
        summary: "add data to teh table or collection"
        description: ""
        operationId: "cloudmesh.database.data.put"
-       produces:
-       - "application/json"
        parameters:
        - name: name
          description: name of the database
@@ -181,15 +180,19 @@ paths:
          type: string
        - name: "record"
          in: "body"
-         schema:
-           $ref: "#/components/schemas/Record"
+         content:
+           application/json:
+             schema:
+               $ref: "#/components/schemas/Record"
          description: "Information to be uploaded"
          required: true
        responses:
          200:
            description: "successfully uploaded"
-           schema:
-             $ref: "#/components/schemas/Record"
+           content:
+             application/json:
+               schema:
+                 $ref: "#/components/schemas/Record"
          400:
            description: "Invalid name supplied"
          401:

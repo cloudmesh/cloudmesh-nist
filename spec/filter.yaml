@@ -13,8 +13,8 @@ info:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
-    name: Apache
-host: localhost:8080
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -25,15 +25,15 @@ paths:
       summary: Returns all filters
       description: Returns all filters
       operationId: cloudmesh.filter.get
-      produces:
-        - application/json
       responses:
         200:
           description: filter info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Filter"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Filter"
     put:
       tags:
       - Filter
@@ -44,8 +44,10 @@ paths:
         - in: body
           name: filter
           description: The new filter to create
-          schema:
-            $ref: "#/components/schemas/Filter"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Filter"
       responses:
         "201":
           description: Created
@@ -62,13 +64,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: filter info
-          schema:
-            $ref: "#/components/schemas/Filter"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Filter"
     put:
       tags:
         - Filter
@@ -81,13 +83,13 @@ paths:
           required: true
           type: string
           description: The name of the filter
-      produces:
-        - application/json
       responses:
         200:
           description: filter info
-          schema:
-            $ref: "#/components/schemas/Filter"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Filter"
     delete:
       tags:
         - Filter
@@ -100,13 +102,13 @@ paths:
           required: true
           type: string
           description: The name of the filter
-      produces:
-        - application/json
       responses:
         200:
           description: filter info
-          schema:
-            $ref: "#/components/schemas/Filter"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Filter"
 components:
   schemas:
     Filter:

@@ -18,7 +18,8 @@ info:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
-    name: Apache
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:
@@ -29,19 +30,21 @@ paths:
       summary: Returns all virtualdirectorys
       description: Returns all virtualdirectorys
       operationId: cloudmesh.virtualdirectory.get
-      produces:
-        - application/json
       responses:
         200:
           description: virtualdirectory info
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/Virtualdirectory"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Virtualdirectory"
         "401":
           description: unauthorized error
-          schema:
-            $ref: "#/components/schemas/UnauthorizedError"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnauthorizedError"
     put:
       tags:
         - Virtualdirectory
@@ -53,8 +56,10 @@ paths:
           name: virtualdirectory
           required: true
           description: The new virtualdirectory to create
-          schema:
-            $ref: "#/components/schemas/Virtualdirectory"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Virtualdirectory"
       responses:
         "201":
           description: Created
@@ -71,13 +76,13 @@ paths:
           in: path
           required: true
           type: string
-      produces:
-        - application/json
       responses:
         200:
           description: virtualdirectory info
-          schema:
-            $ref: "#/components/schemas/Virtualdirectory"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Virtualdirectory"
 components:
   schemas:
     UnauthorizedError:
