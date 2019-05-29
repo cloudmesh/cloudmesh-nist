@@ -3,8 +3,8 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
-  title: "Virtual Cluster"
+  x-status: TODO
+  title: Virtual Cluster
   description: |-
 
     A Virtual Cluster is modeled as one Front-end, or manager node, and one or
@@ -49,7 +49,7 @@ paths:
       description: Create a new virtual cluster
       operationId: cloudmesh.virtualcluster.add
       parameters:
-        - in: body
+        - in: path
           name: virtualcluster
           description: The new virtual cluster to create
           required: true

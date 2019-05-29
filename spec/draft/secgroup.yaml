@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Secgroup
   description: |-
   
@@ -48,7 +48,7 @@ paths:
       description: Create a new secgroup
       operationId: cloudmesh.secgroup.add
       parameters:
-        - in: body
+        - in: path
           name: secgroup
           description: The new secgroup to create
           schema:
@@ -110,7 +110,7 @@ paths:
           required: true
           description: The name of the new secgroup to create
           type: string
-        - in: body
+        - in: path
           name: secgroupobj
           required: true
           description: The secgroup object to create

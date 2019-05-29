@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Containers
   description: |-
 
@@ -44,7 +44,7 @@ paths:
       description: Create a new containers
       operationId: cloudmesh.containers.put
       parameters:
-        - in: body
+        - in: path
           name: containers
           description: The new containers to create
           schema:

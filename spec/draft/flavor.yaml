@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Flavor
   description: |-
   
@@ -46,7 +46,7 @@ paths:
       description: Create a new flavor
       operationId: cloudmesh.flavor.add
       parameters:
-        - in: body
+        - in: path
           name: flavor
           required: true
           description: The new flavor to create

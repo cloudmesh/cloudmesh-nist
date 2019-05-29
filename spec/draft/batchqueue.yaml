@@ -2,6 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
+  x-status: TODO
   title: Queue
   description: |-
   
@@ -40,7 +41,7 @@ paths:
       description: Create a new batch queue
       operationId: cloudmesh.batch.queue.add
       parameters:
-        - in: body
+        - in: path
           name: queue
           description: The new of the batchqueue to create
           schema:
@@ -98,7 +99,7 @@ paths:
         - name: job
           schema:
             $ref: "#/components/schemas/Batchjob"
-          in: body
+          in: path
           required: true
           type: string
       responses:

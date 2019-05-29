@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Timestamp
   description: |-
   
@@ -25,7 +25,7 @@ paths:
   /timestamp:
     get:
       summary: Returns the time
-      description: Returns teh time to be used in a timestamp
+      description: Returns the time to be used in a timestamp
       responses:
         200:
           description: the current time and date

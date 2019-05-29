@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Replica
   description: |-
   
@@ -44,7 +44,7 @@ paths:
       description: Create a new replica      
       operationId: cloudmesh.replica.add
       parameters:
-        - in: body
+        - in: path
           name: replica
           required: true
           description: The new replica entry to create

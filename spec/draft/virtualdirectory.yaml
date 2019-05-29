@@ -3,8 +3,8 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
-  title: Virtualdirectory
+  x-status: TODO
+  title: Virtual Directory
   description: |-
   
     A virtual directory is a collection of files or replicas of the
@@ -52,7 +52,7 @@ paths:
       description: Create a new virtualdirectory
       operationId: cloudmesh.virtualdirectory.add
       parameters:
-        - in: body
+        - in: path
           name: virtualdirectory
           required: true
           description: The new virtualdirectory to create

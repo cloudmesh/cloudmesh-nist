@@ -42,7 +42,7 @@ paths:
       description: Create a new mapreduce
       operationId: cloudmesh.mapreduce.put
       parameters:
-        - in: body
+        - in: path
           name: mapreduce
           description: The new mapreduce to create
           schema:

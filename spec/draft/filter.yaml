@@ -2,6 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
+  x-status: TODO
   title: Filter
   description: |-
   
@@ -41,7 +42,7 @@ paths:
       description: Create a new filter
       operationId: cloudmesh.filter.put
       parameters:
-        - in: body
+        - in: path
           name: filter
           description: The new filter to create
           content:

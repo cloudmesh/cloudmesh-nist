@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Virtual Machine
   description: |-
 
@@ -78,14 +78,4 @@ components:
         timestamp:
           description: timestamps associated with the resource
           $ref: "timestamp.yaml#/components/schemas/Timestamp"
-      example:
-        image: image
-        metadata: metadata
-        size: size
-        provider: provider
-        name: name
-        private_ips: private_ips
-        id: id
-        state: state
-        region: region
-        public_ips: public_ips
+

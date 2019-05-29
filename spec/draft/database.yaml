@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Database
   description: |-
 
@@ -121,86 +121,85 @@ paths:
           description: "Invalid credentials"
         405:
           description: "Invalid input"
-
   /database/{name}/{table_or_collection}:
-     get:
-       tags:
-       - "Database Data Interaction"
-       summary: "Query the table or collection"
-       description: ""
-       operationId: "cloudmesh.database.data.get"
-       parameters:
-       - name: name
-         description: name of the database
-         in: path
-         required: true
-         type: string
-       - name: table_or_collection
-         description: name of the table or collection
-         in: path
-         required: true
-         type: string
-       - name: "query"
-         in: "query"
-         description: "Database Query"
-         required: true
-         type: "string"
-         format: base64
-       responses:
-         200:
-           description: "successfully ran the Query"
-           content:
-             application/json:
-               schema:
-                 type: array
-                 items:
-                   $ref: "#/components/schemas/Record"
-         400:
-           description: "Invalid name supplied"
-         401:
-           description: "Invalid credentials"
-         405:
-           description: "Invalid input"
-     put:
-       tags:
-       - "Database Data Interaction"
-       summary: "add data to teh table or collection"
-       description: ""
-       operationId: "cloudmesh.database.data.put"
-       parameters:
-       - name: name
-         description: name of the database
-         in: path
-         required: true
-         type: string
-       - name: table_or_collection
-         description: name of the table or collection
-         in: path
-         required: true
-         type: string
-       - name: "record"
-         in: "body"
-         content:
-           application/json:
-             schema:
-               $ref: "#/components/schemas/Record"
-         description: "Information to be uploaded"
-         required: true
-       responses:
-         200:
-           description: "successfully uploaded"
-           content:
-             application/json:
-               schema:
-                 $ref: "#/components/schemas/Record"
-         400:
-           description: "Invalid name supplied"
-         401:
-           description: "Invalid credentials"
-         405:
-           description: "Invalid input"
-         404:
-           description: "Invalid database name or table or collection name supplied"
+    get:
+      tags:
+      - "Database Data Interaction"
+      summary: "Query the table or collection"
+      description: ""
+      operationId: "cloudmesh.database.data.get"
+      parameters:
+      - name: name
+        description: name of the database
+        in: path
+        required: true
+        type: string
+      - name: table_or_collection
+        description: name of the table or collection
+        in: path
+        required: true
+        type: string
+      - name: "query"
+        in: "query"
+        description: "Database Query"
+        required: true
+        type: "string"
+        format: base64
+      responses:
+        200:
+          description: "successfully ran the Query"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Record"
+        400:
+          description: "Invalid name supplied"
+        401:
+          description: "Invalid credentials"
+        405:
+          description: "Invalid input"
+    put:
+      tags:
+      - "Database Data Interaction"
+      summary: "add data to the table or collection"
+      description: ""
+      operationId: "cloudmesh.database.data.put"
+      parameters:
+      - name: name
+        description: name of the database
+        in: path
+        required: true
+        type: string
+      - name: table_or_collection
+        description: name of the table or collection
+        in: path
+        required: true
+        type: string
+      - name: record
+        in: path
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Record"
+        description: "Information to be uploaded"
+        required: true
+      responses:
+        200:
+          description: "successfully uploaded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Record"
+        400:
+          description: "Invalid name supplied"
+        401:
+          description: "Invalid credentials"
+        405:
+          description: "Invalid input"
+        404:
+          description: "Invalid database name or table or collection name supplied"
 
 components:
   schemas:

@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: defined
+  x-status: TODO
   title: Organization
   description: |-
   
@@ -49,7 +49,7 @@ paths:
       description: Create a new organization
       operationId: cloudmesh.organization.put
       parameters:
-        - in: body
+        - in: path
           name: organization
           description: The new organization to create
           schema:
