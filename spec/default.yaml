@@ -55,11 +55,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Default'
-        responses:
-          '200':
-            description: Default updated.
-          '400':
-            description: Error updateing default.
+      responses:
+        '200':
+          description: Default updated.
+        '400':
+          description: Error updateing default.
   /default/{name}:
     get:
       tags:

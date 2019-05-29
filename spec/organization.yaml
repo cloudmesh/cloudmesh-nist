@@ -53,11 +53,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Organization'
-        responses:
-          '200':
-            description: Organization updated.
-          '400':
-            description: Error updateing Organization.
+      responses:
+        '200':
+          description: Organization updated.
+        '400':
+          description: Error updateing Organization.
   /organization/{name}:
     get:
       tags:

@@ -60,11 +60,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-        responses:
-          '200':
-            description: User updated.
-          '400':
-            description: Error updateing User.
+      responses:
+        '200':
+          description: User updated.
+        '400':
+          description: Error updateing User.
   /user/{name}:
     get:
       tags:

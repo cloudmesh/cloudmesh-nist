@@ -1,0 +1,172 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: defined
+  title: Flavor
+  description: |-
+  
+    The flavor specifies elementary information about a compute
+    node. This information includes name, id, label, ram size,
+    swap size, disk space, availability of ephemeral disk, available
+    bandwidth, price value, cloud name. Flavors and the corresponding
+    information are essential to size a
+    virtual cluster appropriately.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /flavor/{cloud}:
+    get:
+      tags:
+        - Flavor
+      summary: Returns a list of flavors for the cloud
+      description: Returns a list of all flavors
+      operationId: cloudmesh.flavor.list
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      responses:
+        '200':
+          description: The list of flavors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Flavor'
+        '400':
+           description: No Flavor found.
+    put:
+      tags:
+        - Flavor
+      summary: Set a flavor
+      description: Sets the named flavor
+      operationId: cloudmesh.flavor.add
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      requestBody:
+        description: The new flavor to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Flavor'
+      responses:
+        '200':
+          description: Flavor updated.
+        '400':
+          description: Error updateing flavor.
+  /flavor/{cloud}/{name}:
+    get:
+      tags:
+        - Flavor
+      summary: Returns the named flavor
+      description: Returns a flavor by name
+      operationId: cloudmesh.flavor.find_by_name
+      parameters:
+        - name: cloud
+          in: path
+          description: The name of the cloud
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the flavor
+      responses:
+        '200':
+          description: Retruning the information of the flavor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flavor'
+        '400':
+           description: No Flavor found.
+        '404':
+           description: The named flavor could not be found.
+    delete:
+      tags:
+        - Flavor
+      summary: Deletes the named flavor
+      description: Deletes a flavor by name
+      operationId: cloudmesh.flavor.delete_by_name
+      parameters:
+        parameters:
+          - name: cloud
+            description: The name of the cloud
+            in: path
+            required: true
+            schema:
+              type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the flavor
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Flavor found.
+        '404':
+           description: The named flavor could not be found.
+components:
+  schemas:
+    Flavor:
+      type: object
+      description: The flavor
+      properties:
+        name:
+          type: string
+          description: Name of the flavor
+        id:
+          type: string
+          description: The id of the flavor for the named cloud
+        label:
+          type: string
+          description: A label that a user can set for this flavor
+        description:
+          type: string
+          description: A description for the compute node
+        ram:
+          type: integer
+          description: Number of bytes used for the image in RAM
+        swap:
+          type: integer
+          description: Number of bytes used for the image in SWAP
+        disk:
+          type: integer
+          description: Number of bytes used for the disk
+        ephemeral_disk:
+          type: boolean
+          description: Specifies whether the flavor features an ephemeral disk
+        bandwidth:
+          type: integer
+          description: Bandwidth of the node
+        price:
+          type: float
+          description: Price for the flavor
+        cloud:
+          type: string
+          description: Name of the cloud this flavor is used in

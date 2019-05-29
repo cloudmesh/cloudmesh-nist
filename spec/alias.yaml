@@ -52,11 +52,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Alias'
-        responses:
-          '200':
-            description: Alias updated.
-          '400':
-            description: Error updateing alias.
+      responses:
+        '200':
+          description: Alias updated.
+        '400':
+          description: Error updateing alias.
   /alias/{name}:
     get:
       tags:

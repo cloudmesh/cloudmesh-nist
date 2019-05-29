@@ -50,11 +50,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Variable'
-        responses:
-          '200':
-            description: Variable updated.
-          '400':
-            description: Error updateing variable.
+      responses:
+        '200':
+          description: Variable updated.
+        '400':
+          description: Error updateing variable.
   /variable/{name}:
     get:
       tags:

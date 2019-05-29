@@ -150,9 +150,6 @@ components:
         visibility:
           description: The visibility of the image
           type: string
-        timestamp:
-          description: timestamps associated with the image
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"
     Minimum_Requirements:
       type: object
       properties:
