@@ -1,0 +1,135 @@
+openapi: "3.0.2"
+info:
+  version: "3.2.0"
+  x-date: 05-23-2019
+  x-status: defined
+  title: User
+  description: |-
+
+    Services need to specify which users have access to them. User
+    information can be reused in other services and organized in a virtual
+    organization. User can be added to a named list of users.
+    be added, removed, and listed. A group associated with the user can be used
+    to augment users to be part of one or more groups.
+
+    We distingush therefor the following Terminology
+
+    * *Group*: A user can be part of a group.
+    * *Organization*: An organization the user belongs to.
+
+    To which a user can be added.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: Cloudmesh User
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /user:
+    get:
+      tags:
+        - User
+      summary: Returns a list of users
+      description: Returns a list of all users
+      operationId: cloudmesh.user.list
+      responses:
+        '200':
+          description: The list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '400':
+           description: No Users found.
+    put:
+      tags:
+        - User
+      summary: Uploads a user to the list of users
+      description: Uploads a user to the list of users
+      operationId: cloudmesh.user.add
+      requestBody:
+        description: The user to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        responses:
+          '200':
+            description: User updated.
+          '400':
+            description: Error updateing User.
+  /user/{name}:
+    get:
+      tags:
+        - User
+      summary: Returns the named user
+      description: Returns an user by name
+      operationId: cloudmesh.user.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the user
+      responses:
+        '200':
+          description: Retruning the information of the alias
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+           description: No user found.
+        '404':
+           description: The named user could not be found.
+    delete:
+      tags:
+        - User
+      summary: Deletes the named user
+      description: Deletes an user by name
+      operationId: cloudmesh.user.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the user
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No User found.
+        '404':
+           description: The named user could not be found.
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+          description: The unique username associated with the user
+        firstname:
+          type: string
+          description: The firstanme of the user
+        lastname:
+          type: string
+          description: The lastname of the user
+        email:
+          type: string
+          description: The email of the user
+        comment:
+          type: string
+          description: A comment regarding the user
+        publickey:
+          type: string
+          description: The public key of the user

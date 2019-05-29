@@ -30,7 +30,7 @@ paths:
       operationId: cloudmesh.alias.list
       responses:
         '200':
-          description: The list of Aliasses
+          description: The list of aliasses
           content:
             application/json:
               schema:
@@ -42,8 +42,8 @@ paths:
     put:
       tags:
         - Alias
-      summary: Create a new alias
-      description: Create a new alias
+      summary: Set an alias
+      description: Sets the named alias
       operationId: cloudmesh.alias.add
       requestBody:
         description: The new alias to create
@@ -56,14 +56,14 @@ paths:
           '200':
             description: Alias updated.
           '400':
-            description: Error updateing Alias.
+            description: Error updateing alias.
   /alias/{name}:
     get:
       tags:
         - Alias
-      summary: Returns the alias
+      summary: Returns the named alias
       description: Returns an alias by name
-      operationId: cloudmesh.alias.find
+      operationId: cloudmesh.alias.find_by_name
       parameters:
         - name: name
           in: path
@@ -78,6 +78,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Alias'
+        '400':
+           description: No Alias found.
+        '404':
+           description: The named alias could not be found.
+    delete:
+      tags:
+        - Alias
+      summary: Deletes the named alias
+      description: Deletes an alias by name
+      operationId: cloudmesh.alias.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the alias
+      responses:
+        '200':
+          description: Deletion successful.
         '400':
            description: No Alias found.
         '404':

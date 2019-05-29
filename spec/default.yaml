@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 05-23-2019
-  x-status: TODO
+  x-status: defined
   title: Default
   description: |-
   
@@ -28,55 +28,83 @@ paths:
     get:
       tags:
         - Default
-      summary: Returns all defaults
-      description: Returns all defaults
-      operationId: cloudmesh.default.get
+      summary: Returns a list of defaults
+      description: Returns a list of all defaults
+      operationId: cloudmesh.default.list
       responses:
-        "200":
-          description: default info
+        '200':
+          description: The list of defaults
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Default"
+                  $ref: '#/components/schemas/Default'
+        '400':
+           description: No Default found.
     put:
       tags:
         - Default
-      summary: Create a new default
-      description: Create a new default
+      summary: Set a default
+      description: Sets the named default
       operationId: cloudmesh.default.add
       requestBody:
+        description: The new default to create
+        required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Default"
-        description: The new default to create
-        required: true
-      responses:
-        "201":
-          description: Created
-  "/default/{name}":
+              $ref: '#/components/schemas/Default'
+        responses:
+          '200':
+            description: Default updated.
+          '400':
+            description: Error updateing default.
+  /default/{name}:
     get:
       tags:
         - Default
-      summary: Returns a default
-      description: Returns a default
-      operationId: cloudmesh.default.get_by_name
+      summary: Returns the named default
+      description: Returns a default by name
+      operationId: cloudmesh.default.find_by_name
       parameters:
         - name: name
           in: path
           required: true
-          description: The name of the default
           schema:
             type: string
+          description: The name of the default
       responses:
-        "200":
-          description: default info
+        '200':
+          description: Retruning the information of the default
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Default"
+                $ref: '#/components/schemas/Default'
+        '400':
+           description: No Default found.
+        '404':
+           description: The named default could not be found.
+    delete:
+      tags:
+        - Default
+      summary: Deletes the named default
+      description: Deletes a default by name
+      operationId: cloudmesh.default.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the default
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Default found.
+        '404':
+           description: The named default could not be found.
 components:
   schemas:
     Default:
@@ -86,15 +114,12 @@ components:
         name:
           type: string
           description: The name of the default
+          example: "image"
         value:
           type: string
-          description: The type of the default
-        kind:
-          type: string
           description: The value of the default
-        service:
-          type: string
-          description: The name of the service
+          example: "m1.medium"
         context:
           type: string
-          description: The context of the service
+          description: The context of the default
+          example: "cloud.vm.flavor"

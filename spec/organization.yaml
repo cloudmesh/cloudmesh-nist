@@ -1,0 +1,341 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: defined
+  title: Organization
+  description: |-
+  
+    An important concept in many services is the management of a group
+    of users in an organization. Within an organization we distinguish
+    different Groups of users and within a Group we can have different roles
+    users can fulfill. Such groups and rols can be used to specify access
+    rights to services.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /organization:
+    get:
+      tags:
+        - Organization
+      summary: Returns a list of organizations
+      description: Returns a list of all organizations
+      operationId: cloudmesh.organization.list
+      responses:
+        '200':
+          description: The list of organizations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organization'
+        '400':
+           description: No Organizations found.
+    put:
+      tags:
+        - Organization
+      summary: Uploads an organization to the list of organizations
+      description: Uploads an organization to the list of organizations
+      operationId: cloudmesh.organization.add
+      requestBody:
+        description: The organization to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organization'
+        responses:
+          '200':
+            description: Organization updated.
+          '400':
+            description: Error updateing Organization.
+  /organization/{name}:
+    get:
+      tags:
+        - Organization
+      summary: Returns the named organization
+      description: Returns an organization by name
+      operationId: cloudmesh.organization.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+      responses:
+        '200':
+          description: Retruning the information of the alias
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        '400':
+           description: No organization found.
+        '404':
+           description: The named organization could not be found.
+    delete:
+      tags:
+        - Organization
+      summary: Deletes the named organization
+      description: Deletes an organization by name
+      operationId: cloudmesh.organization.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Organization found.
+        '404':
+           description: The named organization could not be found.
+  /organization/{name}/user:
+    get:
+      tags:
+        - Organization
+      summary: Returns all users of the organization
+      description: Returns all users of the organization
+      operationId: cloudmesh.organization.user.list
+      responses:
+        200:
+          description: organization info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
+  /organization/{name}/user/{username}:
+    get:
+      tags:
+        - Organization
+      summary: Returns the specific user of that organization
+      description: Returns the specific user of that organization
+      operationId: cloudmesh.organization.user.get_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+        - name: username
+          description: The username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: organization info
+          content:
+            application/json:
+              schema:
+                $ref: "user.yaml#/components/schemas/User"
+    put:
+      tags:
+        - Organization
+      summary: Updates or adds a user in the organization
+      description: Updates or adds a user in the organization
+      operationId: cloudmesh.organization.user.add
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+      requestBody:
+        description: The user to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        `200`:
+          description: User added sucessfully
+    delete:
+      tags:
+        - Organization
+      summary: Delete an user in the organization
+      description: Delete an user in the organization
+      operationId: cloudmesh.organization.user.delete
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+        - name: username
+          description: The username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        `200`:
+          description: Deletion successful.
+  /organization/{name}/group/:
+    get:
+      tags:
+        - Organization
+      summary: Returns all group names
+      description: Returns all group names
+      operationId: cloudmesh.organization.group.list
+      responses:
+        '200':
+          description: Retruning the information of the alias
+          content:
+            application/json:
+              type: array
+                items:
+                  type: string
+        '400':
+           description: No group found.
+        '404':
+           description: The named group could not be found.
+  /organization/{name}/group/{groupname}:
+    get:
+      tags:
+        - Organization
+      summary: Returns the specific group of that organization
+      description: Returns the specific group of that organization
+      operationId: cloudmesh.organization.group.get_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+        - name: groupname
+          description: The groupname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: organization info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
+    put:
+      tags:
+        - Organization
+      summary: Updates or adds a group in the organization
+      description: Updates or adds a group in the organization
+      operationId: cloudmesh.organization.group.add
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the group
+        - name: groupname
+          description: The groupname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        `200`:
+          description: Group added sucessfully
+    delete:
+      tags:
+        - Organization
+      summary: Delete a group in the organization
+      description: Delete a gropu in the organization
+      operationId: cloudmesh.organization.greop.delete
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+        - name: groupname
+          description: The groupname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        `200`:
+          description: Deletion successful.
+ /organization/{name}/group/{groupname}/{username}:
+    put:
+      tags:
+        - Organization
+      summary: Updates or adds a username to the group
+      description: Updates or adds a username to the group
+      operationId: cloudmesh.organization.group.user.add
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the group
+        - name: groupname
+          description: The groupname
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: username
+          description: The username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        `200`:
+          description: Group added sucessfully
+        '404':
+          description: The organization or group could not be found.
+components:
+  schemas:
+    Organization:
+      type: object
+      properties:
+        name:
+          description: Name of the organization
+          type: string
+        users:
+          description: list of users
+          type: array
+          items:
+            $ref: "user.yaml#/components/schemas/User"
+    Group:
+      type: object
+      description: the groups
+      properties:
+        name:
+          type: string
+          description: The name of the group
+        description:
+          type: string
+          description: The description of the group
+        users:
+          description: The user names that are member of the group
+          type: array
+          items:
+            type: string
+
