@@ -1,0 +1,179 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: Image
+  description: |-
+  
+    To execute virtual machines, we need an image that specifies the
+    details of the operationg system.
+    
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /image/{cloud}:
+    get:
+      tags:
+        - Image
+      summary: Returns a list of images for the cloud
+      description: Returns a list of all images
+      operationId: cloudmesh.image.list
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      responses:
+        '200':
+          description: The list of images
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Image'
+        '400':
+           description: No Image found.
+    put:
+      tags:
+        - Image
+      summary: Add a image
+      description: Sets the named image
+      operationId: cloudmesh.image.add
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      requestBody:
+        description: The image to add or modify
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Image'
+      responses:
+        '200':
+          description: Image updated.
+        '400':
+          description: Error updateing image.
+  /image/{cloud}/{name}:
+    get:
+      tags:
+        - Image
+      summary: Returns the named image
+      description: Returns a image by name
+      operationId: cloudmesh.image.find_by_name
+      parameters:
+        - name: cloud
+          in: path
+          description: The name of the cloud
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the image
+      responses:
+        '200':
+          description: Retruning the information of the image
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+        '400':
+           description: No Image found.
+        '404':
+           description: The named image could not be found.
+    delete:
+      tags:
+        - Image
+      summary: Deletes the named image
+      description: Deletes a image by name
+      operationId: cloudmesh.image.delete_by_name
+      parameters:
+        parameters:
+          - name: cloud
+            description: The name of the cloud
+            in: path
+            required: true
+            schema:
+              type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the image
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Image found.
+        '404':
+           description: The named image could not be found.
+components:
+  schemas:
+    Image:
+      type: object
+      properties:
+        name:
+          type: string
+          description: A unique name of the image
+        cloud:
+          type: string
+          description: The name of the cloud
+        label:
+          type: string
+          description: A label that can be defined by the user for the image
+        description:
+          type: string
+          description: A description for the image
+        osType:
+          type: string
+          description: The OS type of the image
+        osVersion:
+          type: string
+          description: The OS version of the image
+        status:
+          type: string
+          description: The status of the image
+        progress:
+          type: integer
+          description: The loading progress percentage of the image
+        visibility:
+          description: The visibility of the image
+          type: string
+        requirement:
+          $ref: "#/components/schemas/Requirements"
+          description: Minimum requirement to run the image
+    Requirements:
+      type: object
+      properties:
+        disk_space:
+          type: integer
+          description: Minimum disk space in bytes required for the image
+        ram:
+          type: integer
+          description: Minimum ram size in bytes to run the image
+        cpu:
+          type: string
+          description: CPU required to run the image
+        cores:
+          type: integer
+          description:  Minimum number of cores

@@ -51,7 +51,7 @@ paths:
     put:
       tags:
         - Flavor
-      summary: Set a flavor
+      summary: Add a flavor
       description: Sets the named flavor
       operationId: cloudmesh.flavor.add
       parameters:
@@ -62,7 +62,7 @@ paths:
             type: string
           description: The name of the cloud
       requestBody:
-        description: The new flavor to create
+        description: The flavor to add or modify
         required: true
         content:
           application/json:
