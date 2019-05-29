@@ -1,0 +1,120 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: defined
+  title: Variables
+  description: |-
+  
+    String variables are used to store simple values. Each variable can have
+    a datatype. so that it can be used for serialization into other formats.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /variable:
+    get:
+      tags:
+        - Variable
+      summary: Returns a list of variables
+      description: Returns a list of all variables
+      operationId: cloudmesh.variable.list
+      responses:
+        '200':
+          description: The list of variables
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Variable'
+        '400':
+           description: No Variable found.
+    put:
+      tags:
+        - Variable
+      summary: Set a variable
+      description: Sets the named variable
+      operationId: cloudmesh.variable.add
+      requestBody:
+        description: The new variable to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Variable'
+        responses:
+          '200':
+            description: Variable updated.
+          '400':
+            description: Error updateing variable.
+  /variable/{name}:
+    get:
+      tags:
+        - Variable
+      summary: Returns the named variable
+      description: Returns a variable by name
+      operationId: cloudmesh.variable.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the variable
+      responses:
+        '200':
+          description: Retruning the information of the variable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Variable'
+        '400':
+           description: No Variable found.
+        '404':
+           description: The named variable could not be found.
+    delete:
+      tags:
+        - Variable
+      summary: Deletes the named variable
+      description: Deletes a variable by name
+      operationId: cloudmesh.variable.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the variable
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Variable found.
+        '404':
+           description: The named variable could not be found.
+components:
+  schemas:
+    Variables:
+      type: object
+      description: the variables
+      properties:
+        name:
+          type: string
+          description: name of the variable
+        value:
+          type: string
+          description: type of the variable
+        description:
+          type: string
+          description: a descriptionof the variable
+        datatype:
+          type: string
+          description: The data type of the variable which can be used for serialization
