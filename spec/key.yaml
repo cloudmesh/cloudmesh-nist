@@ -1,0 +1,131 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: defined
+  title: Public Key Store
+  description: |-
+  
+    Many services and frameworks use Secure Shell (SSH) keys to
+    authenticate. This service allows the convenient storage of the
+    public keys.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /key:
+    get:
+      tags:
+        - Key
+      summary: Returns a list of keys
+      description: Returns a list of all keys
+      operationId: cloudmesh.key.list
+      responses:
+        '200':
+          description: The list of keys
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Key'
+        '400':
+           description: No Key found.
+    put:
+      tags:
+        - Key
+      summary: Set a key
+      description: Sets the named key
+      operationId: cloudmesh.key.add
+      requestBody:
+        description: The new key to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Key'
+      responses:
+        '200':
+          description: Key updated.
+        '400':
+          description: Error updateing key.
+  /key/{name}:
+    get:
+      tags:
+        - Key
+      summary: Returns the named key
+      description: Returns a key by name
+      operationId: cloudmesh.key.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the key
+      responses:
+        '200':
+          description: Retruning the information of the key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Key'
+        '400':
+           description: No Key found.
+        '404':
+           description: The named key could not be found.
+    delete:
+      tags:
+        - Key
+      summary: Deletes the named key
+      description: Deletes a key by name
+      operationId: cloudmesh.key.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the key
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Key found.
+        '404':
+           description: The named key could not be found.
+components:
+  schemas:
+    Key:
+      type: object
+      description: the public key
+      properties:
+        name:
+          type: string
+          description: The name of the public key
+        value:
+          type: string
+          description: The value of the public key
+        kind:
+          type: string
+          description: The key kind such as rsa, dsa
+        group:
+          type: string
+          description: An optional group name allowing to group keys to create
+                       custom groups
+        comment:
+          type: string
+          description: A comment for the public key
+        uri:
+          type: string
+          description: The uri of the public key if any
+        fingerprint:
+          type: string
+          description: The fingerprint of the public key

@@ -6,8 +6,9 @@ info:
   title: Variables
   description: |-
   
-    String variables are used to store simple values. Each variable can have
-    a datatype. so that it can be used for serialization into other formats.
+    Variables a simple string key value storage to store simple
+    values. Each variable can have a datatype, so that it can be used for
+    serialization into other formats.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:

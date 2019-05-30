@@ -1059,13 +1059,13 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/user.yaml}
 ```
 
-### PublicKeyStore
+### Key
 
-{include=./spec/publickeystore.md}
+{include=./spec/key.md}
 
-#### publickeystore.yaml
+#### key.yaml
 
-```{include=./spec/publickeystore.yaml}
+```{include=./spec/key.yaml}
 ```
 
 
@@ -1098,15 +1098,6 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 #### variables.yaml
 
 ```{include=./spec/variables.yaml}
-```
-
-### Keyvaluestore
-
-{include=./spec/keyvaluestore.md}
-
-#### keyvaluestore.yaml
-
-```{include=./spec/keyvaluestore.yaml}
 ```
 
 ### Default

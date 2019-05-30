@@ -1,0 +1,169 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: Virtual Machine
+  description: |-
+
+    VM is a service to manage virtual machines.
+    
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  contact:
+    name: NIST BDRA Interface Subgroup Service
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /vm/{cloud}:
+    get:
+      tags:
+        - Vm
+      summary: Returns a list of vms for the cloud
+      description: Returns a list of all vms
+      operationId: cloudmesh.vm.list
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      responses:
+        '200':
+          description: The list of vms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vm'
+        '400':
+           description: No Vm found.
+        '401':
+          description: Not authorized.
+    put:
+      tags:
+        - Vm
+      summary: Add a vm
+      description: Sets the named vm
+      operationId: cloudmesh.vm.add
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      requestBody:
+        description: The vm to add or modify
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vm'
+      responses:
+        '200':
+          description: Vm updated.
+        '400':
+          description: Error updateing vm.
+        '401':
+          description: Not authorized.
+  /vm/{cloud}/{name}:
+    get:
+      tags:
+        - Vm
+      summary: Returns the named vm
+      description: Returns a vm by name
+      operationId: cloudmesh.vm.find_by_name
+      parameters:
+        - name: cloud
+          in: path
+          description: The name of the cloud
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the vm
+      responses:
+        '200':
+          description: Retruning the information of the vm
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vm'
+        '400':
+           description: No Vm found.
+        '401':
+          description: Not authorized.
+        '404':
+           description: The named vm could not be found.
+    delete:
+      tags:
+        - Vm
+      summary: Deletes the named vm
+      description: Deletes a vm by name
+      operationId: cloudmesh.vm.delete_by_name
+      parameters:
+        parameters:
+          - name: cloud
+            description: The name of the cloud
+            in: path
+            required: true
+            schema:
+              type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the vm
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Vm found.
+        '401':
+          description: Not authorized.
+        '404':
+           description: The named vm could not be found.
+components:
+  schemas:
+    Vm:
+      type: object
+      properties:
+        provider:
+          type: string
+          description: Name of the provider
+        name:
+          type: string
+          description: the unique name of the vm
+        image:
+          type: string
+          description: the image name for the vm
+        flavor:
+          type: string
+          description: the flavor name for the vm
+        region:
+          type: string
+          description: an optional region
+        state:
+          type: string
+          description: The state of the vm
+        private_ips:
+          type: string
+          description: The private IPs
+        public_ips:
+          type: string
+          description: The public IPS
+        metadata:
+          type: string
+          description: The meta data passed along to the VM
+
