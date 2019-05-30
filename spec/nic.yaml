@@ -6,8 +6,7 @@ info:
   title: Nic
   description: |-
   
-    A service to store Network Interface Controller (NIC) information. All of
-    them are stored as Strings.
+    A service to store Network Interface Controller (NIC) information.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -19,95 +18,87 @@ info:
 servers:
   - url: /cloudmesh/v3
 paths:
-  /nics:
+  /nic:
     get:
       tags:
-      - NIC
-      summary: Returns all nics
-      description: Returns all nics
-      operationId: cloudmesh.nic.get
+        - Nic
+      summary: Returns a list of nics
+      description: Returns a list of all nics
+      operationId: cloudmesh.nic.list
       responses:
-        200:
-          description: nic info
+        '200':
+          description: The list of nics
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Nic"
+                  $ref: '#/components/schemas/Nic'
+        '400':
+           description: No Nic found.
     put:
       tags:
-      - NIC
-      summary: Create a new nic
-      description: Create a new nic
-      operationId: cloudmesh.nic.put
-      parameters:
-        - in: path
-          name: nic
-          description: The new nic to create
-          schema:
-            $ref: "#/components/schemas/Nic"
+        - Nic
+      summary: Set a nic
+      description: Sets the named nic
+      operationId: cloudmesh.nic.add
+      requestBody:
+        description: The new nic to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Nic'
       responses:
-        "201":
-          description: Created
-  "/nic/{name}":
+        '200':
+          description: Nic updated.
+        '400':
+          description: Error updateing nic.
+  /nic/{name}:
     get:
       tags:
-      - NIC
-      summary: Returns a nic
-      description: Returns a nic
-      operationId: cloudmesh.nic.get_by_name
-      parameters:
-        - name: name
-          description: Get nic info by name
-          in: path
-          required: true
-          type: string
-      responses:
-        200:
-          description: nic info
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Nic"
-    put:
-      tags:
-        - NIC
-      summary: Uploads a nic by name
-      description: Uploads a nic by name
-      operationId: cloudmesh.nic.put_by_name
+        - Nic
+      summary: Returns the named nic
+      description: Returns a nic by name
+      operationId: cloudmesh.nic.find_by_name
       parameters:
         - name: name
           in: path
           required: true
-          type: string
+          schema:
+            type: string
           description: The name of the nic
       responses:
-        200:
-          description: nic info
+        '200':
+          description: Retruning the information of the nic
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Nic"
+                $ref: '#/components/schemas/Nic'
+        '400':
+           description: No Nic found.
+        '404':
+           description: The named nic could not be found.
     delete:
       tags:
-        - NIC
-      summary: Deletes a nic by name
+        - Nic
+      summary: Deletes the named nic
       description: Deletes a nic by name
-      operationId: cloudmesh.nic.put_by_name
+      operationId: cloudmesh.nic.delete_by_name
       parameters:
         - name: name
           in: path
           required: true
-          type: string
+          schema:
+            type: string
           description: The name of the nic
       responses:
-        200:
-          description: nic info
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Nic"
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Nic found.
+        '404':
+           description: The named nic could not be found.
 components:
   schemas:
     Nic:
@@ -141,7 +132,4 @@ components:
         bandwidth:
           type: integer
           description: the bandwidth in bps
-        timestamp:
-          description: timestamps associated with the resource
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"
 
