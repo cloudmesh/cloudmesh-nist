@@ -27,7 +27,7 @@ paths:
       description: Returns all microservices
       operationId: cloudmesh.microservice.get
       responses:
-        200:
+        '200':
           description: microservice info
           content:
             application/json:
@@ -64,7 +64,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: microservice info
           content:
             application/json:
@@ -83,7 +83,7 @@ paths:
           type: string
           description: The name of the microservice
       responses:
-        200:
+        '200':
           description: microservice info
           content:
             application/json:
@@ -102,7 +102,7 @@ paths:
           type: string
           description: The name of the microservice
       responses:
-        200:
+        '200':
           description: microservice info
           content:
             application/json:

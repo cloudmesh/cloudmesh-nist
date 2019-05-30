@@ -1,4 +1,4 @@
-openapi: "3.0.2"
+openapi: '3.0.2'
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -9,7 +9,7 @@ info:
     Some services may consume a considerable amount of resources,
     necessitating the reservation of resources.
     
-  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -27,14 +27,14 @@ paths:
       description: Returns all reservations
       operationId: cloudmesh.reservation.get
       responses:
-        200:
+        '200':
           description: reservation info
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Reservation"
+                  $ref: '#/components/schemas/Reservation'
     put:
       tags:
       - Reservation
@@ -46,11 +46,11 @@ paths:
           name: reservation
           description: The new reservation to create
           schema:
-            $ref: "#/components/schemas/Reservation"
+            $ref: '#/components/schemas/Reservation'
       responses:
-        "201":
+        '201':
           description: Created
-  "/reservation/{name}":
+  '/reservation/{name}':
     get:
       tags:
       - Reservation
@@ -64,12 +64,12 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: reservation info
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Reservation"
+                $ref: '#/components/schemas/Reservation'
     put:
       tags:
         - Reservation
@@ -83,12 +83,12 @@ paths:
           type: string
           description: The name of the reservation
       responses:
-        200:
+        '200':
           description: reservation info
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Reservation"
+                $ref: '#/components/schemas/Reservation'
     delete:
       tags:
         - Reservation
@@ -102,12 +102,12 @@ paths:
           type: string
           description: The name of the reservation
       responses:
-        200:
+        '200':
           description: reservation info
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Reservation"
+                $ref: '#/components/schemas/Reservation'
 components:
   schemas:
     Reservation:

@@ -27,7 +27,7 @@ paths:
       summary: Returns the time
       description: Returns the time to be used in a timestamp
       responses:
-        200:
+        '200':
           description: the current time and date
           content:
             text/plain:

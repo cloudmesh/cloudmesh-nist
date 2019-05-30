@@ -27,7 +27,7 @@ paths:
       description: Returns all mapreduces
       operationId: cloudmesh.mapreduce.get
       responses:
-        200:
+        '200':
           description: mapreduce info
           content:
             application/json:
@@ -64,7 +64,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: mapreduce info
           content:
             application/json:

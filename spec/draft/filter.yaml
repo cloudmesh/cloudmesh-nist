@@ -27,7 +27,7 @@ paths:
       description: Returns all filters
       operationId: cloudmesh.filter.get
       responses:
-        200:
+        '200':
           description: filter info
           content:
             application/json:
@@ -66,7 +66,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: filter info
           content:
             application/json:
@@ -85,7 +85,7 @@ paths:
           type: string
           description: The name of the filter
       responses:
-        200:
+        '200':
           description: filter info
           content:
             application/json:
@@ -104,7 +104,7 @@ paths:
           type: string
           description: The name of the filter
       responses:
-        200:
+        '200':
           description: filter info
           content:
             application/json:

@@ -29,7 +29,7 @@ paths:
       description: Returns all containers
       operationId: cloudmesh.containers.get
       responses:
-        200:
+        '200':
           description: containers info
           content:
             application/json:
@@ -66,7 +66,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: containers info
           content:
             application/json:

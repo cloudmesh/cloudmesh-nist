@@ -34,7 +34,7 @@ paths:
       description: Returns a list of NOWs
       operationId: cloudmesh.now.get
       responses:
-        200:
+        '200':
           description: profile info
           content:
             application/json:
@@ -73,7 +73,7 @@ paths:
           description: name of the now
           type: string
       responses:
-        200:
+        '200':
           description: now info
           content:
             application/json:
@@ -92,7 +92,7 @@ paths:
           type: string
           description: The name of the now
       responses:
-        200:
+        '200':
           description: now info
           content:
             application/json:
@@ -111,7 +111,7 @@ paths:
           type: string
           description: The name of the now
       responses:
-        200:
+        '200':
           description: now info
           content:
             application/json:
@@ -136,7 +136,7 @@ paths:
           description: name of the node
           type: string
       responses:
-        200:
+        '200':
           description: NOW node info
           content:
             application/json:
@@ -157,7 +157,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: job info
           content:
             application/json:

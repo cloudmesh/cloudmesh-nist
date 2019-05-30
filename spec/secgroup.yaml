@@ -33,7 +33,7 @@ paths:
       description: Returns all secgroups
       operationId: cloudmesh.secgroup.get
       responses:
-        200:
+        '200':
           description: secgroup info
           content:
             application/json:
@@ -41,129 +41,120 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Secgroup"
-    post:
-      tags:
-      - Secgroup
-      summary: Create a new secgroup
-      description: Create a new secgroup
-      operationId: cloudmesh.secgroup.add
-      parameters:
-        - in: path
-          name: secgroup
-          description: The new secgroup to create
-          schema:
-            $ref: "#/components/schemas/Secgroup"
-      responses:
-        "201":
-          description: Created
-  "/secgroup/{secgroup}":
+        '400':
+          description: Not found.
+  /secgroup/{name}:
     get:
       tags:
       - Secgroup
-      summary: Find a secgroup by name
-      description: Find a secgroup by name
+      summary: Return the secgroup by name
+      description: Return the secgroup by name
       operationId: cloudmesh.secgroup.get_by_name
       parameters:
-        - name: secgroup
+        - name: name
           description: name of the security group
           in: path
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: secgroup info
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Secgroup"
-  "/secgroup/{secgroup}/rule":
-    get:
+        '400':
+          description: Not found.
+    post:
       tags:
       - Secgroup
-      summary: Get the defiend security group rules for a specified secgroup
-      description: Get the defiend security group rules for a specified secgroup
-      operationId: cloudmesh.secgroup.get_rules_in_secgroup
+      summary: Create a new named secgroup
+      description: Create a new named secgroup
+      operationId: cloudmesh.secgroup.add
       parameters:
-        - name: secgroup
-          description: name of the security group
-          in: path
+        - in: path
+          name: name
           required: true
-          type: string
+          description: The name of the secgroup to create
+          schema:
+            type: string
       responses:
-        200:
-          description: security group rules info
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/SecGroupRule"
+        '201':
+          description: Created
+  /secgroup/{name}/rule:
     post:
       tags:
       - Secgroup
       summary: Create a new rule in the specified security group
       description: Create a new rule in secgroup
-      operationId: cloudmesh.secgroup.add_rule_in_secgroup
+      operationId: cloudmesh.secgroup.add_rule
       parameters:
         - in: path
-          name: secgroup
+          name: name
           required: true
           description: The name of the new secgroup to create
           type: string
-        - in: path
-          name: secgroupobj
-          required: true
-          description: The secgroup object to create
-          schema:
-            $ref: "#/components/schemas/SecGroupRule"
+      requestBody:
+        description: The new secgroup rule to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecGroupRule'
       responses:
-        "201":
+        '200':
           description: Created
-  "/secgroup/{secgroup}/rule/{ruleid}":
+        '400':
+          description: Not found.
+  "/secgroup/{name}/rule/{rule}":
     get:
       tags:
       - Secgroup
       summary: Get an existing rule from the specified security group
       description: Create a new rule in secgroup
-      operationId: cloudmesh.secgroup.get_rule_by_id_in_secgroup
+      operationId: cloudmesh.secgroup.get_rule
       parameters:
         - in: path
-          name: secgroup
+          name: name
           required: true
           description: The named of the secgroup from which the rule will be deleted
           type: string
         - in: path
-          name: ruleid
+          name: rule
           required: true
           description: The uuid of the rule to be deleted
           type: string
       responses:
-        200:
+        '200':
           description: The security group rule definition info
           content:
             application/json:
               schema:
                   $ref: "#/components/schemas/SecGroupRule"
+        '400':
+          description: Not found.
     delete:
       tags:
       - Secgroup
       summary: Delete an existing rule from the specified security group
       description: Create a new rule in secgroup
-      operationId: cloudmesh.secgroup.delete_rule_by_id_in_secgroup
+      operationId: cloudmesh.secgroup.delete_rule
       parameters:
         - in: path
-          name: secgroup
+          name: name
           required: true
           description: The named of the secgroup from which the rule will be deleted
           type: string
         - in: path
-          name: ruleid
+          name: rule
           required: true
           description: The uuid of the rule to be deleted
           type: string
       responses:
-        "202":
-          description: Deletion request accepted and will be performed
+        '200':
+          description: Deleted.
+        '400':
+          description: Not found.
 components:
   schemas:
     Secgroup:
@@ -212,6 +203,3 @@ components:
         cidr:
           type: string
           description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
-        timestamp:
-          description: timestamps associated with the resource
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"

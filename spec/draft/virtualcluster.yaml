@@ -34,7 +34,7 @@ paths:
       description: Returns all virtual clusters
       operationId: cloudmesh.virtualcluster.get
       responses:
-        200:
+        '200':
           description: profile info
           content:
             application/json:
@@ -72,7 +72,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: virtualcluster info
           content:
             application/json:
@@ -92,7 +92,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: virtual cluster manager node info
           content:
             application/json:
@@ -117,7 +117,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: virtualcluster node info
           content:
             application/json:

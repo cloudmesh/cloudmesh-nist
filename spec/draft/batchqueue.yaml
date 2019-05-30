@@ -1,4 +1,4 @@
-openapi: "3.0.2"
+openapi: '3.0.2'
 info:
   version: 3.2.0
   x-date: 05-23-2019
@@ -8,7 +8,7 @@ info:
   
     Batch queue containing the submitted jobs.
 
-  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
@@ -26,14 +26,14 @@ paths:
       description: Returns all batch queues
       operationId: cloudmesh.batch.queue.get
       responses:
-        200:
+        '200':
           description: batch queue info
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Batchqueue"
+                  $ref: '#/components/schemas/Batchqueue'
     put:
       tags:
         - Queue
@@ -45,7 +45,7 @@ paths:
           name: queue
           description: The new of the batchqueue to create
           schema:
-            $ref: "#/components/schemas/Batchqueue"
+            $ref: '#/components/schemas/Batchqueue'
       responses:
         201:
           description: Created
@@ -56,14 +56,14 @@ paths:
       description: removes the batch queue
       operationId: cloudmesh.batch.queue.delete
       responses:
-        200:
+        '200':
           description: batch queue deleted sucessfully
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Batchqueue"
+                  $ref: '#/components/schemas/Batchqueue'
   /queue/{name}:
     get:
       tags:
@@ -78,12 +78,12 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: queue information
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Batchqueue"
+                $ref: '#/components/schemas/Batchqueue'
     put:
       tags:
         - User
@@ -98,17 +98,17 @@ paths:
           type: string
         - name: job
           schema:
-            $ref: "#/components/schemas/Batchjob"
+            $ref: '#/components/schemas/Batchjob'
           in: path
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: queue information
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Batchqueue"
+                $ref: '#/components/schemas/Batchqueue'
     delete:
       tags:
         - User
@@ -122,12 +122,12 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: queue information
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Batchqueue"
+                $ref: '#/components/schemas/Batchqueue'
 
 components:
   schemas:

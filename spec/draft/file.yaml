@@ -33,7 +33,7 @@ paths:
       description: Returns all files
       operationId: cloudmesh.file.get
       responses:
-        200:
+        '200':
           description: file info
           content:
             application/json:
@@ -71,7 +71,7 @@ paths:
           type: string
           description: The name of the file
       responses:
-        200:
+        '200':
           description: file info
           content:
             application/json:
@@ -90,7 +90,7 @@ paths:
           type: string
           description: The name of the file
       responses:
-        200:
+        '200':
           description: file info
           content:
             application/json:
@@ -109,7 +109,7 @@ paths:
           type: string
           description: The name of the file
       responses:
-        200:
+        '200':
           description: file info
           content:
             application/json:

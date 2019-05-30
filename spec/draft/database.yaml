@@ -31,7 +31,7 @@ paths:
       description: Returns all databases
       operationId: cloudmesh.database.get
       responses:
-        200:
+        '200':
           description: database info
           content:
             application/json:
@@ -39,11 +39,11 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Database"
-        400:
+        '400':
           description: "Invalid name supplied"
-        401:
+        '401':
           description: "Invalid credentials"
-        404:
+        '404':
           description: "Database not found"
     delete:
       tags:
@@ -58,15 +58,15 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: database info
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Database"
-        400:
+        '400':
           description: "Invalid name supplied"
-        404:
+        '404':
           description: "Database Information not found"
   /database/{name}:
     get:
@@ -82,7 +82,7 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: "successfully returned the list"
           content:
             application/json:
@@ -90,11 +90,11 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Definition"
-        400:
+        '400':
           description: "Invalid name supplied"
-        401:
+        '401':
           description: "Invalid credentials"
-        405:
+        '405':
           description: "Invalid input"
     put:
       tags:
@@ -109,17 +109,17 @@ paths:
           required: true
           type: string
       responses:
-        200:
+        '200':
           description: "successfully returned the list"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Definition"
-        400:
+        '400':
           description: "Invalid name supplied"
-        401:
+        '401':
           description: "Invalid credentials"
-        405:
+        '405':
           description: "Invalid input"
   /database/{name}/{table_or_collection}:
     get:
@@ -146,7 +146,7 @@ paths:
         type: "string"
         format: base64
       responses:
-        200:
+        '200':
           description: "successfully ran the Query"
           content:
             application/json:
@@ -154,11 +154,11 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Record"
-        400:
+        '400':
           description: "Invalid name supplied"
-        401:
+        '401':
           description: "Invalid credentials"
-        405:
+        '405':
           description: "Invalid input"
     put:
       tags:
@@ -186,19 +186,19 @@ paths:
         description: "Information to be uploaded"
         required: true
       responses:
-        200:
+        '200':
           description: "successfully uploaded"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Record"
-        400:
+        '400':
           description: "Invalid name supplied"
-        401:
+        '401':
           description: "Invalid credentials"
-        405:
+        '405':
           description: "Invalid input"
-        404:
+        '404':
           description: "Invalid database name or table or collection name supplied"
 
 components:
