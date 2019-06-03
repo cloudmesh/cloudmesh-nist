@@ -24,94 +24,84 @@ paths:
   /replica:
     get:
       tags:
-      - Replica
-      summary: Returns all replicas records
-      description: Returns all replicas records
-      operationId: cloudmesh.replica.get
+        - Replica
+      summary: Returns a list of replicas
+      description: Returns a list of all replicas
+      operationId: cloudmesh.replica.list
       responses:
         '200':
-          description: replica info
+          description: The list of replicas
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Replica"
-    put:
-      tags:
-      - Replica
-      summary: Create a new replica
-      description: Create a new replica      
-      operationId: cloudmesh.replica.add
-      parameters:
-        - in: path
-          name: replica
-          required: true
-          description: The new replica entry to create
-          schema:
-            $ref: "#/components/schemas/Replica"
-      responses:
-        201:
-          description: Created
-  "/replica/{name}":
-    get:
-      tags:
-      - Replica
-      summary: Returns a replica by name
-      description: Returns a replica by name
-      operationId: cloudmesh.replica.get_by_name
-      parameters:
-        - name: name
-          description: name of the replica entry
-          in: path
-          required: true
-          type: string
-      responses:
-        '200':
-          description: replica info
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Replica"
+                  $ref: '#/components/schemas/Replica'
+        '400':
+          description: No Replicas found.
     put:
       tags:
         - Replica
-      summary: Uploads a replica by name
-      description: Uploads a replica by name
-      operationId: cloudmesh.replica.put_by_name
+      summary: Uploads a replica to the list of replicas
+      description: Uploads a replica to the list of replicas
+      operationId: cloudmesh.replica.add
+      requestBody:
+        description: The replica to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Replica'
+      responses:
+        '200':
+          description: Replica updated.
+        '400':
+          description: Error updateing Replica.
+  /replica/{name}:
+    get:
+      tags:
+        - Replica
+      summary: Returns the named replica
+      description: Returns an replica by name
+      operationId: cloudmesh.replica.find_by_name
       parameters:
         - name: name
           in: path
           required: true
-          type: string
+          schema:
+            type: string
           description: The name of the replica
       responses:
         '200':
-          description: replica info
+          description: Retruning the information of the alias
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Replica"
+                $ref: '#/components/schemas/Replica'
+        '400':
+          description: No replica found.
+        '404':
+          description: The named replica could not be found.
     delete:
       tags:
         - Replica
-      summary: Deletes a replica by name
-      description: Deletes a replica by name
-      operationId: cloudmesh.replica.put_by_name
+      summary: Deletes the named replica
+      description: Deletes an replica by name
+      operationId: cloudmesh.replica.delete_by_name
       parameters:
         - name: name
           in: path
           required: true
-          type: string
+          schema:
+            type: string
           description: The name of the replica
       responses:
         '200':
-          description: replica info
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Replica"
-
+          description: Deletion successful.
+        '400':
+          description: No Replica found.
+        '404':
+          description: The named replica could not be found.
 components:
   schemas:
     Replica:
@@ -133,7 +123,3 @@ components:
         size:
           type: integer
           description: The size of the file in byte
-        timestamp:
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"
-          description: The timestamp of the replica. The timestamp refers to when this entry has been accessed or changed, not the object this replica is pointing to.
-

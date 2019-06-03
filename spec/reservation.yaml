@@ -19,95 +19,87 @@ info:
 servers:
   - url: /cloudmesh/v3
 paths:
-  /reservations:
+  /reservation:
     get:
       tags:
-      - Reservation
-      summary: Returns all reservations
-      description: Returns all reservations
-      operationId: cloudmesh.reservation.get
+        - Reservation
+      summary: Returns a list of reservations
+      description: Returns a list of all reservations
+      operationId: cloudmesh.reservation.list
       responses:
         '200':
-          description: reservation info
+          description: The list of reservations
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Reservation'
-    put:
-      tags:
-      - Reservation
-      summary: Create a new reservation
-      description: Create a new reservation
-      operationId: cloudmesh.reservation.add
-      parameters:
-        - in: path
-          name: reservation
-          description: The new reservation to create
-          schema:
-            $ref: '#/components/schemas/Reservation'
-      responses:
-        '201':
-          description: Created
-  '/reservation/{name}':
-    get:
-      tags:
-      - Reservation
-      summary: Returns a reservation
-      description: Returns a reservation
-      operationId: cloudmesh.reservation.get_by_name
-      parameters:
-        - name: name
-          description: Get reservation info by name
-          in: path
-          required: true
-          type: string
-      responses:
-        '200':
-          description: reservation info
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Reservation'
+        '400':
+          description: No Reservations found.
     put:
       tags:
         - Reservation
-      summary: Uploads a reservation by name
-      description: Uploads a reservation by name
-      operationId: cloudmesh.reservation.put_by_name
+      summary: Uploads a reservation to the list of reservations
+      description: Uploads a reservation to the list of reservations
+      operationId: cloudmesh.reservation.add
+      requestBody:
+        description: The reservation to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+      responses:
+        '200':
+          description: Reservation updated.
+        '400':
+          description: Error updateing Reservation.
+  /reservation/{name}:
+    get:
+      tags:
+        - Reservation
+      summary: Returns the named reservation
+      description: Returns an reservation by name
+      operationId: cloudmesh.reservation.find_by_name
       parameters:
         - name: name
           in: path
           required: true
-          type: string
+          schema:
+            type: string
           description: The name of the reservation
       responses:
         '200':
-          description: reservation info
+          description: Retruning the information of the alias
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Reservation'
+        '400':
+          description: No reservation found.
+        '404':
+          description: The named reservation could not be found.
     delete:
       tags:
         - Reservation
-      summary: Deletes a reservation by name
-      description: Deletes a reservation by name
-      operationId: cloudmesh.reservation.put_by_name
+      summary: Deletes the named reservation
+      description: Deletes an reservation by name
+      operationId: cloudmesh.reservation.delete_by_name
       parameters:
         - name: name
           in: path
           required: true
-          type: string
+          schema:
+            type: string
           description: The name of the reservation
       responses:
         '200':
-          description: reservation info
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Reservation'
+          description: Deletion successful.
+        '400':
+          description: No Reservation found.
+        '404':
+          description: The named reservation could not be found.
 components:
   schemas:
     Reservation:
@@ -131,6 +123,3 @@ components:
           type: string
           format: date
           description: the end time and date
-        timestamp:
-          description: timestamps associated with the resource
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"

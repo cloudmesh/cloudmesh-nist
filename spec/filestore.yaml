@@ -1,0 +1,134 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: File
+  description: |-
+  
+    A filestore is a resource allowing storage of data as a traditional file.
+    Instead of using the name filestore we simply use the name file.
+    A file store can contanin any number of files with additional attributes
+    describing the file. An file store is typically located on the same cloud
+    services. This contrasts virtual directories that are just pointers to
+    files, which could include files located in file stores.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /file:
+    get:
+      tags:
+        - File
+      summary: Returns a list of files in the filestore
+      description: Returns a list of all files
+      operationId: cloudmesh.file.list
+      responses:
+        '200':
+          description: The list of files
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/File'
+        '400':
+          description: No Files found.
+    put:
+      tags:
+        - File
+      summary: Uploads a file to the list of files in the file store
+      description: Uploads a file to the list of files in the filestore
+      operationId: cloudmesh.file.add
+      requestBody:
+        description: The file to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+
+
+      responses:
+        '200':
+          description: File updated.
+        '400':
+          description: Error updateing File.
+
+  /file/{name}:
+    get:
+      tags:
+        - File
+      summary: Returns the named file in the filestore
+      description: Returns an file by name in the filestore
+      operationId: cloudmesh.file.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the file
+      responses:
+        '200':
+          description: Retruning the information of the alias
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+        '400':
+          description: No file found.
+        '404':
+          description: The named file could not be found.
+    delete:
+      tags:
+        - File
+      summary: Deletes the named file in the file store
+      description: Deletes an file by name
+      operationId: cloudmesh.file.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the file
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+          description: No File found.
+        '404':
+          description: The named file could not be found.
+components:
+  schemas:
+    File:
+      type: object
+      description: an object representing a file
+      properties:
+        name:
+          type: string
+          description: The name of the file
+        endpoint:
+          type: string
+          description: The location of the file
+        checksum:
+          type: string
+          description: The checksum of the file
+        size:
+          type: integer
+          description: The size of the file in byte
+        content:
+          type: string
+          format: binary
+          description: the content of the file
+
+
+
