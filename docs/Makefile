@@ -20,24 +20,20 @@ MARKDOWN-OPTIONS=--verbose -V curdate="$(date)" --filter pandoc-codeblock-includ
 
 service_4= \
  alias\
- batchqueue\
  containers\
  database\
  default\
  deployment\
- file\
+ filestore\
  filter\
  flavor\
  image\
- keyvaluestore\
- mapreduce\
  microservice\
  nic\
  organization\
  publickeystore\
  replica\
  reservation\
- scheduler\
  scheduler\
  secgroup\
  stream\

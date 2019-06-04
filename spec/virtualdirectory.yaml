@@ -174,7 +174,6 @@ paths:
       responses:
         `200`:
           description: Deletion successful.
-
 components:
   schemas:
     Virtualdirectory:

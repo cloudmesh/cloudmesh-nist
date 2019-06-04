@@ -25,21 +25,24 @@ lint:
 install:
 	npm install -g swagger-cli
 
+#	redoc-cli bundle accounting.yaml
+#	redoc-cli bundle batchqueue.yaml
+#	redoc-cli bundle group.yaml
+#	redoc-cli bundle mapreduce.yaml
+
+
+
+
 verify:
-	redoc-cli bundle accounting.yaml
 	redoc-cli bundle alias.yaml
-	redoc-cli bundle batchqueue.yaml
 	redoc-cli bundle containers.yaml
 	redoc-cli bundle database.yaml
 	redoc-cli bundle default.yaml
 	redoc-cli bundle deployment.yaml
-	redoc-cli bundle file.yaml
+	redoc-cli bundle filestore.yaml
 	redoc-cli bundle filter.yaml
 	redoc-cli bundle flavor.yaml
-	redoc-cli bundle group.yaml
 	redoc-cli bundle image.yaml
-	redoc-cli bundle keyvaluestore.yaml
-	redoc-cli bundle mapreduce.yaml
 	redoc-cli bundle microservice.yaml
 	redoc-cli bundle nic.yaml
 	redoc-cli bundle now.yaml
@@ -59,20 +62,16 @@ verify:
 
 speccy:
 	@echo "###################################################################"
-	$(call speccy_verify,accounting.yaml)
+#	$(call speccy_verify,accounting.yaml)
 	$(call speccy_verify,alias.yaml)
-	$(call speccy_verify,batchqueue.yaml)
 	$(call speccy_verify,containers.yaml)
 	$(call speccy_verify,database.yaml)
 	$(call speccy_verify,default.yaml)
 	$(call speccy_verify,deployment.yaml)
-	$(call speccy_verify,file.yaml)
+	$(call speccy_verify,filestore.yaml)
 	$(call speccy_verify,filter.yaml)
 	$(call speccy_verify,flavor.yaml)
-	$(call speccy_verify,group.yaml)
 	$(call speccy_verify,image.yaml)
-	$(call speccy_verify,keyvaluestore.yaml)
-	$(call speccy_verify,mapreduce.yaml)
 	$(call speccy_verify,microservice.yaml)
 	$(call speccy_verify,nic.yaml)
 	$(call speccy_verify,now.yaml)

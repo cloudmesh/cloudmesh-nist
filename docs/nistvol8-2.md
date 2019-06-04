@@ -1114,23 +1114,11 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 ## Data Management
 
-### File
-
-Example:
-
-```yaml
-"name": "report.dat",
-"endpoint": "file://gregor@machine.edu:/data/report.dat",
-"checksum": {"sha256":"c01b39c7a35ccc ....... ebfeb45c69f08e17dfe3ef375a7b"},
-"accessed": "1.1.2019:05:00:00:EST",
-"created": "1.1.2019:05:00:00:EST",
-"modified": "1.1.2019:05:00:00:EST",
-"size": ["GB", "Byte"]
-```
+### Filestore
 
 {include=./spec/file.md}
 
-#### file.yaml
+#### filestore.yaml
 
 ```{include=./spec/file.yaml}
 ```
@@ -1185,16 +1173,7 @@ Example:
 
 ```{include=./spec/scheduler.yaml}
 ```
-## Compute Management - Batch Processing
 
-### BatchQueue
-
-{include=./spec/batchqueue.md}
-
-#### batchqueue.yaml
-
-```{include=./spec/batchqueue.yaml}
-```
 
 
 ## Compute Management - Virtual Machines
@@ -1304,15 +1283,6 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/filter.yaml}
 ```
 
-
-## MapReduce
-
-{include=./spec/mapreduce.md}
-
-### mapreduce.yaml
-
-```{include=./spec/mapreduce.yaml}
-```
 
 ## Deployment
 

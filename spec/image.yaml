@@ -114,12 +114,12 @@ paths:
             required: true
             schema:
               type: string
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The name of the image
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the image
       responses:
         '200':
           description: Deletion successful.
