@@ -1,0 +1,136 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: Containers
+  description: |-
+
+    Numerous different containers are likely to be created and handling them 
+    becomes more and more time consuming as their number increases. This service 
+    helps to solve that issue by storing containers and their corresponding 
+    information. 
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /container:
+    get:
+      tags:
+        - Container
+      summary: Returns a list of containers
+      description: Returns a list of all containers
+      operationId: cloudmesh.container.list
+      responses:
+        '200':
+          description: The list of containers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Container'
+        '400':
+          description: No Containers found.
+    put:
+      tags:
+        - Container
+      summary: Uploads a container to the list of containers
+      description: Uploads a container to the list of containers
+      operationId: cloudmesh.container.add
+      requestBody:
+        description: The container to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Container'
+      responses:
+        '200':
+          description: Container updated.
+        '400':
+          description: Error updateing Container.
+    /container/{name}:
+      get:
+        tags:
+          - Container
+        summary: Returns the named container
+        description: Returns an container by name
+        operationId: cloudmesh.container.find_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the container
+        responses:
+          '200':
+            description: Retruning the information of the alias
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Container'
+          '400':
+            description: No container found.
+          '404':
+            description: The named container could not be found.
+      delete:
+        tags:
+          - Container
+        summary: Deletes the named container
+        description: Deletes an container by name
+        operationId: cloudmesh.container.delete_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the container
+        responses:
+          '200':
+            description: Deletion successful.
+          '400':
+            description: No Container found.
+          '404':
+            description: The named container could not be found.
+components:
+  schemas:
+    Container:
+      type: object
+      description: A record representing a container
+      properties:
+        name:
+          type: string
+          description: name of the container
+        version:
+          type: string
+          description: version of the container
+        label:
+          type: string
+          description: label of the container
+        type:
+          type: string
+          description: type of the container
+        definition:
+          type: string
+          description: definition or manifest of the container
+        imgURI:
+          type: string
+          description: URI of the container
+        tags:
+          type: array
+          description: tags of the container
+          items:
+            type: string
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"

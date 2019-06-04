@@ -7,6 +7,11 @@ info:
   title: NOW
   description: |-
 
+    GREGOR:
+
+    THIS SI NOT WHAT WE UNDERSTAND AS A NOW AND DOES NOT CORRESPOND TO
+    OUR ORIGINAL DEFINITION THAT WE USED TO HAVE
+
     A Network of Stations (NOW) is a cluster over a selection of
     nodes. The nodes can be selected from a yaml file that contains
     all clusters and nodes. NOW can submit a batch of jobs to the

@@ -1,0 +1,203 @@
+
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: Virtual Directory
+  description: |-
+  
+    A virtual directory is a collection of files, replicas, streams or other
+    virtual directories.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup Service
+    url: https://cloudmesh-community.github.io/nist/spec/
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /virtualdirectory:
+    get:
+      tags:
+        - Virtualdirectory
+      summary: Returns a list of virtualdirectorys
+      description: Returns a list of all virtualdirectorys
+      operationId: cloudmesh.virtualdirectory.list
+      responses:
+        '200':
+          description: The list of virtualdirectorys
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Virtualdirectory'
+        '400':
+          description: No Virtualdirectorys found.
+    put:
+      tags:
+        - Virtualdirectory
+      summary: Uploads a virtualdirectory to the list of virtualdirectorys
+      description: Uploads a virtualdirectory to the list of virtualdirectorys
+      operationId: cloudmesh.virtualdirectory.add
+      requestBody:
+        description: The virtualdirectory to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Virtualdirectory'
+      responses:
+        '200':
+          description: Virtualdirectory updated.
+        '400':
+          description: Error updateing Virtualdirectory.
+  /virtualdirectory/{name}:
+    get:
+      tags:
+        - Virtualdirectory
+      summary: Returns the named virtualdirectory
+      description: Returns an virtualdirectory by name
+      operationId: cloudmesh.virtualdirectory.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the virtualdirectory
+      responses:
+        '200':
+          description: Retruning the information of the alias
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Virtualdirectory'
+        '400':
+          description: No virtualdirectory found.
+        '404':
+          description: The named virtualdirectory could not be found.
+    delete:
+      tags:
+        - Virtualdirectory
+      summary: Deletes the named virtualdirectory
+      description: Deletes an virtualdirectory by name
+      operationId: cloudmesh.virtualdirectory.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the virtualdirectory
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+          description: No Virtualdirectory found.
+        '404':
+          description: The named virtualdirectory could not be found.
+
+  /virtualdirectory/{name}/{filename}:
+    get:
+      tags:
+        - Virtualdirectory
+      summary: Returns the specific file of that virtualdirectory
+      description: Returns the specific file of that virtualdirectory
+      operationId: cloudmesh.virtualdirectory.file.get_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the virtualdirectory
+        - name: filename
+          description: The filename
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: upload ok
+          content:
+            application/json:
+              schema:
+                $ref: "filestore.yaml#/components/schemas/File"
+    put:
+      tags:
+        - Virtualdirectory
+      summary: Updates or adds a virtual file  in the virtualdirectory
+      description: Updates or adds a virtual file in the virtualdirectory
+      operationId: cloudmesh.virtualdirectory.file.add
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the virtualdirectory
+      requestBody:
+        description: The user to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "filestore.yaml#/components/schemas/File"
+      responses:
+        `200`:
+          description: User added sucessfully
+    delete:
+      tags:
+        - Virtualdirectory
+      summary: Delete an user in the virtualdirectory
+      description: Delete an user in the virtualdirectory
+      operationId: cloudmesh.virtualdirectory.file.delete
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the virtualdirectory
+        - name: username
+          description: The username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        `200`:
+          description: Deletion successful.
+
+components:
+  schemas:
+    Virtualdirectory:
+      type: object
+      description: the virtualdirectory
+      properties:
+        name:
+          description: The name of the virtual directory
+          type: string
+        description:
+          description: description of the virtual directory
+          type: string
+        host:
+          description: remote host of the virtual directory
+          type: string
+        location:
+          description: remote location, e.g., a directory with full path on a host
+          type: string
+        protocol:
+          description: access protocol, e.g., HTTP, FTP, SSH, etc.
+          type: string
+        credential:
+          description: credential to access, e.g., username, password
+          type: object
+
+

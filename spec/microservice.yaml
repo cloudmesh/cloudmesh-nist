@@ -1,0 +1,120 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: Microservice
+  description: |-
+  
+    As part of microservices, a function with parameters that can be
+    invoked has been defined.
+
+  termsOfService: "https://github.com/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /microservice:
+    get:
+      tags:
+        - Microservice
+      summary: Returns a list of microservices
+      description: Returns a list of all microservices
+      operationId: cloudmesh.microservice.list
+      responses:
+        '200':
+          description: The list of microservices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Microservice'
+        '400':
+          description: No Microservices found.
+    put:
+      tags:
+        - Microservice
+      summary: Uploads a microservice to the list of microservices
+      description: Uploads a microservice to the list of microservices
+      operationId: cloudmesh.microservice.add
+      requestBody:
+        description: The microservice to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microservice'
+      responses:
+        '200':
+          description: Microservice updated.
+        '400':
+          description: Error updateing Microservice.
+    /microservice/{name}:
+      get:
+        tags:
+          - Microservice
+        summary: Returns the named microservice
+        description: Returns an microservice by name
+        operationId: cloudmesh.microservice.find_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the microservice
+        responses:
+          '200':
+            description: Retruning the information of the alias
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Microservice'
+          '400':
+            description: No microservice found.
+          '404':
+            description: The named microservice could not be found.
+      delete:
+        tags:
+          - Microservice
+        summary: Deletes the named microservice
+        description: Deletes an microservice by name
+        operationId: cloudmesh.microservice.delete_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the microservice
+        responses:
+          '200':
+            description: Deletion successful.
+          '400':
+            description: No Microservice found.
+          '404':
+            description: The named microservice could not be found.
+components:
+  schemas:
+    Microservice:
+      type: object
+      description: the microservice
+      properties:
+        name:
+          type: string
+          description: name of the microservice
+        endpoint:
+          type: string
+          description: the end point of the microservice
+        function:
+          type: string
+          description: the function the  microservice represents
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
