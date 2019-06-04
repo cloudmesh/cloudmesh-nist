@@ -112,19 +112,18 @@ paths:
       description: Deletes a vm by name
       operationId: cloudmesh.vm.delete_by_name
       parameters:
-        parameters:
-          - name: cloud
-            description: The name of the cloud
-            in: path
-            required: true
-            schema:
-              type: string
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-              description: The name of the vm
+        - name: cloud
+          description: The name of the cloud
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The name of the vm
       responses:
         '200':
           description: Deletion successful.

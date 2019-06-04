@@ -150,7 +150,7 @@ paths:
             schema:
               $ref: "filestore.yaml#/components/schemas/File"
       responses:
-        `200`:
+        '200':
           description: User added sucessfully
     delete:
       tags:
@@ -172,7 +172,7 @@ paths:
           schema:
             type: string
       responses:
-        `200`:
+        '200':
           description: Deletion successful.
 components:
   schemas:

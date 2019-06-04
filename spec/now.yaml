@@ -105,7 +105,7 @@ paths:
             type: string
           description: The name of the non
       responses:
-        `200`:
+        '200':
            description: Node keystore added sucessfully
   /non/{name}/node:
     get:
@@ -200,7 +200,7 @@ paths:
             schema:
               $ref: "virtualcluster.yaml#/components/schemas/Node"
       responses:
-        `200`:
+        '200':
            description: Node added sucessfully
     delete:
       tags:
@@ -222,7 +222,7 @@ paths:
           schema:
             type: string
       responses:
-        `200`:
+        '200':
            description: Deletion successful.
 components:
   schemas:

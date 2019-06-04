@@ -34,6 +34,13 @@ install:
 
 
 verify:
+	redoc-cli bundle virtualcluster.yaml
+	redoc-cli bundle now.yaml
+	redoc-cli bundle flavor.yaml
+	redoc-cli bundle image.yaml
+	redoc-cli bundle vm.yaml
+	redoc-cli bundle variables.yaml
+	redoc-cli bundle virtualdirectory.yaml
 	redoc-cli bundle alias.yaml
 	redoc-cli bundle containers.yaml
 	redoc-cli bundle database.yaml
@@ -41,24 +48,21 @@ verify:
 	redoc-cli bundle deployment.yaml
 	redoc-cli bundle filestore.yaml
 	redoc-cli bundle filter.yaml
-	redoc-cli bundle flavor.yaml
-	redoc-cli bundle image.yaml
 	redoc-cli bundle microservice.yaml
 	redoc-cli bundle nic.yaml
-	redoc-cli bundle now.yaml
-	redoc-cli bundle organization.yaml
 	redoc-cli bundle publickeystore.yaml
 	redoc-cli bundle replica.yaml
 	redoc-cli bundle reservation.yaml
-	redoc-cli bundle scheduler.yaml
 	redoc-cli bundle secgroup.yaml
 	redoc-cli bundle stream.yaml
 	redoc-cli bundle user.yaml
-	redoc-cli bundle variables.yaml
-	redoc-cli bundle virtualcluster.yaml
-	redoc-cli bundle virtualdirectory.yaml
-	redoc-cli bundle vm.yaml
 	redoc-cli bundle timestamp.yaml
+	redoc-cli bundle scheduler.yaml
+
+
+broken:
+	redoc-cli bundle organization.yaml
+
 
 speccy:
 	@echo "###################################################################"

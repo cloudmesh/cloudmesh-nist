@@ -103,7 +103,7 @@ paths:
            description: The named variable could not be found.
 components:
   schemas:
-    Variables:
+    Variable:
       type: object
       description: the variables
       properties:

@@ -60,9 +60,7 @@ paths:
     get:
       tags:
         - Task
-      summary: Removes the next task to be scheduled, but does not
-      exualle executes it.
-      scheduled next
+      summary: Removes the next task to be scheduled, but does not executes it.
       description: Returns the next task
       operationId: cloudmesh.task.next
       responses:

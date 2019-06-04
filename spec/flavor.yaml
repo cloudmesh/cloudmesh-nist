@@ -111,19 +111,18 @@ paths:
       description: Deletes a flavor by name
       operationId: cloudmesh.flavor.delete_by_name
       parameters:
-        parameters:
-          - name: cloud
-            description: The name of the cloud
-            in: path
-            required: true
-            schema:
-              type: string
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the flavor
+        - name: cloud
+          description: The name of the cloud
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the flavor
       responses:
         '200':
           description: Deletion successful.
@@ -148,7 +147,7 @@ components:
           description: A label that a user can set for this flavor
         description:
           type: string
-          description: A description for the compute node
+          description: A description for the flavor
         ram:
           type: integer
           description: Number of bytes used for the image in RAM

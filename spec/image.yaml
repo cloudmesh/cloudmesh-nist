@@ -107,19 +107,18 @@ paths:
       description: Deletes a image by name
       operationId: cloudmesh.image.delete_by_name
       parameters:
-        parameters:
-          - name: cloud
-            description: The name of the cloud
-            in: path
-            required: true
-            schema:
-              type: string
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the image
+        - name: cloud
+          description: The name of the cloud
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the image
       responses:
         '200':
           description: Deletion successful.
