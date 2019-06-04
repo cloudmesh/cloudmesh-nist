@@ -1,0 +1,123 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: Stream
+  description: |-
+  
+   The stream object describes a data flow, providing information
+   about the rate and number of items exchanged while issuing requests
+   to the stream. A stream may return data items in a specific format
+   that is defined by the stream.
+
+   
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /stream:
+    get:
+      tags:
+        - Stream
+      summary: Returns a list of streams
+      description: Returns a list of all streams
+      operationId: cloudmesh.stream.list
+      responses:
+        '200':
+          description: The list of streams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stream'
+        '400':
+          description: No Streams found.
+    put:
+      tags:
+        - Stream
+      summary: Uploads a stream to the list of streams
+      description: Uploads a stream to the list of streams
+      operationId: cloudmesh.stream.add
+      requestBody:
+        description: The stream to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stream'
+      responses:
+        '200':
+          description: Stream updated.
+        '400':
+          description: Error updateing Stream.
+    /stream/{name}:
+      get:
+        tags:
+          - Stream
+        summary: Returns the named stream
+        description: Returns an stream by name
+        operationId: cloudmesh.stream.find_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the stream
+        responses:
+          '200':
+            description: Retruning the information of the alias
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Stream'
+          '400':
+            description: No stream found.
+          '404':
+            description: The named stream could not be found.
+      delete:
+        tags:
+          - Stream
+        summary: Deletes the named stream
+        description: Deletes an stream by name
+        operationId: cloudmesh.stream.delete_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the stream
+        responses:
+          '200':
+            description: Deletion successful.
+          '400':
+            description: No Stream found.
+          '404':
+            description: The named stream could not be found.
+components:
+  schemas:
+    Stream:
+      type: object
+      description: the stream
+      properties:
+        name:
+          type: string
+          description: name of the stream
+        format:
+          type: string
+          description: format of the stream
+        rate:
+          type: integer
+          description: the rate of messages
+        limit:
+          type: integer
+          description: the limit of items send

@@ -1,0 +1,117 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  x-status: TODO
+  title: Filter
+  description: |-
+  
+    Filters can operate on a variety of objects and reduce the
+    information received based on a search criterion.
+    
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /filter:
+    get:
+      tags:
+        - Filter
+      summary: Returns a list of filters
+      description: Returns a list of all filters
+      operationId: cloudmesh.filter.list
+      responses:
+        '200':
+          description: The list of filters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Filter'
+        '400':
+          description: No Filters found.
+    put:
+      tags:
+        - Filter
+      summary: Uploads a filter to the list of filters
+      description: Uploads a filter to the list of filters
+      operationId: cloudmesh.filter.add
+      requestBody:
+        description: The filter to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Filter'
+      responses:
+        '200':
+          description: Filter updated.
+        '400':
+          description: Error updateing Filter.
+    /filter/{name}:
+      get:
+        tags:
+          - Filter
+        summary: Returns the named filter
+        description: Returns an filter by name
+        operationId: cloudmesh.filter.find_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the filter
+        responses:
+          '200':
+            description: Retruning the information of the alias
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Filter'
+          '400':
+            description: No filter found.
+          '404':
+            description: The named filter could not be found.
+      delete:
+        tags:
+          - Filter
+        summary: Deletes the named filter
+        description: Deletes an filter by name
+        operationId: cloudmesh.filter.delete_by_name
+        parameters:
+          - name: name
+            in: path
+            required: true
+            schema:
+              type: string
+            description: The name of the filter
+        responses:
+          '200':
+            description: Deletion successful.
+          '400':
+            description: No Filter found.
+          '404':
+            description: The named filter could not be found.
+components:
+  schemas:
+    Filter:
+      type: object
+      description: the filter
+      properties:
+        name:
+          type: string
+          description: name of the filter
+        function:
+          type: string
+          description: the function  of the data exchanged in the stream
+        kind:
+          type: string
+          description: the filter kind or type
