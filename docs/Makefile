@@ -20,15 +20,11 @@ MARKDOWN-OPTIONS=--verbose -V curdate="$(date)" --filter pandoc-codeblock-includ
 
 service_4= \
  alias\
- containers\
  database\
  default\
- deployment\
  filestore\
- filter\
  flavor\
  image\
- microservice\
  nic\
  organization\
  publickeystore\
@@ -36,15 +32,17 @@ service_4= \
  reservation\
  scheduler\
  secgroup\
- stream\
  timestamp\
  user\
  variables\
  virtualcluster\
  virtualdirectory\
- vm
-
-
+ vm\
+ containers\
+ deployment\
+ filter\
+ microservice\
+ stream
 
 
 # slurmjob\
@@ -95,6 +93,7 @@ specstable:
 
 rest:
 	for entry in $(service_4); do \
+		echo "########################" ; \
 		echo "Generate:" $(DEST)/spec/$$entry.md ; \
 		../bin/cm-openapi2md md $(SRC)/$$entry.yaml --indent=4 > $(DEST)/spec/$$entry.md ; \
 		cp  $(SRC)/$$entry.yaml $(DEST)/spec; \

@@ -23,12 +23,12 @@ paths:
     get:
       tags:
         - Microservice
-      summary: Returns a list of microservices
-      description: Returns a list of all microservices
+      summary: Returns a list of microservicees
+      description: Returns a list of all microservicees
       operationId: cloudmesh.microservice.list
       responses:
         '200':
-          description: The list of microservices
+          description: The list of microserviceses
           content:
             application/json:
               schema:
@@ -36,15 +36,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/Microservice'
         '400':
-          description: No Microservices found.
+           description: No Microservice found.
     put:
       tags:
         - Microservice
-      summary: Uploads a microservice to the list of microservices
-      description: Uploads a microservice to the list of microservices
+      summary: Set an microservice
+      description: Sets the named microservice
       operationId: cloudmesh.microservice.add
       requestBody:
-        description: The microservice to be uploaded
+        description: The new microservice to create
         required: true
         content:
           application/json:
@@ -54,52 +54,52 @@ paths:
         '200':
           description: Microservice updated.
         '400':
-          description: Error updateing Microservice.
-    /microservice/{name}:
-      get:
-        tags:
-          - Microservice
-        summary: Returns the named microservice
-        description: Returns an microservice by name
-        operationId: cloudmesh.microservice.find_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the microservice
-        responses:
-          '200':
-            description: Retruning the information of the alias
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Microservice'
-          '400':
-            description: No microservice found.
-          '404':
-            description: The named microservice could not be found.
-      delete:
-        tags:
-          - Microservice
-        summary: Deletes the named microservice
-        description: Deletes an microservice by name
-        operationId: cloudmesh.microservice.delete_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the microservice
-        responses:
-          '200':
-            description: Deletion successful.
-          '400':
-            description: No Microservice found.
-          '404':
-            description: The named microservice could not be found.
+          description: Error updateing microservice.
+  /microservice/{name}:
+    get:
+      tags:
+        - Microservice
+      summary: Returns the named microservice
+      description: Returns an microservice by name
+      operationId: cloudmesh.microservice.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the microservice
+      responses:
+        '200':
+          description: Retruning the information of the microservice
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microservice'
+        '400':
+           description: No Microservice found.
+        '404':
+           description: The named microservice could not be found.
+    delete:
+      tags:
+        - Microservice
+      summary: Deletes the named microservice
+      description: Deletes an microservice by name
+      operationId: cloudmesh.microservice.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the microservice
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Microservice found.
+        '404':
+           description: The named microservice could not be found.
 components:
   schemas:
     Microservice:

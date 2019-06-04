@@ -25,12 +25,12 @@ paths:
     get:
       tags:
         - Container
-      summary: Returns a list of containers
-      description: Returns a list of all containers
+      summary: Returns a list of containeres
+      description: Returns a list of all containeres
       operationId: cloudmesh.container.list
       responses:
         '200':
-          description: The list of containers
+          description: The list of containerses
           content:
             application/json:
               schema:
@@ -38,15 +38,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/Container'
         '400':
-          description: No Containers found.
+           description: No Container found.
     put:
       tags:
         - Container
-      summary: Uploads a container to the list of containers
-      description: Uploads a container to the list of containers
+      summary: Set an container
+      description: Sets the named container
       operationId: cloudmesh.container.add
       requestBody:
-        description: The container to be uploaded
+        description: The new container to create
         required: true
         content:
           application/json:
@@ -56,52 +56,52 @@ paths:
         '200':
           description: Container updated.
         '400':
-          description: Error updateing Container.
-    /container/{name}:
-      get:
-        tags:
-          - Container
-        summary: Returns the named container
-        description: Returns an container by name
-        operationId: cloudmesh.container.find_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the container
-        responses:
-          '200':
-            description: Retruning the information of the alias
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Container'
-          '400':
-            description: No container found.
-          '404':
-            description: The named container could not be found.
-      delete:
-        tags:
-          - Container
-        summary: Deletes the named container
-        description: Deletes an container by name
-        operationId: cloudmesh.container.delete_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the container
-        responses:
-          '200':
-            description: Deletion successful.
-          '400':
-            description: No Container found.
-          '404':
-            description: The named container could not be found.
+          description: Error updateing container.
+  /container/{name}:
+    get:
+      tags:
+        - Container
+      summary: Returns the named container
+      description: Returns an container by name
+      operationId: cloudmesh.container.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the container
+      responses:
+        '200':
+          description: Retruning the information of the container
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Container'
+        '400':
+           description: No Container found.
+        '404':
+           description: The named container could not be found.
+    delete:
+      tags:
+        - Container
+      summary: Deletes the named container
+      description: Deletes an container by name
+      operationId: cloudmesh.container.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the container
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Container found.
+        '404':
+           description: The named container could not be found.
 components:
   schemas:
     Container:

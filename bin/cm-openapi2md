@@ -64,6 +64,7 @@ def convert_definitions(filename, indent=1):
             #print (indent * "#", definition)
             ldefinition = definition.lower()
             print (indent * "#", 'Schema', definition)
+            print()
             print (f"[Reference: :cloud:]("
                    f"https://github.com/cloudmesh/cloudmesh-nist/blob"
                    f"/master/spec/{ldefinition}.yaml)")
@@ -126,7 +127,10 @@ def convert_paths(filename, indent=1):
             for path in paths:
                 element = paths[path]
                 for p in element:
-                    summary = element[p]['summary']
+                    if 'summary' in element[p]:
+                        summary = element[p]['summary']
+                    else:
+                        summary = "ERROR: missing"
                     print (f"| {p} | {path} | {summary} |")
 
             print()
@@ -162,9 +166,11 @@ def convert_paths(filename, indent=1):
                         responses = paths[path][method]['responses']
                     except Exception as e:
                         responses = "ERROR: undefined"
+
+                    print ("|", "Code", "|", "Description", "|", "Schema", "|")
+                    print ("|", "---", "|", "---", "|", "-------------", "|")
                     for code in responses:
-                        print ("|", "Code", "|", "Description", "|", "Schema", "|")
-                        print ("|", "---", "|", "---", "|", "-------------", "|")
+
                         response = responses[code]
                         if "schema" not in response:
                            response['schema'] = ""
@@ -172,7 +178,8 @@ def convert_paths(filename, indent=1):
                         response['code'] = code
                         response = section_link_from_ref(response)
                         print ("| {code} | {description} | {link} |".format(**response))
-                        print ()
+
+                    print ()
                     #
                     #PARAMETERS
                     #

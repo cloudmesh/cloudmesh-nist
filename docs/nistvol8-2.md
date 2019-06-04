@@ -1059,13 +1059,13 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/user.yaml}
 ```
 
-### Key
+### Public Key Store
 
-{include=./spec/key.md}
+{include=./spec/publickeystore.md}
 
-#### key.yaml
+#### publickeystore.yaml
 
-```{include=./spec/key.yaml}
+```{include=./spec/publickeystore.yaml}
 ```
 
 
@@ -1116,11 +1116,11 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 ### Filestore
 
-{include=./spec/file.md}
+{include=./spec/filestore.md}
 
 #### filestore.yaml
 
-```{include=./spec/file.yaml}
+```{include=./spec/filestore.yaml}
 ```
 
 ### Replica
@@ -1225,7 +1225,9 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/nic.yaml}
 ```
 
+
 ## Compute Management - Containers
+
 
 ### Containers
 
@@ -1235,6 +1237,7 @@ This section summarizes a basic interface specification of virtual machines.
 
 ```{include=./spec/containers.yaml}
 ```
+
 
 ## Compute Management - Functions
 

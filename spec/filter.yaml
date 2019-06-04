@@ -23,12 +23,12 @@ paths:
     get:
       tags:
         - Filter
-      summary: Returns a list of filters
-      description: Returns a list of all filters
+      summary: Returns a list of filteres
+      description: Returns a list of all filteres
       operationId: cloudmesh.filter.list
       responses:
         '200':
-          description: The list of filters
+          description: The list of filterses
           content:
             application/json:
               schema:
@@ -36,15 +36,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/Filter'
         '400':
-          description: No Filters found.
+           description: No Filter found.
     put:
       tags:
         - Filter
-      summary: Uploads a filter to the list of filters
-      description: Uploads a filter to the list of filters
+      summary: Set an filter
+      description: Sets the named filter
       operationId: cloudmesh.filter.add
       requestBody:
-        description: The filter to be uploaded
+        description: The new filter to create
         required: true
         content:
           application/json:
@@ -54,52 +54,52 @@ paths:
         '200':
           description: Filter updated.
         '400':
-          description: Error updateing Filter.
-    /filter/{name}:
-      get:
-        tags:
-          - Filter
-        summary: Returns the named filter
-        description: Returns an filter by name
-        operationId: cloudmesh.filter.find_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the filter
-        responses:
-          '200':
-            description: Retruning the information of the alias
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Filter'
-          '400':
-            description: No filter found.
-          '404':
-            description: The named filter could not be found.
-      delete:
-        tags:
-          - Filter
-        summary: Deletes the named filter
-        description: Deletes an filter by name
-        operationId: cloudmesh.filter.delete_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the filter
-        responses:
-          '200':
-            description: Deletion successful.
-          '400':
-            description: No Filter found.
-          '404':
-            description: The named filter could not be found.
+          description: Error updateing filter.
+  /filter/{name}:
+    get:
+      tags:
+        - Filter
+      summary: Returns the named filter
+      description: Returns an filter by name
+      operationId: cloudmesh.filter.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the filter
+      responses:
+        '200':
+          description: Retruning the information of the filter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Filter'
+        '400':
+           description: No Filter found.
+        '404':
+           description: The named filter could not be found.
+    delete:
+      tags:
+        - Filter
+      summary: Deletes the named filter
+      description: Deletes an filter by name
+      operationId: cloudmesh.filter.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the filter
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Filter found.
+        '404':
+           description: The named filter could not be found.
 components:
   schemas:
     Filter:

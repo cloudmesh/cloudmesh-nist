@@ -31,7 +31,7 @@ paths:
       operationId: cloudmesh.stream.list
       responses:
         '200':
-          description: The list of streams
+          description: The list of streamses
           content:
             application/json:
               schema:
@@ -39,15 +39,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/Stream'
         '400':
-          description: No Streams found.
+           description: No Stream found.
     put:
       tags:
         - Stream
-      summary: Uploads a stream to the list of streams
-      description: Uploads a stream to the list of streams
+      summary: Set an stream
+      description: Sets the named stream
       operationId: cloudmesh.stream.add
       requestBody:
-        description: The stream to be uploaded
+        description: The new stream to create
         required: true
         content:
           application/json:
@@ -57,52 +57,52 @@ paths:
         '200':
           description: Stream updated.
         '400':
-          description: Error updateing Stream.
-    /stream/{name}:
-      get:
-        tags:
-          - Stream
-        summary: Returns the named stream
-        description: Returns an stream by name
-        operationId: cloudmesh.stream.find_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the stream
-        responses:
-          '200':
-            description: Retruning the information of the alias
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Stream'
-          '400':
-            description: No stream found.
-          '404':
-            description: The named stream could not be found.
-      delete:
-        tags:
-          - Stream
-        summary: Deletes the named stream
-        description: Deletes an stream by name
-        operationId: cloudmesh.stream.delete_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the stream
-        responses:
-          '200':
-            description: Deletion successful.
-          '400':
-            description: No Stream found.
-          '404':
-            description: The named stream could not be found.
+          description: Error updateing stream.
+  /stream/{name}:
+    get:
+      tags:
+        - Stream
+      summary: Returns the named stream
+      description: Returns an stream by name
+      operationId: cloudmesh.stream.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the stream
+      responses:
+        '200':
+          description: Retruning the information of the stream
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+        '400':
+           description: No Stream found.
+        '404':
+           description: The named stream could not be found.
+    delete:
+      tags:
+        - Stream
+      summary: Deletes the named stream
+      description: Deletes an stream by name
+      operationId: cloudmesh.stream.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the stream
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Stream found.
+        '404':
+           description: The named stream could not be found.
 components:
   schemas:
     Stream:

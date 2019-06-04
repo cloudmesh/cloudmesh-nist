@@ -22,12 +22,12 @@ paths:
     get:
       tags:
         - Deployment
-      summary: Returns a list of deployments
-      description: Returns a list of all deployments
+      summary: Returns a list of deploymentes
+      description: Returns a list of all deploymentes
       operationId: cloudmesh.deployment.list
       responses:
         '200':
-          description: The list of deployments
+          description: The list of deploymentses
           content:
             application/json:
               schema:
@@ -35,15 +35,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/Deployment'
         '400':
-          description: No Deployments found.
+           description: No Deployment found.
     put:
       tags:
         - Deployment
-      summary: Uploads a deployment to the list of deployments
-      description: Uploads a deployment to the list of deployments
+      summary: Set an deployment
+      description: Sets the named deployment
       operationId: cloudmesh.deployment.add
       requestBody:
-        description: The deployment to be uploaded
+        description: The new deployment to create
         required: true
         content:
           application/json:
@@ -53,52 +53,52 @@ paths:
         '200':
           description: Deployment updated.
         '400':
-          description: Error updateing Deployment.
-    /deployment/{name}:
-      get:
-        tags:
-          - Deployment
-        summary: Returns the named deployment
-        description: Returns an deployment by name
-        operationId: cloudmesh.deployment.find_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the deployment
-        responses:
-          '200':
-            description: Retruning the information of the alias
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Deployment'
-          '400':
-            description: No deployment found.
-          '404':
-            description: The named deployment could not be found.
-      delete:
-        tags:
-          - Deployment
-        summary: Deletes the named deployment
-        description: Deletes an deployment by name
-        operationId: cloudmesh.deployment.delete_by_name
-        parameters:
-          - name: name
-            in: path
-            required: true
-            schema:
-              type: string
-            description: The name of the deployment
-        responses:
-          '200':
-            description: Deletion successful.
-          '400':
-            description: No Deployment found.
-          '404':
-            description: The named deployment could not be found.
+          description: Error updateing deployment.
+  /deployment/{name}:
+    get:
+      tags:
+        - Deployment
+      summary: Returns the named deployment
+      description: Returns an deployment by name
+      operationId: cloudmesh.deployment.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the deployment
+      responses:
+        '200':
+          description: Retruning the information of the deployment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+        '400':
+           description: No Deployment found.
+        '404':
+           description: The named deployment could not be found.
+    delete:
+      tags:
+        - Deployment
+      summary: Deletes the named deployment
+      description: Deletes an deployment by name
+      operationId: cloudmesh.deployment.delete_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the deployment
+      responses:
+        '200':
+          description: Deletion successful.
+        '400':
+           description: No Deployment found.
+        '404':
+           description: The named deployment could not be found.
 components:
   schemas:
     Deployment:

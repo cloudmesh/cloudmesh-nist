@@ -58,10 +58,8 @@ verify:
 	redoc-cli bundle user.yaml
 	redoc-cli bundle timestamp.yaml
 	redoc-cli bundle scheduler.yaml
-
-
-broken:
 	redoc-cli bundle organization.yaml
+
 
 
 speccy:
