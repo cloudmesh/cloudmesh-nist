@@ -1005,7 +1005,7 @@ See @fig:spec for the specification resources
 ![Resource view](images/nist-specification.png){#fig:spec}
 
 
-## Identity
+## Identity {#sec:spec-identity}
 
 As part of services an identity often needs to be specified. In addition,
 such persons [@www-eduperson] are often part of groups and have roles within 
@@ -1041,7 +1041,7 @@ solutions to this in cloudmesh.
 An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 
-### Organization
+### Organization {#sec:spec-organization}
 
 {include=./spec/organization.md}
 
@@ -1050,7 +1050,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/organization.yaml}
 ```
 
-### User
+### User {#sec:spec-user}
 
 {include=./spec/user.md}
 
@@ -1059,7 +1059,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/user.yaml}
 ```
 
-### Public Key Store
+### Public Key Store {#sec:spec-publickeystore}
 
 {include=./spec/publickeystore.md}
 
@@ -1071,7 +1071,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 ## General Resources
 
-### Timestamp
+### Timestamp {#sec:spec-timestamp}
 
 {include=./spec/timestamp.md}
 
@@ -1082,7 +1082,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```
 
 
-### Alias
+### Alias {#sec:spec-alias}
 
 {include=./spec/alias.md}
 
@@ -1091,7 +1091,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/alias.yaml}
 ```
 
-### Variables
+### Variables {#sec:spec-variables}
 
 {include=./spec/variables.md}
 
@@ -1100,7 +1100,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/variables.yaml}
 ```
 
-### Default
+### Default {#sec:spec-default}
 
 {include=./spec/default.md}
 
@@ -1114,7 +1114,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 ## Data Management
 
-### Filestore
+### Filestore {#sec:spec-filestore}
 
 {include=./spec/filestore.md}
 
@@ -1123,7 +1123,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/filestore.yaml}
 ```
 
-### Replica
+### Replica {#sec:spec-replica}
 
 {include=./spec/replica.md}
 
@@ -1132,7 +1132,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/replica.yaml}
 ```
 
-### Database
+### Database {#sec:spec-database}
 
 {include=./spec/database.md}
 
@@ -1141,7 +1141,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 ```{include=./spec/database.yaml}
 ```
 
-### Virtual Directory
+### Virtual Directory {#sec:spec-virtualdirectory}
 
 {include=./spec/virtualdirectory.md}
 
@@ -1153,11 +1153,11 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 ## Compute Management - Virtual Clusters
 
-### Virtual Cluster
+### Virtual Cluster {#sec:spec-virtualcluster}
 
 {include=./spec/virtualcluster.md}
 
-#### vc.yaml
+#### virtualcluster.yaml
 
 ```{include=./spec/virtualcluster.yaml}
 ```
@@ -1165,7 +1165,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 
 
 
-### Scheduler
+### Scheduler {#sec:spec-scheduler}
 
 {include=./spec/scheduler.md}
 
@@ -1181,7 +1181,7 @@ An example for a configuration file is provided at [@cloudmesh4-yaml].
 This section summarizes a basic interface specification of virtual machines.
 
 
-### Image
+### Image {#sec:spec-image}
 
 {include=./spec/image.md}
 
@@ -1189,7 +1189,7 @@ This section summarizes a basic interface specification of virtual machines.
 
 ```{include=./spec/image.yaml}
 ```
-### Flavor
+### Flavor {#sec:spec-flavor}
 
 {include=./spec/flavor.md}
 
@@ -1198,7 +1198,7 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/flavor.yaml}
 ```
 
-### VM
+### VM {#sec:spec-vm}
 
 {include=./spec/vm.md}
 
@@ -1207,7 +1207,7 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/vm.yaml}
 ```
 
-### Secgroup
+### Secgroup {#sec:spec-secgroup}
 
 {include=./spec/secgroup.md}
 
@@ -1216,7 +1216,7 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/secgroup.yaml}
 ```
 
-### Nic
+### Nic {#sec:spec-nic}
 
 {include=./spec/nic.md}
 
@@ -1229,7 +1229,7 @@ This section summarizes a basic interface specification of virtual machines.
 ## Compute Management - Containers
 
 
-### Containers
+### Containers {#sec:spec-containers}
 
 {include=./spec/containers.md}
 
@@ -1242,7 +1242,7 @@ This section summarizes a basic interface specification of virtual machines.
 ## Compute Management - Functions
 
 
-### Microservice
+### Microservice {#sec:spec-microservice}
 
 {include=./spec/microservice.md}
 
@@ -1254,7 +1254,7 @@ This section summarizes a basic interface specification of virtual machines.
 
 ## Reservation
 
-### Reservation
+### Reservation {#sec:spec-reservation}
 
 {include=./spec/reservation.md}
 
@@ -1268,7 +1268,7 @@ This section summarizes a basic interface specification of virtual machines.
 
 ## Data Streams
 
-### Stream
+### Stream {#sec:spec-stream}
 
 {include=./spec/stream.md}
 
@@ -1277,7 +1277,7 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/stream.yaml}
 ```
 
-### Filter
+### Filter {#sec:spec-filter}
 
 {include=./spec/filter.md}
 
@@ -1287,10 +1287,10 @@ This section summarizes a basic interface specification of virtual machines.
 ```
 
 
-## Deployment
+## Deployment 
 
 
-### Deployment
+### Deployment {#sec:spec-deployment}
 
 {include=./spec/deployment.md}
 

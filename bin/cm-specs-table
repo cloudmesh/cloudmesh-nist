@@ -44,8 +44,8 @@ def analyse():
        services = arguments["SERVICES"]
        #print (services)
        services = services.split(" ")
-       print ("| Service | Version | Date | Refernce ")
-       print ("| --- | --- | --- | ------------- | ------------ |")
+       print ("| Service | Version | Date | Refernce | Section ")
+       print ("| --- | --- | --- | ------------- | ------------ | ------------| ")
        for service in services:
            lservice = service.lower()
            data = {
@@ -55,7 +55,8 @@ def analyse():
                "date": "",
                "reference": f"[:cloud:]("
                      f"https://github.com/cloudmesh/cloudmesh-nist/blob"
-                     f"/master/spec/{lservice}.yaml)"
+                     f"/master/spec/{lservice}.yaml)",
+               "section": f"@sec:spec-{lservice}"
            }
            filename = "../spec/{service}.yaml".format(service=service)
            with open(filename, "r") as f:
@@ -68,7 +69,7 @@ def analyse():
 
                 #data["description"] = data["description"].strip().replace("\n","")
                          
-                print ("| {title} | {version} | {date} | {reference} | ".format(
+                print ("| {title} | {version} | {date} | {reference} | {section}  | ".format(
                     **data))
        print ()
 
