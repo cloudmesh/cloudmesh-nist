@@ -72,7 +72,7 @@ def analyse():
                 print ("| {title} | {version} | {date} | {reference} | {section}  | ".format(
                     **data))
        print ()
-
+       print(": Specifications {#tbl:spec-table}")
 if __name__ == '__main__':
     arguments = docopt(__doc__, version=VERSION)
     if DEBUG:

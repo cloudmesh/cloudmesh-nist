@@ -376,12 +376,6 @@ Phase 3 work, which built upon the groundwork developed during Phase 2,
 included an early specification based on resource object specifications 
 that provided a simplified version of an API interface design.
 
-This document is expected to grow with the help of contributions from
-the community to achieve a comprehensive set of interfaces that will be
-usable for the implementation of Big Data Architectures. To achieve
-technical and high-quality document content, this document will go
-through a public comment period along with NIST internal review.
-
 Report Structure
 ----------------
 
@@ -418,14 +412,17 @@ While each NBDIF volume was created with a specific focus within Big Data,
 all volumes are interconnected. During creation, the volumes gave and/or received 
 input from other volumes. Broad topics (e.g., definition, architecture) 
 may be discussed in several volumes with the discussion circumscribed by 
-the volume’s particular focus. Arrows shown in Figure 1 indicate the main flow 
-of input/output. Volumes 2, 3, and 5 (blue circles) are essentially standalone 
+the volume’s particular focus. Arrows shown in @fig:nist-doc-nav indicate the 
+main
+ flow of input/output. Volumes 2, 3, and 5 (blue circles) are essentially standalone 
 documents that provide output to other volumes (e.g., to Volume 6). These 
 volumes contain the initial situational awareness research. Volumes 4, 7, 8, 
 and 9 (green circles) primarily received input from other volumes during the 
 creation of the particular volume. Volumes 1 and 6 (red circles) were developed 
 using the initial situational awareness research and continued to be modified 
 based on work in other volumes. These volumes also provided input to the green circle volumes.
+
+![NBDIF Documents Navigation Diagram Provides Content Flow Between Volumes](images/nist-doc-nav.png){#fig:nist-doc-nav}
 
 
 # NBDRA Interface Requirements {#sec:interface-requirements}
@@ -997,14 +994,11 @@ The following table lists the current set of resource objects that
 are defined in this draft. Additional objects are also available in Github 
 [@nist-github-bdra-spec].
 
+@tbl:spec-table shows the list of currently included specification in this 
+version of the document.
 
 {include=./specstable.md}
 
-
-* information flow
-* service use
-* software tools and algorithm transfer ( does it mean use either
-  transfer data or compute service/spec)
 
 @fig:bdra-provider-view shows the provider view of the specification resources.
 
