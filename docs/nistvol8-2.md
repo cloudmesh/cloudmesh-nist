@@ -414,6 +414,18 @@ document is organized as follows:
   use while providing a summary table of selected proposed objects in
   @sec:spec-table.
 
+While each NBDIF volume was created with a specific focus within Big Data, 
+all volumes are interconnected. During creation, the volumes gave and/or received 
+input from other volumes. Broad topics (e.g., definition, architecture) 
+may be discussed in several volumes with the discussion circumscribed by 
+the volume’s particular focus. Arrows shown in Figure 1 indicate the main flow 
+of input/output. Volumes 2, 3, and 5 (blue circles) are essentially standalone 
+documents that provide output to other volumes (e.g., to Volume 6). These 
+volumes contain the initial situational awareness research. Volumes 4, 7, 8, 
+and 9 (green circles) primarily received input from other volumes during the 
+creation of the particular volume. Volumes 1 and 6 (red circles) were developed 
+using the initial situational awareness research and continued to be modified 
+based on work in other volumes. These volumes also provided input to the green circle volumes.
 
 
 # NBDRA Interface Requirements {#sec:interface-requirements}
