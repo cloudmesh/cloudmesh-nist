@@ -989,10 +989,6 @@ are defining in this draft. Additional objects are also available in Github
 {include=./specstable.md}
 
 
-* information flow
-* service use
-* software tools and algorithm transfer ( does it mean use either
-  transfer data or compute service/spec)
 
 See @fig:bdra-provider-view for the specification resources
 
