@@ -99,14 +99,17 @@ def section_link_from_ref(response):
     link = ""                    
     try:
         response["section"] = response['schema']['$ref'].replace("#/components/schemas/","")
+        if "yaml" in response["section"]:
+            response["section"] = response["section"].split("yaml")[1]
         response["lsection"] = response["section"].lower()
+
     except:
         response["section"] = ""
         response["lsection"] = ""        
     if response["section"] != "" :
         link = "[{section}](#{lsection})".format(**response)
     else:                    
-        link = ""
+        link = "Integer"
     response["link"] = link
     return response
             
@@ -172,8 +175,15 @@ def convert_paths(filename, indent=1):
                     for code in responses:
 
                         response = responses[code]
-                        if "schema" not in response:
-                           response['schema'] = ""
+                        if "content" not in response:
+                            response['schema'] = ""
+                        else:
+                            try:
+                                response['schema'] = response["content"][
+                                    "application/json"]["schema"]
+                            except:
+                                response['schema'] = "ERROR"
+
 
                         response['code'] = code
                         response = section_link_from_ref(response)
