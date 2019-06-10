@@ -55,6 +55,8 @@ paths:
       responses:
         '200':
           description: Container updated.
+        '401':
+          description: Not authorized.
         '400':
           description: Error updateing container.
   /container/{name}:
@@ -80,6 +82,8 @@ paths:
                 $ref: '#/components/schemas/Container'
         '400':
            description: No Container found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named container could not be found.
     delete:
@@ -100,6 +104,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Container found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named container could not be found.
 components:

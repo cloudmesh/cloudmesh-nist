@@ -45,6 +45,8 @@ paths:
                   $ref: '#/components/schemas/Non'
         '400':
           description: No Nons found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Non
@@ -63,6 +65,8 @@ paths:
           description: Non updated or created.
         '400':
           description: Error updateing Non.
+        '401':
+          description: Not authorized.
   /non/{name}/publickeystore:
     get:
       tags:
@@ -80,6 +84,8 @@ paths:
                 description: the endpoint of the publickeystore
         '400':
           description: No non found.
+        '401':
+          description: Not authorized.
     delete:
       tags:
         - Non
@@ -91,6 +97,8 @@ paths:
           description: Deletion successful.
         '400':
           description: No Non found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Non
@@ -107,6 +115,8 @@ paths:
       responses:
         '200':
            description: Node keystore added sucessfully
+        '401':
+          description: Not authorized.
   /non/{name}/node:
     get:
       tags:
@@ -130,6 +140,8 @@ paths:
                 $ref: '#/components/schemas/Non'
         '400':
           description: No non found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named non could not be found.
     delete:
@@ -150,6 +162,8 @@ paths:
           description: Deletion successful.
         '400':
           description: No Non found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named non could not be found.
   /non/{name}/node/{nodename}:
@@ -179,6 +193,8 @@ paths:
             application/json:
               schema:
                 $ref: "virtualcluster.yaml#/components/schemas/Node"
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Non
@@ -202,6 +218,8 @@ paths:
       responses:
         '200':
            description: Node added sucessfully
+        '401':
+          description: Not authorized.
     delete:
       tags:
         - Non
@@ -224,6 +242,8 @@ paths:
       responses:
         '200':
            description: Deletion successful.
+        '401':
+          description: Not authorized.
 components:
   schemas:
     Non:

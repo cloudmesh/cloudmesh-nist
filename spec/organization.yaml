@@ -40,6 +40,8 @@ paths:
                   $ref: '#/components/schemas/Organization'
         '400':
            description: No Organizations found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Organization
@@ -58,6 +60,8 @@ paths:
           description: Organization updated.
         '400':
           description: Error updateing Organization.
+        '401':
+          description: Not authorized.
   /organization/{name}:
     get:
       tags:
@@ -81,6 +85,8 @@ paths:
                 $ref: '#/components/schemas/Organization'
         '400':
            description: No organization found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named organization could not be found.
     delete:
@@ -101,6 +107,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Organization found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named organization could not be found.
   /organization/{name}/user:
@@ -117,6 +125,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Organization"
+        '401':
+          description: Not authorized.
   /organization/{name}/user/{username}:
     get:
       tags:
@@ -144,6 +154,8 @@ paths:
             application/json:
               schema:
                 $ref: "user.yaml#/components/schemas/User"
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Organization
@@ -167,6 +179,8 @@ paths:
       responses:
         '200':
           description: User added sucessfully
+        '401':
+          description: Not authorized.
     delete:
       tags:
         - Organization
@@ -189,6 +203,8 @@ paths:
       responses:
         '200':
           description: Deletion successful.
+        '401':
+          description: Not authorized.
   /organization/{name}/group/:
     get:
       tags:
@@ -206,6 +222,8 @@ paths:
                 type: string
         '400':
            description: No group found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named group could not be found.
   /organization/{name}/group/{groupname}:
@@ -235,6 +253,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Group"
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Organization
@@ -257,6 +277,8 @@ paths:
       responses:
         '200':
           description: Group added sucessfully
+        '401':
+          description: Not authorized.
     delete:
       tags:
         - Organization
@@ -279,6 +301,8 @@ paths:
       responses:
         '200':
           description: Deletion successful.
+        '401':
+          description: Not authorized.
   /organization/{name}/group/{groupname}/{username}:
     put:
       tags:
@@ -308,6 +332,8 @@ paths:
       responses:
         '200':
           description: Group added sucessfully
+        '401':
+          description: Not authorized.
         '404':
           description: The organization or group could not be found.
 components:

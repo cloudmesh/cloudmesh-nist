@@ -36,6 +36,8 @@ paths:
                   $ref: '#/components/schemas/Nic'
         '400':
            description: No Nic found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Nic
@@ -54,6 +56,8 @@ paths:
           description: Nic updated.
         '400':
           description: Error updateing nic.
+        '401':
+          description: Not authorized.
   /nic/{name}:
     get:
       tags:
@@ -77,6 +81,8 @@ paths:
                 $ref: '#/components/schemas/Nic'
         '400':
            description: No Nic found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named nic could not be found.
     delete:
@@ -97,6 +103,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Nic found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named nic could not be found.
 components:

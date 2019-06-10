@@ -39,6 +39,8 @@ paths:
                   $ref: '#/components/schemas/Alias'
         '400':
            description: No Alias found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Alias
@@ -57,6 +59,8 @@ paths:
           description: Alias updated.
         '400':
           description: Error updateing alias.
+        '401':
+          description: Not authorized.
   /alias/{name}:
     get:
       tags:
@@ -80,6 +84,8 @@ paths:
                 $ref: '#/components/schemas/Alias'
         '400':
            description: No Alias found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named alias could not be found.
     delete:
@@ -100,6 +106,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Alias found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named alias could not be found.
 components:

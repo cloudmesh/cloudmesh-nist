@@ -78,6 +78,8 @@ paths:
                 $ref: '#/components/schemas/Reservation'
         '400':
           description: No reservation found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named reservation could not be found.
     delete:
@@ -98,6 +100,8 @@ paths:
           description: Deletion successful.
         '400':
           description: No Reservation found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named reservation could not be found.
 components:

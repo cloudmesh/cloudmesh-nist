@@ -47,6 +47,8 @@ paths:
                   $ref: '#/components/schemas/User'
         '400':
            description: No Users found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - User
@@ -65,6 +67,8 @@ paths:
           description: User updated.
         '400':
           description: Error updateing User.
+        '401':
+          description: Not authorized.
   /user/{name}:
     get:
       tags:
@@ -88,6 +92,8 @@ paths:
                 $ref: '#/components/schemas/User'
         '400':
            description: No user found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named user could not be found.
     delete:
@@ -108,6 +114,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No User found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named user could not be found.
 components:

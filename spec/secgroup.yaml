@@ -43,6 +43,8 @@ paths:
                   $ref: "#/components/schemas/Secgroup"
         '400':
           description: Not found.
+        '401':
+          description: Not authorized.
   /secgroup/{name}:
     get:
       tags:
@@ -65,6 +67,8 @@ paths:
                 $ref: "#/components/schemas/Secgroup"
         '400':
           description: Not found.
+        '401':
+          description: Not authorized.
     post:
       tags:
       - Secgroup
@@ -81,6 +85,8 @@ paths:
       responses:
         '201':
           description: Created
+        '401':
+          description: Not authorized.
   /secgroup/{name}/rule:
     post:
       tags:
@@ -106,7 +112,9 @@ paths:
           description: Created
         '400':
           description: Not found.
-  "/secgroup/{name}/rule/{rule}":
+        '401':
+          description: Not authorized.
+  /secgroup/{name}/rule/{rule}:
     get:
       tags:
       - Secgroup
@@ -133,6 +141,8 @@ paths:
                   $ref: "#/components/schemas/SecGroupRule"
         '400':
           description: Not found.
+        '401':
+          description: Not authorized.
     delete:
       tags:
       - Secgroup
@@ -155,6 +165,8 @@ paths:
           description: Deleted.
         '400':
           description: Not found.
+        '401':
+          description: Not authorized.
 components:
   schemas:
     Secgroup:

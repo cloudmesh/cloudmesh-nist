@@ -53,6 +53,8 @@ paths:
       responses:
         '200':
           description: Filter updated.
+        '401':
+          description: Not authorized.
         '400':
           description: Error updateing filter.
   /filter/{name}:
@@ -78,6 +80,8 @@ paths:
                 $ref: '#/components/schemas/Filter'
         '400':
            description: No Filter found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named filter could not be found.
     delete:
@@ -98,6 +102,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Filter found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named filter could not be found.
 components:

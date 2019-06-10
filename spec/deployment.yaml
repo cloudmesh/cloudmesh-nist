@@ -54,6 +54,8 @@ paths:
           description: Deployment updated.
         '400':
           description: Error updateing deployment.
+        '401':
+          description: Not authorized.
   /deployment/{name}:
     get:
       tags:
@@ -97,6 +99,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Deployment found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named deployment could not be found.
 components:

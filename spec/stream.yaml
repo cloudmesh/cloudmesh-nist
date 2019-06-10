@@ -40,6 +40,8 @@ paths:
                   $ref: '#/components/schemas/Stream'
         '400':
            description: No Stream found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Stream
@@ -58,6 +60,8 @@ paths:
           description: Stream updated.
         '400':
           description: Error updateing stream.
+        '401':
+          description: Not authorized.
   /stream/{name}:
     get:
       tags:
@@ -81,6 +85,8 @@ paths:
                 $ref: '#/components/schemas/Stream'
         '400':
            description: No Stream found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named stream could not be found.
     delete:
@@ -101,6 +107,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Stream found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named stream could not be found.
 components:

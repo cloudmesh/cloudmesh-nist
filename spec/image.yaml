@@ -44,6 +44,8 @@ paths:
                   $ref: '#/components/schemas/Image'
         '400':
            description: No Image found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Image
@@ -69,6 +71,8 @@ paths:
           description: Image updated.
         '400':
           description: Error updateing image.
+        '401':
+          description: Not authorized.
   /image/{cloud}/{name}:
     get:
       tags:
@@ -98,6 +102,8 @@ paths:
                 $ref: '#/components/schemas/Image'
         '400':
            description: No Image found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named image could not be found.
     delete:
@@ -124,6 +130,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Image found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named image could not be found.
 components:

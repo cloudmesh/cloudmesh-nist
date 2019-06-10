@@ -39,6 +39,8 @@ paths:
                   $ref: '#/components/schemas/Replica'
         '400':
           description: No Replicas found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Replica
@@ -57,6 +59,8 @@ paths:
           description: Replica updated.
         '400':
           description: Error updateing Replica.
+        '401':
+          description: Not authorized.
   /replica/{name}:
     get:
       tags:
@@ -80,6 +84,8 @@ paths:
                 $ref: '#/components/schemas/Replica'
         '400':
           description: No replica found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named replica could not be found.
     delete:
@@ -100,6 +106,8 @@ paths:
           description: Deletion successful.
         '400':
           description: No Replica found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named replica could not be found.
 components:

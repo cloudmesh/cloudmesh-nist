@@ -42,8 +42,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Virtualcluster'
+        '401':
+          description: Not authorized.
         '400':
-           description: No Virtualclusters found.
+          description: No Virtualclusters found.
     put:
       tags:
         - Virtualcluster
@@ -62,6 +64,8 @@ paths:
           description: Virtualcluster updated or created.
         '400':
           description: Error updateing Virtualcluster.
+        '401':
+          description: Not authorized.
   /virtualcluster/{name}:
     get:
       tags:
@@ -84,9 +88,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Virtualcluster'
         '400':
-           description: No virtualcluster found.
+          description: No virtualcluster found.
+        '401':
+          description: Not authorized.
         '404':
-           description: The named virtualcluster could not be found.
+          description: The named virtualcluster could not be found.
     delete:
       tags:
         - Virtualcluster
@@ -104,9 +110,11 @@ paths:
         '200':
           description: Deletion successful.
         '400':
-           description: No Virtualcluster found.
+          description: No Virtualcluster found.
+        '401':
+          description: Not authorized.
         '404':
-           description: The named virtualcluster could not be found.
+          description: The named virtualcluster could not be found.
   /virtualcluster/{name}/{nodename}:
     get:
       tags:
@@ -136,6 +144,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Node"
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Virtualcluster
@@ -160,6 +170,8 @@ paths:
       responses:
         '200':
           description: Node added sucessfully
+        '401':
+          description: Not authorized.
     delete:
       tags:
         - Virtualcluster
@@ -182,6 +194,8 @@ paths:
       responses:
         '200':
           description: Deletion successful.
+        '401':
+          description: Not authorized.
 components:
   schemas:
     Virtualcluster:

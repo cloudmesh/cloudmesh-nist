@@ -40,6 +40,8 @@ paths:
                   $ref: '#/components/schemas/Task'
         '400':
           description: No Tasks found.
+        '401':
+          description: Not authorized.
   /task/info:
     get:
       tags:
@@ -58,6 +60,8 @@ paths:
                   $ref: '#/components/schemas/Task'
         '400':
           description: No Tasks found.
+        '401':
+          description: Not authorized.
   /task/pop:
     get:
       tags:
@@ -78,6 +82,8 @@ paths:
                   $ref: '#/components/schemas/Task'
         '400':
           description: No Tasks found.
+        '401':
+          description: Not authorized.
   /task:
     get:
       tags:
@@ -96,6 +102,8 @@ paths:
                   $ref: '#/components/schemas/Task'
         '400':
           description: No Tasks found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Task
@@ -114,6 +122,8 @@ paths:
           description: Task updated.
         '400':
           description: Error updateing Task.
+        '401':
+          description: Not authorized.
   /task/{name}:
     get:
       tags:
@@ -137,6 +147,8 @@ paths:
                 $ref: '#/components/schemas/Task'
         '400':
           description: No task found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named task could not be found.
     delete:
@@ -157,6 +169,8 @@ paths:
           description: Deletion successful.
         '400':
           description: No Task found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named task could not be found.
   /policy:
@@ -177,6 +191,8 @@ paths:
                   $ref: '#/components/schemas/Policy'
         '400':
           description: No Tasks found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Task
@@ -195,7 +211,8 @@ paths:
           description: Task updated.
         '400':
           description: Error updateing Task.
-
+        '401':
+          description: Not authorized.
 components:
   schemas:
     Task:

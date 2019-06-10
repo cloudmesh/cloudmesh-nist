@@ -37,6 +37,8 @@ paths:
                   $ref: '#/components/schemas/Microservice'
         '400':
            description: No Microservice found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Microservice
@@ -55,6 +57,8 @@ paths:
           description: Microservice updated.
         '400':
           description: Error updateing microservice.
+        '401':
+          description: Not authorized.
   /microservice/{name}:
     get:
       tags:
@@ -78,6 +82,8 @@ paths:
                 $ref: '#/components/schemas/Microservice'
         '400':
            description: No Microservice found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named microservice could not be found.
     delete:
@@ -98,6 +104,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Microservice found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named microservice could not be found.
 components:

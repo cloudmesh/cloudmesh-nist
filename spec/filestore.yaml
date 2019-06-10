@@ -85,6 +85,8 @@ paths:
                 $ref: '#/components/schemas/File'
         '400':
           description: No file found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named file could not be found.
     delete:
@@ -105,6 +107,8 @@ paths:
           description: Deletion successful.
         '400':
           description: No File found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named file could not be found.
 components:

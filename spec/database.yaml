@@ -40,11 +40,11 @@ paths:
                 items:
                   $ref: "#/components/schemas/Database"
         '400':
-          description: "Invalid name supplied"
+          description: No database found
         '401':
-          description: "Invalid credentials"
+          description: Not authorized.
         '404':
-          description: "Database not found"
+          description: Named database not found
     delete:
       tags:
         - "Database Registry"
@@ -65,9 +65,11 @@ paths:
               schema:
                 $ref: "#/components/schemas/Database"
         '400':
-          description: "Invalid name supplied"
+          description: No database found
+        '401':
+          description: Not authorized.
         '404':
-          description: "Database Information not found"
+          description: Named database not found
   /database/{name}:
     get:
       tags:
@@ -91,11 +93,11 @@ paths:
                 items:
                   $ref: "#/components/schemas/Definition"
         '400':
-          description: "Invalid name supplied"
+          description: No database found
         '401':
-          description: "Invalid credentials"
-        '405':
-          description: "Invalid input"
+          description: Not authorized.
+        '404':
+          description: Named database not found
     put:
       tags:
       - "Database Definition"
@@ -116,11 +118,11 @@ paths:
               schema:
                 $ref: "#/components/schemas/Definition"
         '400':
-          description: "Invalid name supplied"
+          description: No database found
         '401':
-          description: "Invalid credentials"
-        '405':
-          description: "Invalid input"
+          description: Not authorized.
+        '404':
+          description: Named database not found
   /database/{name}/{table_or_collection}:
     get:
       tags:
@@ -155,11 +157,11 @@ paths:
                 items:
                   $ref: "#/components/schemas/Record"
         '400':
-          description: "Invalid name supplied"
+          description: No database found
         '401':
-          description: "Invalid credentials"
-        '405':
-          description: "Invalid input"
+          description: Not authorized.
+        '404':
+          description: Named database not found
     put:
       tags:
       - "Database Data Interaction"
@@ -193,14 +195,11 @@ paths:
               schema:
                 $ref: "#/components/schemas/Record"
         '400':
-          description: "Invalid name supplied"
+          description: No database found
         '401':
-          description: "Invalid credentials"
-        '405':
-          description: "Invalid input"
+          description: Not authorized.
         '404':
-          description: "Invalid database name or table or collection name supplied"
-
+          description: Named database not found
 components:
   schemas:
     Database:

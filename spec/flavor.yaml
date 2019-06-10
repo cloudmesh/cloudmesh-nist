@@ -48,6 +48,8 @@ paths:
                   $ref: '#/components/schemas/Flavor'
         '400':
            description: No Flavor found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Flavor
@@ -73,6 +75,8 @@ paths:
           description: Flavor updated.
         '400':
           description: Error updateing flavor.
+        '401':
+          description: Not authorized.
   /flavor/{cloud}/{name}:
     get:
       tags:
@@ -102,6 +106,8 @@ paths:
                 $ref: '#/components/schemas/Flavor'
         '400':
            description: No Flavor found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named flavor could not be found.
     delete:
@@ -128,6 +134,8 @@ paths:
           description: Deletion successful.
         '400':
            description: No Flavor found.
+        '401':
+          description: Not authorized.
         '404':
            description: The named flavor could not be found.
 components:

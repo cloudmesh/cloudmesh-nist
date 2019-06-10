@@ -38,6 +38,8 @@ paths:
                   $ref: '#/components/schemas/Virtualdirectory'
         '400':
           description: No Virtualdirectorys found.
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Virtualdirectory
@@ -56,6 +58,8 @@ paths:
           description: Virtualdirectory updated.
         '400':
           description: Error updateing Virtualdirectory.
+        '401':
+          description: Not authorized.
   /virtualdirectory/{name}:
     get:
       tags:
@@ -79,6 +83,8 @@ paths:
                 $ref: '#/components/schemas/Virtualdirectory'
         '400':
           description: No virtualdirectory found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named virtualdirectory could not be found.
     delete:
@@ -99,6 +105,8 @@ paths:
           description: Deletion successful.
         '400':
           description: No Virtualdirectory found.
+        '401':
+          description: Not authorized.
         '404':
           description: The named virtualdirectory could not be found.
 
@@ -129,6 +137,8 @@ paths:
             application/json:
               schema:
                 $ref: "filestore.yaml#/components/schemas/File"
+        '401':
+          description: Not authorized.
     put:
       tags:
         - Virtualdirectory
@@ -152,6 +162,8 @@ paths:
       responses:
         '200':
           description: User added sucessfully
+        '401':
+          description: Not authorized.
     delete:
       tags:
         - Virtualdirectory
@@ -174,6 +186,8 @@ paths:
       responses:
         '200':
           description: Deletion successful.
+        '401':
+          description: Not authorized.
 components:
   schemas:
     Virtualdirectory:
