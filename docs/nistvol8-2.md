@@ -981,8 +981,8 @@ application requirements.
 ## List of specifications {#sec:spec-table}
 
 
-The following table lists the current set of resource objects that we
-are defining in this draft. Additional objects are also available in Github 
+The following table lists the current set of resource objects that
+are defined in this draft. Additional objects are also available in Github 
 [@nist-github-bdra-spec].
 
 
