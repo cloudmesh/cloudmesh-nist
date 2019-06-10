@@ -44,7 +44,7 @@ def analyse():
        services = arguments["SERVICES"]
        #print (services)
        services = services.split(" ")
-       print ("| Service | Version | Date | Refernce | Section ")
+       print ("| Service | Version | Date | Reference | Section ")
        print ("| --- | --- | --- | ------------- | ------------ | ------------| ")
        for service in services:
            lservice = service.lower()

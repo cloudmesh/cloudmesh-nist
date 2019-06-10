@@ -27,7 +27,7 @@ def cover():
         image=destination,
         background=source,
         title="NIST Big Data\nInteroperability Framework",
-        subtitle = "\nVolume 8: Refernce Architecture \nInterfaces",
+        subtitle = "\nVolume 8: Reference Architecture \nInterfaces",
         author="Wo L Chang\nGregor von Laszewski",
         email="laszewski@gmail.com",
         webpage="https://github.com/cloudmesh/cloudmesh-nist"
