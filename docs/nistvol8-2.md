@@ -994,13 +994,13 @@ are defining in this draft. Additional objects are also available in Github
 * software tools and algorithm transfer ( does it mean use either
   transfer data or compute service/spec)
 
-See @fig:bdra-provider-view for the specification resources
+@fig:bdra-provider-view shows the provider view of the specification resources.
 
 ![Provider view](images/nist-bdra.png){#fig:bdra-provider-view}
 
 
 
-See @fig:spec for the specification resources
+@fig:spec shows the resources view of the specification resources.
 
 ![Resource view](images/nist-specification.png){#fig:spec}
 
