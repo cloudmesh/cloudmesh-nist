@@ -965,10 +965,10 @@ feedback.
 
 # Specification {#sec:specification}
 
-The specifications to this document are provided through an
-automated document creation process so that the actual OpenAPI
-specifications are the source for the document. Thus we will have all
-OpenAPI specifications located in the following directory in GitHub 
+The specifications in this section are provided through an
+automated document creation process using the actual OpenAPI
+specifications yaml files as the source. All
+OpenAPI specifications located in the cloudmesh/cloudmesh-nist/spec/ directory in GitHub 
 [@nist-github-bdra-spec].
 
 Limitations of the current implementation are as follows. It is a
