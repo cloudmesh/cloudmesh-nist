@@ -186,7 +186,7 @@ group is conducted on the NBD-PWG web page [@www-bdra-working-group].
 ## Background
 
 There is broad agreement among commercial, academic, and government
-leaders about the remarkable potential of Big Data to spark innovation,
+leaders about the potential of Big Data to spark innovation,
 fuel commerce, and drive progress. Big Data is the common term used to
 describe the deluge of data in today's networked, digitized,
 sensor-laden, and information-driven world. The availability of vast
