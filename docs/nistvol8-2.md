@@ -409,7 +409,7 @@ introductory material presented in @sec:introduction, the remainder of this
 document is organized as follows:
 
 * @sec:interface-requirements presents the interface requirements;
-* @sec:spec-paradigm presents the specification paradign the we use;
+* @sec:spec-paradigm presents the specification paradigm that is used;
 * @sec:specification presents several objects grouped by functional
   use while providing a summary table of selected proposed objects in
   @sec:spec-table.
