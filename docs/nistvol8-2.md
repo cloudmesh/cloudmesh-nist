@@ -186,7 +186,7 @@ group is conducted on the NBD-PWG web page [@www-bdra-working-group].
 ## Background
 
 There is broad agreement among commercial, academic, and government
-leaders about the remarkable potential of Big Data to spark innovation,
+leaders about the potential of Big Data to spark innovation,
 fuel commerce, and drive progress. Big Data is the common term used to
 describe the deluge of data in today's networked, digitized,
 sensor-laden, and information-driven world. The availability of vast
@@ -409,11 +409,23 @@ introductory material presented in @sec:introduction, the remainder of this
 document is organized as follows:
 
 * @sec:interface-requirements presents the interface requirements;
-* @sec:spec-paradigm presents the specification paradign the we use;
+* @sec:spec-paradigm presents the specification paradigm that is used;
 * @sec:specification presents several objects grouped by functional
   use while providing a summary table of selected proposed objects in
   @sec:spec-table.
 
+While each NBDIF volume was created with a specific focus within Big Data, 
+all volumes are interconnected. During creation, the volumes gave and/or received 
+input from other volumes. Broad topics (e.g., definition, architecture) 
+may be discussed in several volumes with the discussion circumscribed by 
+the volume’s particular focus. Arrows shown in Figure 1 indicate the main flow 
+of input/output. Volumes 2, 3, and 5 (blue circles) are essentially standalone 
+documents that provide output to other volumes (e.g., to Volume 6). These 
+volumes contain the initial situational awareness research. Volumes 4, 7, 8, 
+and 9 (green circles) primarily received input from other volumes during the 
+creation of the particular volume. Volumes 1 and 6 (red circles) were developed 
+using the initial situational awareness research and continued to be modified 
+based on work in other volumes. These volumes also provided input to the green circle volumes.
 
 
 # NBDRA Interface Requirements {#sec:interface-requirements}
@@ -981,8 +993,8 @@ application requirements.
 ## List of specifications {#sec:spec-table}
 
 
-The following table lists the current set of resource objects that we
-are defining in this draft. Additional objects are also available in Github 
+The following table lists the current set of resource objects that
+are defined in this draft. Additional objects are also available in Github 
 [@nist-github-bdra-spec].
 
 
@@ -994,13 +1006,13 @@ are defining in this draft. Additional objects are also available in Github
 * software tools and algorithm transfer ( does it mean use either
   transfer data or compute service/spec)
 
-See @fig:bdra-provider-view for the specification resources
+@fig:bdra-provider-view shows the provider view of the specification resources.
 
 ![Provider view](images/nist-bdra.png){#fig:bdra-provider-view}
 
 
 
-See @fig:spec for the specification resources
+@fig:spec shows the resources view of the specification resources.
 
 ![Resource view](images/nist-specification.png){#fig:spec}
 
