@@ -55,15 +55,16 @@ Interface Subgroup.
 
 The following milestone releases exist:
 
-* **Version 2.1**: A previous volume used just the definition of the
-  schema based on examples it was easier to read but did only include
-  the definition of the resources and not the interaction with the resources.
-  This volume was in place till June 2018.
-* **Version 2.2**: This version was significantly changed and uses now
-  OpenAPI to specify the Interfaces between the various services and components.
-  Editors of this volume are:
-* **Version 3.1.1**: The version includes the significant improvements
-  of the object specifications
+* **Version 2.1**: A previous volume used the definitions of the schema 
+  based on examples only. It was easier to read but only included the 
+  definition of 
+  the resources and not the interaction with the resources. This volume was in 
+  place until June 2018.   
+* **Version 2.2**: This version was significantly changed and used
+  OpenAPI 2.0 to specify the interfaces between the various services and 
+  components.
+* **Version 3.1.1**: The version includes significant improvements
+  of the object specifications but are still using OpenAPI 2.0.
 * **Version 3.2.0**: All specifications have been updated to
   OpenAPI 3.0.2. Significant updates have been done to a number of
   specifications.
@@ -925,16 +926,21 @@ can be included in an appendix.
 
 ## Version Management
 
+Previous work that shaped the current version of this volumes and
+are documented In GitHub [@nist-github-bdra-issues] with   
+prior versions of Volume 8 [@nist-vol8-hist][@nist-vol8-draft]
+and Cloudmesh [@nist-cloudmesh] in support  of the NIST Big Data Architecture
+Framework [insert reference].
+ 
 During the design phase and development period of each version of this document,
 enhancements are managed through GitHub and community contributions
 are managed via GitHub issues. This allows preservation of the history
 of this document. When a new version is ready, the
 version will be tagged in GitHub. Older versions will, through this process, also be
 available as historical documents. Discussions about objects in
-written form are communicated as GitHub issues [@nist-github-bdra-issues].
+written form are communicated as GitHub issues .
 
 Previos documents that lead up to this document are 
-[@nist-vol8-draft][@nist-cloudmesh].
 
 ## Interface Compliancy
 
