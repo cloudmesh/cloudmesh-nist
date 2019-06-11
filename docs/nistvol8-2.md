@@ -745,7 +745,7 @@ The preparation activity is where the transformation portion of the
 ETL/ELT cycle is likely performed, although analytics activity will also
 likely perform advanced parts of the transformation. Tasks performed by
 this activity could include data validation (e.g., checksums/hashes,
-format checks), cleansing (e.g., eliminating bad records/fields),
+format checks), cleaning (e.g., eliminating bad records/fields),
 outlier removal, standardization, reformatting, or encapsulating. This
 activity is also where source data will frequently be persisted to
 archive storage in the Big Data Framework Provider and provenance data
