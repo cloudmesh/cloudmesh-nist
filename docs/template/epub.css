@@ -81,14 +81,11 @@ p { margin-left: 5%; }
 ul { margin-left: 5%; }
 ol { margin-left: 5%; }
 table {
-<<<<<<< HEAD
+    font-size: x-small;
+    font-family: OpenSans;
     align: left;
     margin-left: 5%;
-#    margin-right: auto;
-=======
-    margin-left: 5%;
     margin-right: auto;
->>>>>>> bfabd59aa5fe5356f0c291bc7935e3dbbb17aef7
     margin-bottom: 24px;
     border-spacing: 0;
     border-bottom: 2px solid black;

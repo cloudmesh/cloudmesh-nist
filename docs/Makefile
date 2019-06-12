@@ -155,8 +155,8 @@ all:
 #        cd dest; pandoc -f markdown+smart --toc --epub-embed-font='fonts/*.ttf' -V geometry:margin=0.5in --bibliography references.bib --csl=../../template/ieee.csl# -o $(FILENAME).pdf metadata.txt $(INDEX)
 
 cpdf: epub
-	cd $(DEST); ebook-convert  $(FILE).epub $(FILE)-calibre.pdf --base-font-size=10 --embed-all-fonts
-	cp $(DEST)/$(FILE)-calibre.pdf .
+	cd $(DEST); ebook-convert  $(FILE).epub $(FILE).pdf --base-font-size=10 --embed-all-fonts --font-size-mapping=6,7,8,10,10,12,14,16
+	cp $(DEST)/$(FILE).pdf .
 
 clean:
 	rm -rf dest
