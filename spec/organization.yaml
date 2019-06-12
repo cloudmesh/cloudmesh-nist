@@ -8,8 +8,8 @@ info:
   
     An important concept in many services is the management of a group
     of users in an organization. Within an organization we distinguish
-    different Groups of users and within a Group we can have different roles
-    users can fulfill. Such groups and rols can be used to specify access
+    different groups of users and within a Group we can have different roles
+    users can fulfill. Such groups and rolls can be used to specify access
     rights to services.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"

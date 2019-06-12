@@ -929,8 +929,8 @@ can be included in an appendix.
 Previous work that shaped the current version of this volumes and
 are documented In GitHub [@nist-github-bdra-issues] with   
 prior versions of Volume 8 [@nist-vol8-hist][@nist-vol8-draft]
-and Cloudmesh [@nist-cloudmesh] in support  of the NIST Big Data Architecture
-Framework [insert reference].
+and Cloudmesh [@nist-cloudmesh] in support of the NIST Big Data Architecture
+Framework [@www-bdra-working-group].
  
 During the design phase and development period of each version of this document,
 enhancements are managed through GitHub and community contributions
@@ -1210,7 +1210,7 @@ This section summarizes a basic interface specification of virtual machines.
 ```{include=./spec/flavor.yaml}
 ```
 
-### VM {#sec:spec-vm}
+### Virtual Machine {#sec:spec-vm}
 
 {include=./spec/vm.md}
 

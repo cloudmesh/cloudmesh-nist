@@ -172,9 +172,9 @@ components:
     Requirements:
       type: object
       properties:
-        disk_space:
+        size:
           type: integer
-          description: Minimum disk space in bytes required for the image
+          description: Minimum disk size in bytes required for the image
         ram:
           type: integer
           description: Minimum ram size in bytes to run the image

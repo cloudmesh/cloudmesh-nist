@@ -12,8 +12,8 @@ info:
     can be accessed from outside via a public IP. The compute nodes are
     connected to the manager node via a private, usually high performance (high
     throughput and low latency), network and thus accessible only from the
-    manager node. To use the virtual cluster, you login to the manager node, and
-    from there you can login to any compute node, or submit a job to run on the
+    manager node. To use the virtual cluster, login to the manager node, and
+    from there one can login to any compute node, or submit a job to run on the
     compute nodes.
     
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
@@ -29,13 +29,13 @@ paths:
   /virtualcluster:
     get:
       tags:
-        - Virtualcluster
-      summary: Returns a list of virtualclusters
-      description: Returns a list of all virtualclusters
+        - Virtual cluster
+      summary: Returns a list of virtual clusters
+      description: Returns a list of all virtual clusters
       operationId: cloudmesh.virtualcluster.list
       responses:
         '200':
-          description: The list of virtualclusters
+          description: The list of virtual clusters
           content:
             application/json:
               schema:
@@ -45,15 +45,15 @@ paths:
         '401':
           description: Not authorized.
         '400':
-          description: No Virtualclusters found.
+          description: No Virtual clusters found.
     put:
       tags:
-        - Virtualcluster
-      summary: Uploads an virtualcluster to the list of virtualclusters
-      description: Uploads an virtualcluster to the list of virtualclusters
+        - Virtual cluster
+      summary: Uploads an virtual cluster to the list of virtual clusters
+      description: Uploads an virtual cluster to the list of virtual clusters
       operationId: cloudmesh.virtualcluster.add
       requestBody:
-        description: The virtualcluster to be uploaded
+        description: The virtual cluster to be uploaded
         required: true
         content:
           application/json:
@@ -61,17 +61,17 @@ paths:
               $ref: '#/components/schemas/Virtualcluster'
       responses:
         '200':
-          description: Virtualcluster updated or created.
+          description: Virtual cluster updated or created.
         '400':
-          description: Error updateing Virtualcluster.
+          description: Error updateing Virtual cluster.
         '401':
           description: Not authorized.
   /virtualcluster/{name}:
     get:
       tags:
-        - Virtualcluster
-      summary: Returns the named virtualcluster
-      description: Returns an virtualcluster by name
+        - Virtual cluster
+      summary: Returns the named virtual cluster
+      description: Returns an virtual cluster by name
       operationId: cloudmesh.virtualcluster.find_by_name
       parameters:
         - name: name
@@ -79,7 +79,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualcluster
+          description: The name of the virtual cluster
       responses:
         '200':
           description: Retruning the information of the alias
@@ -88,16 +88,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Virtualcluster'
         '400':
-          description: No virtualcluster found.
+          description: No virtual cluster found.
         '401':
           description: Not authorized.
         '404':
-          description: The named virtualcluster could not be found.
+          description: The named virtual cluster could not be found.
     delete:
       tags:
-        - Virtualcluster
-      summary: Deletes the named virtualcluster
-      description: Deletes an virtualcluster by name
+        - Virtual cluster
+      summary: Deletes the named virtual cluster
+      description: Deletes an virtual cluster by name
       operationId: cloudmesh.virtualcluster.delete_by_name
       parameters:
         - name: name
@@ -105,22 +105,22 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualcluster
+          description: The name of the virtual cluster
       responses:
         '200':
           description: Deletion successful.
         '400':
-          description: No Virtualcluster found.
+          description: No Virtual cluster found.
         '401':
           description: Not authorized.
         '404':
-          description: The named virtualcluster could not be found.
+          description: The named virtual cluster could not be found.
   /virtualcluster/{name}/{nodename}:
     get:
       tags:
-        - Virtualcluster
-      summary: Node of the named virtualcluster
-      description: Returns the specific node of the named virtualcluster. If
+        - Virtual cluster
+      summary: Node of the named virtual cluster
+      description: Returns the specific node of the named virtual cluster. If
                    the node name is manager, the manager node is used. A
                    compute node can not be named manager
       operationId: cloudmesh.virtualcluster.node.get_by_name
@@ -130,7 +130,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualcluster
+          description: The name of the virtual cluster
         - name: nodename
           description: The nodename
           in: path
@@ -148,9 +148,9 @@ paths:
           description: Not authorized.
     put:
       tags:
-        - Virtualcluster
-      summary: Updates or adds a node to the virtualcluster
-      description: Updates or adds a node to the virtualcluster. If
+        - Virtual cluster
+      summary: Updates or adds a node to the virtual cluster
+      description: Updates or adds a node to the virtual cluster. If
         the node name is manager, the manager node is uploaded.
       operationId: cloudmesh.virtualcluster.node.add
       parameters:
@@ -159,7 +159,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualcluster
+          description: The name of the virtual cluster
       requestBody:
         description: The node to be uploaded
         required: true
@@ -174,9 +174,9 @@ paths:
           description: Not authorized.
     delete:
       tags:
-        - Virtualcluster
-      summary: Delete a node in the virtualcluster
-      description: Delete a node in the virtualcluster
+        - Virtual cluster
+      summary: Delete a node in the virtual cluster
+      description: Delete a node in the virtual cluster
       operationId: cloudmesh.virtualcluster.node.delete
       parameters:
         - name: name
@@ -184,7 +184,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualcluster
+          description: The name of the virtual cluster
         - name: username
           description: The nodename
           in: path

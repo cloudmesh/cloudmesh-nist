@@ -24,8 +24,8 @@ paths:
     get:
       tags:
         - Variable
-      summary: Returns a list of variables
-      description: Returns a list of all variables
+      summary: Returns a the variables
+      description: Returns the variables
       operationId: cloudmesh.variable.list
       responses:
         '200':
@@ -41,11 +41,11 @@ paths:
     put:
       tags:
         - Variable
-      summary: Set a variable
-      description: Sets the named variable
+      summary: Set the value of a variable
+      description: Set the value of the named variable
       operationId: cloudmesh.variable.add
       requestBody:
-        description: The new variable to create
+        description: The variable and its value
         required: true
         content:
           application/json:
@@ -63,7 +63,7 @@ paths:
       tags:
         - Variable
       summary: Returns the named variable
-      description: Returns a variable by name
+      description: Returns the named variable
       operationId: cloudmesh.variable.find_by_name
       parameters:
         - name: name

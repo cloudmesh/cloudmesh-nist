@@ -7,10 +7,10 @@ info:
   description: |-
   
    A security group defines the incoming and outgoing security rules
-   which can then be assigned to a node when a node is being created.
-   Once the node is up the connection to and from the node will be
-   decided by the security group rules, in addition to any other possible
-   rules applied on network devices or from the instance"s firewall
+   which can then be assigned to a node when a node.
+   The connection to and from the node will be
+   determined by the security group rules, in addition to any other possible
+   rules applied on network devices or from the instance's firewall
    settings.
    A security group may have one or multiple rules and a node may be
    associated with one or more security groups.
@@ -28,13 +28,13 @@ paths:
   /secgroup:
     get:
       tags:
-      - Secgroup
-      summary: Returns all secgroups
-      description: Returns all secgroups
+      - Security group
+      summary: Returns all security groups
+      description: Returns all security groups
       operationId: cloudmesh.secgroup.get
       responses:
         '200':
-          description: secgroup info
+          description: security group information
           content:
             application/json:
               schema:
@@ -48,9 +48,9 @@ paths:
   /secgroup/{name}:
     get:
       tags:
-      - Secgroup
-      summary: Return the secgroup by name
-      description: Return the secgroup by name
+      - Security group
+      summary: Return the security group by name
+      description: Return the security group by name
       operationId: cloudmesh.secgroup.get_by_name
       parameters:
         - name: name
@@ -60,7 +60,7 @@ paths:
           type: string
       responses:
         '200':
-          description: secgroup info
+          description: security group information
           content:
             application/json:
               schema:
@@ -71,15 +71,15 @@ paths:
           description: Not authorized.
     post:
       tags:
-      - Secgroup
-      summary: Create a new named secgroup
-      description: Create a new named secgroup
+      - Security group
+      summary: Create a new named security group
+      description: Create a new named security group
       operationId: cloudmesh.secgroup.add
       parameters:
         - in: path
           name: name
           required: true
-          description: The name of the secgroup to create
+          description: The name of the security group to create
           schema:
             type: string
       responses:
@@ -90,18 +90,18 @@ paths:
   /secgroup/{name}/rule:
     post:
       tags:
-      - Secgroup
+      - Security group
       summary: Create a new rule in the specified security group
-      description: Create a new rule in secgroup
+      description: Create a new rule in security group
       operationId: cloudmesh.secgroup.add_rule
       parameters:
         - in: path
           name: name
           required: true
-          description: The name of the new secgroup to create
+          description: The name of the new security group to create
           type: string
       requestBody:
-        description: The new secgroup rule to create
+        description: The new security group rule to create
         required: true
         content:
           application/json:
@@ -117,20 +117,20 @@ paths:
   /secgroup/{name}/rule/{rule}:
     get:
       tags:
-      - Secgroup
+      - Security group
       summary: Get an existing rule from the specified security group
-      description: Create a new rule in secgroup
+      description: Create a new rule in security group
       operationId: cloudmesh.secgroup.get_rule
       parameters:
         - in: path
           name: name
           required: true
-          description: The named of the secgroup from which the rule will be deleted
+          description: The named of the security group from which the rule will be deleted
           type: string
         - in: path
           name: rule
           required: true
-          description: The uuid of the rule to be deleted
+          description: The rule to be added
           type: string
       responses:
         '200':
@@ -145,9 +145,9 @@ paths:
           description: Not authorized.
     delete:
       tags:
-      - Secgroup
+      - Security group
       summary: Delete an existing rule from the specified security group
-      description: Create a new rule in secgroup
+      description: Create a new rule in security group
       operationId: cloudmesh.secgroup.delete_rule
       parameters:
         - in: path
@@ -158,7 +158,7 @@ paths:
         - in: path
           name: rule
           required: true
-          description: The uuid of the rule to be deleted
+          description: The rule to be deleted
           type: string
       responses:
         '200':
@@ -173,27 +173,24 @@ components:
       type: object
       description: the security group object
       properties:
-        uuid:
-          type: string
-          description: Unique identifier of the security group
         name:
           type: string
-          description: name of the secgroup
+          description: name of the security group
         description:
           type: string
-          description: describes what the secgroup is for
+          description: describes what the security group is for
         rules:
           type: array
-          description: List of Secgroup rules
+          description: List of Security group rules
           items:
             $ref: "#/components/schemas/SecGroupRule"
     SecGroupRule:
       type: object
       description: security group rule
       properties:
-        uuid:
+        name:
           type: string
-          description: Unique identifier of the rule
+          description: Unique name of the rule
         ingress:
           type: boolean
           description: The defined security group rule is for ingress if True

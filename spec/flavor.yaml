@@ -6,8 +6,8 @@ info:
   title: Flavor
   description: |-
   
-    The flavor specifies elementary information about a compute
-    node. This information includes name, id, label, ram size,
+    The flavor specifies elementary information about a virtual machine
+    or compute node. This information includes name, id, label, ram size,
     swap size, disk space, availability of ephemeral disk, available
     bandwidth, price value, cloud name. Flavors and the corresponding
     information are essential to size a

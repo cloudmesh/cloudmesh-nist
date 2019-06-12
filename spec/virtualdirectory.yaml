@@ -23,13 +23,13 @@ paths:
   /virtualdirectory:
     get:
       tags:
-        - Virtualdirectory
-      summary: Returns a list of virtualdirectorys
-      description: Returns a list of all virtualdirectorys
-      operationId: cloudmesh.virtualdirectory.list
+        - Virtual directory
+      summary: Returns a list of virtual directories
+      description: Returns a list of all virtual directories
+      operationId: cloudmesh.virtual directory.list
       responses:
         '200':
-          description: The list of virtualdirectorys
+          description: The list of virtual directories
           content:
             application/json:
               schema:
@@ -37,17 +37,17 @@ paths:
                 items:
                   $ref: '#/components/schemas/Virtualdirectory'
         '400':
-          description: No Virtualdirectorys found.
+          description: No virtual directories found.
         '401':
           description: Not authorized.
     put:
       tags:
-        - Virtualdirectory
-      summary: Uploads a virtualdirectory to the list of virtualdirectorys
-      description: Uploads a virtualdirectory to the list of virtualdirectorys
-      operationId: cloudmesh.virtualdirectory.add
+        - Virtual directory
+      summary: Uploads a virtual directory to the list of virtual directories
+      description: Uploads a virtual directory to the list of virtual directories
+      operationId: cloudmesh.virtual directory.add
       requestBody:
-        description: The virtualdirectory to be uploaded
+        description: The virtual directory to be uploaded
         required: true
         content:
           application/json:
@@ -55,17 +55,17 @@ paths:
               $ref: '#/components/schemas/Virtualdirectory'
       responses:
         '200':
-          description: Virtualdirectory updated.
+          description: Virtual directory updated.
         '400':
-          description: Error updateing Virtualdirectory.
+          description: Error updateing virtual directory.
         '401':
           description: Not authorized.
   /virtualdirectory/{name}:
     get:
       tags:
-        - Virtualdirectory
-      summary: Returns the named virtualdirectory
-      description: Returns an virtualdirectory by name
+        - Virtual directory
+      summary: Returns the named virtual directory
+      description: Returns an virtual directory by name
       operationId: cloudmesh.virtualdirectory.find_by_name
       parameters:
         - name: name
@@ -73,7 +73,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualdirectory
+          description: The name of the virtual directory
       responses:
         '200':
           description: Retruning the information of the alias
@@ -82,16 +82,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Virtualdirectory'
         '400':
-          description: No virtualdirectory found.
+          description: No virtual directory found.
         '401':
           description: Not authorized.
         '404':
-          description: The named virtualdirectory could not be found.
+          description: The named virtual directory could not be found.
     delete:
       tags:
-        - Virtualdirectory
-      summary: Deletes the named virtualdirectory
-      description: Deletes an virtualdirectory by name
+        - Virtual directory
+      summary: Deletes the named virtual directory
+      description: Deletes an virtual directory by name
       operationId: cloudmesh.virtualdirectory.delete_by_name
       parameters:
         - name: name
@@ -99,23 +99,23 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualdirectory
+          description: The name of the virtual directory
       responses:
         '200':
           description: Deletion successful.
         '400':
-          description: No Virtualdirectory found.
+          description: No Virtual directory found.
         '401':
           description: Not authorized.
         '404':
-          description: The named virtualdirectory could not be found.
+          description: The named virtual directory could not be found.
 
   /virtualdirectory/{name}/{filename}:
     get:
       tags:
-        - Virtualdirectory
-      summary: Returns the specific file of that virtualdirectory
-      description: Returns the specific file of that virtualdirectory
+        - Virtual directory
+      summary: Returns the specific file of that virtual directory
+      description: Returns the specific file of that virtual directory
       operationId: cloudmesh.virtualdirectory.file.get_by_name
       parameters:
         - name: name
@@ -123,7 +123,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualdirectory
+          description: The name of the virtual directory
         - name: filename
           description: The filename
           in: path
@@ -141,9 +141,9 @@ paths:
           description: Not authorized.
     put:
       tags:
-        - Virtualdirectory
-      summary: Updates or adds a virtual file  in the virtualdirectory
-      description: Updates or adds a virtual file in the virtualdirectory
+        - Virtual directory
+      summary: Updates or adds a virtual file  in the virtual directory
+      description: Updates or adds a virtual file in the virtual directory
       operationId: cloudmesh.virtualdirectory.file.add
       parameters:
         - name: name
@@ -151,7 +151,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualdirectory
+          description: The name of the virtual directory
       requestBody:
         description: The user to be uploaded
         required: true
@@ -166,9 +166,9 @@ paths:
           description: Not authorized.
     delete:
       tags:
-        - Virtualdirectory
-      summary: Delete an user in the virtualdirectory
-      description: Delete an user in the virtualdirectory
+        - Virtual directory
+      summary: Delete an user in the virtual directory
+      description: Delete an user in the virtual directory
       operationId: cloudmesh.virtualdirectory.file.delete
       parameters:
         - name: name
@@ -176,7 +176,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the virtualdirectory
+          description: The name of the virtual directory
         - name: username
           description: The username
           in: path
@@ -192,7 +192,7 @@ components:
   schemas:
     Virtualdirectory:
       type: object
-      description: the virtualdirectory
+      description: the virtual directory
       properties:
         name:
           description: The name of the virtual directory

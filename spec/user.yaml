@@ -8,16 +8,14 @@ info:
 
     Services need to specify which users have access to them. User
     information can be reused in other services and organized in a virtual
-    organization. User can be added to a named list of users.
-    be added, removed, and listed. A group associated with the user can be used
-    to augment users to be part of one or more groups.
-
-    We distingush therefor the following Terminology
+    organization. A user can be added to a named list of users. A group
+    associated with the user can be used to augment users to be part of one or
+    more groups. The following terminology is distinguished
 
     * *Group*: A user can be part of a group.
     * *Organization*: An organization the user belongs to.
 
-    To which a user can be added.
+    Typically an organization has multiple groups.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -128,7 +126,7 @@ components:
           description: The unique username associated with the user
         firstname:
           type: string
-          description: The firstanme of the user
+          description: The firstname of the user
         lastname:
           type: string
           description: The lastname of the user

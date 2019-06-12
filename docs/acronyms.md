@@ -106,7 +106,7 @@ Software Stack
 : A set of programs and services that are installed on a
   resource to support applications.
 
-Virtual Filesysyem
+Virtual File System
 
 : An abstraction layer on top of a distributed physical
   file system to allow easy access to the files by the user or

@@ -25,8 +25,8 @@ paths:
     get:
       tags:
         - Container
-      summary: Returns a list of containeres
-      description: Returns a list of all containeres
+      summary: Returns a list of containers
+      description: Returns a list of all containers
       operationId: cloudmesh.container.list
       responses:
         '200':
