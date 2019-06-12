@@ -130,8 +130,8 @@ pdf: spec  dest rest epub
 	cp -rf images dest
 #	cd dest; pandoc -H headers-include.tex $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT) $(LATEX) -V geometry:margin=1in -V fontsize=9pt --toc -s $(FILE).md -o $(FILE).pdf
-	cp $(DEST)/$(FILE).pdf .
-	open $(FILE).pdf .
+	cp $(DEST)/$(FILE)-latex.pdf .
+	# open $(FILE)-latex.pdf .
 
 tex: spec
 	cp *.tex dest
@@ -153,6 +153,10 @@ all:
 
 #pdf:
 #        cd dest; pandoc -f markdown+smart --toc --epub-embed-font='fonts/*.ttf' -V geometry:margin=0.5in --bibliography references.bib --csl=../../template/ieee.csl# -o $(FILENAME).pdf metadata.txt $(INDEX)
+
+cpdf: epub
+	cd $(DEST); ebook-convert  $(FILE).epub $(FILE)-calibre.pdf --base-font-size=10 --embed-all-fonts
+	cp $(DEST)/$(FILE)-calibre.pdf .
 
 clean:
 	rm -rf dest

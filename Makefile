@@ -1,6 +1,6 @@
 OBJECTS=keystore profile virtualcluster virtualdirectory
 
-.PHONY: service
+.PHONY: service pdf
 
 doc:
 	cd docs; make
@@ -8,10 +8,19 @@ doc:
 word:
 	cd docs; make word
 
+html:
+	cd docs; make html
+
+pdf:
+	cd docs; make cpdf
+	cd docs; make pdf
+
+all: doc word pdf html
+
 view:
 	open docs/dest/nistvol8-2.epub 
 
-all: service controller
+code: service controller
 	@echo
 
 service:
