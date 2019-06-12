@@ -56,7 +56,8 @@ paths:
           description: name of the database
           in: path
           required: true
-          type: string
+          schema:
+            type: string
       responses:
         '200':
           description: database info
@@ -82,7 +83,8 @@ paths:
           description: name of the collections or tables
           in: path
           required: true
-          type: string
+          schema:
+            type: string
       responses:
         '200':
           description: "successfully returned the list"
@@ -109,7 +111,8 @@ paths:
           description: name of the collections or tables
           in: path
           required: true
-          type: string
+          schema:
+            type: string
       responses:
         '200':
           description: "successfully returned the list"
@@ -135,21 +138,24 @@ paths:
         description: name of the database
         in: path
         required: true
-        type: string
+        schema:
+          type: string
       - name: table_or_collection
         description: name of the table or collection
         in: path
         required: true
-        type: string
-      - name: "query"
-        in: "query"
-        description: "Database Query"
+        schema:
+          type: string
+      requestBody:
+        description: Database Query
         required: true
-        type: "string"
-        format: base64
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Query'
       responses:
         '200':
-          description: "successfully ran the Query"
+          description: successfull query
           content:
             application/json:
               schema:
@@ -173,20 +179,21 @@ paths:
         description: name of the database
         in: path
         required: true
-        type: string
+        schema:
+          type: string
       - name: table_or_collection
         description: name of the table or collection
         in: path
         required: true
-        type: string
-      - name: record
-        in: path
+        schema:
+          type: string
+      requestBody:
+        description: Record to be uploaded
+        required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/Record"
-        description: "Information to be uploaded"
-        required: true
       responses:
         '200':
           description: "successfully uploaded"
@@ -250,4 +257,11 @@ components:
         result:
           type: string
           description: The result of the quesry in json string format
+    Query:
+      type: object
+      description: The  query
+      properties:
+        status:
+          type: string
+          description: The query string
 

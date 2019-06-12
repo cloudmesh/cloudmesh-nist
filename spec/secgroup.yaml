@@ -57,7 +57,8 @@ paths:
           description: name of the security group
           in: path
           required: true
-          type: string
+          schema:
+            type: string
       responses:
         '200':
           description: security group information
@@ -99,7 +100,8 @@ paths:
           name: name
           required: true
           description: The name of the new security group to create
-          type: string
+          schema:
+            type: string
       requestBody:
         description: The new security group rule to create
         required: true
@@ -126,12 +128,14 @@ paths:
           name: name
           required: true
           description: The named of the security group from which the rule will be deleted
-          type: string
+          schema:
+            type: string
         - in: path
           name: rule
           required: true
           description: The rule to be added
-          type: string
+          schema:
+            type: string
       responses:
         '200':
           description: The security group rule definition info
@@ -154,12 +158,14 @@ paths:
           name: name
           required: true
           description: The named of the secgroup from which the rule will be deleted
-          type: string
+          schema:
+            type: string
         - in: path
           name: rule
           required: true
           description: The rule to be deleted
-          type: string
+          schema:
+            type: string
       responses:
         '200':
           description: Deleted.

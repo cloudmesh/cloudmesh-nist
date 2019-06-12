@@ -112,7 +112,31 @@ def section_link_from_ref(response):
         link = "Integer"
     response["link"] = link
     return response
-            
+
+def schema_from_parameter(response):
+    # See [section one](#section-one).
+    link = ""
+
+    if 'schema' in response:
+        response["link"] = ""
+        if '$ref' in response['schema']:
+            response["section"] = response['schema']['$ref'].replace("#/components/schemas/", "")
+            if "yaml" in response["section"]:
+                response["section"] = response["section"].split("yaml")[1]
+            response["lsection"] = response["section"].lower()
+            response["link"] = "[{section}](#{lsection})".format(**response)
+
+
+        elif 'type' in response['schema']:
+            response["section"] = response['schema']['type'].capitalize()
+            response["lsection"] = response["section"].lower()
+            response["link"] = response["section"].capitalize()
+
+    else:
+        print ("ERROR:", response)
+
+    return response
+
 def convert_paths(filename, indent=1):
      with open(filename, "r") as f:
         spec = yaml.load(f,  Loader=yaml.SafeLoader)
@@ -199,19 +223,29 @@ def convert_paths(filename, indent=1):
                         parameters = paths[path][method]['parameters']
                         print ("Parameters")
                         print()
+
+
                     except Exception as e:
                         parameters = None
                     if parameters is not None:
                         print ("| Name | Located in | Description | Required | Schema |")
                         print ("| --- | --- | ------------- | --- | --- |")
                         for parameter in parameters:
+
+
                             if "required" not in parameter:
                                parameter['required'] = False
                             if "description" not in parameter:
                                parameter['description'] = "ERROR: description missing"
-                            parameter = section_link_from_ref(parameter)
+                            try:
+                                parameter = schema_from_parameter(parameter)
+
+                            except Exception as e:
+                                print ("ERROR", e)
 
                             print ("| {name} | {in} | {description} | {required} | {link} | ".format(**parameter))
+                        print()
+
                 print ()
 
 def analyse():
