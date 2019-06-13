@@ -2,7 +2,7 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 008-06-2019
+  x-date: 08-06-2019
   x-status: defined
   title: Network of Nodes
   description: |-
@@ -24,7 +24,7 @@ info:
   license:
     name: Apache 2.0
     url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
-ervers:
+servers:
   - url: /cloudmesh/v3
 paths:
   /non:
@@ -74,6 +74,13 @@ paths:
       summary: Returns the information of the keystore
       description: Returns an non by name
       operationId: cloudmesh.non.keystore.find_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the non
       responses:
         '200':
           description: Returning the information of the alias
@@ -91,7 +98,14 @@ paths:
         - Non
       summary: Deletes the keystore
       description: Deletes an non by name
-      operationId: cloudmesh.non.keystore,delete
+      operationId: cloudmesh.non.keystore.delete
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the non
       responses:
         '200':
           description: Deletion successful.
@@ -106,7 +120,7 @@ paths:
       description: Updates or adds a node to the non.
       operationId: cloudmesh.non.keystore.add
       parameters:
-        - name: endpoint
+        - name: name
           in: path
           required: true
           schema:
@@ -208,6 +222,12 @@ paths:
           schema:
             type: string
           description: The name of the non
+        - name: nodename
+          description: The nodename
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         description: The node to be uploaded
         required: true
@@ -233,7 +253,7 @@ paths:
           schema:
             type: string
           description: The name of the non
-        - name: username
+        - name: nodename
           description: The nodename
           in: path
           required: true

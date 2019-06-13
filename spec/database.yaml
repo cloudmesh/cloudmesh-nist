@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 008-06-2019
+  x-date: 08-06-2019
   x-status: TODO
   title: Database
   description: |-
@@ -134,25 +134,24 @@ paths:
       description: ""
       operationId: "cloudmesh.database.data.get"
       parameters:
-      - name: name
-        description: name of the database
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: table_or_collection
-        description: name of the table or collection
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        description: Database Query
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Query'
+        - name: name
+          description: name of the database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: table_or_collection
+          description: name of the table or collection
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: query
+          description: Database Query
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/Query'
       responses:
         '200':
           description: successfull query
@@ -175,18 +174,18 @@ paths:
       description: ""
       operationId: "cloudmesh.database.data.put"
       parameters:
-      - name: name
-        description: name of the database
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: table_or_collection
-        description: name of the table or collection
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: name
+          description: name of the database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: table_or_collection
+          description: name of the table or collection
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         description: Record to be uploaded
         required: true

@@ -1,9 +1,9 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 008-06-2019
+  x-date: 08-06-2019
   x-status: TODO
-  title: Scheduler
+  title: Queue
   description: |-
   
     The queue is a special scheduler that allows tasks to be scheduled
@@ -48,7 +48,7 @@ paths:
         - Task
       summary: Returns information about the task that is to be scheduled next
       description: Returns the next task
-      operationId: cloudmesh.task.next
+      operationId: cloudmesh.task.info
       responses:
         '200':
           description: The task
@@ -67,10 +67,10 @@ paths:
       tags:
         - Task
       summary: Removes the next task to be scheduled, but does not
-      exualle executes it.
-      scheduled next
+               exualle executes it.
+               scheduled next
       description: Returns the next task
-      operationId: cloudmesh.task.next
+      operationId: cloudmesh.task.pop
       responses:
         '200':
           description: The task
@@ -178,8 +178,8 @@ paths:
       tags:
         - Task
       summary: Returns the policy
-      description: Returns the polocy
-      operationId: cloudmesh.task.list
+      description: Returns the policy
+      operationId: cloudmesh.task.policy.list
       responses:
         '200':
           description: The policy
@@ -190,7 +190,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Policy'
         '400':
-          description: No Tasks found.
+          description: No tasks found.
         '401':
           description: Not authorized.
     put:
@@ -198,19 +198,19 @@ paths:
         - Task
       summary: Uploads the policy
       description: Uploads a task to the list of tasks
-      operationId: cloudmesh.task.add
+      operationId: cloudmesh.task.policy.add
       requestBody:
-        description: The task to be uploaded
+        description: The policy to be uploaded
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Task'
+              $ref: '#/components/schemas/Policy'
       responses:
         '200':
           description: Task updated.
         '400':
-          description: Error updateing Task.
+          description: Error updateing .
         '401':
           description: Not authorized.
 components:
@@ -223,7 +223,7 @@ components:
           type: string
           description: name of the scheduler
         user:
-          type: name
+          type: string
           description: the username the task belongs to
         description:
           type: string

@@ -2,7 +2,7 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 008-06-2019
+  x-date: 08-06-2019
   x-status: TODO
   title: Virtual Cluster
   description: |-
@@ -160,6 +160,12 @@ paths:
           schema:
             type: string
           description: The name of the virtual cluster
+        - name: nodename
+          description: The nodename
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         description: The node to be uploaded
         required: true
@@ -185,7 +191,7 @@ paths:
           schema:
             type: string
           description: The name of the virtual cluster
-        - name: username
+        - name: nodename
           description: The nodename
           in: path
           required: true

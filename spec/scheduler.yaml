@@ -1,13 +1,15 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 008-06-2019
+  x-date: 08-06-2019
   x-status: TODO
   title: Scheduler
   description: |-
   
-    The scheduler is a service to execute tasks based on a scheduling policy.
-    A scheduler returns the next task to be executed. Tasks can be added and
+    The queue is a special scheduler that allows tasks to be scheduled
+    witle doing queue policies, such as LIFO, FIFO, and so on.
+    A queue returns the next task to be executed. Tasks can be added
+     and
     deleted.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
@@ -36,17 +38,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
-        '401':
-          description: Not authorized.
         '400':
           description: No Tasks found.
+        '401':
+          description: Not authorized.
   /task/info:
     get:
       tags:
         - Task
       summary: Returns information about the task that is to be scheduled next
       description: Returns the next task
-      operationId: cloudmesh.task.next
+      operationId: cloudmesh.task.info
       responses:
         '200':
           description: The task
@@ -56,17 +58,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
-        '401':
-          description: Not authorized.
         '400':
           description: No Tasks found.
+        '401':
+          description: Not authorized.
   /task/pop:
     get:
       tags:
         - Task
-      summary: Removes the next task to be scheduled, but does not executes it.
+      summary: Removes the next task to be scheduled, but does not
+               exualle executes it.
+               scheduled next
       description: Returns the next task
-      operationId: cloudmesh.task.next
+      operationId: cloudmesh.task.pop
       responses:
         '200':
           description: The task
@@ -175,7 +179,7 @@ paths:
         - Task
       summary: Returns the policy
       description: Returns the polocy
-      operationId: cloudmesh.task.list
+      operationId: cloudmesh.task.policy.list
       responses:
         '200':
           description: The policy
@@ -194,14 +198,14 @@ paths:
         - Task
       summary: Uploads the policy
       description: Uploads a task to the list of tasks
-      operationId: cloudmesh.task.add
+      operationId: cloudmesh.task.policy.add
       requestBody:
-        description: The task to be uploaded
+        description: The Policy
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Task'
+              $ref: '#/components/schemas/Policy'
       responses:
         '200':
           description: Task updated.
@@ -219,7 +223,7 @@ components:
           type: string
           description: name of the scheduler
         user:
-          type: name
+          type: string
           description: the username the task belongs to
         description:
           type: string
