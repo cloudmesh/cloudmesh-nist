@@ -94,7 +94,7 @@ paths:
           description: The name of the vm
       responses:
         '200':
-          description: Retruning the information of the vm
+          description: Returning the information of the vm
           content:
             application/json:
               schema:

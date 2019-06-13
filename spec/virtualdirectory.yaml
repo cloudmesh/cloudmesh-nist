@@ -76,7 +76,7 @@ paths:
           description: The name of the virtual directory
       responses:
         '200':
-          description: Retruning the information of the alias
+          description: Returning the information of the alias
           content:
             application/json:
               schema:

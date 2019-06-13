@@ -74,7 +74,7 @@ paths:
           description: The name of the nic
       responses:
         '200':
-          description: Retruning the information of the nic
+          description: Returning the information of the nic
           content:
             application/json:
               schema:

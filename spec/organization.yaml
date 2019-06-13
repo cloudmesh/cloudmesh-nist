@@ -118,6 +118,13 @@ paths:
       summary: Returns all users of the organization
       description: Returns all users of the organization
       operationId: cloudmesh.organization.user.list
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
       responses:
         '200':
           description: organization info
@@ -212,9 +219,16 @@ paths:
       summary: Returns all group names
       description: Returns all group names
       operationId: cloudmesh.organization.group.list
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
       responses:
         '200':
-          description: Retruning the information of the alias
+          description: Returning the information of the alias
           content:
             application/json:
               type: array

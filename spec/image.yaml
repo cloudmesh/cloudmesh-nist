@@ -95,7 +95,7 @@ paths:
           description: The name of the image
       responses:
         '200':
-          description: Retruning the information of the image
+          description: Returning the information of the image
           content:
             application/json:
               schema:

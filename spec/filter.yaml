@@ -73,7 +73,7 @@ paths:
           description: The name of the filter
       responses:
         '200':
-          description: Retruning the information of the filter
+          description: Returning the information of the filter
           content:
             application/json:
               schema:

@@ -137,6 +137,25 @@ def schema_from_parameter(response):
 
     return response
 
+
+def parse_schema(element):
+
+
+    if '$ref' in element:
+        section = element['$ref'].replace("#/components/schemas/", "")
+        if "yaml" in section:
+            section = section.split("yaml")[1]
+        lsection = section.lower()
+        link = f"[{section}](#{lsection})"
+
+    elif 'type' in element:
+        section = element['type'].capitalize()
+        link = section.capitalize()
+
+    return link
+
+
+
 def convert_paths(filename, indent=1):
      with open(filename, "r") as f:
         spec = yaml.load(f,  Loader=yaml.SafeLoader)
@@ -245,6 +264,29 @@ def convert_paths(filename, indent=1):
 
                             print ("| {name} | {in} | {description} | {required} | {link} | ".format(**parameter))
                         print()
+
+
+                   #
+                    #Request BODY
+                    #
+                    # print ((indent + 3) * "#", "PARAMETERS")
+                    parameters = None
+
+                    if 'requestBody' in paths[path][method]:
+
+                        schema = paths[path][method]['requestBody']['content']['application/json']['schema']
+                        description = paths[path][method]['requestBody']['description']
+                        required = paths[path][method]['requestBody']['required']
+
+                        print ("Request Body")
+                        print()
+
+                        print ("| Located in | Description | Required | Schema |")
+                        print ("| --- | --- | ------------- | --- | --- |")
+                        link = parse_schema(schema)
+                        print (f"| Body | {description} | {required} | {link} | ")
+                    print()
+
 
                 print ()
 

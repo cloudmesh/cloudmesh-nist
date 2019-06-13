@@ -99,7 +99,7 @@ paths:
           description: The name of the flavor
       responses:
         '200':
-          description: Retruning the information of the flavor
+          description: Returning the information of the flavor
           content:
             application/json:
               schema:

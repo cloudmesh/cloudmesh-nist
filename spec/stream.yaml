@@ -78,7 +78,7 @@ paths:
           description: The name of the stream
       responses:
         '200':
-          description: Retruning the information of the stream
+          description: Returning the information of the stream
           content:
             application/json:
               schema:
