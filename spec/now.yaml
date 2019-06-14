@@ -44,9 +44,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Non'
         '400':
-          description: No Nons found.
+          description: No Nons found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Non
@@ -64,9 +64,9 @@ paths:
         '200':
           description: Non updated or created.
         '400':
-          description: Error updateing Non.
+          description: Error updating Non.
         '401':
-          description: Not authorized.
+          description: Not authorized
   /non/{name}/publickeystore:
     get:
       tags:
@@ -83,16 +83,16 @@ paths:
           description: The name of the non
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the non
           content:
             application/json:
               schema:
                 type: string
                 description: the endpoint of the publickeystore
         '400':
-          description: No non found.
+          description: No non found
         '401':
-          description: Not authorized.
+          description: Not authorized
     delete:
       tags:
         - Non
@@ -108,11 +108,11 @@ paths:
           description: The name of the non
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-          description: No Non found.
+          description: No Non found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Non
@@ -130,7 +130,7 @@ paths:
         '200':
            description: Node keystore added sucessfully
         '401':
-          description: Not authorized.
+          description: Not authorized
   /non/{name}/node:
     get:
       tags:
@@ -147,17 +147,17 @@ paths:
           description: The name of the non
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the node
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Non'
         '400':
-          description: No non found.
+          description: No non found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named non could not be found.
+          description: The named non could not be found
     delete:
       tags:
         - Non
@@ -173,19 +173,19 @@ paths:
           description: The name of the non
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-          description: No Non found.
+          description: No Non found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named non could not be found.
+          description: The named non could not be found
   /non/{name}/node/{nodename}:
     get:
       tags:
         - Non
       summary: Node of the named non
-      description: Returns the specific node of the named non. I
+      description: Returns the specific node of the named non.
       operationId: cloudmesh.non.node.get_by_name
       parameters:
         - name: name
@@ -208,12 +208,12 @@ paths:
               schema:
                 $ref: "virtualcluster.yaml#/components/schemas/Node"
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Non
       summary: Updates or adds a node to the non
-      description: Updates or adds a node to the non.
+      description: Updates or adds a node to the non
       operationId: cloudmesh.non.node.add
       parameters:
         - name: name
@@ -239,7 +239,7 @@ paths:
         '200':
            description: Node added sucessfully
         '401':
-          description: Not authorized.
+          description: Not authorized
     delete:
       tags:
         - Non
@@ -261,9 +261,9 @@ paths:
             type: string
       responses:
         '200':
-           description: Deletion successful.
+           description: Deletion successful
         '401':
-          description: Not authorized.
+          description: Not authorized
 components:
   schemas:
     Non:

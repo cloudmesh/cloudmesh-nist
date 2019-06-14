@@ -1,16 +1,17 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 008-06-2019
+  x-date: 14-06-2019
   x-status: defined
   title: Organization
   description: |-
 
     An important concept in many services is the management of a group
     of users in an organization. Within an organization we distinguish
-    different groups of users and within a Group we can have different roles
-    users can fulfill. Such groups and rolls can be used to specify access
-    rights to services.
+    different groups of users and within a Group. Groups can be used to
+    charachterize differnt roles users can fulfill. Users can belong to
+    multiple groups. Such groups can also be used to specify access rights to
+    services.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -39,9 +40,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Organization'
         '400':
-           description: No Organizations found.
+           description: No Organizations found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Organization
@@ -57,11 +58,11 @@ paths:
               $ref: '#/components/schemas/Organization'
       responses:
         '200':
-          description: Organization updated.
+          description: Organization updated
         '400':
-          description: Error updateing Organization.
+          description: Error updating organization.
         '401':
-          description: Not authorized.
+          description: Not authorized
   /organization/{name}:
     get:
       tags:
@@ -78,17 +79,17 @@ paths:
           description: The name of the organization
       responses:
         '200':
-          description: Retruning the information of the alias
+          description: Retruning the information of the organization
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Organization'
         '400':
-           description: No organization found.
+           description: No organization found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named organization could not be found.
+           description: The named organization could not be found
     delete:
       tags:
         - Organization
@@ -104,13 +105,13 @@ paths:
           description: The name of the organization
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Organization found.
+           description: No organization found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named organization could not be found.
+           description: The named organization could not be found
   /organization/{name}/user:
     get:
       tags:
@@ -127,13 +128,13 @@ paths:
           description: The name of the organization
       responses:
         '200':
-          description: organization info
+          description: The organization
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Organization"
         '401':
-          description: Not authorized.
+          description: Not authorized
   /organization/{name}/user/{username}:
     get:
       tags:
@@ -156,13 +157,13 @@ paths:
             type: string
       responses:
         '200':
-          description: organization info
+          description: The user
           content:
             application/json:
               schema:
                 $ref: "user.yaml#/components/schemas/User"
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Organization
@@ -193,7 +194,7 @@ paths:
         '200':
           description: User added sucessfully
         '401':
-          description: Not authorized.
+          description: Not authorized
     delete:
       tags:
         - Organization
@@ -215,9 +216,9 @@ paths:
             type: string
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '401':
-          description: Not authorized.
+          description: Not authorized
   /organization/{name}/group/:
     get:
       tags:
@@ -234,7 +235,7 @@ paths:
           description: The name of the organization
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the group
           content:
             application/json:
               schema:
@@ -242,11 +243,11 @@ paths:
                 items:
                   type: string
         '400':
-           description: No group found.
+           description: No group found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named group could not be found.
+           description: The named group could not be found
   /organization/{name}/group/{groupname}:
     get:
       tags:
@@ -269,13 +270,13 @@ paths:
             type: string
       responses:
         '200':
-          description: organization info
+          description: The group
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Group"
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Organization
@@ -290,7 +291,7 @@ paths:
             type: string
           description: The name of the group
         - name: groupname
-          description: The groupname
+          description: The group name
           in: path
           required: true
           schema:
@@ -299,7 +300,7 @@ paths:
         '200':
           description: Group added sucessfully
         '401':
-          description: Not authorized.
+          description: Not authorized
     delete:
       tags:
         - Organization
@@ -314,16 +315,16 @@ paths:
             type: string
           description: The name of the organization
         - name: groupname
-          description: The groupname
+          description: The group name
           in: path
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '401':
-          description: Not authorized.
+          description: Not authorized
   /organization/{name}/group/{groupname}/{username}:
     put:
       tags:
@@ -339,7 +340,7 @@ paths:
             type: string
           description: The name of the group
         - name: groupname
-          description: The groupname
+          description: The group name
           in: path
           required: true
           schema:
@@ -354,9 +355,9 @@ paths:
         '200':
           description: Group added sucessfully
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The organization or group could not be found.
+          description: The organization or group could not be found
 components:
   schemas:
     Organization:
@@ -366,13 +367,13 @@ components:
           description: Name of the organization
           type: string
         users:
-          description: list of users
+          description: List of users
           type: array
           items:
             $ref: "user.yaml#/components/schemas/User"
     Group:
       type: object
-      description: the groups
+      description: The groups
       properties:
         name:
           type: string
@@ -381,7 +382,7 @@ components:
           type: string
           description: The description of the group
         users:
-          description: The user names that are member of the group
+          description: The user names that are members of the group
           type: array
           items:
             type: string

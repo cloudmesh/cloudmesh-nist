@@ -39,9 +39,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No Tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task/info:
     get:
       tags:
@@ -59,9 +59,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No Tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task/pop:
     get:
       tags:
@@ -81,9 +81,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No Tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task:
     get:
       tags:
@@ -101,9 +101,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No Tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Task
@@ -119,11 +119,11 @@ paths:
               $ref: '#/components/schemas/Task'
       responses:
         '200':
-          description: Task updated.
+          description: Task updated
         '400':
-          description: Error updateing Task.
+          description: Error updating Task.
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task/{name}:
     get:
       tags:
@@ -140,17 +140,17 @@ paths:
           description: The name of the task
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the task
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
         '400':
-          description: No task found.
+          description: No task found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named task could not be found.
+          description: The named task could not be found
     delete:
       tags:
         - Task
@@ -166,18 +166,18 @@ paths:
           description: The name of the task
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-          description: No Task found.
+          description: No Task found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named task could not be found.
+          description: The named task could not be found
   /policy:
     get:
       tags:
         - Task
-      summary: Returns the policy
+      summary: Returns the policy found
       description: Returns the policy
       operationId: cloudmesh.task.policy.list
       responses:
@@ -190,9 +190,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Policy'
         '400':
-          description: No tasks found.
+          description: No tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Task
@@ -208,11 +208,11 @@ paths:
               $ref: '#/components/schemas/Policy'
       responses:
         '200':
-          description: Task updated.
+          description: Task updated
         '400':
-          description: Error updateing .
+          description: Error updating
         '401':
-          description: Not authorized.
+          description: Not authorized
 components:
   schemas:
     Task:

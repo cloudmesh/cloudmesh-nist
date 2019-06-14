@@ -1,13 +1,13 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 14-06-2019
+  x-status: defined
   title: File
   description: |-
   
-    A filestore is a resource allowing storage of data as a traditional file.
-    Instead of using the name filestore we simply use the name file.
+    A file store is a resource allowing storage of data as a traditional file.
+    Instead of using the name *filestore* we simply use the name *file*.
     A file store can contanin any number of files with additional attributes
     describing the file. An file store is typically located on the same cloud
     services. This contrasts virtual directories that are just pointers to
@@ -27,7 +27,7 @@ paths:
     get:
       tags:
         - File
-      summary: Returns a list of files in the filestore
+      summary: Returns a list of files in the file store
       description: Returns a list of all files
       operationId: cloudmesh.file.list
       responses:
@@ -40,12 +40,12 @@ paths:
                 items:
                   $ref: '#/components/schemas/File'
         '400':
-          description: No Files found.
+          description: No files found
     put:
       tags:
         - File
       summary: Uploads a file to the list of files in the file store
-      description: Uploads a file to the list of files in the filestore
+      description: Uploads a file to the list of files in the file store
       operationId: cloudmesh.file.add
       requestBody:
         description: The file to be uploaded
@@ -58,16 +58,16 @@ paths:
 
       responses:
         '200':
-          description: File updated.
+          description: File updated
         '400':
-          description: Error updateing File.
+          description: Error updating file.
 
   /file/{name}:
     get:
       tags:
         - File
-      summary: Returns the named file in the filestore
-      description: Returns an file by name in the filestore
+      summary: Returns the named file in the file store
+      description: Returns an file by name in the file store
       operationId: cloudmesh.file.find_by_name
       parameters:
         - name: name
@@ -78,17 +78,17 @@ paths:
           description: The name of the file
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the file store
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/File'
         '400':
-          description: No file found.
+          description: No file found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named file could not be found.
+          description: The named file could not be found
     delete:
       tags:
         - File
@@ -104,13 +104,13 @@ paths:
           description: The name of the file
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-          description: No File found.
+          description: No file found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named file could not be found.
+          description: The named file could not be found
 components:
   schemas:
     File:

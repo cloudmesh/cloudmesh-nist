@@ -915,8 +915,7 @@ requirements, which are driven from the Big Data Application Provider.
 
 # Specification Paradigm {#sec:spec-paradigm}
 
-This section summarizes the elementary services that are important to the
-NBDRA.
+This section summarizes the elementary specification paradigm.
 
 ## Hybrid and Multiple Frameworks
 
@@ -940,8 +939,7 @@ resource objects.
 ## Design by Example
 
 To accelerate discussion among the NBD-PWG members, contributors to
-this document are encouraged to also provide the NBD-PWG with examples
-that can be included in an appendix.
+this document are encouraged to also provide the NBD-PWG with examples.
 
 ## Version Management
 
@@ -957,44 +955,41 @@ contributions are managed via GitHub issues. This allows preservation
 of the history of this document. When a new version is ready, the
 version will be tagged in GitHub. Older versions will, through this
 process, also be available as historical documents. Discussions about
-objects in written form are communicated as GitHub issues .
-
-Previos documents that lead up to this document are 
+objects in written form are communicated as GitHub issues.
 
 ## Interface Compliancy
 
-Due to the easy extensibility of the objects in this document and their
-implicit interfaces, it is important to introduce a terminology that
-allows the definition of interface compliancy. We define
+Due to the easy extensibility of the resource objects specified in this 
+document and their interfaces, it is important to introduce a 
+terminology that allows the definition of interface compliancy. We define
 three levels of interface compliance as follows:
 
 * **Full Compliance:** These are reference implementations that provide
   full compliance to the objects defined in this document. A version
-  number will be added to assure that the snapshot in time of the
-  objects is associated with the version. This reference
-  implementation will implement all objects.
+  number is added to assure that the snapshot in time of the
+  objects is associated with the version. A full complient framework 
+  implements all objects.
 
 * **Partial Compliance:** These are reference implementations that provide
   partial compliance to the objects defined in this document. A
-  version number will be added to assure that the snapshot in time of
+  version number will is added to assure that the snapshot in time of
   the objects is associated with the version. This reference
-  implementation will implement a partial list of the objects. A
-  document will be generated during the reference implementation that
-  lists all objects defined, but also lists the objects that are not
-  defined by the reference architecture. The document will outline
-  which objects and interfaces have been implemented.
+  implementation implements a partial list of the objects and interfaces. A
+  document is to be added that specifies the differences to a full complient 
+  implementation. 
+  
+* **Extended Compliance:** In addition to full and partial compliance 
+  additional resources can be identified while documenting additional 
+  resource objects and interfaces that are not included in the current 
+  specification. The extended complience document can lead to additional 
+  improvements of the current specification.
 
-* **Full and Extended Compliance:** These are interfaces that in addition
-  to the full compliance also introduce additional interfaces and
-  extend them. A document will be generated during the reference
-  implementation that lists the differences to the document defined
-  here.
+## Refernce implementations
 
-The documents generated during the reference implementation can then be
+Documents generated during a reference implementation can be
 forwarded to the Reference Architecture Subgroup for further discussion
 and for possible future modifications based on additional practical user
 feedback.
-
 
 
 # Specification {#sec:specification}
@@ -1039,35 +1034,33 @@ version of the document.
 ## Identity {#sec:spec-identity}
 
 As part of services an identity often needs to be specified. In
-addition, such persons [@www-eduperson] are often part of groups and
-have roles within these groups. Thus, four important terms related to
-the identity are distinguished as follows:
+addition, such persons [@www-eduperson] are often part of groups. Thus, 
+three important terms related to the identity are distinguished as follows:
 
-* User: The information identifying the profile of a person
-* Group: A group that a person may belong to that is important to
-  define access to services
-* Role: A role given to a person as part of the group that can refine
-  access rights.
 * Organization: The information representing an Organization that
-  manages a Big Data Service
+  manages a Big Data Service (@sec:spec-organization)
+* Group: A group that a person may belong to that is important to
+  define access to services (included in @sec:spec-organization)
+* User: The information identifying the profile of a person (@sec:spec-user)
+
 
 ### Authentication
 
-At this time, mechanisms are not yet included to manage
-authentication to external services such as clouds that can stage
-virtual machines. However, the group has shown multiple
-solutions to this in cloudmesh.
+Mechanisms are not included in this specification to manage
+authentication to external services. However, the working group has shown 
+multiple solutions to this as part of cloudmesh. This includes the posibility
+of a 
 
-* Local configuration file: A configuration file is managed locally to
+* *Local configuration file:* A configuration file is managed locally to
   allow access to the clouds. It is the designer's responsibility
   not to expose such credentials.
-* Session based authentication: No passwords are stored in the
+* *Session based authentication:* No passwords are stored in the
   configuration file and access is granted on a per session basis where
   the password needs to be entered.
-* Service based authentication: The authentication is delegated to an
-  external process. One example here is Auth.
-* The service that acts in behalf of the user needs to have access to
-  the appropriate cloud provider credentials
+* *Service based authentication:* The authentication is delegated to an
+  external process. One example here is Auth. The service that acts in behalf
+  of the user needs to have access to the appropriate cloud provider 
+  credentials
 
 An example for a configuration file is provided at [@cloudmesh4-yaml].
 

@@ -2,8 +2,8 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 14-06-2019
+  x-status: defined
   title: Virtual Directory
   description: |-
   
@@ -37,9 +37,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Virtualdirectory'
         '400':
-          description: No virtual directories found.
+          description: No virtual directories found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Virtual directory
@@ -55,11 +55,11 @@ paths:
               $ref: '#/components/schemas/Virtualdirectory'
       responses:
         '200':
-          description: Virtual directory updated.
+          description: Virtual directory updated
         '400':
-          description: Error updateing virtual directory.
+          description: Error updating virtual directory.
         '401':
-          description: Not authorized.
+          description: Not authorized
   /virtualdirectory/{name}:
     get:
       tags:
@@ -76,17 +76,17 @@ paths:
           description: The name of the virtual directory
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the virtual directory
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Virtualdirectory'
         '400':
-          description: No virtual directory found.
+          description: No virtual directory found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named virtual directory could not be found.
+          description: The named virtual directory could not be found
     delete:
       tags:
         - Virtual directory
@@ -102,13 +102,13 @@ paths:
           description: The name of the virtual directory
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-          description: No Virtual directory found.
+          description: No Virtual directory found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named virtual directory could not be found.
+          description: The named virtual directory could not be found
 
   /virtualdirectory/{name}/{filename}:
     get:
@@ -138,7 +138,7 @@ paths:
               schema:
                 $ref: "filestore.yaml#/components/schemas/File"
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Virtual directory
@@ -169,7 +169,7 @@ paths:
         '200':
           description: User added sucessfully
         '401':
-          description: Not authorized.
+          description: Not authorized
     delete:
       tags:
         - Virtual directory
@@ -191,9 +191,9 @@ paths:
             type: string
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '401':
-          description: Not authorized.
+          description: Not authorized
 components:
   schemas:
     Virtualdirectory:
@@ -204,19 +204,20 @@ components:
           description: The name of the virtual directory
           type: string
         description:
-          description: description of the virtual directory
+          description: Description of the virtual directory
           type: string
         host:
-          description: remote host of the virtual directory
+          description: Remote host of the virtual directory
           type: string
         location:
-          description: remote location, e.g., a directory with full path on a host
+          description: Remote location, e.g., a directory with full path on a
+            host
           type: string
         protocol:
-          description: access protocol, e.g., HTTP, FTP, SSH, etc.
+          description: Access protocol (e.g. HTTP, FTP, SSH, etc.)
           type: string
         credential:
-          description: credential to access, e.g., username, password
+          description: Credential to access
           type: object
 
 

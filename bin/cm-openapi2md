@@ -94,6 +94,7 @@ def convert_definitions(filename, indent=1):
                 print ("|", property, "|", properties[property]['type'], "|",properties[property]['description'], "|")
             print ()
 
+
 def section_link_from_ref(response):
     # See [section one](#section-one).
     link = ""                    
@@ -113,6 +114,79 @@ def section_link_from_ref(response):
     response["link"] = link
     return response
 
+
+
+
+def parse_ref(content):
+    name = "NONE"
+    result = "NONE"
+    try:
+        tmp = content.replace("#/components/schemas/","")
+        if "yaml" in tmp:
+            name, result = tmp.split(".yaml")
+
+        else:
+            name = ""
+            result = tmp
+    except Exception as e:
+        result = "ERROR: ref parsing " + content + str(e)
+        name = "ERROR"
+
+    section = result.capitalize()
+    lsection = result.lower()
+    link = f"[{section}](#{lsection})"
+
+    return name, result, link
+
+def parse_response(code, response):
+
+    if 'description' in response:
+        description = response['description']
+    else:
+        description = 'ERROR: description missing'
+
+
+    kind = 'ERROR'
+    if 'content' not in response:
+        kind = 'Integer'
+
+    elif 'content' in response:
+        schema = response['content']['application/json']['schema']
+
+        if 'type' in schema and schema['type'] == 'array':
+
+            resource =  schema['items']
+            resource = parse_schema(resource)
+
+            kind = f"array[{resource}]"
+
+        elif '$ref' in schema:
+            resource =  schema['$ref']
+            name, resource, kind = parse_ref(resource)
+        elif 'type' in schema:
+            kind = schema['type']
+    else:
+        print ("YYYYYYY", response)
+
+    '''
+    response = responses[code]
+    response['code'] = code
+
+    if "content" not in response:
+        response['schema'] = ""
+    else:
+        try:
+            response['schema'] = response["content"][
+                "application/json"]["schema"]
+        except:
+            response['schema'] = "ERROR"
+
+    response = section_link_from_ref(response)
+    '''
+
+    return code, description, kind
+
+
 def schema_from_parameter(response):
     # See [section one](#section-one).
     link = ""
@@ -127,10 +201,14 @@ def schema_from_parameter(response):
             response["link"] = "[{section}](#{lsection})".format(**response)
 
 
+
         elif 'type' in response['schema']:
+
             response["section"] = response['schema']['type'].capitalize()
             response["lsection"] = response["section"].lower()
             response["link"] = response["section"].capitalize()
+
+
 
     else:
         print ("ERROR:", response)
@@ -216,21 +294,10 @@ def convert_paths(filename, indent=1):
                     print ("|", "Code", "|", "Description", "|", "Schema", "|")
                     print ("|", "---", "|", "---", "|", "-------------", "|")
                     for code in responses:
-
                         response = responses[code]
-                        if "content" not in response:
-                            response['schema'] = ""
-                        else:
-                            try:
-                                response['schema'] = response["content"][
-                                    "application/json"]["schema"]
-                            except:
-                                response['schema'] = "ERROR"
 
-
-                        response['code'] = code
-                        response = section_link_from_ref(response)
-                        print ("| {code} | {description} | {link} |".format(**response))
+                        code, description, link = parse_response(code, response)
+                        print (f"| {code} | {description} | {link} |")
 
                     print ()
                     #

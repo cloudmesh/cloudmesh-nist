@@ -6,7 +6,7 @@ info:
   title: Virtual Machine
   description: |-
 
-    VM is a service to manage virtual machines.
+    Vm is a service to manage virtual machines.
     
   termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
   contact:
@@ -22,8 +22,8 @@ paths:
     get:
       tags:
         - Vm
-      summary: Returns a list of vms for the cloud
-      description: Returns a list of all vms
+      summary: Returns a list of virtual machines for the cloud
+      description: Returns a list of all virtual machines
       operationId: cloudmesh.vm.list
       parameters:
         - name: cloud
@@ -34,7 +34,7 @@ paths:
           description: The name of the cloud
       responses:
         '200':
-          description: The list of vms
+          description: The list of virtual machines
           content:
             application/json:
               schema:
@@ -42,14 +42,14 @@ paths:
                 items:
                   $ref: '#/components/schemas/Vm'
         '400':
-           description: No Vm found.
+           description: No Vm found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Vm
-      summary: Add a vm
-      description: Sets the named vm
+      summary: Add a virtual machine
+      description: Sets the named virtual machine
       operationId: cloudmesh.vm.add
       parameters:
         - name: cloud
@@ -59,7 +59,7 @@ paths:
             type: string
           description: The name of the cloud
       requestBody:
-        description: The vm to add or modify
+        description: The virtual machine to add or modify
         required: true
         content:
           application/json:
@@ -67,17 +67,17 @@ paths:
               $ref: '#/components/schemas/Vm'
       responses:
         '200':
-          description: Vm updated.
+          description: Vm updated
         '400':
-          description: Error updateing vm.
+          description: Error updating virtual machine
         '401':
-          description: Not authorized.
+          description: Not authorized
   /vm/{cloud}/{name}:
     get:
       tags:
         - Vm
-      summary: Returns the named vm
-      description: Returns a vm by name
+      summary: Returns the named virtual machine
+      description: Returns a virtual machine by name
       operationId: cloudmesh.vm.find_by_name
       parameters:
         - name: cloud
@@ -88,28 +88,28 @@ paths:
             type: string
         - name: name
           in: path
+          description: The name of the virtual machine
           required: true
           schema:
             type: string
-          description: The name of the vm
       responses:
         '200':
-          description: Returning the information of the vm
+          description: Returning the information of the virtual machine
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Vm'
         '400':
-           description: No Vm found.
+           description: No Vm found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named vm could not be found.
+           description: The named virtual machine could not be found
     delete:
       tags:
         - Vm
-      summary: Deletes the named vm
-      description: Deletes a vm by name
+      summary: Deletes the named virtual machine
+      description: Deletes a virtual machine by name
       operationId: cloudmesh.vm.delete_by_name
       parameters:
         - name: cloud
@@ -120,19 +120,19 @@ paths:
             type: string
         - name: name
           in: path
+          description: The name of the virtual machine
           required: true
           schema:
             type: string
-            description: The name of the vm
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Vm found.
+           description: No Vm found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named vm could not be found.
+           description: The named virtual machine could not be found
 components:
   schemas:
     Vm:
@@ -143,19 +143,19 @@ components:
           description: Name of the provider
         name:
           type: string
-          description: the unique name of the vm
+          description: the unique name of the virtual machine
         image:
           type: string
-          description: the image name for the vm
+          description: the image name for the virtual machine
         flavor:
           type: string
-          description: the flavor name for the vm
+          description: the flavor name for the virtual machine
         region:
           type: string
           description: an optional region
         state:
           type: string
-          description: The state of the vm
+          description: The state of the virtual machine
         private_ips:
           type: string
           description: The private IPs
@@ -164,5 +164,5 @@ components:
           description: The public IPS
         metadata:
           type: string
-          description: The meta data passed along to the VM
+          description: The meta data passed along to the virtual machine
 

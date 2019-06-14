@@ -22,12 +22,12 @@ paths:
     get:
       tags:
         - Nic
-      summary: Returns a list of nics
-      description: Returns a list of all nics
+      summary: Returns a list of network interface controllers
+      description: Returns a list of all network interface controllers
       operationId: cloudmesh.nic.list
       responses:
         '200':
-          description: The list of nics
+          description: The list of network interface controllers
           content:
             application/json:
               schema:
@@ -35,14 +35,14 @@ paths:
                 items:
                   $ref: '#/components/schemas/Nic'
         '400':
-           description: No Nic found.
+           description: No Nic found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Nic
-      summary: Set a nic
-      description: Sets the named nic
+      summary: Set a network interface controller
+      description: Sets the named network interface controller
       operationId: cloudmesh.nic.add
       requestBody:
         description: The new nic to create
@@ -53,17 +53,17 @@ paths:
               $ref: '#/components/schemas/Nic'
       responses:
         '200':
-          description: Nic updated.
+          description: Nic updated
         '400':
-          description: Error updateing nic.
+          description: Error updating network interface controller
         '401':
-          description: Not authorized.
+          description: Not authorized
   /nic/{name}:
     get:
       tags:
         - Nic
-      summary: Returns the named nic
-      description: Returns a nic by name
+      summary: Returns the named network interface controller
+      description: Returns a network interface controller by name
       operationId: cloudmesh.nic.find_by_name
       parameters:
         - name: name
@@ -71,25 +71,25 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the nic
+          description: The name of the network interface controller
       responses:
         '200':
-          description: Returning the information of the nic
+          description: Returning the information of the network interface controller
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Nic'
         '400':
-           description: No Nic found.
+           description: No Nic found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named nic could not be found.
+           description: The named network interface controller could not be found
     delete:
       tags:
         - Nic
-      summary: Deletes the named nic
-      description: Deletes a nic by name
+      summary: Deletes the named network interface controller
+      description: Deletes a network interface controller by name
       operationId: cloudmesh.nic.delete_by_name
       parameters:
         - name: name
@@ -97,47 +97,47 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the nic
+          description: The name of the network interface controller
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Nic found.
+           description: No Nic found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named nic could not be found.
+           description: The named network interface controller could not be found
 components:
   schemas:
     Nic:
       type: object
-      description: the nic
+      description: The network interface controller
       properties:
         name:
           type: string
-          description: name of the nic
+          description: Name of the network interface controller
         kind:
           type: string
-          description: kind of the nic, such as wireless
+          description: Kind of the network interface controller (wifi, WAN, ...)
         mac:
           type: string
-          description: the mac address
+          description: The mac address
         ip:
           type: string
-          description: the IP address
+          description: The IP address
         mask:
           type: string
-          description: the network mask
+          description: The network mask
         broadcast:
           type: string
-          description: the broadcast address
+          description: The broadcast address
         gateway:
           type: string
-          description: the gateway address
+          description: The gateway address
         mtu:
           type: integer
-          description: the MTU of the NIC
+          description: The MTU of the NIC
         bandwidth:
           type: integer
-          description: the bandwidth in bps
+          description: The bandwidth in bps
 

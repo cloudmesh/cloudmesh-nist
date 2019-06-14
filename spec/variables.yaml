@@ -1,14 +1,14 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
+  x-date: 14-06-2019
   x-status: defined
   title: Variables
   description: |-
   
-    Variables a simple string key value storage to store simple
+    Variables are a simple string key value storage to store simple
     values. Each variable can have a datatype, so that it can be used for
-    serialization into other formats.
+    serialization into other formats. Internally they are storred as strings.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -37,7 +37,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Variable'
         '400':
-           description: No Variable found.
+           description: No variable found
     put:
       tags:
         - Variable
@@ -53,11 +53,11 @@ paths:
               $ref: '#/components/schemas/Variable'
       responses:
         '200':
-          description: Variable updated.
+          description: Variable updated
         '400':
-          description: Error updateing variable.
+          description: Error updating variable
         '401':
-          description: Not authorized.
+          description: Not authorized
   /variable/{name}:
     get:
       tags:
@@ -80,11 +80,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Variable'
         '400':
-           description: No Variable found.
+           description: No variable found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named variable could not be found.
+           description: The named variable could not be found
     delete:
       tags:
         - Variable
@@ -100,13 +100,13 @@ paths:
           description: The name of the variable
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Variable found.
+           description: No variable found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named variable could not be found.
+           description: The named variable could not be found
 components:
   schemas:
     Variable:
@@ -115,13 +115,14 @@ components:
       properties:
         name:
           type: string
-          description: name of the variable
+          description: Name of the variable
         value:
           type: string
-          description: type of the variable
+          description: Type of the variable
         description:
           type: string
-          description: a descriptionof the variable
+          description: A description of the variable
         datatype:
           type: string
-          description: The data type of the variable which can be used for serialization
+          description: The data type of the variable which can be used for
+                       serialization

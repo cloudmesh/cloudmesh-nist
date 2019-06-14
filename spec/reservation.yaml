@@ -1,8 +1,8 @@
 openapi: '3.0.2'
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 14-06-2019
+  x-status: defined
   title: Reservation
   description: |-
   
@@ -36,7 +36,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Reservation'
         '400':
-          description: No Reservations found.
+          description: No Reservations found
     put:
       tags:
         - Reservation
@@ -52,9 +52,9 @@ paths:
               $ref: '#/components/schemas/Reservation'
       responses:
         '200':
-          description: Reservation updated.
+          description: Reservation updated
         '400':
-          description: Error updateing Reservation.
+          description: Error updating reservation
   /reservation/{name}:
     get:
       tags:
@@ -71,17 +71,17 @@ paths:
           description: The name of the reservation
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the reservation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Reservation'
         '400':
-          description: No reservation found.
+          description: No reservation found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named reservation could not be found.
+          description: The named reservation could not be found
     delete:
       tags:
         - Reservation
@@ -97,33 +97,33 @@ paths:
           description: The name of the reservation
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-          description: No Reservation found.
+          description: No reservation found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named reservation could not be found.
+          description: The named reservation could not be found
 components:
   schemas:
     Reservation:
       type: object
-      description: the reservation
+      description: The reservation
       properties:
         name:
           type: string
-          description: name of the reservation
+          description: Name of the reservation
         service:
           type: string
-          description: the name of the service on which we reserve
+          description: The name of the service on which we reserve
         description:
           type: string
-          description: the description of the reservation
+          description: The description of the reservation
         start:
           type: string
           format: date
-          description: the start time and date
+          description: The start time and date
         end:
           type: string
           format: date
-          description: the end time and date
+          description: The end time and date

@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
+  x-date: 14-06-2019
   x-status: defined
   title: Default
   description: |-
@@ -41,7 +41,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Default'
         '400':
-           description: No Default found.
+           description: No default found
     put:
       tags:
         - Default
@@ -57,9 +57,9 @@ paths:
               $ref: '#/components/schemas/Default'
       responses:
         '200':
-          description: Default updated.
+          description: Default updated
         '400':
-          description: Error updateing default.
+          description: Error updating default.
   /default/{name}:
     get:
       tags:
@@ -82,9 +82,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Default'
         '400':
-           description: No Default found.
+           description: No default found
         '404':
-           description: The named default could not be found.
+           description: The named default could not be found
     delete:
       tags:
         - Default
@@ -100,11 +100,11 @@ paths:
           description: The name of the default
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Default found.
+           description: No default found
         '404':
-           description: The named default could not be found.
+           description: The named default could not be found
 components:
   schemas:
     Default:

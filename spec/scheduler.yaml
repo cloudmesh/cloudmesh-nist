@@ -39,9 +39,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task/info:
     get:
       tags:
@@ -59,9 +59,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task/pop:
     get:
       tags:
@@ -81,9 +81,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task:
     get:
       tags:
@@ -101,9 +101,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
         '400':
-          description: No Tasks found.
+          description: No tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Task
@@ -119,11 +119,11 @@ paths:
               $ref: '#/components/schemas/Task'
       responses:
         '200':
-          description: Task updated.
+          description: Task updated
         '400':
-          description: Error updateing Task.
+          description: Error updating task.
         '401':
-          description: Not authorized.
+          description: Not authorized
   /task/{name}:
     get:
       tags:
@@ -140,17 +140,17 @@ paths:
           description: The name of the task
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the task
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
         '400':
-          description: No task found.
+          description: No task found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named task could not be found.
+          description: The named task could not be found
     delete:
       tags:
         - Task
@@ -166,13 +166,13 @@ paths:
           description: The name of the task
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-          description: No Task found.
+          description: No task found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-          description: The named task could not be found.
+          description: The named task could not be found
   /policy:
     get:
       tags:
@@ -190,9 +190,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Policy'
         '400':
-          description: No Tasks found.
+          description: No tasks found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Task
@@ -208,23 +208,23 @@ paths:
               $ref: '#/components/schemas/Policy'
       responses:
         '200':
-          description: Task updated.
+          description: Task updated
         '400':
-          description: Error updateing Task.
+          description: Error updating task
         '401':
-          description: Not authorized.
+          description: Not authorized
 components:
   schemas:
     Task:
       type: object
-      description: the scheduler
+      description: The scheduler
       properties:
         name:
           type: string
-          description: name of the scheduler
+          description: Name of the scheduler
         user:
           type: string
-          description: the username the task belongs to
+          description: The username the task belongs to
         description:
           type: string
           description: The description of the task
@@ -237,7 +237,7 @@ components:
       properties:
         name:
           type: string
-          description: name of the scheduler policy
+          description: Name of the scheduler policy
         description:
           type: string
           description: The description of the policy

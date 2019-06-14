@@ -36,7 +36,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Filter'
         '400':
-           description: No Filter found.
+           description: No Filter found
     put:
       tags:
         - Filter
@@ -52,11 +52,11 @@ paths:
               $ref: '#/components/schemas/Filter'
       responses:
         '200':
-          description: Filter updated.
+          description: Filter updated
         '401':
-          description: Not authorized.
+          description: Not authorized
         '400':
-          description: Error updateing filter.
+          description: Error updating filter
   /filter/{name}:
     get:
       tags:
@@ -79,11 +79,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Filter'
         '400':
-           description: No Filter found.
+           description: No Filter found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named filter could not be found.
+           description: The named filter could not be found
     delete:
       tags:
         - Filter
@@ -99,25 +99,25 @@ paths:
           description: The name of the filter
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Filter found.
+           description: No Filter found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named filter could not be found.
+           description: The named filter could not be found
 components:
   schemas:
     Filter:
       type: object
-      description: the filter
+      description: The filter
       properties:
         name:
           type: string
-          description: name of the filter
+          description: Name of the filter
         function:
           type: string
-          description: the function  of the data exchanged in the stream
+          description: The function  of the data exchanged in the stream
         kind:
           type: string
-          description: the filter kind or type
+          description: The filter kind or type

@@ -32,7 +32,7 @@ paths:
       operationId: cloudmesh.database.get
       responses:
         '200':
-          description: database info
+          description: List of databases
           content:
             application/json:
               schema:
@@ -42,7 +42,7 @@ paths:
         '400':
           description: No database found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
           description: Named database not found
     delete:
@@ -53,22 +53,18 @@ paths:
       operationId: cloudmesh.database.delete
       parameters:
         - name: name
-          description: name of the database
+          description: Name of the database
           in: path
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: database info
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Database"
+          description: Deletion successful
         '400':
           description: No database found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
           description: Named database not found
   /database/{name}:
@@ -80,7 +76,7 @@ paths:
       operationId: "cloudmesh.database.get.collections_or_tables"
       parameters:
         - name: name
-          description: name of the collections or tables
+          description: Name of the collections or tables
           in: path
           required: true
           schema:
@@ -97,7 +93,7 @@ paths:
         '400':
           description: No database found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
           description: Named database not found
     put:
@@ -108,7 +104,7 @@ paths:
       operationId: "cloudmesh.database.put.collections_or_tables"
       parameters:
         - name: name
-          description: name of the collections or tables
+          description: Name of the collections or tables
           in: path
           required: true
           schema:
@@ -123,7 +119,7 @@ paths:
         '400':
           description: No database found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
           description: Named database not found
   /database/{name}/{table_or_collection}:
@@ -135,13 +131,13 @@ paths:
       operationId: "cloudmesh.database.data.get"
       parameters:
         - name: name
-          description: name of the database
+          description: Name of the database
           in: path
           required: true
           schema:
             type: string
         - name: table_or_collection
-          description: name of the table or collection
+          description: Name of the table or collection
           in: path
           required: true
           schema:
@@ -154,7 +150,7 @@ paths:
             $ref: '#/components/schemas/Query'
       responses:
         '200':
-          description: successfull query
+          description: Successfull query
           content:
             application/json:
               schema:
@@ -164,7 +160,7 @@ paths:
         '400':
           description: No database found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
           description: Named database not found
     put:
@@ -175,13 +171,13 @@ paths:
       operationId: "cloudmesh.database.data.put"
       parameters:
         - name: name
-          description: name of the database
+          description: Name of the database
           in: path
           required: true
           schema:
             type: string
         - name: table_or_collection
-          description: name of the table or collection
+          description: Name of the table or collection
           in: path
           required: true
           schema:
@@ -203,49 +199,43 @@ paths:
         '400':
           description: No database found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
           description: Named database not found
 components:
   schemas:
     Database:
       type: object
-      description: defines a database object as an entry
+      description: Defines a database object as an entry
       properties:
         name:
           type: string
-          description: name of the database
+          description: Name of the database
         description:
           type: string
-          description: description of the database
+          description: Description of the database
         endpoint:
           type: string
-          description: endpoint of the database
+          description: Endpoint of the database
         kind:
           type: string
           description: the kind of the database
-        timestamp:
-          description: timestamps associated with the resource
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"
     Definition:
       type: object
-      description: defines a database collection or Table
+      description: Defines a database collection or Table
       properties:
         name:
           type: string
-          description: name of the database
+          description: Name of the database
         description:
           type: string
-          description: description of the database
+          description: Description of the database
         kind:
           type: string
-          description: the kind of the definition
+          description: The kind of the definition
         schema:
            type: string
-           description: the schema associated with the table or collection
-        timestamp:
-          description: timestamps associated with the resource
-          $ref: "timestamp.yaml#/components/schemas/Timestamp"
+           description: The schema associated with the table or collection
     Record:
       type: object
       description: The result of a query
@@ -263,4 +253,3 @@ components:
         status:
           type: string
           description: The query string
-

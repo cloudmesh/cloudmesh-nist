@@ -39,9 +39,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Stream'
         '400':
-           description: No Stream found.
+           description: No Stream found
         '401':
-          description: Not authorized.
+          description: Not authorized
     put:
       tags:
         - Stream
@@ -57,11 +57,11 @@ paths:
               $ref: '#/components/schemas/Stream'
       responses:
         '200':
-          description: Stream updated.
+          description: Stream updated
         '400':
-          description: Error updateing stream.
+          description: Error updating stream
         '401':
-          description: Not authorized.
+          description: Not authorized
   /stream/{name}:
     get:
       tags:
@@ -84,11 +84,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Stream'
         '400':
-           description: No Stream found.
+           description: No Stream found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named stream could not be found.
+           description: The named stream could not be found
     delete:
       tags:
         - Stream
@@ -104,28 +104,28 @@ paths:
           description: The name of the stream
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Stream found.
+           description: No Stream found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named stream could not be found.
+           description: The named stream could not be found
 components:
   schemas:
     Stream:
       type: object
-      description: the stream
+      description: The stream
       properties:
         name:
           type: string
-          description: name of the stream
+          description: Name of the stream
         format:
           type: string
-          description: format of the stream
+          description: Format of the stream
         rate:
           type: integer
-          description: the rate of messages
+          description: The rate of messages
         limit:
           type: integer
-          description: the limit of items send
+          description: The limit of items send

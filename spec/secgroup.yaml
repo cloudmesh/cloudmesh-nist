@@ -7,12 +7,10 @@ info:
   description: |-
   
    A security group defines the incoming and outgoing security rules
-   which can then be assigned to a node when a node.
-   The connection to and from the node will be
-   determined by the security group rules, in addition to any other possible
-   rules applied on network devices or from the instance's firewall
-   settings.
-   A security group may have one or multiple rules and a node may be
+   which can then be assigned to a node. The connection to and from the node
+   will be determined by the security group rules, in addition to any other
+   possible rules applied on network devices or from the instance's firewall
+   settings. A security group may have one or multiple rules and a node may be
    associated with one or more security groups.
    
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
@@ -42,9 +40,9 @@ paths:
                 items:
                   $ref: "#/components/schemas/Secgroup"
         '400':
-          description: Not found.
+          description: Not found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /secgroup/{name}:
     get:
       tags:
@@ -67,9 +65,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/Secgroup"
         '400':
-          description: Not found.
+          description: Not found
         '401':
-          description: Not authorized.
+          description: Not authorized
     post:
       tags:
       - Security group
@@ -87,7 +85,7 @@ paths:
         '201':
           description: Created
         '401':
-          description: Not authorized.
+          description: Not authorized
   /secgroup/{name}/rule:
     post:
       tags:
@@ -113,9 +111,9 @@ paths:
         '200':
           description: Created
         '400':
-          description: Not found.
+          description: Not found
         '401':
-          description: Not authorized.
+          description: Not authorized
   /secgroup/{name}/rule/{rule}:
     get:
       tags:
@@ -144,9 +142,9 @@ paths:
               schema:
                   $ref: "#/components/schemas/SecGroupRule"
         '400':
-          description: Not found.
+          description: Not found
         '401':
-          description: Not authorized.
+          description: Not authorized
     delete:
       tags:
       - Security group
@@ -168,11 +166,11 @@ paths:
             type: string
       responses:
         '200':
-          description: Deleted.
+          description: Deleted sucessfully
         '400':
-          description: Not found.
+          description: Not found
         '401':
-          description: Not authorized.
+          description: Not authorized
 components:
   schemas:
     Secgroup:
@@ -181,10 +179,10 @@ components:
       properties:
         name:
           type: string
-          description: name of the security group
+          description: Name of the security group
         description:
           type: string
-          description: describes what the security group is for
+          description: Describes what the security group is for
         rules:
           type: array
           description: List of Security group rules

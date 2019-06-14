@@ -1,12 +1,12 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 14-06-2019
+  x-status: defined
   title: Timestamp
   description: |-
   
-    Data often needs to be timestamped to indicate when it has been
+    Data often needs to be time stamped to indicate when it has been
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
     The date-time string is defined in
@@ -28,9 +28,9 @@ paths:
       description: Returns the time to be used in a timestamp
       responses:
         '200':
-          description: the current time and date
+          description: The current time and date
           content:
-            text/plain:
+            application/json:
               schema:
                 type: string
                 example: 1985-04-12T23:20:50.52Z

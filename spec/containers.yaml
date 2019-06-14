@@ -1,8 +1,8 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 14-06-2019
+  x-status: defined
   title: Containers
   description: |-
 
@@ -38,7 +38,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Container'
         '400':
-           description: No Container found.
+           description: No Container found
     put:
       tags:
         - Container
@@ -54,11 +54,11 @@ paths:
               $ref: '#/components/schemas/Container'
       responses:
         '200':
-          description: Container updated.
+          description: Container updated
         '401':
-          description: Not authorized.
+          description: Not authorized
         '400':
-          description: Error updateing container.
+          description: Error updating container.
   /container/{name}:
     get:
       tags:
@@ -81,11 +81,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Container'
         '400':
-           description: No Container found.
+           description: No Container found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named container could not be found.
+           description: The named container could not be found
     delete:
       tags:
         - Container
@@ -101,13 +101,13 @@ paths:
           description: The name of the container
       responses:
         '200':
-          description: Deletion successful.
+          description: Deletion successful
         '400':
-           description: No Container found.
+           description: No Container found
         '401':
-          description: Not authorized.
+          description: Not authorized
         '404':
-           description: The named container could not be found.
+           description: The named container could not be found
 components:
   schemas:
     Container:
@@ -116,24 +116,24 @@ components:
       properties:
         name:
           type: string
-          description: name of the container
+          description: Name of the container
         version:
           type: string
-          description: version of the container
+          description: Version of the container
         label:
           type: string
-          description: label of the container
+          description: Label of the container
         type:
           type: string
-          description: type of the container
+          description: Type of the container
         definition:
           type: string
-          description: definition or manifest of the container
+          description: Definition or manifest of the container
         imgURI:
           type: string
           description: URI of the container
         tags:
           type: array
-          description: tags of the container
+          description: Tags of the container
           items:
             type: string
