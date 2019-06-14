@@ -60,7 +60,7 @@ html:
 	redoc-cli bundle timestamp.yaml; mv redoc-static.html ../docs/html/timestamp.html
 	redoc-cli bundle scheduler.yaml; mv redoc-static.html ../docs/html/scheduler.html
 	redoc-cli bundle organization.yaml; mv redoc-static.html ../docs/html/organization.html
-	cd ../docs/html; tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" > index.html
+	cd ../docs/html; tree -H '.' -L 1 --noreport --charset utf-8 -P "*.html" >	index.html
 
 
 speccy:
