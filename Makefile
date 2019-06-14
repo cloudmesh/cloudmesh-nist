@@ -11,11 +11,14 @@ word:
 html:
 	cd docs; make html
 
+online:
+	cd spec; make html
+
 pdf:
 	cd docs; make cpdf
 	cd docs; make pdf
 
-all: doc word pdf html
+all: doc word online pdf html
 
 view:
 	open docs/dest/nistvol8-2.epub 

@@ -305,7 +305,7 @@ paths:
       tags:
         - Organization
       summary: Delete a group in the organization
-      description: Delete a gropu in the organization
+      description: Delete a group in the organization
       operationId: cloudmesh.organization.greop.delete
       parameters:
         - name: name

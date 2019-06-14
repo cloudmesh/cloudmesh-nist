@@ -110,7 +110,8 @@ def section_link_from_ref(response):
     if response["section"] != "" :
         link = "[{section}](#{lsection})".format(**response)
     else:                    
-        link = "Integer"
+        #link = "Integer"
+        link = "Empty"
     response["link"] = link
     return response
 
@@ -148,7 +149,9 @@ def parse_response(code, response):
 
     kind = 'ERROR'
     if 'content' not in response:
-        kind = 'Integer'
+        # kind = 'Integer'
+        kind = 'Empty'
+
 
     elif 'content' in response:
         schema = response['content']['application/json']['schema']

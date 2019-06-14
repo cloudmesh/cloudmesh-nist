@@ -7,7 +7,7 @@ define speccy_verify
     speccy lint $(1)
 endef
 
-.PHONY: speccy
+.PHONY: speccy html
 
 all:
 	rm -f .spec.yaml
@@ -33,32 +33,33 @@ install:
 
 
 
-verify:
-	redoc-cli bundle virtualcluster.yaml
-	redoc-cli bundle now.yaml
-	redoc-cli bundle flavor.yaml
-	redoc-cli bundle image.yaml
-	redoc-cli bundle vm.yaml
-	redoc-cli bundle variables.yaml
-	redoc-cli bundle virtualdirectory.yaml
-	redoc-cli bundle alias.yaml
-	redoc-cli bundle containers.yaml
-	redoc-cli bundle database.yaml
-	redoc-cli bundle default.yaml
-	redoc-cli bundle deployment.yaml
-	redoc-cli bundle filestore.yaml
-	redoc-cli bundle filter.yaml
-	redoc-cli bundle microservice.yaml
-	redoc-cli bundle nic.yaml
-	redoc-cli bundle publickeystore.yaml
-	redoc-cli bundle replica.yaml
-	redoc-cli bundle reservation.yaml
-	redoc-cli bundle secgroup.yaml
-	redoc-cli bundle stream.yaml
-	redoc-cli bundle user.yaml
-	redoc-cli bundle timestamp.yaml
-	redoc-cli bundle scheduler.yaml
-	redoc-cli bundle organization.yaml
+html:
+	mkdir -p ../docs/html
+	redoc-cli bundle virtualcluster.yaml; mv redoc-static.html ../docs/html/virtualcluster.html
+	redoc-cli bundle now.yaml; mv redoc-static.html ../docs/html/now.html
+	redoc-cli bundle flavor.yaml; mv redoc-static.html ../docs/html/flavor.html
+	redoc-cli bundle image.yaml; mv redoc-static.html ../docs/html/image.html
+	redoc-cli bundle vm.yaml; mv redoc-static.html ../docs/html/vm.html
+	redoc-cli bundle variables.yaml; mv redoc-static.html ../docs/html/variables.html
+	redoc-cli bundle virtualdirectory.yaml; mv redoc-static.html ../docs/html/virtualdirectory.html
+	redoc-cli bundle alias.yaml; mv redoc-static.html ../docs/html/alias.html
+	redoc-cli bundle containers.yaml; mv redoc-static.html ../docs/html/containers.html
+	redoc-cli bundle database.yaml; mv redoc-static.html ../docs/html/database.html
+	redoc-cli bundle default.yaml; mv redoc-static.html ../docs/html/default.html
+	redoc-cli bundle deployment.yaml; mv redoc-static.html ../docs/html/deployment.html
+	redoc-cli bundle filestore.yaml; mv redoc-static.html ../docs/html/filestore.html
+	redoc-cli bundle filter.yaml; mv redoc-static.html ../docs/html/filter.html
+	redoc-cli bundle microservice.yaml; mv redoc-static.html ../docs/html/microservice.html
+	redoc-cli bundle nic.yaml; mv redoc-static.html ../docs/html/nic.html
+	redoc-cli bundle publickeystore.yaml; mv redoc-static.html ../docs/html/publickeystore.html
+	redoc-cli bundle replica.yaml; mv redoc-static.html ../docs/html/replica.html
+	redoc-cli bundle reservation.yaml; mv redoc-static.html ../docs/html/reservation.html
+	redoc-cli bundle secgroup.yaml; mv redoc-static.html ../docs/html/secgroup.html
+	redoc-cli bundle stream.yaml; mv redoc-static.html ../docs/html/stream.html
+	redoc-cli bundle user.yaml; mv redoc-static.html ../docs/html/user.html
+	redoc-cli bundle timestamp.yaml; mv redoc-static.html ../docs/html/timestamp.html
+	redoc-cli bundle scheduler.yaml; mv redoc-static.html ../docs/html/scheduler.html
+	redoc-cli bundle organization.yaml; mv redoc-static.html ../docs/html/organization.html
 
 
 
