@@ -110,7 +110,7 @@ setup:
 
 spec: dest cover specstable openapi $(FILE).md
 #	cat dest/spec/*.md > dest/spec.md
-	cat nistvol8-2.md status.md acronyms.md bib.md  > dest/$(FILE).md
+	cat nistvol8-2.md acronyms.md bib.md  > dest/$(FILE).md
 	cd dest; ../../bin/cm-md-filter $(FILE).md > all.md
 	cd dest; pandoc $(TITLE) $(RESOURCE) $(MARKDOWN-OPTIONS) $(FORMAT)  -s all.md -o $(FILE).md
 

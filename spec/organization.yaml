@@ -60,7 +60,7 @@ paths:
         '200':
           description: Organization updated
         '400':
-          description: Error updating organization.
+          description: Error updating organization
         '401':
           description: Not authorized
   /organization/{name}:
@@ -135,7 +135,7 @@ paths:
                 $ref: "#/components/schemas/Organization"
         '401':
           description: Not authorized
-  /organization/{name}/user/{username}:
+  /organization/{name}/user/{user}:
     get:
       tags:
         - Organization
@@ -149,8 +149,8 @@ paths:
           schema:
             type: string
           description: The name of the organization
-        - name: username
-          description: The username
+        - name: user
+          description: The user name
           in: path
           required: true
           schema:
@@ -177,8 +177,8 @@ paths:
           schema:
             type: string
           description: The name of the organization
-        - name: username
-          description: The username
+        - name: user
+          description: The user name
           in: path
           required: true
           schema:
@@ -208,8 +208,8 @@ paths:
           schema:
             type: string
           description: The name of the organization
-        - name: username
-          description: The username
+        - name: user
+          description: The user name
           in: path
           required: true
           schema:
@@ -248,7 +248,7 @@ paths:
           description: Not authorized
         '404':
            description: The named group could not be found
-  /organization/{name}/group/{groupname}:
+  /organization/{name}/group/{group}:
     get:
       tags:
         - Organization
@@ -262,8 +262,8 @@ paths:
           schema:
             type: string
           description: The name of the organization
-        - name: groupname
-          description: The groupname
+        - name: group
+          description: The group name
           in: path
           required: true
           schema:
@@ -290,7 +290,7 @@ paths:
           schema:
             type: string
           description: The name of the group
-        - name: groupname
+        - name: group
           description: The group name
           in: path
           required: true
@@ -314,7 +314,7 @@ paths:
           schema:
             type: string
           description: The name of the organization
-        - name: groupname
+        - name: group
           description: The group name
           in: path
           required: true
@@ -325,12 +325,12 @@ paths:
           description: Deletion successful
         '401':
           description: Not authorized
-  /organization/{name}/group/{groupname}/{username}:
+  /organization/{name}/group/{group}/{user}:
     put:
       tags:
         - Organization
-      summary: Updates or adds a username to the group
-      description: Updates or adds a username to the group
+      summary: Updates or adds a user name to the group
+      description: Updates or adds a user name to the group
       operationId: cloudmesh.organization.group.user.add
       parameters:
         - name: name
@@ -339,14 +339,14 @@ paths:
           schema:
             type: string
           description: The name of the group
-        - name: groupname
+        - name: group
           description: The group name
           in: path
           required: true
           schema:
             type: string
-        - name: username
-          description: The username
+        - name: user
+          description: The user name
           in: path
           required: true
           schema:

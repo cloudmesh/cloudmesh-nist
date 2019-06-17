@@ -111,7 +111,7 @@ def section_link_from_ref(response):
         link = "[{section}](#{lsection})".format(**response)
     else:                    
         #link = "Integer"
-        link = "Empty"
+        link = "Message"
     response["link"] = link
     return response
 
@@ -150,7 +150,7 @@ def parse_response(code, response):
     kind = 'ERROR'
     if 'content' not in response:
         # kind = 'Integer'
-        kind = 'Empty'
+        kind = 'Message'
 
 
     elif 'content' in response:
