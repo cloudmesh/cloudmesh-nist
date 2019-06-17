@@ -1082,6 +1082,29 @@ Table 1: HTTP Response Codes
 In the specification such responses are indicated and if an simple response is returned the
 term *Message* is used.
 
+ Resources
+
+## Timestamp
+
+Timestamps can be used in conjunction with andy server side implementation of
+the interfaces. It can be useful to return information about when a 
+particular resource has been created, updated, or accessed. To simplify the 
+specification in the document we have not explicitly listed that a timestamp 
+is part of the reource, but we can assume it may be added as part of the 
+service implementation. To obtain an example timestamp a simple get function 
+is provided. 
+
+
+### Timestamp {#sec:spec-timestamp}
+
+{include=./spec/timestamp.md}
+
+#### timestamp.yaml
+
+
+```{include=./spec/timestamp.yaml}
+```
+
 ## Identity {#sec:spec-identity}
 
 As part of services an identity often needs to be specified. In
@@ -1122,18 +1145,7 @@ three important terms related to the identity are distinguished as follows:
 ```
 
 
-## General Resources
-
-### Timestamp {#sec:spec-timestamp}
-
-{include=./spec/timestamp.md}
-
-#### timestamp.yaml
-
-
-```{include=./spec/timestamp.yaml}
-```
-
+## Variable, Defualt, and Alias
 
 ### Alias {#sec:spec-alias}
 

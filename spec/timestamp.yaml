@@ -24,8 +24,8 @@ servers:
 paths:
   /timestamp:
     get:
-      summary: Returns the time
-      description: Returns the time to be used in a timestamp
+      summary: Returns the timestamp
+      description: Returns the timestamp
       responses:
         '200':
           description: The current time and date
