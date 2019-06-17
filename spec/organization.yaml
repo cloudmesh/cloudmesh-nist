@@ -1,17 +1,16 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 14-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: Organization
   description: |-
 
     An important concept in many services is the management of a group
     of users in an organization. Within an organization we distinguish
-    different groups of users and within a Group. Groups can be used to
-    charachterize differnt roles users can fulfill. Users can belong to
-    multiple groups. Such groups can also be used to specify access rights to
-    services.
+    different groups of users. Groups can be used to charachterize roles
+    users can fulfill. Users can belong to multiple groups. Such groups can
+    also be used to specify access rights to services.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -39,28 +38,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Organization'
-        '400':
-           description: No Organizations found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - Organization
-      summary: Uploads an organization to the list of organizations
-      description: Uploads an organization to the list of organizations
-      operationId: cloudmesh.organization.add
-      requestBody:
-        description: The organization to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Organization'
-      responses:
-        '200':
-          description: Organization updated
-        '400':
-          description: Error updating organization
         '401':
           description: Not authorized
   /organization/{name}:
@@ -84,12 +61,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Organization'
-        '400':
-           description: No organization found
         '401':
           description: Not authorized
         '404':
            description: The named organization could not be found
+    put:
+      tags:
+        - Organization
+      summary: Uploads an organization to the list of organizations
+      description: Uploads an organization to the list of organizations
+      operationId: cloudmesh.organization.add
+      requestBody:
+        description: The organization to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organization'
+      responses:
+        '200':
+          description: Organization created or updated
+        '401':
+          description: Not authorized
+        '404':
+          description: The organization could not be found
     delete:
       tags:
         - Organization
@@ -106,8 +101,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No organization found
         '401':
           description: Not authorized
         '404':
@@ -164,6 +157,8 @@ paths:
                 $ref: "user.yaml#/components/schemas/User"
         '401':
           description: Not authorized
+        '404':
+          description: The organization or user could not be found
     put:
       tags:
         - Organization
@@ -195,6 +190,8 @@ paths:
           description: User added sucessfully
         '401':
           description: Not authorized
+        '404':
+          description: The organization or user could not be found\
     delete:
       tags:
         - Organization
@@ -219,6 +216,8 @@ paths:
           description: Deletion successful
         '401':
           description: Not authorized
+        '404':
+          description: The organization or user could not be found
   /organization/{name}/group/:
     get:
       tags:
@@ -247,7 +246,7 @@ paths:
         '401':
           description: Not authorized
         '404':
-           description: The named group could not be found
+           description: The organization or group could not be found
   /organization/{name}/group/{group}:
     get:
       tags:
@@ -277,6 +276,8 @@ paths:
                 $ref: "#/components/schemas/Group"
         '401':
           description: Not authorized
+        '404':
+          description: The organization or group could not be found
     put:
       tags:
         - Organization
@@ -301,6 +302,8 @@ paths:
           description: Group added sucessfully
         '401':
           description: Not authorized
+        '404':
+          description: The organization or group could not be found
     delete:
       tags:
         - Organization
@@ -325,6 +328,8 @@ paths:
           description: Deletion successful
         '401':
           description: Not authorized
+        '404':
+          description: The organization or group could not be found
   /organization/{name}/group/{group}/{user}:
     put:
       tags:
@@ -353,11 +358,43 @@ paths:
             type: string
       responses:
         '200':
-          description: Group added sucessfully
+          description: User added sucessfully
         '401':
           description: Not authorized
         '404':
-          description: The organization or group could not be found
+          description: The organization, group, or user could not be found
+    delete:
+      tags:
+        - Organization
+      summary: Delete a user in the group
+      description: Delete a user in the group
+      operationId: cloudmesh.organization.greop.delete.user
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the organization
+        - name: group
+          description: The group name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: user
+          description: The user name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deletion successful
+        '401':
+          description: Not authorized
+        '404':
+          description: The organization, group, or user could not be found
 components:
   schemas:
     Organization:

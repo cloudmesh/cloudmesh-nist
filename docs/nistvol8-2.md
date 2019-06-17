@@ -1046,7 +1046,7 @@ of a
   configuration file and access is granted on a per session basis where
   the password needs to be entered.
 * *Service based authentication:* The authentication is delegated to an
-  external process. One example here is Auth. The service that acts in behalf
+  external process. The service that acts on behalf
   of the user needs to have access to the appropriate cloud provider 
   credentials
 

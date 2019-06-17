@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
   version: "3.2.0"
-  x-date: 14-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: User
   description: |-
@@ -38,28 +38,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-        '400':
-           description: No users found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - User
-      summary: Uploads a user to the list of users
-      description: Uploads a user to the list of users
-      operationId: cloudmesh.user.add
-      requestBody:
-        description: The user to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        '200':
-          description: User updated
-        '400':
-          description: Error updating user.
         '401':
           description: Not authorized
   /user/{name}:
@@ -83,8 +61,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        '400':
-           description: No user found
+        '401':
+          description: Not authorized
+        '404':
+           description: The named user could not be found
+    put:
+      tags:
+        - User
+      summary: Uploads a user to the list of users
+      description: Uploads a user to the list of users
+      operationId: cloudmesh.user.add
+      requestBody:
+        description: The user to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated
         '401':
           description: Not authorized
         '404':
@@ -105,8 +101,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No user found
         '401':
           description: Not authorized
         '404':

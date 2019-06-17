@@ -84,7 +84,6 @@ def convert_definitions(filename, indent=1):
                   properties[property]['type'] = ""
 
 
-
                 if properties[property]['type'] == "array":
                     if "type" in properties[property]["items"]:
                         properties[property]['type'] = "array[{}]".format(properties[property]["items"]["type"])
@@ -101,6 +100,12 @@ def convert_definitions(filename, indent=1):
                   form = properties[property]['format']
                   properties[property]['format'] = f"({form})"
                   properties[property]['type'] = properties[property]['type'] + f"({form})"
+
+
+                if '$ref' in properties[property]:
+                    ref = properties[property]['$ref']
+                    name, result, link = parse_ref(ref)
+                    properties[property]['type'] = link
 
 
                 print ("|", property, "|", properties[property]['type'], "|",properties[property]['description'], "|")
