@@ -74,12 +74,17 @@ def convert_definitions(filename, indent=1):
             print ("|", "---", "|", "---", "|", "-------------", "|")            
             properties = spec["components"]["schemas"][definition]['properties']
             for property in properties:
+
+
                 if 'description' not in properties[property]:
                   properties[property]['description'] = "ERROR: description missing"
 
+
                 if 'type' not in properties[property]:
                   properties[property]['type'] = ""
-                  
+
+
+
                 if properties[property]['type'] == "array":
                     if "type" in properties[property]["items"]:
                         properties[property]['type'] = "array[{}]".format(properties[property]["items"]["type"])
@@ -89,6 +94,13 @@ def convert_definitions(filename, indent=1):
                             "/")[-1:][0]
 
                         properties[property]['type'] = f"array\[{kind}\]"
+
+                if 'format' not in properties[property]:
+                  properties[property]['format'] = ""
+                else:
+                  form = properties[property]['format']
+                  properties[property]['format'] = f"({form})"
+                  properties[property]['type'] = properties[property]['type'] + f"({form})"
 
 
                 print ("|", property, "|", properties[property]['type'], "|",properties[property]['description'], "|")
@@ -111,7 +123,7 @@ def section_link_from_ref(response):
         link = "[{section}](#{lsection})".format(**response)
     else:                    
         #link = "Integer"
-        link = "Message"
+        link = "String"
     response["link"] = link
     return response
 
@@ -150,7 +162,7 @@ def parse_response(code, response):
     kind = 'ERROR'
     if 'content' not in response:
         # kind = 'Integer'
-        kind = 'Message'
+        kind = 'String'
 
 
     elif 'content' in response:
