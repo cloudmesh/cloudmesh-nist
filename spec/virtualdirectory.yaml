@@ -2,7 +2,7 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 14-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: Virtual Directory
   description: |-
@@ -36,30 +36,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Virtualdirectory'
-        '400':
-          description: No virtual directories found
         '401':
           description: Not authorized
-    put:
-      tags:
-        - Virtual directory
-      summary: Uploads a virtual directory to the list of virtual directories
-      description: Uploads a virtual directory to the list of virtual directories
-      operationId: cloudmesh.virtual directory.add
-      requestBody:
-        description: The virtual directory to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Virtualdirectory'
-      responses:
-        '200':
-          description: Virtual directory updated
-        '400':
-          description: Error updating virtual directory.
-        '401':
-          description: Not authorized
+
   /virtualdirectory/{name}:
     get:
       tags:
@@ -81,8 +60,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Virtualdirectory'
-        '400':
-          description: No virtual directory found
+        '401':
+          description: Not authorized
+        '404':
+          description: The named virtual directory could not be found
+    put:
+      tags:
+        - Virtual directory
+      summary: Uploads a virtual directory to the list of virtual directories
+      description: Uploads a virtual directory to the list of virtual directories
+      operationId: cloudmesh.virtual directory.add
+      requestBody:
+        description: The virtual directory to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Virtualdirectory'
+      responses:
+        '200':
+          description: Virtual directory updated or created
         '401':
           description: Not authorized
         '404':
@@ -103,13 +100,10 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-          description: No Virtual directory found
         '401':
           description: Not authorized
         '404':
           description: The named virtual directory could not be found
-
   /virtualdirectory/{name}/{filename}:
     get:
       tags:
@@ -132,13 +126,15 @@ paths:
             type: string
       responses:
         '200':
-          description: upload ok
+          description: upload sucessful
           content:
             application/json:
               schema:
                 $ref: "filestore.yaml#/components/schemas/File"
         '401':
           description: Not authorized
+        '404':
+          description: The named virtual directory or file could not be found
     put:
       tags:
         - Virtual directory
@@ -170,6 +166,8 @@ paths:
           description: User added sucessfully
         '401':
           description: Not authorized
+      '404':
+        description: The named virtual directory or file could not be found
     delete:
       tags:
         - Virtual directory
@@ -194,6 +192,8 @@ paths:
           description: Deletion successful
         '401':
           description: Not authorized
+        '404':
+          description: The named virtual directory or file could not be found
 components:
   schemas:
     Virtualdirectory:

@@ -1,8 +1,8 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Filter
   description: |-
   
@@ -35,28 +35,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Filter'
-        '400':
-           description: No Filter found
-    put:
-      tags:
-        - Filter
-      summary: Set an filter
-      description: Sets the named filter
-      operationId: cloudmesh.filter.add
-      requestBody:
-        description: The new filter to create
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Filter'
-      responses:
-        '200':
-          description: Filter updated
         '401':
           description: Not authorized
-        '400':
-          description: Error updating filter
   /filter/{name}:
     get:
       tags:
@@ -78,12 +58,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Filter'
-        '400':
-           description: No Filter found
         '401':
           description: Not authorized
         '404':
            description: The named filter could not be found
+    put:
+      tags:
+        - Filter
+      summary: Set an filter
+      description: Sets the named filter
+      operationId: cloudmesh.filter.add
+      requestBody:
+        description: The new filter to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Filter'
+      responses:
+        '200':
+          description: Filter updated
+        '401':
+          description: Not authorized
+        '400':
+          description: Error updating filter
     delete:
       tags:
         - Filter
@@ -100,8 +98,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No Filter found
         '401':
           description: Not authorized
         '404':
@@ -117,7 +113,8 @@ components:
           description: Name of the filter
         function:
           type: string
-          description: The function  of the data exchanged in the stream
+          description: The function used to filter the data
+            in the stream
         kind:
           type: string
           description: The filter kind or type

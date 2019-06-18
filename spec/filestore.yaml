@@ -1,17 +1,18 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 14-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: File
   description: |-
   
     A file store is a resource allowing storage of data as a traditional file.
-    Instead of using the name *filestore* we simply use the name *file*.
     A file store can contanin any number of files with additional attributes
-    describing the file. An file store is typically located on the same cloud
-    services. This contrasts virtual directories that are just pointers to
-    files, which could include files located in file stores.
+    describing the file. A file store is located on the physical  server. It
+    contains access to the content of the file. This contrasts virtual
+    directories that are just pointers to files, which could include files
+    located in different file stores. A  virtual directory also doe snot
+    contain the content of the file, but just a pointer where to find the file.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -39,29 +40,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/File'
-        '400':
-          description: No files found
-    put:
-      tags:
-        - File
-      summary: Uploads a file to the list of files in the file store
-      description: Uploads a file to the list of files in the file store
-      operationId: cloudmesh.file.add
-      requestBody:
-        description: The file to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/File'
-
-
-      responses:
-        '200':
-          description: File updated
-        '400':
-          description: Error updating file.
-
+        '401':
+          description: Not authorized
   /file/{name}:
     get:
       tags:
@@ -83,12 +63,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/File'
-        '400':
-          description: No file found
         '401':
           description: Not authorized
         '404':
           description: The named file could not be found
+    put:
+      tags:
+        - File
+      summary: Uploads a file to the list of files in the file store
+      description: Uploads a file to the list of files in the file store
+      operationId: cloudmesh.file.add
+      requestBody:
+        description: The file to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+      responses:
+        '200':
+          description: File updated or created
+        '401':
+          description: Not authorized
     delete:
       tags:
         - File
@@ -105,8 +101,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-          description: No file found
         '401':
           description: Not authorized
         '404':

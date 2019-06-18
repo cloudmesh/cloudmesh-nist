@@ -1,12 +1,16 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Deployment
   description: |-
   
-    A service to store software stack deployments.
+    A resource to store software deployments. The deployment is formulated in
+    aspecification file. To distinguish the format of the specification file
+    a kind is used. In case the specification uses an external service an
+    endpoint to the service can be used and the name of the specification is
+    used to identify the deployment.
     
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -34,26 +38,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Deployment'
-        '400':
-           description: No Deployment found
-    put:
-      tags:
-        - Deployment
-      summary: Set an deployment
-      description: Sets the named deployment
-      operationId: cloudmesh.deployment.add
-      requestBody:
-        description: The new deployment to create
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Deployment'
-      responses:
-        '200':
-          description: Deployment updated
-        '400':
-          description: Error updating deployment
         '401':
           description: Not authorized
   /deployment/{name}:
@@ -77,10 +61,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Deployment'
-        '400':
-           description: No Deployment found
+        '401':
+          description: Not authorized
         '404':
            description: The named deployment could not be found
+    put:
+      tags:
+        - Deployment
+      summary: Set an deployment
+      description: Sets the named deployment
+      operationId: cloudmesh.deployment.add
+      requestBody:
+        description: The new deployment to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Deployment'
+      responses:
+        '200':
+          description: Deployment updated
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Deployment
@@ -97,8 +99,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No Deployment found
         '401':
           description: Not authorized
         '404':
@@ -109,9 +109,20 @@ components:
       type: object
       description: the deployment
       properties:
+        name:
+          type: string
+          description: The name of the deployment
         kind:
           type: string
-          description: the kind of the deployment
+          description: The kind of the deployment
         specification:
           type: string
-          description: the specification of the deployment
+          description: The specification of the deployment
+        endpoint:
+          type: string
+          description: The location of the deployment service
+        endpointname:
+          type: string
+          description: in case an endpoint is used, the endpointname is used
+                       to uniquly identify the deployment within the
+                       endpoint defined service

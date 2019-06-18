@@ -1,8 +1,8 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Secgroup
   description: |-
   
@@ -39,8 +39,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Secgroup"
-        '400':
-          description: Not found
         '401':
           description: Not authorized
   /secgroup/{name}:
@@ -64,8 +62,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Secgroup"
-        '400':
-          description: Not found
         '401':
           description: Not authorized
     post:
@@ -155,13 +151,13 @@ paths:
         - in: path
           name: name
           required: true
-          description: The named of the secgroup from which the rule will be deleted
+          description: The named secgroup
           schema:
             type: string
         - in: path
           name: rule
           required: true
-          description: The rule to be deleted
+          description: The secgroup rule
           schema:
             type: string
       responses:

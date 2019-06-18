@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 14-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: Microservice
   description: |-
@@ -35,28 +35,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Microservice'
-        '400':
-           description: No Microservice found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - Microservice
-      summary: Set an microservice
-      description: Sets the named microservice
-      operationId: cloudmesh.microservice.add
-      requestBody:
-        description: The new microservice to create
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Microservice'
-      responses:
-        '200':
-          description: Microservice updated
-        '400':
-          description: Error updating microservice
         '401':
           description: Not authorized
   /microservice/{name}:
@@ -80,12 +58,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Microservice'
-        '400':
-           description: No Microservice found
         '401':
           description: Not authorized
         '404':
            description: The named microservice could not be found
+    put:
+      tags:
+        - Microservice
+      summary: Set an microservice
+      description: Sets the named microservice
+      operationId: cloudmesh.microservice.add
+      requestBody:
+        description: The new microservice to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microservice'
+      responses:
+        '200':
+          description: Microservice updated
+        '400':
+          description: Error updating microservice
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Microservice
@@ -103,7 +99,7 @@ paths:
         '200':
           description: Deletion successful
         '400':
-           description: No Microservice found
+          description: Error deleting microservice
         '401':
           description: Not authorized
         '404':

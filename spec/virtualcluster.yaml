@@ -2,8 +2,8 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Virtual Cluster
   description: |-
 
@@ -11,7 +11,7 @@ info:
     compute nodes. The manager node usually serves as a login node and
     can be accessed from outside via a public IP. The compute nodes are
     connected to the manager node via a private, usually high performance (high
-    throughput and low latency), network and thus accessible only from the
+    throughput and low latency) network and thus accessible only from the
     manager node. To use the virtual cluster, login to the manager node, and
     from there one can login to any compute node, or submit a job to run on the
     compute nodes.
@@ -44,28 +44,6 @@ paths:
                   $ref: '#/components/schemas/Virtualcluster'
         '401':
           description: Not authorized
-        '400':
-          description: No Virtual clusters found
-    put:
-      tags:
-        - Virtual cluster
-      summary: Uploads an virtual cluster to the list of virtual clusters
-      description: Uploads an virtual cluster to the list of virtual clusters
-      operationId: cloudmesh.virtualcluster.add
-      requestBody:
-        description: The virtual cluster to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Virtualcluster'
-      responses:
-        '200':
-          description: Virtual cluster updated or created
-        '400':
-          description: Error updating Virtual cluster
-        '401':
-          description: Not authorized
   /virtualcluster/{name}:
     get:
       tags:
@@ -87,8 +65,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Virtualcluster'
-        '400':
-          description: No virtual cluster found
+        '401':
+          description: Not authorized
+        '404':
+          description: The named virtual cluster could not be found
+    put:
+      tags:
+        - Virtual cluster
+      summary: Uploads an virtual cluster to the list of virtual clusters
+      description: Uploads an virtual cluster to the list of virtual clusters
+      operationId: cloudmesh.virtualcluster.add
+      requestBody:
+        description: The virtual cluster to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Virtualcluster'
+      responses:
+        '200':
+          description: Virtual cluster updated or created
         '401':
           description: Not authorized
         '404':
@@ -109,13 +105,11 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-          description: No Virtual cluster found
         '401':
           description: Not authorized
         '404':
           description: The named virtual cluster could not be found
-  /virtualcluster/{name}/{nodename}:
+  /virtualcluster/{name}/{node}:
     get:
       tags:
         - Virtual cluster
@@ -131,8 +125,8 @@ paths:
           schema:
             type: string
           description: The name of the virtual cluster
-        - name: nodename
-          description: The nodename
+        - name: node
+          description: The node name
           in: path
           required: true
           schema:
@@ -146,6 +140,8 @@ paths:
                 $ref: "#/components/schemas/Node"
         '401':
           description: Not authorized
+        '404':
+          description: The named virtual cluster or node could not be found
     put:
       tags:
         - Virtual cluster
@@ -160,8 +156,8 @@ paths:
           schema:
             type: string
           description: The name of the virtual cluster
-        - name: nodename
-          description: The nodename
+        - name: node
+          description: The node name
           in: path
           required: true
           schema:
@@ -178,6 +174,8 @@ paths:
           description: Node added sucessfully
         '401':
           description: Not authorized
+        '404':
+          description: The named virtual cluster or node could not be found
     delete:
       tags:
         - Virtual cluster
@@ -191,8 +189,8 @@ paths:
           schema:
             type: string
           description: The name of the virtual cluster
-        - name: nodename
-          description: The nodename
+        - name: node
+          description: The node name
           in: path
           required: true
           schema:
@@ -202,6 +200,8 @@ paths:
           description: Deletion successful
         '401':
           description: Not authorized
+        '404':
+          description: The named virtual cluster or node could not be found
 components:
   schemas:
     Virtualcluster:

@@ -1,12 +1,12 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Nic
   description: |-
   
-    A service to store Network Interface Controller (NIC) information.
+    A resource store Network Interface Controller (NIC) information.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -34,28 +34,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Nic'
-        '400':
-           description: No Nic found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - Nic
-      summary: Set a network interface controller
-      description: Sets the named network interface controller
-      operationId: cloudmesh.nic.add
-      requestBody:
-        description: The new nic to create
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Nic'
-      responses:
-        '200':
-          description: Nic updated
-        '400':
-          description: Error updating network interface controller
         '401':
           description: Not authorized
   /nic/{name}:
@@ -79,12 +57,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Nic'
-        '400':
-           description: No Nic found
         '401':
           description: Not authorized
         '404':
            description: The named network interface controller could not be found
+    put:
+      tags:
+        - Nic
+      summary: Set a network interface controller
+      description: Sets the named network interface controller
+      operationId: cloudmesh.nic.add
+      requestBody:
+        description: The new nic to create or update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Nic'
+      responses:
+        '200':
+          description: Nic updated
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Nic
@@ -101,8 +95,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No Nic found
         '401':
           description: Not authorized
         '404':

@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: Flavor
   description: |-
@@ -46,35 +46,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Flavor'
-        '400':
-           description: No Flavor found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - Flavor
-      summary: Add a flavor
-      description: Sets the named flavor
-      operationId: cloudmesh.flavor.add
-      parameters:
-        - name: cloud
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The name of the cloud
-      requestBody:
-        description: The flavor to add or modify
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Flavor'
-      responses:
-        '200':
-          description: Flavor updated
-        '400':
-          description: Error updating flavor.
         '401':
           description: Not authorized
   /flavor/{cloud}/{name}:
@@ -104,12 +75,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Flavor'
-        '400':
-           description: No Flavor found
         '401':
           description: Not authorized
         '404':
            description: The named flavor could not be found
+    put:
+      tags:
+        - Flavor
+      summary: Add a flavor
+      description: Sets the named flavor
+      operationId: cloudmesh.flavor.add
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      requestBody:
+        description: The flavor to add or modify
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Flavor'
+      responses:
+        '200':
+          description: Flavor updated
+        '401':
+          description: Not authorized
+        '404':
+          description: The named flavor could not be found
     delete:
       tags:
         - Flavor
@@ -132,8 +128,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No Flavor found
         '401':
           description: Not authorized
         '404':

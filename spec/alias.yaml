@@ -1,7 +1,7 @@
 openapi: '3.0.2'
 info:
   version: 3.2.0
-  x-date: 14-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: Alias
   description: |-
@@ -41,26 +41,6 @@ paths:
            description: No alias found
         '401':
           description: Not authorized
-    put:
-      tags:
-        - Alias
-      summary: Set an alias
-      description: Sets the named alias
-      operationId: cloudmesh.alias.add
-      requestBody:
-        description: The new alias to create
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Alias'
-      responses:
-        '200':
-          description: Alias updated
-        '400':
-          description: Error updating alias
-        '401':
-          description: Not authorized
   /alias/{name}:
     get:
       tags:
@@ -82,12 +62,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Alias'
-        '400':
-           description: No alias found
         '401':
           description: Not authorized
         '404':
            description: The named alias could not be found
+    put:
+      tags:
+        - Alias
+      summary: Set an alias
+      description: Sets the named alias
+      operationId: cloudmesh.alias.add
+      requestBody:
+        description: The new alias to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Alias'
+      responses:
+        '200':
+          description: Alias updated or created
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Alias
@@ -104,8 +100,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No alias found
         '401':
           description: Not authorized
         '404':
@@ -121,5 +115,5 @@ components:
           description: The name of the alias
         source:
           type: string
-          description: The original object name
+          description: The original unique object name
 

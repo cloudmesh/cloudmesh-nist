@@ -10,9 +10,7 @@ info:
     it. This allows one to define values that can be easily retrieved
     based on the associated context. For example, a default could be
     the image name for a cloud where the context is defined by the
-    cloud name. In addition to the context, the service name is also specified
-    since a service could have multiple contexts. To be able to
-    define the kind of service there is also a kind attribute.
+    cloud name.
     
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -40,26 +38,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Default'
-        '400':
-           description: No default found
-    put:
-      tags:
-        - Default
-      summary: Set a default
-      description: Sets the named default
-      operationId: cloudmesh.default.add
-      requestBody:
-        description: The new default to create
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Default'
-      responses:
-        '200':
-          description: Default updated
-        '400':
-          description: Error updating default.
+        '401':
+          description: Not authorized
   /default/{name}:
     get:
       tags:
@@ -81,10 +61,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Default'
-        '400':
-           description: No default found
+        '401':
+          description: Not authorized
         '404':
            description: The named default could not be found
+    put:
+      tags:
+        - Default
+      summary: Set a default
+      description: Sets the named default
+      operationId: cloudmesh.default.add
+      requestBody:
+        description: The new default to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Default'
+      responses:
+        '200':
+          description: Default updated or created
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Default
@@ -101,8 +99,8 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No default found
+        '401':
+          description: Not authorized
         '404':
            description: The named default could not be found
 components:

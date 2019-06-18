@@ -1,8 +1,8 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 14-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Replica
   description: |-
   
@@ -39,28 +39,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Replica'
-        '400':
-          description: No replicas found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - Replica
-      summary: Uploads a replica to the list of replicas
-      description: Uploads a replica to the list of replicas
-      operationId: cloudmesh.replica.add
-      requestBody:
-        description: The replica to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Replica'
-      responses:
-        '200':
-          description: Replica updated
-        '400':
-          description: Error updating replica.
         '401':
           description: Not authorized
   /replica/{name}:
@@ -84,12 +62,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Replica'
-        '400':
-          description: No replica found
         '401':
           description: Not authorized
         '404':
           description: The named replica could not be found
+    put:
+      tags:
+        - Replica
+      summary: Uploads a replica to the list of replicas
+      description: Uploads a replica to the list of replicas
+      operationId: cloudmesh.replica.add
+      requestBody:
+        description: The replica to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Replica'
+      responses:
+        '200':
+          description: Replica updated or created
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Replica
@@ -106,8 +100,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-          description: No replica found
         '401':
           description: Not authorized
         '404':

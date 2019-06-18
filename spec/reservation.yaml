@@ -1,7 +1,7 @@
 openapi: '3.0.2'
 info:
   version: 3.2.0
-  x-date: 14-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: Reservation
   description: |-
@@ -37,24 +37,6 @@ paths:
                   $ref: '#/components/schemas/Reservation'
         '400':
           description: No Reservations found
-    put:
-      tags:
-        - Reservation
-      summary: Uploads a reservation to the list of reservations
-      description: Uploads a reservation to the list of reservations
-      operationId: cloudmesh.reservation.add
-      requestBody:
-        description: The reservation to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Reservation'
-      responses:
-        '200':
-          description: Reservation updated
-        '400':
-          description: Error updating reservation
   /reservation/{name}:
     get:
       tags:
@@ -82,6 +64,24 @@ paths:
           description: Not authorized
         '404':
           description: The named reservation could not be found
+    put:
+      tags:
+        - Reservation
+      summary: Uploads a reservation to the list of reservations
+      description: Uploads a reservation to the list of reservations
+      operationId: cloudmesh.reservation.add
+      requestBody:
+        description: The reservation to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+      responses:
+        '200':
+          description: Reservation updated
+        '400':
+          description: Error updating reservation
     delete:
       tags:
         - Reservation
@@ -115,7 +115,8 @@ components:
           description: Name of the reservation
         service:
           type: string
-          description: The name of the service on which we reserve
+          description: The name of the service for which the reservation is
+                       applied
         description:
           type: string
           description: The description of the reservation

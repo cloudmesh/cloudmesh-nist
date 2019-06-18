@@ -1,13 +1,13 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Image
   description: |-
   
     To execute virtual machines, we need an image that specifies the
-    details of the operationg system.
+    details of the operating system.
     
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -42,35 +42,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Image'
-        '400':
-           description: No Image found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - Image
-      summary: Add a image
-      description: Sets the named image
-      operationId: cloudmesh.image.add
-      parameters:
-        - name: cloud
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The name of the cloud
-      requestBody:
-        description: The image to add or modify
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Image'
-      responses:
-        '200':
-          description: Image updated
-        '400':
-          description: Error updating image.
         '401':
           description: Not authorized
   /image/{cloud}/{name}:
@@ -100,12 +71,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Image'
-        '400':
-           description: No Image found
         '401':
           description: Not authorized
         '404':
            description: The named image could not be found
+    put:
+      tags:
+        - Image
+      summary: Add a image
+      description: Sets the named image
+      operationId: cloudmesh.image.add
+      parameters:
+        - name: cloud
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the cloud
+      requestBody:
+        description: The image to add or modify
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Image'
+      responses:
+        '200':
+          description: Image updated or created
+        '401':
+          description: Not authorized
+        '404':
+          description: The named image could not be found
     delete:
       tags:
         - Image
@@ -128,8 +124,6 @@ paths:
       responses:
         '200':
           description: Deletion successful
-        '400':
-           description: No Image found
         '401':
           description: Not authorized
         '404':
