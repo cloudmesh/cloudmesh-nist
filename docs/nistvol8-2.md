@@ -1247,6 +1247,14 @@ three important terms related to the identity are distinguished as follows:
 ```{include=./spec/scheduler.yaml}
 ```
 
+### Queue {#sec:spec-queue}
+
+{include=./spec/queue.md}
+
+#### queue.yaml
+
+```{include=./spec/queue.yaml}
+```
 
 
 ## Compute Management - Virtual Machines

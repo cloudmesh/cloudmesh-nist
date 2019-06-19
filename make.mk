@@ -7,29 +7,32 @@ endef
 
 #	$(call banner, "use: make doc")
 
+spec = $(wildcard spec/*.yaml)
+
 resources = \
-	virtualcluster \
-	flavor \
-	image \
-	vm \
-	variables \
-	virtualdirectory \
-	alias \
-	containers \
-	database \
-	default \
-	deployment \
-	filestore \
-	filter \
-	microservice \
-	nic \
-	publickeystore \
-	replica \
-	reservation \
-	secgroup \
-	stream \
-	user \
-	timestamp \
-	scheduler \
-	organization \
-	non
+ alias \
+ containers \
+ database \
+ default \
+ deployment \
+ filestore \
+ filter \
+ flavor \
+ image \
+ microservice \
+ nic \
+ non \
+ organization \
+ publickeystore \
+ queue \
+ replica \
+ reservation \
+ scheduler \
+ secgroup \
+ stream \
+ timestamp \
+ user \
+ variables \
+ virtualcluster \
+ virtualdirectory \
+ vm

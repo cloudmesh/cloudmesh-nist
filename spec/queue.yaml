@@ -1,8 +1,8 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
-  x-status: TODO
+  x-date: 17-06-2019
+  x-status: defined
   title: Queue
   description: |-
   
@@ -54,13 +54,13 @@ paths:
           schema:
             type: string
           description: The name of the task
-        - name: operation
-            in: query
-            description: Show the task but do not remove it from the queue
-            schema:
-              type: string
-              enum:
-                - info
+        - in: query
+          name: operation
+          description: Show the task but do not remove it   from the queue
+          schema:
+            type: string
+            enum:
+              - info
       responses:
         '200':
           description: Returning the information of the task
@@ -78,6 +78,13 @@ paths:
       summary: Uploads a task to the list of tasks
       description: Uploads a task to the list of tasks
       operationId: cloudmesh.task.add
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the task
       requestBody:
         description: The task to be uploaded
         required: true
