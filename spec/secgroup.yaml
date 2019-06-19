@@ -64,12 +64,14 @@ paths:
                 $ref: "#/components/schemas/Secgroup"
         '401':
           description: Not authorized
+        '404':
+          description: The named security group could not be found
     post:
       tags:
       - Security group
-      summary: Create a new named security group
+      summary: Create the named security group
       description: Create a new named security group
-      operationId: cloudmesh.secgroup.add
+      operationId: cloudmesh.secgroup.create
       parameters:
         - in: path
           name: name
@@ -80,34 +82,8 @@ paths:
       responses:
         '201':
           description: Created
-        '401':
-          description: Not authorized
-  /secgroup/{name}/rule:
-    post:
-      tags:
-      - Security group
-      summary: Create a new rule in the specified security group
-      description: Create a new rule in security group
-      operationId: cloudmesh.secgroup.add_rule
-      parameters:
-        - in: path
-          name: name
-          required: true
-          description: The name of the new security group to create
-          schema:
-            type: string
-      requestBody:
-        description: The new security group rule to create
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SecGroupRule'
-      responses:
-        '200':
-          description: Created
         '400':
-          description: Not found
+          description: The group could not be created
         '401':
           description: Not authorized
   /secgroup/{name}/rule/{rule}:
@@ -137,10 +113,37 @@ paths:
             application/json:
               schema:
                   $ref: "#/components/schemas/SecGroupRule"
-        '400':
-          description: Not found
         '401':
           description: Not authorized
+        '404':
+          description: The named security group or role could not be found
+    put:
+      tags:
+      - Security group
+      summary: Create or update specified security group
+      description: Create a new rule in security group
+      operationId: cloudmesh.secgroup.add_rule
+      parameters:
+        - in: path
+          name: name
+          required: true
+          description: The name of the new security group to create
+          schema:
+            type: string
+      requestBody:
+        description: The new security group rule to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecGroupRule'
+      responses:
+        '200':
+          description: Created
+        '401':
+          description: Not authorized
+        '404':
+          description: The named security group or role could not be found
     delete:
       tags:
       - Security group
@@ -163,10 +166,10 @@ paths:
       responses:
         '200':
           description: Deleted sucessfully
-        '400':
-          description: Not found
         '401':
           description: Not authorized
+        '404':
+          description: The named security group or role could not be found
 components:
   schemas:
     Secgroup:
@@ -199,10 +202,12 @@ components:
           description: The defined security group rule is for egress if True
         remote_group:
           type: string
-          description: Name of the group if the rule is defined by group instead of IP range
+          description: Name of the group if the rule is defined by group
+                       instead of IP range
         protocol:
           type: string
           description: The protocol used such as TCP, UDP, ICMP
+          example: TCP
         from_port:
           type: integer
           description: Port range starting port
@@ -211,4 +216,5 @@ components:
           description: Port range ending port
         cidr:
           type: string
-          description: The source or destination network in CIDR notation, e.g., 129.79.0.0/16
+          description: The source or destination network in CIDR notation,
+          example: 129.79.0.0/16

@@ -1,3 +1,5 @@
+include ../make.mk
+
 .PHONY: spec
 
 VERSION="Version 3.0.3"  
@@ -16,49 +18,8 @@ DEST=dest
 SRC=../spec
 MARKDOWN-OPTIONS=--verbose -V curdate="$(date)" --filter pandoc-codeblock-include --filter pandoc-crossref -f markdown+header_attributes -f markdown+smart -f markdown+emoji --indented-code-classes=bash,python,yaml
 
-# --template=template.epub $(MERMAID) 
 
-service_4= \
- alias\
- database\
- default\
- filestore\
- flavor\
- image\
- nic\
- organization\
- publickeystore\
- replica\
- reservation\
- scheduler\
- secgroup\
- timestamp\
- user\
- variables\
- virtualcluster\
- virtualdirectory\
- vm\
- containers\
- deployment\
- filter\
- microservice\
- stream
-
-
-# slurmjob\
-# vcluster\
-
-
-other=\
- abc\
- example\
- vm1
-
-
-service=$(service_4)
-
-broken= organization
-#service=user keystore virtualdirectory virtualcluster
+service=$(resources)
 
 
 YAML := $(wildcard $(SRC)/*.yaml)
@@ -92,7 +53,7 @@ specstable:
 
 
 rest:
-	for entry in $(service_4); do \
+	for entry in $(resources); do \
 		echo "########################" ; \
 		echo "Generate:" $(DEST)/spec/$$entry.md ; \
 		../bin/cm-openapi2md md $(SRC)/$$entry.yaml --indent=4 > $(DEST)/spec/$$entry.md ; \

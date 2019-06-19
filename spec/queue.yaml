@@ -22,68 +22,6 @@ info:
 servers:
   - url: /cloudmesh/v3/scheduler
 paths:
-  /task/next:
-    get:
-      tags:
-        - Task
-      summary: Returns the next tasks and removed it from the list of tasks
-      description: Returns the next task
-      operationId: cloudmesh.task.next
-      responses:
-        '200':
-          description: The task
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Task'
-        '400':
-          description: No Tasks found
-        '401':
-          description: Not authorized
-  /task/info:
-    get:
-      tags:
-        - Task
-      summary: Returns information about the task that is to be scheduled next
-      description: Returns the next task
-      operationId: cloudmesh.task.info
-      responses:
-        '200':
-          description: The task
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Task'
-        '400':
-          description: No Tasks found
-        '401':
-          description: Not authorized
-  /task/pop:
-    get:
-      tags:
-        - Task
-      summary: Removes the next task to be scheduled, but does not
-               exualle executes it.
-               scheduled next
-      description: Returns the next task
-      operationId: cloudmesh.task.pop
-      responses:
-        '200':
-          description: The task
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Task'
-        '400':
-          description: No Tasks found
-        '401':
-          description: Not authorized
   /task:
     get:
       tags:
@@ -100,28 +38,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
-        '400':
-          description: No Tasks found
-        '401':
-          description: Not authorized
-    put:
-      tags:
-        - Task
-      summary: Uploads a task to the list of tasks
-      description: Uploads a task to the list of tasks
-      operationId: cloudmesh.task.add
-      requestBody:
-        description: The task to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Task'
-      responses:
-        '200':
-          description: Task updated
-        '400':
-          description: Error updating Task.
         '401':
           description: Not authorized
   /task/{name}:
@@ -138,6 +54,13 @@ paths:
           schema:
             type: string
           description: The name of the task
+        - name: operation
+            in: query
+            description: Show the task but do not remove it from the queue
+            schema:
+              type: string
+              enum:
+                - info
       responses:
         '200':
           description: Returning the information of the task
@@ -145,12 +68,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
-        '400':
-          description: No task found
         '401':
           description: Not authorized
         '404':
           description: The named task could not be found
+    put:
+      tags:
+        - Task
+      summary: Uploads a task to the list of tasks
+      description: Uploads a task to the list of tasks
+      operationId: cloudmesh.task.add
+      requestBody:
+        description: The task to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Task updated
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Task
@@ -168,7 +107,7 @@ paths:
         '200':
           description: Deletion successful
         '400':
-          description: No Task found
+          description: Error to delete the task
         '401':
           description: Not authorized
         '404':
@@ -189,8 +128,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Policy'
-        '400':
-          description: No tasks found
         '401':
           description: Not authorized
     put:

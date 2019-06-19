@@ -1227,7 +1227,15 @@ three important terms related to the identity are distinguished as follows:
 ```{include=./spec/virtualcluster.yaml}
 ```
 
+### Network of Nodes {#sec:spec-non}
 
+
+{include=./spec/non.md}
+
+#### non.yaml
+
+```{include=./spec/non.yaml}
+```
 
 
 ### Scheduler {#sec:spec-scheduler}

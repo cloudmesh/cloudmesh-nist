@@ -43,42 +43,42 @@ paths:
           description: Not authorized
         '404':
           description: Named database not found
-  /database/{name}:
+  /database/{name}/schema:
     get:
       tags:
-      - "Database Definition"
-      summary: "Get the list of tables or collections for the database"
+      - "Database Schema"
+      summary: Get the list of the schema
       description: ""
-      operationId: "cloudmesh.database.get.collections_or_tables"
+      operationId: "cloudmesh.database.get.schema"
       parameters:
         - name: name
-          description: Name of the collections or tables
+          description: Name of the schema
           in: path
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: "successfully returned the list"
+          description: "successfully returned the schema"
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Definition"
+                  $ref: "#/components/schemas/Schema"
         '401':
           description: Not authorized
         '404':
           description: Named database not found
     put:
       tags:
-      - "Database Definition"
-      summary: "Upload  a news table or collection"
+      - "Database Schema"
+      summary: "Upload  a schema"
       description: ""
-      operationId: "cloudmesh.database.put.collections_or_tables"
+      operationId: "cloudmesh.database.put.schema"
       parameters:
         - name: name
-          description: Name of the collections or tables
+          description: Name of the database
           in: path
           required: true
           schema:
@@ -89,7 +89,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Definition"
+                $ref: "#/components/schemas/Schema"
         '401':
           description: Not authorized
         '404':
@@ -114,13 +114,12 @@ paths:
           description: Not authorized
         '404':
           description: Named database not found
-
-  /database/{name}/{table_or_collection}:
+  /database/{name}:
     get:
       tags:
-      - "Database Data Interaction"
-      summary: "Query the table or collection"
-      description: ""
+      - "Database Data"
+      summary: Query the named database
+      description: Query the named database
       operationId: "cloudmesh.database.data.get"
       parameters:
         - name: name
@@ -129,15 +128,9 @@ paths:
           required: true
           schema:
             type: string
-        - name: table_or_collection
-          description: Name of the table or collection
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: query
+        - in: query
+          name: query
           description: Database Query
-          in: path
           required: true
           schema:
             $ref: '#/components/schemas/Query'
@@ -156,19 +149,13 @@ paths:
           description: Named database not found
     put:
       tags:
-      - "Database Data Interaction"
+      - "Database Data"
       summary: "add data to the table or collection"
       description: ""
       operationId: "cloudmesh.database.data.put"
       parameters:
         - name: name
           description: Name of the database
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: table_or_collection
-          description: Name of the table or collection
           in: path
           required: true
           schema:
@@ -191,6 +178,38 @@ paths:
           description: Not authorized
         '404':
           description: Named database not found
+    delete:
+      tags:
+      - "Database Data"
+      summary: "Delete the objects matching the query"
+      description: ""
+      operationId: "cloudmesh.database.data.delete"
+      parameters:
+        - name: name
+          description: Name of the database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: query
+          description: Database Query
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Query'
+      responses:
+        '200':
+          description: Successfull query
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Record"
+        '401':
+          description: Not authorized
+        '404':
+          description: Named database not found
 components:
   schemas:
     Database:
@@ -209,9 +228,9 @@ components:
         kind:
           type: string
           description: the kind of the database
-    Definition:
+    Schema:
       type: object
-      description: Defines a database collection or Table
+      description: Defines a database
       properties:
         name:
           type: string
@@ -222,7 +241,7 @@ components:
         kind:
           type: string
           description: The kind of the definition
-        schema:
+        content:
            type: string
            description: The schema associated with the table or collection
     Record:

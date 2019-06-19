@@ -1,119 +1,205 @@
-openapi: '3.0.2'
+openapi: "3.0.2"
 info:
   version: 3.2.0
   x-date: 17-06-2019
   x-status: defined
-  title: Alias
+  title: Scheduler
   description: |-
 
-    Often a user has the desire to create a custom name for an object. An
-    alias allows to do that while while assosication auser defined name or
-    *alias* to a previouly used name. The aliases could be shared with other
-    users. A name could have one or more aliases.
+    The queue is a special scheduler that allows tasks to be scheduled
+    witle doing queue policies, such as LIFO, FIFO, and so on.
+    A queue returns the next task to be executed. Tasks can be added
+     and
+    deleted.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup
-    url: https://cloudmesh-community.github.io/nist/spec/
+    url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache 2.0
     url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
 servers:
-  - url: /cloudmesh/v3
+  - url: /cloudmesh/v3/scheduler
 paths:
-  /alias:
+  /task:
     get:
       tags:
-        - Alias
-      summary: Returns a list of aliases
-      description: Returns a list of all aliases
-      operationId: cloudmesh.alias.list
+        - Task
+      summary: Returns a list of tasks
+      description: Returns a list of all tasks
+      operationId: cloudmesh.task.list
       responses:
         '200':
-          description: The list of aliasses
+          description: The list of tasks
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Alias'
+                  $ref: '#/components/schemas/Task'
         '400':
-           description: No alias found
+          description: No tasks found
         '401':
           description: Not authorized
-  /alias/{name}:
+  /task/{name}:
     get:
       tags:
-        - Alias
-      summary: Returns the named alias
-      description: Returns an alias by name
-      operationId: cloudmesh.alias.find_by_name
+        - Task
+      summary: Returns the named task
+      description: Returns an task by name
+      operationId: cloudmesh.task.find_by_name
       parameters:
         - name: name
           in: path
           required: true
           schema:
             type: string
-          description: The name of the alias
+          description: The name of the task
+        - name: operation
+          in: query
+          schema:
+            type: string
+            enum:
+              - info
+              - pop
       responses:
         '200':
-          description: Returning the information of the alias
+          description: Returning the information of the task
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Alias'
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: No task found
         '401':
           description: Not authorized
         '404':
-           description: The named alias could not be found
+          description: The named task could not be found
     put:
       tags:
-        - Alias
-      summary: Set an alias
-      description: Sets the named alias
-      operationId: cloudmesh.alias.add
+        - Task
+      summary: Uploads a task to the list of tasks
+      description: Uploads a task to the list of tasks
+      operationId: cloudmesh.task.add
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the task
       requestBody:
-        description: The new alias to create
+        description: The task to be uploaded
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Alias'
+              $ref: '#/components/schemas/Task'
       responses:
         '200':
-          description: Alias updated or created
+          description: Task updated
+        '400':
+          description: Error updating task.
         '401':
           description: Not authorized
     delete:
       tags:
-        - Alias
-      summary: Deletes the named alias
-      description: Deletes an alias by name
-      operationId: cloudmesh.alias.delete_by_name
+        - Task
+      summary: Deletes the named task
+      description: Deletes an task by name
+      operationId: cloudmesh.task.delete_by_name
       parameters:
         - name: name
           in: path
           required: true
           schema:
             type: string
-          description: The name of the alias
+          description: The name of the task
       responses:
         '200':
           description: Deletion successful
+        '400':
+          description: No task found
         '401':
           description: Not authorized
         '404':
-           description: The named alias could not be found
+          description: The named task could not be found
+  /policy:
+    get:
+      tags:
+        - Task
+      summary: Returns the policy
+      description: Returns the polocy
+      operationId: cloudmesh.task.policy.list
+      responses:
+        '200':
+          description: The policy
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Policy'
+        '400':
+          description: No tasks found
+        '401':
+          description: Not authorized
+    put:
+      tags:
+        - Task
+      summary: Uploads the policy
+      description: Uploads a task to the list of tasks
+      operationId: cloudmesh.task.policy.add
+      requestBody:
+        description: The Policy
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Policy'
+      responses:
+        '200':
+          description: Task updated
+        '400':
+          description: Error updating task
+        '401':
+          description: Not authorized
 components:
   schemas:
-    Alias:
+    Task:
       type: object
-      description: the alias
+      description: The scheduler
       properties:
         name:
           type: string
-          description: The name of the alias
-        source:
+          description: Name of the scheduler
+        user:
           type: string
-          description: The original unique object name
+          description: The username the task belongs to
+        description:
+          type: string
+          description: The description of the task
+        kind:
+          type: string
+          description: The kind of the task
+        content:
+          type: string
+          description: The content of the task
+    Policy:
+      type: object
+      description: The policy of the scheduler
+      properties:
+        name:
+          type: string
+          description: Name of the scheduler policy
+        description:
+          type: string
+          description: The description of the policy
+        kind:
+          type: string
+          description: The kind of the policy
+        parameters:
+          type: string
+          description: parameters to define the behaviour of the scheduler
 

@@ -22,68 +22,6 @@ info:
 servers:
   - url: /cloudmesh/v3/scheduler
 paths:
-  /task/next:
-    get:
-      tags:
-        - Task
-      summary: Returns the next tasks and removed it from the list of tasks
-      description: Returns the next task
-      operationId: cloudmesh.task.next
-      responses:
-        '200':
-          description: The task
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Task'
-        '400':
-          description: No tasks found
-        '401':
-          description: Not authorized
-  /task/info:
-    get:
-      tags:
-        - Task
-      summary: Returns information about the task that is to be scheduled next
-      description: Returns the next task
-      operationId: cloudmesh.task.info
-      responses:
-        '200':
-          description: The task
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Task'
-        '400':
-          description: No tasks found
-        '401':
-          description: Not authorized
-  /task/pop:
-    get:
-      tags:
-        - Task
-      summary: Removes the next task to be scheduled, but does not
-               exualle executes it.
-               scheduled next
-      description: Returns the next task
-      operationId: cloudmesh.task.pop
-      responses:
-        '200':
-          description: The task
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Task'
-        '400':
-          description: No tasks found
-        '401':
-          description: Not authorized
   /task:
     get:
       tags:
@@ -104,26 +42,6 @@ paths:
           description: No tasks found
         '401':
           description: Not authorized
-    put:
-      tags:
-        - Task
-      summary: Uploads a task to the list of tasks
-      description: Uploads a task to the list of tasks
-      operationId: cloudmesh.task.add
-      requestBody:
-        description: The task to be uploaded
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Task'
-      responses:
-        '200':
-          description: Task updated
-        '400':
-          description: Error updating task.
-        '401':
-          description: Not authorized
   /task/{name}:
     get:
       tags:
@@ -138,6 +56,13 @@ paths:
           schema:
             type: string
           description: The name of the task
+        - in: query
+          name: operation
+          schema:
+            type: string
+            enum:
+              - info
+              - pop
       responses:
         '200':
           description: Returning the information of the task
@@ -151,6 +76,33 @@ paths:
           description: Not authorized
         '404':
           description: The named task could not be found
+    put:
+      tags:
+        - Task
+      summary: Uploads a task to the list of tasks
+      description: Uploads a task to the list of tasks
+      operationId: cloudmesh.task.add
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the task
+      requestBody:
+        description: The task to be uploaded
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Task updated
+        '400':
+          description: Error updating task.
+        '401':
+          description: Not authorized
     delete:
       tags:
         - Task

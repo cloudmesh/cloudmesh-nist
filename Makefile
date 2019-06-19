@@ -1,6 +1,9 @@
+include make.mk
+
 OBJECTS=keystore profile virtualcluster virtualdirectory
 
 .PHONY: service pdf
+
 
 doc:
 	cd docs; make
