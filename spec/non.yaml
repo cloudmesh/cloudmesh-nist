@@ -2,14 +2,13 @@
 openapi: "3.0.2"
 info:
   version: 3.2.0
-  x-date: 08-06-2019
+  x-date: 17-06-2019
   x-status: defined
   title: Network of Nodes
   description: |-
 
     A Network of Nodes (NON) contains a number of compute nodes that are
-    connected
-    by a network and can be reached from each other. The concept is a
+    connected by a network and can be reached from each other. The concept is a
     generalization of the term Network of Workstations. In contrast to a
     Virtual Cluster it doe snot have a dedicated manager node. Network of
     nodes can be real or virtual. The same security context can be used to
@@ -30,31 +29,30 @@ paths:
   /non:
     get:
       tags:
-        - Non
-      summary: Returns a list of nons
-      description: Returns a list of all nons
+        - Network of nodes
+      summary: Returns a list of network of nodess
+      description: Returns a list of all network of nodess
       operationId: cloudmesh.non.list
       responses:
         '200':
-          description: The list of nons
+          description: The list of network of nodess
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Non'
-        '400':
-          description: No Nons found
         '401':
           description: Not authorized
+  /non/{name}:
     put:
       tags:
-        - Non
-      summary: Uploads an non to the list of nons
-      description: Uploads an non to the list of nons
+        - Network of nodes
+      summary: Uploads a network of nodes to the list of network of nodess
+      description: Uploads a network of nodes to the list of network of nodess
       operationId: cloudmesh.non.add
       requestBody:
-        description: The non to be uploaded
+        description: The network of nodes to be uploaded
         required: true
         content:
           application/json:
@@ -62,9 +60,9 @@ paths:
               $ref: '#/components/schemas/Non'
       responses:
         '200':
-          description: Non updated or created.
+          description: Network of nodes updated or created.
         '400':
-          description: Error updating Non.
+          description: Error updating network of nodes
         '401':
           description: Not authorized
   /non/{name}/publickeystore:
@@ -72,7 +70,7 @@ paths:
       tags:
         - Non
       summary: Returns the information of the keystore
-      description: Returns an non by name
+      description: Returns a network of nodes by name
       operationId: cloudmesh.non.keystore.find_by_name
       parameters:
         - name: name
@@ -80,24 +78,22 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
+          description: The name of the network of nodes
       responses:
         '200':
-          description: Returning the information of the non
+          description: Returning the information of the network of nodes
           content:
             application/json:
               schema:
                 type: string
                 description: the endpoint of the publickeystore
-        '400':
-          description: No non found
         '401':
           description: Not authorized
     delete:
       tags:
-        - Non
+        - Network of nodes
       summary: Deletes the keystore
-      description: Deletes an non by name
+      description: Deletes a network of nodes by name
       operationId: cloudmesh.non.keystore.delete
       parameters:
         - name: name
@@ -105,19 +101,17 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
+          description: The name of the network of nodes
       responses:
         '200':
           description: Deletion successful
-        '400':
-          description: No Non found
         '401':
           description: Not authorized
     put:
       tags:
-        - Non
+        - Network of nodes
       summary: Adds a keystore
-      description: Updates or adds a node to the non.
+      description: Updates or adds a node to the network of nodes.
       operationId: cloudmesh.non.keystore.add
       parameters:
         - name: name
@@ -125,7 +119,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
+          description: The name of the network of nodes
       responses:
         '200':
            description: Node keystore added sucessfully
@@ -135,8 +129,8 @@ paths:
     get:
       tags:
         - Non
-      summary: Returns the named non
-      description: Returns an non by name
+      summary: Returns the named network of nodes
+      description: Returns a network of nodes by name
       operationId: cloudmesh.non.find_by_name
       parameters:
         - name: name
@@ -144,7 +138,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
+          description: The name of the network of nodes
       responses:
         '200':
           description: Returning the information of the node
@@ -152,17 +146,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Non'
-        '400':
-          description: No non found
         '401':
           description: Not authorized
         '404':
-          description: The named non could not be found
+          description: The named network of nodes could not be found
     delete:
       tags:
-        - Non
-      summary: Deletes the named non
-      description: Deletes an non by name
+        - Network of nodes
+      summary: Deletes the named network of nodes
+      description: Deletes a network of nodes by name
       operationId: cloudmesh.non.delete_by_name
       parameters:
         - name: name
@@ -170,22 +162,20 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
+          description: The name of the network of nodes
       responses:
         '200':
           description: Deletion successful
-        '400':
-          description: No Non found
         '401':
           description: Not authorized
         '404':
-          description: The named non could not be found
-  /non/{name}/node/{nodename}:
+          description: The named network of nodes could not be found
+  /non/{name}/node/{node}:
     get:
       tags:
-        - Non
-      summary: Node of the named non
-      description: Returns the specific node of the named non.
+        - Network of nodes
+      summary: Node of the named network of nodes
+      description: Returns the specific node of the named network of nodes.
       operationId: cloudmesh.non.node.get_by_name
       parameters:
         - name: name
@@ -193,9 +183,9 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
-        - name: nodename
-          description: The nodename
+          description: The name of the network of nodes
+        - name: node
+          description: The node name
           in: path
           required: true
           schema:
@@ -211,9 +201,9 @@ paths:
           description: Not authorized
     put:
       tags:
-        - Non
-      summary: Updates or adds a node to the non
-      description: Updates or adds a node to the non
+        - Network of nodes
+      summary: Updates or adds a node to the network of nodes
+      description: Updates or adds a node to the network of nodes
       operationId: cloudmesh.non.node.add
       parameters:
         - name: name
@@ -221,9 +211,9 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
-        - name: nodename
-          description: The nodename
+          description: The name of the network of nodes
+        - name: node
+          description: The node name
           in: path
           required: true
           schema:
@@ -242,9 +232,9 @@ paths:
           description: Not authorized
     delete:
       tags:
-        - Non
-      summary: Delete a node in the non
-      description: Delete a node in the non
+        - Network of nodes
+      summary: Delete a node in the network of nodes
+      description: Delete a node in the network of nodes
       operationId: cloudmesh.non.node.delete
       parameters:
         - name: name
@@ -252,9 +242,9 @@ paths:
           required: true
           schema:
             type: string
-          description: The name of the non
-        - name: nodename
-          description: The nodename
+          description: The name of the network of nodes
+        - name: node
+          description: The node name
           in: path
           required: true
           schema:
@@ -270,13 +260,13 @@ components:
       type: object
       properties:
         name:
-          description: The name of the non
+          description: The name of the network of nodes
           type: string
         description:
           type: string
-          description: A description of the non
+          description: A description of the network of nodes
         nodes:
-          description: List of nodes of the non
+          description: List of nodes of the network of nodes
           type: array
           items:
             $ref: "virtualcluster.yaml#/components/schemas/Node"
