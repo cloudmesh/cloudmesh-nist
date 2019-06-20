@@ -1,0 +1,212 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 17-06-2019
+  x-status: defined
+  title: MapReduce
+  description: |-
+  
+    A service to store the information of a mapreduce deployment definition.
+    All of the attributes are stored as Strings.
+    
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache 2.0
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+servers:
+  - url: /cloudmesh/v3
+paths:
+  /mapreduce:
+    get:
+      tags:
+      - mapreduce
+      summary: Returns the data identified by the mapreduce resource
+      description: Returns the data identified by the mapreduce resource
+      operationId: cloudmesh.mapreduce.list
+      responses:
+        '200':
+          description: mapreduce names
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Not authorized
+  /mapreduce/{name}:
+    get:
+      tags:
+        - mapreduce
+      summary: Returns the data identified by the map and function
+      description: Returns the data identified bythe reduce function.
+      operationId: cloudmesh.mapreduce.get
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the function
+      responses:
+        '200':
+          description: The data identified by reduce
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Data'
+        '401':
+          description: Not authorized
+        '404':
+          description: The resource could not be found
+  /mapreduce/map/{name}:
+    put:
+      tags:
+        - mapreduce
+      summary: Create or update the map function
+      description: Create or update the map function
+      operationId: cloudmesh.mapreduce.map.put
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the function
+      requestBody:
+        description: The new default to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Map'
+      responses:
+        '200':
+          description: The map function was created or updated
+        '401':
+          description: Not authorized
+        '404':
+          description: The resource could not be found
+    get:
+      tags:
+        - mapreduce
+      summary: Returns the data identified bythe map function
+      description: Returns the data identified bythe map function
+      operationId: cloudmesh.mapreduce.map.get
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the function
+      responses:
+        '200':
+          description: The data identified by map
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Data'
+        '401':
+          description: Not authorized
+        '404':
+          description: The resource could not be found
+  /mapreduce/reduce/{name}:
+    put:
+      tags:
+        - mapreduce
+      summary: Create or update the reduce function
+      description: Create or update the reduce function
+      operationId: cloudmesh.mapreduce.reduce.put
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the function
+      requestBody:
+        description: The new default to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reduce'
+      responses:
+        '200':
+          description: The reduce function was created or updated
+        '401':
+          description: Not authorized
+        '404':
+          description: The resource could not be found
+    get:
+      tags:
+        - mapreduce
+      summary: Returns the data identified bythe reduce function
+      description: Returns the data identified bythe reduce function
+      operationId: cloudmesh.mapreduce.reduce.get
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the function
+      responses:
+        '200':
+          description: The data identified by reduce
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Data'
+        '401':
+          description: Not authorized
+        '404':
+          description: The resource could not be found
+components:
+  schemas:
+    Map:
+      type: object
+      description: The specification of the map function
+      properties:
+        name:
+          type: string
+          description: The name of the map function
+        kind:
+          type: string
+          description: The kind in which the specification is provided
+        content:
+          type: string
+          description: The kind in which the specification is provided
+    Reduce:
+      type: object
+      description: The specification of the reduce function
+      properties:
+        name:
+          type: string
+          description: The name of the reduce function
+        kind:
+          type: string
+          description: The kind in which the specification is provided
+        content:
+          type: string
+          description: The kind in which the specification is provided
+    Data:
+      type: object
+      description: The specification of the function
+      properties:
+        name:
+          type: string
+          description: The name of the data
+        content:
+          type: string
+          description: The content of tehe data

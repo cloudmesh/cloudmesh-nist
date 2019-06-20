@@ -1135,6 +1135,15 @@ three important terms related to the identity are distinguished as follows:
 ```{include=./spec/user.yaml}
 ```
 
+### Account {#sec:spec-account}
+
+{include=./spec/account.md}
+
+#### account.yaml
+
+```{include=./spec/account.yaml}
+
+
 ### Public Key Store {#sec:spec-publickeystore}
 
 {include=./spec/publickeystore.md}
@@ -1317,6 +1326,19 @@ This section summarizes a basic interface specification of virtual machines.
 #### containers.yaml
 
 ```{include=./spec/containers.yaml}
+```
+
+
+## Compute Management - Map Reduce
+
+
+### Microservice {#sec:spec-mapreduce}
+
+{include=./spec/mapreduce.md}
+
+#### mapreduce.yaml
+
+```{include=./spec/mapreduce.yaml}
 ```
 
 

@@ -11,6 +11,7 @@ spec = $(wildcard spec/*.yaml)
 
 resources = \
  alias \
+ account \
  containers \
  database \
  default \
@@ -19,6 +20,7 @@ resources = \
  filter \
  flavor \
  image \
+ mapreduce \
  microservice \
  nic \
  non \
