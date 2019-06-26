@@ -1332,7 +1332,7 @@ This section summarizes a basic interface specification of virtual machines.
 ## Compute Management - Map Reduce
 
 
-### Microservice {#sec:spec-mapreduce}
+### Map Reduce {#sec:spec-mapreduce}
 
 {include=./spec/mapreduce.md}
 
