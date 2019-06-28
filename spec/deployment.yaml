@@ -8,9 +8,10 @@ info:
   
     A resource to store software deployments. The deployment is formulated in
     aspecification file. To distinguish the format of the specification file
-    a kind is used. In case the specification uses an external service an
-    endpoint to the service can be used and the name of the specification is
-    used to identify the deployment.
+    a string is used that defines the kind of the deployment. In case the
+    specification uses an  external service an endpoint to the service can
+    be used and the name of the specification is used to identify the
+    deployment.
     
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:

@@ -6,11 +6,10 @@ info:
   title: Queue
   description: |-
   
-    The queue is a special scheduler that allows tasks to be scheduled
-    witle doing queue policies, such as LIFO, FIFO, and so on.
-    A queue returns the next task to be executed. Tasks can be added
-     and
-    deleted.
+    A scheduler allows to control the execution of tasks based on a policy.
+    Schedulers may allow the assignment of differnt policies to define the
+    order of the tasks. A scheduler returns the next task to be executed.
+    Tasks can be added and deleted.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -25,10 +24,10 @@ paths:
   /task:
     get:
       tags:
-        - Task
+        - Scheduler
       summary: Returns a list of tasks
       description: Returns a list of all tasks
-      operationId: cloudmesh.task.list
+      operationId: cloudmesh.scheduler.task.list
       responses:
         '200':
           description: The list of tasks
@@ -43,10 +42,10 @@ paths:
   /task/{name}:
     get:
       tags:
-        - Task
+        - Scheduler
       summary: Returns the named task
       description: Returns an task by name
-      operationId: cloudmesh.task.find_by_name
+      operationId: cloudmesh.scheduler.task.find_by_name
       parameters:
         - name: name
           in: path
@@ -74,10 +73,10 @@ paths:
           description: The named task could not be found
     put:
       tags:
-        - Task
+        - Scheduler
       summary: Uploads a task to the list of tasks
       description: Uploads a task to the list of tasks
-      operationId: cloudmesh.task.add
+      operationId: cloudmesh.scheduler.task.add
       parameters:
         - name: name
           in: path
@@ -99,10 +98,10 @@ paths:
           description: Not authorized
     delete:
       tags:
-        - Task
+        - Scheduler
       summary: Deletes the named task
       description: Deletes an task by name
-      operationId: cloudmesh.task.delete_by_name
+      operationId: cloudmesh.scheduler.task.delete_by_name
       parameters:
         - name: name
           in: path
@@ -122,10 +121,10 @@ paths:
   /policy:
     get:
       tags:
-        - Task
+        - Scheduler
       summary: Returns the policy found
       description: Returns the policy
-      operationId: cloudmesh.task.policy.list
+      operationId: cloudmesh.scheduler.policy.list
       responses:
         '200':
           description: The policy
@@ -139,10 +138,10 @@ paths:
           description: Not authorized
     put:
       tags:
-        - Task
+        - Scheduler
       summary: Uploads the policy
       description: Uploads a task to the list of tasks
-      operationId: cloudmesh.task.policy.add
+      operationId: cloudmesh.scheduler.policy.add
       requestBody:
         description: The policy to be uploaded
         required: true
