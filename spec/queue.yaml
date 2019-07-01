@@ -3,13 +3,14 @@ info:
   version: 3.2.0
   x-date: 17-06-2019
   x-status: defined
-  title: Queue
+  title: Scheduler
   description: |-
   
-    A scheduler allows to control the execution of tasks based on a policy.
-    Schedulers may allow the assignment of differnt policies to define the
-    order of the tasks. A scheduler returns the next task to be executed.
-    Tasks can be added and deleted.
+    The queue is a special scheduler that allows tasks to be scheduled
+    witle doing queue policies, such as LIFO, FIFO, and so on.
+    A queue returns the next task to be executed. Tasks can be added
+     and
+    deleted.
 
   termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
   contact:
@@ -24,10 +25,10 @@ paths:
   /task:
     get:
       tags:
-        - Scheduler
+        - Task
       summary: Returns a list of tasks
       description: Returns a list of all tasks
-      operationId: cloudmesh.scheduler.task.list
+      operationId: cloudmesh.task.list
       responses:
         '200':
           description: The list of tasks
@@ -37,15 +38,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
+        '400':
+          description: No tasks found
         '401':
           description: Not authorized
   /task/{name}:
     get:
       tags:
-        - Scheduler
+        - Task
       summary: Returns the named task
       description: Returns an task by name
-      operationId: cloudmesh.scheduler.task.find_by_name
+      operationId: cloudmesh.task.find_by_name
       parameters:
         - name: name
           in: path
@@ -55,11 +58,11 @@ paths:
           description: The name of the task
         - in: query
           name: operation
-          description: Show the task but do not remove it   from the queue
           schema:
             type: string
             enum:
               - info
+              - pop
       responses:
         '200':
           description: Returning the information of the task
@@ -67,16 +70,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
+        '400':
+          description: No task found
         '401':
           description: Not authorized
         '404':
           description: The named task could not be found
     put:
       tags:
-        - Scheduler
+        - Task
       summary: Uploads a task to the list of tasks
       description: Uploads a task to the list of tasks
-      operationId: cloudmesh.scheduler.task.add
+      operationId: cloudmesh.task.add
       parameters:
         - name: name
           in: path
@@ -94,14 +99,16 @@ paths:
       responses:
         '200':
           description: Task updated
+        '400':
+          description: Error updating task.
         '401':
           description: Not authorized
     delete:
       tags:
-        - Scheduler
+        - Task
       summary: Deletes the named task
       description: Deletes an task by name
-      operationId: cloudmesh.scheduler.task.delete_by_name
+      operationId: cloudmesh.task.delete_by_name
       parameters:
         - name: name
           in: path
@@ -113,7 +120,7 @@ paths:
         '200':
           description: Deletion successful
         '400':
-          description: Error to delete the task
+          description: No task found
         '401':
           description: Not authorized
         '404':
@@ -121,10 +128,10 @@ paths:
   /policy:
     get:
       tags:
-        - Scheduler
-      summary: Returns the policy found
-      description: Returns the policy
-      operationId: cloudmesh.scheduler.policy.list
+        - Task
+      summary: Returns the policy
+      description: Returns the polocy
+      operationId: cloudmesh.task.policy.list
       responses:
         '200':
           description: The policy
@@ -134,16 +141,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Policy'
+        '400':
+          description: No tasks found
         '401':
           description: Not authorized
     put:
       tags:
-        - Scheduler
+        - Task
       summary: Uploads the policy
       description: Uploads a task to the list of tasks
-      operationId: cloudmesh.scheduler.policy.add
+      operationId: cloudmesh.task.policy.add
       requestBody:
-        description: The policy to be uploaded
+        description: The Policy
         required: true
         content:
           application/json:
@@ -153,34 +162,37 @@ paths:
         '200':
           description: Task updated
         '400':
-          description: Error updating
+          description: Error updating task
         '401':
           description: Not authorized
 components:
   schemas:
     Task:
       type: object
-      description: the scheduler
+      description: The scheduler
       properties:
         name:
           type: string
-          description: name of the scheduler
+          description: Name of the scheduler
         user:
           type: string
-          description: the username the task belongs to
+          description: The username the task belongs to
         description:
           type: string
           description: The description of the task
         kind:
           type: string
           description: The kind of the task
+        content:
+          type: string
+          description: The content of the task
     Policy:
       type: object
       description: The policy of the scheduler
       properties:
         name:
           type: string
-          description: name of the scheduler policy
+          description: Name of the scheduler policy
         description:
           type: string
           description: The description of the policy
