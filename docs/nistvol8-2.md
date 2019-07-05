@@ -40,7 +40,7 @@ membership of the NBD-PWG, cochaired by Wo Chang (NIST ITL), Bob
 Marcus (ET-Strategies), and Chaitan Baru (San Diego Supercomputer
 Center; National Science Foundation). For all versions, the Subgroups
 were led by the following people: Nancy Grady (SAIC), Natasha Balac
-(SDSC), and Eugene Luster (R2AD) for the Definitions and Taxonomies
+(San Diego Supercomputer Center), and Eugene Luster (R2AD) for the Definitions and Taxonomies
 Subgroup; Geoffrey Fox (Indiana University) and Tsegereda Beyene
 (Cisco Systems) for the Use Cases and Requirements Subgroup; Arnab Roy
 (Fujitsu), Mark Underwood (Krypton Brothers; Synchrony Financial), and
@@ -50,8 +50,7 @@ Akhil Manchanda (GE) for the Security and Privacy Subgroup; David Boyd
 Architecture Subgroup; and Russell Reinsch (Center for Government
 Interoperability), David Boyd (InCadence Strategic Solutions), Carl
 Buffington (Vistronix), and Dan McClary (Oracle), for the Standards
-Roadmap Subgroup, Gregor von Laszewski (Indiana University) for the
-Interface Subgroup.
+Roadmap Subgroup.
 
 The following milestone releases exist:
 
