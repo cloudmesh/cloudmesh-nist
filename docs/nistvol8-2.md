@@ -53,30 +53,15 @@ Buffington (Vistronix), and Dan McClary (Oracle), for the Standards
 Roadmap Subgroup, Gregor von Laszewski (Indiana University) for the
 Interface Subgroup.
 
-The following milestone releases exist:
 
-* **Version 2.1**: A previous volume used the definitions of the schema 
-  based on examples only. It was easier to read but only included the 
-  definition of 
-  the resources and not the interaction with the resources. This volume was in 
-  place until June 2018.   
-* **Version 2.2**: This version was significantly changed and used
-  OpenAPI 2.0 to specify the interfaces between the various services and 
-  components.
-* **Version 3.1.1**: The version includes significant improvements
-  of the object specifications but are still using OpenAPI 2.0.
-* **Version 3.2.0**: All specifications have been updated to
-  OpenAPI 3.0.2. Significant updates have been done to a number of
-  specifications.
+The editors for these documents were the following:
 
-The editors for these documents are:
-
-* Gregor von Laszewski (Indiana University)
-* Wo Chang (NIST).
+*	Version 1: This volume resulted from Stage 2 work and was not part of the Version 1 scope.
+*	Version 2: Gregor von Laszewski (Indiana University) and Wo Chang (NIST).
+*	Version 3: Gregor von Laszewski (Indiana University) and Wo Chang (NIST).
 
 Laurie Aldape (Energetics Incorporated) and Elizabeth Lennon (NIST) provided
 editorial assistance across all NBDIF volumes.
-
 
 NIST SP 1500-9, Draft NIST Big Data Interoperability Framework: Volume
 8, Reference Architecture Interfaces, Version 2 has been
@@ -90,10 +75,7 @@ Defense, Energy, Census, Health and Human Services, Homeland Security,
 Transportation, Treasury, and Veterans Affairs.
 
 NIST would like to acknowledge the specific contributions to this
-volume, during Version 1 and/or Version 2 activities. *Contributors*
-are members of the NIST Big Data Public Working Group who dedicated
-great effort to prepare and gave substantial time on a regular basis
-to research and development in support of this document. This includes
+volume, during Version 1, Version 2, and/or Version 3 activities, by
 the following NBD-PWG members:
 
 
