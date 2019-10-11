@@ -1,6 +1,9 @@
 # NIST Big Data Reference Architecture Interfaces
 
-Document URL <https://cloudmesh.github.io/cloudmesh-nist/.nistvol8-2.epub>
+Document URL 
+
+* <https://cloudmesh.github.io/cloudmesh-nist/nistvol8-2.epub>
+* <https://cloudmesh.github.io/cloudmesh-nist/nistvol8-2.pdf>
 
 
 pandoc-codeblock-include is broken, a fixed version can be installed
