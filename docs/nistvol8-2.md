@@ -40,7 +40,7 @@ membership of the NBD-PWG, cochaired by Wo Chang (NIST ITL), Bob
 Marcus (ET-Strategies), and Chaitan Baru (San Diego Supercomputer
 Center; National Science Foundation). For all versions, the Subgroups
 were led by the following people: Nancy Grady (SAIC), Natasha Balac
-(SDSC), and Eugene Luster (R2AD) for the Definitions and Taxonomies
+(San Diego Supercomputer Center), and Eugene Luster (R2AD) for the Definitions and Taxonomies
 Subgroup; Geoffrey Fox (Indiana University) and Tsegereda Beyene
 (Cisco Systems) for the Use Cases and Requirements Subgroup; Arnab Roy
 (Fujitsu), Mark Underwood (Krypton Brothers; Synchrony Financial), and
@@ -50,8 +50,7 @@ Akhil Manchanda (GE) for the Security and Privacy Subgroup; David Boyd
 Architecture Subgroup; and Russell Reinsch (Center for Government
 Interoperability), David Boyd (InCadence Strategic Solutions), Carl
 Buffington (Vistronix), and Dan McClary (Oracle), for the Standards
-Roadmap Subgroup, Gregor von Laszewski (Indiana University) for the
-Interface Subgroup.
+Roadmap Subgroup.
 
 The following milestone releases exist:
 
@@ -118,25 +117,24 @@ The *NIST Big Data Interoperability Framework (NBDIF): Volume 8,
 Reference Architecture Interfaces* document was prepared by the NIST
 Big Data Public Working Group (NBD-PWG) Reference Architecture
 Subgroup to identify interfaces in support of the NIST Big Data
-Reference Architecture (NBDRA). The interface define resources that
+Reference Architecture (NBDRA). The interfaces define resources that
 are part of the NBDRA. These resources are formulated in OpenAPI 3.0.2
 format and can be easily integrated into a REpresentational State
 Transfer (REST) framework or an object-based framework. 
 
 The resources were categorized in groups that are identified by the
-NBDRA set forward in the *NBDIF: Volume 6, Reference Architecture*
+NBDRA set forth in the *NBDIF: Volume 6, Reference Architecture*
 document. While the *NBDIF: Volume 3, Use Cases and General
 Requirements* document provides *application-*oriented high-level use
 cases, the use cases defined in this document are subsets of them and
 focus on *interface* use cases. The interface use cases are not meant
-to be complete examples, but showcase why the resource has been
-defined. Hence, the interfaces use cases are only representative, and
+to be complete examples, but showcase why a resource has been
+defined. Hence, the interfaces use cases are only representative and
 do not encompass the entire spectrum of Big Data usage. All the
-interfaces were openly discussed in the working group
-[@www-bdra-working-group]. Additions to the interfaces are welcome and
-the NBD-PWG is open to discuss any contributions.
+interfaces were openly discussed in the NBD-PWG
+[@www-bdra-working-group]. 
 
-The *NIST Big Data Interoperability Framework (NBDIF)* was released in
+The *NBDIF* was released in
 three versions, which correspond to the three stages of the NBD-PWG
 work. Version 3 (current version) of the NBDIF volumes resulted from
 Stage 3 work with major emphasis on the validation of the NBDRA
@@ -145,14 +143,15 @@ foundation created during Stage 2 and Stage 1. The current effort
 documented in this volume reflects concepts developed within the
 rapidly evolving field of Big Data. The three stages (in reverse
 order) aim to achieve the following with respect to the NIST Big Data
-Reference Architecture (NBDRA):
+Reference Architecture (NBDRA).
 
+* Stage 3: Validate the NBDRA by building Big Data general applications 
+through the general interfaces;
+* Stage 2: Define general interfaces between the NBDRA components; and
 * Stage 1: Identify the high-level Big Data reference architecture key 
 components, which are technology-, 
 infrastructure-, and vendor-agnostic.
-* Stage 2: Define general interfaces between the NBDRA components; and
-* Stage 3: Validate the NBDRA by building Big Data general applications 
-through the general interfaces;
+
 
 The NBDIF consists of nine volumes, each of which addresses a specific key topic, 
 resulting from the work of the NBD-PWG. The nine volumes are as follows:
@@ -165,13 +164,12 @@ resulting from the work of the NBD-PWG. The nine volumes are as follows:
 *	Volume 5, Architectures White Paper Survey [@www-vol5-v3]
 *	Volume 6, Reference Architecture [@www-vol6-v3]
 *	Volume 7, Standards Roadmap [@www-vol7-v3]
-*	Volume 8, Reference Architecture Interfaces (this volume) [@www-vol8-v3]
+*	Volume 8, Reference Architecture Interfaces (this volume)
 *	Volume 9, Adoption and Modernization [@www-vol9-v3]
 
-During Stage 1, Volumes 1 through 7 were conceptualized, organized and
+During Stage 1, Volumes 1 through 7 were conceptualized, organized, and
 written. The finalized Version 1 documents can be downloaded from the
-V1.0 Final Version page of the NBD-PWG website
-[@www-nist-bdra-v1-wegpage].
+V1.0 Final Version page of the NBD-PWG website (https://bigdatawg.nist.gov/V1_output_docs.php).
 
 During Stage 2, the NBD-PWG developed Version 2 of the NBDIF Version 1
 volumes, with the exception of Volume 5, which contained the completed
@@ -183,7 +181,7 @@ and demonstrate how the NBDRA can be used. As a result of the Stage 2
 work, the need for NBDIF Volume 8 and NBDIF Volume 9 were identified
 and the two new volumes were created. Version 2 of the NBDIF volumes,
 resulting from Stage 2 work, can be downloaded from the V2.0 Final
-Version page of the NBD-PWG website [@www-nist-bdra-v2-wegpage].
+Version page of the NBD-PWG website (https://bigdatawg.nist.gov/V2_output_docs.php).
 
 
 This document is the result of Stage 3 work of the
