@@ -1,0 +1,225 @@
+openapi: "3.0.2"
+info:
+  version: 3.2.0
+  x-date: 05-23-2019
+  title: Queue
+  description: |-
+  
+    Batch queue containing the submitted jobs.
+
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  contact:
+    name: NIST BDRA Interface Subgroup
+    url: https://cloudmesh-community.github.io/nist
+  license:
+    name: Apache
+host: localhost:8080
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: "/cloudmesh/v3"
+paths:
+  /queue:
+    get:
+      tags:
+        - Batch Queue
+      summary: Returns all batch queues
+      description: Returns all batch queues
+      operationId: cloudmesh.queue.get
+      produces:
+        - application/json
+      responses:
+        200:
+          description: batch queue info
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Queue"
+    put:
+      tags:
+        - Queue
+      summary: Create a new batch queue
+      description: Create a new batch queue
+      operationId: cloudmesh.batchqueue.add
+      parameters:
+        - in: body
+          name: queue
+          description: The new of the batchqueue to create
+          schema:
+            $ref: "#/components/schemas/Batchqueue"
+      responses:
+        201:
+          description: Created
+  delete:
+    tags:
+      - Batch Queue
+    summary: removes the batch queue
+    description: removes the batch queue
+    operationId: cloudmesh.queue.delete
+    produces:
+      - application/json
+    responses:
+      200:
+        description: batch queue deleted sucessfully
+        schema:
+          type: array
+          items:
+            $ref: "#/components/schemas/Batchqueue"
+  "/queue/{name}":
+    get:
+      tags:
+        - Batch Queue Job
+      summary: Returns all jobs in the batch queue
+      description: Returns the jobs in the batch queue
+      operationId: cloudmesh.batchqueue.job.get
+      parameters:
+        - name: name
+          description: The name of the batchqueue
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: the list of jobs
+          type: array
+            items:
+              $ref: "#/components/schemas/Batchjob"
+    put:
+      tags:
+        - Batch Queue Job
+      summary: Add a job to the batch queue
+      description: Add a job to the batch queue
+      operationId: cloudmesh.batchqueue.jpb.add
+      parameters:
+        - name: name
+          description: The name of the batch queue
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: the list of jobs
+          type: array
+            items:
+              $ref: "#/components/schemas/Batchjob"
+    delete:
+      tags:
+        - Batch Queue Job
+      summary: Delete a job to the batch queue
+      description: Delete a job to the batch queue
+      operationId: cloudmesh.batchqueue.job.delete
+      parameters:
+        - name: name
+          description: The name of the batch queue
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: job deleted sucessfully
+          type: array
+            items:
+              $ref: "#/components/schemas/Batchjob"
+components:
+  schemas:
+    Batchqueue:
+      type: object
+      description: the batch queue
+      properties:
+        name:
+          type: string
+          description: name of the batch queue
+        policy:
+          type: string
+          description: policy of the batch queue, e.g. FIFO, RR, FILO, etc.
+        active:
+          type: boolean
+          description: |-
+
+              activity indicator of the batch queue, meaning whether
+              the queue is active or not
+
+        status:
+          type: string
+          description: space status of the batchqueue, e.g. FULL, EMPTY
+        kind:
+          type: string
+          description: kind of the batchqueue
+        charge:
+          type: integer
+          minimum: 0
+          description: charge of the batchqueue
+        unit:
+          type: string
+          description: the unit in which the charge value is stored
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
+    Batchjob:
+      type: object
+      description: the batchjob
+      properties:
+        name:
+          type: string
+          description: name of the batchjob
+        output:
+          type: array
+          description: name of the output files
+          items:
+             type: string
+        input:
+          type: array
+          description: name of the input files
+          items:
+             type: string
+        script:
+          type: string
+          description: the script of the job
+        kind:
+          type: string
+          description: the kind of the batch queue, such as SLURM, PBS
+        tmp:
+          type: array
+          description: a list of temporary files or directories
+          items:
+             type: string
+        status:
+          type: string
+          description: status of the batchjob
+        cmd:
+          type: string
+          description: a command can be specified alternatively to the script
+        queue:
+          type: string
+          description: the queue name
+        id:
+          type: string
+          description: after submission, the job gets an id
+        cluster:
+          type: string
+          description: the name of the cluster the job is submitted to
+        time:
+          type: string
+          description: the time the job is to be started
+        duration:
+          type: string
+          description: the duration of the job
+        nodes:
+          type: string
+          description: the nodes used to execute the job
+        dir:
+          type: string
+          description: the directory in which to execute the job
+        timestamp:
+          description: timestamps associated with the resource
+          $ref: "timestamp.yaml#/components/schemas/Timestamp"
+

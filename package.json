@@ -1,0 +1,26 @@
+{
+  "name": "cloudmesh-nist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudmesh/cloudmesh-nist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloudmesh/cloudmesh-nist/issues"
+  },
+  "homepage": "https://github.com/cloudmesh/cloudmesh-nist#readme",
+  "dependencies": {
+    "redoc": "^2.0.0-rc.8-1"
+  }
+}

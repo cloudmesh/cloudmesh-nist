@@ -1,0 +1,78 @@
+
+# ######################################################################
+# Arguments
+# ######################################################################
+# {'--destdir': None,
+#  '--dir': None,
+#  '--directory': './',
+#  '--indent': None,
+#  '--port': '8080',
+#  '--server': 'flask',
+#  '--srcdir': None,
+#  '--verbose': False,
+#  'FILE': None,
+#  'SERVICES': [],
+#  'YAML': None,
+#  'codegen': False,
+#  'description': False,
+#  'list': False,
+#  'md': False,
+#  'merge': True,
+#  'server': False,
+#  'start': False,
+#  'stop': False}
+# ######################################################################
+
+# FILENAME:/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-openapi/cloudmesh/openapi/command/openapi.py
+
+# ######################################################################
+# arguments
+# ######################################################################
+# /Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-openapi/cloudmesh/openapi/command/openapi.py
+# ----------------------------------------------------------------------
+# 57:do_openapi
+# ----------------------------------------------------------------------
+# {'--destdir': None,
+#  '--dir': None,
+#  '--directory': './',
+#  '--indent': None,
+#  '--port': '8080',
+#  '--server': 'flask',
+#  '--srcdir': None,
+#  '--verbose': False,
+#  'FILE': None,
+#  'SERVICES': [],
+#  'YAML': None,
+#  'codegen': False,
+#  'debug': False,
+#  'description': False,
+#  'directory': './',
+#  'list': False,
+#  'md': False,
+#  'merge': True,
+#  'port': '8080',
+#  'server': False,
+#  'start': False,
+#  'stop': False,
+#  'verbose': False,
+#  'wsgi': 'flask'}
+# ######################################################################
+
+ERROR: executing command 'openapi merge'
+======================================================================
+'info'
+'info'
+Traceback (most recent call last):
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py", line 938, in main
+    stop = cmd.onecmd(command)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py", line 366, in onecmd
+    return func(arg)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/command.py", line 103, in new
+    func(instance, args, arguments)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-openapi/cloudmesh/openapi/command/openapi.py", line 72, in do_openapi
+    d = m.merge(arguments.dir, arguments.SERVICES)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-openapi/cloudmesh/openapi/api/manager.py", line 60, in merge
+    data["info"]["description"] = ""
+KeyError: 'info'
+
+======================================================================
