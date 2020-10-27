@@ -88,7 +88,6 @@ Examples:
         and modified from example
 
 """
-from __future__ import print_function
 
 ''' manual page draft
 

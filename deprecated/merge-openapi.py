@@ -3,7 +3,6 @@
 # ussage:
 #     python bin/merge-openapi.py keystore profile
 #
-from __future__ import print_function
 
 import click
 import re

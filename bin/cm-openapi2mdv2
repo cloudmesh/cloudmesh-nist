@@ -20,7 +20,6 @@ Description:
      converts the yaml file to md
 
 """
-from __future__ import print_function
 
 ''' manual page draft
 

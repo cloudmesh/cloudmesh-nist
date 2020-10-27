@@ -1,5 +1,4 @@
 #! /usr/bin/env python
-from __future__ import print_function
 
 # ../bin/cat_controlers.py keystore profile
 
