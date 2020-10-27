@@ -8,13 +8,13 @@ info:
   
     Batch queue containing the submitted jobs.
 
-  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh/cloudmesh-nist/blob/main/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
     url: https://cloudmesh-community.github.io/nist
   license:
     name: Apache 2.0
-    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/main/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:

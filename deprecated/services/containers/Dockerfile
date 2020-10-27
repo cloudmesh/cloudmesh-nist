@@ -20,7 +20,7 @@ RUN apt-get update -q && apt-get install -qy \
 
 RUN add-apt-repository universe
 
-#RUN curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+#RUN curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/main/bin/pyenv-installer | bash
 
 RUN git clone git://github.com/yyuu/pyenv.git .pyenv
 RUN git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv

@@ -9,7 +9,7 @@ info:
     A database could have a name, an endpoint (e.g., host, port),
     and a protocol used (e.g., SQL, MongoDB, ...).
 
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/

@@ -4,7 +4,7 @@
     "description" : "\nA service to manage virtual machines",
     "version" : "3.0.4",
     "title" : "Coludmesh VM",
-    "termsOfService" : "https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt",
+    "termsOfService" : "https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt",
     "contact" : {
       "name" : "Gregor von Laszeewski"
     },

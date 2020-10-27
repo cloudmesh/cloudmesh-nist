@@ -5,7 +5,7 @@ info:
   x-date: 02-15-2019
   title: Cloudmesh NIST BDRA Specification API
   description:
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt'
   contact:
     name: NIST BDRA Interface Subgroup
   license:
@@ -13,6 +13,6 @@ info:
 host: localhost:8080
 externalDocs:
   description: more infortion abut the NIST BDRA
-  url: https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.epub?raw=true
+  url: https://github.com/cloudmesh-community/nist/blob/main/docs/nistvol8-2.epub?raw=true
 schemes:
   - http

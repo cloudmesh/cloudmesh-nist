@@ -21,13 +21,13 @@ info:
     management machine and the NOW nodes are via SSH and the authentication
     is handled with the SSH configuration file.
 
-  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/main/LICENSE.txt"
   contact:
     name: NIST BDRA Interface Subgroup Service
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache 2.0
-    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/main/LICENSE.txt
 ervers:
   - url: /cloudmesh/v3
 paths:

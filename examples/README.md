@@ -2,7 +2,7 @@
 
 This example is maintained at
 
-* <https://github.com/cloudmesh-community/nist/tree/master/examples/flask-connexion-swagger>
+* <https://github.com/cloudmesh-community/nist/tree/main/examples/flask-connexion-swagger>
 
 
 

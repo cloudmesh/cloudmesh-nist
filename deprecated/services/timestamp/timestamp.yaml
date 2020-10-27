@@ -10,7 +10,7 @@ info:
     accessed, created, or modified. All objects defined in this
     document will have, in their final version, a timestamp.
 
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/

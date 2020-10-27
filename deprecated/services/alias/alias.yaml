@@ -14,7 +14,7 @@ info:
     a user may want to refer to the resource using a name that is
     suitable for the user's application.
 
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/

@@ -17,15 +17,15 @@ pip install --upgrade --force git+https://github.com/laszewsk/pandoc-codeblock-i
 
 The working draft of the specification is in
 
-* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md>
+* <https://github.com/cloudmesh-community/nist/blob/main/docs/nistvol8-2.md>
 
 The snapshot of the volume is available in various formats that should
 not be modified but can be used for reviewes at
 
-* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.md>
-* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.epub>
-* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.pdf>
-* <https://github.com/cloudmesh-community/nist/blob/master/docs/nistvol8-2.docx>
+* <https://github.com/cloudmesh-community/nist/blob/main/docs/nistvol8-2.md>
+* <https://github.com/cloudmesh-community/nist/blob/main/docs/nistvol8-2.epub>
+* <https://github.com/cloudmesh-community/nist/blob/main/docs/nistvol8-2.pdf>
+* <https://github.com/cloudmesh-community/nist/blob/main/docs/nistvol8-2.docx>
 
 It is easy to contribute to the document with the help of pull
 requests that allow eddits that will be addressed by the editor of
@@ -145,7 +145,7 @@ as showcasing the idea of virtualdirectory.
 
 The source for this example is located in
 
-* https://github.com/cloudmesh-community/nist/tree/master/services/virtualdirectory
+* https://github.com/cloudmesh-community/nist/tree/main/services/virtualdirectory
 
 Start mongo
 
@@ -222,16 +222,16 @@ video that explains how simple it is to run our services.
 that the service here is build from an open API specification that is
 includes in
 
-* <https://github.com/cloudmesh-community/nist/blob/master/services/virtualdirectory/virtualdirectory.yaml>
+* <https://github.com/cloudmesh-community/nist/blob/main/services/virtualdirectory/virtualdirectory.yaml>
 
 
 The code for the service backend is located at
 
-* <https://github.com/cloudmesh-community/nist/blob/master/services/virtualdirectory/virtualdirectory_controller.py>
+* <https://github.com/cloudmesh-community/nist/blob/main/services/virtualdirectory/virtualdirectory_controller.py>
 
 The password configuration file is located at
 
-* <https://github.com/cloudmesh-community/nist/blob/master/services/secconf.yaml>
+* <https://github.com/cloudmesh-community/nist/blob/main/services/secconf.yaml>
 
 As this is only a demonstration, we have used the most simple security
 possible. We assume the server runs only on the local host. Please

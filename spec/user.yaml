@@ -12,13 +12,13 @@ info:
     organization. A group associated with the user can be used to augment
     users to be part of one or more groups.
 
-  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt"
+  termsOfService: "https://github.com/cloudmesh/cloudmesh-nist/blob/main/LICENSE.txt"
   contact:
     name: Cloudmesh User
     url: https://cloudmesh-community.github.io/nist/spec/
   license:
     name: Apache 2.0
-    url: https://github.com/cloudmesh/cloudmesh-nist/blob/master/LICENSE.txt
+    url: https://github.com/cloudmesh/cloudmesh-nist/blob/main/LICENSE.txt
 servers:
   - url: /cloudmesh/v3
 paths:

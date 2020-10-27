@@ -1,7 +1,7 @@
 # Extensible Swagger with UI
 
 The client/server structure of this example is based on the materials found in Real Python's 
-[Building and Documenting Python REST APIs With Flask and Connexion](https://github.com/realpython/materials/tree/master/flask-connexion-rest/version_4) materials.
+[Building and Documenting Python REST APIs With Flask and Connexion](https://github.com/realpython/materials/tree/main/flask-connexion-rest/version_4) materials.
 
 ## Run
 

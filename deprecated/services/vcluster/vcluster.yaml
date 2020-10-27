@@ -22,7 +22,7 @@ info:
     runtime-config and job, are available. Finally, the vcluster can clean up the workstations by deleting its workspace
     remotely. 
     
-  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt
   contact:
     name: Cloudmesh REST Service Example
     url: https://cloudmesh-community.github.io/nist/spec/

@@ -8,7 +8,7 @@ info:
   x-date: 01-29-2019
   x-status: defined
   title: Virtual Machine
-  termsOfService: https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt
+  termsOfService: https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt
   contact:
     name: Gregor von Laszeewski
   license:

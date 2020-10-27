@@ -26,7 +26,7 @@ from __future__ import print_function
 
 have some kind of git script similar to
 
-curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+curl -L https://github.com/pyenv/pyenv-installer/raw/main/bin/pyenv-installer | bash
 
 '''
 
@@ -67,7 +67,7 @@ def convert_definitions(filename, indent=1):
             print()
             print (f"[Reference: :cloud:]("
                    f"https://github.com/cloudmesh/cloudmesh-nist/blob"
-                   f"/master/spec/{ldefinition}.yaml)")
+                   f"/main/spec/{ldefinition}.yaml)")
 
             print ()
             print ("|", "Property", "|", "Type", "|", "Description", "|")

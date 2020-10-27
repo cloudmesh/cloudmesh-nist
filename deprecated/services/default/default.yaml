@@ -14,7 +14,7 @@ info:
     name as a service could have multiple context. To be ab;le to
     define the kind of service there is also a kind attribute.
     
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist/spec/

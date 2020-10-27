@@ -94,7 +94,7 @@ from __future__ import print_function
 
 have some kind of git script similar to
 
-curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+curl -L https://github.com/pyenv/pyenv-installer/raw/main/bin/pyenv-installer | bash
 
 '''
 

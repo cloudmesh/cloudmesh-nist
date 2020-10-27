@@ -9,7 +9,7 @@ info:
     A service to store the information of a hadoop deployment definition. All of the
     attributes are stored as Strings.
     
-  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/master/LICENSE.txt'
+  termsOfService: 'https://github.com/cloudmesh-community/nist/blob/main/LICENSE.txt'
   contact:
     name: Cloudmesh RESTful Service Example
     url: https://cloudmesh-community.github.io/nist

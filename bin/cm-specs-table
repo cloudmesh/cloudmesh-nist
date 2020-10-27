@@ -55,7 +55,7 @@ def analyse():
                "date": "",
                "reference": f"[:cloud:]("
                      f"https://github.com/cloudmesh/cloudmesh-nist/blob"
-                     f"/master/spec/{lservice}.yaml)",
+                     f"/main/spec/{lservice}.yaml)",
                "section": f"@sec:spec-{lservice}"
            }
            filename = "../spec/{service}.yaml".format(service=service)
